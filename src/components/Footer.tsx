@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
-import logoMascot from "@/assets/logo-mascot.png";
+import logoMascot from "@/assets/plowwow-mascot.jpg";
 
 const Footer = () => (
   <footer id="contact" className="bg-footer text-footer-foreground py-16">
