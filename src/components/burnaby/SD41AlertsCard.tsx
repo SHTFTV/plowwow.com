@@ -128,9 +128,9 @@ const SD41AlertsCard = () => {
           <p className="text-sm text-destructive mb-3">Couldn't load alerts: {error}</p>
         )}
 
-        {data && data.items.length > 0 && (
+        {data && visibleItems.length > 0 && (
           <ul className="space-y-2.5 mb-4">
-            {data.items.slice(0, 3).map((item) => (
+            {visibleItems.map((item) => (
               <li key={item.link} className="text-sm">
                 <a
                   href={item.link}
@@ -161,8 +161,12 @@ const SD41AlertsCard = () => {
           </ul>
         )}
 
-        {data && data.items.length === 0 && !loading && (
-          <p className="text-sm text-muted-foreground mb-3">No recent alerts.</p>
+        {data && visibleItems.length === 0 && !loading && (
+          <p className="text-sm text-muted-foreground mb-3">
+            {filter === "closures"
+              ? "No closure-related alerts right now."
+              : "No recent alerts."}
+          </p>
         )}
 
         <a
