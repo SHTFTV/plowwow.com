@@ -2,3 +2,6 @@ project_id = "whrkfrewwstxgqoourwl"
 
 [functions.burnaby-weather]
 verify_jwt = false
+
+[functions.sd41-alerts]
+verify_jwt = false
