@@ -53,6 +53,7 @@ const UtilityDashboard = () => (
             </div>
           </a>
         ))}
+        <LiveWeatherCard />
       </div>
     </div>
   </section>
