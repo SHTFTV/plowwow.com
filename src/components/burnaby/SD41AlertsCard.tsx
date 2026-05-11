@@ -162,6 +162,12 @@ const SD41AlertsCard = () => {
           <p className="text-sm text-destructive mb-3">Couldn't load alerts: {error}</p>
         )}
 
+        {query.trim() && totalResults > 0 && (
+          <p className="text-[11px] text-muted-foreground mb-2">
+            {totalResults} result{totalResults > 1 ? "s" : ""} for "{query.trim()}"
+          </p>
+        )}
+
         {data && visibleItems.length > 0 && (
           <ul className="space-y-2.5 mb-4">
             {visibleItems.map((item) => (
