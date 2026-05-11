@@ -114,6 +114,14 @@ export default function Admin() {
     });
   }, [rows, statusFilter, serviceFilter, search]);
 
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
+  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, search, pageSize]);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const startIdx = (currentPage - 1) * pageSize;
+  const paginated = filtered.slice(startIdx, startIdx + pageSize);
+
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
   }
@@ -204,7 +212,7 @@ export default function Admin() {
                     </TableCell>
                   </TableRow>
                 )}
-                {filtered.map((r) => (
+                {paginated.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
                       {new Date(r.created_at).toLocaleString()}
@@ -239,6 +247,27 @@ export default function Admin() {
               </TableBody>
             </Table>
           </CardContent>
+          <div className="flex items-center justify-between gap-4 flex-wrap p-4 border-t">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Rows per page</span>
+              <Select value={String(pageSize)} onValueChange={(v) => setPageSize(Number(v))}>
+                <SelectTrigger className="h-8 w-[80px]"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {[10, 25, 50, 100].map((n) => <SelectItem key={n} value={String(n)}>{n}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              <span className="ml-2">
+                {filtered.length === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, filtered.length)} of {filtered.length}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" onClick={() => setPage(1)} disabled={currentPage <= 1}>First</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={currentPage <= 1}>Previous</Button>
+              <span className="text-sm">Page {currentPage} of {totalPages}</span>
+              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={currentPage >= totalPages}>Next</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage(totalPages)} disabled={currentPage >= totalPages}>Last</Button>
+            </div>
+          </div>
         </Card>
       </div>
     </main>
