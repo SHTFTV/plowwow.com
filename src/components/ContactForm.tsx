@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -90,14 +91,36 @@ const ContactForm = () => {
       return;
     }
     setSubmitting(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 600));
-    setSubmitting(false);
-    toast({
-      title: "Quote request sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setData(initial);
+    try {
+      const { data: res, error } = await supabase.functions.invoke("submit-quote", {
+        body: result.data,
+      });
+      if (error || (res && (res as { error?: string }).error)) {
+        const msg =
+          (res as { error?: string } | null)?.error ||
+          error?.message ||
+          "Something went wrong.";
+        toast({
+          title: "Couldn't send request",
+          description: msg,
+          variant: "destructive",
+        });
+        return;
+      }
+      toast({
+        title: "Quote request sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      setData(initial);
+    } catch (err) {
+      toast({
+        title: "Couldn't send request",
+        description: "Please check your connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
