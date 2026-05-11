@@ -197,9 +197,11 @@ const SD41AlertsCard = () => {
 
         {data && visibleItems.length === 0 && !loading && (
           <p className="text-sm text-muted-foreground mb-3">
-            {filter === "closures"
-              ? "No closure-related alerts right now."
-              : "No recent alerts."}
+            {query.trim()
+              ? `No alerts match "${query.trim()}".`
+              : filter === "closures"
+                ? "No closure-related alerts right now."
+                : "No recent alerts."}
           </p>
         )}
 
