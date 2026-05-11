@@ -1,6 +1,3 @@
-import { Helmet } from "react-helmet-async";
-
-// Lightweight inline implementation (avoid adding helmet dep). We'll use plain <head> injection via effect.
 import { useEffect } from "react";
 
 const faqs = [
