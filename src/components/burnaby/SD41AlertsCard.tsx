@@ -53,11 +53,6 @@ const SD41AlertsCard = () => {
       </>
     );
   };
-  const [data, setData] = useState<Payload | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<"all" | "closures">("closures");
-  const [query, setQuery] = useState("");
 
   const load = async () => {
     setLoading(true);
