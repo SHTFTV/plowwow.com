@@ -29,6 +29,7 @@ const SD41AlertsCard = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "closures">("closures");
+  const [query, setQuery] = useState("");
 
   const load = async () => {
     setLoading(true);
@@ -52,9 +53,22 @@ const SD41AlertsCard = () => {
   }, []);
 
   const closureCount = data?.items.filter((i) => i.isClosure).length ?? 0;
-  const filteredItems =
-    data?.items.filter((i) => (filter === "closures" ? i.isClosure : true)) ?? [];
+
+  const filteredItems = useMemo(() => {
+    if (!data) return [];
+    const q = query.trim().toLowerCase();
+    return data.items.filter((i) => {
+      const passesFilter = filter === "closures" ? i.isClosure : true;
+      const passesSearch =
+        !q ||
+        i.title.toLowerCase().includes(q) ||
+        i.description.toLowerCase().includes(q);
+      return passesFilter && passesSearch;
+    });
+  }, [data, filter, query]);
+
   const visibleItems = filteredItems.slice(0, 3);
+  const totalResults = filteredItems.length;
 
   return (
     <div className="group relative rounded-2xl p-6 border border-white/40 bg-white/60 backdrop-blur-xl shadow-lg">
