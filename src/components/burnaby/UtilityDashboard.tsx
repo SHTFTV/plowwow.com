@@ -1,14 +1,8 @@
-import { CloudSnow, School, Map, ExternalLink } from "lucide-react";
+import { CloudSnow, Map, ExternalLink } from "lucide-react";
 import LiveWeatherCard from "./LiveWeatherCard";
+import SD41AlertsCard from "./SD41AlertsCard";
 
 const cards = [
-  {
-    icon: School,
-    title: "SD41 School Closures",
-    body: "Live alerts from Burnaby School District 41 for snow-day closures and delayed starts.",
-    href: "https://burnabyschools.ca/news/",
-    cta: "Check SD41 Alerts",
-  },
   {
     icon: Map,
     title: "City of Burnaby Plow Routes",
