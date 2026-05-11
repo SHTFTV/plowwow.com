@@ -211,9 +211,12 @@ const SD41AlertsCard = () => {
                           item.isClosure ? "text-destructive" : "text-foreground"
                         }`}
                       >
-                        {item.title}
+                        <HighlightedText text={item.title} query={query} />
                       </p>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                      <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-2">
+                        <HighlightedText text={item.description} query={query} />
+                      </p>
+                      <p className="text-[11px] text-muted-foreground/70 mt-0.5">
                         {formatDate(item.pubDate)}
                       </p>
                     </div>
