@@ -7,6 +7,7 @@ import Features from "@/components/Features";
 import ServiceAreas from "@/components/ServiceAreas";
 import Reviews from "@/components/Reviews";
 import HowItWorks from "@/components/HowItWorks";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 const Index = () => (
@@ -20,6 +21,7 @@ const Index = () => (
     <ServiceAreas />
     <Reviews />
     <HowItWorks />
+    <ContactForm />
     <Footer />
   </div>
 );
