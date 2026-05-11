@@ -1,4 +1,5 @@
-import { CloudSnow, School, Map, Thermometer, ExternalLink } from "lucide-react";
+import { CloudSnow, School, Map, ExternalLink } from "lucide-react";
+import LiveWeatherCard from "./LiveWeatherCard";
 
 const cards = [
   {
@@ -14,13 +15,6 @@ const cards = [
     body: "Municipal priority-route map — see when arterials near you are scheduled for clearing.",
     href: "https://www.burnaby.ca/services-and-payments/roads-and-transportation/snow-and-ice-control",
     cta: "Open Plow Route Map",
-  },
-  {
-    icon: Thermometer,
-    title: "Burnaby Live Weather",
-    body: "Environment Canada current conditions & 24h snowfall outlook for Burnaby.",
-    href: "https://weather.gc.ca/city/pages/bc-9_metric_e.html",
-    cta: "View Forecast",
   },
 ];
 
@@ -59,6 +53,7 @@ const UtilityDashboard = () => (
             </div>
           </a>
         ))}
+        <LiveWeatherCard />
       </div>
     </div>
   </section>
