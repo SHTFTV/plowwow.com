@@ -64,14 +64,42 @@ const SD41AlertsCard = () => {
           <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
             <School className="w-6 h-6" />
           </div>
-          <button
-            onClick={load}
-            disabled={loading}
-            aria-label="Refresh SD41 alerts"
-            className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-50"
-          >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
-          </button>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center rounded-lg bg-muted/60 p-0.5 border border-border/50">
+              <button
+                onClick={() => setFilter("closures")}
+                className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors ${
+                  filter === "closures"
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-pressed={filter === "closures"}
+              >
+                <AlertTriangle className="w-3 h-3" />
+                Closures
+              </button>
+              <button
+                onClick={() => setFilter("all")}
+                className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors ${
+                  filter === "all"
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-pressed={filter === "all"}
+              >
+                <Newspaper className="w-3 h-3" />
+                All News
+              </button>
+            </div>
+            <button
+              onClick={load}
+              disabled={loading}
+              aria-label="Refresh SD41 alerts"
+              className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-50"
+            >
+              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            </button>
+          </div>
         </div>
 
         <h3 className="font-heading font-bold text-lg text-foreground mb-1">
