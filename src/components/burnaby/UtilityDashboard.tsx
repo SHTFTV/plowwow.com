@@ -26,6 +26,7 @@ const UtilityDashboard = () => (
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
+        <SD41AlertsCard />
         {cards.map(({ icon: Icon, title, body, href, cta }) => (
           <a
             key={title}
