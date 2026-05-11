@@ -114,6 +114,14 @@ export default function Admin() {
     });
   }, [rows, statusFilter, serviceFilter, search]);
 
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
+  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, search, pageSize]);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const startIdx = (currentPage - 1) * pageSize;
+  const paginated = filtered.slice(startIdx, startIdx + pageSize);
+
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
   }
