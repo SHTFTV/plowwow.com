@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { School, ExternalLink, AlertTriangle, RefreshCw } from "lucide-react";
+import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper, Filter } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 
