@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { School, ExternalLink, AlertTriangle, RefreshCw } from "lucide-react";
+import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -28,6 +28,7 @@ const SD41AlertsCard = () => {
   const [data, setData] = useState<Payload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<"all" | "closures">("closures");
 
   const load = async () => {
     setLoading(true);
@@ -51,6 +52,9 @@ const SD41AlertsCard = () => {
   }, []);
 
   const closureCount = data?.items.filter((i) => i.isClosure).length ?? 0;
+  const filteredItems =
+    data?.items.filter((i) => (filter === "closures" ? i.isClosure : true)) ?? [];
+  const visibleItems = filteredItems.slice(0, 3);
 
   return (
     <div className="group relative rounded-2xl p-6 border border-white/40 bg-white/60 backdrop-blur-xl shadow-lg">
@@ -60,14 +64,42 @@ const SD41AlertsCard = () => {
           <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
             <School className="w-6 h-6" />
           </div>
-          <button
-            onClick={load}
-            disabled={loading}
-            aria-label="Refresh SD41 alerts"
-            className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-50"
-          >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
-          </button>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center rounded-lg bg-muted/60 p-0.5 border border-border/50">
+              <button
+                onClick={() => setFilter("closures")}
+                className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors ${
+                  filter === "closures"
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-pressed={filter === "closures"}
+              >
+                <AlertTriangle className="w-3 h-3" />
+                Closures
+              </button>
+              <button
+                onClick={() => setFilter("all")}
+                className={`flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium transition-colors ${
+                  filter === "all"
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-pressed={filter === "all"}
+              >
+                <Newspaper className="w-3 h-3" />
+                All News
+              </button>
+            </div>
+            <button
+              onClick={load}
+              disabled={loading}
+              aria-label="Refresh SD41 alerts"
+              className="text-muted-foreground hover:text-primary transition-colors disabled:opacity-50"
+            >
+              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            </button>
+          </div>
         </div>
 
         <h3 className="font-heading font-bold text-lg text-foreground mb-1">
@@ -96,9 +128,9 @@ const SD41AlertsCard = () => {
           <p className="text-sm text-destructive mb-3">Couldn't load alerts: {error}</p>
         )}
 
-        {data && data.items.length > 0 && (
+        {data && visibleItems.length > 0 && (
           <ul className="space-y-2.5 mb-4">
-            {data.items.slice(0, 3).map((item) => (
+            {visibleItems.map((item) => (
               <li key={item.link} className="text-sm">
                 <a
                   href={item.link}
@@ -129,8 +161,12 @@ const SD41AlertsCard = () => {
           </ul>
         )}
 
-        {data && data.items.length === 0 && !loading && (
-          <p className="text-sm text-muted-foreground mb-3">No recent alerts.</p>
+        {data && visibleItems.length === 0 && !loading && (
+          <p className="text-sm text-muted-foreground mb-3">
+            {filter === "closures"
+              ? "No closure-related alerts right now."
+              : "No recent alerts."}
+          </p>
         )}
 
         <a
