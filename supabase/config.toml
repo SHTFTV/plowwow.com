@@ -1,1 +1,4 @@
 project_id = "whrkfrewwstxgqoourwl"
+
+[functions.burnaby-weather]
+verify_jwt = false
