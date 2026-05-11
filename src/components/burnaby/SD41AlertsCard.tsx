@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper } from "lucide-react";
+import { useEffect, useState, useMemo } from "react";
+import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper, Search, X } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -29,6 +29,7 @@ const SD41AlertsCard = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "closures">("closures");
+  const [query, setQuery] = useState("");
 
   const load = async () => {
     setLoading(true);
@@ -52,9 +53,22 @@ const SD41AlertsCard = () => {
   }, []);
 
   const closureCount = data?.items.filter((i) => i.isClosure).length ?? 0;
-  const filteredItems =
-    data?.items.filter((i) => (filter === "closures" ? i.isClosure : true)) ?? [];
+
+  const filteredItems = useMemo(() => {
+    if (!data) return [];
+    const q = query.trim().toLowerCase();
+    return data.items.filter((i) => {
+      const passesFilter = filter === "closures" ? i.isClosure : true;
+      const passesSearch =
+        !q ||
+        i.title.toLowerCase().includes(q) ||
+        i.description.toLowerCase().includes(q);
+      return passesFilter && passesSearch;
+    });
+  }, [data, filter, query]);
+
   const visibleItems = filteredItems.slice(0, 3);
+  const totalResults = filteredItems.length;
 
   return (
     <div className="group relative rounded-2xl p-6 border border-white/40 bg-white/60 backdrop-blur-xl shadow-lg">
@@ -105,9 +119,29 @@ const SD41AlertsCard = () => {
         <h3 className="font-heading font-bold text-lg text-foreground mb-1">
           SD41 School Closures
         </h3>
-        <p className="text-xs text-muted-foreground mb-4">
+        <p className="text-xs text-muted-foreground mb-3">
           Burnaby School District 41 · Live news feed
         </p>
+
+        <div className="relative mb-3">
+          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by school or keyword…"
+            className="w-full rounded-lg border border-border/60 bg-background/70 pl-8 pr-7 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-shadow"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              aria-label="Clear search"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
 
         {closureCount > 0 && (
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-destructive/10 text-destructive text-xs font-semibold px-2.5 py-1">
@@ -126,6 +160,12 @@ const SD41AlertsCard = () => {
 
         {error && !data && (
           <p className="text-sm text-destructive mb-3">Couldn't load alerts: {error}</p>
+        )}
+
+        {query.trim() && totalResults > 0 && (
+          <p className="text-[11px] text-muted-foreground mb-2">
+            {totalResults} result{totalResults > 1 ? "s" : ""} for "{query.trim()}"
+          </p>
         )}
 
         {data && visibleItems.length > 0 && (
@@ -163,9 +203,11 @@ const SD41AlertsCard = () => {
 
         {data && visibleItems.length === 0 && !loading && (
           <p className="text-sm text-muted-foreground mb-3">
-            {filter === "closures"
-              ? "No closure-related alerts right now."
-              : "No recent alerts."}
+            {query.trim()
+              ? `No alerts match "${query.trim()}".`
+              : filter === "closures"
+                ? "No closure-related alerts right now."
+                : "No recent alerts."}
           </p>
         )}
 
