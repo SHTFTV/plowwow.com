@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can submit a quote request" ON public.quote_requests;
