@@ -28,6 +28,7 @@ const SD41AlertsCard = () => {
   const [data, setData] = useState<Payload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<"all" | "closures">("closures");
 
   const load = async () => {
     setLoading(true);
@@ -51,6 +52,9 @@ const SD41AlertsCard = () => {
   }, []);
 
   const closureCount = data?.items.filter((i) => i.isClosure).length ?? 0;
+  const filteredItems =
+    data?.items.filter((i) => (filter === "closures" ? i.isClosure : true)) ?? [];
+  const visibleItems = filteredItems.slice(0, 3);
 
   return (
     <div className="group relative rounded-2xl p-6 border border-white/40 bg-white/60 backdrop-blur-xl shadow-lg">
