@@ -2,28 +2,45 @@ import { Button } from "@/components/ui/button";
 import heroBanner from "@/assets/plowwow-banner.png";
 
 const Hero = () => (
-  <section className="relative bg-[#0d2a4a]">
+  <section className="relative isolate overflow-hidden bg-[#0d2a4a]">
     <img
       src={heroBanner}
-      alt="PlowWow mascot driving snow plow — 604-761-1518, wow@plowwow.com"
+      alt="PlowWow mascot driving snow plow"
       width={1600}
       height={640}
-      className="w-full h-auto object-cover"
+      className="absolute inset-0 w-full h-full object-cover"
     />
-    <div className="container py-10 text-center">
-      <h1 className="sr-only">
-        Snow Removal & Salting Services in Vancouver & Greater BC
-      </h1>
-      <p className="text-lg md:text-xl mb-6 font-body text-foreground">
-        Trusted Snow Removal Company for Residential & Commercial Properties
-      </p>
-      <div className="flex flex-wrap gap-4 justify-center">
-        <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8">
-          Get a Free Quote
-        </Button>
-        <Button size="lg" variant="outline" className="font-heading font-bold rounded-full text-lg px-8">
-          Learn More
-        </Button>
+    {/* Contrast overlay: darker on the left where text sits, fading right */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#0d2a4a]/85 via-[#0d2a4a]/55 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#0d2a4a]/70 via-transparent to-transparent" />
+
+    <div className="container relative z-10 py-20 md:py-28 lg:py-36">
+      <div className="max-w-2xl text-primary-foreground">
+        <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold px-4 py-1.5 rounded-full text-sm mb-5 shadow-lg">
+          ❄ Vancouver & Greater BC
+        </span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          Snow Removal & Salting <span className="text-secondary">Services</span>
+        </h1>
+        <p className="text-lg md:text-xl mb-8 font-body text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)] max-w-xl">
+          Trusted snow removal for residential & commercial properties.
+          Priority booking with accurate, annual billing.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <Button
+            size="lg"
+            className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8 shadow-xl"
+          >
+            Get a Free Quote
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-foreground font-heading font-bold rounded-full text-lg px-8"
+          >
+            Call 604-761-1518
+          </Button>
+        </div>
       </div>
     </div>
   </section>
