@@ -121,4 +121,54 @@ describe("ServiceAreas Enter/Space selection", () => {
 
     expect(document.activeElement).toBe(screen.getByRole("combobox"));
   });
+
+  it.each([
+    { key: "Enter", saved: "burnaby" },
+    { key: " ", saved: "richmond" },
+  ])(
+    "$key flips aria-expanded to false and it stays false after focus returns to the combobox",
+    async ({ key, saved }) => {
+      window.localStorage.setItem(LAST_CITY_KEY, saved);
+      renderHarness();
+
+      // Before selection: listbox is open → aria-expanded="true".
+      const combobox = await waitFor(() => {
+        const cb = screen.getByRole("combobox");
+        expect(cb.getAttribute("aria-expanded")).toBe("true");
+        return cb;
+      });
+
+      const focusedCard = await waitFor(() => {
+        const el = card(saved);
+        expect(el).not.toBeNull();
+        expect(document.activeElement).toBe(el);
+        return el!;
+      });
+
+      // Press the selection key on the focused option.
+      await act(async () => {
+        fireEvent.keyDown(focusedCard, { key });
+      });
+
+      // Wait for listbox to close.
+      await waitFor(() => {
+        expect(card(saved)).toBeNull();
+      });
+
+      // aria-expanded must be "false" once collapsed.
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+      // Focus has returned to the combobox …
+      expect(document.activeElement).toBe(combobox);
+      // … and aria-expanded MUST remain "false" (no re-open on focus).
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+      // Belt-and-braces: fire an explicit focus event to make sure the
+      // onFocus handler doesn't flip it back open.
+      await act(async () => {
+        fireEvent.focus(combobox);
+      });
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    },
+  );
 });
