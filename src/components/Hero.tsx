@@ -5,7 +5,7 @@ const Hero = () => (
   <section className="relative isolate overflow-hidden bg-[#0d2a4a]">
     <img
       src={heroBanner}
-      alt="PlowWow mascot driving snow plow"
+      alt="PlowWow snow removal mascot driving a blue snow plow truck — professional winter services across Vancouver and the Lower Mainland BC"
       width={1600}
       height={640}
       className="absolute inset-0 w-full h-full object-cover"
