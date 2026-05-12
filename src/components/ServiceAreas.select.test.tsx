@@ -264,4 +264,99 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("false");
     expect(document.querySelector('[role="listbox"]')).toBeNull();
   });
+
+  it("ArrowDown/ArrowUp from a closed listbox reopens it and keeps aria-expanded + aria-activedescendant in sync", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderHarness();
+
+    // Wait for mount restore so flatCities is populated.
+    await waitFor(() => expect(card("vancouver")).not.toBeNull());
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Collapse the listbox first via the Clear→close path (it sets the
+    // suppression flag so focusing the combobox doesn't reopen it).
+    combobox.focus();
+    await act(async () => {
+      fireEvent.change(combobox, { target: { value: "abbots" } });
+    });
+    const clearBtn = screen.getByRole("button", { name: /clear search/i });
+    await act(async () => {
+      fireEvent.click(clearBtn);
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    });
+    expect(document.activeElement).toBe(combobox);
+
+    // ArrowDown on the combobox: reopens the listbox AND advances active.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "ArrowDown" });
+    });
+
+    await waitFor(() => {
+      // Listbox is back.
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      // aria-expanded flipped to true.
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    });
+
+    // ArrowDown moved active from Vancouver (idx 0) → West Vancouver (idx 1).
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-west-vancouver",
+      );
+      expect(card("west-vancouver")!.getAttribute("aria-selected")).toBe("true");
+      expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    });
+
+    // ArrowDown again → North Vancouver.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "ArrowDown" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-north-vancouver",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // ArrowUp → back to West Vancouver, expanded stays true.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "ArrowUp" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-west-vancouver",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(card("west-vancouver")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("north-vancouver")!.getAttribute("aria-selected")).toBe("false");
+
+    // Now collapse again to verify ArrowUp also reopens.
+    await act(async () => {
+      fireEvent.keyDown(card("west-vancouver")!, { key: "Escape" });
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    });
+
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "ArrowUp" });
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    });
+    // ArrowUp on a freshly reopened list (active was reset to 0 by Escape)
+    // wraps to the last option.
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-chilliwack",
+      );
+    });
+  });
 });
