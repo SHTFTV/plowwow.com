@@ -386,7 +386,8 @@ const AppFeatures = () => {
               href="#page-top"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById("page-top")?.focus({ preventScroll: false });
+                const heading = document.getElementById('app-hero-heading') as HTMLHeadingElement | null;
+                heading?.focus({ preventScroll: false });
               }}
               className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:right-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
             >
