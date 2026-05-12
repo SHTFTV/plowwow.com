@@ -63,6 +63,8 @@ const ServiceAreas = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const userInteractedRef = useRef(false);
 
   const q = query.trim().toLowerCase();
 
@@ -98,7 +100,6 @@ const ServiceAreas = () => {
   }, [flatCities.length]);
 
   // Scroll active card into view + move DOM focus to it for visible focus ring
-  const userInteractedRef = useRef(false);
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
     if (!el) return;
@@ -108,6 +109,27 @@ const ServiceAreas = () => {
       el.focus({ preventScroll: true });
     }
   }, [activeIndex]);
+
+  // Collapse the results when the user clicks anywhere outside this section.
+  useEffect(() => {
+    if (collapsed) return;
+    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target || !sectionRef.current) return;
+      if (!sectionRef.current.contains(target)) {
+        setCollapsed(true);
+        setQuery("");
+        setActiveIndex(0);
+        userInteractedRef.current = false;
+      }
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
+  }, [collapsed]);
 
   const moveActive = (delta: number) => {
     userInteractedRef.current = true;
@@ -176,7 +198,7 @@ const ServiceAreas = () => {
   }
 
   return (
-    <section id="service-areas" className="py-20 bg-section-alt">
+    <section ref={sectionRef} id="service-areas" className="py-20 bg-section-alt">
       <div className="container">
         <h2 className="text-3xl md:text-4xl text-center mb-4 text-foreground">
           City Snow Removal Pages
