@@ -285,10 +285,13 @@ const BlogIndex = () => {
                     className="group block rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-md transition-all"
                   >
                   <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
-                    {titleFor(slug)}
+                    {highlight(titleFor(slug), query)}
                   </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    /{slug} →
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
+                    {highlight(summaryFor(slug), query)}
+                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground/80">
+                    {highlight(`/${slug}`, query)} →
                   </p>
                 </Link>
               ))}
