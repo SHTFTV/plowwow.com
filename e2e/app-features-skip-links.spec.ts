@@ -15,13 +15,13 @@ test.describe("App Features — Skip links focus restoration", () => {
     await page.keyboard.press("Enter");
 
     // Focus should land on the first accordion trigger button.
-    const firstAccordionButton = page.locator('#faq button[aria-expanded]').first();
+    const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
     await expect(firstAccordionButton).toBeFocused();
     await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "false");
 
-    // Pressing Tab should move focus to the next accordion trigger.
+    // Pressing Tab should move focus to the second accordion trigger.
     await page.keyboard.press("Tab");
-    const secondAccordionButton = page.locator('#faq button[aria-expanded]').nth(1);
+    const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
     await expect(secondAccordionButton).toBeFocused();
   });
 
