@@ -377,6 +377,7 @@ const BlogIndex = () => {
   // Global keyboard shortcuts (only on /blog):
   //   "/" or Cmd/Ctrl+K → focus the search input
   //   ArrowDown / ArrowUp → move selection across the visible results
+  //   Home / End → jump to the first / last visible result
   //   Enter → open the active result (works while typing too)
   //   Escape (when input is focused) → clear the query
   useEffect(() => {
@@ -405,6 +406,8 @@ const BlogIndex = () => {
 
       if (visible.length === 0) return;
 
+      // Don't hijack Home/End while the user is typing in the search input —
+      // those keys should still move the text caret.
       if (e.key === "ArrowDown") {
         e.preventDefault();
         setActiveIndex((i) => (i + 1) % visible.length);
@@ -413,6 +416,12 @@ const BlogIndex = () => {
         setActiveIndex((i) =>
           i <= 0 ? visible.length - 1 : i - 1,
         );
+      } else if (e.key === "Home" && !isTyping) {
+        e.preventDefault();
+        setActiveIndex(0);
+      } else if (e.key === "End" && !isTyping) {
+        e.preventDefault();
+        setActiveIndex(visible.length - 1);
       } else if (e.key === "Enter" && activeIndex >= 0) {
         e.preventDefault();
         openActive();
