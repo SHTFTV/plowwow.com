@@ -209,6 +209,11 @@ const SD41AlertsCard = () => {
             {visibleItems.map((item) => {
               const matchCount =
                 countMatches(item.title, query) + countMatches(item.description, query);
+              const matchedWords = [
+                ...getMatches(item.title, query),
+                ...getMatches(item.description, query),
+              ];
+              const uniqueMatches = [...new Set(matchedWords)];
               return (
                 <li key={item.link} className="text-sm">
                   <a
@@ -235,9 +240,19 @@ const SD41AlertsCard = () => {
                         <p className="text-[11px] text-muted-foreground/70 mt-0.5 flex items-center gap-1.5">
                           {formatDate(item.pubDate)}
                           {query.trim() && matchCount > 0 && (
-                            <span className="inline-flex items-center rounded-full bg-primary/10 text-primary text-[10px] font-semibold px-1.5 py-0.5">
-                              {matchCount} match{matchCount > 1 ? "es" : ""}
-                            </span>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="inline-flex items-center rounded-full bg-primary/10 text-primary text-[10px] font-semibold px-1.5 py-0.5 cursor-help">
+                                  {matchCount} match{matchCount > 1 ? "es" : ""}
+                                </span>
+                              </TooltipTrigger>
+                              <TooltipContent side="top" className="max-w-[220px]">
+                                <p className="text-[11px] font-medium text-foreground mb-0.5">Matched words:</p>
+                                <p className="text-[11px] text-muted-foreground">
+                                  {uniqueMatches.join(", ")}
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
                           )}
                         </p>
                       </div>
