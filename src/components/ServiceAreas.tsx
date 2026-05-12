@@ -146,6 +146,27 @@ const ServiceAreas = () => {
   let flatIdx = -1;
 
   const totalMatches = flatCities.length;
+  const activeCity = flatCities[activeIndex];
+  const activeRegion = activeCity
+    ? filtered.find((r) => r.cities.some((c) => c.slug === activeCity.slug))?.title
+    : undefined;
+
+  // Status string for the live region — covers count + active option.
+  let statusMessage = "";
+  if (q) {
+    if (totalMatches === 0) {
+      statusMessage = `No cities match ${query}.`;
+    } else {
+      statusMessage =
+        totalMatches === 1
+          ? `1 city matches ${query}: ${flatCities[0].name}, ${activeRegion ?? ""}. Press Enter to open.`
+          : `${totalMatches} cities match ${query}. ${
+              activeCity ? `Active: ${activeCity.name}, ${activeRegion ?? ""}. Press Enter to open.` : ""
+            }`;
+    }
+  } else if (userInteractedRef.current && activeCity) {
+    statusMessage = `${activeCity.name}, ${activeRegion ?? ""}. Press Enter to open.`;
+  }
 
   return (
     <section id="service-areas" className="py-20 bg-section-alt">
