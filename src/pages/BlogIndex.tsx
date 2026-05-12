@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from "react-router-dom";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -62,15 +62,53 @@ const BlogIndex = () => {
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const setQuery = (next: string) => {
+  // Local input state lets typing feel instant; the URL/filter only updates
+  // after the user pauses (debounce), so we don't refilter or push history on
+  // every keystroke.
+  const [draft, setDraft] = useState(query);
+  const debounceRef = useRef<number | null>(null);
+
+  // Keep the input in sync if the URL changes externally (back/forward, link).
+  useEffect(() => {
+    setDraft(query);
+  }, [query]);
+
+  const commitQuery = (next: string) => {
     const params = new URLSearchParams(searchParams);
     const trimmed = next.trim();
     if (trimmed) params.set("q", trimmed);
     else params.delete("q");
     // Searching always resets pagination back to page 1.
     params.delete("page");
-    setSearchParams(params);
+    setSearchParams(params, { replace: true });
   };
+
+  const onDraftChange = (next: string) => {
+    setDraft(next);
+    if (debounceRef.current !== null) {
+      window.clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = window.setTimeout(() => {
+      commitQuery(next);
+      debounceRef.current = null;
+    }, 250);
+  };
+
+  const clearQuery = () => {
+    if (debounceRef.current !== null) {
+      window.clearTimeout(debounceRef.current);
+      debounceRef.current = null;
+    }
+    setDraft("");
+    commitQuery("");
+  };
+
+  useEffect(
+    () => () => {
+      if (debounceRef.current !== null) window.clearTimeout(debounceRef.current);
+    },
+    [],
+  );
 
   return (
     <div className="min-h-screen">
@@ -98,16 +136,16 @@ const BlogIndex = () => {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
                 type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                value={draft}
+                onChange={(e) => onDraftChange(e.target.value)}
                 placeholder="Search posts by title or slug…"
                 aria-label="Search blog posts"
                 className="w-full rounded-full border border-border bg-card pl-11 pr-11 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              {query && (
+              {draft && (
                 <button
                   type="button"
-                  onClick={() => setQuery("")}
+                  onClick={clearQuery}
                   aria-label="Clear search"
                   className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
                 >
@@ -142,7 +180,7 @@ const BlogIndex = () => {
                   Try a different keyword, or{" "}
                   <button
                     type="button"
-                    onClick={() => setQuery("")}
+                    onClick={clearQuery}
                     className="text-primary font-semibold hover:underline"
                   >
                     clear the search
