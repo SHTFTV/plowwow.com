@@ -475,7 +475,8 @@ const ServiceAreas = () => {
                         }}
                         onKeyDown={handleKeyDown}
                         className={cn(
-                          "group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border transition-colors shadow-sm",
+                          "group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border shadow-sm",
+                          "transition-[box-shadow,transform,border-color,color] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
                           "focus:outline-none focus-visible:outline-none",
                           isActive
                             ? "border-primary ring-2 ring-primary ring-offset-2 ring-offset-background"
