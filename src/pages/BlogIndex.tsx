@@ -49,8 +49,8 @@ const tokenize = (query: string) => {
     const raw = (m[1] ?? m[2] ?? "").trim().toLowerCase();
     if (raw) terms.push(raw);
   }
-  return Array.from(new Set(terms),
-  );
+  return Array.from(new Set(terms));
+};
 
 const highlight = (text: string, query: string) => {
   const terms = tokenize(query);
