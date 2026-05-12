@@ -9,6 +9,7 @@ import Auth from "./pages/Auth.tsx";
 import Admin from "./pages/Admin.tsx";
 import Burnaby from "./pages/Burnaby.tsx";
 import CityPage from "./pages/CityPage.tsx";
+import SeoReport from "./pages/SeoReport.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/burnaby" element={<Burnaby />} />
+          <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/:citySlug/*" element={<CityPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
