@@ -1,8 +1,24 @@
 import { useEffect, useState, useMemo } from "react";
-import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper, Search, X } from "lucide-react";
+import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper, Search, X, Bookmark, BookmarkPlus, Trash2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+
+type SavedSearch = {
+  id: string;
+  name: string;
+  query: string;
+  filter: "all" | "closures";
+  createdAt: string;
+};
+
+const SAVED_KEY = "sd41-saved-searches";
 
 type AlertItem = {
   title: string;
