@@ -86,15 +86,26 @@ const ServiceAreas = () => {
     [filtered],
   );
 
-  // Reset active index when filter changes
+  // Clamp active index whenever the filtered list size changes
   useEffect(() => {
-    setActiveIndex(0);
-  }, [q]);
+    setActiveIndex((i) => {
+      if (flatCities.length === 0) return 0;
+      if (i >= flatCities.length) return flatCities.length - 1;
+      if (i < 0) return 0;
+      return i;
+    });
+  }, [flatCities.length]);
 
-  // Scroll active card into view
+  // Scroll active card into view + move DOM focus to it for visible focus ring
+  const userInteractedRef = useRef(false);
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
-    if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    if (!el) return;
+    el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    // Only steal focus when the user has actually started navigating
+    if (userInteractedRef.current) {
+      el.focus({ preventScroll: true });
+    }
   }, [activeIndex]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
