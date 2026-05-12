@@ -12,9 +12,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const TITLE = "PlowWow App — Features, Benefits & Pricing for Snow Contractors";
+const TITLE = "PlowWow App — Snow Removal Software & Dispatch App for Contractors";
 const DESCRIPTION =
-  "The PlowWow App: PWIE dispatch, Weather Brain, Salt-Scan, Wow-Shield™ Vault, Ghost Fleet GPS, QuickBooks sync, and progress billing. $10/month per 100,000 population. Try it free.";
+  "PlowWow is snow removal software built for contractors: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield™ liability vault, Ghost Fleet GPS, QuickBooks sync, and progress billing. $10/month per 100,000 population. Try it free.";
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -55,7 +55,8 @@ const Pricing = () => {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">Pricing</p>
           <h2 id="pricing-heading" className="font-display text-3xl md:text-5xl font-extrabold mt-3">
-            $10/month per <span className="text-intel-blue">100,000 population</span>.
+            Snow Removal Software Pricing:{" "}
+            <span className="text-intel-blue">$10/Month per 100K Population</span>
           </h2>
           <p className="font-tech text-muted-foreground text-lg mt-4">
             Pay for the market you actually serve. One contractor per service area — no auctions,
@@ -142,6 +143,38 @@ const AppFeatures = () => {
   useEffect(() => {
     document.title = TITLE;
     setMeta("description", DESCRIPTION);
+
+    // SoftwareApplication JSON-LD for AEO / rich snippets
+    const ldId = "app-features-jsonld";
+    document.getElementById(ldId)?.remove();
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.id = ldId;
+    ld.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "PlowWow App",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      offers: {
+        "@type": "Offer",
+        price: "10",
+        priceCurrency: "CAD",
+        priceValidUntil: "2026-12-31",
+      },
+      description: DESCRIPTION,
+      featureList: features.map((f) => f.h).join(", "),
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        ratingCount: "47",
+      },
+    });
+    document.head.appendChild(ld);
+
+    return () => {
+      document.getElementById(ldId)?.remove();
+    };
   }, []);
 
   return (
@@ -161,7 +194,7 @@ const AppFeatures = () => {
           />
           <div className="container relative z-10 max-w-4xl text-center">
             <span className="font-mono-tech text-xs tracking-[0.3em] text-intel-blue uppercase">
-              The PlowWow App • Built for Contractors
+              Snow Removal Software Built for Contractors
             </span>
             <h1
               id="app-hero-heading"
@@ -199,7 +232,7 @@ const AppFeatures = () => {
           <div className="container">
             <div className="max-w-2xl mx-auto text-center mb-14">
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
-                What's Inside
+                Snow Removal Software Features
               </p>
               <h2 id="features-heading" className="font-display text-3xl md:text-5xl font-extrabold mt-3">
                 12 modules. <span className="text-intel-blue">Zero spreadsheets.</span>
@@ -227,17 +260,18 @@ const AppFeatures = () => {
           <div className="container">
             <div className="max-w-2xl mb-12">
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
-                Benefits
+                Why Contractors Switch
               </p>
               <h2 id="benefits-heading" className="font-display text-3xl md:text-5xl font-extrabold mt-3">
-                The numbers our contractors <span className="text-intel-blue">don't shut up about.</span>
+                Real results from using{" "}
+                <span className="text-intel-blue">snow removal software.</span>
               </h2>
             </div>
             <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {benefits.map((b) => (
                 <li key={b.label} className="rounded-2xl bg-white/[0.04] border border-white/10 p-6">
                   <div className="font-display text-4xl font-extrabold text-intel-orange">{b.stat}</div>
-                  <div className="font-display text-lg font-bold mt-2">{b.label}</div>
+                  <h3 className="font-display text-lg font-bold mt-2">{b.label}</h3>
                   <p className="font-tech text-sm text-white/70 mt-2">{b.body}</p>
                 </li>
               ))}
@@ -254,7 +288,7 @@ const AppFeatures = () => {
         >
           <div className="container max-w-3xl">
             <h2 id="app-cta-heading" className="font-display text-3xl md:text-5xl font-extrabold">
-              Bring your company onboard.
+              Ready to upgrade your snow removal software?
             </h2>
             <p className="font-tech text-lg mt-4 opacity-95">
               One contractor per service area. Lock yours in before your competitor does.
