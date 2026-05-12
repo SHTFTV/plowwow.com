@@ -79,6 +79,10 @@ const highlight = (text: string, query: string) => {
 };
 
 const PAGE_SIZE = 8;
+// Pixels of viewport padding considered "out of view" for the active-card
+// scroll trigger. Cards within this margin of either viewport edge will be
+// scrolled into view. Bumped up to clear the sticky TopBar/Navbar at the top.
+const SCROLL_VIEWPORT_PADDING = 96;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -209,7 +213,9 @@ const BlogIndex = () => {
 
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight || document.documentElement.clientHeight;
-    const fullyVisible = rect.top >= 0 && rect.bottom <= viewH;
+    const fullyVisible =
+      rect.top >= SCROLL_VIEWPORT_PADDING &&
+      rect.bottom <= viewH - SCROLL_VIEWPORT_PADDING;
     if (fullyVisible) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
