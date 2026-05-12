@@ -245,7 +245,11 @@ const ServiceAreas = () => {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {collapsed ? (
+          <p className="text-center text-muted-foreground py-10">
+            Results collapsed. Start typing or focus the search to show cities again.
+          </p>
+        ) : filtered.length === 0 ? (
           <p role="status" aria-live="polite" className="text-center text-muted-foreground py-10">
             No cities match "{query}". Try a different name.
           </p>
