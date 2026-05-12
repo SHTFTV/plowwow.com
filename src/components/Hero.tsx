@@ -30,9 +30,9 @@ const Hero = () => (
     <div className="container relative z-10 py-20 md:py-28 lg:py-36">
       <div className="max-w-2xl text-primary-foreground">
         <span className="inline-block bg-secondary text-secondary-foreground font-heading font-bold px-4 py-1.5 rounded-full text-sm mb-5 shadow-lg">
-          ❄ Vancouver & Greater BC
+          <span aria-hidden="true">❄</span> Vancouver & Greater BC
         </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
           Snow Removal & Salting <span className="text-secondary">Services</span>
         </h1>
         <p className="text-lg md:text-xl mb-8 font-body text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)] max-w-xl">
