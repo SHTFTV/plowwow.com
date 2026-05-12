@@ -49,9 +49,8 @@ const parseFrontmatter = (raw: string) => {
 type LegacyPageProps = { kind: "page" | "blog" };
 
 const LegacyPage = ({ kind }: LegacyPageProps) => {
-  const params = useParams();
-  // Pages live at /:slug; blog posts also live at /:slug on the original site.
-  const slug = (params.slug ?? params["*"] ?? "").replace(/\/+$/, "");
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\/+/, "").replace(/\/+$/, "");
   const map = kind === "blog" ? blogBySlug : pageBySlug;
   const raw = map[slug];
 
