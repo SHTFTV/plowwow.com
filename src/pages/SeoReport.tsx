@@ -68,6 +68,20 @@ const SeoReport = () => {
   const visibleOk = visibleRows.length - visibleMismatches;
   const totalMismatches = rows.filter((r) => r.match === "MISMATCH").length;
 
+  const buildFilename = (ext: string, opts?: { filtered?: boolean; styled?: boolean }) => {
+    const stamp = new Date().toISOString().slice(0, 10);
+    const parts = ["city-seo-report"];
+    if (opts?.filtered) {
+      parts.push("filtered");
+      if (onlyMismatches) parts.push("mismatches");
+      const q = query.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      if (q) parts.push(q);
+    }
+    if (opts?.styled) parts.push("styled");
+    parts.push(stamp);
+    return `${parts.filter(Boolean).join("-")}.${ext}`;
+  };
+
   const handleDownload = () => {
     setDownloading(true);
     try {
