@@ -85,3 +85,11 @@ jobs:
         run: npx playwright test e2e/app-features-skip-links.spec.ts --project=chromium
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4173
+
+      - name: Upload Playwright traces and screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces-and-screenshots
+          path: test-results/
+          retention-days: 7
