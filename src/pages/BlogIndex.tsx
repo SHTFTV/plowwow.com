@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
