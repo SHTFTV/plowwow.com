@@ -232,9 +232,9 @@ const ServiceAreas = () => {
             )}
           </div>
           <p id="city-search-hint" className="text-xs text-muted-foreground text-center mt-2">
-            Use ↑ ↓ to navigate, Enter to open, Esc to clear.
+            Use ↑ ↓ to navigate, Enter to open, Esc to collapse and reset.
           </p>
-          {q && (
+          {q && !collapsed && (
             <p className="text-sm text-muted-foreground text-center mt-1">
               {totalMatches} {totalMatches === 1 ? "match" : "matches"} for "{query}"
             </p>
