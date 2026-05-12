@@ -79,10 +79,13 @@ const highlight = (text: string, query: string) => {
 };
 
 const PAGE_SIZE = 8;
-// Pixels of viewport padding considered "out of view" for the active-card
-// scroll trigger. Cards within this margin of either viewport edge will be
-// scrolled into view. Bumped up to clear the sticky TopBar/Navbar at the top.
-const SCROLL_VIEWPORT_PADDING = 96;
+// Default pixels of viewport padding considered "out of view" for the
+// active-card scroll trigger. User-adjustable via the settings control below
+// and persisted to localStorage.
+const SCROLL_PADDING_DEFAULT = 96;
+const SCROLL_PADDING_MIN = 0;
+const SCROLL_PADDING_MAX = 400;
+const SCROLL_PADDING_STORAGE_KEY = "blog:scrollViewportPadding";
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -144,6 +147,24 @@ const BlogIndex = () => {
   // -1 = nothing highlighted; 0..visible.length-1 = active card.
   const [activeIndex, setActiveIndex] = useState(-1);
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+
+  // User-configurable viewport padding for the auto-scroll trigger. Hydrated
+  // from localStorage on mount and persisted on change.
+  const [scrollPadding, setScrollPadding] = useState<number>(SCROLL_PADDING_DEFAULT);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.localStorage.getItem(SCROLL_PADDING_STORAGE_KEY);
+    const parsed = raw ? parseInt(raw, 10) : NaN;
+    if (Number.isFinite(parsed)) {
+      setScrollPadding(
+        Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, parsed)),
+      );
+    }
+  }, []);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(scrollPadding));
+  }, [scrollPadding]);
 
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
@@ -214,12 +235,12 @@ const BlogIndex = () => {
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight || document.documentElement.clientHeight;
     const fullyVisible =
-      rect.top >= SCROLL_VIEWPORT_PADDING &&
-      rect.bottom <= viewH - SCROLL_VIEWPORT_PADDING;
+      rect.top >= scrollPadding &&
+      rect.bottom <= viewH - scrollPadding;
     if (fullyVisible) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [activeIndex, visible]);
+  }, [activeIndex, visible, scrollPadding]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
@@ -332,6 +353,59 @@ const BlogIndex = () => {
                 </button>
               )}
             </div>
+
+            <details className="mb-6 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-muted-foreground">
+              <summary className="cursor-pointer select-none font-semibold text-foreground">
+                Search settings
+              </summary>
+              <div className="mt-3 flex flex-col gap-2">
+                <label htmlFor="scroll-padding" className="flex items-center justify-between gap-4">
+                  <span>
+                    Scroll viewport padding
+                    <span className="ml-2 text-xs text-muted-foreground/80">
+                      (triggers auto-scroll when the selected card is within this many pixels of the viewport edge)
+                    </span>
+                  </span>
+                  <span className="font-mono text-foreground tabular-nums">
+                    {scrollPadding}px
+                  </span>
+                </label>
+                <div className="flex items-center gap-3">
+                  <input
+                    id="scroll-padding"
+                    type="range"
+                    min={SCROLL_PADDING_MIN}
+                    max={SCROLL_PADDING_MAX}
+                    step={8}
+                    value={scrollPadding}
+                    onChange={(e) => setScrollPadding(parseInt(e.target.value, 10))}
+                    className="flex-1 accent-primary"
+                  />
+                  <input
+                    type="number"
+                    min={SCROLL_PADDING_MIN}
+                    max={SCROLL_PADDING_MAX}
+                    step={8}
+                    value={scrollPadding}
+                    onChange={(e) => {
+                      const n = parseInt(e.target.value, 10);
+                      if (!Number.isFinite(n)) return;
+                      setScrollPadding(
+                        Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, n)),
+                      );
+                    }}
+                    className="w-20 rounded-md border border-border bg-background px-2 py-1 text-sm text-foreground"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setScrollPadding(SCROLL_PADDING_DEFAULT)}
+                    className="rounded-md border border-border px-2 py-1 text-xs font-semibold text-foreground hover:bg-muted"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </details>
 
             <div className="flex items-center justify-between mb-6 text-sm text-muted-foreground flex-wrap gap-2">
               <span>
