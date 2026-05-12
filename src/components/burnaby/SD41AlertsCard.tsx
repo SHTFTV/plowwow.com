@@ -95,6 +95,31 @@ const SD41AlertsCard = () => {
     persistSaved(savedSearches.filter((s) => s.id !== id));
   };
 
+  const [renamingId, setRenamingId] = useState<string | null>(null);
+  const [renameValue, setRenameValue] = useState("");
+
+  const startRename = (s: SavedSearch) => {
+    setRenamingId(s.id);
+    setRenameValue(s.name);
+  };
+
+  const commitRename = () => {
+    if (!renamingId) return;
+    const name = renameValue.trim();
+    if (!name) {
+      setRenamingId(null);
+      return;
+    }
+    persistSaved(savedSearches.map((s) => (s.id === renamingId ? { ...s, name } : s)));
+    setRenamingId(null);
+    toast.success("Renamed");
+  };
+
+  const cancelRename = () => {
+    setRenamingId(null);
+    setRenameValue("");
+  };
+
   const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
   const countMatches = (text: string, q: string) => {
