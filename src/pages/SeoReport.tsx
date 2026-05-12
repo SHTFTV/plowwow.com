@@ -113,12 +113,19 @@ const SeoReport = () => {
         </p>
       </header>
 
-      <div className="flex items-center gap-4 mb-6">
+      <div className="flex flex-wrap items-center gap-4 mb-6">
         <Button onClick={handleDownload} disabled={downloading}>
           {downloading ? "Generating…" : "Download XLSX"}
         </Button>
+        <Button
+          variant={onlyMismatches ? "default" : "outline"}
+          onClick={() => setOnlyMismatches((v) => !v)}
+        >
+          {onlyMismatches ? "Showing mismatches only" : "Show mismatches only"}
+        </Button>
         <div className="text-sm text-muted-foreground">
-          {rows.length} routes ·{" "}
+          Showing {visibleRows.length} of {rows.length} routes ·{" "}
+          <span className="text-green-600 font-medium">{okCount} OK</span> ·{" "}
           <span className={mismatches > 0 ? "text-destructive font-medium" : ""}>
             {mismatches} mismatches
           </span>
