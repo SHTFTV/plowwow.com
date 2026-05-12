@@ -273,10 +273,23 @@ const ServiceAreas = () => {
       // Fall back to the section bounds (covers headings, hint, clear button, etc.)
       if (sectionRef.current?.contains(target)) return;
 
+      // If focus is currently inside the (about-to-unmount) listbox, return
+      // it to the combobox so it doesn't fall back to <body>. The outside
+      // click already moved the user's attention away, so suppress the
+      // input's auto-expand-on-focus to keep the listbox closed.
+      const focusWasInsideListbox =
+        listboxRef.current?.contains(document.activeElement as Node | null) ||
+        cardRefs.current.some((c) => c?.contains(document.activeElement as Node | null));
+
       setCollapsed(true);
       setQuery("");
       setActiveIndex(0);
       userInteractedRef.current = false;
+
+      if (focusWasInsideListbox) {
+        suppressFocusExpandRef.current = true;
+        inputRef.current?.focus({ preventScroll: true });
+      }
     };
     document.addEventListener("mousedown", handlePointerDown);
     document.addEventListener("touchstart", handlePointerDown);
