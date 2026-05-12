@@ -42,8 +42,9 @@ const highlight = (text: string, query: string) => {
   if (!query) return text;
   const re = new RegExp(`(${escapeRegex(query)})`, "ig");
   const parts = text.split(re);
+  // String.split with a capture group yields [pre, match, pre, match, ...]
   return parts.map((part, i) =>
-    re.test(part) && part.toLowerCase() === query.toLowerCase() ? (
+    i % 2 === 1 ? (
       <mark
         key={i}
         className="bg-secondary/40 text-foreground rounded px-0.5"
