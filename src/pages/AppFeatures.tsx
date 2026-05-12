@@ -240,13 +240,14 @@ const AppFeatures = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main id="page-top" tabIndex={-1}>
+      <main id="page-top">
         {/* Skip to FAQ — first focusable element for keyboard users */}
         <a
           href="#faq"
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById("faq")?.focus({ preventScroll: false });
+            const firstFaq = document.querySelector('#faq button[aria-expanded]') as HTMLButtonElement | null;
+            firstFaq?.focus({ preventScroll: false });
           }}
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
         >
@@ -268,6 +269,7 @@ const AppFeatures = () => {
             </span>
             <h1
               id="app-hero-heading"
+              tabIndex={-1}
               className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mt-6"
             >
               Run your snow company like a{" "}
@@ -352,7 +354,7 @@ const AppFeatures = () => {
         <Pricing />
 
         {/* FAQ */}
-        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background" tabIndex={-1}>
+        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background">
           <div className="container max-w-3xl">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
@@ -385,7 +387,8 @@ const AppFeatures = () => {
               href="#page-top"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById("page-top")?.focus({ preventScroll: false });
+                const heading = document.getElementById('app-hero-heading') as HTMLHeadingElement | null;
+                heading?.focus({ preventScroll: false });
               }}
               className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:right-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
             >
