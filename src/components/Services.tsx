@@ -45,7 +45,7 @@ const Services = () => (
             key={service.title}
             className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
           >
-            <div className="overflow-hidden h-48">
+            <figure className="relative overflow-hidden h-48">
               <img
                 src={service.image}
                 alt={service.alt}
@@ -54,7 +54,10 @@ const Services = () => (
                 height={640}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent text-white text-xs px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                {service.alt}
+              </figcaption>
+            </figure>
             <div className="p-5">
               <h3 className="text-lg font-bold text-foreground mb-2">{service.title}</h3>
               <p className="text-muted-foreground text-sm">{service.description}</p>
