@@ -394,7 +394,13 @@ const ServiceAreas = () => {
                 setCollapsed(false);
                 setQuery(e.target.value);
               }}
-              onFocus={() => setCollapsed(false)}
+              onFocus={() => {
+                if (suppressFocusExpandRef.current) {
+                  suppressFocusExpandRef.current = false;
+                  return;
+                }
+                setCollapsed(false);
+              }}
               onKeyDown={handleKeyDown}
               placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
