@@ -281,7 +281,7 @@ export default function Admin() {
                 </SelectContent>
               </Select>
               <span className="ml-2">
-                {filtered.length === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, filtered.length)} of {filtered.length}
+                {total === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, total)} of {total}
               </span>
             </div>
             <div className="flex items-center gap-2">
