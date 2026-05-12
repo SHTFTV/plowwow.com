@@ -6,9 +6,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cities } from "@/data/cities";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
 
 const navItems = [
@@ -21,10 +22,58 @@ const navItems = [
   { label: "Contact", href: "/#contact" },
 ];
 
-const cityLinks = [
-  { name: "Burnaby", slug: "burnaby" },
-  ...cities.map((c) => ({ name: c.name, slug: c.slug })),
-].sort((a, b) => a.name.localeCompare(b.name));
+type CityLink = { name: string; slug: string };
+
+const cityRegions: { title: string; cities: CityLink[] }[] = [
+  {
+    title: "Metro Vancouver West",
+    cities: [
+      { name: "Vancouver", slug: "vancouver" },
+      { name: "West Vancouver", slug: "west-vancouver" },
+      { name: "North Vancouver", slug: "north-vancouver" },
+    ],
+  },
+  {
+    title: "Central Metro Vancouver",
+    cities: [
+      { name: "Burnaby", slug: "burnaby" },
+      { name: "Richmond", slug: "richmond" },
+      { name: "New Westminster", slug: "new-westminster" },
+    ],
+  },
+  {
+    title: "South Metro Vancouver",
+    cities: [
+      { name: "Surrey", slug: "surrey" },
+      { name: "Delta", slug: "delta" },
+      { name: "White Rock", slug: "white-rock" },
+    ],
+  },
+  {
+    title: "Tri-Cities & East Metro",
+    cities: [
+      { name: "Coquitlam", slug: "coquitlam" },
+      { name: "Port Coquitlam", slug: "port-coquitlam" },
+      { name: "Port Moody", slug: "port-moody" },
+    ],
+  },
+  {
+    title: "Fraser Valley Northeast",
+    cities: [
+      { name: "Maple Ridge", slug: "maple-ridge" },
+      { name: "Pitt Meadows", slug: "pitt-meadows" },
+    ],
+  },
+  {
+    title: "Fraser Valley",
+    cities: [
+      { name: "Langley", slug: "langley" },
+      { name: "Abbotsford", slug: "abbotsford" },
+      { name: "Mission", slug: "mission" },
+      { name: "Chilliwack", slug: "chilliwack" },
+    ],
+  },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -55,13 +104,21 @@ const Navbar = () => {
             <DropdownMenuTrigger className="text-foreground font-heading font-semibold text-sm hover:text-primary transition-colors inline-flex items-center gap-1">
               Cities <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="max-h-[60vh] overflow-y-auto">
-              {cityLinks.map((c) => (
-                <DropdownMenuItem key={c.slug} asChild>
-                  <Link to={`/${c.slug}`} className="font-heading font-semibold">
-                    {c.name}
-                  </Link>
-                </DropdownMenuItem>
+            <DropdownMenuContent align="end" className="max-h-[70vh] overflow-y-auto w-64">
+              {cityRegions.map((region, idx) => (
+                <div key={region.title}>
+                  {idx > 0 && <DropdownMenuSeparator />}
+                  <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">
+                    {region.title}
+                  </DropdownMenuLabel>
+                  {region.cities.map((c) => (
+                    <DropdownMenuItem key={c.slug} asChild>
+                      <Link to={`/${c.slug}`} className="font-heading font-semibold">
+                        {c.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
@@ -96,16 +153,25 @@ const Navbar = () => {
               <summary className="text-foreground font-heading font-semibold py-2 cursor-pointer hover:text-primary transition-colors">
                 Cities
               </summary>
-              <div className="flex flex-col gap-1 pl-3 pt-1">
-                {cityLinks.map((c) => (
-                  <Link
-                    key={c.slug}
-                    to={`/${c.slug}`}
-                    className="text-foreground font-heading py-1.5 hover:text-primary transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    {c.name}
-                  </Link>
+              <div className="flex flex-col gap-3 pl-3 pt-2">
+                {cityRegions.map((region) => (
+                  <div key={region.title}>
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground font-heading font-bold mb-1">
+                      {region.title}
+                    </p>
+                    <div className="flex flex-col gap-1 pl-1">
+                      {region.cities.map((c) => (
+                        <Link
+                          key={c.slug}
+                          to={`/${c.slug}`}
+                          className="text-foreground font-heading py-1 hover:text-primary transition-colors"
+                          onClick={() => setOpen(false)}
+                        >
+                          {c.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </details>
