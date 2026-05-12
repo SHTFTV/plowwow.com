@@ -61,6 +61,7 @@ const ServiceAreas = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [collapsed, setCollapsed] = useState(false);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const q = query.trim().toLowerCase();
@@ -114,7 +115,11 @@ const ServiceAreas = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (flatCities.length === 0) return;
+    if (flatCities.length === 0 && e.key !== "Escape") return;
+    // Any navigation key reopens a collapsed list
+    if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter"].includes(e.key)) {
+      setCollapsed(false);
+    }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
       moveActive(1);
@@ -136,7 +141,9 @@ const ServiceAreas = () => {
     } else if (e.key === "Escape") {
       e.preventDefault();
       userInteractedRef.current = false;
-      if (query) setQuery("");
+      setQuery("");
+      setActiveIndex(0);
+      setCollapsed(true);
       document.getElementById("city-search")?.focus();
     }
   };
@@ -194,8 +201,10 @@ const ServiceAreas = () => {
               value={query}
               onChange={(e) => {
                 userInteractedRef.current = false;
+                setCollapsed(false);
                 setQuery(e.target.value);
               }}
+              onFocus={() => setCollapsed(false)}
               onKeyDown={handleKeyDown}
               placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
@@ -204,7 +213,7 @@ const ServiceAreas = () => {
               aria-label="Search cities"
               aria-autocomplete="list"
               aria-haspopup="listbox"
-              aria-expanded={flatCities.length > 0}
+              aria-expanded={!collapsed && flatCities.length > 0}
               aria-controls="city-results"
               aria-activedescendant={
                 activeCity ? `city-opt-${activeCity.slug}` : undefined
@@ -223,9 +232,9 @@ const ServiceAreas = () => {
             )}
           </div>
           <p id="city-search-hint" className="text-xs text-muted-foreground text-center mt-2">
-            Use ↑ ↓ to navigate, Enter to open, Esc to clear.
+            Use ↑ ↓ to navigate, Enter to open, Esc to collapse and reset.
           </p>
-          {q && (
+          {q && !collapsed && (
             <p className="text-sm text-muted-foreground text-center mt-1">
               {totalMatches} {totalMatches === 1 ? "match" : "matches"} for "{query}"
             </p>
@@ -236,7 +245,11 @@ const ServiceAreas = () => {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {collapsed ? (
+          <p className="text-center text-muted-foreground py-10">
+            Results collapsed. Start typing or focus the search to show cities again.
+          </p>
+        ) : filtered.length === 0 ? (
           <p role="status" aria-live="polite" className="text-center text-muted-foreground py-10">
             No cities match "{query}". Try a different name.
           </p>
