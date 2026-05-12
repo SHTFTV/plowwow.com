@@ -636,6 +636,21 @@ const BlogIndex = () => {
                     Reset
                   </button>
                 </div>
+                <p className="mt-1 text-xs text-muted-foreground/80">
+                  Press{" "}
+                  <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px] text-foreground">
+                    PageDown
+                  </kbd>{" "}
+                  /{" "}
+                  <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px] text-foreground">
+                    PageUp
+                  </kbd>{" "}
+                  to jump{" "}
+                  <span className="font-semibold text-foreground">
+                    {pageJumpSize} {pageJumpSize === 1 ? "card" : "cards"}
+                  </span>{" "}
+                  at a time (default {PAGE_JUMP_SIZE_DEFAULT}).
+                </p>
               </div>
             </details>
 
