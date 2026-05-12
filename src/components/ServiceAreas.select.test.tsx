@@ -1536,4 +1536,75 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe(ad);
   });
+
+  it("Enter on a focus-held option card selects that city, closes the listbox, and returns focus to the combobox with correct aria", async () => {
+    // No saved city — open by focusing the combobox, then move DOM focus
+    // onto a specific option card and press Enter from there.
+    renderHarness();
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    await act(async () => {
+      combobox.focus();
+      fireEvent.focus(combobox);
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+    });
+
+    // Move DOM focus onto a non-default option (Burnaby) and confirm it's
+    // the active descendant before we commit.
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      return el!;
+    });
+    await act(async () => {
+      burnaby.focus();
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(burnaby);
+      expect(burnaby.getAttribute("aria-selected")).toBe("true");
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-burnaby",
+      );
+    });
+
+    // Press Enter from the focus-held option card.
+    await act(async () => {
+      fireEvent.keyDown(burnaby, { key: "Enter" });
+    });
+
+    // Navigation happened (selection took effect).
+    await waitFor(() => {
+      expect(screen.getByTestId("loc").textContent).toBe("/burnaby");
+    });
+
+    // Persisted to localStorage.
+    expect(window.localStorage.getItem(LAST_CITY_KEY)).toBe("burnaby");
+
+    // Listbox is closed.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // Focus returned to the combobox with aria-expanded false.
+    expect(document.activeElement).toBe(combobox);
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // aria-activedescendant remains a valid, known option id.
+    const ad = combobox.getAttribute("aria-activedescendant");
+    expect(ad).toBe("city-opt-burnaby");
+
+    // Re-firing focus on the combobox must NOT reopen the listbox
+    // (post-selection suppression).
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(ad);
+  });
 });
