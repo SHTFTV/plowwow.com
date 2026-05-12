@@ -144,7 +144,7 @@ const SeoReport = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {rows.map((r, i) => (
+            {visibleRows.map((r, i) => (
               <TableRow key={i}>
                 <TableCell className="font-medium">{r.city}</TableCell>
                 <TableCell className="font-mono text-xs">{r.path}</TableCell>
