@@ -153,16 +153,25 @@ const Navbar = () => {
               <summary className="text-foreground font-heading font-semibold py-2 cursor-pointer hover:text-primary transition-colors">
                 Cities
               </summary>
-              <div className="flex flex-col gap-1 pl-3 pt-1">
-                {cityLinks.map((c) => (
-                  <Link
-                    key={c.slug}
-                    to={`/${c.slug}`}
-                    className="text-foreground font-heading py-1.5 hover:text-primary transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    {c.name}
-                  </Link>
+              <div className="flex flex-col gap-3 pl-3 pt-2">
+                {cityRegions.map((region) => (
+                  <div key={region.title}>
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground font-heading font-bold mb-1">
+                      {region.title}
+                    </p>
+                    <div className="flex flex-col gap-1 pl-1">
+                      {region.cities.map((c) => (
+                        <Link
+                          key={c.slug}
+                          to={`/${c.slug}`}
+                          className="text-foreground font-heading py-1 hover:text-primary transition-colors"
+                          onClick={() => setOpen(false)}
+                        >
+                          {c.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </details>
