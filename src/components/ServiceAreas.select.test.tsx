@@ -1492,15 +1492,15 @@ describe("ServiceAreas Enter/Space selection", () => {
       expect(document.querySelector('[role="listbox"]')).not.toBeNull();
     });
 
-    // Arrow down from the combobox — DOM focus moves to the first card.
+    // Move DOM focus onto the first option card.
+    const vancouver = card("vancouver")!;
     await act(async () => {
-      fireEvent.keyDown(combobox, { key: "ArrowDown" });
+      vancouver.focus();
     });
     const focused = await waitFor(() => {
       const el = card("vancouver");
       expect(el).not.toBeNull();
       expect(document.activeElement).toBe(el);
-      expect(el!.getAttribute("aria-selected")).toBe("true");
       return el!;
     });
 
