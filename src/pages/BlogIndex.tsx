@@ -195,6 +195,10 @@ const BlogIndex = () => {
   // sharing this origin when localStorage changes — perfect for live syncing
   // settings without a backend round-trip. The originating tab does not
   // receive the event, so we never echo our own writes.
+  // Ref mirror of `visible` so the storage listener can resolve slug→index
+  // without re-binding on every filter recompute.
+  const visibleRef = useRef<string[]>([]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const onStorage = (e: StorageEvent) => {
@@ -206,6 +210,14 @@ const BlogIndex = () => {
         if (e.newValue === "true" || e.newValue === "false") {
           _setSmoothScroll(e.newValue === "true");
         }
+      } else if (e.key === ACTIVE_SLUG_STORAGE_KEY) {
+        const slug = e.newValue;
+        if (!slug) {
+          setActiveIndex(-1);
+          return;
+        }
+        const idx = visibleRef.current.indexOf(slug);
+        if (idx >= 0) setActiveIndex(idx);
       }
     };
     window.addEventListener("storage", onStorage);
