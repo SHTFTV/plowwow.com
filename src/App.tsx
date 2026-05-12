@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Admin from "./pages/Admin.tsx";
 import Burnaby from "./pages/Burnaby.tsx";
+import CityPage from "./pages/CityPage.tsx";
 
 const queryClient = new QueryClient();
 
