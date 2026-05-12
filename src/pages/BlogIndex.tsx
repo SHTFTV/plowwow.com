@@ -62,15 +62,53 @@ const BlogIndex = () => {
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const setQuery = (next: string) => {
+  // Local input state lets typing feel instant; the URL/filter only updates
+  // after the user pauses (debounce), so we don't refilter or push history on
+  // every keystroke.
+  const [draft, setDraft] = useState(query);
+  const debounceRef = useRef<number | null>(null);
+
+  // Keep the input in sync if the URL changes externally (back/forward, link).
+  useEffect(() => {
+    setDraft(query);
+  }, [query]);
+
+  const commitQuery = (next: string) => {
     const params = new URLSearchParams(searchParams);
     const trimmed = next.trim();
     if (trimmed) params.set("q", trimmed);
     else params.delete("q");
     // Searching always resets pagination back to page 1.
     params.delete("page");
-    setSearchParams(params);
+    setSearchParams(params, { replace: true });
   };
+
+  const onDraftChange = (next: string) => {
+    setDraft(next);
+    if (debounceRef.current !== null) {
+      window.clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = window.setTimeout(() => {
+      commitQuery(next);
+      debounceRef.current = null;
+    }, 250);
+  };
+
+  const clearQuery = () => {
+    if (debounceRef.current !== null) {
+      window.clearTimeout(debounceRef.current);
+      debounceRef.current = null;
+    }
+    setDraft("");
+    commitQuery("");
+  };
+
+  useEffect(
+    () => () => {
+      if (debounceRef.current !== null) window.clearTimeout(debounceRef.current);
+    },
+    [],
+  );
 
   return (
     <div className="min-h-screen">
