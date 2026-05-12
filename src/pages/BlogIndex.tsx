@@ -205,13 +205,22 @@ const BlogIndex = () => {
   };
   const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
+  const pageJumpTipRef = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
     if (!pageJumpTipOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setPageJumpTipOpen(false);
     };
+    const onPointerDown = (e: PointerEvent) => {
+      const root = pageJumpTipRef.current;
+      if (root && !root.contains(e.target as Node)) setPageJumpTipOpen(false);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, [pageJumpTipOpen]);
   useEffect(() => {
     if (typeof window === "undefined") return;
