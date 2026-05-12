@@ -16,6 +16,11 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CityMap from "@/components/CityMap";
 import { buildCityCopy } from "@/data/cityContent";
+import skidSteerImg from "@/assets/plowwow-skid-steer.png";
+import f350Img from "@/assets/plowwow-f350-salter.png";
+import crewImg from "@/assets/plowwow-crew.png";
+import dozerImg from "@/assets/plowwow-dozer.png";
+import walkBehindImg from "@/assets/plowwow-walk-behind-salter.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -258,20 +263,85 @@ const CityPage = () => {
           </div>
         </section>
 
+        {/* Fleet showcase — visual break */}
+        <section className="py-16 bg-muted/30" id="fleet">
+          <div className="container">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
+                The {city.name} Fleet
+              </h2>
+              <p className="text-muted-foreground">
+                Right-sized iron for every {city.name} property — from highway-grade plow trucks
+                to skid steers and walk-behind salters for tight courtyards.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { src: f350Img, label: `F-350 plow + V-box salter dispatched across ${city.name}` },
+                { src: skidSteerImg, label: `Branded skid steer for ${city.name} loading docks & lots` },
+                { src: dozerImg, label: `Tracked dozer for heavy ${city.name} accumulations` },
+              ].map((img) => (
+                <figure
+                  key={img.label}
+                  className="rounded-2xl overflow-hidden border border-border bg-card shadow-sm"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.label}
+                    loading="lazy"
+                    className="w-full h-56 object-cover"
+                  />
+                  <figcaption className="p-4 text-sm text-muted-foreground">
+                    {img.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Long-form SEO/AEO/GEO/LLM content — unique per city */}
         <section className="py-16 bg-background" id="deep-dive">
           <div className="container max-w-3xl">
-            {copySections.map((s) => (
-              <article key={s.id} id={s.id} className="mb-10">
-                <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
-                  {s.heading}
-                </h2>
-                {s.paragraphs.map((p, i) => (
-                  <p key={i} className="text-muted-foreground mb-3 leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </article>
+            {copySections.map((s, idx) => (
+              <div key={s.id}>
+                <article id={s.id} className="mb-10">
+                  <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
+                    {s.heading}
+                  </h2>
+                  {s.paragraphs.map((p, i) => (
+                    <p key={i} className="text-muted-foreground mb-3 leading-relaxed">
+                      {p}
+                    </p>
+                  ))}
+                </article>
+                {idx === Math.floor(copySections.length / 3) && (
+                  <figure className="my-10 rounded-2xl overflow-hidden border border-border">
+                    <img
+                      src={crewImg}
+                      alt={`PlowWow crew on a ${city.name} site after an overnight push`}
+                      loading="lazy"
+                      className="w-full h-64 md:h-80 object-cover"
+                    />
+                    <figcaption className="p-4 text-sm text-muted-foreground bg-card">
+                      The {city.name} crew — same faces, every storm.
+                    </figcaption>
+                  </figure>
+                )}
+                {idx === Math.floor((copySections.length * 2) / 3) && (
+                  <figure className="my-10 rounded-2xl overflow-hidden border border-border">
+                    <img
+                      src={walkBehindImg}
+                      alt={`Walk-behind salter treating a ${city.name} walkway`}
+                      loading="lazy"
+                      className="w-full h-56 md:h-72 object-cover"
+                    />
+                    <figcaption className="p-4 text-sm text-muted-foreground bg-card">
+                      Walk-behind salters finish what the trucks can't reach.
+                    </figcaption>
+                  </figure>
+                )}
+              </div>
             ))}
           </div>
         </section>
