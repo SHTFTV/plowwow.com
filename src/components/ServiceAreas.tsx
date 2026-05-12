@@ -58,6 +58,7 @@ const regions: { title: string; cities: CityLink[] }[] = [
 ];
 
 const STORAGE_KEY = "service-areas:query";
+const LAST_CITY_KEY = "service-areas:last-city";
 
 const ServiceAreas = () => {
   const navigate = useNavigate();
