@@ -1090,4 +1090,77 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
     expect(document.querySelector('[role="listbox"]')).toBeNull();
   });
+
+  it("Enter on the focused option selects the city, closes the listbox, and leaves combobox value + aria in a safe state", async () => {
+    // Start on a mid-list saved city so the Enter target is distinct.
+    window.localStorage.setItem(LAST_CITY_KEY, "richmond");
+    renderHarness();
+
+    const richmond = await waitFor(() => {
+      const el = card("richmond");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Type a query so we can verify the input value is preserved post-Enter
+    // (handleKeyDown doesn't clear the query on selection by design).
+    combobox.focus();
+    await act(async () => {
+      fireEvent.change(combobox, { target: { value: "surrey" } });
+    });
+    // Filter narrowed to Surrey only.
+    await waitFor(() => {
+      expect(card("surrey")).not.toBeNull();
+      expect(card("richmond")).toBeNull();
+    });
+    // Active resets to idx 0 of filtered → Surrey.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    const surrey = card("surrey")!;
+    expect(surrey.getAttribute("aria-selected")).toBe("true");
+
+    // Press Enter on the combobox (active option is Surrey via activedescendant).
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "Enter" });
+    });
+
+    // 1) Navigation happened.
+    await waitFor(() => {
+      expect(screen.getByTestId("loc").textContent).toBe("/surrey");
+    });
+
+    // 2) localStorage records the selection.
+    expect(window.localStorage.getItem(LAST_CITY_KEY)).toBe("surrey");
+
+    // 3) Listbox unmounts.
+    await waitFor(() => {
+      expect(card("surrey")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // 4) Focus returned to the combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // 5) Combobox value is preserved (query wasn't cleared by Enter).
+    expect(combobox.value).toBe("surrey");
+
+    // 6) aria-expanded is false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // 7) aria-activedescendant points at a known, valid slug (the selected
+    //    Surrey id from the just-collapsed list) — not undefined, and not a
+    //    removed element from a different filter view.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
+
+    // 8) Re-focusing the combobox must NOT auto-reopen the listbox (the
+    //    Enter handler set the suppression flag).
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
+  });
 });
