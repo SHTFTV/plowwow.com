@@ -43,6 +43,7 @@ export default function Admin() {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [serviceFilter, setServiceFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounced(search, 300);
 
   useEffect(() => {
     let active = true;
