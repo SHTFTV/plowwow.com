@@ -204,6 +204,7 @@ const BlogIndex = () => {
     return Math.min(PAGE_JUMP_SIZE_MAX, Math.max(PAGE_JUMP_SIZE_MIN, n));
   };
   const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
+  const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const initial = parseStoredJumpSize(window.localStorage.getItem(PAGE_JUMP_SIZE_STORAGE_KEY));
