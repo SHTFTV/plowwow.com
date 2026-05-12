@@ -19,6 +19,10 @@ test.describe("App Features — Skip links focus restoration", () => {
     await expect(firstAccordionButton).toBeFocused();
     await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "false");
 
+    // Pressing Enter should expand the first accordion item.
+    await page.keyboard.press("Enter");
+    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
+
     // Pressing Tab should move focus to the second accordion trigger.
     await page.keyboard.press("Tab");
     const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
