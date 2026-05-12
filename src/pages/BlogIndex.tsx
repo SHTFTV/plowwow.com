@@ -180,7 +180,7 @@ const BlogIndex = () => {
                   Try a different keyword, or{" "}
                   <button
                     type="button"
-                    onClick={() => setQuery("")}
+                    onClick={clearQuery}
                     className="text-primary font-semibold hover:underline"
                   >
                     clear the search
