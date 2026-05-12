@@ -321,4 +321,24 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(button).toBeFocused();
     await expect(tip).toBeHidden();
   });
+
+  test("Right-clicking outside the tooltip closes it and restores focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+    await assertTooltipOpen(page);
+
+    // Suppress the native context menu so it doesn't intercept focus.
+    await page.evaluate(() => {
+      window.addEventListener("contextmenu", (e) => e.preventDefault(), { once: true });
+    });
+
+    // Right-click far away from the tooltip.
+    await page.mouse.click(5, 5, { button: "right" });
+
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
+  });
 });
