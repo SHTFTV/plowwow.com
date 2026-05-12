@@ -10,6 +10,8 @@ export type City = {
   snowfall: { month: string; cm: number }[];
   neighborhoods: { name: string; note: string }[];
   faqs: CityFAQ[];
+  // City hall coordinates — used for the on-page service map.
+  cityHall: { lat: number; lon: number; address?: string };
   // Quick stats shown in hero badges
   badges?: string[];
   // City-specific Open Graph / Twitter card image
