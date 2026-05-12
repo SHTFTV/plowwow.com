@@ -303,7 +303,8 @@ const ServiceAreas = () => {
                   })}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
