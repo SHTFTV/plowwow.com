@@ -334,6 +334,33 @@ const AppFeatures = () => {
 
         <Pricing />
 
+        {/* FAQ */}
+        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background">
+          <div className="container max-w-3xl">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
+                Snow Removal Software FAQ
+              </p>
+              <h2 id="faq-heading" className="font-display text-3xl md:text-5xl font-extrabold mt-3">
+                Questions contractors ask about{" "}
+                <span className="text-intel-blue">snow removal software.</span>
+              </h2>
+            </div>
+            <dl className="space-y-8">
+              {faqs.map(({ q, a }) => (
+                <div key={q} className="rounded-2xl border border-border bg-card p-6 md:p-8">
+                  <dt>
+                    <h3 className="font-display text-xl font-bold">{q}</h3>
+                  </dt>
+                  <dd className="font-tech text-muted-foreground text-base mt-3 leading-relaxed">
+                    {a}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
         {/* CTA */}
         <section
           aria-labelledby="app-cta-heading"
