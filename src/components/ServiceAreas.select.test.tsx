@@ -1025,4 +1025,69 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("true");
     expect(document.querySelector('[role="listbox"]')).not.toBeNull();
   });
+
+  it("Escape from a mid-list arrow-navigated option closes the listbox, returns focus to the combobox, and leaves aria-expanded/aria-activedescendant in a safe state", async () => {
+    // Start at a mid-list saved city so the arrow walk is unambiguous.
+    window.localStorage.setItem(LAST_CITY_KEY, "richmond");
+    renderHarness();
+
+    const richmond = await waitFor(() => {
+      const el = card("richmond");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-richmond");
+
+    // Arrow further into the middle of the list (Richmond → New West → Surrey).
+    await act(async () => {
+      fireEvent.keyDown(richmond, { key: "ArrowDown" });
+    });
+    await act(async () => {
+      fireEvent.keyDown(card("new-westminster")!, { key: "ArrowDown" });
+    });
+    const surrey = await waitFor(() => {
+      const el = card("surrey");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
+    expect(surrey.getAttribute("aria-selected")).toBe("true");
+
+    // Press Escape on the mid-list option.
+    await act(async () => {
+      fireEvent.keyDown(surrey, { key: "Escape" });
+    });
+
+    // Listbox unmounts.
+    await waitFor(() => {
+      expect(card("surrey")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // Focus returned to the combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-expanded flipped to false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // aria-activedescendant is no longer the stale Surrey id — the Escape
+    // handler resets activeIndex to 0, so it points at the first option's id.
+    // The critical guarantee is that it isn't pointing at a removed element
+    // (Surrey is gone) and isn't empty.
+    const ad = combobox.getAttribute("aria-activedescendant");
+    expect(ad).toBe("city-opt-vancouver");
+    expect(ad).not.toBe("city-opt-surrey");
+
+    // Re-focusing the combobox must not auto-reopen or corrupt the attribute.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+  });
 });
