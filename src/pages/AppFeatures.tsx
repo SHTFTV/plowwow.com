@@ -240,7 +240,7 @@ const AppFeatures = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="page-top">
         {/* Skip to FAQ — first focusable element for keyboard users */}
         <a
           href="#faq"
@@ -375,6 +375,14 @@ const AppFeatures = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+
+            {/* Back to top — appears on focus for keyboard users */}
+            <a
+              href="#page-top"
+              className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:right-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
+            >
+              Back to top
+            </a>
           </div>
         </section>
 
