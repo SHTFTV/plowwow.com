@@ -106,6 +106,30 @@ const SeoReport = () => {
     }
   };
 
+  const handleExportCsv = () => {
+    const header = ["City", "Slug", "Path", "Canonical URL", "og:url", "Match"];
+    const escape = (v: string) => {
+      const s = String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const lines = [
+      header.join(","),
+      ...visibleRows.map((r) =>
+        [r.city, r.slug, r.path, r.canonical, r.ogUrl, r.match].map(escape).join(","),
+      ),
+    ];
+    const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `city-seo-report-${stamp}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   useEffect(() => {
     document.title = "City SEO Report — Canonical vs og:url";
     const meta = document.querySelector('meta[name="robots"]') ?? (() => {
@@ -131,6 +155,13 @@ const SeoReport = () => {
       <div className="flex flex-wrap items-center gap-4 mb-6">
         <Button onClick={handleDownload} disabled={downloading}>
           {downloading ? "Generating…" : "Download XLSX"}
+        </Button>
+        <Button
+          variant="outline"
+          onClick={handleExportCsv}
+          disabled={visibleRows.length === 0}
+        >
+          Export CSV ({visibleRows.length})
         </Button>
         <Button
           variant={onlyMismatches ? "default" : "outline"}
