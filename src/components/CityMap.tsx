@@ -19,8 +19,7 @@ const CityMap = ({ cityName, province, cityHall }: CityMapProps) => {
   // location index URL fails to resolve a station (404 / blank), so we always
   // expose an Open-Meteo fallback that works from raw lat/lon with no API key.
   const weatherUrl = `https://weather.gc.ca/en/location/index.html?coords=${lat},${lon}`;
-  const fallbackWeatherUrl = `https://open-meteo.com/en/docs?latitude=${lat}&longitude=${lon}#forecast_days=7`;
-  const fallbackWeatherForecastUrl = `https://www.meteoblue.com/en/weather/week/${lat}N${lon}E`;
+  const fallbackWeatherUrl = `https://open-meteo.com/en/docs?latitude=${lat}&longitude=${lon}&forecast_days=7`;
 
   return (
     <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
