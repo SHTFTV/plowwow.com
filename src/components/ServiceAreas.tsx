@@ -198,7 +198,7 @@ const ServiceAreas = () => {
   }
 
   return (
-    <section id="service-areas" className="py-20 bg-section-alt">
+    <section ref={sectionRef} id="service-areas" className="py-20 bg-section-alt">
       <div className="container">
         <h2 className="text-3xl md:text-4xl text-center mb-4 text-foreground">
           City Snow Removal Pages
