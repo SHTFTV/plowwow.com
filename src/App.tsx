@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/intelligence" element={<Intelligence />} />
+          <Route path="/advanced-technology" element={<AppFeatures />} />
           <Route path="/app-features" element={<AppFeatures />} />
           {legacyPageSlugs.map((slug) => (
             <Route
