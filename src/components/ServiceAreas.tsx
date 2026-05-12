@@ -237,15 +237,22 @@ const ServiceAreas = () => {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="text-center text-muted-foreground py-10">
+          <p role="status" aria-live="polite" className="text-center text-muted-foreground py-10">
             No cities match "{query}". Try a different name.
           </p>
         ) : (
-          <div id="city-results" role="listbox" aria-label="City results" className="space-y-12">
-            {filtered.map((region) => (
-              <div key={region.title}>
-                <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-5 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-primary" />
+          <div
+            id="city-results"
+            role="listbox"
+            aria-label={`City snow removal pages${q ? ` filtered by ${query}` : ""}`}
+            className="space-y-12"
+          >
+            {filtered.map((region) => {
+              const headingId = `region-${region.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+              return (
+              <div key={region.title} role="group" aria-labelledby={headingId}>
+                <h3 id={headingId} className="text-xl md:text-2xl font-heading font-bold text-foreground mb-5 flex items-center gap-2">
+                  <MapPin aria-hidden="true" className="w-5 h-5 text-primary" />
                   {region.title}
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
