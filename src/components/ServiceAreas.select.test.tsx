@@ -1854,4 +1854,49 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("true");
     expect(document.querySelector('[role="listbox"]')).not.toBeNull();
   });
+
+  it("Home from a mid-list focused option moves focus to the first option and updates aria-selected and aria-activedescendant", async () => {
+    // Mount restore on Burnaby (mid-list) so Home has somewhere to travel from.
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    renderHarness();
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(burnaby.getAttribute("aria-selected")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-burnaby",
+    );
+
+    // Press Home — must jump to the very first option (Vancouver).
+    await act(async () => {
+      fireEvent.keyDown(burnaby, { key: "Home" });
+    });
+
+    const vancouver = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // aria-selected moved with focus to the first option; previous active
+    // is no longer selected.
+    expect(vancouver.getAttribute("aria-selected")).toBe("true");
+    expect(burnaby.getAttribute("aria-selected")).toBe("false");
+
+    // aria-activedescendant on the combobox tracks the new first option.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-vancouver",
+    );
+
+    // Listbox stays open through the Home jump.
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+  });
 });
