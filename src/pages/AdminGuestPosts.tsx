@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, RefreshCw, ArrowLeft, Eye } from "lucide-react";
+import { LogOut, RefreshCw, ArrowLeft, Eye, X } from "lucide-react";
 
 type Submission = Tables<"guest_post_submissions">;
 
@@ -251,6 +251,14 @@ export default function AdminGuestPosts() {
             </p>
           </div>
           <div className="flex gap-2">
+            {(statusFilter !== "all" || search || page > 1) && (
+              <Button
+                variant="outline"
+                onClick={() => updateParams({ status: null, q: null, page: null })}
+              >
+                <X className="h-4 w-4" /> Clear filters
+              </Button>
+            )}
             <Button variant="outline" onClick={refresh} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
             </Button>
