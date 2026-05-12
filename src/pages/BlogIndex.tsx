@@ -24,6 +24,7 @@ const PAGE_SIZE = 8;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
 
   const query = (searchParams.get("q") ?? "").trim();
