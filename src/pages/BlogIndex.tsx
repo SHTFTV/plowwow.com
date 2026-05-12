@@ -20,6 +20,43 @@ const titleFor = (slug: string) => {
   return (m?.[1] ?? slug).replace(/\s*\|\s*PlowWow.*$/i, "").trim();
 };
 
+// Strip Jina header + markdown noise to get a short plain-text summary.
+const summaryFor = (slug: string) => {
+  const path = Object.keys(blogFiles).find((p) => p.endsWith(`/${slug}.md`));
+  if (!path) return "";
+  const raw = blogFiles[path];
+  const bodyMatch = raw.match(/Markdown Content:\s*\n([\s\S]*)$/);
+  const body = (bodyMatch?.[1] ?? raw)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ") // images
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1") // links → text
+    .replace(/[#>*_`>]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return body.slice(0, 200) + (body.length > 200 ? "…" : "");
+};
+
+// Wrap query matches in <mark> for visible highlighting. Case-insensitive,
+// safe against regex injection by escaping the needle.
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const highlight = (text: string, query: string) => {
+  if (!query) return text;
+  const re = new RegExp(`(${escapeRegex(query)})`, "ig");
+  const parts = text.split(re);
+  // String.split with a capture group yields [pre, match, pre, match, ...]
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <mark
+        key={i}
+        className="bg-secondary/40 text-foreground rounded px-0.5"
+      >
+        {part}
+      </mark>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+};
+
 const PAGE_SIZE = 8;
 
 const BlogIndex = () => {
@@ -248,10 +285,13 @@ const BlogIndex = () => {
                     className="group block rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-md transition-all"
                   >
                   <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
-                    {titleFor(slug)}
+                    {highlight(titleFor(slug), query)}
                   </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    /{slug} →
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
+                    {highlight(summaryFor(slug), query)}
+                  </p>
+                  <p className="mt-2 text-xs text-muted-foreground/80">
+                    {highlight(`/${slug}`, query)} →
                   </p>
                 </Link>
               ))}
