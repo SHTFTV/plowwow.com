@@ -1163,4 +1163,80 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
   });
+
+  it("clicking the focused option selects the city, closes the listbox, updates combobox aria, and leaves aria-activedescendant in a safe state", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "richmond");
+    renderHarness();
+
+    const richmond = await waitFor(() => {
+      const el = card("richmond");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Type a query so we can assert the input value survives a click select.
+    combobox.focus();
+    await act(async () => {
+      fireEvent.change(combobox, { target: { value: "burna" } });
+    });
+    await waitFor(() => {
+      expect(card("burnaby")).not.toBeNull();
+      expect(card("richmond")).toBeNull();
+    });
+
+    // Move focus + active to Burnaby (it's idx 0 of the filtered list).
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    const burnaby = card("burnaby")!;
+    expect(burnaby.getAttribute("aria-selected")).toBe("true");
+    burnaby.focus();
+    expect(document.activeElement).toBe(burnaby);
+
+    // Click the focused option.
+    await act(async () => {
+      fireEvent.click(burnaby);
+    });
+
+    // 1) Navigation happened (React Router Link).
+    await waitFor(() => {
+      expect(screen.getByTestId("loc").textContent).toBe("/burnaby");
+    });
+
+    // 2) localStorage records the selection.
+    expect(window.localStorage.getItem(LAST_CITY_KEY)).toBe("burnaby");
+
+    // 3) Listbox unmounts.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // 4) Combobox value is preserved (click select doesn't clear the query).
+    expect(combobox.value).toBe("burna");
+
+    // 5) aria-expanded flipped to false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // 6) aria-activedescendant points at the just-selected slug — a known,
+    //    stable id, not undefined and not pointing at a stale filtered-out
+    //    option from a previous view.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+
+    // 7) Re-focusing the combobox (e.g. user clicks back into search) is
+    //    allowed to reopen the listbox — click-select doesn't set the
+    //    suppression flag — but aria-activedescendant must remain valid
+    //    once the list is back, pointing at the same slug.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    // Listbox reopened on focus (query "burna" still narrows to Burnaby).
+    await waitFor(() => {
+      expect(card("burnaby")).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    });
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    expect(card("burnaby")!.getAttribute("aria-selected")).toBe("true");
+  });
 });
