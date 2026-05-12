@@ -1680,4 +1680,77 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterEnter);
   });
+
+  it("Shift+Tab after Enter-selecting a city moves focus to the previous tabbable, keeps aria-expanded false, and preserves aria-activedescendant", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <button data-testid="prev-tabbable" type="button">
+                  prev
+                </button>
+                <ServiceAreas />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    // Mount restore lands on Vancouver.
+    const vancouver = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // Press Enter on the focus-held option — selects Vancouver.
+    await act(async () => {
+      fireEvent.keyDown(vancouver, { key: "Enter" });
+    });
+
+    // Navigation took effect and listbox closed.
+    await waitFor(() => {
+      expect(screen.getByTestId("loc").textContent).toBe("/vancouver");
+      expect(card("vancouver")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(document.activeElement).toBe(combobox);
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Snapshot aria-activedescendant immediately after selection — Shift+Tab
+    // must not mutate it.
+    const adAfterEnter = combobox.getAttribute("aria-activedescendant");
+    expect(adAfterEnter).toBe("city-opt-vancouver");
+
+    // Press Shift+Tab on the combobox. The listbox stays closed and
+    // aria-expanded does NOT flip back to true.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "Tab", shiftKey: true });
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterEnter);
+
+    // Advance focus backward to the previous tabbable (jsdom doesn't move
+    // focus on Tab by itself; we mimic the browser's default action).
+    const prevBtn = screen.getByTestId("prev-tabbable") as HTMLButtonElement;
+    await act(async () => {
+      prevBtn.focus();
+    });
+    expect(document.activeElement).toBe(prevBtn);
+
+    // Dropdown state stays clean after focus left the combobox backward.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterEnter);
+  });
 });
