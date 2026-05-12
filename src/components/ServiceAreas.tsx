@@ -217,6 +217,11 @@ const ServiceAreas = () => {
       if (target) {
         setCollapsed(true);
         userInteractedRef.current = false;
+        try {
+          window.localStorage.setItem(LAST_CITY_KEY, target.slug);
+        } catch {
+          /* ignore */
+        }
         navigate(`/${target.slug}`);
       }
     } else if (e.key === "Escape") {
