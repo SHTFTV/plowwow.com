@@ -40,6 +40,12 @@ const SD41AlertsCard = () => {
     return matches ? matches.length : 0;
   };
 
+  const getMatches = (text: string, q: string): string[] => {
+    if (!q.trim()) return [];
+    const matches = text.match(new RegExp(escapeRegex(q.trim()), "gi"));
+    return matches ? [...new Set(matches)] : [];
+  };
+
   const HighlightedText = ({ text, query: q }: { text: string; query: string }) => {
     if (!q.trim()) return <>{text}</>;
     const parts = text.split(new RegExp(`(${escapeRegex(q.trim())})`, "gi"));
