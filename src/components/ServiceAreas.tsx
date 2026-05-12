@@ -171,7 +171,10 @@ const ServiceAreas = () => {
               id="city-search"
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                userInteractedRef.current = false;
+                setQuery(e.target.value);
+              }}
               onKeyDown={handleKeyDown}
               placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
