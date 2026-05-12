@@ -231,4 +231,42 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     );
     await expect(page.locator("#page-jump-tip")).toBeHidden();
   });
+
+  test("Space while focus is inside the tooltip keeps it open; Escape then restores focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+
+    // Focus trap moves focus to the tooltip body on Tab from the ? button.
+    await button.focus();
+    await page.keyboard.press("Tab");
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+    await assertTooltipOpen(page);
+
+    // Pressing Space inside the tooltip must not close it or move focus away.
+    await page.keyboard.press("Space");
+    await assertTooltipOpen(page);
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+
+    // A second Space — still no-op, still open, still focused inside.
+    await page.keyboard.press("Space");
+    await assertTooltipOpen(page);
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+
+    // The page must not have scrolled away from the tooltip as a side effect of Space.
+    await expect(tip).toBeInViewport();
+
+    // Escape from inside the tooltip must close it and restore focus to ?.
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
+  });
 });
