@@ -79,10 +79,13 @@ const highlight = (text: string, query: string) => {
 };
 
 const PAGE_SIZE = 8;
-// Pixels of viewport padding considered "out of view" for the active-card
-// scroll trigger. Cards within this margin of either viewport edge will be
-// scrolled into view. Bumped up to clear the sticky TopBar/Navbar at the top.
-const SCROLL_VIEWPORT_PADDING = 96;
+// Default pixels of viewport padding considered "out of view" for the
+// active-card scroll trigger. User-adjustable via the settings control below
+// and persisted to localStorage.
+const SCROLL_PADDING_DEFAULT = 96;
+const SCROLL_PADDING_MIN = 0;
+const SCROLL_PADDING_MAX = 400;
+const SCROLL_PADDING_STORAGE_KEY = "blog:scrollViewportPadding";
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
