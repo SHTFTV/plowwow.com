@@ -269,4 +269,36 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(button).toBeFocused();
     await expect(tip).toBeHidden();
   });
+
+  test("Arrow keys inside the tooltip keep it open; Escape then restores focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+
+    // Focus trap moves focus to the tooltip body on Tab from the ? button.
+    await button.focus();
+    await page.keyboard.press("Tab");
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+    await assertTooltipOpen(page);
+
+    const arrows = ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"] as const;
+    for (const key of arrows) {
+      await page.keyboard.press(key);
+      await assertTooltipOpen(page);
+      await expect.poll(() =>
+        page.evaluate(() => document.activeElement?.id ?? null),
+      ).toBe(`page-jump-tip after ${key}` && "page-jump-tip");
+      // Tooltip must remain in viewport (no stray arrow-key scroll moved it away).
+      await expect(tip).toBeInViewport();
+    }
+
+    // Escape from inside the tooltip must close it and restore focus to ?.
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
+  });
 });
