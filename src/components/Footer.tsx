@@ -6,7 +6,10 @@ const Footer = () => (
     <div className="container">
       <div className="grid md:grid-cols-4 gap-10">
         <div>
-          <img src={logoMascot} alt="PlowWow snow removal company logo and mascot" width={80} height={80} className="mb-4" />
+          <figure className="mb-4">
+            <img src={logoMascot} alt="PlowWow snow removal company logo and mascot" width={80} height={80} />
+            <figcaption className="sr-only">PlowWow — Professional snow removal serving Vancouver and Greater British Columbia</figcaption>
+          </figure>
           <p className="text-sm opacity-80">
             We Put The Wow in Plow. Professional snow removal across Vancouver & Greater British Columbia.
           </p>
