@@ -3,7 +3,7 @@ import heroBanner from "@/assets/plowwow-banner.png";
 
 const Hero = () => (
   <section className="relative isolate overflow-hidden bg-[#0d2a4a]">
-    <figure className="contents">
+    <figure className="absolute inset-0 m-0">
       <img
         src={heroBanner}
         alt="PlowWow snow removal mascot driving a blue snow plow truck — professional winter services across Vancouver and the Lower Mainland BC"
@@ -11,15 +11,21 @@ const Hero = () => (
         height={640}
         className="absolute inset-0 w-full h-full object-cover"
       />
+      {/* Decorative contrast overlays — darker on the left where text sits, fading right */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-[#0d2a4a]/85 via-[#0d2a4a]/55 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-[#0d2a4a]/70 via-transparent to-transparent"
+      />
       <figcaption className="sr-only">
         PlowWow's friendly mascot at the wheel of a snow plow, ready for 24/7 residential
         and commercial snow removal, salting, and de-icing across Vancouver, the North Shore,
         Tri-Cities, Fraser Valley, and the rest of the Lower Mainland of British Columbia.
       </figcaption>
     </figure>
-    {/* Contrast overlay: darker on the left where text sits, fading right */}
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0d2a4a]/85 via-[#0d2a4a]/55 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-t from-[#0d2a4a]/70 via-transparent to-transparent" />
 
     <div className="container relative z-10 py-20 md:py-28 lg:py-36">
       <div className="max-w-2xl text-primary-foreground">
