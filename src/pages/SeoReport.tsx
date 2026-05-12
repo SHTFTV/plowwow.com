@@ -304,6 +304,13 @@ const SeoReport = () => {
           Export filtered XLSX ({visibleRows.length})
         </Button>
         <Button
+          variant="outline"
+          onClick={handleExportExcelJs}
+          disabled={visibleRows.length === 0}
+        >
+          Export styled XLSX ({visibleRows.length})
+        </Button>
+        <Button
           variant={onlyMismatches ? "default" : "outline"}
           onClick={() => setOnlyMismatches((v) => !v)}
         >
