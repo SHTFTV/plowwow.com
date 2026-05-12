@@ -340,18 +340,7 @@ const BlogIndex = () => {
     if (current !== next) window.localStorage.setItem(ACTIVE_SLUG_STORAGE_KEY, next);
   }, [activeIndex, visible, query, page]);
 
-  // Persist the active slug across tabs. Skip the write if the value already
-  // matches what's in storage to avoid spurious storage events / loops.
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const slug = activeIndex >= 0 ? visible[activeIndex] ?? null : null;
-    const current = window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY);
-    if (slug == null) {
-      if (current !== null) window.localStorage.removeItem(ACTIVE_SLUG_STORAGE_KEY);
-    } else if (current !== slug) {
-      window.localStorage.setItem(ACTIVE_SLUG_STORAGE_KEY, slug);
-    }
-  }, [activeIndex, visible]);
+
 
   // Scroll the active card into view, but only when (a) the selected slug
   // actually changes and (b) the card is not already fully visible in the
