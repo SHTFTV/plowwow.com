@@ -648,7 +648,11 @@ const BlogIndex = () => {
                         onMouseEnter={() => setPageJumpTipOpen(true)}
                         onMouseLeave={() => setPageJumpTipOpen(false)}
                         onFocus={() => setPageJumpTipOpen(true)}
-                        onBlur={() => setPageJumpTipOpen(false)}
+                        onBlur={(e) => {
+                          const next = e.relatedTarget as Node | null;
+                          if (next && pageJumpTipRef.current?.contains(next)) return;
+                          setPageJumpTipOpen(false);
+                        }}
                         onClick={() => setPageJumpTipOpen((v) => !v)}
                         onKeyDown={(e) => {
                           if (e.key === "Escape" && pageJumpTipOpen) {
