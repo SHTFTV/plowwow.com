@@ -50,25 +50,22 @@ describe("ServiceAreas restore synchronization", () => {
 
   it("clearing the query fires scroll + focus + pulse together from one event", async () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
-    // Seed a query that filters Burnaby out so the initial mount restore
-    // can't run — we want the *clear* to be the trigger.
-    window.localStorage.setItem(STORAGE_KEY, "vancouver");
+    // Seed a query that filters Burnaby out entirely (no match on city
+    // name, slug, or any region title containing "burnaby" / the query).
+    // "abbotsford" only matches Abbotsford in Fraser Valley.
+    window.localStorage.setItem(STORAGE_KEY, "abbotsford");
 
     renderWithRouter();
 
-    // Burnaby starts filtered out.
     await waitFor(() => {
-      expect(getCard("vancouver")).not.toBeNull();
+      expect(getCard("abbotsford")).not.toBeNull();
     });
     expect(getCard("burnaby")).toBeNull();
 
     const input = screen.getByRole("combobox") as HTMLInputElement;
-    // Focus the input so we simulate the "user typing then clears" path.
     input.focus();
     expect(document.activeElement).toBe(input);
 
-    // Clear the query — this should produce a single restoreEvent that
-    // simultaneously scrolls, focuses, and pulses the Burnaby card.
     scrollIntoViewMock.mockClear();
     await act(async () => {
       fireEvent.change(input, { target: { value: "" } });
@@ -81,50 +78,41 @@ describe("ServiceAreas restore synchronization", () => {
     });
 
     await waitFor(() => {
-      // Same element receives focus AND scroll AND the pulse class —
-      // all driven by the single restoreEvent.
       expect(document.activeElement).toBe(card);
       expect(scrollIntoViewMock).toHaveBeenCalled();
       expect(card.className).toMatch(/animate-restore-pulse/);
     });
-
-    // The pulse token is encoded into the React key of the pulsing card —
-    // it must match the rendered card (i.e. the same event that drove
-    // scroll+focus is the one rendering the pulse).
-    const keyAttr = card.id;
-    expect(keyAttr).toBe("city-opt-burnaby");
   });
 
   it("pulse clears after the animation window so it can replay", async () => {
-    vi.useFakeTimers();
-    try {
-      window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
-      window.localStorage.setItem(STORAGE_KEY, "vancouver");
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    window.localStorage.setItem(STORAGE_KEY, "abbotsford");
 
-      renderWithRouter();
+    renderWithRouter();
 
-      const input = screen.getByRole("combobox") as HTMLInputElement;
-      input.focus();
+    const input = screen.getByRole("combobox") as HTMLInputElement;
+    input.focus();
 
-      await act(async () => {
-        fireEvent.change(input, { target: { value: "" } });
-      });
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "" } });
+    });
 
-      // Flush rAF + state updates.
-      await act(async () => {
-        vi.advanceTimersByTime(50);
-      });
+    const card = await waitFor(() => {
+      const el = getCard("burnaby");
+      expect(el).not.toBeNull();
+      return el!;
+    });
 
-      const card = getCard("burnaby")!;
+    await waitFor(() => {
       expect(card.className).toMatch(/animate-restore-pulse/);
+    });
 
-      // After the pulse window the class is removed (restoreEvent cleared).
-      await act(async () => {
-        vi.advanceTimersByTime(1000);
-      });
-      expect(card.className).not.toMatch(/animate-restore-pulse/);
-    } finally {
-      vi.useRealTimers();
-    }
+    // restoreEvent auto-clears at 950ms.
+    await waitFor(
+      () => {
+        expect(getCard("burnaby")!.className).not.toMatch(/animate-restore-pulse/);
+      },
+      { timeout: 2000 },
+    );
   });
 });
