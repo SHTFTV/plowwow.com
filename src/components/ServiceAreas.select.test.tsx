@@ -1399,4 +1399,78 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("false");
     expect(document.querySelector('[role="listbox"]')).toBeNull();
   });
+
+  it("Escape after an outside-click keeps the listbox closed, keeps focus on the combobox, and doesn't flip aria-expanded", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <ServiceAreas />
+                <div data-testid="outside-region">
+                  <p>Outside the section</p>
+                </div>
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    // Mount restore: listbox open, focus on Burnaby card.
+    await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // Outside-click → listbox closes, focus returns to combobox.
+    await act(async () => {
+      fireEvent.mouseDown(screen.getByTestId("outside-region"));
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+      expect(document.activeElement).toBe(combobox);
+    });
+
+    const adBeforeEscape = combobox.getAttribute("aria-activedescendant");
+    expect(adBeforeEscape).toBe("city-opt-vancouver");
+    const valueBeforeEscape = combobox.value;
+    expect(valueBeforeEscape).toBe("");
+
+    // Press Escape on the (already focused) combobox.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "Escape" });
+    });
+
+    // Listbox must stay closed; aria-expanded must NOT flip back to true.
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Focus stays on the combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-activedescendant remains a valid, known slug (Escape resets the
+    // active index to 0, which still points at Vancouver here).
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adBeforeEscape);
+
+    // Query stays cleared.
+    expect(combobox.value).toBe("");
+
+    // Re-firing focus on the combobox still doesn't reopen the listbox.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adBeforeEscape);
+  });
 });
