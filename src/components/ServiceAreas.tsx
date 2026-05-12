@@ -81,9 +81,18 @@ const ServiceAreas = () => {
   const [query, setQuery] = useState(initialQuery);
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
-  // Bumped each time we want to replay the "restored" pulse on the active card.
-  const [pulseToken, setPulseToken] = useState(0);
-  const [pulseIndex, setPulseIndex] = useState<number | null>(null);
+  // Single source of truth for "restore the saved city" events. Scroll,
+  // focus, and the pulse animation all read from this one object so they
+  // can never desync. `token` bumps for every new restore so duplicate
+  // restorations to the same index still re-fire the effects.
+  type RestoreEvent = {
+    idx: number;
+    token: number;
+    pulse: boolean;
+    center: boolean;
+    focus: boolean;
+  };
+  const [restoreEvent, setRestoreEvent] = useState<RestoreEvent | null>(null);
 
   // Sync query → URL search param (replace, no history spam) + localStorage.
   useEffect(() => {
@@ -158,10 +167,12 @@ const ServiceAreas = () => {
     prevQRef.current = q;
   }, [q]);
 
-  // Restore the last-selected city. Runs on mount AND every time the
-  // filtered list changes, so as the user narrows / clears the search,
-  // the saved city re-activates whenever it reappears in the results.
+  // Build a single "restore" event whenever the filtered list changes and
+  // the saved city is present. This effect ONLY decides what should happen
+  // — it does not touch the DOM. A second effect below consumes the event
+  // so scroll, focus, and pulse all fire from the same trigger.
   const hasMountedRef = useRef(false);
+  const restoreTokenRef = useRef(0);
   useEffect(() => {
     if (flatCities.length === 0) return;
 
@@ -177,39 +188,27 @@ const ServiceAreas = () => {
     }
 
     const idx = flatCities.findIndex((c) => c.slug === savedSlug);
-    if (idx < 0) {
-      // Saved slug is filtered out right now; do nothing and wait for the
-      // next filter change.
-      return;
-    }
+    if (idx < 0) return; // saved slug filtered out; wait for next change.
 
-    // Always re-align activeIndex to the saved slug so the highlight follows
-    // it across filter changes.
+    // Always re-align highlight to the saved slug.
     setActiveIndex(idx);
 
-    // Don't steal focus while the user is actively typing in the search box,
-    // UNLESS we just cleared the query (forceRestore) — then we move focus
-    // to the restored card.
     const typingInSearch =
       typeof document !== "undefined" && document.activeElement === inputRef.current;
-    const shouldFocus = forceRestoreRef.current || !typingInSearch;
+    const forced = forceRestoreRef.current;
+    const shouldFocus = forced || !typingInSearch;
 
     if (shouldFocus) {
       userInteractedRef.current = true;
-      const useCenter = !hasMountedRef.current || forceRestoreRef.current;
-      const shouldPulse = forceRestoreRef.current && hasMountedRef.current;
-      requestAnimationFrame(() => {
-        const el = cardRefs.current[idx];
-        if (!el) return;
-        el.scrollIntoView({
-          block: useCenter ? "center" : "nearest",
-          behavior: "smooth",
-        });
-        el.focus({ preventScroll: true });
-        if (shouldPulse) {
-          setPulseIndex(idx);
-          setPulseToken((t) => t + 1);
-        }
+      restoreTokenRef.current += 1;
+      setRestoreEvent({
+        idx,
+        token: restoreTokenRef.current,
+        // Pulse only on user-initiated restores (clearing the input), never
+        // on the initial mount restore.
+        pulse: forced && hasMountedRef.current,
+        center: !hasMountedRef.current || forced,
+        focus: true,
       });
     }
 
@@ -217,12 +216,29 @@ const ServiceAreas = () => {
     hasMountedRef.current = true;
   }, [flatCities]);
 
-  // Clear the pulse marker after the animation finishes so it can replay later.
+  // Single consumer of restoreEvent: performs scroll + focus + pulse start
+  // atomically in one rAF tick so they can never be out of sync.
   useEffect(() => {
-    if (pulseIndex === null) return;
-    const t = window.setTimeout(() => setPulseIndex(null), 950);
+    if (!restoreEvent) return;
+    const { idx, center, focus } = restoreEvent;
+    const raf = requestAnimationFrame(() => {
+      const el = cardRefs.current[idx];
+      if (!el) return;
+      el.scrollIntoView({
+        block: center ? "center" : "nearest",
+        behavior: "smooth",
+      });
+      if (focus) el.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [restoreEvent]);
+
+  // Auto-clear the restore event after the pulse duration so it can replay.
+  useEffect(() => {
+    if (!restoreEvent) return;
+    const t = window.setTimeout(() => setRestoreEvent(null), 950);
     return () => window.clearTimeout(t);
-  }, [pulseToken, pulseIndex]);
+  }, [restoreEvent]);
 
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
@@ -441,10 +457,11 @@ const ServiceAreas = () => {
                     flatIdx += 1;
                     const isActive = flatIdx === activeIndex;
                     const myIdx = flatIdx;
-                    const isPulsing = pulseIndex === myIdx;
+                    const isPulsing =
+                      !!restoreEvent && restoreEvent.pulse && restoreEvent.idx === flatIdx;
                     return (
                       <Link
-                        key={`${city.slug}${isPulsing ? `-pulse-${pulseToken}` : ""}`}
+                        key={`${city.slug}${isPulsing ? `-pulse-${restoreEvent!.token}` : ""}`}
                         id={`city-opt-${city.slug}`}
                         ref={(el) => {
                           cardRefs.current[myIdx] = el;
