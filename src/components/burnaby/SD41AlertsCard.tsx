@@ -343,9 +343,9 @@ const SD41AlertsCard = () => {
                         <input
                           autoFocus
                           type="text"
+                          maxLength={60}
                           value={renameValue}
                           onChange={(e) => setRenameValue(e.target.value)}
-                          onBlur={commitRename}
                           onKeyDown={(e) => {
                             if (e.key === "Enter") commitRename();
                             if (e.key === "Escape") cancelRename();
