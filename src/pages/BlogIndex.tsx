@@ -88,6 +88,10 @@ const SCROLL_PADDING_MAX = 400;
 const SCROLL_PADDING_STORAGE_KEY = "blog:scrollViewportPadding";
 const SMOOTH_SCROLL_STORAGE_KEY = "blog:smoothAutoScroll";
 const ACTIVE_SLUG_STORAGE_KEY = "blog:activeSlug";
+const PAGE_JUMP_SIZE_STORAGE_KEY = "blog:pageJumpSize";
+const PAGE_JUMP_SIZE_DEFAULT = 5;
+const PAGE_JUMP_SIZE_MIN = 2;
+const PAGE_JUMP_SIZE_MAX = 20;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
