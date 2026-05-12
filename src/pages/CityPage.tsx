@@ -59,8 +59,10 @@ const CityPage = () => {
     setProperty("og:title", pageTitle);
     setProperty("og:description", pageDescription);
     setProperty("og:url", url);
+    setProperty("og:image", ogImage);
     setProperty("twitter:title", pageTitle);
     setProperty("twitter:description", pageDescription);
+    setProperty("twitter:image", ogImage);
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
