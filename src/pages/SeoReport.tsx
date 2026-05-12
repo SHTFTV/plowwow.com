@@ -347,6 +347,30 @@ const SeoReport = () => {
         </div>
       </div>
 
+      <div className="mb-6 rounded-md border bg-muted/30 p-3 text-xs">
+        <div className="mb-1 font-medium text-muted-foreground">
+          Download filenames preview
+        </div>
+        <ul className="space-y-1 font-mono">
+          <li>
+            <span className="text-muted-foreground">Full XLSX:</span>{" "}
+            {buildFilename("xlsx")}
+          </li>
+          <li>
+            <span className="text-muted-foreground">Filtered CSV:</span>{" "}
+            {buildFilename("csv", { filtered: true })}
+          </li>
+          <li>
+            <span className="text-muted-foreground">Filtered XLSX:</span>{" "}
+            {buildFilename("xlsx", { filtered: true })}
+          </li>
+          <li>
+            <span className="text-muted-foreground">Styled XLSX:</span>{" "}
+            {buildFilename("xlsx", { filtered: true, styled: true })}
+          </li>
+        </ul>
+      </div>
+
       <div className="rounded-md border">
         <Table>
           <TableHeader>
