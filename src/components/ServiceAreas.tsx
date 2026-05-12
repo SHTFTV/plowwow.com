@@ -172,7 +172,11 @@ const ServiceAreas = () => {
     } else if (e.key === "Enter") {
       e.preventDefault();
       const target = flatCities[activeIndex];
-      if (target) navigate(`/${target.slug}`);
+      if (target) {
+        setCollapsed(true);
+        userInteractedRef.current = false;
+        navigate(`/${target.slug}`);
+      }
     } else if (e.key === "Escape") {
       e.preventDefault();
       userInteractedRef.current = false;
