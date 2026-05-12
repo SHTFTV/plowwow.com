@@ -597,14 +597,47 @@ const BlogIndex = () => {
                 <label htmlFor="page-jump-size" className="mt-2 flex items-center justify-between gap-4">
                   <span>
                     PageUp / PageDown jump size
-                    <span
-                      role="img"
-                      aria-label={`PageUp and PageDown move the active blog selection by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"} at a time (the current jump size). Selection stops at the first and last card without wrapping.`}
-                      title={`PageUp / PageDown shortcuts\n\nPress PageDown to move the active blog selection forward by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"}, and PageUp to move back by the same amount.\n\nThe jump size is the number you set here (currently ${pageJumpSize}). Selection clamps at the first and last visible card — it doesn't wrap around.`}
-                      tabIndex={0}
-                      className="ml-1 inline-flex h-4 w-4 cursor-help items-center justify-center rounded-full border border-border bg-muted text-[10px] font-semibold text-muted-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    >
-                      ?
+                    <span className="relative inline-block align-middle">
+                      <button
+                        type="button"
+                        aria-label={`PageUp and PageDown move the active blog selection by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"} at a time (the current jump size). Selection stops at the first and last card without wrapping.`}
+                        aria-expanded={pageJumpTipOpen}
+                        aria-controls="page-jump-tip"
+                        onMouseEnter={() => setPageJumpTipOpen(true)}
+                        onMouseLeave={() => setPageJumpTipOpen(false)}
+                        onFocus={() => setPageJumpTipOpen(true)}
+                        onBlur={() => setPageJumpTipOpen(false)}
+                        onClick={() => setPageJumpTipOpen((v) => !v)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Escape" && pageJumpTipOpen) {
+                            e.stopPropagation();
+                            setPageJumpTipOpen(false);
+                          } else if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setPageJumpTipOpen((v) => !v);
+                          }
+                        }}
+                        className="ml-1 inline-flex h-4 w-4 cursor-help items-center justify-center rounded-full border border-border bg-muted text-[10px] font-semibold text-muted-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        ?
+                      </button>
+                      {pageJumpTipOpen && (
+                        <span
+                          id="page-jump-tip"
+                          role="tooltip"
+                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md"
+                        >
+                          Press{" "}
+                          <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageDown</kbd>{" "}
+                          /{" "}
+                          <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageUp</kbd>{" "}
+                          to move the active selection by{" "}
+                          <span className="font-semibold text-foreground">
+                            {pageJumpSize} {pageJumpSize === 1 ? "card" : "cards"}
+                          </span>
+                          . Selection stops at the first and last card without wrapping.
+                        </span>
+                      )}
                     </span>
                     <span className="ml-2 text-xs text-muted-foreground/80">
                       (number of cards to skip when pressing PageUp or PageDown)
