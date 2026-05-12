@@ -193,6 +193,33 @@ export default function AdminGuestPosts() {
 
   const refresh = () => { load(); loadCounts(); };
 
+  const hasActiveFilters = statusFilter !== "all" || search !== "" || page > 1;
+  const clearFilters = useCallback(
+    () => updateParams({ status: null, q: null, page: null }),
+    [updateParams],
+  );
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (viewing) return;
+      const t = e.target as HTMLElement | null;
+      const tag = t?.tagName;
+      const isEditable =
+        tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || t?.isContentEditable;
+      // Allow Esc in the search input to clear filters and blur it.
+      if (isEditable && t?.getAttribute("data-shortcut-target") !== "search") return;
+      if (!hasActiveFilters) return;
+      e.preventDefault();
+      clearFilters();
+      (t as HTMLElement | null)?.blur?.();
+      toast({ title: "Filters cleared" });
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isAdmin, viewing, hasActiveFilters, clearFilters]);
+
   const grandTotal = useMemo(
     () => Object.values(counts).reduce((a, b) => a + b, 0),
     [counts],
