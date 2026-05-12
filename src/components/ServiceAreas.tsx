@@ -457,10 +457,11 @@ const ServiceAreas = () => {
                     flatIdx += 1;
                     const isActive = flatIdx === activeIndex;
                     const myIdx = flatIdx;
-                    const isPulsing = pulseIndex === myIdx;
+                    const isPulsing =
+                      !!restoreEvent && restoreEvent.pulse && restoreEvent.idx === flatIdx;
                     return (
                       <Link
-                        key={`${city.slug}${isPulsing ? `-pulse-${pulseToken}` : ""}`}
+                        key={`${city.slug}${isPulsing ? `-pulse-${restoreEvent!.token}` : ""}`}
                         id={`city-opt-${city.slug}`}
                         ref={(el) => {
                           cardRefs.current[myIdx] = el;
