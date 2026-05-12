@@ -203,6 +203,15 @@ export default function AdminGuestPosts() {
   useEffect(() => {
     if (!isAdmin) return;
     const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        const el = searchInputRef.current;
+        if (el) {
+          el.focus();
+          el.select();
+        }
+        return;
+      }
       if (e.key !== "Escape") return;
       if (viewing) return;
       const t = e.target as HTMLElement | null;
