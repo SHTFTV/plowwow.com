@@ -669,26 +669,25 @@ const BlogIndex = () => {
                       >
                         ?
                       </button>
-                      {pageJumpTipOpen && (
-                        <span
-                          id="page-jump-tip"
-                          ref={pageJumpTipContentRef}
-                          role="tooltip"
-                          aria-hidden={!pageJumpTipOpen}
-                          tabIndex={-1}
-                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                        >
-                          Press{" "}
-                          <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageDown</kbd>{" "}
-                          /{" "}
-                          <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageUp</kbd>{" "}
-                          to move the active selection by{" "}
-                          <span className="font-semibold text-foreground">
-                            {pageJumpSize} {pageJumpSize === 1 ? "card" : "cards"}
-                          </span>
-                          . Selection stops at the first and last card without wrapping.
+                      <span
+                        id="page-jump-tip"
+                        ref={pageJumpTipContentRef}
+                        role="tooltip"
+                        aria-hidden={!pageJumpTipOpen}
+                        hidden={!pageJumpTipOpen}
+                        tabIndex={pageJumpTipOpen ? -1 : undefined}
+                        className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        Press{" "}
+                        <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageDown</kbd>{" "}
+                        /{" "}
+                        <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageUp</kbd>{" "}
+                        to move the active selection by{" "}
+                        <span className="font-semibold text-foreground">
+                          {pageJumpSize} {pageJumpSize === 1 ? "card" : "cards"}
                         </span>
-                      )}
+                        . Selection stops at the first and last card without wrapping.
+                      </span>
                     </span>
                     <span className="ml-2 text-xs text-muted-foreground/80">
                       (number of cards to skip when pressing PageUp or PageDown)
