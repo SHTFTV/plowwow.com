@@ -27,6 +27,21 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          {legacyPageSlugs.map((slug) => (
+            <Route
+              key={`page-${slug}`}
+              path={`/${slug}`}
+              element={<LegacyPage kind="page" />}
+            />
+          ))}
+          {legacyBlogSlugs.map((slug) => (
+            <Route
+              key={`blog-${slug}`}
+              path={`/${slug}`}
+              element={<LegacyPage kind="blog" />}
+            />
+          ))}
           <Route path="/:citySlug/*" element={<CityPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
