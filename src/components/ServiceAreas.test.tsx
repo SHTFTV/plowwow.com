@@ -208,4 +208,78 @@ describe("ServiceAreas restore synchronization", () => {
     // from the first (i.e. the consumer effect re-fired with the new token).
     expect(scrollCallsAfter1).toBeGreaterThan(0);
   });
+
+  it("respects prefers-reduced-motion: pulse animation suppressed, scroll+focus still synced", async () => {
+    // Simulate the user having `prefers-reduced-motion: reduce` enabled.
+    const originalMatchMedia = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes("prefers-reduced-motion: reduce"),
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    })) as unknown as typeof window.matchMedia;
+
+    try {
+      window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+      renderWithRouter();
+
+      // Mount restore lands on Burnaby.
+      await waitFor(() => {
+        expect(document.activeElement).toBe(getCard("burnaby"));
+      });
+
+      const input = screen.getByRole("combobox") as HTMLInputElement;
+      input.focus();
+      await act(async () => {
+        fireEvent.change(input, { target: { value: "abbotsford" } });
+      });
+      await waitFor(() => expect(getCard("burnaby")).toBeNull());
+
+      scrollIntoViewMock.mockClear();
+      input.focus();
+      await act(async () => {
+        fireEvent.change(input, { target: { value: "" } });
+      });
+
+      const card = await waitFor(() => {
+        const el = getCard("burnaby");
+        expect(el).not.toBeNull();
+        return el!;
+      });
+
+      // The SAME restoreEvent that would have pulsed must still drive
+      // scroll and focus — only the animation itself is suppressed by CSS.
+      await waitFor(() => {
+        expect(document.activeElement).toBe(card);
+        expect(scrollIntoViewMock).toHaveBeenCalled();
+      });
+
+      // The Tailwind variants are present in the class list: the animation
+      // is gated behind `motion-safe:` (so CSS suppresses it under
+      // prefers-reduced-motion), and the static `motion-reduce:` ring is
+      // the fallback affordance. Both being on the element proves the
+      // suppression mechanism is wired up.
+      expect(card.className).toMatch(/motion-safe:animate-restore-pulse/);
+      expect(card.className).toMatch(/motion-reduce:ring-2/);
+      expect(card.className).toMatch(/motion-reduce:ring-primary\/60/);
+
+      // And — crucially — the pulse "intent" is still tied to the same
+      // restoreEvent: when the event clears, the motion-safe class is
+      // also removed (proving it wasn't a separate, unsynced state).
+      await waitFor(
+        () => {
+          expect(getCard("burnaby")!.className).not.toMatch(
+            /motion-safe:animate-restore-pulse/,
+          );
+        },
+        { timeout: 2000 },
+      );
+    } finally {
+      window.matchMedia = originalMatchMedia;
+    }
+  });
 });
