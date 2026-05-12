@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
+import { Check, Copy } from "lucide-react";
+import { toast } from "@/components/ui/sonner";
 import { cities } from "@/data/cities";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +41,30 @@ const buildRows = (origin: string): Row[] => {
     }
   }
   return rows;
+};
+
+const CopyFilename = ({ value }: { value: string }) => {
+  const [copied, setCopied] = useState(false);
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      toast.success("Filename copied", { description: value });
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.error("Copy failed");
+    }
+  };
+  return (
+    <button
+      type="button"
+      onClick={onCopy}
+      aria-label={`Copy ${value}`}
+      className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
+    >
+      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+    </button>
+  );
 };
 
 const SeoReport = () => {
@@ -352,22 +378,18 @@ const SeoReport = () => {
           Download filenames preview
         </div>
         <ul className="space-y-1 font-mono">
-          <li>
-            <span className="text-muted-foreground">Full XLSX:</span>{" "}
-            {buildFilename("xlsx")}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Filtered CSV:</span>{" "}
-            {buildFilename("csv", { filtered: true })}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Filtered XLSX:</span>{" "}
-            {buildFilename("xlsx", { filtered: true })}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Styled XLSX:</span>{" "}
-            {buildFilename("xlsx", { filtered: true, styled: true })}
-          </li>
+          {([
+            ["Full XLSX", buildFilename("xlsx")],
+            ["Filtered CSV", buildFilename("csv", { filtered: true })],
+            ["Filtered XLSX", buildFilename("xlsx", { filtered: true })],
+            ["Styled XLSX", buildFilename("xlsx", { filtered: true, styled: true })],
+          ] as const).map(([label, name]) => (
+            <li key={label} className="flex items-center">
+              <span className="text-muted-foreground">{label}:</span>
+              <span className="ml-1 break-all">{name}</span>
+              <CopyFilename value={name} />
+            </li>
+          ))}
         </ul>
       </div>
 
