@@ -81,6 +81,9 @@ const ServiceAreas = () => {
   const [query, setQuery] = useState(initialQuery);
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
+  // Bumped each time we want to replay the "restored" pulse on the active card.
+  const [pulseToken, setPulseToken] = useState(0);
+  const [pulseIndex, setPulseIndex] = useState<number | null>(null);
 
   // Sync query → URL search param (replace, no history spam) + localStorage.
   useEffect(() => {
