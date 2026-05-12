@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
 import { cities } from "@/data/cities";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -46,12 +47,26 @@ const SeoReport = () => {
   const rows = useMemo(() => buildRows(origin), [origin]);
   const [downloading, setDownloading] = useState(false);
   const [onlyMismatches, setOnlyMismatches] = useState(false);
+  const [query, setQuery] = useState("");
 
-  const mismatches = rows.filter((r) => r.match === "MISMATCH").length;
-  const okCount = rows.length - mismatches;
-  const visibleRows = onlyMismatches
-    ? rows.filter((r) => r.match === "MISMATCH")
-    : rows;
+  const visibleRows = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (onlyMismatches && r.match !== "MISMATCH") return false;
+      if (!q) return true;
+      return (
+        r.city.toLowerCase().includes(q) ||
+        r.slug.toLowerCase().includes(q) ||
+        r.path.toLowerCase().includes(q) ||
+        r.canonical.toLowerCase().includes(q) ||
+        r.ogUrl.toLowerCase().includes(q)
+      );
+    });
+  }, [rows, onlyMismatches, query]);
+
+  const visibleMismatches = visibleRows.filter((r) => r.match === "MISMATCH").length;
+  const visibleOk = visibleRows.length - visibleMismatches;
+  const totalMismatches = rows.filter((r) => r.match === "MISMATCH").length;
 
   const handleDownload = () => {
     setDownloading(true);
@@ -75,8 +90,8 @@ const SeoReport = () => {
       const summary = [
         ["Metric", "Value"],
         ["Total routes", rows.length],
-        ["OK", rows.length - mismatches],
-        ["MISMATCH", mismatches],
+        ["OK", rows.length - totalMismatches],
+        ["MISMATCH", totalMismatches],
         ["Generated at", new Date().toISOString()],
         ["Origin", origin],
       ];
@@ -123,12 +138,24 @@ const SeoReport = () => {
         >
           {onlyMismatches ? "Showing mismatches only" : "Show mismatches only"}
         </Button>
+        <Input
+          type="search"
+          placeholder="Filter by city or path…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="max-w-xs"
+        />
         <div className="text-sm text-muted-foreground">
           Showing {visibleRows.length} of {rows.length} routes ·{" "}
-          <span className="text-green-600 font-medium">{okCount} OK</span> ·{" "}
-          <span className={mismatches > 0 ? "text-destructive font-medium" : ""}>
-            {mismatches} mismatches
+          <span className="text-green-600 font-medium">{visibleOk} OK</span> ·{" "}
+          <span className={visibleMismatches > 0 ? "text-destructive font-medium" : ""}>
+            {visibleMismatches} mismatches
           </span>
+          {query && (
+            <>
+              {" "}· total {totalMismatches} mismatches
+            </>
+          )}
         </div>
       </div>
 
