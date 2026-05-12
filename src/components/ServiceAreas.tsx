@@ -291,6 +291,7 @@ const ServiceAreas = () => {
           </p>
         ) : (
           <div
+            ref={listboxRef}
             id="city-results"
             role="listbox"
             aria-label={`City snow removal pages${q ? ` filtered by ${query}` : ""}`}
