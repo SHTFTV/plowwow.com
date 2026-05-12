@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
@@ -52,6 +52,7 @@ export default function AdminGuestPosts() {
   const page = Number.isFinite(pageParam) && pageParam > 0 ? Math.floor(pageParam) : 1;
 
   const debouncedSearch = useDebounced(search, 350);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const updateParams = useCallback(
     (patch: Record<string, string | number | null>) => {
@@ -202,6 +203,15 @@ export default function AdminGuestPosts() {
   useEffect(() => {
     if (!isAdmin) return;
     const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        const el = searchInputRef.current;
+        if (el) {
+          el.focus();
+          el.select();
+        }
+        return;
+      }
       if (e.key !== "Escape") return;
       if (viewing) return;
       const t = e.target as HTMLElement | null;
@@ -320,7 +330,8 @@ export default function AdminGuestPosts() {
         <Card>
           <CardContent className="pt-6">
             <Input
-              placeholder="Search name, email, topic, message… (Esc to clear)"
+              ref={searchInputRef}
+              placeholder="Search name, email, topic, message… (⌘/Ctrl+K to focus, Esc to clear)"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               data-shortcut-target="search"
