@@ -183,14 +183,33 @@ const BlogIndex = () => {
     [],
   );
 
-  // Global keyboard shortcuts:
+  // Reset the active selection whenever the result set or page changes so we
+  // don't keep highlighting an index that no longer exists.
+  useEffect(() => {
+    setActiveIndex(-1);
+  }, [page, query, visible.length]);
+
+  // Scroll the active card into view as the user arrows around.
+  useEffect(() => {
+    if (activeIndex < 0) return;
+    cardRefs.current[activeIndex]?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
+  const openActive = useCallback(() => {
+    const slug = visible[activeIndex];
+    if (slug) navigate(`/${slug}`);
+  }, [navigate, visible, activeIndex]);
+
+  // Global keyboard shortcuts (only on /blog):
   //   "/" or Cmd/Ctrl+K → focus the search input
+  //   ArrowDown / ArrowUp → move selection across the visible results
+  //   Enter → open the active result (works while typing too)
   //   Escape (when input is focused) → clear the query
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      // Hard-restrict shortcuts to the blog index route. The component should
-      // already only mount on /blog, but this guards against stray fires
-      // during route transitions or if the listener ever leaks out.
       const path = window.location.pathname.replace(/\/+$/, "");
       if (path !== "/blog") return;
 
@@ -210,12 +229,27 @@ const BlogIndex = () => {
         e.preventDefault();
         inputRef.current?.focus();
         inputRef.current?.select();
+        return;
+      }
+
+      if (visible.length === 0) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setActiveIndex((i) => (i + 1) % visible.length);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setActiveIndex((i) =>
+          i <= 0 ? visible.length - 1 : i - 1,
+        );
+      } else if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        openActive();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // Re-bind on route change so the latest pathname is captured.
-  }, [location.pathname]);
+  }, [location.pathname, visible, activeIndex, openActive]);
 
   return (
     <div className="min-h-screen">
