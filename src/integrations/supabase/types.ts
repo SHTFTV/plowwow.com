@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      guest_post_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          status: string
+          topic: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          status?: string
+          topic: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          status?: string
+          topic?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           address: string
