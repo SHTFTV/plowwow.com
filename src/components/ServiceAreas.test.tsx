@@ -129,4 +129,3 @@ describe("ServiceAreas restore synchronization", () => {
     );
   });
 });
-});
