@@ -92,15 +92,18 @@ export default {
         "restore-pulse": {
           "0%": {
             transform: "scale(1)",
-            boxShadow: "0 0 0 0 hsl(var(--primary) / 0.55)",
+            boxShadow:
+              "0 0 0 0 hsl(var(--primary) / 0), 0 0 0 0 hsl(var(--primary) / 0.55)",
           },
           "40%": {
             transform: "scale(1.03)",
-            boxShadow: "0 0 0 10px hsl(var(--primary) / 0)",
+            boxShadow:
+              "0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary)), 0 0 0 14px hsl(var(--primary) / 0)",
           },
           "100%": {
             transform: "scale(1)",
-            boxShadow: "0 0 0 0 hsl(var(--primary) / 0)",
+            boxShadow:
+              "0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary)), 0 0 0 0 hsl(var(--primary) / 0)",
           },
         },
       },
@@ -108,7 +111,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        "restore-pulse": "restore-pulse 0.9s ease-out",
+        "restore-pulse": "restore-pulse 0.9s cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },
