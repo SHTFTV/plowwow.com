@@ -269,6 +269,7 @@ const AppFeatures = () => {
             </span>
             <h1
               id="app-hero-heading"
+              tabIndex={-1}
               className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] mt-6"
             >
               Run your snow company like a{" "}
