@@ -380,4 +380,37 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
+
+  test("Left-clicking inside the tooltip keeps it open and keeps focus inside", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+
+    // Move focus into the tooltip body via the focus trap (Tab from ? button).
+    await button.focus();
+    await page.keyboard.press("Tab");
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+    await assertTooltipOpen(page);
+
+    // Left-click at the centre of the tooltip body.
+    const tipBox = await tip.boundingBox();
+    expect(tipBox).not.toBeNull();
+    await page.mouse.click(
+      tipBox!.x + tipBox!.width / 2,
+      tipBox!.y + tipBox!.height / 2,
+    );
+
+    // Tooltip must still be open and focus must still be inside it.
+    await assertTooltipOpen(page);
+    const activeId = await page.evaluate(() => document.activeElement?.id ?? null);
+    expect(activeId).toBe("page-jump-tip");
+
+    // Escape still closes and restores focus to ?.
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+  });
 });
