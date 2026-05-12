@@ -294,16 +294,42 @@ const ServiceAreas = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (flatCities.length === 0 && e.key !== "Escape") return;
     // Any navigation key reopens a collapsed list
-    if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter", " ", "Spacebar"].includes(e.key)) {
+    if (
+      collapsed &&
+      [
+        "ArrowDown",
+        "ArrowUp",
+        "ArrowLeft",
+        "ArrowRight",
+        "Home",
+        "End",
+        "PageDown",
+        "PageUp",
+        "Enter",
+        " ",
+        "Spacebar",
+      ].includes(e.key)
+    ) {
       suppressFocusExpandRef.current = false;
       setCollapsed(false);
     }
+    // Page step for PageUp/PageDown — standard listbox pattern is to
+    // jump by ~visual-page; with our small list 5 is a sensible page.
+    const PAGE_SIZE = 5;
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
       moveActive(1);
     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
       e.preventDefault();
       moveActive(-1);
+    } else if (e.key === "PageDown") {
+      e.preventDefault();
+      userInteractedRef.current = true;
+      setActiveIndex((i) => Math.min(flatCities.length - 1, i + PAGE_SIZE));
+    } else if (e.key === "PageUp") {
+      e.preventDefault();
+      userInteractedRef.current = true;
+      setActiveIndex((i) => Math.max(0, i - PAGE_SIZE));
     } else if (e.key === "Home") {
       e.preventDefault();
       userInteractedRef.current = true;
