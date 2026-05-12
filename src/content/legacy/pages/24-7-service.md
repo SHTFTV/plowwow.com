@@ -21,3 +21,20 @@ Strata councils, property managers, retail landlords and homeowners who can't af
 ## Reserve Priority Service
 
 Call **604-761-1518** or email **Wow@PlowWow.com** to lock in your 2025–26 contract before capacity fills.
+
+## Frequently Asked Questions
+
+### Does PlowWow really dispatch overnight?
+Yes. PlowWow runs overnight crews through every winter event so commercial lots, apartment driveways and strata sites are clear before tenants and customers arrive in the morning.
+
+### What counts as an "emergency response" event?
+Freezing rain, sleet, slush events and unusually heavy snowfall trigger emergency response. Contracted properties on priority service are routed first.
+
+### Will I be charged extra for after-hours visits?
+No. Seasonal contracts include unlimited visits — overnight, weekend and holiday work is part of your fixed seasonal price.
+
+### How do I reach PlowWow during a storm?
+Call 604-761-1518 or email Wow@PlowWow.com. Real humans answer the phone during active winter events, not a call center or voicemail tree.
+
+### Do I need to phone in to request service?
+No. Automatic dispatch handles every triggered event. You only need to call for ad-hoc requests or scope changes.
