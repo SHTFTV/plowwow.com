@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
@@ -24,6 +24,7 @@ const PAGE_SIZE = 8;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
   const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
 
   const query = (searchParams.get("q") ?? "").trim();
@@ -116,6 +117,12 @@ const BlogIndex = () => {
   //   Escape (when input is focused) → clear the query
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
+      // Hard-restrict shortcuts to the blog index route. The component should
+      // already only mount on /blog, but this guards against stray fires
+      // during route transitions or if the listener ever leaks out.
+      const path = window.location.pathname.replace(/\/+$/, "");
+      if (path !== "/blog") return;
+
       const target = e.target as HTMLElement | null;
       const tag = target?.tagName;
       const isTyping =
@@ -132,12 +139,12 @@ const BlogIndex = () => {
         e.preventDefault();
         inputRef.current?.focus();
         inputRef.current?.select();
-        return;
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+    // Re-bind on route change so the latest pathname is captured.
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen">
