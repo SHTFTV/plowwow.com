@@ -66,6 +66,7 @@ const Footer = () => (
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
             <li><Link to="/app-features" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
+            <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
           </ul>
         </div>
 
