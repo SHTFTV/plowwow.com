@@ -143,6 +143,18 @@ const ServiceAreas = () => {
     });
   }, [flatCities.length]);
 
+  // Track q transitions so we can force a re-focus on clear.
+  const prevQRef = useRef(q);
+  const forceRestoreRef = useRef(false);
+  useEffect(() => {
+    if (prevQRef.current && !q) {
+      // User just cleared the search — force-restore the last city even if
+      // focus is still inside the search input.
+      forceRestoreRef.current = true;
+    }
+    prevQRef.current = q;
+  }, [q]);
+
   // Restore the last-selected city. Runs on mount AND every time the
   // filtered list changes, so as the user narrows / clears the search,
   // the saved city re-activates whenever it reappears in the results.
@@ -172,23 +184,28 @@ const ServiceAreas = () => {
     // it across filter changes.
     setActiveIndex(idx);
 
-    // Don't steal focus while the user is actively typing in the search box.
+    // Don't steal focus while the user is actively typing in the search box,
+    // UNLESS we just cleared the query (forceRestore) — then we move focus
+    // to the restored card.
     const typingInSearch =
       typeof document !== "undefined" && document.activeElement === inputRef.current;
+    const shouldFocus = forceRestoreRef.current || !typingInSearch;
 
-    if (!typingInSearch) {
+    if (shouldFocus) {
       userInteractedRef.current = true;
+      const useCenter = !hasMountedRef.current || forceRestoreRef.current;
       requestAnimationFrame(() => {
         const el = cardRefs.current[idx];
         if (!el) return;
         el.scrollIntoView({
-          block: hasMountedRef.current ? "nearest" : "center",
+          block: useCenter ? "center" : "nearest",
           behavior: "smooth",
         });
         el.focus({ preventScroll: true });
       });
     }
 
+    forceRestoreRef.current = false;
     hasMountedRef.current = true;
   }, [flatCities]);
 
