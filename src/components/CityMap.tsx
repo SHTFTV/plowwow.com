@@ -14,9 +14,9 @@ const CityMap = ({ cityName, province, cityHall }: CityMapProps) => {
   const embedSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
   const osmUrl = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=14/${lat}/${lon}`;
   const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat}%2C${lon}`;
-  const weatherUrl = `https://www.google.com/search?q=${encodeURIComponent(
-    `weather ${cityName} ${province}`,
-  )}`;
+  // Environment Canada (weather.gc.ca) resolves the nearest official city
+  // forecast page from coordinates — city-specific, no API key, Canadian source.
+  const weatherUrl = `https://weather.gc.ca/en/location/index.html?coords=${lat},${lon}`;
 
   return (
     <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
