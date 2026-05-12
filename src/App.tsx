@@ -14,6 +14,7 @@ import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage
 import BlogIndex from "./pages/BlogIndex.tsx";
 import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
+import GuestPost from "./pages/GuestPost.tsx";
 
 const queryClient = new QueryClient();
 
