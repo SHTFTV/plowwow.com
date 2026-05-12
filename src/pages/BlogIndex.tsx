@@ -38,17 +38,19 @@ const summaryFor = (slug: string) => {
 // Wrap query matches in <mark> for visible highlighting. Case-insensitive,
 // safe against regex injection by escaping the needle.
 const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-// Split a query into distinct terms (whitespace-separated, deduped, lowercased).
-const tokenize = (query: string) =>
-  Array.from(
-    new Set(
-      query
-        .toLowerCase()
-        .split(/\s+/)
-        .map((t) => t.trim())
-        .filter(Boolean),
-    ),
-  );
+// Split a query into distinct terms. Supports "quoted phrases" as single
+// terms (matched verbatim including internal whitespace), with remaining
+// whitespace-separated bare words. Deduped and lowercased.
+const tokenize = (query: string) => {
+  const terms: string[] = [];
+  const re = /"([^"]+)"|(\S+)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(query)) !== null) {
+    const raw = (m[1] ?? m[2] ?? "").trim().toLowerCase();
+    if (raw) terms.push(raw);
+  }
+  return Array.from(new Set(terms));
+};
 
 const highlight = (text: string, query: string) => {
   const terms = tokenize(query);
