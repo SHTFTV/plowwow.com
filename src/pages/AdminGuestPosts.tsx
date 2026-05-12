@@ -333,14 +333,18 @@ export default function AdminGuestPosts() {
         </Tabs>
 
         <Card>
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 space-y-1.5">
             <Input
               ref={searchInputRef}
-              placeholder="Search name, email, topic, message… (⌘/Ctrl+K to focus, Esc to clear)"
+              placeholder="Search name, email, topic, message…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               data-shortcut-target="search"
             />
+            <p className="text-xs text-muted-foreground">
+              <kbd className="rounded border bg-muted px-1 text-[10px] font-mono">⌘/Ctrl+K</kbd> to focus ·{" "}
+              <kbd className="rounded border bg-muted px-1 text-[10px] font-mono">Esc</kbd> to clear
+            </p>
           </CardContent>
         </Card>
 
