@@ -323,7 +323,9 @@ const ServiceAreas = () => {
           /* ignore */
         }
         // Return focus to the combobox before navigating so SR users land
-        // on a known anchor and the listbox is fully dismissed.
+        // on a known anchor and the listbox is fully dismissed. Suppress
+        // the input's auto-expand-on-focus so we don't immediately reopen.
+        suppressFocusExpandRef.current = true;
         document.getElementById("city-search")?.focus();
         navigate(`/${target.slug}`);
       }
@@ -333,6 +335,7 @@ const ServiceAreas = () => {
       setQuery("");
       setActiveIndex(0);
       setCollapsed(true);
+      suppressFocusExpandRef.current = true;
       document.getElementById("city-search")?.focus();
     }
   };
