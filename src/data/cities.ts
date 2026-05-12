@@ -12,6 +12,8 @@ export type City = {
   faqs: CityFAQ[];
   // Quick stats shown in hero badges
   badges?: string[];
+  // City-specific Open Graph / Twitter card image
+  ogImage: string;
 };
 
 // Cities along the Vancouver → Abbotsford corridor (Lower Mainland, BC).
@@ -24,6 +26,7 @@ export const cities: City[] = [
     tagline: "Vancouver Snow Removal & De-icing",
     intro:
       "24/7 plowing, salting and ice-control across Vancouver — from Downtown and the West End to Kitsilano, Mount Pleasant and East Van. Priority dispatch for strata, retail and residential.",
+    ogImage: "https://plowwow.com/og-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 14 },
@@ -56,6 +59,7 @@ export const cities: City[] = [
     tagline: "New West Snow Removal & Salting",
     intro:
       "Reliable plowing and de-icing for New Westminster's steep streets, Uptown towers and Quayside properties. WorkSafeBC insured crews on standby through every storm.",
+    ogImage: "https://plowwow.com/og-new-westminster.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 16 },
@@ -83,6 +87,7 @@ export const cities: City[] = [
     tagline: "Coquitlam Snow Removal & Ice Control",
     intro:
       "Plowing, salting and sidewalk clearing for Coquitlam — Westwood Plateau, Burke Mountain, City Centre and Maillardville. Elevation-tuned routing for higher-snowfall zones.",
+    ogImage: "https://plowwow.com/og-coquitlam.jpg",
     snowfall: [
       { month: "Nov", cm: 7 },
       { month: "Dec", cm: 22 },
@@ -110,6 +115,7 @@ export const cities: City[] = [
     tagline: "Port Coquitlam Snow & De-icing",
     intro:
       "PoCo plowing for Downtown, Birchland, Citadel Heights and Riverwood. Commercial lot clearing and residential driveways with same-storm response.",
+    ogImage: "https://plowwow.com/og-port-coquitlam.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 18 },
@@ -137,6 +143,7 @@ export const cities: City[] = [
     tagline: "Port Moody Snow Removal",
     intro:
       "Plowing and salting for Port Moody — Heritage Mountain, Newport Village, Inlet District and College Park. Strata-priority dispatch with photo proof of service.",
+    ogImage: "https://plowwow.com/og-port-moody.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 20 },
@@ -164,6 +171,7 @@ export const cities: City[] = [
     tagline: "Pitt Meadows Plowing & Salting",
     intro:
       "Pitt Meadows snow service for downtown, Bonson, Mitchell Island industrial and residential streets. Flat-grade routing keeps response fast across the city.",
+    ogImage: "https://plowwow.com/og-pitt-meadows.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 15 },
@@ -191,6 +199,7 @@ export const cities: City[] = [
     tagline: "Maple Ridge Snow Removal",
     intro:
       "Plowing, sanding and salting for Maple Ridge — Albion, Silver Valley, Hammond and Town Centre. Higher-elevation routes pre-salted ahead of forecast events.",
+    ogImage: "https://plowwow.com/og-maple-ridge.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 21 },
@@ -218,6 +227,7 @@ export const cities: City[] = [
     tagline: "Surrey Snow Removal & Ice Control",
     intro:
       "Surrey snow service across all six town centres — City Centre, Guildford, Newton, Cloverdale, Fleetwood and South Surrey. Largest dispatch fleet in the corridor.",
+    ogImage: "https://plowwow.com/og-surrey.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 15 },
@@ -247,6 +257,7 @@ export const cities: City[] = [
     tagline: "Langley Snow Removal",
     intro:
       "Plowing and salting across Langley City and Langley Township — Willoughby, Walnut Grove, Brookswood, Fort Langley and Aldergrove. Strata, commercial and residential.",
+    ogImage: "https://plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 17 },
@@ -275,6 +286,7 @@ export const cities: City[] = [
     tagline: "Abbotsford Snow Removal & De-icing",
     intro:
       "Abbotsford plowing and ice control — Sumas Mountain, Clayburn, Historic Downtown and Mt. Lehman. Eastern Fraser Valley sites see heavier storms; we stage extra salt here.",
+    ogImage: "https://plowwow.com/og-abbotsford.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 22 },

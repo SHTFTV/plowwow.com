@@ -32,7 +32,7 @@ const CityPage = () => {
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = city.intro.slice(0, 155);
   const url = `https://plowwow.com/${city.slug}`;
-  const ogImage = "https://plowwow.com/og.jpg";
+  const ogImage = city.ogImage;
 
   // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
@@ -76,7 +76,7 @@ const CityPage = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `PlowWow Snow Removal — ${city.name}`,
-    image: "https://plowwow.com/og.jpg",
+    image: ogImage,
     url,
     telephone: "+1-604-761-1518",
     areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
