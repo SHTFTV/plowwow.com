@@ -121,6 +121,10 @@ const ServiceAreas = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const listboxRef = useRef<HTMLDivElement | null>(null);
   const userInteractedRef = useRef(false);
+  // When set, the next combobox focus must NOT auto-expand the listbox.
+  // Used after Enter/Space selection so returning focus to the combobox
+  // doesn't immediately re-open the dropdown the user just dismissed.
+  const suppressFocusExpandRef = useRef(false);
 
   const q = query.trim().toLowerCase();
 
@@ -290,7 +294,7 @@ const ServiceAreas = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (flatCities.length === 0 && e.key !== "Escape") return;
     // Any navigation key reopens a collapsed list
-    if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter"].includes(e.key)) {
+    if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter", " ", "Spacebar"].includes(e.key)) {
       setCollapsed(false);
     }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
@@ -307,7 +311,7 @@ const ServiceAreas = () => {
       e.preventDefault();
       userInteractedRef.current = true;
       setActiveIndex(flatCities.length - 1);
-    } else if (e.key === "Enter") {
+    } else if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
       e.preventDefault();
       const target = flatCities[activeIndex];
       if (target) {
@@ -318,6 +322,11 @@ const ServiceAreas = () => {
         } catch {
           /* ignore */
         }
+        // Return focus to the combobox before navigating so SR users land
+        // on a known anchor and the listbox is fully dismissed. Suppress
+        // the input's auto-expand-on-focus so we don't immediately reopen.
+        suppressFocusExpandRef.current = true;
+        document.getElementById("city-search")?.focus();
         navigate(`/${target.slug}`);
       }
     } else if (e.key === "Escape") {
@@ -326,6 +335,7 @@ const ServiceAreas = () => {
       setQuery("");
       setActiveIndex(0);
       setCollapsed(true);
+      suppressFocusExpandRef.current = true;
       document.getElementById("city-search")?.focus();
     }
   };
@@ -387,7 +397,13 @@ const ServiceAreas = () => {
                 setCollapsed(false);
                 setQuery(e.target.value);
               }}
-              onFocus={() => setCollapsed(false)}
+              onFocus={() => {
+                if (suppressFocusExpandRef.current) {
+                  suppressFocusExpandRef.current = false;
+                  return;
+                }
+                setCollapsed(false);
+              }}
               onKeyDown={handleKeyDown}
               placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
