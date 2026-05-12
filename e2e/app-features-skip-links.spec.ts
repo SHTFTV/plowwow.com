@@ -53,9 +53,11 @@ test.describe("App Features — Skip links focus restoration", () => {
     await page.keyboard.press("Shift+Tab");
     await expect(firstAccordionButton).toBeFocused();
 
-    // The first accordion panel should remain expanded.
+    // The first accordion panel should remain expanded and its content visible.
     const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
     await expect(firstAccordionItem).toHaveAttribute("data-state", "open");
+    const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
+    await expect(firstAccordionContent).toBeVisible();
 
     // The second accordion should remain collapsed.
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
