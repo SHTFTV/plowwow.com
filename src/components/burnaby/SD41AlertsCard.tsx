@@ -321,6 +321,8 @@ const SD41AlertsCard = () => {
             </PopoverContent>
           </Popover>
         </div>
+
+        {closureCount > 0 && (
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-destructive/10 text-destructive text-xs font-semibold px-2.5 py-1">
             <AlertTriangle className="w-3.5 h-3.5" />
             {closureCount} closure-related alert{closureCount > 1 ? "s" : ""}
