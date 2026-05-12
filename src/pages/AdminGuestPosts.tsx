@@ -193,6 +193,33 @@ export default function AdminGuestPosts() {
 
   const refresh = () => { load(); loadCounts(); };
 
+  const hasActiveFilters = statusFilter !== "all" || search !== "" || page > 1;
+  const clearFilters = useCallback(
+    () => updateParams({ status: null, q: null, page: null }),
+    [updateParams],
+  );
+
+  useEffect(() => {
+    if (!isAdmin) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (viewing) return;
+      const t = e.target as HTMLElement | null;
+      const tag = t?.tagName;
+      const isEditable =
+        tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || t?.isContentEditable;
+      // Allow Esc in the search input to clear filters and blur it.
+      if (isEditable && t?.getAttribute("data-shortcut-target") !== "search") return;
+      if (!hasActiveFilters) return;
+      e.preventDefault();
+      clearFilters();
+      (t as HTMLElement | null)?.blur?.();
+      toast({ title: "Filters cleared" });
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isAdmin, viewing, hasActiveFilters, clearFilters]);
+
   const grandTotal = useMemo(
     () => Object.values(counts).reduce((a, b) => a + b, 0),
     [counts],
@@ -251,12 +278,10 @@ export default function AdminGuestPosts() {
             </p>
           </div>
           <div className="flex gap-2">
-            {(statusFilter !== "all" || search || page > 1) && (
-              <Button
-                variant="outline"
-                onClick={() => updateParams({ status: null, q: null, page: null })}
-              >
+            {hasActiveFilters && (
+              <Button variant="outline" onClick={clearFilters} title="Clear filters (Esc)">
                 <X className="h-4 w-4" /> Clear filters
+                <kbd className="ml-2 hidden md:inline-flex h-5 items-center rounded border bg-muted px-1.5 text-[10px] text-muted-foreground">Esc</kbd>
               </Button>
             )}
             <Button variant="outline" onClick={refresh} disabled={loading}>
@@ -295,9 +320,10 @@ export default function AdminGuestPosts() {
         <Card>
           <CardContent className="pt-6">
             <Input
-              placeholder="Search name, email, topic, message…"
+              placeholder="Search name, email, topic, message… (Esc to clear)"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
+              data-shortcut-target="search"
             />
           </CardContent>
         </Card>
