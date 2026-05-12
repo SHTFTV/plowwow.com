@@ -386,6 +386,11 @@ const ServiceAreas = () => {
                           setActiveIndex(myIdx);
                           setCollapsed(true);
                           userInteractedRef.current = false;
+                          try {
+                            window.localStorage.setItem(LAST_CITY_KEY, city.slug);
+                          } catch {
+                            /* ignore */
+                          }
                         }}
                         onKeyDown={handleKeyDown}
                         className={cn(
