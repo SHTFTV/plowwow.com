@@ -11,6 +11,12 @@ import SnowBackground from "@/components/intelligence/SnowBackground";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const TITLE = "PlowWow App — Snow Removal Software & Dispatch App for Contractors";
 const DESCRIPTION =
