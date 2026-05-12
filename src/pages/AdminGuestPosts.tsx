@@ -330,7 +330,8 @@ export default function AdminGuestPosts() {
         <Card>
           <CardContent className="pt-6">
             <Input
-              placeholder="Search name, email, topic, message… (Esc to clear)"
+              ref={searchInputRef}
+              placeholder="Search name, email, topic, message… (⌘/Ctrl+K to focus, Esc to clear)"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               data-shortcut-target="search"
