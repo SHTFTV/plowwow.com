@@ -25,6 +25,15 @@ const statusVariant: Record<string, "default" | "secondary" | "outline" | "destr
   archived: "outline",
 };
 
+function useDebounced<T>(value: T, delay = 300): T {
+  const [v, setV] = useState(value);
+  useEffect(() => {
+    const t = setTimeout(() => setV(value), delay);
+    return () => clearTimeout(t);
+  }, [value, delay]);
+  return v;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
@@ -34,6 +43,7 @@ export default function Admin() {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [serviceFilter, setServiceFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounced(search, 300);
 
   useEffect(() => {
     let active = true;
@@ -102,7 +112,7 @@ export default function Admin() {
   );
 
   const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    const q = debouncedSearch.trim().toLowerCase();
     return rows.filter((r) => {
       if (statusFilter !== "all" && r.status !== statusFilter) return false;
       if (serviceFilter !== "all" && r.service_type !== serviceFilter) return false;
@@ -112,11 +122,11 @@ export default function Admin() {
         .toLowerCase()
         .includes(q);
     });
-  }, [rows, statusFilter, serviceFilter, search]);
+  }, [rows, statusFilter, serviceFilter, debouncedSearch]);
 
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
-  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, search, pageSize]);
+  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize]);
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * pageSize;
