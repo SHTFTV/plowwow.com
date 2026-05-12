@@ -121,6 +121,10 @@ const ServiceAreas = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const listboxRef = useRef<HTMLDivElement | null>(null);
   const userInteractedRef = useRef(false);
+  // When set, the next combobox focus must NOT auto-expand the listbox.
+  // Used after Enter/Space selection so returning focus to the combobox
+  // doesn't immediately re-open the dropdown the user just dismissed.
+  const suppressFocusExpandRef = useRef(false);
 
   const q = query.trim().toLowerCase();
 
