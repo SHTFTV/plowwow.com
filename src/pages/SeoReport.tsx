@@ -180,6 +180,89 @@ const SeoReport = () => {
     XLSX.writeFile(wb, `city-seo-report-filtered-${stamp}.xlsx`);
   };
 
+  const handleExportExcelJs = async () => {
+    const { Workbook } = await import("exceljs");
+    const wb = new Workbook();
+    wb.creator = "PlowWow SEO Report";
+    wb.created = new Date();
+
+    const ws = wb.addWorksheet("Filtered Rows");
+    ws.columns = [
+      { header: "City", key: "city" },
+      { header: "Slug", key: "slug" },
+      { header: "Path", key: "path" },
+      { header: "Canonical URL", key: "canonical" },
+      { header: "og:url", key: "ogUrl" },
+      { header: "Match", key: "match" },
+    ];
+    visibleRows.forEach((r) => ws.addRow(r));
+
+    ws.getRow(1).font = { bold: true };
+    ws.getRow(1).alignment = { vertical: "middle" };
+    ws.autoFilter = { from: { row: 1, column: 1 }, to: { row: 1, column: 6 } };
+    ws.views = [{ state: "frozen", ySplit: 1 }];
+
+    ws.columns.forEach((col) => {
+      let max = (col.header as string).length;
+      col.eachCell?.({ includeEmpty: false }, (cell) => {
+        const len = String(cell.value ?? "").length;
+        if (len > max) max = len;
+      });
+      col.width = Math.min(Math.max(max + 2, 8), 60);
+    });
+
+    ws.eachRow((row, rowNumber) => {
+      if (rowNumber === 1) return;
+      const matchCell = row.getCell(6);
+      if (matchCell.value === "MISMATCH") {
+        matchCell.font = { color: { argb: "FFB91C1C" }, bold: true };
+      } else {
+        matchCell.font = { color: { argb: "FF16A34A" } };
+      }
+    });
+
+    const sws = wb.addWorksheet("Summary");
+    sws.columns = [
+      { header: "Metric", key: "metric" },
+      { header: "Value", key: "value" },
+    ];
+    const summary: [string, string | number][] = [
+      ["Visible routes", visibleRows.length],
+      ["Visible OK", visibleOk],
+      ["Visible MISMATCH", visibleMismatches],
+      ["Total routes", rows.length],
+      ["Total MISMATCH", totalMismatches],
+      ["Filter query", query || "(none)"],
+      ["Only mismatches", onlyMismatches ? "yes" : "no"],
+      ["Generated at", new Date().toISOString()],
+      ["Origin", origin],
+    ];
+    summary.forEach((r) => sws.addRow(r));
+    sws.getRow(1).font = { bold: true };
+    sws.columns.forEach((col) => {
+      let max = (col.header as string).length;
+      col.eachCell?.({ includeEmpty: false }, (cell) => {
+        const len = String(cell.value ?? "").length;
+        if (len > max) max = len;
+      });
+      col.width = Math.min(Math.max(max + 2, 8), 60);
+    });
+
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `city-seo-report-styled-${stamp}.xlsx`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   useEffect(() => {
     document.title = "City SEO Report — Canonical vs og:url";
     const meta = document.querySelector('meta[name="robots"]') ?? (() => {
