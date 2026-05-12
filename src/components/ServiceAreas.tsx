@@ -146,6 +146,27 @@ const ServiceAreas = () => {
   let flatIdx = -1;
 
   const totalMatches = flatCities.length;
+  const activeCity = flatCities[activeIndex];
+  const activeRegion = activeCity
+    ? filtered.find((r) => r.cities.some((c) => c.slug === activeCity.slug))?.title
+    : undefined;
+
+  // Status string for the live region — covers count + active option.
+  let statusMessage = "";
+  if (q) {
+    if (totalMatches === 0) {
+      statusMessage = `No cities match ${query}.`;
+    } else {
+      statusMessage =
+        totalMatches === 1
+          ? `1 city matches ${query}: ${flatCities[0].name}, ${activeRegion ?? ""}. Press Enter to open.`
+          : `${totalMatches} cities match ${query}. ${
+              activeCity ? `Active: ${activeCity.name}, ${activeRegion ?? ""}. Press Enter to open.` : ""
+            }`;
+    }
+  } else if (userInteractedRef.current && activeCity) {
+    statusMessage = `${activeCity.name}, ${activeRegion ?? ""}. Press Enter to open.`;
+  }
 
   return (
     <section id="service-areas" className="py-20 bg-section-alt">
@@ -180,11 +201,15 @@ const ServiceAreas = () => {
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
               autoComplete="off"
               role="combobox"
+              aria-label="Search cities"
+              aria-autocomplete="list"
+              aria-haspopup="listbox"
               aria-expanded={flatCities.length > 0}
               aria-controls="city-results"
               aria-activedescendant={
-                flatCities[activeIndex] ? `city-opt-${flatCities[activeIndex].slug}` : undefined
+                activeCity ? `city-opt-${activeCity.slug}` : undefined
               }
+              aria-describedby="city-search-hint"
             />
             {query && (
               <button
@@ -197,26 +222,37 @@ const ServiceAreas = () => {
               </button>
             )}
           </div>
-          <p className="text-xs text-muted-foreground text-center mt-2">
+          <p id="city-search-hint" className="text-xs text-muted-foreground text-center mt-2">
             Use ↑ ↓ to navigate, Enter to open, Esc to clear.
           </p>
           {q && (
-            <p className="text-sm text-muted-foreground text-center mt-1" aria-live="polite">
+            <p className="text-sm text-muted-foreground text-center mt-1">
               {totalMatches} {totalMatches === 1 ? "match" : "matches"} for "{query}"
             </p>
           )}
+          {/* Polite live region for screen readers only */}
+          <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+            {statusMessage}
+          </div>
         </div>
 
         {filtered.length === 0 ? (
-          <p className="text-center text-muted-foreground py-10">
+          <p role="status" aria-live="polite" className="text-center text-muted-foreground py-10">
             No cities match "{query}". Try a different name.
           </p>
         ) : (
-          <div id="city-results" role="listbox" aria-label="City results" className="space-y-12">
-            {filtered.map((region) => (
-              <div key={region.title}>
-                <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-5 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-primary" />
+          <div
+            id="city-results"
+            role="listbox"
+            aria-label={`City snow removal pages${q ? ` filtered by ${query}` : ""}`}
+            className="space-y-12"
+          >
+            {filtered.map((region) => {
+              const headingId = `region-${region.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+              return (
+              <div key={region.title} role="group" aria-labelledby={headingId}>
+                <h3 id={headingId} className="text-xl md:text-2xl font-heading font-bold text-foreground mb-5 flex items-center gap-2">
+                  <MapPin aria-hidden="true" className="w-5 h-5 text-primary" />
                   {region.title}
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -234,6 +270,9 @@ const ServiceAreas = () => {
                         to={`/${city.slug}`}
                         role="option"
                         aria-selected={isActive}
+                        aria-posinset={myIdx + 1}
+                        aria-setsize={totalMatches}
+                        aria-label={`${city.name}, ${region.title}`}
                         tabIndex={isActive ? 0 : -1}
                         onMouseEnter={() => setActiveIndex(myIdx)}
                         onFocus={() => {
@@ -264,7 +303,8 @@ const ServiceAreas = () => {
                   })}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
