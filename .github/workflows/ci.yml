@@ -94,10 +94,14 @@ jobs:
           path: test-results/
           retention-days: 7
 
+      - name: Zip Playwright HTML report
+        if: always()
+        run: zip -r playwright-report.zip playwright-report/
+
       - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: playwright-report/
+          path: playwright-report.zip
           retention-days: 7
