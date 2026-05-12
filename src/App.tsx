@@ -15,6 +15,7 @@ import BlogIndex from "./pages/BlogIndex.tsx";
 import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
 import GuestPost from "./pages/GuestPost.tsx";
+import AdminGuestPosts from "./pages/AdminGuestPosts.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/guest-posts" element={<AdminGuestPosts />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />

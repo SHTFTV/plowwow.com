@@ -8,32 +8,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, RefreshCw } from "lucide-react";
+import { LogOut, RefreshCw, ArrowLeft, Eye } from "lucide-react";
 
-type QuoteRequest = Tables<"quote_requests">;
+type Submission = Tables<"guest_post_submissions">;
 
-const STATUSES = ["new", "contacted", "quoted", "scheduled", "completed", "archived"] as const;
+const STATUSES = ["pending", "approved", "rejected"] as const;
 type Status = (typeof STATUSES)[number];
 
 const statusVariant: Record<string, "default" | "secondary" | "outline" | "destructive"> = {
-  new: "default",
-  contacted: "secondary",
-  quoted: "secondary",
-  scheduled: "secondary",
-  completed: "outline",
-  archived: "outline",
+  pending: "secondary",
+  approved: "default",
+  rejected: "destructive",
 };
 
-export default function Admin() {
+export default function AdminGuestPosts() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [rows, setRows] = useState<QuoteRequest[]>([]);
+  const [rows, setRows] = useState<Submission[]>([]);
   const [loading, setLoading] = useState(false);
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [serviceFilter, setServiceFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
+  const [viewing, setViewing] = useState<Submission | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -68,7 +66,7 @@ export default function Admin() {
   const load = async () => {
     setLoading(true);
     const { data, error } = await supabase
-      .from("quote_requests")
+      .from("guest_post_submissions")
       .select("*")
       .order("created_at", { ascending: false });
     setLoading(false);
@@ -82,7 +80,7 @@ export default function Admin() {
   const updateStatus = async (id: string, status: Status) => {
     const prev = rows;
     setRows((r) => r.map((x) => (x.id === id ? { ...x, status } : x)));
-    const { error } = await supabase.from("quote_requests").update({ status }).eq("id", id);
+    const { error } = await supabase.from("guest_post_submissions").update({ status }).eq("id", id);
     if (error) {
       setRows(prev);
       toast({ title: "Update failed", description: error.message, variant: "destructive" });
@@ -96,31 +94,20 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
-  const serviceTypes = useMemo(
-    () => Array.from(new Set(rows.map((r) => r.service_type))).sort(),
-    [rows],
-  );
-
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return rows.filter((r) => {
       if (statusFilter !== "all" && r.status !== statusFilter) return false;
-      if (serviceFilter !== "all" && r.service_type !== serviceFilter) return false;
       if (!q) return true;
-      return [r.name, r.email, r.phone, r.address, r.postal_code]
-        .join(" ")
-        .toLowerCase()
-        .includes(q);
+      return [r.name, r.email, r.topic, r.message].join(" ").toLowerCase().includes(q);
     });
-  }, [rows, statusFilter, serviceFilter, search]);
+  }, [rows, statusFilter, search]);
 
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
-  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, search, pageSize]);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-  const currentPage = Math.min(page, totalPages);
-  const startIdx = (currentPage - 1) * pageSize;
-  const paginated = filtered.slice(startIdx, startIdx + pageSize);
+  const counts = useMemo(() => {
+    const c: Record<string, number> = { pending: 0, approved: 0, rejected: 0 };
+    rows.forEach((r) => { c[r.status] = (c[r.status] ?? 0) + 1; });
+    return c;
+  }, [rows]);
 
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
@@ -135,7 +122,7 @@ export default function Admin() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Your account does not have admin permissions. Ask an existing admin to grant you access.
+              Your account does not have admin permissions.
             </p>
             <Button variant="outline" onClick={signOut} className="w-full">
               <LogOut className="h-4 w-4" /> Sign out
@@ -151,13 +138,15 @@ export default function Admin() {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Quote requests</h1>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+              <Link to="/admin" className="inline-flex items-center gap-1 hover:text-foreground">
+                <ArrowLeft className="h-3 w-3" /> Quote requests
+              </Link>
+            </div>
+            <h1 className="text-2xl md:text-3xl font-bold">Guest post submissions</h1>
             <p className="text-sm text-muted-foreground">{filtered.length} of {rows.length} shown</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" asChild>
-              <Link to="/admin/guest-posts">Guest posts</Link>
-            </Button>
             <Button variant="outline" onClick={load} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
             </Button>
@@ -167,10 +156,21 @@ export default function Admin() {
           </div>
         </div>
 
+        <div className="grid gap-3 md:grid-cols-3">
+          {STATUSES.map((s) => (
+            <Card key={s}>
+              <CardContent className="pt-6">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground">{s}</div>
+                <div className="text-2xl font-bold">{counts[s] ?? 0}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
         <Card>
-          <CardContent className="pt-6 grid gap-3 md:grid-cols-4">
+          <CardContent className="pt-6 grid gap-3 md:grid-cols-3">
             <Input
-              placeholder="Search name, email, address…"
+              placeholder="Search name, email, topic, message…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="md:col-span-2"
@@ -180,13 +180,6 @@ export default function Admin() {
               <SelectContent>
                 <SelectItem value="all">All statuses</SelectItem>
                 {STATUSES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-              </SelectContent>
-            </Select>
-            <Select value={serviceFilter} onValueChange={setServiceFilter}>
-              <SelectTrigger><SelectValue placeholder="Service" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All services</SelectItem>
-                {serviceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
           </CardContent>
@@ -199,41 +192,30 @@ export default function Admin() {
                 <TableRow>
                   <TableHead>Received</TableHead>
                   <TableHead>Name</TableHead>
-                  <TableHead>Contact</TableHead>
-                  <TableHead>Address</TableHead>
-                  <TableHead>Service</TableHead>
-                  <TableHead>Prefers</TableHead>
-                  <TableHead>Notes</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Topic</TableHead>
+                  <TableHead>Message</TableHead>
                   <TableHead>Status</TableHead>
+                  <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filtered.length === 0 && (
                   <TableRow>
-                    <TableCell colSpan={8} className="text-center text-muted-foreground py-10">
-                      No quote requests match your filters.
+                    <TableCell colSpan={7} className="text-center text-muted-foreground py-10">
+                      No submissions match your filters.
                     </TableCell>
                   </TableRow>
                 )}
-                {paginated.map((r) => (
+                {filtered.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
                       {new Date(r.created_at).toLocaleString()}
                     </TableCell>
                     <TableCell className="font-medium">{r.name}</TableCell>
-                    <TableCell className="text-xs">
-                      <div>{r.email}</div>
-                      <div className="text-muted-foreground">{r.phone}</div>
-                    </TableCell>
-                    <TableCell className="text-xs max-w-[200px]">
-                      <div>{r.address}</div>
-                      <div className="text-muted-foreground">{r.postal_code}</div>
-                    </TableCell>
-                    <TableCell className="text-xs">{r.service_type}</TableCell>
-                    <TableCell className="text-xs capitalize">{r.contact_method}</TableCell>
-                    <TableCell className="text-xs max-w-[240px] truncate" title={r.notes ?? ""}>
-                      {r.notes || <span className="text-muted-foreground">—</span>}
-                    </TableCell>
+                    <TableCell className="text-xs">{r.email}</TableCell>
+                    <TableCell className="text-xs max-w-[200px] truncate" title={r.topic}>{r.topic}</TableCell>
+                    <TableCell className="text-xs max-w-[280px] truncate" title={r.message}>{r.message}</TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
                         <Badge variant={statusVariant[r.status] ?? "default"}>{r.status}</Badge>
@@ -245,34 +227,56 @@ export default function Admin() {
                         </Select>
                       </div>
                     </TableCell>
+                    <TableCell>
+                      <Button variant="ghost" size="sm" onClick={() => setViewing(r)}>
+                        <Eye className="h-4 w-4" />
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </CardContent>
-          <div className="flex items-center justify-between gap-4 flex-wrap p-4 border-t">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Rows per page</span>
-              <Select value={String(pageSize)} onValueChange={(v) => setPageSize(Number(v))}>
-                <SelectTrigger className="h-8 w-[80px]"><SelectValue /></SelectTrigger>
-                <SelectContent>
-                  {[10, 25, 50, 100].map((n) => <SelectItem key={n} value={String(n)}>{n}</SelectItem>)}
-                </SelectContent>
-              </Select>
-              <span className="ml-2">
-                {filtered.length === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, filtered.length)} of {filtered.length}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" onClick={() => setPage(1)} disabled={currentPage <= 1}>First</Button>
-              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={currentPage <= 1}>Previous</Button>
-              <span className="text-sm">Page {currentPage} of {totalPages}</span>
-              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={currentPage >= totalPages}>Next</Button>
-              <Button variant="outline" size="sm" onClick={() => setPage(totalPages)} disabled={currentPage >= totalPages}>Last</Button>
-            </div>
-          </div>
         </Card>
       </div>
+
+      <Dialog open={!!viewing} onOpenChange={(o) => !o && setViewing(null)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Submission details</DialogTitle>
+          </DialogHeader>
+          {viewing && (
+            <div className="space-y-4 text-sm">
+              <div className="grid grid-cols-2 gap-4">
+                <div><div className="text-xs text-muted-foreground">Name</div><div>{viewing.name}</div></div>
+                <div><div className="text-xs text-muted-foreground">Email</div><div>{viewing.email}</div></div>
+                <div><div className="text-xs text-muted-foreground">Received</div><div>{new Date(viewing.created_at).toLocaleString()}</div></div>
+                <div><div className="text-xs text-muted-foreground">Status</div><Badge variant={statusVariant[viewing.status] ?? "default"}>{viewing.status}</Badge></div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Topic</div>
+                <div>{viewing.topic}</div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Message</div>
+                <div className="whitespace-pre-wrap rounded-md border p-3 bg-muted/30">{viewing.message}</div>
+              </div>
+              <div className="flex gap-2 pt-2">
+                {STATUSES.map((s) => (
+                  <Button
+                    key={s}
+                    size="sm"
+                    variant={viewing.status === s ? "default" : "outline"}
+                    onClick={() => { updateStatus(viewing.id, s); setViewing({ ...viewing, status: s }); }}
+                  >
+                    Mark {s}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
