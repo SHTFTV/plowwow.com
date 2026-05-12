@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { getCityBySlug, cities } from "@/data/cities";
+import { truncateForMeta } from "@/lib/seo";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
