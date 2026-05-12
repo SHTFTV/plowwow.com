@@ -633,7 +633,7 @@ const BlogIndex = () => {
                     onClick={() => setPageJumpSize(PAGE_JUMP_SIZE_DEFAULT)}
                     className="rounded-md border border-border px-2 py-1 text-xs font-semibold text-foreground hover:bg-muted"
                   >
-                    Reset
+                    Reset to default
                   </button>
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground/80">
