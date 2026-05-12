@@ -166,7 +166,8 @@ const BlogIndex = () => {
                   </p>
                 </Link>
               ))}
-            </div>
+              </div>
+            )}
 
             {totalPages > 1 && (
               <nav
