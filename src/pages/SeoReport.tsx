@@ -134,9 +134,8 @@ const SeoReport = () => {
     const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `city-seo-report-${stamp}.csv`;
+    a.download = buildFilename("csv", { filtered: true });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
