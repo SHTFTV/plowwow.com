@@ -81,9 +81,18 @@ const ServiceAreas = () => {
   const [query, setQuery] = useState(initialQuery);
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
-  // Bumped each time we want to replay the "restored" pulse on the active card.
-  const [pulseToken, setPulseToken] = useState(0);
-  const [pulseIndex, setPulseIndex] = useState<number | null>(null);
+  // Single source of truth for "restore the saved city" events. Scroll,
+  // focus, and the pulse animation all read from this one object so they
+  // can never desync. `token` bumps for every new restore so duplicate
+  // restorations to the same index still re-fire the effects.
+  type RestoreEvent = {
+    idx: number;
+    token: number;
+    pulse: boolean;
+    center: boolean;
+    focus: boolean;
+  };
+  const [restoreEvent, setRestoreEvent] = useState<RestoreEvent | null>(null);
 
   // Sync query → URL search param (replace, no history spam) + localStorage.
   useEffect(() => {
