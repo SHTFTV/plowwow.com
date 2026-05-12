@@ -270,6 +270,9 @@ const ServiceAreas = () => {
                         to={`/${city.slug}`}
                         role="option"
                         aria-selected={isActive}
+                        aria-posinset={myIdx + 1}
+                        aria-setsize={totalMatches}
+                        aria-label={`${city.name}, ${region.title}`}
                         tabIndex={isActive ? 0 : -1}
                         onMouseEnter={() => setActiveIndex(myIdx)}
                         onFocus={() => {
