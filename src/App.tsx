@@ -10,6 +10,8 @@ import Admin from "./pages/Admin.tsx";
 import Burnaby from "./pages/Burnaby.tsx";
 import CityPage from "./pages/CityPage.tsx";
 import SeoReport from "./pages/SeoReport.tsx";
+import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage.tsx";
+import BlogIndex from "./pages/BlogIndex.tsx";
 
 const queryClient = new QueryClient();
 
