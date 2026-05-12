@@ -1318,4 +1318,85 @@ describe("ServiceAreas Enter/Space selection", () => {
     // Query was also cleared by the outside-click handler.
     expect(combobox.value).toBe("");
   });
+
+  it("Tab after an outside-click keeps the listbox closed and advances focus to the next tabbable without flipping aria-expanded", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+
+    // Harness with an outside-click target AND a known next-tabbable button.
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <ServiceAreas />
+                <div data-testid="outside-region">
+                  <p>Outside the section</p>
+                </div>
+                <button data-testid="next-tabbable" type="button">
+                  Next
+                </button>
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    // Mount restore: listbox open, focus on Burnaby card.
+    await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // Click outside → listbox collapses, focus returns to combobox.
+    await act(async () => {
+      fireEvent.mouseDown(screen.getByTestId("outside-region"));
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+      expect(document.activeElement).toBe(combobox);
+    });
+
+    // Capture the activedescendant after outside-click for a stability check.
+    const adAfterOutsideClick = combobox.getAttribute("aria-activedescendant");
+    expect(adAfterOutsideClick).toBe("city-opt-vancouver");
+
+    // Press Tab on the combobox. Listbox is already closed and the
+    // suppression flag is set, so Tab must NOT reopen it.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "Tab" });
+    });
+
+    // aria-expanded must stay false; no listbox appears.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    // aria-activedescendant must not have been corrupted by the Tab handler.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterOutsideClick);
+
+    // Simulate the browser's default Tab focus move (jsdom doesn't do it).
+    const nextBtn = screen.getByTestId("next-tabbable") as HTMLButtonElement;
+    await act(async () => {
+      nextBtn.focus();
+    });
+    expect(document.activeElement).toBe(nextBtn);
+
+    // After focus has moved to the next tabbable, dropdown state stays clean.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterOutsideClick);
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+
+    // Shift+Tab back into the combobox must NOT auto-reopen the listbox.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+  });
 });
