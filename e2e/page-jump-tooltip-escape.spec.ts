@@ -63,11 +63,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await innerFocusable.waitFor({ state: "visible" });
     await innerFocusable.focus();
     await expect(innerFocusable).toBeFocused();
+    await assertTooltipOpen(page);
 
     await page.keyboard.press("Escape");
 
-    await expect(button).toHaveAttribute("aria-expanded", "false");
-    await expect(tip).toBeHidden();
+    await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
 
