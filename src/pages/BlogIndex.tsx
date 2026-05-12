@@ -416,6 +416,14 @@ const BlogIndex = () => {
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
         setActiveIndex((i) => (i <= 0 ? 0 : i - 1));
+      } else if (e.key === "PageDown" && !isTyping) {
+        e.preventDefault();
+        setActiveIndex((i) =>
+          Math.min((i < 0 ? 0 : i) + 5, visible.length - 1),
+        );
+      } else if (e.key === "PageUp" && !isTyping) {
+        e.preventDefault();
+        setActiveIndex((i) => Math.max((i < 0 ? 0 : i) - 5, 0));
       } else if (e.key === "Home" && !isTyping) {
         e.preventDefault();
         setActiveIndex(0);
