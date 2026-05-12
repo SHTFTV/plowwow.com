@@ -295,6 +295,7 @@ const ServiceAreas = () => {
     if (flatCities.length === 0 && e.key !== "Escape") return;
     // Any navigation key reopens a collapsed list
     if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter", " ", "Spacebar"].includes(e.key)) {
+      suppressFocusExpandRef.current = false;
       setCollapsed(false);
     }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
