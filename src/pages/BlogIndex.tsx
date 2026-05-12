@@ -136,6 +136,11 @@ const BlogIndex = () => {
   const debounceRef = useRef<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Keyboard navigation across the visible (current-page) results.
+  // -1 = nothing highlighted; 0..visible.length-1 = active card.
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
     setDraft(query);
