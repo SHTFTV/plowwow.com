@@ -45,8 +45,13 @@ const SeoReport = () => {
     typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
   const rows = useMemo(() => buildRows(origin), [origin]);
   const [downloading, setDownloading] = useState(false);
+  const [onlyMismatches, setOnlyMismatches] = useState(false);
 
   const mismatches = rows.filter((r) => r.match === "MISMATCH").length;
+  const okCount = rows.length - mismatches;
+  const visibleRows = onlyMismatches
+    ? rows.filter((r) => r.match === "MISMATCH")
+    : rows;
 
   const handleDownload = () => {
     setDownloading(true);
