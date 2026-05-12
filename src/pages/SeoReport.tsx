@@ -90,8 +90,8 @@ const SeoReport = () => {
       const summary = [
         ["Metric", "Value"],
         ["Total routes", rows.length],
-        ["OK", rows.length - mismatches],
-        ["MISMATCH", mismatches],
+        ["OK", rows.length - totalMismatches],
+        ["MISMATCH", totalMismatches],
         ["Generated at", new Date().toISOString()],
         ["Origin", origin],
       ];
