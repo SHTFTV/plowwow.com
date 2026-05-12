@@ -62,6 +62,16 @@ const BlogIndex = () => {
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const setQuery = (next: string) => {
+    const params = new URLSearchParams(searchParams);
+    const trimmed = next.trim();
+    if (trimmed) params.set("q", trimmed);
+    else params.delete("q");
+    // Searching always resets pagination back to page 1.
+    params.delete("page");
+    setSearchParams(params);
+  };
+
   return (
     <div className="min-h-screen">
       <TopBar />
