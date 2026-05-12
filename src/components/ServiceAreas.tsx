@@ -197,6 +197,7 @@ const ServiceAreas = () => {
     if (shouldFocus) {
       userInteractedRef.current = true;
       const useCenter = !hasMountedRef.current || forceRestoreRef.current;
+      const shouldPulse = forceRestoreRef.current && hasMountedRef.current;
       requestAnimationFrame(() => {
         const el = cardRefs.current[idx];
         if (!el) return;
@@ -205,12 +206,23 @@ const ServiceAreas = () => {
           behavior: "smooth",
         });
         el.focus({ preventScroll: true });
+        if (shouldPulse) {
+          setPulseIndex(idx);
+          setPulseToken((t) => t + 1);
+        }
       });
     }
 
     forceRestoreRef.current = false;
     hasMountedRef.current = true;
   }, [flatCities]);
+
+  // Clear the pulse marker after the animation finishes so it can replay later.
+  useEffect(() => {
+    if (pulseIndex === null) return;
+    const t = window.setTimeout(() => setPulseIndex(null), 950);
+    return () => window.clearTimeout(t);
+  }, [pulseToken, pulseIndex]);
 
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
