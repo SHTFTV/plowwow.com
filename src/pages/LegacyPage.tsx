@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useLocation, Navigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
