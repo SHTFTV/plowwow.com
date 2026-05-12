@@ -256,7 +256,11 @@ const SeoReport = () => {
     const a = document.createElement("a");
     const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `city-seo-report-styled-${stamp}.xlsx`;
+    const parts = ["city-seo-report-filtered"];
+    if (onlyMismatches) parts.push("mismatches");
+    if (query.trim()) parts.push(query.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
+    parts.push("styled", stamp);
+    a.download = `${parts.filter(Boolean).join("-")}.xlsx`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
