@@ -45,7 +45,21 @@ const CityPage = () => {
       }
       el.setAttribute("content", content);
     };
+    const setProperty = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
     setMeta("description", pageDescription);
+    setProperty("og:title", pageTitle);
+    setProperty("og:description", pageDescription);
+    setProperty("og:url", url);
+    setProperty("twitter:title", pageTitle);
+    setProperty("twitter:description", pageDescription);
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
