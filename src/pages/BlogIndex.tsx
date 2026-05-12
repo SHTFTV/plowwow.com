@@ -67,6 +67,7 @@ const BlogIndex = () => {
   // every keystroke.
   const [draft, setDraft] = useState(query);
   const debounceRef = useRef<number | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
