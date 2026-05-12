@@ -340,18 +340,26 @@ const SD41AlertsCard = () => {
                   {savedSearches.map((s) => (
                     <li key={s.id} className="flex items-center gap-1 group/saved">
                       {renamingId === s.id ? (
-                        <input
-                          autoFocus
-                          type="text"
-                          maxLength={60}
-                          value={renameValue}
-                          onChange={(e) => setRenameValue(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") commitRename();
-                            if (e.key === "Escape") cancelRename();
-                          }}
-                          className="flex-1 rounded-md border border-primary/40 bg-background px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
-                        />
+                        <div className="flex-1">
+                          <input
+                            autoFocus
+                            type="text"
+                            maxLength={60}
+                            value={renameValue}
+                            onChange={(e) => setRenameValue(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") commitRename();
+                              if (e.key === "Escape") cancelRename();
+                            }}
+                            className="w-full rounded-md border border-primary/40 bg-background px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+                          />
+                          <p className="mt-1 px-0.5 text-[10px] text-muted-foreground">
+                            <kbd className="rounded border border-border/60 bg-muted px-1 font-mono text-[9px]">Enter</kbd>{" "}
+                            to save ·{" "}
+                            <kbd className="rounded border border-border/60 bg-muted px-1 font-mono text-[9px]">Esc</kbd>{" "}
+                            to cancel without saving
+                          </p>
+                        </div>
                       ) : (
                         <button
                           onClick={() => handleApplySaved(s)}
