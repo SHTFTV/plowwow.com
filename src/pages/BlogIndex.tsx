@@ -674,6 +674,7 @@ const BlogIndex = () => {
                           id="page-jump-tip"
                           ref={pageJumpTipContentRef}
                           role="tooltip"
+                          aria-hidden={!pageJumpTipOpen}
                           tabIndex={-1}
                           className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         >
