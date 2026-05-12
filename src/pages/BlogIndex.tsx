@@ -410,12 +410,12 @@ const BlogIndex = () => {
       // those keys should still move the text caret.
       if (e.key === "ArrowDown") {
         e.preventDefault();
-        setActiveIndex((i) => (i + 1) % visible.length);
+        setActiveIndex((i) =>
+          i < 0 ? 0 : Math.min(i + 1, visible.length - 1),
+        );
       } else if (e.key === "ArrowUp") {
         e.preventDefault();
-        setActiveIndex((i) =>
-          i <= 0 ? visible.length - 1 : i - 1,
-        );
+        setActiveIndex((i) => (i <= 0 ? 0 : i - 1));
       } else if (e.key === "Home" && !isTyping) {
         e.preventDefault();
         setActiveIndex(0);
