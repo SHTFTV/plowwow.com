@@ -167,6 +167,19 @@ const BlogIndex = () => {
     window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(scrollPadding));
   }, [scrollPadding]);
 
+  // Toggle for smooth auto-scrolling of the active card. When off, the page
+  // does not auto-scroll the selection into view at all.
+  const [smoothScroll, setSmoothScroll] = useState<boolean>(true);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.localStorage.getItem(SMOOTH_SCROLL_STORAGE_KEY);
+    if (raw === "false") setSmoothScroll(false);
+  }, []);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(SMOOTH_SCROLL_STORAGE_KEY, String(smoothScroll));
+  }, [smoothScroll]);
+
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
     setDraft(query);
