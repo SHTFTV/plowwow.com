@@ -32,6 +32,30 @@ test.describe("App Features — Skip links focus restoration", () => {
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
   });
 
+  test("Shift+Tab from second accordion button moves focus back to first", async ({ page }) => {
+    // Set up the same state as the first test: skip to FAQ, expand first accordion, Tab to second.
+    const skipLink = page.locator('a:has-text("Skip to FAQ")');
+    await skipLink.focus();
+    await page.keyboard.press("Enter");
+
+    const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
+    await expect(firstAccordionButton).toBeFocused();
+
+    await page.keyboard.press("Enter");
+    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
+
+    await page.keyboard.press("Tab");
+    const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
+    await expect(secondAccordionButton).toBeFocused();
+    await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
+
+    // Pressing Shift+Tab should move focus back to the first accordion trigger.
+    await page.keyboard.press("Shift+Tab");
+    await expect(firstAccordionButton).toBeFocused();
+    // The second accordion should remain collapsed.
+    await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
+  });
+
   test("Back to top focuses the H1 heading and Tab order continues", async ({ page }) => {
     // Explicitly focus the Back to top link (deterministic, no hard-coded Tab count).
     const backToTop = page.locator('a:has-text("Back to top")');
