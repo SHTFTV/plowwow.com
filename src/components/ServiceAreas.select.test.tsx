@@ -1753,4 +1753,49 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe(adAfterEnter);
   });
+
+  it("ArrowUp from the first focused city option wraps focus to the last option with correct aria-selected and aria-activedescendant", async () => {
+    // Mount restore on Vancouver — index 0, the first option.
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderHarness();
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    const vancouver = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(vancouver.getAttribute("aria-selected")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-vancouver",
+    );
+
+    // ArrowUp from the first option must wrap to the last option
+    // (Chilliwack is the last entry in the last region).
+    await act(async () => {
+      fireEvent.keyDown(vancouver, { key: "ArrowUp" });
+    });
+
+    const chilliwack = await waitFor(() => {
+      const el = card("chilliwack");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // aria-selected moved with focus.
+    expect(chilliwack.getAttribute("aria-selected")).toBe("true");
+    expect(vancouver.getAttribute("aria-selected")).toBe("false");
+
+    // aria-activedescendant on the combobox tracks the wrapped target.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-chilliwack",
+    );
+
+    // Listbox stays open through wrap navigation.
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+  });
 });
