@@ -88,6 +88,10 @@ const SCROLL_PADDING_MAX = 400;
 const SCROLL_PADDING_STORAGE_KEY = "blog:scrollViewportPadding";
 const SMOOTH_SCROLL_STORAGE_KEY = "blog:smoothAutoScroll";
 const ACTIVE_SLUG_STORAGE_KEY = "blog:activeSlug";
+const PAGE_JUMP_SIZE_STORAGE_KEY = "blog:pageJumpSize";
+const PAGE_JUMP_SIZE_DEFAULT = 5;
+const PAGE_JUMP_SIZE_MIN = 2;
+const PAGE_JUMP_SIZE_MAX = 20;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -191,6 +195,28 @@ const BlogIndex = () => {
     }
   }, []);
 
+  // Configurable PageUp/PageDown jump size. Clamped to a sensible range and
+  // persisted (with cross-tab sync) like the other selection settings.
+  const parseStoredJumpSize = (raw: string | null): number | null => {
+    if (raw == null) return null;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return null;
+    return Math.min(PAGE_JUMP_SIZE_MAX, Math.max(PAGE_JUMP_SIZE_MIN, n));
+  };
+  const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const initial = parseStoredJumpSize(window.localStorage.getItem(PAGE_JUMP_SIZE_STORAGE_KEY));
+    if (initial != null) _setPageJumpSize(initial);
+  }, []);
+  const setPageJumpSize = useCallback((next: number) => {
+    const clamped = Math.min(PAGE_JUMP_SIZE_MAX, Math.max(PAGE_JUMP_SIZE_MIN, next));
+    _setPageJumpSize(clamped);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(PAGE_JUMP_SIZE_STORAGE_KEY, String(clamped));
+    }
+  }, []);
+
   // Cross-tab sync. The browser fires `storage` events on OTHER tabs/windows
   // sharing this origin when localStorage changes — perfect for live syncing
   // settings without a backend round-trip. The originating tab does not
@@ -232,6 +258,9 @@ const BlogIndex = () => {
         if (e.newValue === "true" || e.newValue === "false") {
           _setSmoothScroll(e.newValue === "true");
         }
+      } else if (e.key === PAGE_JUMP_SIZE_STORAGE_KEY) {
+        const next = parseStoredJumpSize(e.newValue);
+        if (next != null) _setPageJumpSize(next);
       } else if (e.key === ACTIVE_SLUG_STORAGE_KEY) {
         const parsed = parsePersistedActive(e.newValue);
         if (!parsed) {
@@ -419,11 +448,11 @@ const BlogIndex = () => {
       } else if (e.key === "PageDown" && !isTyping) {
         e.preventDefault();
         setActiveIndex((i) =>
-          Math.min((i < 0 ? 0 : i) + 5, visible.length - 1),
+          Math.min((i < 0 ? 0 : i) + pageJumpSize, visible.length - 1),
         );
       } else if (e.key === "PageUp" && !isTyping) {
         e.preventDefault();
-        setActiveIndex((i) => Math.max((i < 0 ? 0 : i) - 5, 0));
+        setActiveIndex((i) => Math.max((i < 0 ? 0 : i) - pageJumpSize, 0));
       } else if (e.key === "Home" && !isTyping) {
         e.preventDefault();
         setActiveIndex(0);
@@ -437,7 +466,7 @@ const BlogIndex = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [location.pathname, visible, activeIndex, openActive]);
+  }, [location.pathname, visible, activeIndex, openActive, pageJumpSize]);
 
   return (
     <div className="min-h-screen">
@@ -563,6 +592,50 @@ const BlogIndex = () => {
                     (when off, the page will not scroll the active result into view)
                   </span>
                 </label>
+
+                <label htmlFor="page-jump-size" className="mt-2 flex items-center justify-between gap-4">
+                  <span>
+                    PageUp / PageDown jump size
+                    <span className="ml-2 text-xs text-muted-foreground/80">
+                      (number of cards to skip when pressing PageUp or PageDown)
+                    </span>
+                  </span>
+                  <span className="font-mono text-foreground tabular-nums">
+                    {pageJumpSize}
+                  </span>
+                </label>
+                <div className="flex items-center gap-3">
+                  <input
+                    id="page-jump-size"
+                    type="range"
+                    min={PAGE_JUMP_SIZE_MIN}
+                    max={PAGE_JUMP_SIZE_MAX}
+                    step={1}
+                    value={pageJumpSize}
+                    onChange={(e) => setPageJumpSize(parseInt(e.target.value, 10))}
+                    className="flex-1 accent-primary"
+                  />
+                  <input
+                    type="number"
+                    min={PAGE_JUMP_SIZE_MIN}
+                    max={PAGE_JUMP_SIZE_MAX}
+                    step={1}
+                    value={pageJumpSize}
+                    onChange={(e) => {
+                      const n = parseInt(e.target.value, 10);
+                      if (!Number.isFinite(n)) return;
+                      setPageJumpSize(n);
+                    }}
+                    className="w-20 rounded-md border border-border bg-background px-2 py-1 text-sm text-foreground"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setPageJumpSize(PAGE_JUMP_SIZE_DEFAULT)}
+                    className="rounded-md border border-border px-2 py-1 text-xs font-semibold text-foreground hover:bg-muted"
+                  >
+                    Reset
+                  </button>
+                </div>
               </div>
             </details>
 
