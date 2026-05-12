@@ -235,12 +235,12 @@ const BlogIndex = () => {
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight || document.documentElement.clientHeight;
     const fullyVisible =
-      rect.top >= SCROLL_VIEWPORT_PADDING &&
-      rect.bottom <= viewH - SCROLL_VIEWPORT_PADDING;
+      rect.top >= scrollPadding &&
+      rect.bottom <= viewH - scrollPadding;
     if (fullyVisible) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [activeIndex, visible]);
+  }, [activeIndex, visible, scrollPadding]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
