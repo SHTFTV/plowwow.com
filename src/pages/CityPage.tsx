@@ -304,8 +304,8 @@ const CityPage = () => {
         <section className="py-16 bg-background" id="deep-dive">
           <div className="container max-w-3xl">
             {copySections.map((s, idx) => (
-              <>
-                <article key={s.id} id={s.id} className="mb-10">
+              <div key={s.id}>
+                <article id={s.id} className="mb-10">
                   <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
                     {s.heading}
                   </h2>
