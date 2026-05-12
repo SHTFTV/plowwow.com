@@ -14,6 +14,9 @@ export type City = {
   badges?: string[];
   // City-specific Open Graph / Twitter card image
   ogImage: string;
+  // Optional OG image dimensions (defaults to 1200×630)
+  ogImageWidth?: number;
+  ogImageHeight?: number;
 };
 
 // Cities along the Vancouver → Abbotsford corridor (Lower Mainland, BC).

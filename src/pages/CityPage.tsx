@@ -33,6 +33,8 @@ const CityPage = () => {
   const pageDescription = city.intro.slice(0, 155);
   const url = `https://plowwow.com/${city.slug}`;
   const ogImage = city.ogImage;
+  const ogImageWidth = city.ogImageWidth ?? 1200;
+  const ogImageHeight = city.ogImageHeight ?? 630;
 
   // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
@@ -60,6 +62,11 @@ const CityPage = () => {
     setProperty("og:description", pageDescription);
     setProperty("og:url", url);
     setProperty("og:image", ogImage);
+    setProperty("og:image:width", String(ogImageWidth));
+    setProperty("og:image:height", String(ogImageHeight));
+    setProperty("og:image:alt", pageTitle);
+    setProperty("og:type", "website");
+    setProperty("twitter:card", "summary_large_image");
     setProperty("twitter:title", pageTitle);
     setProperty("twitter:description", pageDescription);
     setProperty("twitter:image", ogImage);
