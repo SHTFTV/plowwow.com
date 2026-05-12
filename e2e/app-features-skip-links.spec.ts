@@ -55,6 +55,8 @@ test.describe("App Features — Skip links focus restoration", () => {
     const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
     await expect(firstAccordionContent).toBeVisible();
   });
+
+  test("Expanding first accordion keeps content visible after Shift+Tab", async ({ page }) => {
     // Directly focus the first accordion trigger button.
     const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
     await firstAccordionButton.focus();
