@@ -112,18 +112,29 @@ const ServiceAreas = () => {
     }
   }, [activeIndex]);
 
-  // Collapse the results when the user clicks anywhere outside this section.
+  // Collapse when the user clicks/taps outside the section,
+  // but explicitly preserve clicks on the search input, the listbox,
+  // any of the city option cards, or any inline label/clear button.
   useEffect(() => {
     if (collapsed) return;
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
       const target = event.target as Node | null;
-      if (!target || !sectionRef.current) return;
-      if (!sectionRef.current.contains(target)) {
-        setCollapsed(true);
-        setQuery("");
-        setActiveIndex(0);
-        userInteractedRef.current = false;
-      }
+      if (!target) return;
+
+      // Explicit exclusions — clicks inside these never collapse the dropdown.
+      const isInsideAllowed =
+        inputRef.current?.contains(target) ||
+        listboxRef.current?.contains(target) ||
+        cardRefs.current.some((card) => card?.contains(target));
+      if (isInsideAllowed) return;
+
+      // Fall back to the section bounds (covers headings, hint, clear button, etc.)
+      if (sectionRef.current?.contains(target)) return;
+
+      setCollapsed(true);
+      setQuery("");
+      setActiveIndex(0);
+      userInteractedRef.current = false;
     };
     document.addEventListener("mousedown", handlePointerDown);
     document.addEventListener("touchstart", handlePointerDown);
