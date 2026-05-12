@@ -115,7 +115,11 @@ const ServiceAreas = () => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    if (flatCities.length === 0) return;
+    if (flatCities.length === 0 && e.key !== "Escape") return;
+    // Any navigation key reopens a collapsed list
+    if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter"].includes(e.key)) {
+      setCollapsed(false);
+    }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
       moveActive(1);
