@@ -709,4 +709,79 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
   });
+
+  it("Shift+Tab from an open listbox closes it, moves focus backward, and leaves aria-expanded/aria-activedescendant in a sane state", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+
+    // Place a known tabbable BEFORE ServiceAreas so Shift+Tab's natural
+    // destination is unambiguous.
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <button data-testid="prev-tabbable" type="button">
+                  Prev
+                </button>
+                <ServiceAreas />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    // Mount restore lands on Burnaby; listbox is open.
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+
+    const prevBtn = screen.getByTestId("prev-tabbable") as HTMLButtonElement;
+
+    // Press Shift+Tab on the focused card. The handler must collapse without
+    // preventDefault so the browser would move focus backward; jsdom doesn't
+    // implement default Tab movement, so we simulate it after the keydown.
+    await act(async () => {
+      fireEvent.keyDown(burnaby, { key: "Tab", shiftKey: true });
+    });
+
+    // Listbox unmounts; aria-expanded flips to false.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    });
+
+    // aria-activedescendant still points at a valid saved slug.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+
+    // Simulate the browser's default Shift+Tab focus move.
+    await act(async () => {
+      prevBtn.focus();
+    });
+    expect(document.activeElement).toBe(prevBtn);
+
+    // Dropdown state stays clean after focus has moved backward.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+
+    // Tabbing forward into the combobox must NOT auto-reopen the listbox
+    // (suppression flag set by the Shift+Tab handler keeps it closed).
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+  });
 });
