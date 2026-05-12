@@ -32,7 +32,32 @@ test.describe("App Features — Skip links focus restoration", () => {
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
   });
 
-  test("Shift+Tab from second accordion button moves focus back to first", async ({ page }) => {
+  test("Expanding first accordion keeps content visible after Shift+Tab", async ({ page }) => {
+    // Directly focus the first accordion trigger button.
+    const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
+    await firstAccordionButton.focus();
+    await expect(firstAccordionButton).toBeFocused();
+    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "false");
+
+    // Pressing Enter should expand the first accordion item.
+    await page.keyboard.press("Enter");
+    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
+    await expect(firstAccordionButton).toBeFocused();
+
+    // Tab to the second button, then Shift+Tab back to the first.
+    await page.keyboard.press("Tab");
+    const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
+    await expect(secondAccordionButton).toBeFocused();
+
+    await page.keyboard.press("Shift+Tab");
+    await expect(firstAccordionButton).toBeFocused();
+
+    // The first accordion content should remain visible.
+    const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
+    await expect(firstAccordionItem).toHaveAttribute("data-state", "open");
+    const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
+    await expect(firstAccordionContent).toBeVisible();
+  });
     // Set up the same state as the first test: skip to FAQ, expand first accordion, Tab to second.
     const skipLink = page.locator('a:has-text("Skip to FAQ")');
     await skipLink.focus();
