@@ -143,11 +143,13 @@ const ServiceAreas = () => {
     });
   }, [flatCities.length]);
 
-  // Restore the last selected city once after mount: highlight, scroll, focus.
-  const restoredRef = useRef(false);
+  // Restore the last-selected city. Runs on mount AND every time the
+  // filtered list changes, so as the user narrows / clears the search,
+  // the saved city re-activates whenever it reappears in the results.
+  const hasMountedRef = useRef(false);
   useEffect(() => {
-    if (restoredRef.current) return;
     if (flatCities.length === 0) return;
+
     let savedSlug: string | null = null;
     try {
       savedSlug = window.localStorage.getItem(LAST_CITY_KEY);
@@ -155,25 +157,39 @@ const ServiceAreas = () => {
       savedSlug = null;
     }
     if (!savedSlug) {
-      restoredRef.current = true;
+      hasMountedRef.current = true;
       return;
     }
+
     const idx = flatCities.findIndex((c) => c.slug === savedSlug);
-    if (idx >= 0) {
-      restoredRef.current = true;
+    if (idx < 0) {
+      // Saved slug is filtered out right now; do nothing and wait for the
+      // next filter change.
+      return;
+    }
+
+    // Always re-align activeIndex to the saved slug so the highlight follows
+    // it across filter changes.
+    setActiveIndex(idx);
+
+    // Don't steal focus while the user is actively typing in the search box.
+    const typingInSearch =
+      typeof document !== "undefined" && document.activeElement === inputRef.current;
+
+    if (!typingInSearch) {
       userInteractedRef.current = true;
-      setActiveIndex(idx);
-      // Give React a tick to paint the cards before scrolling/focusing.
       requestAnimationFrame(() => {
         const el = cardRefs.current[idx];
         if (!el) return;
-        el.scrollIntoView({ block: "center", behavior: "smooth" });
+        el.scrollIntoView({
+          block: hasMountedRef.current ? "nearest" : "center",
+          behavior: "smooth",
+        });
         el.focus({ preventScroll: true });
       });
-    } else {
-      // The saved slug doesn't match anything in the current filtered list;
-      // try again once the filter clears or list changes.
     }
+
+    hasMountedRef.current = true;
   }, [flatCities]);
 
   useEffect(() => {
