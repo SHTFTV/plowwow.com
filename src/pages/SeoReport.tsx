@@ -45,8 +45,13 @@ const SeoReport = () => {
     typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
   const rows = useMemo(() => buildRows(origin), [origin]);
   const [downloading, setDownloading] = useState(false);
+  const [onlyMismatches, setOnlyMismatches] = useState(false);
 
   const mismatches = rows.filter((r) => r.match === "MISMATCH").length;
+  const okCount = rows.length - mismatches;
+  const visibleRows = onlyMismatches
+    ? rows.filter((r) => r.match === "MISMATCH")
+    : rows;
 
   const handleDownload = () => {
     setDownloading(true);
@@ -108,12 +113,19 @@ const SeoReport = () => {
         </p>
       </header>
 
-      <div className="flex items-center gap-4 mb-6">
+      <div className="flex flex-wrap items-center gap-4 mb-6">
         <Button onClick={handleDownload} disabled={downloading}>
           {downloading ? "Generating…" : "Download XLSX"}
         </Button>
+        <Button
+          variant={onlyMismatches ? "default" : "outline"}
+          onClick={() => setOnlyMismatches((v) => !v)}
+        >
+          {onlyMismatches ? "Showing mismatches only" : "Show mismatches only"}
+        </Button>
         <div className="text-sm text-muted-foreground">
-          {rows.length} routes ·{" "}
+          Showing {visibleRows.length} of {rows.length} routes ·{" "}
+          <span className="text-green-600 font-medium">{okCount} OK</span> ·{" "}
           <span className={mismatches > 0 ? "text-destructive font-medium" : ""}>
             {mismatches} mismatches
           </span>
@@ -132,7 +144,7 @@ const SeoReport = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {rows.map((r, i) => (
+            {visibleRows.map((r, i) => (
               <TableRow key={i}>
                 <TableCell className="font-medium">{r.city}</TableCell>
                 <TableCell className="font-mono text-xs">{r.path}</TableCell>
