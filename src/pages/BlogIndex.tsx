@@ -20,6 +20,42 @@ const titleFor = (slug: string) => {
   return (m?.[1] ?? slug).replace(/\s*\|\s*PlowWow.*$/i, "").trim();
 };
 
+// Strip Jina header + markdown noise to get a short plain-text summary.
+const summaryFor = (slug: string) => {
+  const path = Object.keys(blogFiles).find((p) => p.endsWith(`/${slug}.md`));
+  if (!path) return "";
+  const raw = blogFiles[path];
+  const bodyMatch = raw.match(/Markdown Content:\s*\n([\s\S]*)$/);
+  const body = (bodyMatch?.[1] ?? raw)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ") // images
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1") // links → text
+    .replace(/[#>*_`>]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return body.slice(0, 200) + (body.length > 200 ? "…" : "");
+};
+
+// Wrap query matches in <mark> for visible highlighting. Case-insensitive,
+// safe against regex injection by escaping the needle.
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const highlight = (text: string, query: string) => {
+  if (!query) return text;
+  const re = new RegExp(`(${escapeRegex(query)})`, "ig");
+  const parts = text.split(re);
+  return parts.map((part, i) =>
+    re.test(part) && part.toLowerCase() === query.toLowerCase() ? (
+      <mark
+        key={i}
+        className="bg-secondary/40 text-foreground rounded px-0.5"
+      >
+        {part}
+      </mark>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+};
+
 const PAGE_SIZE = 8;
 
 const BlogIndex = () => {
