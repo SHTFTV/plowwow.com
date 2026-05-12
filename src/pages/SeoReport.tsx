@@ -157,6 +157,13 @@ const SeoReport = () => {
           {downloading ? "Generating…" : "Download XLSX"}
         </Button>
         <Button
+          variant="outline"
+          onClick={handleExportCsv}
+          disabled={visibleRows.length === 0}
+        >
+          Export CSV ({visibleRows.length})
+        </Button>
+        <Button
           variant={onlyMismatches ? "default" : "outline"}
           onClick={() => setOnlyMismatches((v) => !v)}
         >
