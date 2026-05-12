@@ -247,7 +247,11 @@ const AppFeatures = () => {
           onClick={(e) => {
             e.preventDefault();
             const firstFaq = document.querySelector('#faq button[aria-expanded]') as HTMLButtonElement | null;
-            firstFaq?.focus({ preventScroll: false });
+            if (firstFaq) {
+              firstFaq.focus({ preventScroll: false });
+            } else {
+              document.getElementById('faq-heading')?.focus({ preventScroll: false });
+            }
           }}
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
         >
@@ -360,7 +364,7 @@ const AppFeatures = () => {
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
                 Snow Removal Software FAQ
               </p>
-              <h2 id="faq-heading" className="font-display text-3xl md:text-5xl font-extrabold mt-3">
+              <h2 id="faq-heading" tabIndex={-1} className="font-display text-3xl md:text-5xl font-extrabold mt-3">
                 Questions contractors ask about{" "}
                 <span className="text-intel-blue">snow removal software.</span>
               </h2>
