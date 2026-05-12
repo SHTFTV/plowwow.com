@@ -480,6 +480,7 @@ const ServiceAreas = () => {
                           isActive
                             ? "border-primary ring-2 ring-primary ring-offset-2 ring-offset-background"
                             : "border-border hover:border-primary/50",
+                          isPulsing && "animate-restore-pulse",
                         )}
                       >
                         <span className="font-bold text-foreground flex items-center gap-2">
