@@ -258,6 +258,9 @@ const BlogIndex = () => {
         if (e.newValue === "true" || e.newValue === "false") {
           _setSmoothScroll(e.newValue === "true");
         }
+      } else if (e.key === PAGE_JUMP_SIZE_STORAGE_KEY) {
+        const next = parseStoredJumpSize(e.newValue);
+        if (next != null) _setPageJumpSize(next);
       } else if (e.key === ACTIVE_SLUG_STORAGE_KEY) {
         const parsed = parsePersistedActive(e.newValue);
         if (!parsed) {
