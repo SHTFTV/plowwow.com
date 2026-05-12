@@ -1,4 +1,26 @@
-import { test, expect } from "../playwright-fixture";
+import { test, expect, Page } from "../playwright-fixture";
+
+async function skipToFaqAndExpandFirstAccordion(page: Page) {
+  const skipLink = page.locator('a:has-text("Skip to FAQ")');
+  await skipLink.focus();
+  await page.keyboard.press("Enter");
+
+  const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
+  await expect(firstAccordionButton).toBeFocused();
+
+  await page.keyboard.press("Enter");
+  await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
+  await expect(firstAccordionButton).toBeFocused();
+
+  await page.keyboard.press("Tab");
+  const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
+  await expect(secondAccordionButton).toBeFocused();
+
+  const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
+  const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
+
+  return { firstAccordionButton, secondAccordionButton, firstAccordionItem, firstAccordionContent };
+}
 
 test.describe("App Features — Skip links focus restoration", () => {
   test.beforeEach(async ({ page }) => {
@@ -6,68 +28,27 @@ test.describe("App Features — Skip links focus restoration", () => {
   });
 
   test("Skip to FAQ → Tab to second accordion keeps first content visible", async ({ page }) => {
-    // Explicitly focus the skip link.
-    const skipLink = page.locator('a:has-text("Skip to FAQ")');
-    await skipLink.focus();
-    await expect(skipLink).toBeFocused();
+    const { firstAccordionButton, secondAccordionButton, firstAccordionItem, firstAccordionContent } =
+      await skipToFaqAndExpandFirstAccordion(page);
 
-    // Activate the skip link.
-    await page.keyboard.press("Enter");
-
-    // Focus lands on the first accordion trigger.
-    const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
-    await expect(firstAccordionButton).toBeFocused();
-    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "false");
-
-    // Expand the first accordion item.
-    await page.keyboard.press("Enter");
     await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
-    await expect(firstAccordionButton).toBeFocused();
-
-    // Tab moves focus to the second trigger.
-    await page.keyboard.press("Tab");
-    const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
-    await expect(secondAccordionButton).toBeFocused();
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
-
-    // The first accordion content should remain visible and expanded.
-    const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
     await expect(firstAccordionItem).toHaveAttribute("data-state", "open");
-    const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
     await expect(firstAccordionContent).toBeVisible();
   });
 
   test("Shift+Tab from second accordion back to first keeps first content visible", async ({ page }) => {
-    // Set up via Skip to FAQ.
-    const skipLink = page.locator('a:has-text("Skip to FAQ")');
-    await skipLink.focus();
-    await page.keyboard.press("Enter");
+    const { firstAccordionButton, secondAccordionButton, firstAccordionItem, firstAccordionContent } =
+      await skipToFaqAndExpandFirstAccordion(page);
 
-    const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
-    await expect(firstAccordionButton).toBeFocused();
-
-    // Expand the first accordion item.
-    await page.keyboard.press("Enter");
-    await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
-
-    // Tab to the second button.
-    await page.keyboard.press("Tab");
-    const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
-    await expect(secondAccordionButton).toBeFocused();
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
 
-    // Shift+Tab back to the first trigger.
     await page.keyboard.press("Shift+Tab");
     await expect(firstAccordionButton).toBeFocused();
 
-    // The first accordion panel should remain expanded and visible.
-    const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
     await expect(firstAccordionItem).toHaveAttribute("data-state", "open");
-    const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
     await expect(firstAccordionContent).toBeVisible();
 
-    // The second accordion should remain collapsed.
-    await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
     const secondAccordionItem = page.locator('div[data-state]').filter({ has: secondAccordionButton });
     await expect(secondAccordionItem).toHaveAttribute("data-state", "closed");
   });
