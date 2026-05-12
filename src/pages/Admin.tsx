@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
@@ -44,6 +44,10 @@ export default function Admin() {
   const [serviceFilter, setServiceFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounced(search, 300);
+  const [total, setTotal] = useState(0);
+  const [allServiceTypes, setAllServiceTypes] = useState<string[]>([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
 
   useEffect(() => {
     let active = true;
@@ -67,27 +71,55 @@ export default function Admin() {
       }
       setIsAdmin(true);
       setChecking(false);
-      load();
     })();
-    return () => {
-      active = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => { active = false; };
+  }, [navigate]);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     setLoading(true);
-    const { data, error } = await supabase
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+
+    let q = supabase
       .from("quote_requests")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .select("*", { count: "exact" })
+      .order("created_at", { ascending: false })
+      .range(from, to);
+
+    if (statusFilter !== "all") q = q.eq("status", statusFilter);
+    if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+    const term = debouncedSearch.trim();
+    if (term) {
+      const safe = term.replace(/[%,()]/g, " ");
+      const pattern = `%${safe}%`;
+      q = q.or(
+        `name.ilike.${pattern},email.ilike.${pattern},phone.ilike.${pattern},address.ilike.${pattern},postal_code.ilike.${pattern}`,
+      );
+    }
+
+    const { data, error, count } = await q;
     setLoading(false);
     if (error) {
       toast({ title: "Failed to load", description: error.message, variant: "destructive" });
       return;
     }
     setRows(data ?? []);
-  };
+    setTotal(count ?? 0);
+  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch]);
+
+  const loadServiceTypes = useCallback(async () => {
+    const { data, error } = await supabase.from("quote_requests").select("service_type");
+    if (error) return;
+    const types = Array.from(new Set((data ?? []).map((r) => r.service_type))).sort();
+    setAllServiceTypes(types);
+  }, []);
+
+  useEffect(() => {
+    if (isAdmin) {
+      load();
+      loadServiceTypes();
+    }
+  }, [isAdmin, load, loadServiceTypes]);
 
   const updateStatus = async (id: string, status: Status) => {
     const prev = rows;
@@ -98,6 +130,10 @@ export default function Admin() {
       toast({ title: "Update failed", description: error.message, variant: "destructive" });
     } else {
       toast({ title: "Status updated", description: `Marked as ${status}.` });
+      if (statusFilter !== "all" && status !== statusFilter) {
+        setRows((r) => r.filter((x) => x.id !== id));
+        setTotal((t) => Math.max(0, t - 1));
+      }
     }
   };
 
@@ -106,31 +142,10 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
-  const serviceTypes = useMemo(
-    () => Array.from(new Set(rows.map((r) => r.service_type))).sort(),
-    [rows],
-  );
-
-  const filtered = useMemo(() => {
-    const q = debouncedSearch.trim().toLowerCase();
-    return rows.filter((r) => {
-      if (statusFilter !== "all" && r.status !== statusFilter) return false;
-      if (serviceFilter !== "all" && r.service_type !== serviceFilter) return false;
-      if (!q) return true;
-      return [r.name, r.email, r.phone, r.address, r.postal_code]
-        .join(" ")
-        .toLowerCase()
-        .includes(q);
-    });
-  }, [rows, statusFilter, serviceFilter, debouncedSearch]);
-
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
   useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize]);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * pageSize;
-  const paginated = filtered.slice(startIdx, startIdx + pageSize);
 
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
@@ -162,7 +177,7 @@ export default function Admin() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold">Quote requests</h1>
-            <p className="text-sm text-muted-foreground">{filtered.length} of {rows.length} shown</p>
+            <p className="text-sm text-muted-foreground">{total} total</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" asChild>
@@ -196,7 +211,7 @@ export default function Admin() {
               <SelectTrigger><SelectValue placeholder="Service" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All services</SelectItem>
-                {serviceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                {allServiceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
           </CardContent>
@@ -218,14 +233,14 @@ export default function Admin() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filtered.length === 0 && (
+                {rows.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={8} className="text-center text-muted-foreground py-10">
                       No quote requests match your filters.
                     </TableCell>
                   </TableRow>
                 )}
-                {paginated.map((r) => (
+                {rows.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
                       {new Date(r.created_at).toLocaleString()}
@@ -270,7 +285,7 @@ export default function Admin() {
                 </SelectContent>
               </Select>
               <span className="ml-2">
-                {filtered.length === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, filtered.length)} of {filtered.length}
+                {total === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, total)} of {total}
               </span>
             </div>
             <div className="flex items-center gap-2">
