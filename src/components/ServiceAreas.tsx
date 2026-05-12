@@ -137,7 +137,9 @@ const ServiceAreas = () => {
     } else if (e.key === "Escape") {
       e.preventDefault();
       userInteractedRef.current = false;
-      if (query) setQuery("");
+      setQuery("");
+      setActiveIndex(0);
+      setCollapsed(true);
       document.getElementById("city-search")?.focus();
     }
   };
