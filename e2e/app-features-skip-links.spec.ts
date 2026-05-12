@@ -29,6 +29,7 @@ test.describe("App Features — Skip links focus restoration", () => {
     await page.keyboard.press("Tab");
     const secondAccordionButton = page.locator('button', { hasText: 'How much does snow removal software cost?' });
     await expect(secondAccordionButton).toBeFocused();
+    await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
   });
 
   test("Back to top focuses the H1 heading and Tab order continues", async ({ page }) => {
