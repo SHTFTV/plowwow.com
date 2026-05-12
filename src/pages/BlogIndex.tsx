@@ -67,6 +67,7 @@ const BlogIndex = () => {
   // every keystroke.
   const [draft, setDraft] = useState(query);
   const debounceRef = useRef<number | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
@@ -110,6 +111,34 @@ const BlogIndex = () => {
     [],
   );
 
+  // Global keyboard shortcuts:
+  //   "/" or Cmd/Ctrl+K → focus the search input
+  //   Escape (when input is focused) → clear the query
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const tag = target?.tagName;
+      const isTyping =
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        tag === "SELECT" ||
+        (target?.isContentEditable ?? false);
+
+      const isFocusShortcut =
+        (e.key === "/" && !isTyping) ||
+        ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k");
+
+      if (isFocusShortcut) {
+        e.preventDefault();
+        inputRef.current?.focus();
+        inputRef.current?.select();
+        return;
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <TopBar />
@@ -135,13 +164,28 @@ const BlogIndex = () => {
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
+                ref={inputRef}
                 type="search"
                 value={draft}
                 onChange={(e) => onDraftChange(e.target.value)}
-                placeholder="Search posts by title or slug…"
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    e.preventDefault();
+                    if (draft) {
+                      clearQuery();
+                    } else {
+                      e.currentTarget.blur();
+                    }
+                  }
+                }}
+                placeholder="Search posts by title or slug…   ( press / to focus, Esc to clear )"
                 aria-label="Search blog posts"
-                className="w-full rounded-full border border-border bg-card pl-11 pr-11 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-keyshortcuts="/ Escape Control+K Meta+K"
+                className="w-full rounded-full border border-border bg-card pl-11 pr-20 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
+              <kbd className="hidden md:inline-flex absolute right-12 top-1/2 -translate-y-1/2 items-center justify-center rounded-md border border-border bg-muted px-1.5 py-0.5 text-[10px] font-mono font-semibold text-muted-foreground pointer-events-none">
+                /
+              </kbd>
               {draft && (
                 <button
                   type="button"
