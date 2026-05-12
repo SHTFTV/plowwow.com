@@ -236,7 +236,7 @@ export default function Admin() {
                     </TableCell>
                   </TableRow>
                 )}
-                {paginated.map((r) => (
+                {rows.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
                       {new Date(r.created_at).toLocaleString()}
