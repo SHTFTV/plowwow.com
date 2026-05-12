@@ -267,13 +267,43 @@ const BlogIndex = () => {
     [],
   );
 
-  // Reset the active selection whenever the result set or page changes so we
-  // don't keep highlighting an index that no longer exists.
-  // When a query is active, auto-select the top match so Enter opens it
-  // immediately. With no query, leave the list unselected.
+  // Keep the visible-ref in sync for the cross-tab storage listener.
   useEffect(() => {
+    visibleRef.current = visible;
+  }, [visible]);
+
+  // Reset the active selection whenever the result set or page changes so we
+  // don't keep highlighting an index that no longer exists. If another tab
+  // has a slug selected that's also in the new visible set, restore it;
+  // otherwise auto-select the top match (when a query is active).
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      setActiveIndex(query && visible.length > 0 ? 0 : -1);
+      return;
+    }
+    const storedSlug = window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY);
+    if (storedSlug) {
+      const idx = visible.indexOf(storedSlug);
+      if (idx >= 0) {
+        setActiveIndex(idx);
+        return;
+      }
+    }
     setActiveIndex(query && visible.length > 0 ? 0 : -1);
-  }, [page, query, visible.length]);
+  }, [page, query, visible]);
+
+  // Persist the active slug across tabs. Skip the write if the value already
+  // matches what's in storage to avoid spurious storage events / loops.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const slug = activeIndex >= 0 ? visible[activeIndex] ?? null : null;
+    const current = window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY);
+    if (slug == null) {
+      if (current !== null) window.localStorage.removeItem(ACTIVE_SLUG_STORAGE_KEY);
+    } else if (current !== slug) {
+      window.localStorage.setItem(ACTIVE_SLUG_STORAGE_KEY, slug);
+    }
+  }, [activeIndex, visible]);
 
   // Scroll the active card into view, but only when (a) the selected slug
   // actually changes and (b) the card is not already fully visible in the
