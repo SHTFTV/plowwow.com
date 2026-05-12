@@ -31,7 +31,9 @@ const CityPage = () => {
 
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = city.intro.slice(0, 155);
-  const url = `https://plowwow.com/${city.slug}`;
+  const origin =
+    typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
+  const url = `${origin}/${city.slug}`;
   const ogImage = city.ogImage;
   const ogImageWidth = city.ogImageWidth ?? 1200;
   const ogImageHeight = city.ogImageHeight ?? 630;
