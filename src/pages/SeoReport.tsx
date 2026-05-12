@@ -68,6 +68,20 @@ const SeoReport = () => {
   const visibleOk = visibleRows.length - visibleMismatches;
   const totalMismatches = rows.filter((r) => r.match === "MISMATCH").length;
 
+  const buildFilename = (ext: string, opts?: { filtered?: boolean; styled?: boolean }) => {
+    const stamp = new Date().toISOString().slice(0, 10);
+    const parts = ["city-seo-report"];
+    if (opts?.filtered) {
+      parts.push("filtered");
+      if (onlyMismatches) parts.push("mismatches");
+      const q = query.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      if (q) parts.push(q);
+    }
+    if (opts?.styled) parts.push("styled");
+    parts.push(stamp);
+    return `${parts.filter(Boolean).join("-")}.${ext}`;
+  };
+
   const handleDownload = () => {
     setDownloading(true);
     try {
@@ -99,8 +113,7 @@ const SeoReport = () => {
       sws["!cols"] = [{ wch: 20 }, { wch: 40 }];
       XLSX.utils.book_append_sheet(wb, sws, "Summary");
 
-      const stamp = new Date().toISOString().slice(0, 10);
-      XLSX.writeFile(wb, `city-seo-report-${stamp}.xlsx`);
+      XLSX.writeFile(wb, buildFilename("xlsx"));
     } finally {
       setDownloading(false);
     }
@@ -121,9 +134,8 @@ const SeoReport = () => {
     const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `city-seo-report-${stamp}.csv`;
+    a.download = buildFilename("csv", { filtered: true });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -176,8 +188,7 @@ const SeoReport = () => {
     boldHeader(sws, summary[0].length);
     XLSX.utils.book_append_sheet(wb, sws, "Summary");
 
-    const stamp = new Date().toISOString().slice(0, 10);
-    XLSX.writeFile(wb, `city-seo-report-filtered-${stamp}.xlsx`);
+    XLSX.writeFile(wb, buildFilename("xlsx", { filtered: true }));
   };
 
   const handleExportExcelJs = async () => {
@@ -254,13 +265,8 @@ const SeoReport = () => {
     });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    const parts = ["city-seo-report-filtered"];
-    if (onlyMismatches) parts.push("mismatches");
-    if (query.trim()) parts.push(query.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
-    parts.push("styled", stamp);
-    a.download = `${parts.filter(Boolean).join("-")}.xlsx`;
+    a.download = buildFilename("xlsx", { filtered: true, styled: true });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
