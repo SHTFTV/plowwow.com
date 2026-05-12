@@ -349,9 +349,9 @@ export default function AdminGuestPosts() {
             </div>
             <div className="flex items-center gap-2">
               <Button variant="outline" size="sm" onClick={() => setPage(1)} disabled={currentPage <= 1 || loading}>First</Button>
-              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={currentPage <= 1 || loading}>Previous</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage(Math.max(1, currentPage - 1))} disabled={currentPage <= 1 || loading}>Previous</Button>
               <span className="text-sm">Page {currentPage} of {totalPages}</span>
-              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={currentPage >= totalPages || loading}>Next</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage(Math.min(totalPages, currentPage + 1))} disabled={currentPage >= totalPages || loading}>Next</Button>
               <Button variant="outline" size="sm" onClick={() => setPage(totalPages)} disabled={currentPage >= totalPages || loading}>Last</Button>
             </div>
           </div>
