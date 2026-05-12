@@ -205,13 +205,22 @@ const BlogIndex = () => {
   };
   const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
+  const pageJumpTipRef = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
     if (!pageJumpTipOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setPageJumpTipOpen(false);
     };
+    const onPointerDown = (e: PointerEvent) => {
+      const root = pageJumpTipRef.current;
+      if (root && !root.contains(e.target as Node)) setPageJumpTipOpen(false);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, [pageJumpTipOpen]);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -605,7 +614,7 @@ const BlogIndex = () => {
                 <label htmlFor="page-jump-size" className="mt-2 flex items-center justify-between gap-4">
                   <span>
                     PageUp / PageDown jump size
-                    <span className="relative inline-block align-middle">
+                    <span ref={pageJumpTipRef} className="relative inline-block align-middle">
                       <button
                         type="button"
                         aria-label={`PageUp and PageDown move the active blog selection by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"} at a time (the current jump size). Selection stops at the first and last card without wrapping.`}
