@@ -218,4 +218,50 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("false");
     expect(document.querySelector('[role="listbox"]')).toBeNull();
   });
+
+  it("Clear button closes the listbox, sets aria-expanded=false, and it stays false after focus returns", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    renderHarness();
+
+    // Wait for mount restore so we have a populated listbox.
+    await waitFor(() => expect(card("burnaby")).not.toBeNull());
+
+    // Type something so the Clear (X) button appears.
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    combobox.focus();
+    await act(async () => {
+      fireEvent.change(combobox, { target: { value: "abbots" } });
+    });
+
+    // Sanity: listbox is open, aria-expanded=true.
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+    });
+
+    const clearBtn = screen.getByRole("button", { name: /clear search/i });
+
+    await act(async () => {
+      fireEvent.click(clearBtn);
+    });
+
+    // Listbox closes.
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // aria-expanded flips to false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Focus returns to the combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-expanded stays false even after focus returns / is re-fired.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+  });
 });

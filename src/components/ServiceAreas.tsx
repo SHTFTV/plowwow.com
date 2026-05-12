@@ -425,7 +425,15 @@ const ServiceAreas = () => {
             {query && (
               <button
                 type="button"
-                onClick={() => setQuery("")}
+                onClick={() => {
+                  setQuery("");
+                  setActiveIndex(0);
+                  setCollapsed(true);
+                  userInteractedRef.current = false;
+                  // Returning focus must NOT auto-reopen the dropdown.
+                  suppressFocusExpandRef.current = true;
+                  document.getElementById("city-search")?.focus();
+                }}
                 aria-label="Clear search"
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-muted text-muted-foreground"
               >
