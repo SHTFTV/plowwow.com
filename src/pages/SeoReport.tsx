@@ -138,12 +138,24 @@ const SeoReport = () => {
         >
           {onlyMismatches ? "Showing mismatches only" : "Show mismatches only"}
         </Button>
+        <Input
+          type="search"
+          placeholder="Filter by city or path…"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="max-w-xs"
+        />
         <div className="text-sm text-muted-foreground">
           Showing {visibleRows.length} of {rows.length} routes ·{" "}
-          <span className="text-green-600 font-medium">{okCount} OK</span> ·{" "}
-          <span className={mismatches > 0 ? "text-destructive font-medium" : ""}>
-            {mismatches} mismatches
+          <span className="text-green-600 font-medium">{visibleOk} OK</span> ·{" "}
+          <span className={visibleMismatches > 0 ? "text-destructive font-medium" : ""}>
+            {visibleMismatches} mismatches
           </span>
+          {query && (
+            <>
+              {" "}· total {totalMismatches} mismatches
+            </>
+          )}
         </div>
       </div>
 
