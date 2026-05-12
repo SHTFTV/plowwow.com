@@ -37,3 +37,51 @@ jobs:
 
       - name: Run tests
         run: bun run test
+
+  e2e:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun global store
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('bun.lock', 'bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-store-
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('bun.lock', 'bun.lockb') }}
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Build app
+        run: bun run build
+
+      - name: Start preview server
+        run: |
+          bun run preview &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4173 && break || sleep 1
+          done
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run e2e tests
+        run: npx playwright test e2e/app-features-skip-links.spec.ts --project=chromium
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:4173
