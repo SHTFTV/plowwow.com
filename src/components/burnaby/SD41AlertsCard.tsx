@@ -106,8 +106,24 @@ const SD41AlertsCard = () => {
   const commitRename = () => {
     if (!renamingId) return;
     const name = renameValue.trim();
-    if (!name) {
+    const current = savedSearches.find((s) => s.id === renamingId);
+    if (current && name === current.name) {
       setRenamingId(null);
+      return;
+    }
+    if (!name) {
+      toast.error("Name can't be empty");
+      return;
+    }
+    if (name.length > 60) {
+      toast.error("Name must be 60 characters or fewer");
+      return;
+    }
+    const duplicate = savedSearches.some(
+      (s) => s.id !== renamingId && s.name.trim().toLowerCase() === name.toLowerCase()
+    );
+    if (duplicate) {
+      toast.error(`A saved search named "${name}" already exists`);
       return;
     }
     persistSaved(savedSearches.map((s) => (s.id === renamingId ? { ...s, name } : s)));
