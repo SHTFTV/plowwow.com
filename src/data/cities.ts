@@ -26,6 +26,7 @@ export type City = {
 export const cities: City[] = [
   {
     slug: "vancouver",
+    cityHall: { lat: 49.2606, lon: -123.1139, address: "453 W 12th Ave" },
     name: "Vancouver",
     province: "BC",
     tagline: "Vancouver Snow Removal & De-icing",
@@ -59,6 +60,7 @@ export const cities: City[] = [
   },
   {
     slug: "new-westminster",
+    cityHall: { lat: 49.2092, lon: -122.9112, address: "511 Royal Ave" },
     name: "New Westminster",
     province: "BC",
     tagline: "New West Snow Removal & Salting",
@@ -87,6 +89,7 @@ export const cities: City[] = [
   },
   {
     slug: "coquitlam",
+    cityHall: { lat: 49.2838, lon: -122.7932, address: "3000 Guildford Way" },
     name: "Coquitlam",
     province: "BC",
     tagline: "Coquitlam Snow Removal & Ice Control",
@@ -115,6 +118,7 @@ export const cities: City[] = [
   },
   {
     slug: "port-coquitlam",
+    cityHall: { lat: 49.2629, lon: -122.7768, address: "2580 Shaughnessy St" },
     name: "Port Coquitlam",
     province: "BC",
     tagline: "Port Coquitlam Snow & De-icing",
@@ -143,6 +147,7 @@ export const cities: City[] = [
   },
   {
     slug: "port-moody",
+    cityHall: { lat: 49.2849, lon: -122.8409, address: "100 Newport Dr" },
     name: "Port Moody",
     province: "BC",
     tagline: "Port Moody Snow Removal",
@@ -171,6 +176,7 @@ export const cities: City[] = [
   },
   {
     slug: "pitt-meadows",
+    cityHall: { lat: 49.2235, lon: -122.689, address: "12007 Harris Rd" },
     name: "Pitt Meadows",
     province: "BC",
     tagline: "Pitt Meadows Plowing & Salting",
@@ -199,6 +205,7 @@ export const cities: City[] = [
   },
   {
     slug: "maple-ridge",
+    cityHall: { lat: 49.2193, lon: -122.6019, address: "11995 Haney Pl" },
     name: "Maple Ridge",
     province: "BC",
     tagline: "Maple Ridge Snow Removal",
@@ -227,6 +234,7 @@ export const cities: City[] = [
   },
   {
     slug: "surrey",
+    cityHall: { lat: 49.19, lon: -122.849, address: "13450 104 Ave" },
     name: "Surrey",
     province: "BC",
     tagline: "Surrey Snow Removal & Ice Control",
@@ -257,6 +265,7 @@ export const cities: City[] = [
   },
   {
     slug: "langley",
+    cityHall: { lat: 49.1042, lon: -122.6603, address: "20399 Douglas Cres" },
     name: "Langley",
     province: "BC",
     tagline: "Langley Snow Removal",
@@ -286,6 +295,7 @@ export const cities: City[] = [
   },
   {
     slug: "abbotsford",
+    cityHall: { lat: 49.0504, lon: -122.2853, address: "32315 South Fraser Way" },
     name: "Abbotsford",
     province: "BC",
     tagline: "Abbotsford Snow Removal & De-icing",
@@ -315,6 +325,7 @@ export const cities: City[] = [
   },
   {
     slug: "west-vancouver",
+    cityHall: { lat: 49.3287, lon: -123.1606, address: "750 17th St" },
     name: "West Vancouver",
     province: "BC",
     tagline: "West Vancouver Snow Removal",
@@ -344,6 +355,7 @@ export const cities: City[] = [
   },
   {
     slug: "north-vancouver",
+    cityHall: { lat: 49.3211, lon: -123.0724, address: "141 W 14th St" },
     name: "North Vancouver",
     province: "BC",
     tagline: "North Vancouver Snow Removal & Salting",
@@ -373,6 +385,7 @@ export const cities: City[] = [
   },
   {
     slug: "richmond",
+    cityHall: { lat: 49.1666, lon: -123.1336, address: "6911 No. 3 Rd" },
     name: "Richmond",
     province: "BC",
     tagline: "Richmond Snow Removal & De-icing",
@@ -401,6 +414,7 @@ export const cities: City[] = [
   },
   {
     slug: "delta",
+    cityHall: { lat: 49.0846, lon: -123.0586, address: "4500 Clarence Taylor Cres" },
     name: "Delta",
     province: "BC",
     tagline: "Delta Snow Removal & Salting",
@@ -429,6 +443,7 @@ export const cities: City[] = [
   },
   {
     slug: "white-rock",
+    cityHall: { lat: 49.025, lon: -122.8025, address: "15322 Buena Vista Ave" },
     name: "White Rock",
     province: "BC",
     tagline: "White Rock Snow Removal",
@@ -457,6 +472,7 @@ export const cities: City[] = [
   },
   {
     slug: "mission",
+    cityHall: { lat: 49.133, lon: -122.3098, address: "8645 Stave Lake St" },
     name: "Mission",
     province: "BC",
     tagline: "Mission Snow Removal & Ice Control",
@@ -485,6 +501,7 @@ export const cities: City[] = [
   },
   {
     slug: "chilliwack",
+    cityHall: { lat: 49.1579, lon: -121.9508, address: "8550 Young Rd" },
     name: "Chilliwack",
     province: "BC",
     tagline: "Chilliwack Snow Removal & De-icing",
