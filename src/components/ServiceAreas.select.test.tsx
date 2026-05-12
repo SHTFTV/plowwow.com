@@ -784,4 +784,61 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
   });
+
+  it("Home/End while the listbox is OPEN move focus to the first/last option and keep aria-expanded=true", async () => {
+    // Start somewhere in the middle so Home and End both have to travel.
+    window.localStorage.setItem(LAST_CITY_KEY, "richmond");
+    renderHarness();
+
+    const richmond = await waitFor(() => {
+      const el = card("richmond");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Sanity: listbox is open, restored option is active.
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-richmond");
+    expect(richmond.getAttribute("aria-selected")).toBe("true");
+
+    // End → focus + active jump to the LAST option (Chilliwack).
+    await act(async () => {
+      fireEvent.keyDown(richmond, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("chilliwack"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-chilliwack");
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("true");
+    // Previously-active option is no longer selected.
+    expect(card("richmond")!.getAttribute("aria-selected")).toBe("false");
+    // Listbox is still mounted.
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+
+    // Home → focus + active jump to the FIRST option (Vancouver).
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "Home" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("vancouver"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+
+    // End again from the first option → wrap to the last.
+    await act(async () => {
+      fireEvent.keyDown(card("vancouver")!, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("chilliwack"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-chilliwack");
+  });
 });
