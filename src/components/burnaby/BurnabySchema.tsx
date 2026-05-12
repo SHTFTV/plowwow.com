@@ -126,6 +126,50 @@ const BurnabySchema = () => {
       "24/7 Snow Removal in Burnaby — Metrotown, Brentwood, Burnaby Mountain. Plowing, salting & strata service. WorkSafeBC insured. Call 604-761-1518.",
     );
 
+    const pageTitle = "Snow Removal Burnaby | PlowWow 24/7 Plowing & De-Icing";
+    const pageDescription =
+      "24/7 Snow Removal in Burnaby — Metrotown, Brentwood, Burnaby Mountain. Plowing, salting & strata service. WorkSafeBC insured. Call 604-761-1518.";
+    const pageUrl = window.location.origin + "/burnaby";
+    const ogImage = "https://plowwow.com/og-burnaby.jpg";
+    const ogImageWidth = "1200";
+    const ogImageHeight = "630";
+
+    const setProperty = (property: string, content: string) => {
+      let m = document.querySelector(
+        `meta[property="${property}"]`,
+      ) as HTMLMetaElement | null;
+      const created = !m;
+      if (!m) {
+        m = document.createElement("meta");
+        m.setAttribute("property", property);
+        document.head.appendChild(m);
+      }
+      const prev = m.getAttribute("content");
+      m.setAttribute("content", content);
+      return () => {
+        if (created) m!.remove();
+        else if (prev !== null) m!.setAttribute("content", prev);
+      };
+    };
+
+    const restoreProps = [
+      setProperty("og:title", pageTitle),
+      setProperty("og:description", pageDescription),
+      setProperty("og:url", pageUrl),
+      setProperty("og:image", ogImage),
+      setProperty("og:image:width", ogImageWidth),
+      setProperty("og:image:height", ogImageHeight),
+      setProperty("og:image:alt", pageTitle),
+      setProperty("og:type", "website"),
+      setProperty("twitter:card", "summary_large_image"),
+      setProperty("twitter:title", pageTitle),
+      setProperty("twitter:description", pageDescription),
+      setProperty("twitter:image", ogImage),
+      setProperty("twitter:image:width", ogImageWidth),
+      setProperty("twitter:image:height", ogImageHeight),
+      setProperty("twitter:image:alt", pageTitle),
+    ];
+
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     const createdCanonical = !canonical;
     if (!canonical) {
@@ -134,13 +178,14 @@ const BurnabySchema = () => {
       document.head.appendChild(canonical);
     }
     const prevHref = canonical.href;
-    canonical.href = window.location.origin + "/burnaby";
+    canonical.href = pageUrl;
 
     return () => {
       s1.remove();
       s2.remove();
       if (title && prevTitle) title.textContent = prevTitle;
       restoreDesc();
+      restoreProps.forEach((fn) => fn());
       if (createdCanonical) canonical?.remove();
       else if (canonical) canonical.href = prevHref;
     };
