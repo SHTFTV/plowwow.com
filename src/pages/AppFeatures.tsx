@@ -172,8 +172,26 @@ const AppFeatures = () => {
     });
     document.head.appendChild(ld);
 
+    // FAQPage JSON-LD for AEO
+    const faqLdId = "app-features-faq-jsonld";
+    document.getElementById(faqLdId)?.remove();
+    const faqLd = document.createElement("script");
+    faqLd.type = "application/ld+json";
+    faqLd.id = faqLdId;
+    faqLd.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+    document.head.appendChild(faqLd);
+
     return () => {
       document.getElementById(ldId)?.remove();
+      document.getElementById(faqLdId)?.remove();
     };
   }, []);
 
