@@ -139,6 +139,39 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await page.keyboard.press("Escape");
     await expect(button).toHaveAttribute("aria-expanded", "false");
     await expect(page.locator("#page-jump-tip")).toBeHidden();
+  test("Enter while focus is inside the tooltip keeps it open; Escape then restores focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+
+    // Focus trap moves focus to the tooltip body on Tab from the ? button.
+    await button.focus();
+    await page.keyboard.press("Tab");
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+    await assertTooltipOpen(page);
+
+    // Pressing Enter inside the tooltip must not close it or move focus away.
+    await page.keyboard.press("Enter");
+    await assertTooltipOpen(page);
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+
+    // A second Enter — still no-op, still open, still focused inside.
+    await page.keyboard.press("Enter");
+    await assertTooltipOpen(page);
+    await expect.poll(() =>
+      page.evaluate(() => document.activeElement?.id ?? null),
+    ).toBe("page-jump-tip");
+
+    // Escape from inside the tooltip must close it and restore focus to ?.
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
   });
 
   test("Tab and Shift+Tab cycle focus while tooltip is open, Escape returns focus to ? button", async ({ page }) => {
