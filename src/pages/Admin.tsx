@@ -155,6 +155,9 @@ export default function Admin() {
             <p className="text-sm text-muted-foreground">{filtered.length} of {rows.length} shown</p>
           </div>
           <div className="flex gap-2">
+            <Button variant="outline" asChild>
+              <Link to="/admin/guest-posts">Guest posts</Link>
+            </Button>
             <Button variant="outline" onClick={load} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
             </Button>
