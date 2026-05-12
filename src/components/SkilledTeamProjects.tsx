@@ -1,12 +1,13 @@
-import { Building2, Home, Store, Snowflake, Building, Truck } from "lucide-react";
+import { Building2, Home, Store, Snowflake, Building, Truck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const projects = [
-  { icon: Building, label: "Strata Complexes", desc: "Townhomes, condos & multi-unit communities with documented service logs." },
-  { icon: Snowflake, label: "Snow Blowers For Sidewalks", desc: "Walkways, entrances and pedestrian access cleared safely and quickly." },
-  { icon: Truck, label: "Commercial Lots", desc: "Parking lots, loading zones and customer access kept clear 24/7." },
-  { icon: Building2, label: "Apartment Complexes", desc: "Driveways, walkways and shared spaces handled with priority dispatch." },
-  { icon: Store, label: "Strip Malls", desc: "Storefronts, lots and curbs maintained for tenants and shoppers." },
-  { icon: Home, label: "Residential Houses", desc: "Driveways, steps and walkways for homeowners across Greater BC." },
+  { icon: Building, label: "Strata Complexes", href: "/strata-complexes", desc: "Townhomes, condos & multi-unit communities with documented service logs." },
+  { icon: Snowflake, label: "Snow Blowers For Sidewalks", href: "/snow-blowers-for-sidewalks", desc: "Walkways, entrances and pedestrian access cleared safely and quickly." },
+  { icon: Truck, label: "Commercial Lots", href: "/commercial", desc: "Parking lots, loading zones and customer access kept clear 24/7." },
+  { icon: Building2, label: "Apartment Complexes", href: "/apartment-complexes", desc: "Driveways, walkways and shared spaces handled with priority dispatch." },
+  { icon: Store, label: "Strip Malls", href: "/strip-malls", desc: "Storefronts, lots and curbs maintained for tenants and shoppers." },
+  { icon: Home, label: "Residential Houses", href: "/residential-snow-removal", desc: "Driveways, steps and walkways for homeowners across Greater BC." },
 ];
 
 const SkilledTeamProjects = () => (
@@ -30,16 +31,23 @@ const SkilledTeamProjects = () => (
       </div>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map(({ icon: Icon, label, desc }) => (
-          <li
-            key={label}
-            className="rounded-xl border border-border bg-card p-6 shadow-sm transition hover:shadow-md hover:-translate-y-0.5"
-          >
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <Icon className="h-6 w-6" aria-hidden="true" />
-            </div>
-            <h3 className="font-heading text-lg font-bold text-foreground mb-2">{label}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+        {projects.map(({ icon: Icon, label, href, desc }) => (
+          <li key={label}>
+            <Link
+              to={href}
+              aria-label={`Learn more about ${label.toLowerCase()} snow removal`}
+              className="group block h-full rounded-xl border border-border bg-card p-6 shadow-sm transition hover:shadow-md hover:-translate-y-0.5 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-foreground mb-2">{label}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{desc}</p>
+              <span className="inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary">
+                Learn more
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
           </li>
         ))}
       </ul>
