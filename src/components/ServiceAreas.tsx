@@ -307,7 +307,7 @@ const ServiceAreas = () => {
       e.preventDefault();
       userInteractedRef.current = true;
       setActiveIndex(flatCities.length - 1);
-    } else if (e.key === "Enter") {
+    } else if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
       e.preventDefault();
       const target = flatCities[activeIndex];
       if (target) {
@@ -318,6 +318,9 @@ const ServiceAreas = () => {
         } catch {
           /* ignore */
         }
+        // Return focus to the combobox before navigating so SR users land
+        // on a known anchor and the listbox is fully dismissed.
+        document.getElementById("city-search")?.focus();
         navigate(`/${target.slug}`);
       }
     } else if (e.key === "Escape") {
