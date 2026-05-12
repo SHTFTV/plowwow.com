@@ -185,8 +185,10 @@ const BlogIndex = () => {
 
   // Reset the active selection whenever the result set or page changes so we
   // don't keep highlighting an index that no longer exists.
+  // When a query is active, auto-select the top match so Enter opens it
+  // immediately. With no query, leave the list unselected.
   useEffect(() => {
-    setActiveIndex(-1);
+    setActiveIndex(query && visible.length > 0 ? 0 : -1);
   }, [page, query, visible.length]);
 
   // Scroll the active card into view as the user arrows around.
