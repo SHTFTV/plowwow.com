@@ -46,6 +46,29 @@ const parseFrontmatter = (raw: string) => {
   };
 };
 
+// Extract Q/A pairs from a "## Frequently Asked Questions" section.
+// Each H3 (### question) is a question; following paragraphs (until the next
+// H3 or H2) are the answer.
+const extractFaqs = (body: string): { question: string; answer: string }[] => {
+  const faqSectionMatch = body.match(
+    /^##\s+Frequently Asked Questions\s*\n([\s\S]*?)(?=\n##\s|\n#\s|$)/m,
+  );
+  if (!faqSectionMatch) return [];
+  const section = faqSectionMatch[1];
+  const faqs: { question: string; answer: string }[] = [];
+  const re = /^###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$)/gm;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(section)) !== null) {
+    const question = m[1].trim();
+    const answer = m[2]
+      .replace(/[#>*_`]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (question && answer) faqs.push({ question, answer });
+  }
+  return faqs;
+};
+
 type LegacyPageProps = { kind: "page" | "blog" };
 
 const LegacyPage = ({ kind }: LegacyPageProps) => {
@@ -60,6 +83,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
   const description = truncateForMeta(
     body.replace(/[#>*_`\[\]()!]/g, " ").replace(/\s+/g, " ").trim(),
   );
+  const faqs = extractFaqs(body);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -74,7 +98,29 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       el.setAttribute("content", content);
     };
     setMeta("description", description);
-  }, [title, description]);
+
+    // FAQPage JSON-LD for SEO / AEO / LLM grounding.
+    const ldId = "legacy-page-faq-jsonld";
+    document.getElementById(ldId)?.remove();
+    if (faqs.length > 0) {
+      const ld = document.createElement("script");
+      ld.type = "application/ld+json";
+      ld.id = ldId;
+      ld.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      });
+      document.head.appendChild(ld);
+    }
+    return () => {
+      document.getElementById(ldId)?.remove();
+    };
+  }, [title, description, faqs]);
 
   return (
     <div className="min-h-screen">
