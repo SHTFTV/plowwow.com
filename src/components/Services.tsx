@@ -48,7 +48,7 @@ const Services = () => (
             <div className="overflow-hidden h-48">
               <img
                 src={service.image}
-                alt={service.title}
+                alt={service.alt}
                 loading="lazy"
                 width={640}
                 height={640}
