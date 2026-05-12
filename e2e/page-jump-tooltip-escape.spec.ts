@@ -141,6 +141,48 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(page.locator("#page-jump-tip")).toBeHidden();
   });
 
+  test("Tab and Shift+Tab cycle focus while tooltip is open, Escape returns focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    await button.scrollIntoViewIfNeeded();
+    await button.focus(); // onFocus opens tooltip
+    await assertTooltipOpen(page);
+    await expect(button).toBeFocused();
+
+    const isButtonActive = () =>
+      page.evaluate(
+        () => document.activeElement?.getAttribute("aria-controls") === "page-jump-tip",
+      );
+    expect(await isButtonActive()).toBe(true);
+
+    // Tab forward — focus must move off the ? button.
+    await page.keyboard.press("Tab");
+    expect(await isButtonActive()).toBe(false);
+    const afterTab = await page.evaluate(() => document.activeElement?.tagName ?? null);
+    expect(afterTab).not.toBeNull();
+
+    // Tab forward again — focus advances to a different element (cycling forward).
+    await page.keyboard.press("Tab");
+    const afterSecondTab = await page.evaluate(
+      () => document.activeElement?.outerHTML?.slice(0, 200) ?? null,
+    );
+    expect(afterSecondTab).not.toBeNull();
+    expect(afterSecondTab).not.toBe(afterTab);
+
+    // Shift+Tab back twice — focus must return to the ? button (cycling backward).
+    await page.keyboard.press("Shift+Tab");
+    await page.keyboard.press("Shift+Tab");
+    await expect(button).toBeFocused();
+    await assertTooltipOpen(page);
+
+    // Tab off the button once more, then Escape — focus must return to the ? button.
+    await page.keyboard.press("Tab");
+    expect(await isButtonActive()).toBe(false);
+
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+  });
+
   test("Escape closes tooltip when another interactive element is focused", async ({ page }) => {
     await openViaClick(page);
 
