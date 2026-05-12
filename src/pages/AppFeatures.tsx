@@ -352,7 +352,7 @@ const AppFeatures = () => {
                 <span className="text-intel-blue">snow removal software.</span>
               </h2>
             </div>
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible aria-label="Frequently asked questions about snow removal software" className="space-y-4">
               {faqs.map(({ q, a }, i) => (
                 <AccordionItem
                   key={q}
