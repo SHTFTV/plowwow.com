@@ -42,6 +42,31 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(page.locator("#page-jump-tip")).toBeHidden();
   });
 
+  test("Escape still closes tooltip after cycling focus with Tab", async ({ page }) => {
+    await openViaClick(page);
+
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    await button.focus();
+
+    // Cycle focus several times with Tab — tooltip should remain open.
+    for (let i = 0; i < 5; i++) {
+      await page.keyboard.press("Tab");
+      await expect(button).toHaveAttribute("aria-expanded", "true");
+      await expect(page.locator("#page-jump-tip")).toBeVisible();
+    }
+
+    // Shift+Tab a couple times as well.
+    for (let i = 0; i < 2; i++) {
+      await page.keyboard.press("Shift+Tab");
+      await expect(button).toHaveAttribute("aria-expanded", "true");
+    }
+
+    // Escape from wherever focus has landed must still close it.
+    await page.keyboard.press("Escape");
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expect(page.locator("#page-jump-tip")).toBeHidden();
+  });
+
   test("Escape closes tooltip when another interactive element is focused", async ({ page }) => {
     await openViaClick(page);
 
