@@ -240,10 +240,14 @@ const AppFeatures = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main id="page-top">
+      <main id="page-top" tabIndex={-1}>
         {/* Skip to FAQ — first focusable element for keyboard users */}
         <a
           href="#faq"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("faq")?.focus({ preventScroll: false });
+          }}
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
         >
           Skip to FAQ
@@ -348,7 +352,7 @@ const AppFeatures = () => {
         <Pricing />
 
         {/* FAQ */}
-        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background">
+        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background" tabIndex={-1}>
           <div className="container max-w-3xl">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
@@ -379,6 +383,10 @@ const AppFeatures = () => {
             {/* Back to top — appears on focus for keyboard users */}
             <a
               href="#page-top"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("page-top")?.focus({ preventScroll: false });
+              }}
               className="sr-only focus:not-sr-only focus:absolute focus:bottom-4 focus:right-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
             >
               Back to top
