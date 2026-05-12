@@ -104,13 +104,21 @@ const Navbar = () => {
             <DropdownMenuTrigger className="text-foreground font-heading font-semibold text-sm hover:text-primary transition-colors inline-flex items-center gap-1">
               Cities <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="max-h-[60vh] overflow-y-auto">
-              {cityLinks.map((c) => (
-                <DropdownMenuItem key={c.slug} asChild>
-                  <Link to={`/${c.slug}`} className="font-heading font-semibold">
-                    {c.name}
-                  </Link>
-                </DropdownMenuItem>
+            <DropdownMenuContent align="end" className="max-h-[70vh] overflow-y-auto w-64">
+              {cityRegions.map((region, idx) => (
+                <div key={region.title}>
+                  {idx > 0 && <DropdownMenuSeparator />}
+                  <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">
+                    {region.title}
+                  </DropdownMenuLabel>
+                  {region.cities.map((c) => (
+                    <DropdownMenuItem key={c.slug} asChild>
+                      <Link to={`/${c.slug}`} className="font-heading font-semibold">
+                        {c.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
