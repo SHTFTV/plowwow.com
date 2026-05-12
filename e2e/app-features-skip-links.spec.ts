@@ -4,10 +4,13 @@ import { Page } from "@playwright/test";
 async function skipToFaqAndExpandFirstAccordion(page: Page) {
   const skipLink = page.locator('a:has-text("Skip to FAQ")');
   await skipLink.focus();
+  await expect(skipLink).toBeFocused();
+
   await page.keyboard.press("Enter");
 
   const firstAccordionButton = page.locator('button', { hasText: 'What is the best snow removal software for contractors?' });
   await expect(firstAccordionButton).toBeFocused();
+  await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "false");
 
   await page.keyboard.press("Enter");
   await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
