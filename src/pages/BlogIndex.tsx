@@ -645,6 +645,8 @@ const BlogIndex = () => {
                         aria-label={`PageUp and PageDown move the active blog selection by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"} at a time (the current jump size). Selection stops at the first and last card without wrapping.`}
                         aria-expanded={pageJumpTipOpen}
                         aria-controls="page-jump-tip"
+                        aria-describedby={pageJumpTipOpen ? "page-jump-tip" : undefined}
+                        aria-haspopup="dialog"
                         onMouseEnter={() => setPageJumpTipOpen(true)}
                         onMouseLeave={() => setPageJumpTipOpen(false)}
                         onFocus={() => setPageJumpTipOpen(true)}
