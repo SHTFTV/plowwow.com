@@ -295,6 +295,7 @@ const ServiceAreas = () => {
     if (flatCities.length === 0 && e.key !== "Escape") return;
     // Any navigation key reopens a collapsed list
     if (collapsed && ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Home", "End", "Enter", " ", "Spacebar"].includes(e.key)) {
+      suppressFocusExpandRef.current = false;
       setCollapsed(false);
     }
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
@@ -394,14 +395,16 @@ const ServiceAreas = () => {
               value={query}
               onChange={(e) => {
                 userInteractedRef.current = false;
+                // Typing is an explicit re-open signal.
+                suppressFocusExpandRef.current = false;
                 setCollapsed(false);
                 setQuery(e.target.value);
               }}
               onFocus={() => {
-                if (suppressFocusExpandRef.current) {
-                  suppressFocusExpandRef.current = false;
-                  return;
-                }
+                // While the suppression flag is active (after Enter/Space
+                // selection), keep the listbox closed and leave the flag
+                // in place — only typing or keyboard nav re-opens it.
+                if (suppressFocusExpandRef.current) return;
                 setCollapsed(false);
               }}
               onKeyDown={handleKeyDown}
