@@ -191,16 +191,24 @@ const BlogIndex = () => {
     setActiveIndex(query && visible.length > 0 ? 0 : -1);
   }, [page, query, visible.length]);
 
-  // Scroll the active card into view as the user arrows around — and also
-  // when the query/page changes, so the auto-selected top match is visible
-  // immediately even if activeIndex stayed at 0.
+  // Scroll the active card into view, but only when the *selected slug*
+  // actually changes. Without this guard, every keystroke that re-runs the
+  // filter (even when the top match stays the same) would re-trigger a smooth
+  // scroll and feel jittery.
+  const lastScrolledSlugRef = useRef<string | null>(null);
   useEffect(() => {
-    if (activeIndex < 0) return;
+    if (activeIndex < 0) {
+      lastScrolledSlugRef.current = null;
+      return;
+    }
+    const slug = visible[activeIndex];
+    if (!slug || slug === lastScrolledSlugRef.current) return;
+    lastScrolledSlugRef.current = slug;
     cardRefs.current[activeIndex]?.scrollIntoView({
       block: "center",
       behavior: "smooth",
     });
-  }, [activeIndex, query, page]);
+  }, [activeIndex, visible]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
