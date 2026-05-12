@@ -46,6 +46,8 @@ export default function Admin() {
   const debouncedSearch = useDebounced(search, 300);
   const [total, setTotal] = useState(0);
   const [allServiceTypes, setAllServiceTypes] = useState<string[]>([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
 
   useEffect(() => {
     let active = true;
