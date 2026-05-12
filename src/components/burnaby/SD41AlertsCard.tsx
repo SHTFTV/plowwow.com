@@ -47,6 +47,53 @@ const SD41AlertsCard = () => {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "closures">("closures");
   const [query, setQuery] = useState("");
+  const [savedSearches, setSavedSearches] = useState<SavedSearch[]>([]);
+  const [saveOpen, setSaveOpen] = useState(false);
+  const [savedListOpen, setSavedListOpen] = useState(false);
+  const [newName, setNewName] = useState("");
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(SAVED_KEY);
+      if (raw) setSavedSearches(JSON.parse(raw));
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const persistSaved = (list: SavedSearch[]) => {
+    setSavedSearches(list);
+    try {
+      localStorage.setItem(SAVED_KEY, JSON.stringify(list));
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const handleSaveSearch = () => {
+    const name = newName.trim() || (query.trim() ? query.trim() : `${filter} alerts`);
+    const entry: SavedSearch = {
+      id: crypto.randomUUID(),
+      name,
+      query: query.trim(),
+      filter,
+      createdAt: new Date().toISOString(),
+    };
+    persistSaved([entry, ...savedSearches].slice(0, 10));
+    setNewName("");
+    setSaveOpen(false);
+    toast.success(`Saved "${name}"`);
+  };
+
+  const handleApplySaved = (s: SavedSearch) => {
+    setQuery(s.query);
+    setFilter(s.filter);
+    setSavedListOpen(false);
+  };
+
+  const handleDeleteSaved = (id: string) => {
+    persistSaved(savedSearches.filter((s) => s.id !== id));
+  };
 
   const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
