@@ -1798,4 +1798,60 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("true");
     expect(document.querySelector('[role="listbox"]')).not.toBeNull();
   });
+
+  it("ArrowDown from the last focused city option wraps focus to the first option with correct aria-selected and aria-activedescendant", async () => {
+    // Mount restore on Vancouver, then jump to the last option via End.
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderHarness();
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    const vancouver = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // Move to the last option (Chilliwack) via End so we're truly on the
+    // tail of the list before testing wrap.
+    await act(async () => {
+      fireEvent.keyDown(vancouver, { key: "End" });
+    });
+    const chilliwack = await waitFor(() => {
+      const el = card("chilliwack");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(chilliwack.getAttribute("aria-selected")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-chilliwack",
+    );
+
+    // ArrowDown from the last option must wrap to the first option.
+    await act(async () => {
+      fireEvent.keyDown(chilliwack, { key: "ArrowDown" });
+    });
+
+    const wrapped = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // aria-selected moved with focus to the first option.
+    expect(wrapped.getAttribute("aria-selected")).toBe("true");
+    expect(chilliwack.getAttribute("aria-selected")).toBe("false");
+
+    // aria-activedescendant on the combobox tracks the wrapped target.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(
+      "city-opt-vancouver",
+    );
+
+    // Listbox stays open through wrap navigation.
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+  });
 });
