@@ -149,36 +149,68 @@ const BlogIndex = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
+  // Helper: clamp + parse a stored padding value into a safe number.
+  const parseStoredPadding = (raw: string | null): number | null => {
+    if (raw == null) return null;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return null;
+    return Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, n));
+  };
+
   // User-configurable viewport padding for the auto-scroll trigger. Hydrated
-  // from localStorage on mount and persisted on change.
-  const [scrollPadding, setScrollPadding] = useState<number>(SCROLL_PADDING_DEFAULT);
+  // from localStorage on mount and persisted on change. Setter wraps the
+  // raw setter so writes also update storage in one place — which keeps the
+  // cross-tab sync below from echoing back.
+  const [scrollPadding, _setScrollPadding] = useState<number>(SCROLL_PADDING_DEFAULT);
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const raw = window.localStorage.getItem(SCROLL_PADDING_STORAGE_KEY);
-    const parsed = raw ? parseInt(raw, 10) : NaN;
-    if (Number.isFinite(parsed)) {
-      setScrollPadding(
-        Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, parsed)),
-      );
+    const initial = parseStoredPadding(window.localStorage.getItem(SCROLL_PADDING_STORAGE_KEY));
+    if (initial != null) _setScrollPadding(initial);
+  }, []);
+  const setScrollPadding = useCallback((next: number) => {
+    const clamped = Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, next));
+    _setScrollPadding(clamped);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(clamped));
     }
   }, []);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(scrollPadding));
-  }, [scrollPadding]);
 
   // Toggle for smooth auto-scrolling of the active card. When off, the page
   // does not auto-scroll the selection into view at all.
-  const [smoothScroll, setSmoothScroll] = useState<boolean>(true);
+  const [smoothScroll, _setSmoothScroll] = useState<boolean>(true);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const raw = window.localStorage.getItem(SMOOTH_SCROLL_STORAGE_KEY);
-    if (raw === "false") setSmoothScroll(false);
+    if (raw === "false") _setSmoothScroll(false);
   }, []);
+  const setSmoothScroll = useCallback((next: boolean) => {
+    _setSmoothScroll(next);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(SMOOTH_SCROLL_STORAGE_KEY, String(next));
+    }
+  }, []);
+
+  // Cross-tab sync. The browser fires `storage` events on OTHER tabs/windows
+  // sharing this origin when localStorage changes — perfect for live syncing
+  // settings without a backend round-trip. The originating tab does not
+  // receive the event, so we never echo our own writes.
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(SMOOTH_SCROLL_STORAGE_KEY, String(smoothScroll));
-  }, [smoothScroll]);
+    const onStorage = (e: StorageEvent) => {
+      if (e.storageArea !== window.localStorage) return;
+      if (e.key === SCROLL_PADDING_STORAGE_KEY) {
+        const next = parseStoredPadding(e.newValue);
+        if (next != null) _setScrollPadding(next);
+      } else if (e.key === SMOOTH_SCROLL_STORAGE_KEY) {
+        if (e.newValue === "true" || e.newValue === "false") {
+          _setSmoothScroll(e.newValue === "true");
+        }
+      }
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+
 
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
