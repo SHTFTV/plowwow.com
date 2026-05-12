@@ -12,6 +12,7 @@ import CityPage from "./pages/CityPage.tsx";
 import SeoReport from "./pages/SeoReport.tsx";
 import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage.tsx";
 import BlogIndex from "./pages/BlogIndex.tsx";
+import Intelligence from "./pages/Intelligence.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/intelligence" element={<Intelligence />} />
           {legacyPageSlugs.map((slug) => (
             <Route
               key={`page-${slug}`}
