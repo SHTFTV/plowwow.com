@@ -195,9 +195,31 @@ const BlogIndex = () => {
   // sharing this origin when localStorage changes — perfect for live syncing
   // settings without a backend round-trip. The originating tab does not
   // receive the event, so we never echo our own writes.
-  // Ref mirror of `visible` so the storage listener can resolve slug→index
-  // without re-binding on every filter recompute.
+  // Ref mirrors so the storage listener can resolve slug→index and gate
+  // restores by the current filter scope without re-binding on every change.
   const visibleRef = useRef<string[]>([]);
+  const queryRef = useRef<string>(query);
+  const pageRef = useRef<number>(1);
+
+  // Persisted shape for the active selection. Scoped by query + page so we
+  // only restore when the *same* result set is on screen in another tab.
+  type PersistedActive = { q: string; page: number; slug: string };
+  const parsePersistedActive = (raw: string | null): PersistedActive | null => {
+    if (!raw) return null;
+    try {
+      const v = JSON.parse(raw) as Partial<PersistedActive>;
+      if (
+        typeof v?.q === "string" &&
+        typeof v?.page === "number" &&
+        typeof v?.slug === "string"
+      ) {
+        return { q: v.q, page: v.page, slug: v.slug };
+      }
+    } catch {
+      /* ignored — bad/legacy value */
+    }
+    return null;
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -211,12 +233,14 @@ const BlogIndex = () => {
           _setSmoothScroll(e.newValue === "true");
         }
       } else if (e.key === ACTIVE_SLUG_STORAGE_KEY) {
-        const slug = e.newValue;
-        if (!slug) {
+        const parsed = parsePersistedActive(e.newValue);
+        if (!parsed) {
           setActiveIndex(-1);
           return;
         }
-        const idx = visibleRef.current.indexOf(slug);
+        // Only apply if the other tab's filter scope matches ours.
+        if (parsed.q !== queryRef.current || parsed.page !== pageRef.current) return;
+        const idx = visibleRef.current.indexOf(parsed.slug);
         if (idx >= 0) setActiveIndex(idx);
       }
     };
