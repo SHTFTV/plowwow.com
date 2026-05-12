@@ -64,6 +64,8 @@ const ServiceAreas = () => {
   const [collapsed, setCollapsed] = useState(false);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const sectionRef = useRef<HTMLElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const listboxRef = useRef<HTMLDivElement | null>(null);
   const userInteractedRef = useRef(false);
 
   const q = query.trim().toLowerCase();
