@@ -76,7 +76,7 @@ const CityPage = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `PlowWow Snow Removal — ${city.name}`,
-    image: "https://plowwow.com/og.jpg",
+    image: ogImage,
     url,
     telephone: "+1-604-761-1518",
     areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
