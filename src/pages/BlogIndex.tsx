@@ -1,5 +1,5 @@
-import { Link, useLocation, useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -83,6 +83,7 @@ const PAGE_SIZE = 8;
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
 
   const query = (searchParams.get("q") ?? "").trim();
@@ -135,6 +136,11 @@ const BlogIndex = () => {
   const debounceRef = useRef<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Keyboard navigation across the visible (current-page) results.
+  // -1 = nothing highlighted; 0..visible.length-1 = active card.
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
     setDraft(query);
@@ -177,14 +183,33 @@ const BlogIndex = () => {
     [],
   );
 
-  // Global keyboard shortcuts:
+  // Reset the active selection whenever the result set or page changes so we
+  // don't keep highlighting an index that no longer exists.
+  useEffect(() => {
+    setActiveIndex(-1);
+  }, [page, query, visible.length]);
+
+  // Scroll the active card into view as the user arrows around.
+  useEffect(() => {
+    if (activeIndex < 0) return;
+    cardRefs.current[activeIndex]?.scrollIntoView({
+      block: "nearest",
+      behavior: "smooth",
+    });
+  }, [activeIndex]);
+
+  const openActive = useCallback(() => {
+    const slug = visible[activeIndex];
+    if (slug) navigate(`/${slug}`);
+  }, [navigate, visible, activeIndex]);
+
+  // Global keyboard shortcuts (only on /blog):
   //   "/" or Cmd/Ctrl+K → focus the search input
+  //   ArrowDown / ArrowUp → move selection across the visible results
+  //   Enter → open the active result (works while typing too)
   //   Escape (when input is focused) → clear the query
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      // Hard-restrict shortcuts to the blog index route. The component should
-      // already only mount on /blog, but this guards against stray fires
-      // during route transitions or if the listener ever leaks out.
       const path = window.location.pathname.replace(/\/+$/, "");
       if (path !== "/blog") return;
 
@@ -204,12 +229,27 @@ const BlogIndex = () => {
         e.preventDefault();
         inputRef.current?.focus();
         inputRef.current?.select();
+        return;
+      }
+
+      if (visible.length === 0) return;
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setActiveIndex((i) => (i + 1) % visible.length);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setActiveIndex((i) =>
+          i <= 0 ? visible.length - 1 : i - 1,
+        );
+      } else if (e.key === "Enter" && activeIndex >= 0) {
+        e.preventDefault();
+        openActive();
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // Re-bind on route change so the latest pathname is captured.
-  }, [location.pathname]);
+  }, [location.pathname, visible, activeIndex, openActive]);
 
   return (
     <div className="min-h-screen">
@@ -306,23 +346,35 @@ const BlogIndex = () => {
               </div>
             ) : (
               <div className="grid md:grid-cols-2 gap-4">
-                {visible.map((slug) => (
-                  <Link
-                    key={slug}
-                    to={`/${slug}`}
-                    className="group block rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-md transition-all"
-                  >
-                  <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
-                    {highlight(titleFor(slug), query)}
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                    {highlight(summaryFor(slug), query)}
-                  </p>
-                  <p className="mt-2 text-xs text-muted-foreground/80">
-                    {highlight(`/${slug}`, query)} →
-                  </p>
-                </Link>
-              ))}
+                {visible.map((slug, i) => {
+                  const isActive = i === activeIndex;
+                  return (
+                    <Link
+                      key={slug}
+                      ref={(el) => {
+                        cardRefs.current[i] = el;
+                      }}
+                      to={`/${slug}`}
+                      aria-current={isActive ? "true" : undefined}
+                      onMouseEnter={() => setActiveIndex(i)}
+                      className={`group block rounded-2xl border bg-card p-5 hover:border-primary hover:shadow-md transition-all ${
+                        isActive
+                          ? "border-primary ring-2 ring-primary/40 shadow-md"
+                          : "border-border"
+                      }`}
+                    >
+                      <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                        {highlight(titleFor(slug), query)}
+                      </h2>
+                      <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
+                        {highlight(summaryFor(slug), query)}
+                      </p>
+                      <p className="mt-2 text-xs text-muted-foreground/80">
+                        {highlight(`/${slug}`, query)} →
+                      </p>
+                    </Link>
+                  );
+                })}
               </div>
             )}
 
