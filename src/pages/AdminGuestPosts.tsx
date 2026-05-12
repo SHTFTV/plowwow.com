@@ -32,8 +32,50 @@ function useDebounced<T>(value: T, delay = 300): T {
   return v;
 }
 
+const PAGE_SIZES = [10, 25, 50, 100] as const;
+const DEFAULT_PAGE_SIZE = 25;
+
 export default function AdminGuestPosts() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const statusParam = searchParams.get("status");
+  const statusFilter =
+    statusParam && (STATUSES as readonly string[]).includes(statusParam) ? statusParam : "all";
+  const search = searchParams.get("q") ?? "";
+  const pageSizeParam = Number(searchParams.get("size"));
+  const pageSize = (PAGE_SIZES as readonly number[]).includes(pageSizeParam)
+    ? pageSizeParam
+    : DEFAULT_PAGE_SIZE;
+  const pageParam = Number(searchParams.get("page"));
+  const page = Number.isFinite(pageParam) && pageParam > 0 ? Math.floor(pageParam) : 1;
+
+  const debouncedSearch = useDebounced(search, 350);
+
+  const updateParams = useCallback(
+    (patch: Record<string, string | number | null>) => {
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          for (const [k, v] of Object.entries(patch)) {
+            if (v === null || v === "" || v === undefined) next.delete(k);
+            else next.set(k, String(v));
+          }
+          return next;
+        },
+        { replace: true },
+      );
+    },
+    [setSearchParams],
+  );
+
+  const setStatusFilter = (v: string) =>
+    updateParams({ status: v === "all" ? null : v, page: null });
+  const setSearch = (v: string) => updateParams({ q: v || null, page: null });
+  const setPageSize = (n: number) =>
+    updateParams({ size: n === DEFAULT_PAGE_SIZE ? null : n, page: null });
+  const setPage = (n: number) => updateParams({ page: n <= 1 ? null : n });
+
   const [checking, setChecking] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [rows, setRows] = useState<Submission[]>([]);
@@ -41,16 +83,7 @@ export default function AdminGuestPosts() {
   const [counts, setCounts] = useState<Record<string, number>>({ pending: 0, approved: 0, rejected: 0 });
   const [loading, setLoading] = useState(false);
 
-  const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [search, setSearch] = useState("");
-  const debouncedSearch = useDebounced(search, 350);
-
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
-
   const [viewing, setViewing] = useState<Submission | null>(null);
-
-  useEffect(() => { setPage(1); }, [statusFilter, debouncedSearch, pageSize]);
 
   const load = useCallback(async () => {
     setLoading(true);
