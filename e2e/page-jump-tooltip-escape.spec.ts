@@ -303,4 +303,22 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(button).toBeFocused();
     await expect(tip).toBeHidden();
   });
+
+  test("Clicking outside the tooltip closes it and restores focus to ? button", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await openViaClick(page);
+    await assertTooltipOpen(page);
+
+    // Click on the page <body> at a point that is NOT inside the tooltip wrapper.
+    const tipBox = await tip.boundingBox();
+    expect(tipBox).not.toBeNull();
+    // Click far above the tooltip, near the top-left of the viewport.
+    await page.mouse.click(5, 5);
+
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
+  });
 });
