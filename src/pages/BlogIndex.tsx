@@ -252,9 +252,10 @@ const BlogIndex = () => {
       rect.top >= scrollPadding &&
       rect.bottom <= viewH - scrollPadding;
     if (fullyVisible) return;
+    if (!smoothScroll) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [activeIndex, visible, scrollPadding]);
+  }, [activeIndex, visible, scrollPadding, smoothScroll]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
