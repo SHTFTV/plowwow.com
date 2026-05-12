@@ -251,6 +251,14 @@ export default function AdminGuestPosts() {
             </p>
           </div>
           <div className="flex gap-2">
+            {(statusFilter !== "all" || search || page > 1) && (
+              <Button
+                variant="outline"
+                onClick={() => updateParams({ status: null, q: null, page: null })}
+              >
+                <X className="h-4 w-4" /> Clear filters
+              </Button>
+            )}
             <Button variant="outline" onClick={refresh} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
             </Button>
