@@ -291,30 +291,54 @@ const BlogIndex = () => {
     [],
   );
 
-  // Keep the visible-ref in sync for the cross-tab storage listener.
+  // Keep refs in sync for the cross-tab storage listener.
   useEffect(() => {
     visibleRef.current = visible;
   }, [visible]);
+  useEffect(() => {
+    queryRef.current = query;
+    pageRef.current = page;
+  }, [query, page]);
 
   // Reset the active selection whenever the result set or page changes so we
-  // don't keep highlighting an index that no longer exists. If another tab
-  // has a slug selected that's also in the new visible set, restore it;
-  // otherwise auto-select the top match (when a query is active).
+  // don't keep highlighting an index that no longer exists. Restore from
+  // storage only when the persisted entry was scoped to this exact query +
+  // page (so a selection on "snow" doesn't leak into a search for "burnaby").
+  // Otherwise auto-select the top match when a query is active.
   useEffect(() => {
-    if (typeof window === "undefined") {
+    const fallback = () =>
       setActiveIndex(query && visible.length > 0 ? 0 : -1);
+    if (typeof window === "undefined") {
+      fallback();
       return;
     }
-    const storedSlug = window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY);
-    if (storedSlug) {
-      const idx = visible.indexOf(storedSlug);
+    const persisted = parsePersistedActive(
+      window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY),
+    );
+    if (persisted && persisted.q === query && persisted.page === page) {
+      const idx = visible.indexOf(persisted.slug);
       if (idx >= 0) {
         setActiveIndex(idx);
         return;
       }
     }
-    setActiveIndex(query && visible.length > 0 ? 0 : -1);
+    fallback();
   }, [page, query, visible]);
+
+  // Persist the active slug (scoped to current query + page) across tabs.
+  // Skip the write when the serialized value already matches what's stored
+  // to avoid echo loops via the storage event.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const slug = activeIndex >= 0 ? visible[activeIndex] ?? null : null;
+    const current = window.localStorage.getItem(ACTIVE_SLUG_STORAGE_KEY);
+    if (slug == null) {
+      if (current !== null) window.localStorage.removeItem(ACTIVE_SLUG_STORAGE_KEY);
+      return;
+    }
+    const next = JSON.stringify({ q: query, page, slug } satisfies PersistedActive);
+    if (current !== next) window.localStorage.setItem(ACTIVE_SLUG_STORAGE_KEY, next);
+  }, [activeIndex, visible, query, page]);
 
   // Persist the active slug across tabs. Skip the write if the value already
   // matches what's in storage to avoid spurious storage events / loops.
