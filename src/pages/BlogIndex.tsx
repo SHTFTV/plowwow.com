@@ -86,6 +86,7 @@ const SCROLL_PADDING_DEFAULT = 96;
 const SCROLL_PADDING_MIN = 0;
 const SCROLL_PADDING_MAX = 400;
 const SCROLL_PADDING_STORAGE_KEY = "blog:scrollViewportPadding";
+const SMOOTH_SCROLL_STORAGE_KEY = "blog:smoothAutoScroll";
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -166,6 +167,19 @@ const BlogIndex = () => {
     window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(scrollPadding));
   }, [scrollPadding]);
 
+  // Toggle for smooth auto-scrolling of the active card. When off, the page
+  // does not auto-scroll the selection into view at all.
+  const [smoothScroll, setSmoothScroll] = useState<boolean>(true);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.localStorage.getItem(SMOOTH_SCROLL_STORAGE_KEY);
+    if (raw === "false") setSmoothScroll(false);
+  }, []);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(SMOOTH_SCROLL_STORAGE_KEY, String(smoothScroll));
+  }, [smoothScroll]);
+
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
     setDraft(query);
@@ -238,9 +252,10 @@ const BlogIndex = () => {
       rect.top >= scrollPadding &&
       rect.bottom <= viewH - scrollPadding;
     if (fullyVisible) return;
+    if (!smoothScroll) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [activeIndex, visible, scrollPadding]);
+  }, [activeIndex, visible, scrollPadding, smoothScroll]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
@@ -404,6 +419,21 @@ const BlogIndex = () => {
                     Reset
                   </button>
                 </div>
+
+                <label className="mt-1 flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={smoothScroll}
+                    onChange={(e) => setSmoothScroll(e.target.checked)}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  <span className="text-foreground font-medium">
+                    Smooth auto-scroll to selected card
+                  </span>
+                  <span className="text-xs text-muted-foreground/80">
+                    (when off, the page will not scroll the active result into view)
+                  </span>
+                </label>
               </div>
             </details>
 
