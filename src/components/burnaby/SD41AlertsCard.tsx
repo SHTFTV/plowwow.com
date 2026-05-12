@@ -31,6 +31,29 @@ const SD41AlertsCard = () => {
   const [filter, setFilter] = useState<"all" | "closures">("closures");
   const [query, setQuery] = useState("");
 
+  const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  const HighlightedText = ({ text, query: q }: { text: string; query: string }) => {
+    if (!q.trim()) return <>{text}</>;
+    const parts = text.split(new RegExp(`(${escapeRegex(q.trim())})`, "gi"));
+    return (
+      <>
+        {parts.map((part, i) =>
+          part.toLowerCase() === q.trim().toLowerCase() ? (
+            <mark
+              key={i}
+              className="bg-primary/20 text-primary font-semibold rounded px-0.5"
+            >
+              {part}
+            </mark>
+          ) : (
+            <span key={i}>{part}</span>
+          )
+        )}
+      </>
+    );
+  };
+
   const load = async () => {
     setLoading(true);
     setError(null);
@@ -188,9 +211,12 @@ const SD41AlertsCard = () => {
                           item.isClosure ? "text-destructive" : "text-foreground"
                         }`}
                       >
-                        {item.title}
+                        <HighlightedText text={item.title} query={query} />
                       </p>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                      <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-2">
+                        <HighlightedText text={item.description} query={query} />
+                      </p>
+                      <p className="text-[11px] text-muted-foreground/70 mt-0.5">
                         {formatDate(item.pubDate)}
                       </p>
                     </div>
