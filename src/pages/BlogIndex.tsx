@@ -148,6 +148,24 @@ const BlogIndex = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
+  // User-configurable viewport padding for the auto-scroll trigger. Hydrated
+  // from localStorage on mount and persisted on change.
+  const [scrollPadding, setScrollPadding] = useState<number>(SCROLL_PADDING_DEFAULT);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const raw = window.localStorage.getItem(SCROLL_PADDING_STORAGE_KEY);
+    const parsed = raw ? parseInt(raw, 10) : NaN;
+    if (Number.isFinite(parsed)) {
+      setScrollPadding(
+        Math.min(SCROLL_PADDING_MAX, Math.max(SCROLL_PADDING_MIN, parsed)),
+      );
+    }
+  }, []);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    window.localStorage.setItem(SCROLL_PADDING_STORAGE_KEY, String(scrollPadding));
+  }, [scrollPadding]);
+
   // Keep the input in sync if the URL changes externally (back/forward, link).
   useEffect(() => {
     setDraft(query);
