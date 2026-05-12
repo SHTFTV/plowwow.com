@@ -86,10 +86,10 @@ jobs:
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4173
 
-      - name: Upload Playwright traces and screenshots
+      - name: Upload Playwright traces, screenshots, and videos
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-traces-and-screenshots
+          name: playwright-test-results
           path: test-results/
           retention-days: 7
