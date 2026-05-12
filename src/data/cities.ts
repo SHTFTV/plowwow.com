@@ -12,6 +12,8 @@ export type City = {
   faqs: CityFAQ[];
   // Quick stats shown in hero badges
   badges?: string[];
+  // City-specific Open Graph / Twitter card image
+  ogImage: string;
 };
 
 // Cities along the Vancouver → Abbotsford corridor (Lower Mainland, BC).
