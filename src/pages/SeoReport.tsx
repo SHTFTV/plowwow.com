@@ -379,12 +379,21 @@ const SeoReport = () => {
         </div>
         <ul className="space-y-1 font-mono">
           {([
-            ["Full XLSX", buildFilename("xlsx")],
-            ["Filtered CSV", buildFilename("csv", { filtered: true })],
-            ["Filtered XLSX", buildFilename("xlsx", { filtered: true })],
-            ["Styled XLSX", buildFilename("xlsx", { filtered: true, styled: true })],
-          ] as const).map(([label, name]) => (
+            ["Full XLSX", buildFilename("xlsx"), "xlsx"],
+            ["Filtered CSV", buildFilename("csv", { filtered: true }), "csv"],
+            ["Filtered XLSX", buildFilename("xlsx", { filtered: true }), "xlsx"],
+            ["Styled XLSX", buildFilename("xlsx", { filtered: true, styled: true }), "xlsx"],
+          ] as const).map(([label, name, ext]) => (
             <li key={label} className="flex items-center">
+              <span
+                className={`mr-2 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-sans font-semibold uppercase tracking-wide ${
+                  ext === "csv"
+                    ? "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200"
+                    : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200"
+                }`}
+              >
+                {ext}
+              </span>
               <span className="text-muted-foreground">{label}:</span>
               <span className="ml-1 break-all">{name}</span>
               <CopyFilename value={name} />
