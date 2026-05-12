@@ -1239,4 +1239,83 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
     expect(card("burnaby")!.getAttribute("aria-selected")).toBe("true");
   });
+
+  it("clicking outside the listbox closes it, returns focus to the combobox, and keeps aria-expanded=false with a valid aria-activedescendant", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+
+    // Harness with a known outside-the-section element to click.
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route
+            path="*"
+            element={
+              <>
+                <ServiceAreas />
+                <div data-testid="outside-region">
+                  <p>Some unrelated content</p>
+                </div>
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    // Mount restore: listbox open, focus on Burnaby.
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+
+    const outside = screen.getByTestId("outside-region");
+
+    // Click outside the section. The outside-click handler is attached to
+    // document via mousedown, so dispatch mousedown on the outside node.
+    await act(async () => {
+      fireEvent.mouseDown(outside);
+    });
+
+    // Listbox unmounts.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // aria-expanded flipped to false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Focus has been returned to the combobox (it was inside the
+    // about-to-unmount listbox at click time, so the handler pulls it back
+    // instead of letting it fall to <body>).
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-activedescendant is valid: the outside-click handler resets
+    // activeIndex to 0 and clears the query, so the next reference would be
+    // the first option's id. While collapsed, no listbox is rendered, but
+    // the attribute is allowed to point at a known slug (Vancouver, idx 0)
+    // — it must not be undefined and must not point at the removed Burnaby.
+    const ad = combobox.getAttribute("aria-activedescendant");
+    expect(ad).toBe("city-opt-vancouver");
+    expect(ad).not.toBe("city-opt-burnaby");
+
+    // Re-firing focus on the combobox must NOT auto-reopen the listbox
+    // (the outside-click handler set the suppression flag).
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+
+    // Query was also cleared by the outside-click handler.
+    expect(combobox.value).toBe("");
+  });
 });
