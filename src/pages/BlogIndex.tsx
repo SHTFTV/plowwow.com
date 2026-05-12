@@ -206,6 +206,14 @@ const BlogIndex = () => {
   const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
   useEffect(() => {
+    if (!pageJumpTipOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setPageJumpTipOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [pageJumpTipOpen]);
+  useEffect(() => {
     if (typeof window === "undefined") return;
     const initial = parseStoredJumpSize(window.localStorage.getItem(PAGE_JUMP_SIZE_STORAGE_KEY));
     if (initial != null) _setPageJumpSize(initial);
