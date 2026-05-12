@@ -191,10 +191,10 @@ const BlogIndex = () => {
     setActiveIndex(query && visible.length > 0 ? 0 : -1);
   }, [page, query, visible.length]);
 
-  // Scroll the active card into view, but only when the *selected slug*
-  // actually changes. Without this guard, every keystroke that re-runs the
-  // filter (even when the top match stays the same) would re-trigger a smooth
-  // scroll and feel jittery.
+  // Scroll the active card into view, but only when (a) the selected slug
+  // actually changes and (b) the card is not already fully visible in the
+  // viewport. This avoids jittery smooth-scrolls while typing or when the
+  // top match is already on screen.
   const lastScrolledSlugRef = useRef<string | null>(null);
   useEffect(() => {
     if (activeIndex < 0) {
@@ -203,11 +203,16 @@ const BlogIndex = () => {
     }
     const slug = visible[activeIndex];
     if (!slug || slug === lastScrolledSlugRef.current) return;
+    const el = cardRefs.current[activeIndex];
+    if (!el) return;
     lastScrolledSlugRef.current = slug;
-    cardRefs.current[activeIndex]?.scrollIntoView({
-      block: "center",
-      behavior: "smooth",
-    });
+
+    const rect = el.getBoundingClientRect();
+    const viewH = window.innerHeight || document.documentElement.clientHeight;
+    const fullyVisible = rect.top >= 0 && rect.bottom <= viewH;
+    if (fullyVisible) return;
+
+    el.scrollIntoView({ block: "center", behavior: "smooth" });
   }, [activeIndex, visible]);
 
   const openActive = useCallback(() => {
