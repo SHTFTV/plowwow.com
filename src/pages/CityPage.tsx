@@ -32,6 +32,7 @@ const CityPage = () => {
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = city.intro.slice(0, 155);
   const url = `https://plowwow.com/${city.slug}`;
+  const ogImage = "https://plowwow.com/og.jpg";
 
   // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
@@ -58,8 +59,10 @@ const CityPage = () => {
     setProperty("og:title", pageTitle);
     setProperty("og:description", pageDescription);
     setProperty("og:url", url);
+    setProperty("og:image", ogImage);
     setProperty("twitter:title", pageTitle);
     setProperty("twitter:description", pageDescription);
+    setProperty("twitter:image", ogImage);
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
