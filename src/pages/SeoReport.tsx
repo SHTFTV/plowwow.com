@@ -113,8 +113,7 @@ const SeoReport = () => {
       sws["!cols"] = [{ wch: 20 }, { wch: 40 }];
       XLSX.utils.book_append_sheet(wb, sws, "Summary");
 
-      const stamp = new Date().toISOString().slice(0, 10);
-      XLSX.writeFile(wb, `city-seo-report-${stamp}.xlsx`);
+      XLSX.writeFile(wb, buildFilename("xlsx"));
     } finally {
       setDownloading(false);
     }
