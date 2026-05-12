@@ -670,8 +670,10 @@ const BlogIndex = () => {
                       {pageJumpTipOpen && (
                         <span
                           id="page-jump-tip"
+                          ref={pageJumpTipContentRef}
                           role="tooltip"
-                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md"
+                          tabIndex={-1}
+                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           Press{" "}
                           <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageDown</kbd>{" "}
