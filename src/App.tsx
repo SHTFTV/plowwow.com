@@ -14,6 +14,7 @@ import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage
 import BlogIndex from "./pages/BlogIndex.tsx";
 import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
+import GuestPost from "./pages/GuestPost.tsx";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/intelligence" element={<Intelligence />} />
           <Route path="/advanced-technology" element={<AppFeatures />} />
           <Route path="/app-features" element={<AppFeatures />} />
+          <Route path="/guest-post" element={<GuestPost />} />
           {legacyPageSlugs.map((slug) => (
             <Route
               key={`page-${slug}`}
