@@ -138,31 +138,10 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
-  const serviceTypes = useMemo(
-    () => Array.from(new Set(rows.map((r) => r.service_type))).sort(),
-    [rows],
-  );
-
-  const filtered = useMemo(() => {
-    const q = debouncedSearch.trim().toLowerCase();
-    return rows.filter((r) => {
-      if (statusFilter !== "all" && r.status !== statusFilter) return false;
-      if (serviceFilter !== "all" && r.service_type !== serviceFilter) return false;
-      if (!q) return true;
-      return [r.name, r.email, r.phone, r.address, r.postal_code]
-        .join(" ")
-        .toLowerCase()
-        .includes(q);
-    });
-  }, [rows, statusFilter, serviceFilter, debouncedSearch]);
-
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(25);
   useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize]);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * pageSize;
-  const paginated = filtered.slice(startIdx, startIdx + pageSize);
 
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
