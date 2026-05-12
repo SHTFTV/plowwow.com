@@ -233,8 +233,21 @@ export default function AdminGuestPosts() {
               </Link>
             </div>
             <h1 className="text-2xl md:text-3xl font-bold">Guest post submissions</h1>
-            <p className="text-sm text-muted-foreground">
-              {total} matching · {grandTotal} total
+            <p className="text-sm text-muted-foreground" aria-live="polite">
+              {loading ? (
+                "Loading…"
+              ) : total === 0 ? (
+                <>Showing 0 of {grandTotal}</>
+              ) : (
+                <>
+                  Showing <span className="font-medium text-foreground">{startIdx + 1}–{Math.min(startIdx + pageSize, total)}</span>{" "}
+                  of <span className="font-medium text-foreground">{total}</span>
+                  {(statusFilter !== "all" || debouncedSearch) && <> matching</>}
+                  {statusFilter !== "all" && <> · status <span className="font-medium text-foreground capitalize">{statusFilter}</span></>}
+                  {debouncedSearch && <> · search “<span className="font-medium text-foreground">{debouncedSearch}</span>”</>}
+                  {" "}· {grandTotal} total
+                </>
+              )}
             </p>
           </div>
           <div className="flex gap-2">
