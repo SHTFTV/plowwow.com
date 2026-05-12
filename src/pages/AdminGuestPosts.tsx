@@ -210,6 +210,10 @@ export default function AdminGuestPosts() {
         if (el) {
           el.focus();
           el.select();
+          sonnerToast("Search focused", {
+            description: "Type to filter · Esc to clear",
+            duration: 1500,
+          });
         }
         return;
       }
