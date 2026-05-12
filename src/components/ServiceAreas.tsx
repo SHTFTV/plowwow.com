@@ -201,11 +201,15 @@ const ServiceAreas = () => {
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
               autoComplete="off"
               role="combobox"
+              aria-label="Search cities"
+              aria-autocomplete="list"
+              aria-haspopup="listbox"
               aria-expanded={flatCities.length > 0}
               aria-controls="city-results"
               aria-activedescendant={
-                flatCities[activeIndex] ? `city-opt-${flatCities[activeIndex].slug}` : undefined
+                activeCity ? `city-opt-${activeCity.slug}` : undefined
               }
+              aria-describedby="city-search-hint"
             />
             {query && (
               <button
@@ -218,14 +222,18 @@ const ServiceAreas = () => {
               </button>
             )}
           </div>
-          <p className="text-xs text-muted-foreground text-center mt-2">
+          <p id="city-search-hint" className="text-xs text-muted-foreground text-center mt-2">
             Use ↑ ↓ to navigate, Enter to open, Esc to clear.
           </p>
           {q && (
-            <p className="text-sm text-muted-foreground text-center mt-1" aria-live="polite">
+            <p className="text-sm text-muted-foreground text-center mt-1">
               {totalMatches} {totalMatches === 1 ? "match" : "matches"} for "{query}"
             </p>
           )}
+          {/* Polite live region for screen readers only */}
+          <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+            {statusMessage}
+          </div>
         </div>
 
         {filtered.length === 0 ? (
