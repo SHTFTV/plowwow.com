@@ -624,6 +624,7 @@ const BlogIndex = () => {
                     PageUp / PageDown jump size
                     <span ref={pageJumpTipRef} className="relative inline-block align-middle">
                       <button
+                        ref={pageJumpTipBtnRef}
                         type="button"
                         aria-label={`PageUp and PageDown move the active blog selection by ${pageJumpSize} ${pageJumpSize === 1 ? "card" : "cards"} at a time (the current jump size). Selection stops at the first and last card without wrapping.`}
                         aria-expanded={pageJumpTipOpen}
