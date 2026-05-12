@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CityMap from "@/components/CityMap";
+import { buildCityCopy } from "@/data/cityContent";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -114,6 +115,7 @@ const CityPage = () => {
   };
 
   const otherCities = cities.filter((c) => c.slug !== city.slug);
+  const { sections: copySections } = buildCityCopy(city);
 
   return (
     <div className="min-h-screen">
