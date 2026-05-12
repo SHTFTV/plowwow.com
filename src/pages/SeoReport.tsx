@@ -86,16 +86,19 @@ const SeoReport = () => {
     }
   };
 
+  useEffect(() => {
+    document.title = "City SEO Report — Canonical vs og:url";
+    const meta = document.querySelector('meta[name="robots"]') ?? (() => {
+      const m = document.createElement("meta");
+      m.setAttribute("name", "robots");
+      document.head.appendChild(m);
+      return m;
+    })();
+    meta.setAttribute("content", "noindex");
+  }, []);
+
   return (
     <main className="container mx-auto px-4 py-12 max-w-6xl">
-      <Helmet>
-        <title>City SEO Report — Canonical vs og:url</title>
-        <meta
-          name="description"
-          content="Generate and download an XLSX report of every city route with canonical and og:url comparison."
-        />
-        <meta name="robots" content="noindex" />
-      </Helmet>
 
       <header className="mb-8">
         <h1 className="text-3xl font-bold tracking-tight">City SEO Report</h1>
