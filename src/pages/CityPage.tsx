@@ -258,6 +258,24 @@ const CityPage = () => {
           </div>
         </section>
 
+        {/* Long-form SEO/AEO/GEO/LLM content — unique per city */}
+        <section className="py-16 bg-background" id="deep-dive">
+          <div className="container max-w-3xl">
+            {copySections.map((s) => (
+              <article key={s.id} id={s.id} className="mb-10">
+                <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
+                  {s.heading}
+                </h2>
+                {s.paragraphs.map((p, i) => (
+                  <p key={i} className="text-muted-foreground mb-3 leading-relaxed">
+                    {p}
+                  </p>
+                ))}
+              </article>
+            ))}
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="py-20 bg-muted/30">
           <div className="container max-w-3xl">
