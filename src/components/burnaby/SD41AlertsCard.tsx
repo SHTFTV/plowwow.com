@@ -323,22 +323,50 @@ const SD41AlertsCard = () => {
                 <ul className="space-y-0.5 max-h-64 overflow-y-auto">
                   {savedSearches.map((s) => (
                     <li key={s.id} className="flex items-center gap-1 group/saved">
-                      <button
-                        onClick={() => handleApplySaved(s)}
-                        className="flex-1 text-left rounded-md px-2 py-1.5 hover:bg-muted transition-colors min-w-0"
-                      >
-                        <p className="text-xs font-medium text-foreground truncate">{s.name}</p>
-                        <p className="text-[10px] text-muted-foreground truncate">
-                          {s.query ? `"${s.query}"` : "no query"} · {s.filter}
-                        </p>
-                      </button>
-                      <button
-                        onClick={() => handleDeleteSaved(s.id)}
-                        aria-label={`Delete saved search ${s.name}`}
-                        className="opacity-0 group-hover/saved:opacity-100 text-muted-foreground hover:text-destructive p-1 transition-opacity"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
+                      {renamingId === s.id ? (
+                        <input
+                          autoFocus
+                          type="text"
+                          value={renameValue}
+                          onChange={(e) => setRenameValue(e.target.value)}
+                          onBlur={commitRename}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter") commitRename();
+                            if (e.key === "Escape") cancelRename();
+                          }}
+                          className="flex-1 rounded-md border border-primary/40 bg-background px-2 py-1.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        />
+                      ) : (
+                        <button
+                          onClick={() => handleApplySaved(s)}
+                          onDoubleClick={() => startRename(s)}
+                          title="Double-click to rename"
+                          className="flex-1 text-left rounded-md px-2 py-1.5 hover:bg-muted transition-colors min-w-0"
+                        >
+                          <p className="text-xs font-medium text-foreground truncate">{s.name}</p>
+                          <p className="text-[10px] text-muted-foreground truncate">
+                            {s.query ? `"${s.query}"` : "no query"} · {s.filter}
+                          </p>
+                        </button>
+                      )}
+                      {renamingId !== s.id && (
+                        <>
+                          <button
+                            onClick={() => startRename(s)}
+                            aria-label={`Rename saved search ${s.name}`}
+                            className="opacity-0 group-hover/saved:opacity-100 text-muted-foreground hover:text-primary p-1 transition-opacity"
+                          >
+                            <Pencil className="w-3 h-3" />
+                          </button>
+                          <button
+                            onClick={() => handleDeleteSaved(s.id)}
+                            aria-label={`Delete saved search ${s.name}`}
+                            className="opacity-0 group-hover/saved:opacity-100 text-muted-foreground hover:text-destructive p-1 transition-opacity"
+                          >
+                            <Trash2 className="w-3 h-3" />
+                          </button>
+                        </>
+                      )}
                     </li>
                   ))}
                 </ul>
