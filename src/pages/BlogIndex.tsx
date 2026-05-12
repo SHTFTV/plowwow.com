@@ -24,7 +24,19 @@ const PAGE_SIZE = 8;
 
 const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const posts = useMemo(() => [...legacyBlogSlugs].sort(), []);
+  const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
+
+  const query = (searchParams.get("q") ?? "").trim();
+  const normalizedQuery = query.toLowerCase();
+
+  const posts = useMemo(() => {
+    if (!normalizedQuery) return allPosts;
+    return allPosts.filter((slug) => {
+      const title = titleFor(slug).toLowerCase();
+      return title.includes(normalizedQuery) || slug.includes(normalizedQuery);
+    });
+  }, [allPosts, normalizedQuery]);
+
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
   const requested = parseInt(searchParams.get("page") ?? "1", 10);
