@@ -62,6 +62,11 @@ const CityPage = () => {
     setProperty("og:description", pageDescription);
     setProperty("og:url", url);
     setProperty("og:image", ogImage);
+    setProperty("og:image:width", String(ogImageWidth));
+    setProperty("og:image:height", String(ogImageHeight));
+    setProperty("og:image:alt", pageTitle);
+    setProperty("og:type", "website");
+    setProperty("twitter:card", "summary_large_image");
     setProperty("twitter:title", pageTitle);
     setProperty("twitter:description", pageDescription);
     setProperty("twitter:image", ogImage);
