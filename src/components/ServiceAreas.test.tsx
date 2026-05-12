@@ -50,23 +50,36 @@ describe("ServiceAreas restore synchronization", () => {
 
   it("clearing the query fires scroll + focus + pulse together from one event", async () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
-    // Seed a query that filters Burnaby out entirely (no match on city
-    // name, slug, or any region title containing "burnaby" / the query).
-    // "abbotsford" only matches Abbotsford in Fraser Valley.
-    window.localStorage.setItem(STORAGE_KEY, "abbotsford");
-
+    // Start with no query so the mount restore can run and mark
+    // hasMountedRef. Then we'll filter Burnaby out and clear, which is
+    // the path that actually pulses.
     renderWithRouter();
 
-    await waitFor(() => {
-      expect(getCard("abbotsford")).not.toBeNull();
+    // Wait for the mount restore to land on Burnaby.
+    const burnabyOnMount = await waitFor(() => {
+      const el = getCard("burnaby");
+      expect(el).not.toBeNull();
+      return el!;
     });
-    expect(getCard("burnaby")).toBeNull();
+    await waitFor(() => {
+      expect(document.activeElement).toBe(burnabyOnMount);
+    });
 
     const input = screen.getByRole("combobox") as HTMLInputElement;
     input.focus();
-    expect(document.activeElement).toBe(input);
+
+    // Type a query that filters Burnaby out entirely.
+    await act(async () => {
+      fireEvent.change(input, { target: { value: "abbotsford" } });
+    });
+    await waitFor(() => {
+      expect(getCard("burnaby")).toBeNull();
+      expect(getCard("abbotsford")).not.toBeNull();
+    });
 
     scrollIntoViewMock.mockClear();
+
+    // Clear the query — single restoreEvent drives scroll+focus+pulse.
     await act(async () => {
       fireEvent.change(input, { target: { value: "" } });
     });
@@ -86,28 +99,28 @@ describe("ServiceAreas restore synchronization", () => {
 
   it("pulse clears after the animation window so it can replay", async () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
-    window.localStorage.setItem(STORAGE_KEY, "abbotsford");
-
     renderWithRouter();
+
+    await waitFor(() => {
+      expect(getCard("burnaby")).not.toBeNull();
+    });
 
     const input = screen.getByRole("combobox") as HTMLInputElement;
     input.focus();
 
     await act(async () => {
+      fireEvent.change(input, { target: { value: "abbotsford" } });
+    });
+    await waitFor(() => expect(getCard("burnaby")).toBeNull());
+
+    await act(async () => {
       fireEvent.change(input, { target: { value: "" } });
     });
 
-    const card = await waitFor(() => {
-      const el = getCard("burnaby");
-      expect(el).not.toBeNull();
-      return el!;
-    });
-
     await waitFor(() => {
-      expect(card.className).toMatch(/animate-restore-pulse/);
+      expect(getCard("burnaby")!.className).toMatch(/animate-restore-pulse/);
     });
 
-    // restoreEvent auto-clears at 950ms.
     await waitFor(
       () => {
         expect(getCard("burnaby")!.className).not.toMatch(/animate-restore-pulse/);
@@ -115,4 +128,5 @@ describe("ServiceAreas restore synchronization", () => {
       { timeout: 2000 },
     );
   });
+});
 });
