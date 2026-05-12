@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import heroBanner from "@/assets/plowwow-banner.png";
 
 const Hero = () => (
-  <section className="relative isolate overflow-hidden bg-[#0d2a4a]">
+  <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-[#0d2a4a]">
     <figure className="absolute inset-0 m-0">
       <img
         src={heroBanner}
