@@ -14,6 +14,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import CityMap from "@/components/CityMap";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -178,6 +179,21 @@ const CityPage = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* City Map */}
+        <section className="py-16" id="map">
+          <div className="container">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
+                {city.name} at a Glance
+              </h2>
+              <p className="text-muted-foreground">
+                City Hall pinned for orientation, plus a quick link to live {city.name} weather.
+              </p>
+            </div>
+            <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
           </div>
         </section>
 
