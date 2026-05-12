@@ -112,7 +112,7 @@ export default function Admin() {
   );
 
   const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    const q = debouncedSearch.trim().toLowerCase();
     return rows.filter((r) => {
       if (statusFilter !== "all" && r.status !== statusFilter) return false;
       if (serviceFilter !== "all" && r.service_type !== serviceFilter) return false;
@@ -122,7 +122,7 @@ export default function Admin() {
         .toLowerCase()
         .includes(q);
     });
-  }, [rows, statusFilter, serviceFilter, search]);
+  }, [rows, statusFilter, serviceFilter, debouncedSearch]);
 
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
