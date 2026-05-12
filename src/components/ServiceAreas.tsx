@@ -364,6 +364,15 @@ const ServiceAreas = () => {
       setCollapsed(true);
       suppressFocusExpandRef.current = true;
       document.getElementById("city-search")?.focus();
+    } else if (e.key === "Tab") {
+      // Tab/Shift+Tab while the listbox is open: collapse it so aria-expanded
+      // flips to false and the dropdown doesn't linger after focus leaves.
+      // Do NOT preventDefault — the browser moves focus to the next/prev
+      // tabbable element naturally. Suppress the combobox auto-expand on
+      // focus so Shift+Tab back into the input doesn't immediately reopen.
+      setCollapsed(true);
+      userInteractedRef.current = false;
+      suppressFocusExpandRef.current = true;
     }
   };
 
