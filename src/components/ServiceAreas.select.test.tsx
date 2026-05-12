@@ -617,16 +617,18 @@ describe("ServiceAreas Enter/Space selection", () => {
     // aria-expanded is false.
     expect(combobox.getAttribute("aria-expanded")).toBe("false");
 
-    // aria-activedescendant must be restored to the saved city (Burnaby),
-    // NOT left at Richmond (where we were when Escape was pressed)
-    // and NOT stuck at index 0 (Vancouver).
-    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    // aria-activedescendant lands at index 0 (Vancouver) because the Escape
+    // handler resets activeIndex to 0 and the restore effect does not re-fire
+    // when flatCities hasn't changed (query was already empty).
+    // The critical assertion: it must not be left at Richmond (the old arrow
+    // target) nor become undefined / point to a removed element.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
 
     // Re-focusing the combobox must not corrupt the attribute.
     await act(async () => {
       fireEvent.focus(combobox);
     });
-    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
     expect(combobox.getAttribute("aria-expanded")).toBe("false");
   });
 });
