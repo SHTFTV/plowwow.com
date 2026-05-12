@@ -30,6 +30,24 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(button).toBeFocused();
   });
 
+  test("Escape closes tooltip and restores focus to ? button when focus is inside the tooltip", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    await openViaClick(page);
+
+    // Focus an element inside the tooltip.
+    const tip = page.locator("#page-jump-tip");
+    const innerFocusable = tip.locator("a, button, input, [tabindex]").first();
+    await innerFocusable.waitFor({ state: "visible" });
+    await innerFocusable.focus();
+    await expect(innerFocusable).toBeFocused();
+
+    await page.keyboard.press("Escape");
+
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expect(tip).toBeHidden();
+    await expect(button).toBeFocused();
+  });
+
   test("Focus returns to ? button after Escape when focus was on document.body", async ({ page }) => {
     const button = page.locator('button[aria-controls="page-jump-tip"]');
     await openViaClick(page);
