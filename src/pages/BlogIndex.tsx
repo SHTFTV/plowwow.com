@@ -195,6 +195,28 @@ const BlogIndex = () => {
     }
   }, []);
 
+  // Configurable PageUp/PageDown jump size. Clamped to a sensible range and
+  // persisted (with cross-tab sync) like the other selection settings.
+  const parseStoredJumpSize = (raw: string | null): number | null => {
+    if (raw == null) return null;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return null;
+    return Math.min(PAGE_JUMP_SIZE_MAX, Math.max(PAGE_JUMP_SIZE_MIN, n));
+  };
+  const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const initial = parseStoredJumpSize(window.localStorage.getItem(PAGE_JUMP_SIZE_STORAGE_KEY));
+    if (initial != null) _setPageJumpSize(initial);
+  }, []);
+  const setPageJumpSize = useCallback((next: number) => {
+    const clamped = Math.min(PAGE_JUMP_SIZE_MAX, Math.max(PAGE_JUMP_SIZE_MIN, next));
+    _setPageJumpSize(clamped);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(PAGE_JUMP_SIZE_STORAGE_KEY, String(clamped));
+    }
+  }, []);
+
   // Cross-tab sync. The browser fires `storage` events on OTHER tabs/windows
   // sharing this origin when localStorage changes — perfect for live syncing
   // settings without a backend round-trip. The originating tab does not
