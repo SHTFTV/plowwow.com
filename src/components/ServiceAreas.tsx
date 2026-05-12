@@ -108,27 +108,36 @@ const ServiceAreas = () => {
     }
   }, [activeIndex]);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const moveActive = (delta: number) => {
+    userInteractedRef.current = true;
+    setActiveIndex((i) => (i + delta + flatCities.length) % flatCities.length);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (flatCities.length === 0) return;
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
       e.preventDefault();
-      setActiveIndex((i) => (i + 1) % flatCities.length);
+      moveActive(1);
     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
       e.preventDefault();
-      setActiveIndex((i) => (i - 1 + flatCities.length) % flatCities.length);
+      moveActive(-1);
     } else if (e.key === "Home") {
       e.preventDefault();
+      userInteractedRef.current = true;
       setActiveIndex(0);
     } else if (e.key === "End") {
       e.preventDefault();
+      userInteractedRef.current = true;
       setActiveIndex(flatCities.length - 1);
     } else if (e.key === "Enter") {
       e.preventDefault();
       const target = flatCities[activeIndex];
       if (target) navigate(`/${target.slug}`);
-    } else if (e.key === "Escape" && query) {
+    } else if (e.key === "Escape") {
       e.preventDefault();
-      setQuery("");
+      userInteractedRef.current = false;
+      if (query) setQuery("");
+      document.getElementById("city-search")?.focus();
     }
   };
 
