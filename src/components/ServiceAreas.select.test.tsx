@@ -171,4 +171,51 @@ describe("ServiceAreas Enter/Space selection", () => {
       expect(combobox.getAttribute("aria-expanded")).toBe("false");
     },
   );
+
+  it("Escape closes the listbox, flips aria-expanded to false, and it stays false when focus returns to the combobox", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    renderHarness();
+
+    const combobox = await waitFor(() => {
+      const cb = screen.getByRole("combobox");
+      // Initial state: results visible → aria-expanded="true".
+      expect(cb.getAttribute("aria-expanded")).toBe("true");
+      return cb;
+    });
+
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+
+    // Press Escape on the focused option.
+    await act(async () => {
+      fireEvent.keyDown(burnaby, { key: "Escape" });
+    });
+
+    // Listbox unmounts.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // aria-expanded flipped to "false".
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Focus has returned to the combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-expanded must REMAIN "false" — the onFocus auto-expand is
+    // suppressed after Escape, just like after Enter/Space selection.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // Belt-and-braces: re-fire focus on the combobox. Must still be closed.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+  });
 });
