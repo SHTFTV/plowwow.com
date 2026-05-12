@@ -329,6 +329,13 @@ const ServiceAreas = () => {
                           userInteractedRef.current = true;
                           setActiveIndex(myIdx);
                         }}
+                        onClick={() => {
+                          // Collapse the dropdown but preserve the query so it
+                          // is still there if the user navigates back.
+                          setActiveIndex(myIdx);
+                          setCollapsed(true);
+                          userInteractedRef.current = false;
+                        }}
                         onKeyDown={handleKeyDown}
                         className={cn(
                           "group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border transition-colors shadow-sm",
