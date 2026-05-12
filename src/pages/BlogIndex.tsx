@@ -111,6 +111,34 @@ const BlogIndex = () => {
     [],
   );
 
+  // Global keyboard shortcuts:
+  //   "/" or Cmd/Ctrl+K → focus the search input
+  //   Escape (when input is focused) → clear the query
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const tag = target?.tagName;
+      const isTyping =
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        tag === "SELECT" ||
+        (target?.isContentEditable ?? false);
+
+      const isFocusShortcut =
+        (e.key === "/" && !isTyping) ||
+        ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k");
+
+      if (isFocusShortcut) {
+        e.preventDefault();
+        inputRef.current?.focus();
+        inputRef.current?.select();
+        return;
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <TopBar />
