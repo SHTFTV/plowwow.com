@@ -352,18 +352,22 @@ const AppFeatures = () => {
                 <span className="text-intel-blue">snow removal software.</span>
               </h2>
             </div>
-            <dl className="space-y-8">
-              {faqs.map(({ q, a }) => (
-                <div key={q} className="rounded-2xl border border-border bg-card p-6 md:p-8">
-                  <dt>
-                    <h3 className="font-display text-xl font-bold">{q}</h3>
-                  </dt>
-                  <dd className="font-tech text-muted-foreground text-base mt-3 leading-relaxed">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map(({ q, a }, i) => (
+                <AccordionItem
+                  key={q}
+                  value={`faq-${i}`}
+                  className="rounded-2xl border border-border bg-card px-6 md:px-8 data-[state=open]:shadow-md transition-shadow"
+                >
+                  <AccordionTrigger className="font-display text-lg md:text-xl font-bold text-left py-5 hover:no-underline [&>svg]:text-intel-orange">
+                    {q}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-tech text-muted-foreground text-base leading-relaxed pb-6">
                     {a}
-                  </dd>
-                </div>
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </dl>
+            </Accordion>
           </div>
         </section>
 
