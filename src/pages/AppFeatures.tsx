@@ -246,7 +246,8 @@ const AppFeatures = () => {
           href="#faq"
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById("faq")?.focus({ preventScroll: false });
+            const firstFaq = document.querySelector('#faq button[aria-expanded]') as HTMLButtonElement | null;
+            firstFaq?.focus({ preventScroll: false });
           }}
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-intel-orange text-white px-5 py-2.5 rounded-full font-display font-bold text-sm shadow-lg"
         >
