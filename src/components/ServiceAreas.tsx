@@ -58,6 +58,7 @@ const regions: { title: string; cities: CityLink[] }[] = [
 ];
 
 const STORAGE_KEY = "service-areas:query";
+const LAST_CITY_KEY = "service-areas:last-city";
 
 const ServiceAreas = () => {
   const navigate = useNavigate();
@@ -142,7 +143,39 @@ const ServiceAreas = () => {
     });
   }, [flatCities.length]);
 
-  // Scroll active card into view + move DOM focus to it for visible focus ring
+  // Restore the last selected city once after mount: highlight, scroll, focus.
+  const restoredRef = useRef(false);
+  useEffect(() => {
+    if (restoredRef.current) return;
+    if (flatCities.length === 0) return;
+    let savedSlug: string | null = null;
+    try {
+      savedSlug = window.localStorage.getItem(LAST_CITY_KEY);
+    } catch {
+      savedSlug = null;
+    }
+    if (!savedSlug) {
+      restoredRef.current = true;
+      return;
+    }
+    const idx = flatCities.findIndex((c) => c.slug === savedSlug);
+    if (idx >= 0) {
+      restoredRef.current = true;
+      userInteractedRef.current = true;
+      setActiveIndex(idx);
+      // Give React a tick to paint the cards before scrolling/focusing.
+      requestAnimationFrame(() => {
+        const el = cardRefs.current[idx];
+        if (!el) return;
+        el.scrollIntoView({ block: "center", behavior: "smooth" });
+        el.focus({ preventScroll: true });
+      });
+    } else {
+      // The saved slug doesn't match anything in the current filtered list;
+      // try again once the filter clears or list changes.
+    }
+  }, [flatCities]);
+
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
     if (!el) return;
@@ -216,6 +249,11 @@ const ServiceAreas = () => {
       if (target) {
         setCollapsed(true);
         userInteractedRef.current = false;
+        try {
+          window.localStorage.setItem(LAST_CITY_KEY, target.slug);
+        } catch {
+          /* ignore */
+        }
         navigate(`/${target.slug}`);
       }
     } else if (e.key === "Escape") {
@@ -380,6 +418,11 @@ const ServiceAreas = () => {
                           setActiveIndex(myIdx);
                           setCollapsed(true);
                           userInteractedRef.current = false;
+                          try {
+                            window.localStorage.setItem(LAST_CITY_KEY, city.slug);
+                          } catch {
+                            /* ignore */
+                          }
                         }}
                         onKeyDown={handleKeyDown}
                         className={cn(
