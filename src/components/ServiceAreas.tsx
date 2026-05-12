@@ -172,7 +172,11 @@ const ServiceAreas = () => {
     } else if (e.key === "Enter") {
       e.preventDefault();
       const target = flatCities[activeIndex];
-      if (target) navigate(`/${target.slug}`);
+      if (target) {
+        setCollapsed(true);
+        userInteractedRef.current = false;
+        navigate(`/${target.slug}`);
+      }
     } else if (e.key === "Escape") {
       e.preventDefault();
       userInteractedRef.current = false;
@@ -328,6 +332,13 @@ const ServiceAreas = () => {
                         onFocus={() => {
                           userInteractedRef.current = true;
                           setActiveIndex(myIdx);
+                        }}
+                        onClick={() => {
+                          // Collapse the dropdown but preserve the query so it
+                          // is still there if the user navigates back.
+                          setActiveIndex(myIdx);
+                          setCollapsed(true);
+                          userInteractedRef.current = false;
                         }}
                         onKeyDown={handleKeyDown}
                         className={cn(
