@@ -939,4 +939,90 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-maple-ridge");
     expect(document.querySelector('[role="listbox"]')).not.toBeNull();
   });
+
+  it("Home/End from a mid-list option correctly update aria-activedescendant and aria-selected exclusivity", async () => {
+    // Coquitlam is idx 9 of 18 — a true mid-list anchor.
+    window.localStorage.setItem(LAST_CITY_KEY, "coquitlam");
+    renderHarness();
+
+    const coquitlam = await waitFor(() => {
+      const el = card("coquitlam");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Baseline: only the mid-list option is selected.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-coquitlam");
+    expect(coquitlam.getAttribute("aria-selected")).toBe("true");
+    // A neighbour on each side and both endpoints are NOT selected.
+    expect(card("new-westminster")!.getAttribute("aria-selected")).toBe("false");
+    expect(card("port-coquitlam")!.getAttribute("aria-selected")).toBe("false");
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("false");
+
+    // End from the middle: aria-activedescendant jumps to the last slug,
+    // aria-selected moves there, and the previously-selected mid option
+    // is no longer selected.
+    await act(async () => {
+      fireEvent.keyDown(coquitlam, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-chilliwack");
+    });
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("true");
+    expect(coquitlam.getAttribute("aria-selected")).toBe("false");
+    // Exactly one option is aria-selected="true" at any time.
+    const selectedAfterEnd = document.querySelectorAll(
+      '[role="option"][aria-selected="true"]',
+    );
+    expect(selectedAfterEnd.length).toBe(1);
+    expect((selectedAfterEnd[0] as HTMLElement).id).toBe("city-opt-chilliwack");
+
+    // Now move back to a mid-list option via Home → Vancouver, then arrow
+    // down a few times to land on a true mid item before the next Home/End.
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "Home" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    });
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("false");
+
+    // Drive down to surrey (idx 6) to set up the mid → Home assertion.
+    for (let i = 0; i < 6; i += 1) {
+      await act(async () => {
+        fireEvent.keyDown(document.activeElement as HTMLElement, {
+          key: "ArrowDown",
+        });
+      });
+    }
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-surrey");
+    });
+    expect(card("surrey")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("false");
+
+    // Home from this new mid-list anchor → first option.
+    await act(async () => {
+      fireEvent.keyDown(card("surrey")!, { key: "Home" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    });
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("surrey")!.getAttribute("aria-selected")).toBe("false");
+    const selectedAfterHome = document.querySelectorAll(
+      '[role="option"][aria-selected="true"]',
+    );
+    expect(selectedAfterHome.length).toBe(1);
+    expect((selectedAfterHome[0] as HTMLElement).id).toBe("city-opt-vancouver");
+
+    // aria-expanded must remain true the entire time.
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+  });
 });
