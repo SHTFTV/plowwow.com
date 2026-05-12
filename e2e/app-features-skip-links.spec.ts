@@ -58,6 +58,8 @@ test.describe("App Features — Skip links focus restoration", () => {
     const firstAccordionContent = firstAccordionItem.locator('div[role="region"]');
     await expect(firstAccordionContent).toBeVisible();
   });
+
+  test("Shift+Tab from second accordion button moves focus back to first", async ({ page }) => {
     // Set up the same state as the first test: skip to FAQ, expand first accordion, Tab to second.
     const skipLink = page.locator('a:has-text("Skip to FAQ")');
     await skipLink.focus();
