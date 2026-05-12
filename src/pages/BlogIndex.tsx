@@ -191,14 +191,16 @@ const BlogIndex = () => {
     setActiveIndex(query && visible.length > 0 ? 0 : -1);
   }, [page, query, visible.length]);
 
-  // Scroll the active card into view as the user arrows around.
+  // Scroll the active card into view as the user arrows around — and also
+  // when the query/page changes, so the auto-selected top match is visible
+  // immediately even if activeIndex stayed at 0.
   useEffect(() => {
     if (activeIndex < 0) return;
     cardRefs.current[activeIndex]?.scrollIntoView({
-      block: "nearest",
+      block: "center",
       behavior: "smooth",
     });
-  }, [activeIndex]);
+  }, [activeIndex, query, page]);
 
   const openActive = useCallback(() => {
     const slug = visible[activeIndex];
