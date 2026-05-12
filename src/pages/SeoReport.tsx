@@ -130,6 +130,43 @@ const SeoReport = () => {
     URL.revokeObjectURL(url);
   };
 
+  const handleExportFilteredXlsx = () => {
+    const wb = XLSX.utils.book_new();
+    const data = [
+      ["City", "Slug", "Path", "Canonical URL", "og:url", "Match"],
+      ...visibleRows.map((r) => [r.city, r.slug, r.path, r.canonical, r.ogUrl, r.match]),
+    ];
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    ws["!cols"] = [
+      { wch: 20 },
+      { wch: 18 },
+      { wch: 22 },
+      { wch: 48 },
+      { wch: 48 },
+      { wch: 10 },
+    ];
+    XLSX.utils.book_append_sheet(wb, ws, "Filtered Rows");
+
+    const summary = [
+      ["Metric", "Value"],
+      ["Visible routes", visibleRows.length],
+      ["Visible OK", visibleOk],
+      ["Visible MISMATCH", visibleMismatches],
+      ["Total routes", rows.length],
+      ["Total MISMATCH", totalMismatches],
+      ["Filter query", query || "(none)"],
+      ["Only mismatches", onlyMismatches ? "yes" : "no"],
+      ["Generated at", new Date().toISOString()],
+      ["Origin", origin],
+    ];
+    const sws = XLSX.utils.aoa_to_sheet(summary);
+    sws["!cols"] = [{ wch: 22 }, { wch: 40 }];
+    XLSX.utils.book_append_sheet(wb, sws, "Summary");
+
+    const stamp = new Date().toISOString().slice(0, 10);
+    XLSX.writeFile(wb, `city-seo-report-filtered-${stamp}.xlsx`);
+  };
+
   useEffect(() => {
     document.title = "City SEO Report — Canonical vs og:url";
     const meta = document.querySelector('meta[name="robots"]') ?? (() => {
