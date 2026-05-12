@@ -72,6 +72,7 @@ const CityPage = () => {
     setProperty("twitter:image", ogImage);
     setProperty("twitter:image:width", String(ogImageWidth));
     setProperty("twitter:image:height", String(ogImageHeight));
+    setProperty("twitter:image:alt", pageTitle);
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
