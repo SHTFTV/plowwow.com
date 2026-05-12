@@ -15,6 +15,7 @@ import BlogIndex from "./pages/BlogIndex.tsx";
 import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
 import GuestPost from "./pages/GuestPost.tsx";
+import AdminGuestPosts from "./pages/AdminGuestPosts.tsx";
 
 const queryClient = new QueryClient();
 
