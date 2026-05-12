@@ -131,23 +131,35 @@ const SeoReport = () => {
   };
 
   const handleExportFilteredXlsx = () => {
+    const autoFitCols = (rows2: (string | number)[][]) => {
+      if (rows2.length === 0) return [];
+      const colCount = rows2[0].length;
+      return Array.from({ length: colCount }, (_, c) => {
+        const max = Math.max(
+          ...rows2.map((r) => String(r[c] ?? "").length),
+        );
+        return { wch: Math.min(Math.max(max + 2, 8), 60) };
+      });
+    };
+    const boldHeader = (ws: XLSX.WorkSheet, colCount: number) => {
+      for (let c = 0; c < colCount; c++) {
+        const addr = XLSX.utils.encode_cell({ r: 0, c });
+        const cell = ws[addr];
+        if (cell) cell.s = { font: { bold: true } };
+      }
+    };
+
     const wb = XLSX.utils.book_new();
-    const data = [
+    const data: (string | number)[][] = [
       ["City", "Slug", "Path", "Canonical URL", "og:url", "Match"],
       ...visibleRows.map((r) => [r.city, r.slug, r.path, r.canonical, r.ogUrl, r.match]),
     ];
     const ws = XLSX.utils.aoa_to_sheet(data);
-    ws["!cols"] = [
-      { wch: 20 },
-      { wch: 18 },
-      { wch: 22 },
-      { wch: 48 },
-      { wch: 48 },
-      { wch: 10 },
-    ];
+    ws["!cols"] = autoFitCols(data);
+    boldHeader(ws, data[0].length);
     XLSX.utils.book_append_sheet(wb, ws, "Filtered Rows");
 
-    const summary = [
+    const summary: (string | number)[][] = [
       ["Metric", "Value"],
       ["Visible routes", visibleRows.length],
       ["Visible OK", visibleOk],
@@ -160,7 +172,8 @@ const SeoReport = () => {
       ["Origin", origin],
     ];
     const sws = XLSX.utils.aoa_to_sheet(summary);
-    sws["!cols"] = [{ wch: 22 }, { wch: 40 }];
+    sws["!cols"] = autoFitCols(summary);
+    boldHeader(sws, summary[0].length);
     XLSX.utils.book_append_sheet(wb, sws, "Summary");
 
     const stamp = new Date().toISOString().slice(0, 10);
