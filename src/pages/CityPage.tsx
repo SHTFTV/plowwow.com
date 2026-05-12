@@ -16,6 +16,11 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CityMap from "@/components/CityMap";
 import { buildCityCopy } from "@/data/cityContent";
+import skidSteerImg from "@/assets/plowwow-skid-steer.png";
+import f350Img from "@/assets/plowwow-f350-salter.png";
+import crewImg from "@/assets/plowwow-crew.png";
+import dozerImg from "@/assets/plowwow-dozer.png";
+import walkBehindImg from "@/assets/plowwow-walk-behind-salter.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
