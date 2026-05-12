@@ -311,6 +311,205 @@ export const cities: City[] = [
       },
     ],
   },
+  {
+    slug: "west-vancouver",
+    name: "West Vancouver",
+    province: "BC",
+    tagline: "West Vancouver Snow Removal",
+    intro:
+      "Plowing, salting and ice control across West Vancouver — British Properties, Ambleside, Dundarave, Caulfeild and Cypress. Steep-grade routing and pre-salting for higher elevations.",
+    ogImage: "https://plowwow.com/og-west-vancouver.jpg",
+    snowfall: [
+      { month: "Nov", cm: 6 },
+      { month: "Dec", cm: 22 },
+      { month: "Jan", cm: 19 },
+      { month: "Feb", cm: 11 },
+      { month: "Mar", cm: 4 },
+    ],
+    neighborhoods: [
+      { name: "British Properties", note: "Elevation: heavier snowfall zone" },
+      { name: "Ambleside", note: "Waterfront retail & residential" },
+      { name: "Dundarave", note: "Village core & SFH" },
+      { name: "Caulfeild", note: "Hillside SFH on grade" },
+      { name: "Cypress", note: "High-elevation residential" },
+    ],
+    faqs: [
+      {
+        q: "Do you handle steep West Van driveways?",
+        a: "Yes — our trucks are equipped for grade and we pre-salt British Properties and Caulfeild ahead of forecast snow events.",
+      },
+    ],
+  },
+  {
+    slug: "north-vancouver",
+    name: "North Vancouver",
+    province: "BC",
+    tagline: "North Vancouver Snow Removal & Salting",
+    intro:
+      "24/7 plowing and de-icing across the North Shore — Lonsdale, Lynn Valley, Deep Cove, Edgemont and Capilano. Elevation-tuned dispatch for higher-snowfall zones.",
+    ogImage: "https://plowwow.com/og-north-vancouver.jpg",
+    snowfall: [
+      { month: "Nov", cm: 7 },
+      { month: "Dec", cm: 24 },
+      { month: "Jan", cm: 20 },
+      { month: "Feb", cm: 12 },
+      { month: "Mar", cm: 5 },
+    ],
+    neighborhoods: [
+      { name: "Lonsdale", note: "Towers & retail corridor" },
+      { name: "Lynn Valley", note: "Elevation residential" },
+      { name: "Deep Cove", note: "Coastal SFH" },
+      { name: "Edgemont", note: "Village & family residential" },
+      { name: "Capilano", note: "Hillside strata & SFH" },
+    ],
+    faqs: [
+      {
+        q: "How quickly do you dispatch to the North Shore?",
+        a: "Lynn Valley and Edgemont contracted strata sites are typically reached within 60–90 minutes of trigger during snow events.",
+      },
+    ],
+  },
+  {
+    slug: "richmond",
+    name: "Richmond",
+    province: "BC",
+    tagline: "Richmond Snow Removal & De-icing",
+    intro:
+      "Flat-grade plowing and ice control across Richmond — City Centre, Steveston, Ironwood and Bridgeport. Commercial lots and strata corridors with same-storm response.",
+    ogImage: "https://plowwow.com/og-richmond.jpg",
+    snowfall: [
+      { month: "Nov", cm: 3 },
+      { month: "Dec", cm: 12 },
+      { month: "Jan", cm: 10 },
+      { month: "Feb", cm: 6 },
+      { month: "Mar", cm: 2 },
+    ],
+    neighborhoods: [
+      { name: "City Centre", note: "Towers & SkyTrain corridor" },
+      { name: "Steveston", note: "Historic core & SFH" },
+      { name: "Ironwood", note: "Retail & big-box lots" },
+      { name: "Bridgeport", note: "Industrial & commercial" },
+    ],
+    faqs: [
+      {
+        q: "Do you service Richmond commercial lots overnight?",
+        a: "Yes — most retail and industrial lots are cleared pre-open between 2–6am during snow events.",
+      },
+    ],
+  },
+  {
+    slug: "delta",
+    name: "Delta",
+    province: "BC",
+    tagline: "Delta Snow Removal & Salting",
+    intro:
+      "Plowing, sanding and salting for Delta — Tsawwassen, Ladner and North Delta. Coastal and industrial routes with priority strata and commercial dispatch.",
+    ogImage: "https://plowwow.com/og-delta.jpg",
+    snowfall: [
+      { month: "Nov", cm: 3 },
+      { month: "Dec", cm: 11 },
+      { month: "Jan", cm: 9 },
+      { month: "Feb", cm: 5 },
+      { month: "Mar", cm: 2 },
+    ],
+    neighborhoods: [
+      { name: "Tsawwassen", note: "Coastal SFH & strata" },
+      { name: "Ladner", note: "Village & waterfront" },
+      { name: "North Delta", note: "Suburban residential" },
+      { name: "Tilbury", note: "Industrial lots & yards" },
+    ],
+    faqs: [
+      {
+        q: "Do you cover Tilbury industrial sites?",
+        a: "Yes — large yards and warehouse lots are quoted by area and run on dedicated equipment per event.",
+      },
+    ],
+  },
+  {
+    slug: "white-rock",
+    name: "White Rock",
+    province: "BC",
+    tagline: "White Rock Snow Removal",
+    intro:
+      "Coastal plowing and ice control across White Rock — uptown, the waterfront promenade corridor and hillside SFH. Strata-priority dispatch with photo proof of service.",
+    ogImage: "https://plowwow.com/og-white-rock.jpg",
+    snowfall: [
+      { month: "Nov", cm: 3 },
+      { month: "Dec", cm: 10 },
+      { month: "Jan", cm: 9 },
+      { month: "Feb", cm: 5 },
+      { month: "Mar", cm: 2 },
+    ],
+    neighborhoods: [
+      { name: "Uptown", note: "Retail & mixed-use core" },
+      { name: "East Beach", note: "Hillside SFH" },
+      { name: "West Beach", note: "Coastal residential" },
+      { name: "Five Corners", note: "Strata & local retail" },
+    ],
+    faqs: [
+      {
+        q: "Do hillside White Rock streets get pre-salted?",
+        a: "Yes — grade approaches are pre-salted ahead of forecast events to keep traction safe for residents and delivery vehicles.",
+      },
+    ],
+  },
+  {
+    slug: "mission",
+    name: "Mission",
+    province: "BC",
+    tagline: "Mission Snow Removal & Ice Control",
+    intro:
+      "Plowing and salting across Mission — Downtown, Cedar Valley, Hatzic and Silverdale. Eastern Fraser Valley sites see heavier storms; we stage extra salt here.",
+    ogImage: "https://plowwow.com/og-mission.jpg",
+    snowfall: [
+      { month: "Nov", cm: 7 },
+      { month: "Dec", cm: 24 },
+      { month: "Jan", cm: 21 },
+      { month: "Feb", cm: 13 },
+      { month: "Mar", cm: 5 },
+    ],
+    neighborhoods: [
+      { name: "Downtown Mission", note: "Retail & civic core" },
+      { name: "Cedar Valley", note: "New residential developments" },
+      { name: "Hatzic", note: "Hillside & rural" },
+      { name: "Silverdale", note: "Suburban SFH" },
+    ],
+    faqs: [
+      {
+        q: "Does Mission get hit harder than Vancouver?",
+        a: "Yes — eastern Fraser Valley outflow winds and elevation push Mission's storm totals well above the coast.",
+      },
+    ],
+  },
+  {
+    slug: "chilliwack",
+    name: "Chilliwack",
+    province: "BC",
+    tagline: "Chilliwack Snow Removal & De-icing",
+    intro:
+      "Chilliwack plowing and ice control — Sardis, Promontory, Yarrow, Vedder and Downtown. Heavy-snowfall corridor with extra salt staging and pre-storm routing.",
+    ogImage: "https://plowwow.com/og-chilliwack.jpg",
+    snowfall: [
+      { month: "Nov", cm: 8 },
+      { month: "Dec", cm: 26 },
+      { month: "Jan", cm: 23 },
+      { month: "Feb", cm: 14 },
+      { month: "Mar", cm: 5 },
+    ],
+    neighborhoods: [
+      { name: "Sardis", note: "Family residential & retail" },
+      { name: "Promontory", note: "Elevation: heaviest snow zone" },
+      { name: "Yarrow", note: "Rural & SFH" },
+      { name: "Vedder", note: "Riverfront residential" },
+      { name: "Downtown Chilliwack", note: "Mixed-use core" },
+    ],
+    faqs: [
+      {
+        q: "Why does Chilliwack need more salt than the coast?",
+        a: "Promontory and the eastern valley routinely see 2–3× the snowfall of Vancouver. We stage extra salt and equipment locally.",
+      },
+    ],
+  },
 ];
 
 export const getCityBySlug = (slug: string): City | undefined =>
