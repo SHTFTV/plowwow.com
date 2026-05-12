@@ -33,7 +33,10 @@ const Navbar = () => {
     <nav className="bg-card shadow-md sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
         <a href="/" className="flex items-center gap-2">
-          <img src={logoMascot} alt="PlowWow snow removal — Vancouver & Lower Mainland BC" width={60} height={60} className="object-contain" />
+          <figure>
+            <img src={logoMascot} alt="PlowWow snow removal — Vancouver & Lower Mainland BC" width={60} height={60} className="object-contain" />
+            <figcaption className="sr-only">PlowWow — 24/7 snow removal across Vancouver and the Lower Mainland</figcaption>
+          </figure>
         </a>
 
         {/* Desktop nav */}
