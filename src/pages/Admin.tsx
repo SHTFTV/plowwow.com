@@ -173,7 +173,7 @@ export default function Admin() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold">Quote requests</h1>
-            <p className="text-sm text-muted-foreground">{filtered.length} of {rows.length} shown</p>
+            <p className="text-sm text-muted-foreground">{total} total</p>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" asChild>
