@@ -207,6 +207,7 @@ const BlogIndex = () => {
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
   const pageJumpTipRef = useRef<HTMLSpanElement | null>(null);
   const pageJumpTipBtnRef = useRef<HTMLButtonElement | null>(null);
+  const pageJumpTipContentRef = useRef<HTMLSpanElement | null>(null);
   const closePageJumpTip = useCallback((restoreFocus: boolean) => {
     setPageJumpTipOpen(false);
     if (restoreFocus) {
