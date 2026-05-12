@@ -258,21 +258,26 @@ export default function AdminGuestPosts() {
           ))}
         </div>
 
+        <Tabs value={statusFilter} onValueChange={setStatusFilter}>
+          <TabsList>
+            <TabsTrigger value="all">
+              All <span className="ml-1.5 text-xs text-muted-foreground">{grandTotal}</span>
+            </TabsTrigger>
+            {STATUSES.map((s) => (
+              <TabsTrigger key={s} value={s} className="capitalize">
+                {s} <span className="ml-1.5 text-xs text-muted-foreground">{counts[s] ?? 0}</span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
+
         <Card>
-          <CardContent className="pt-6 grid gap-3 md:grid-cols-3">
+          <CardContent className="pt-6">
             <Input
               placeholder="Search name, email, topic, message…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="md:col-span-2"
             />
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger><SelectValue placeholder="Status" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All statuses</SelectItem>
-                {STATUSES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-              </SelectContent>
-            </Select>
           </CardContent>
         </Card>
 
