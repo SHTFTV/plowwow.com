@@ -341,7 +341,7 @@ const CityPage = () => {
                     </figcaption>
                   </figure>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </section>
