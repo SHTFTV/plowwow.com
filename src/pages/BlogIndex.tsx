@@ -94,26 +94,70 @@ const BlogIndex = () => {
 
         <section className="py-12">
           <div className="container max-w-4xl">
-            <div className="flex items-center justify-between mb-6 text-sm text-muted-foreground">
+            <div className="relative mb-6">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search posts by title or slug…"
+                aria-label="Search blog posts"
+                className="w-full rounded-full border border-border bg-card pl-11 pr-11 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            <div className="flex items-center justify-between mb-6 text-sm text-muted-foreground flex-wrap gap-2">
               <span>
-                Showing <strong className="text-foreground">{start + 1}</strong>–
-                <strong className="text-foreground">
-                  {Math.min(start + PAGE_SIZE, posts.length)}
-                </strong>{" "}
-                of <strong className="text-foreground">{posts.length}</strong> posts
+                {posts.length === 0 ? (
+                  <>No posts match <strong className="text-foreground">"{query}"</strong></>
+                ) : (
+                  <>
+                    Showing <strong className="text-foreground">{start + 1}</strong>–
+                    <strong className="text-foreground">
+                      {Math.min(start + PAGE_SIZE, posts.length)}
+                    </strong>{" "}
+                    of <strong className="text-foreground">{posts.length}</strong>
+                    {query ? <> matching <strong className="text-foreground">"{query}"</strong></> : " posts"}
+                  </>
+                )}
               </span>
               <span>
                 Page <strong className="text-foreground">{page}</strong> / {totalPages}
               </span>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {visible.map((slug) => (
-                <Link
-                  key={slug}
-                  to={`/${slug}`}
-                  className="group block rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-md transition-all"
-                >
+            {posts.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-border bg-card p-10 text-center">
+                <p className="text-muted-foreground">
+                  Try a different keyword, or{" "}
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    className="text-primary font-semibold hover:underline"
+                  >
+                    clear the search
+                  </button>
+                  .
+                </p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-4">
+                {visible.map((slug) => (
+                  <Link
+                    key={slug}
+                    to={`/${slug}`}
+                    className="group block rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-md transition-all"
+                  >
                   <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
                     {titleFor(slug)}
                   </h2>
