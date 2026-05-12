@@ -199,37 +199,46 @@ const SD41AlertsCard = () => {
 
         {data && visibleItems.length > 0 && (
           <ul className="space-y-2.5 mb-4">
-            {visibleItems.map((item) => (
-              <li key={item.link} className="text-sm">
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/item block"
-                >
-                  <div className="flex items-start gap-2">
-                    {item.isClosure && (
-                      <AlertTriangle className="w-3.5 h-3.5 text-destructive shrink-0 mt-0.5" />
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p
-                        className={`font-semibold leading-snug line-clamp-2 group-hover/item:underline ${
-                          item.isClosure ? "text-destructive" : "text-foreground"
-                        }`}
-                      >
-                        <HighlightedText text={item.title} query={query} />
-                      </p>
-                      <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-2">
-                        <HighlightedText text={item.description} query={query} />
-                      </p>
-                      <p className="text-[11px] text-muted-foreground/70 mt-0.5">
-                        {formatDate(item.pubDate)}
-                      </p>
+            {visibleItems.map((item) => {
+              const matchCount =
+                countMatches(item.title, query) + countMatches(item.description, query);
+              return (
+                <li key={item.link} className="text-sm">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/item block"
+                  >
+                    <div className="flex items-start gap-2">
+                      {item.isClosure && (
+                        <AlertTriangle className="w-3.5 h-3.5 text-destructive shrink-0 mt-0.5" />
+                      )}
+                      <div className="min-w-0 flex-1">
+                        <p
+                          className={`font-semibold leading-snug line-clamp-2 group-hover/item:underline ${
+                            item.isClosure ? "text-destructive" : "text-foreground"
+                          }`}
+                        >
+                          <HighlightedText text={item.title} query={query} />
+                        </p>
+                        <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-2">
+                          <HighlightedText text={item.description} query={query} />
+                        </p>
+                        <p className="text-[11px] text-muted-foreground/70 mt-0.5 flex items-center gap-1.5">
+                          {formatDate(item.pubDate)}
+                          {query.trim() && matchCount > 0 && (
+                            <span className="inline-flex items-center rounded-full bg-primary/10 text-primary text-[10px] font-semibold px-1.5 py-0.5">
+                              {matchCount} match{matchCount > 1 ? "es" : ""}
+                            </span>
+                          )}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </li>
-            ))}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         )}
 
