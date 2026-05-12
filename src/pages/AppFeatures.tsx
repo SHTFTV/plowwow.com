@@ -240,7 +240,7 @@ const AppFeatures = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="page-top">
         {/* Skip to FAQ — first focusable element for keyboard users */}
         <a
           href="#faq"
