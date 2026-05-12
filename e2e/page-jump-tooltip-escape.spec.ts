@@ -173,7 +173,6 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await expect(button).toBeFocused();
     await expect(tip).toBeHidden();
   });
-});
 
   test("Tab and Shift+Tab cycle focus while tooltip is open, Escape returns focus to ? button", async ({ page }) => {
     const button = page.locator('button[aria-controls="page-jump-tip"]');
