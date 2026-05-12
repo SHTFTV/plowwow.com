@@ -14,9 +14,13 @@ const CityMap = ({ cityName, province, cityHall }: CityMapProps) => {
   const embedSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
   const osmUrl = `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=14/${lat}/${lon}`;
   const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat}%2C${lon}`;
-  // Environment Canada (weather.gc.ca) resolves the nearest official city
-  // forecast page from coordinates — city-specific, no API key, Canadian source.
+  // Primary: Environment Canada (weather.gc.ca) — official Canadian source,
+  // resolves the nearest city forecast page from coordinates. Sometimes the
+  // location index URL fails to resolve a station (404 / blank), so we always
+  // expose an Open-Meteo fallback that works from raw lat/lon with no API key.
   const weatherUrl = `https://weather.gc.ca/en/location/index.html?coords=${lat},${lon}`;
+  const fallbackWeatherUrl = `https://open-meteo.com/en/docs?latitude=${lat}&longitude=${lon}#forecast_days=7`;
+  const fallbackWeatherForecastUrl = `https://www.meteoblue.com/en/weather/week/${lat}N${lon}E`;
 
   return (
     <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
