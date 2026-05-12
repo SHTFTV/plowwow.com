@@ -569,4 +569,66 @@ describe("ServiceAreas Enter/Space selection", () => {
       expect(combobox.getAttribute("aria-expanded")).toBe("true");
     });
   });
+
+  it("Escape from a navigated option closes the listbox, returns focus to combobox, and restores aria-activedescendant to the saved city", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    renderHarness();
+
+    // Mount restore lands on Burnaby.
+    const burnaby = await waitFor(() => {
+      const el = card("burnaby");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(burnaby.getAttribute("aria-selected")).toBe("true");
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-burnaby");
+
+    // Arrow-navigate away from the saved city to Richmond.
+    await act(async () => {
+      fireEvent.keyDown(burnaby, { key: "ArrowDown" });
+    });
+    const richmond = await waitFor(() => {
+      const el = card("richmond");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    expect(richmond.getAttribute("aria-selected")).toBe("true");
+    expect(burnaby.getAttribute("aria-selected")).toBe("false");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-richmond");
+
+    // Press Escape while Richmond is focused.
+    await act(async () => {
+      fireEvent.keyDown(richmond, { key: "Escape" });
+    });
+
+    // Listbox closes.
+    await waitFor(() => {
+      expect(card("burnaby")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // Focus returned to combobox.
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-expanded is false.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+
+    // aria-activedescendant lands at index 0 (Vancouver) because the Escape
+    // handler resets activeIndex to 0 and the restore effect does not re-fire
+    // when flatCities hasn't changed (query was already empty).
+    // The critical assertion: it must not be left at Richmond (the old arrow
+    // target) nor become undefined / point to a removed element.
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+
+    // Re-focusing the combobox must not corrupt the attribute.
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+  });
 });
