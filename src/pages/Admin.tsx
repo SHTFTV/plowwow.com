@@ -130,6 +130,10 @@ export default function Admin() {
       toast({ title: "Update failed", description: error.message, variant: "destructive" });
     } else {
       toast({ title: "Status updated", description: `Marked as ${status}.` });
+      if (statusFilter !== "all" && status !== statusFilter) {
+        setRows((r) => r.filter((x) => x.id !== id));
+        setTotal((t) => Math.max(0, t - 1));
+      }
     }
   };
 
