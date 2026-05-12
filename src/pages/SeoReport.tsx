@@ -378,22 +378,18 @@ const SeoReport = () => {
           Download filenames preview
         </div>
         <ul className="space-y-1 font-mono">
-          <li>
-            <span className="text-muted-foreground">Full XLSX:</span>{" "}
-            {buildFilename("xlsx")}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Filtered CSV:</span>{" "}
-            {buildFilename("csv", { filtered: true })}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Filtered XLSX:</span>{" "}
-            {buildFilename("xlsx", { filtered: true })}
-          </li>
-          <li>
-            <span className="text-muted-foreground">Styled XLSX:</span>{" "}
-            {buildFilename("xlsx", { filtered: true, styled: true })}
-          </li>
+          {([
+            ["Full XLSX", buildFilename("xlsx")],
+            ["Filtered CSV", buildFilename("csv", { filtered: true })],
+            ["Filtered XLSX", buildFilename("xlsx", { filtered: true })],
+            ["Styled XLSX", buildFilename("xlsx", { filtered: true, styled: true })],
+          ] as const).map(([label, name]) => (
+            <li key={label} className="flex items-center">
+              <span className="text-muted-foreground">{label}:</span>
+              <span className="ml-1 break-all">{name}</span>
+              <CopyFilename value={name} />
+            </li>
+          ))}
         </ul>
       </div>
 
