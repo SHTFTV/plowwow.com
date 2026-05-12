@@ -444,4 +444,129 @@ describe("ServiceAreas Enter/Space selection", () => {
     });
     expect(combobox.getAttribute("aria-expanded")).toBe("true");
   });
+
+  it("PageDown/PageUp reopen the listbox and step aria-activedescendant by one page (clamped)", async () => {
+    // Mount restore lands on Vancouver (idx 0).
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderHarness();
+
+    await waitFor(() => expect(card("vancouver")).not.toBeNull());
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    const collapseViaClear = async () => {
+      combobox.focus();
+      await act(async () => {
+        fireEvent.change(combobox, { target: { value: "abbots" } });
+      });
+      const clearBtn = screen.getByRole("button", { name: /clear search/i });
+      await act(async () => {
+        fireEvent.click(clearBtn);
+      });
+      await waitFor(() => {
+        expect(document.querySelector('[role="listbox"]')).toBeNull();
+        expect(combobox.getAttribute("aria-expanded")).toBe("false");
+      });
+    };
+
+    // --- PageDown from CLOSED state at active=0 → reopens + jumps by PAGE_SIZE (5) ---
+    await collapseViaClear();
+    // (Clear reset active to 0 → Vancouver.)
+
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "PageDown" });
+    });
+
+    await waitFor(() => {
+      // Listbox reopened.
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      // 0 + 5 = 5 → new-westminster (per region declaration order).
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-new-westminster",
+      );
+      expect(card("new-westminster")!.getAttribute("aria-selected")).toBe("true");
+      expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    });
+
+    // Another PageDown while open: 5 + 5 = 10 → port-coquitlam.
+    await act(async () => {
+      fireEvent.keyDown(card("new-westminster")!, { key: "PageDown" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-port-coquitlam",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // PageUp once: 10 - 5 = 5 → new-westminster again.
+    await act(async () => {
+      fireEvent.keyDown(card("port-coquitlam")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-new-westminster",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // PageUp from idx=5 → clamps at 0 (Vancouver). aria-expanded stays true.
+    await act(async () => {
+      fireEvent.keyDown(card("new-westminster")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-vancouver",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // --- PageUp from CLOSED state at active=last → reopens + clamps near end ---
+    // Use End to push active to last (Chilliwack, idx 17), then close.
+    await act(async () => {
+      fireEvent.keyDown(card("vancouver")!, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-chilliwack",
+      );
+    });
+    // Close via Escape so active stays at the saved city (Escape resets to 0
+    // — instead, close via Clear which also resets to 0). For this assertion
+    // we want active to PERSIST at last, so use the outside-pointer path?
+    // Simpler: just verify End-then-PageDown clamps at last while open.
+
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "PageDown" });
+    });
+    await waitFor(() => {
+      // 17 + 5 clamped → 17 (chilliwack still active).
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-chilliwack",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // PageUp from idx 17 → 12 = maple-ridge.
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-maple-ridge",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    // Close, then PageUp on the COMBOBOX must reopen the listbox.
+    await collapseViaClear();
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    });
+  });
 });
