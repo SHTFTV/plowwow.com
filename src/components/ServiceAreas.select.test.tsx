@@ -841,4 +841,102 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(combobox.getAttribute("aria-expanded")).toBe("true");
     expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-chilliwack");
   });
+
+  it("PageDown/PageUp while the listbox is OPEN move focus by one page (clamped) and keep aria-expanded=true", async () => {
+    // Mount restore lands on Vancouver (idx 0).
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderHarness();
+
+    const vancouver = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      return el!;
+    });
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+
+    // PageDown from idx 0 → idx 5 (new-westminster). Focus moves too.
+    await act(async () => {
+      fireEvent.keyDown(vancouver, { key: "PageDown" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("new-westminster"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-new-westminster");
+    expect(card("new-westminster")!.getAttribute("aria-selected")).toBe("true");
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+
+    // PageDown again → idx 10 (port-coquitlam).
+    await act(async () => {
+      fireEvent.keyDown(card("new-westminster")!, { key: "PageDown" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("port-coquitlam"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-port-coquitlam");
+
+    // PageUp → idx 5 (new-westminster).
+    await act(async () => {
+      fireEvent.keyDown(card("port-coquitlam")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("new-westminster"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-new-westminster");
+
+    // PageUp from idx 5 → clamps at idx 0 (vancouver).
+    await act(async () => {
+      fireEvent.keyDown(card("new-westminster")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("vancouver"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("true");
+
+    // PageUp at idx 0 → stays clamped at vancouver.
+    await act(async () => {
+      fireEvent.keyDown(card("vancouver")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("vancouver"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-vancouver");
+
+    // Jump to End (idx 17 = chilliwack), then PageDown clamps at last.
+    await act(async () => {
+      fireEvent.keyDown(card("vancouver")!, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("chilliwack"));
+    });
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "PageDown" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("chilliwack"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-chilliwack");
+
+    // PageUp from idx 17 → idx 12 (maple-ridge).
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "PageUp" });
+    });
+    await waitFor(() => {
+      expect(document.activeElement).toBe(card("maple-ridge"));
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+    expect(combobox.getAttribute("aria-activedescendant")).toBe("city-opt-maple-ridge");
+    expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+  });
 });
