@@ -27,15 +27,26 @@ const CityMap = ({ cityName, province, cityHall }: CityMapProps) => {
         <h3 className="font-heading font-bold text-xl flex items-center gap-2">
           <MapPin className="w-5 h-5 text-primary" /> {cityName} Service Map
         </h3>
-        <a
-          href={weatherUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-        >
-          <CloudSun className="w-4 h-4" /> Live {cityName} weather
-          <ExternalLink className="w-3.5 h-3.5" />
-        </a>
+        <div className="flex flex-col items-end gap-1">
+          <a
+            href={weatherUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+          >
+            <CloudSun className="w-4 h-4" /> Live {cityName} weather
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href={fallbackWeatherUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary hover:underline"
+            title="Open-Meteo fallback (works if Environment Canada doesn't load)"
+          >
+            Backup: Open-Meteo forecast <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
       </div>
       <p className="text-sm text-muted-foreground mb-4 inline-flex items-center gap-1.5">
         <Building2 className="w-4 h-4" />
