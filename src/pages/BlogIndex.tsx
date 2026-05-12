@@ -38,11 +38,30 @@ const summaryFor = (slug: string) => {
 // Wrap query matches in <mark> for visible highlighting. Case-insensitive,
 // safe against regex injection by escaping the needle.
 const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Split a query into distinct terms (whitespace-separated, deduped, lowercased).
+const tokenize = (query: string) =>
+  Array.from(
+    new Set(
+      query
+        .toLowerCase()
+        .split(/\s+/)
+        .map((t) => t.trim())
+        .filter(Boolean),
+    ),
+  );
+
 const highlight = (text: string, query: string) => {
-  if (!query) return text;
-  const re = new RegExp(`(${escapeRegex(query)})`, "ig");
+  const terms = tokenize(query);
+  if (terms.length === 0) return text;
+  // Single regex with alternation — splits text into [pre, match, pre, match, ...]
+  // Sort longest-first so "snow removal" matches before "snow" alone.
+  const pattern = terms
+    .slice()
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegex)
+    .join("|");
+  const re = new RegExp(`(${pattern})`, "ig");
   const parts = text.split(re);
-  // String.split with a capture group yields [pre, match, pre, match, ...]
   return parts.map((part, i) =>
     i % 2 === 1 ? (
       <mark
@@ -65,15 +84,22 @@ const BlogIndex = () => {
   const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
 
   const query = (searchParams.get("q") ?? "").trim();
-  const normalizedQuery = query.toLowerCase();
+  const terms = useMemo(() => tokenize(query), [query]);
 
   const posts = useMemo(() => {
-    if (!normalizedQuery) return allPosts;
+    if (terms.length === 0) return allPosts;
     return allPosts.filter((slug) => {
-      const title = titleFor(slug).toLowerCase();
-      return title.includes(normalizedQuery) || slug.includes(normalizedQuery);
+      // Build one haystack per post and require every term to appear somewhere.
+      const haystack = (
+        titleFor(slug) +
+        " " +
+        slug +
+        " " +
+        summaryFor(slug)
+      ).toLowerCase();
+      return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, normalizedQuery]);
+  }, [allPosts, terms]);
 
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
