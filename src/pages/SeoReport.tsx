@@ -188,8 +188,7 @@ const SeoReport = () => {
     boldHeader(sws, summary[0].length);
     XLSX.utils.book_append_sheet(wb, sws, "Summary");
 
-    const stamp = new Date().toISOString().slice(0, 10);
-    XLSX.writeFile(wb, `city-seo-report-filtered-${stamp}.xlsx`);
+    XLSX.writeFile(wb, buildFilename("xlsx", { filtered: true }));
   };
 
   const handleExportExcelJs = async () => {
