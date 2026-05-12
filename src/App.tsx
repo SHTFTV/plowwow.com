@@ -9,6 +9,7 @@ import Auth from "./pages/Auth.tsx";
 import Admin from "./pages/Admin.tsx";
 import Burnaby from "./pages/Burnaby.tsx";
 import CityPage from "./pages/CityPage.tsx";
+import SeoReport from "./pages/SeoReport.tsx";
 
 const queryClient = new QueryClient();
 
