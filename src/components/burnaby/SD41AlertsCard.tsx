@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { School, ExternalLink, AlertTriangle, RefreshCw, Newspaper, Search, X } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { supabase } from "@/integrations/supabase/client";
 
 type AlertItem = {
