@@ -81,6 +81,9 @@ const ServiceAreas = () => {
   const [query, setQuery] = useState(initialQuery);
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
+  // Bumped each time we want to replay the "restored" pulse on the active card.
+  const [pulseToken, setPulseToken] = useState(0);
+  const [pulseIndex, setPulseIndex] = useState<number | null>(null);
 
   // Sync query → URL search param (replace, no history spam) + localStorage.
   useEffect(() => {
@@ -194,6 +197,7 @@ const ServiceAreas = () => {
     if (shouldFocus) {
       userInteractedRef.current = true;
       const useCenter = !hasMountedRef.current || forceRestoreRef.current;
+      const shouldPulse = forceRestoreRef.current && hasMountedRef.current;
       requestAnimationFrame(() => {
         const el = cardRefs.current[idx];
         if (!el) return;
@@ -202,12 +206,23 @@ const ServiceAreas = () => {
           behavior: "smooth",
         });
         el.focus({ preventScroll: true });
+        if (shouldPulse) {
+          setPulseIndex(idx);
+          setPulseToken((t) => t + 1);
+        }
       });
     }
 
     forceRestoreRef.current = false;
     hasMountedRef.current = true;
   }, [flatCities]);
+
+  // Clear the pulse marker after the animation finishes so it can replay later.
+  useEffect(() => {
+    if (pulseIndex === null) return;
+    const t = window.setTimeout(() => setPulseIndex(null), 950);
+    return () => window.clearTimeout(t);
+  }, [pulseToken, pulseIndex]);
 
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
@@ -426,9 +441,10 @@ const ServiceAreas = () => {
                     flatIdx += 1;
                     const isActive = flatIdx === activeIndex;
                     const myIdx = flatIdx;
+                    const isPulsing = pulseIndex === myIdx;
                     return (
                       <Link
-                        key={city.slug}
+                        key={`${city.slug}${isPulsing ? `-pulse-${pulseToken}` : ""}`}
                         id={`city-opt-${city.slug}`}
                         ref={(el) => {
                           cardRefs.current[myIdx] = el;
@@ -464,6 +480,7 @@ const ServiceAreas = () => {
                           isActive
                             ? "border-primary ring-2 ring-primary ring-offset-2 ring-offset-background"
                             : "border-border hover:border-primary/50",
+                          isPulsing && "animate-restore-pulse",
                         )}
                       >
                         <span className="font-bold text-foreground flex items-center gap-2">
