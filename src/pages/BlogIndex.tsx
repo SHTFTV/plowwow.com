@@ -213,7 +213,9 @@ const BlogIndex = () => {
 
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight || document.documentElement.clientHeight;
-    const fullyVisible = rect.top >= 0 && rect.bottom <= viewH;
+    const fullyVisible =
+      rect.top >= SCROLL_VIEWPORT_PADDING &&
+      rect.bottom <= viewH - SCROLL_VIEWPORT_PADDING;
     if (fullyVisible) return;
 
     el.scrollIntoView({ block: "center", behavior: "smooth" });
