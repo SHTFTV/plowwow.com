@@ -232,6 +232,7 @@ const ServiceAreas = () => {
             />
             <Input
               id="city-search"
+              ref={inputRef}
               type="search"
               value={query}
               onChange={(e) => {
