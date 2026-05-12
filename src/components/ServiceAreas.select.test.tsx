@@ -1473,4 +1473,67 @@ describe("ServiceAreas Enter/Space selection", () => {
     expect(document.querySelector('[role="listbox"]')).toBeNull();
     expect(combobox.getAttribute("aria-activedescendant")).toBe(adBeforeEscape);
   });
+
+  it("Escape on a focus-held option card closes the listbox and returns focus to the combobox with aria-expanded false", async () => {
+    // No saved city → opening happens via focusing the combobox, so the
+    // listbox starts at index 0 (Vancouver). We then move DOM focus onto
+    // an option card by arrowing, and press Escape from there.
+    renderHarness();
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Open the listbox by focusing the combobox.
+    await act(async () => {
+      combobox.focus();
+      fireEvent.focus(combobox);
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+    });
+
+    // Arrow down from the combobox — DOM focus moves to the first card.
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "ArrowDown" });
+    });
+    const focused = await waitFor(() => {
+      const el = card("vancouver");
+      expect(el).not.toBeNull();
+      expect(document.activeElement).toBe(el);
+      expect(el!.getAttribute("aria-selected")).toBe("true");
+      return el!;
+    });
+
+    // Press Escape from the focus-held option card.
+    await act(async () => {
+      fireEvent.keyDown(focused, { key: "Escape" });
+    });
+
+    // Listbox unmounts.
+    await waitFor(() => {
+      expect(card("vancouver")).toBeNull();
+      expect(document.querySelector('[role="listbox"]')).toBeNull();
+    });
+
+    // aria-expanded is false and focus is back on the combobox.
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.activeElement).toBe(combobox);
+
+    // aria-activedescendant remains a valid, known option id.
+    const ad = combobox.getAttribute("aria-activedescendant");
+    expect(ad).toBe("city-opt-vancouver");
+
+    // No navigation occurred — Escape cancels, it doesn't select.
+    expect(screen.getByTestId("loc").textContent).toBe("/");
+    expect(window.localStorage.getItem(LAST_CITY_KEY)).toBeNull();
+
+    // Re-firing focus on the combobox must NOT reopen the listbox
+    // (post-Escape suppression).
+    await act(async () => {
+      fireEvent.focus(combobox);
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("false");
+    expect(document.querySelector('[role="listbox"]')).toBeNull();
+    expect(combobox.getAttribute("aria-activedescendant")).toBe(ad);
+  });
 });
