@@ -413,4 +413,31 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
+
+  test("Enter on the focused ? button toggles the tooltip without unexpected side effects", async ({ page }) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+
+    await button.scrollIntoViewIfNeeded();
+    await button.focus(); // onFocus opens the tooltip
+    await assertTooltipOpen(page);
+    await expect(button).toBeFocused();
+
+    // Enter on the focused ? button toggles the tooltip closed.
+    await page.keyboard.press("Enter");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeHidden();
+
+    // Enter again toggles it back open, and focus stays on the ? button.
+    await page.keyboard.press("Enter");
+    await assertTooltipOpen(page);
+    await expect(button).toBeFocused();
+    await expect(tip).toBeVisible();
+
+    // Escape closes and keeps focus on the ? button.
+    await page.keyboard.press("Escape");
+    await assertTooltipClosed(page);
+    await expect(button).toBeFocused();
+  });
 });
