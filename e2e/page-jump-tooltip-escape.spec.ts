@@ -288,9 +288,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     for (const key of arrows) {
       await page.keyboard.press(key);
       await assertTooltipOpen(page);
-      await expect.poll(() =>
-        page.evaluate(() => document.activeElement?.id ?? null),
-      ).toBe(`page-jump-tip after ${key}` && "page-jump-tip");
+      const activeId = await page.evaluate(() => document.activeElement?.id ?? null);
+      expect(activeId, `focus left tooltip after ${key}`).toBe("page-jump-tip");
+      // Tooltip must remain in viewport (no stray arrow-key scroll moved it away).
+      await expect(tip).toBeInViewport();
+    }
       // Tooltip must remain in viewport (no stray arrow-key scroll moved it away).
       await expect(tip).toBeInViewport();
     }
