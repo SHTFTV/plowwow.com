@@ -47,12 +47,26 @@ const SeoReport = () => {
   const rows = useMemo(() => buildRows(origin), [origin]);
   const [downloading, setDownloading] = useState(false);
   const [onlyMismatches, setOnlyMismatches] = useState(false);
+  const [query, setQuery] = useState("");
 
-  const mismatches = rows.filter((r) => r.match === "MISMATCH").length;
-  const okCount = rows.length - mismatches;
-  const visibleRows = onlyMismatches
-    ? rows.filter((r) => r.match === "MISMATCH")
-    : rows;
+  const visibleRows = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return rows.filter((r) => {
+      if (onlyMismatches && r.match !== "MISMATCH") return false;
+      if (!q) return true;
+      return (
+        r.city.toLowerCase().includes(q) ||
+        r.slug.toLowerCase().includes(q) ||
+        r.path.toLowerCase().includes(q) ||
+        r.canonical.toLowerCase().includes(q) ||
+        r.ogUrl.toLowerCase().includes(q)
+      );
+    });
+  }, [rows, onlyMismatches, query]);
+
+  const visibleMismatches = visibleRows.filter((r) => r.match === "MISMATCH").length;
+  const visibleOk = visibleRows.length - visibleMismatches;
+  const totalMismatches = rows.filter((r) => r.match === "MISMATCH").length;
 
   const handleDownload = () => {
     setDownloading(true);
