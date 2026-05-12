@@ -1,4 +1,5 @@
-import { test, expect, Page } from "../playwright-fixture";
+import { test, expect } from "../playwright-fixture";
+import { Page } from "@playwright/test";
 
 async function skipToFaqAndExpandFirstAccordion(page: Page) {
   const skipLink = page.locator('a:has-text("Skip to FAQ")');
