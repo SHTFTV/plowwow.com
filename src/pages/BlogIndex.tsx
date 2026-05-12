@@ -207,6 +207,7 @@ const BlogIndex = () => {
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
   const pageJumpTipRef = useRef<HTMLSpanElement | null>(null);
   const pageJumpTipBtnRef = useRef<HTMLButtonElement | null>(null);
+  const pageJumpTipContentRef = useRef<HTMLSpanElement | null>(null);
   const closePageJumpTip = useCallback((restoreFocus: boolean) => {
     setPageJumpTipOpen(false);
     if (restoreFocus) {
@@ -217,7 +218,22 @@ const BlogIndex = () => {
   useEffect(() => {
     if (!pageJumpTipOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closePageJumpTip(true);
+      if (e.key === "Escape") {
+        closePageJumpTip(true);
+        return;
+      }
+      if (e.key === "Tab") {
+        // Focus trap: cycle Tab/Shift+Tab between the trigger button and the
+        // tooltip body so keyboard users stay inside the tooltip until it
+        // closes (Escape, outside click, or hover-out).
+        const btn = pageJumpTipBtnRef.current;
+        const tip = pageJumpTipContentRef.current;
+        if (!btn || !tip) return;
+        e.preventDefault();
+        const active = document.activeElement;
+        const next = active === btn ? tip : btn;
+        next.focus();
+      }
     };
     const onPointerDown = (e: PointerEvent) => {
       const root = pageJumpTipRef.current;
@@ -632,7 +648,11 @@ const BlogIndex = () => {
                         onMouseEnter={() => setPageJumpTipOpen(true)}
                         onMouseLeave={() => setPageJumpTipOpen(false)}
                         onFocus={() => setPageJumpTipOpen(true)}
-                        onBlur={() => setPageJumpTipOpen(false)}
+                        onBlur={(e) => {
+                          const next = e.relatedTarget as Node | null;
+                          if (next && pageJumpTipRef.current?.contains(next)) return;
+                          setPageJumpTipOpen(false);
+                        }}
                         onClick={() => setPageJumpTipOpen((v) => !v)}
                         onKeyDown={(e) => {
                           if (e.key === "Escape" && pageJumpTipOpen) {
@@ -650,8 +670,10 @@ const BlogIndex = () => {
                       {pageJumpTipOpen && (
                         <span
                           id="page-jump-tip"
+                          ref={pageJumpTipContentRef}
                           role="tooltip"
-                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md"
+                          tabIndex={-1}
+                          className="absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-popover px-3 py-2 text-xs font-normal leading-relaxed text-popover-foreground shadow-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           Press{" "}
                           <kbd className="rounded border border-border bg-muted px-1 py-0.5 font-mono text-[10px] text-foreground">PageDown</kbd>{" "}
