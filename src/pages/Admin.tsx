@@ -207,7 +207,7 @@ export default function Admin() {
               <SelectTrigger><SelectValue placeholder="Service" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All services</SelectItem>
-                {serviceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                {allServiceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
           </CardContent>
