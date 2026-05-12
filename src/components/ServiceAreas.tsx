@@ -61,6 +61,7 @@ const ServiceAreas = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [collapsed, setCollapsed] = useState(false);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const q = query.trim().toLowerCase();
