@@ -45,11 +45,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
       .filter({ hasNot: page.locator('[aria-controls="page-jump-tip"]') })
       .first();
     await otherFocusable.focus();
+    await assertTooltipOpen(page);
 
     await page.keyboard.press("Escape");
 
-    await expect(button).toHaveAttribute("aria-expanded", "false");
-    await expect(page.locator("#page-jump-tip")).toBeHidden();
+    await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
 
