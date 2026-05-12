@@ -206,14 +206,22 @@ const BlogIndex = () => {
   const [pageJumpSize, _setPageJumpSize] = useState<number>(PAGE_JUMP_SIZE_DEFAULT);
   const [pageJumpTipOpen, setPageJumpTipOpen] = useState(false);
   const pageJumpTipRef = useRef<HTMLSpanElement | null>(null);
+  const pageJumpTipBtnRef = useRef<HTMLButtonElement | null>(null);
+  const closePageJumpTip = useCallback((restoreFocus: boolean) => {
+    setPageJumpTipOpen(false);
+    if (restoreFocus) {
+      // Defer so the button isn't blocked by the same event that closed it.
+      requestAnimationFrame(() => pageJumpTipBtnRef.current?.focus());
+    }
+  }, []);
   useEffect(() => {
     if (!pageJumpTipOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setPageJumpTipOpen(false);
+      if (e.key === "Escape") closePageJumpTip(true);
     };
     const onPointerDown = (e: PointerEvent) => {
       const root = pageJumpTipRef.current;
-      if (root && !root.contains(e.target as Node)) setPageJumpTipOpen(false);
+      if (root && !root.contains(e.target as Node)) closePageJumpTip(true);
     };
     window.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPointerDown);
@@ -221,7 +229,7 @@ const BlogIndex = () => {
       window.removeEventListener("keydown", onKey);
       document.removeEventListener("pointerdown", onPointerDown);
     };
-  }, [pageJumpTipOpen]);
+  }, [pageJumpTipOpen, closePageJumpTip]);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const initial = parseStoredJumpSize(window.localStorage.getItem(PAGE_JUMP_SIZE_STORAGE_KEY));
