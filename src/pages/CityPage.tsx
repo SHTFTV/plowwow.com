@@ -22,6 +22,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { getCityBySlug, cities } from "@/data/cities";
+import { truncateForMeta } from "@/lib/seo";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -32,19 +33,6 @@ const CityPage = () => {
   if (!city) return <Navigate to="/" replace />;
 
   const pageTitle = `${city.tagline} | PlowWow`;
-  // Truncate intro to <=155 chars at a clean word boundary, ending with an ellipsis.
-  const truncateForMeta = (text: string, max = 155) => {
-    if (text.length <= max) return text;
-    const room = max - 1; // reserve space for the ellipsis
-    const slice = text.slice(0, room);
-    const lastBreak = Math.max(
-      slice.lastIndexOf(" "),
-      slice.lastIndexOf("—"),
-      slice.lastIndexOf("-"),
-    );
-    const cut = lastBreak > 80 ? slice.slice(0, lastBreak) : slice;
-    return `${cut.replace(/[\s,;:.\-—]+$/, "")}…`;
-  };
   const pageDescription = truncateForMeta(city.intro);
   const origin =
     typeof window !== "undefined"
