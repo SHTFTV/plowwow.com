@@ -52,8 +52,15 @@ test.describe("App Features — Skip links focus restoration", () => {
     // Pressing Shift+Tab should move focus back to the first accordion trigger.
     await page.keyboard.press("Shift+Tab");
     await expect(firstAccordionButton).toBeFocused();
+
+    // The first accordion panel should remain expanded.
+    const firstAccordionItem = page.locator('div[data-state]').filter({ has: firstAccordionButton });
+    await expect(firstAccordionItem).toHaveAttribute("data-state", "open");
+
     // The second accordion should remain collapsed.
     await expect(secondAccordionButton).toHaveAttribute("aria-expanded", "false");
+    const secondAccordionItem = page.locator('div[data-state]').filter({ has: secondAccordionButton });
+    await expect(secondAccordionItem).toHaveAttribute("data-state", "closed");
   });
 
   test("Back to top focuses the H1 heading and Tab order continues", async ({ page }) => {
