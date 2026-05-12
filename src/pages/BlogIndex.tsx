@@ -164,13 +164,28 @@ const BlogIndex = () => {
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
+                ref={inputRef}
                 type="search"
                 value={draft}
                 onChange={(e) => onDraftChange(e.target.value)}
-                placeholder="Search posts by title or slug…"
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    e.preventDefault();
+                    if (draft) {
+                      clearQuery();
+                    } else {
+                      e.currentTarget.blur();
+                    }
+                  }
+                }}
+                placeholder="Search posts by title or slug…   ( press / to focus, Esc to clear )"
                 aria-label="Search blog posts"
-                className="w-full rounded-full border border-border bg-card pl-11 pr-11 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-keyshortcuts="/ Escape Control+K Meta+K"
+                className="w-full rounded-full border border-border bg-card pl-11 pr-20 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
+              <kbd className="hidden md:inline-flex absolute right-12 top-1/2 -translate-y-1/2 items-center justify-center rounded-md border border-border bg-muted px-1.5 py-0.5 text-[10px] font-mono font-semibold text-muted-foreground pointer-events-none">
+                /
+              </kbd>
               {draft && (
                 <button
                   type="button"
