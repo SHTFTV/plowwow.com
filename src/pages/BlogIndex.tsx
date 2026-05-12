@@ -419,6 +419,21 @@ const BlogIndex = () => {
                     Reset
                   </button>
                 </div>
+
+                <label className="mt-1 flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={smoothScroll}
+                    onChange={(e) => setSmoothScroll(e.target.checked)}
+                    className="h-4 w-4 accent-primary"
+                  />
+                  <span className="text-foreground font-medium">
+                    Smooth auto-scroll to selected card
+                  </span>
+                  <span className="text-xs text-muted-foreground/80">
+                    (when off, the page will not scroll the active result into view)
+                  </span>
+                </label>
               </div>
             </details>
 
