@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, MapPin, Search, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 type CityLink = { name: string; slug: string };
 
@@ -57,7 +58,11 @@ const regions: { title: string; cities: CityLink[] }[] = [
 ];
 
 const ServiceAreas = () => {
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
   const q = query.trim().toLowerCase();
 
   const filtered = useMemo(() => {
@@ -75,7 +80,52 @@ const ServiceAreas = () => {
       .filter((r) => r.cities.length > 0);
   }, [q]);
 
-  const totalMatches = filtered.reduce((n, r) => n + r.cities.length, 0);
+  // Flat list for keyboard navigation
+  const flatCities = useMemo(
+    () => filtered.flatMap((r) => r.cities),
+    [filtered],
+  );
+
+  // Reset active index when filter changes
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [q]);
+
+  // Scroll active card into view
+  useEffect(() => {
+    const el = cardRefs.current[activeIndex];
+    if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [activeIndex]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (flatCities.length === 0) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      setActiveIndex((i) => (i + 1) % flatCities.length);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      setActiveIndex((i) => (i - 1 + flatCities.length) % flatCities.length);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      setActiveIndex(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      setActiveIndex(flatCities.length - 1);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const target = flatCities[activeIndex];
+      if (target) navigate(`/${target.slug}`);
+    } else if (e.key === "Escape" && query) {
+      e.preventDefault();
+      setQuery("");
+    }
+  };
+
+  // Reset refs on each render of filtered list
+  cardRefs.current = [];
+  let flatIdx = -1;
+
+  const totalMatches = flatCities.length;
 
   return (
     <section id="service-areas" className="py-20 bg-section-alt">
@@ -102,9 +152,16 @@ const ServiceAreas = () => {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search a city — e.g. Burnaby, Chilliwack"
+              onKeyDown={handleKeyDown}
+              placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
               autoComplete="off"
+              role="combobox"
+              aria-expanded={flatCities.length > 0}
+              aria-controls="city-results"
+              aria-activedescendant={
+                flatCities[activeIndex] ? `city-opt-${flatCities[activeIndex].slug}` : undefined
+              }
             />
             {query && (
               <button
@@ -117,8 +174,11 @@ const ServiceAreas = () => {
               </button>
             )}
           </div>
+          <p className="text-xs text-muted-foreground text-center mt-2">
+            Use ↑ ↓ to navigate, Enter to open, Esc to clear.
+          </p>
           {q && (
-            <p className="text-sm text-muted-foreground text-center mt-3" aria-live="polite">
+            <p className="text-sm text-muted-foreground text-center mt-1" aria-live="polite">
               {totalMatches} {totalMatches === 1 ? "match" : "matches"} for "{query}"
             </p>
           )}
@@ -129,7 +189,7 @@ const ServiceAreas = () => {
             No cities match "{query}". Try a different name.
           </p>
         ) : (
-          <div className="space-y-12">
+          <div id="city-results" role="listbox" aria-label="City results" className="space-y-12">
             {filtered.map((region) => (
               <div key={region.title}>
                 <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-5 flex items-center gap-2">
@@ -137,19 +197,41 @@ const ServiceAreas = () => {
                   {region.title}
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {region.cities.map((city) => (
-                    <Link
-                      key={city.slug}
-                      to={`/${city.slug}`}
-                      className="group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border border-border hover:border-primary/50 transition-colors shadow-sm"
-                    >
-                      <span className="font-bold text-foreground flex items-center gap-2">
-                        <MapPin className="w-5 h-5 text-primary" />
-                        {city.name}
-                      </span>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </Link>
-                  ))}
+                  {region.cities.map((city) => {
+                    flatIdx += 1;
+                    const isActive = flatIdx === activeIndex;
+                    const myIdx = flatIdx;
+                    return (
+                      <Link
+                        key={city.slug}
+                        id={`city-opt-${city.slug}`}
+                        ref={(el) => {
+                          cardRefs.current[myIdx] = el;
+                        }}
+                        to={`/${city.slug}`}
+                        role="option"
+                        aria-selected={isActive}
+                        onMouseEnter={() => setActiveIndex(myIdx)}
+                        className={cn(
+                          "group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border transition-colors shadow-sm",
+                          isActive
+                            ? "border-primary ring-2 ring-primary/40"
+                            : "border-border hover:border-primary/50",
+                        )}
+                      >
+                        <span className="font-bold text-foreground flex items-center gap-2">
+                          <MapPin className="w-5 h-5 text-primary" />
+                          {city.name}
+                        </span>
+                        <ArrowRight
+                          className={cn(
+                            "w-5 h-5 transition-colors",
+                            isActive ? "text-primary" : "text-muted-foreground group-hover:text-primary",
+                          )}
+                        />
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             ))}
