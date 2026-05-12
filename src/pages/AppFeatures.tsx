@@ -240,7 +240,7 @@ const AppFeatures = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main id="page-top" tabIndex={-1}>
+      <main id="page-top">
         {/* Skip to FAQ — first focusable element for keyboard users */}
         <a
           href="#faq"
@@ -354,7 +354,7 @@ const AppFeatures = () => {
         <Pricing />
 
         {/* FAQ */}
-        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background" tabIndex={-1}>
+        <section id="faq" aria-labelledby="faq-heading" className="py-24 bg-background">
           <div className="container max-w-3xl">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="font-mono-tech text-xs tracking-[0.3em] text-intel-orange uppercase">
