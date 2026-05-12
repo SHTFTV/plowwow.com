@@ -63,6 +63,28 @@ const ServiceAreas = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  // Collapse the results when the user clicks anywhere outside this section.
+  useEffect(() => {
+    if (collapsed) return;
+    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target || !sectionRef.current) return;
+      if (!sectionRef.current.contains(target)) {
+        setCollapsed(true);
+        setQuery("");
+        setActiveIndex(0);
+        userInteractedRef.current = false;
+      }
+    };
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+    };
+  }, [collapsed]);
 
   const q = query.trim().toLowerCase();
 
