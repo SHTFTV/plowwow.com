@@ -136,16 +136,16 @@ const BlogIndex = () => {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
                 type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                value={draft}
+                onChange={(e) => onDraftChange(e.target.value)}
                 placeholder="Search posts by title or slug…"
                 aria-label="Search blog posts"
                 className="w-full rounded-full border border-border bg-card pl-11 pr-11 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              {query && (
+              {draft && (
                 <button
                   type="button"
-                  onClick={() => setQuery("")}
+                  onClick={clearQuery}
                   aria-label="Clear search"
                   className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-7 h-7 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
                 >
