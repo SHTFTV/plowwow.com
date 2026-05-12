@@ -231,11 +231,18 @@ const ServiceAreas = () => {
                         to={`/${city.slug}`}
                         role="option"
                         aria-selected={isActive}
+                        tabIndex={isActive ? 0 : -1}
                         onMouseEnter={() => setActiveIndex(myIdx)}
+                        onFocus={() => {
+                          userInteractedRef.current = true;
+                          setActiveIndex(myIdx);
+                        }}
+                        onKeyDown={handleKeyDown}
                         className={cn(
                           "group flex items-center justify-between gap-4 bg-card rounded-lg p-5 border transition-colors shadow-sm",
+                          "focus:outline-none focus-visible:outline-none",
                           isActive
-                            ? "border-primary ring-2 ring-primary/40"
+                            ? "border-primary ring-2 ring-primary ring-offset-2 ring-offset-background"
                             : "border-border hover:border-primary/50",
                         )}
                       >
