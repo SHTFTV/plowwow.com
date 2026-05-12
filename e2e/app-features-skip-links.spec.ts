@@ -22,6 +22,8 @@ test.describe("App Features — Skip links focus restoration", () => {
     // Pressing Enter should expand the first accordion item.
     await page.keyboard.press("Enter");
     await expect(firstAccordionButton).toHaveAttribute("aria-expanded", "true");
+    // Focus must remain on the first button after expansion.
+    await expect(firstAccordionButton).toBeFocused();
 
     // Pressing Tab should move focus to the second accordion trigger.
     await page.keyboard.press("Tab");
