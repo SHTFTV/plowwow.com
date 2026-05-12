@@ -592,6 +592,50 @@ const BlogIndex = () => {
                     (when off, the page will not scroll the active result into view)
                   </span>
                 </label>
+
+                <label htmlFor="page-jump-size" className="mt-2 flex items-center justify-between gap-4">
+                  <span>
+                    PageUp / PageDown jump size
+                    <span className="ml-2 text-xs text-muted-foreground/80">
+                      (number of cards to skip when pressing PageUp or PageDown)
+                    </span>
+                  </span>
+                  <span className="font-mono text-foreground tabular-nums">
+                    {pageJumpSize}
+                  </span>
+                </label>
+                <div className="flex items-center gap-3">
+                  <input
+                    id="page-jump-size"
+                    type="range"
+                    min={PAGE_JUMP_SIZE_MIN}
+                    max={PAGE_JUMP_SIZE_MAX}
+                    step={1}
+                    value={pageJumpSize}
+                    onChange={(e) => setPageJumpSize(parseInt(e.target.value, 10))}
+                    className="flex-1 accent-primary"
+                  />
+                  <input
+                    type="number"
+                    min={PAGE_JUMP_SIZE_MIN}
+                    max={PAGE_JUMP_SIZE_MAX}
+                    step={1}
+                    value={pageJumpSize}
+                    onChange={(e) => {
+                      const n = parseInt(e.target.value, 10);
+                      if (!Number.isFinite(n)) return;
+                      setPageJumpSize(n);
+                    }}
+                    className="w-20 rounded-md border border-border bg-background px-2 py-1 text-sm text-foreground"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setPageJumpSize(PAGE_JUMP_SIZE_DEFAULT)}
+                    className="rounded-md border border-border px-2 py-1 text-xs font-semibold text-foreground hover:bg-muted"
+                  >
+                    Reset
+                  </button>
+                </div>
               </div>
             </details>
 
