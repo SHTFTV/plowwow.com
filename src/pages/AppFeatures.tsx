@@ -44,6 +44,41 @@ const benefits = [
   { stat: "22 min", label: "Average dispatch ETA", body: "Ghost Fleet routing keeps strata and commercial first in line." },
 ];
 
+const faqs = [
+  {
+    q: "What is the best snow removal software for contractors?",
+    a: "The best snow removal software combines dispatch, GPS tracking, weather forecasting, liability documentation, and billing in one platform. PlowWow is built specifically for snow and ice contractors with modules like PWIE auto-dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield™ liability vault, Ghost Fleet GPS, and QuickBooks sync — all in a single login.",
+  },
+  {
+    q: "How much does snow removal software cost?",
+    a: "PlowWow snow removal software starts at $10 CAD per month for every 100,000 population in your service area. A contractor serving a 500,000-population area pays $50/month. All modules, unlimited crew seats, and QuickBooks integration are included with no hidden fees.",
+  },
+  {
+    q: "Can snow removal software help prevent slip-and-fall liability claims?",
+    a: "Yes. PlowWow's Wow-Shield™ Vault timestamps every photo, GPS pin, and service record to create court-ready proof of work. Our customers using the Vault have reported zero paid slip-and-fall claims because the evidence chain is impossible to dispute.",
+  },
+  {
+    q: "Does snow removal dispatch software integrate with QuickBooks?",
+    a: "Yes. PlowWow offers two-way QuickBooks sync so invoices, payments, and customer records stay in lockstep. You can also accept instant PayPal payments in Canadian dollars through the Pay Now module without switching apps.",
+  },
+  {
+    q: "What features should I look for in snow removal management software?",
+    a: "Look for auto-dispatch tied to weather triggers, GPS fleet tracking, photo liability documentation, progress billing tied to storm logs, QuickBooks integration, and a mobile-friendly interface your crews will actually use at 3 AM. PlowWow includes all of these in one platform.",
+  },
+  {
+    q: "Is snow removal software better than spreadsheets and whiteboards?",
+    a: "Spreadsheets and whiteboards break down under real winter pressure. Snow removal software automates dispatch when trigger depth is reached, optimizes routes in real time, stores liability-proof photos, and bills per-event automatically. PlowWow users report 38% higher route efficiency and 72% fewer billing disputes after switching from manual systems.",
+  },
+  {
+    q: "How does GPS tracking work in snow removal apps?",
+    a: "PlowWow's Ghost Fleet GPS tracks every truck continuously, feeding live location data into route optimization. Dispatchers see which crew is closest to a priority site, and property managers receive timestamped proof that their lot was serviced.",
+  },
+  {
+    q: "Can I try snow removal software before I buy it?",
+    a: "Yes. PlowWow offers a 30-day free trial with no credit card required. You can test the full platform including dispatch, weather alerts, Salt-Scan AI, liability vault storage, and QuickBooks sync before committing.",
+  },
+];
+
 const Pricing = () => {
   const [pop, setPop] = useState(100_000);
   const monthly = useMemo(() => Math.max(10, Math.round((pop / 100_000) * 10)), [pop]);
