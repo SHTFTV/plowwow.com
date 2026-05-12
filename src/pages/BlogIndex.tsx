@@ -466,7 +466,7 @@ const BlogIndex = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [location.pathname, visible, activeIndex, openActive]);
+  }, [location.pathname, visible, activeIndex, openActive, pageJumpSize]);
 
   return (
     <div className="min-h-screen">
