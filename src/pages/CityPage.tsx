@@ -25,14 +25,19 @@ import { getCityBySlug, cities } from "@/data/cities";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
-  const city = citySlug ? getCityBySlug(citySlug) : undefined;
+  // Normalize: strip any trailing slashes from the route param before lookup
+  const normalizedSlug = citySlug?.replace(/\/+$/, "");
+  const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
 
   if (!city) return <Navigate to="/" replace />;
 
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = city.intro.slice(0, 155);
   const origin =
-    typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
+    typeof window !== "undefined"
+      ? window.location.origin.replace(/\/+$/, "")
+      : "https://plowwow.com";
+  // Canonical URL has no trailing slash for consistency
   const url = `${origin}/${city.slug}`;
   const ogImage = city.ogImage;
   const ogImageWidth = city.ogImageWidth ?? 1200;
