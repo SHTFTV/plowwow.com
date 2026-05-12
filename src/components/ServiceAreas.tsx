@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, MapPin, Search, X } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
@@ -57,11 +57,52 @@ const regions: { title: string; cities: CityLink[] }[] = [
   },
 ];
 
+const STORAGE_KEY = "service-areas:query";
+
 const ServiceAreas = () => {
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Initial query: URL ?city=... wins, otherwise restore from localStorage.
+  const initialQuery = (() => {
+    const fromUrl = searchParams.get("city");
+    if (fromUrl !== null) return fromUrl;
+    if (typeof window !== "undefined") {
+      try {
+        return window.localStorage.getItem(STORAGE_KEY) ?? "";
+      } catch {
+        return "";
+      }
+    }
+    return "";
+  })();
+
+  const [query, setQuery] = useState(initialQuery);
   const [activeIndex, setActiveIndex] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
+
+  // Sync query → URL search param (replace, no history spam) + localStorage.
+  useEffect(() => {
+    const next = new URLSearchParams(searchParams);
+    if (query) {
+      next.set("city", query);
+    } else {
+      next.delete("city");
+    }
+    if (next.toString() !== searchParams.toString()) {
+      setSearchParams(next, { replace: true });
+    }
+    try {
+      if (query) {
+        window.localStorage.setItem(STORAGE_KEY, query);
+      } else {
+        window.localStorage.removeItem(STORAGE_KEY);
+      }
+    } catch {
+      /* ignore quota / privacy-mode errors */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const sectionRef = useRef<HTMLElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
