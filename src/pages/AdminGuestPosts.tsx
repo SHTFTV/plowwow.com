@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
@@ -23,15 +23,79 @@ const statusVariant: Record<string, "default" | "secondary" | "outline" | "destr
   rejected: "destructive",
 };
 
+function useDebounced<T>(value: T, delay = 300): T {
+  const [v, setV] = useState(value);
+  useEffect(() => {
+    const t = setTimeout(() => setV(value), delay);
+    return () => clearTimeout(t);
+  }, [value, delay]);
+  return v;
+}
+
 export default function AdminGuestPosts() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [rows, setRows] = useState<Submission[]>([]);
+  const [total, setTotal] = useState(0);
+  const [counts, setCounts] = useState<Record<string, number>>({ pending: 0, approved: 0, rejected: 0 });
   const [loading, setLoading] = useState(false);
+
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounced(search, 350);
+
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(25);
+
   const [viewing, setViewing] = useState<Submission | null>(null);
+
+  useEffect(() => { setPage(1); }, [statusFilter, debouncedSearch, pageSize]);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+
+    let q = supabase
+      .from("guest_post_submissions")
+      .select("*", { count: "exact" })
+      .order("created_at", { ascending: false })
+      .range(from, to);
+
+    if (statusFilter !== "all") q = q.eq("status", statusFilter);
+    const term = debouncedSearch.trim();
+    if (term) {
+      const safe = term.replace(/[%,()]/g, " ");
+      const pattern = `%${safe}%`;
+      q = q.or(
+        `name.ilike.${pattern},email.ilike.${pattern},topic.ilike.${pattern},message.ilike.${pattern}`,
+      );
+    }
+
+    const { data, error, count } = await q;
+    setLoading(false);
+    if (error) {
+      toast({ title: "Failed to load", description: error.message, variant: "destructive" });
+      return;
+    }
+    setRows(data ?? []);
+    setTotal(count ?? 0);
+  }, [page, pageSize, statusFilter, debouncedSearch]);
+
+  const loadCounts = useCallback(async () => {
+    const results = await Promise.all(
+      STATUSES.map((s) =>
+        supabase
+          .from("guest_post_submissions")
+          .select("id", { count: "exact", head: true })
+          .eq("status", s),
+      ),
+    );
+    const next: Record<string, number> = {};
+    STATUSES.forEach((s, i) => { next[s] = results[i].count ?? 0; });
+    setCounts(next);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -55,27 +119,17 @@ export default function AdminGuestPosts() {
       }
       setIsAdmin(true);
       setChecking(false);
-      load();
     })();
-    return () => {
-      active = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => { active = false; };
+  }, [navigate]);
 
-  const load = async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from("guest_post_submissions")
-      .select("*")
-      .order("created_at", { ascending: false });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Failed to load", description: error.message, variant: "destructive" });
-      return;
-    }
-    setRows(data ?? []);
-  };
+  useEffect(() => {
+    if (isAdmin) load();
+  }, [isAdmin, load]);
+
+  useEffect(() => {
+    if (isAdmin) loadCounts();
+  }, [isAdmin, loadCounts]);
 
   const updateStatus = async (id: string, status: Status) => {
     const prev = rows;
@@ -86,6 +140,11 @@ export default function AdminGuestPosts() {
       toast({ title: "Update failed", description: error.message, variant: "destructive" });
     } else {
       toast({ title: "Status updated", description: `Marked as ${status}.` });
+      loadCounts();
+      if (statusFilter !== "all" && status !== statusFilter) {
+        setRows((r) => r.filter((x) => x.id !== id));
+        setTotal((t) => Math.max(0, t - 1));
+      }
     }
   };
 
@@ -94,20 +153,16 @@ export default function AdminGuestPosts() {
     navigate("/auth", { replace: true });
   };
 
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    return rows.filter((r) => {
-      if (statusFilter !== "all" && r.status !== statusFilter) return false;
-      if (!q) return true;
-      return [r.name, r.email, r.topic, r.message].join(" ").toLowerCase().includes(q);
-    });
-  }, [rows, statusFilter, search]);
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const startIdx = (currentPage - 1) * pageSize;
 
-  const counts = useMemo(() => {
-    const c: Record<string, number> = { pending: 0, approved: 0, rejected: 0 };
-    rows.forEach((r) => { c[r.status] = (c[r.status] ?? 0) + 1; });
-    return c;
-  }, [rows]);
+  const refresh = () => { load(); loadCounts(); };
+
+  const grandTotal = useMemo(
+    () => Object.values(counts).reduce((a, b) => a + b, 0),
+    [counts],
+  );
 
   if (checking) {
     return <main className="min-h-screen flex items-center justify-center">Loading…</main>;
@@ -144,10 +199,12 @@ export default function AdminGuestPosts() {
               </Link>
             </div>
             <h1 className="text-2xl md:text-3xl font-bold">Guest post submissions</h1>
-            <p className="text-sm text-muted-foreground">{filtered.length} of {rows.length} shown</p>
+            <p className="text-sm text-muted-foreground">
+              {total} matching · {grandTotal} total
+            </p>
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" onClick={load} disabled={loading}>
+            <Button variant="outline" onClick={refresh} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
             </Button>
             <Button variant="outline" onClick={signOut}>
@@ -200,14 +257,21 @@ export default function AdminGuestPosts() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filtered.length === 0 && (
+                {!loading && rows.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={7} className="text-center text-muted-foreground py-10">
                       No submissions match your filters.
                     </TableCell>
                   </TableRow>
                 )}
-                {filtered.map((r) => (
+                {loading && rows.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={7} className="text-center text-muted-foreground py-10">
+                      Loading…
+                    </TableCell>
+                  </TableRow>
+                )}
+                {rows.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="whitespace-nowrap text-xs text-muted-foreground">
                       {new Date(r.created_at).toLocaleString()}
@@ -237,6 +301,27 @@ export default function AdminGuestPosts() {
               </TableBody>
             </Table>
           </CardContent>
+          <div className="flex items-center justify-between gap-4 flex-wrap p-4 border-t">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>Rows per page</span>
+              <Select value={String(pageSize)} onValueChange={(v) => setPageSize(Number(v))}>
+                <SelectTrigger className="h-8 w-[80px]"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {[10, 25, 50, 100].map((n) => <SelectItem key={n} value={String(n)}>{n}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              <span className="ml-2">
+                {total === 0 ? 0 : startIdx + 1}–{Math.min(startIdx + pageSize, total)} of {total}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" onClick={() => setPage(1)} disabled={currentPage <= 1 || loading}>First</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={currentPage <= 1 || loading}>Previous</Button>
+              <span className="text-sm">Page {currentPage} of {totalPages}</span>
+              <Button variant="outline" size="sm" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={currentPage >= totalPages || loading}>Next</Button>
+              <Button variant="outline" size="sm" onClick={() => setPage(totalPages)} disabled={currentPage >= totalPages || loading}>Last</Button>
+            </div>
+          </div>
         </Card>
       </div>
 
