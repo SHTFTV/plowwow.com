@@ -8,21 +8,25 @@ const services = [
     title: "Snow Clearing",
     description: "Clearing Snow with Priority Service Makes For The Best Safety",
     image: snowClearing,
+    alt: "Crew shoveling and clearing fresh snow from a residential walkway in BC",
   },
   {
     title: "Snow Plowing",
     description: "24/7 Snow Plowing and Snow Removal — We Put The Wow in Plow",
     image: snowPlowing,
+    alt: "Snow plow truck clearing a commercial parking lot during a winter storm",
   },
   {
     title: "Salting and Sanding",
     description: "Making Slip Free Surfaces is What We Do Best. Keeping Accurate Records",
     image: salting,
+    alt: "Worker spreading de-icing salt and sand on an icy sidewalk for slip-free traction",
   },
   {
     title: "Snow Relocation",
     description: "When Snow Events Happen, Snow Relocation Might Be An Option",
     image: snowRelocation,
+    alt: "Heavy equipment loading and hauling away large piles of snow after a major snowfall",
   },
 ];
 
@@ -44,7 +48,7 @@ const Services = () => (
             <div className="overflow-hidden h-48">
               <img
                 src={service.image}
-                alt={service.title}
+                alt={service.alt}
                 loading="lazy"
                 width={640}
                 height={640}
