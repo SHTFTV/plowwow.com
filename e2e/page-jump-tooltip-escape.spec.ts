@@ -5,12 +5,35 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await page.goto("/blog");
   });
 
+  const assertButtonAriaInvariants = async (page: import("@playwright/test").Page) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    // aria-controls must always point at the tooltip id, regardless of open state.
+    await expect(button).toHaveAttribute("aria-controls", "page-jump-tip");
+    await expect(button).toHaveCount(1);
+  };
+
+  const assertTooltipOpen = async (page: import("@playwright/test").Page) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    const tip = page.locator("#page-jump-tip");
+    await assertButtonAriaInvariants(page);
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    await expect(tip).toBeVisible();
+    await expect(tip).toHaveAttribute("role", "tooltip");
+    await expect(tip).toHaveAttribute("id", "page-jump-tip");
+  };
+
+  const assertTooltipClosed = async (page: import("@playwright/test").Page) => {
+    const button = page.locator('button[aria-controls="page-jump-tip"]');
+    await assertButtonAriaInvariants(page);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expect(page.locator("#page-jump-tip")).toBeHidden();
+  };
+
   const openViaClick = async (page: import("@playwright/test").Page) => {
     const button = page.locator('button[aria-controls="page-jump-tip"]');
     await button.scrollIntoViewIfNeeded();
     await button.click();
-    await expect(button).toHaveAttribute("aria-expanded", "true");
-    await expect(page.locator("#page-jump-tip")).toBeVisible();
+    await assertTooltipOpen(page);
   };
 
   test("Focus returns to ? button after Escape closes the tooltip", async ({ page }) => {
@@ -22,11 +45,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
       .filter({ hasNot: page.locator('[aria-controls="page-jump-tip"]') })
       .first();
     await otherFocusable.focus();
+    await assertTooltipOpen(page);
 
     await page.keyboard.press("Escape");
 
-    await expect(button).toHaveAttribute("aria-expanded", "false");
-    await expect(page.locator("#page-jump-tip")).toBeHidden();
+    await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
 
@@ -40,11 +63,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await innerFocusable.waitFor({ state: "visible" });
     await innerFocusable.focus();
     await expect(innerFocusable).toBeFocused();
+    await assertTooltipOpen(page);
 
     await page.keyboard.press("Escape");
 
-    await expect(button).toHaveAttribute("aria-expanded", "false");
-    await expect(tip).toBeHidden();
+    await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
 
@@ -56,11 +79,11 @@ test.describe("Page jump tooltip — Escape closes from multiple focus states", 
     await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
     await page.evaluate(() => document.body.focus());
     await expect.poll(() => page.evaluate(() => document.activeElement === document.body)).toBe(true);
+    await assertTooltipOpen(page);
 
     await page.keyboard.press("Escape");
 
-    await expect(button).toHaveAttribute("aria-expanded", "false");
-    await expect(page.locator("#page-jump-tip")).toBeHidden();
+    await assertTooltipClosed(page);
     await expect(button).toBeFocused();
   });
 
