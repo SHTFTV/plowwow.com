@@ -294,7 +294,7 @@ const SeoReport = () => {
           onClick={handleExportCsv}
           disabled={visibleRows.length === 0}
         >
-          Export CSV ({visibleRows.length})
+          Export filtered CSV ({visibleRows.length})
         </Button>
         <Button
           variant="outline"
