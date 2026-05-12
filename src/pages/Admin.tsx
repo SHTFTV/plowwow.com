@@ -229,7 +229,7 @@ export default function Admin() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filtered.length === 0 && (
+                {rows.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={8} className="text-center text-muted-foreground py-10">
                       No quote requests match your filters.
