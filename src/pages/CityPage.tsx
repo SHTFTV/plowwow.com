@@ -32,6 +32,7 @@ const CityPage = () => {
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = city.intro.slice(0, 155);
   const url = `https://plowwow.com/${city.slug}`;
+  const ogImage = "https://plowwow.com/og.jpg";
 
   // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
