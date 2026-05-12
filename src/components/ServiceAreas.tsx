@@ -201,8 +201,10 @@ const ServiceAreas = () => {
               value={query}
               onChange={(e) => {
                 userInteractedRef.current = false;
+                setCollapsed(false);
                 setQuery(e.target.value);
               }}
+              onFocus={() => setCollapsed(false)}
               onKeyDown={handleKeyDown}
               placeholder="Search a city — use ↑ ↓ and Enter"
               className="pl-10 pr-10 h-12 rounded-full bg-card border-border"
@@ -211,7 +213,7 @@ const ServiceAreas = () => {
               aria-label="Search cities"
               aria-autocomplete="list"
               aria-haspopup="listbox"
-              aria-expanded={flatCities.length > 0}
+              aria-expanded={!collapsed && flatCities.length > 0}
               aria-controls="city-results"
               aria-activedescendant={
                 activeCity ? `city-opt-${activeCity.slug}` : undefined
