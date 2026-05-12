@@ -278,12 +278,10 @@ export default function AdminGuestPosts() {
             </p>
           </div>
           <div className="flex gap-2">
-            {(statusFilter !== "all" || search || page > 1) && (
-              <Button
-                variant="outline"
-                onClick={() => updateParams({ status: null, q: null, page: null })}
-              >
+            {hasActiveFilters && (
+              <Button variant="outline" onClick={clearFilters} title="Clear filters (Esc)">
                 <X className="h-4 w-4" /> Clear filters
+                <kbd className="ml-2 hidden md:inline-flex h-5 items-center rounded border bg-muted px-1.5 text-[10px] text-muted-foreground">Esc</kbd>
               </Button>
             )}
             <Button variant="outline" onClick={refresh} disabled={loading}>
