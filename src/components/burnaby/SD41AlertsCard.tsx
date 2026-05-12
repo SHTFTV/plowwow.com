@@ -33,6 +33,12 @@ const SD41AlertsCard = () => {
 
   const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+  const countMatches = (text: string, q: string) => {
+    if (!q.trim()) return 0;
+    const matches = text.match(new RegExp(escapeRegex(q.trim()), "gi"));
+    return matches ? matches.length : 0;
+  };
+
   const HighlightedText = ({ text, query: q }: { text: string; query: string }) => {
     if (!q.trim()) return <>{text}</>;
     const parts = text.split(new RegExp(`(${escapeRegex(q.trim())})`, "gi"));
