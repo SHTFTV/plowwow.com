@@ -359,4 +359,89 @@ describe("ServiceAreas Enter/Space selection", () => {
       );
     });
   });
+
+  it("Home/End from a closed listbox reopens it and jumps aria-activedescendant to first/last option", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
+    renderHarness();
+
+    await waitFor(() => expect(card("burnaby")).not.toBeNull());
+
+    const combobox = screen.getByRole("combobox") as HTMLInputElement;
+
+    // Helper: collapse the listbox via Clear (sets suppression flag so
+    // re-focusing the combobox doesn't reopen it on its own).
+    const collapseViaClear = async () => {
+      combobox.focus();
+      await act(async () => {
+        fireEvent.change(combobox, { target: { value: "abbots" } });
+      });
+      const clearBtn = screen.getByRole("button", { name: /clear search/i });
+      await act(async () => {
+        fireEvent.click(clearBtn);
+      });
+      await waitFor(() => {
+        expect(document.querySelector('[role="listbox"]')).toBeNull();
+        expect(combobox.getAttribute("aria-expanded")).toBe("false");
+      });
+    };
+
+    // --- End: reopens + jumps to last option ---
+    await collapseViaClear();
+
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "End" });
+    });
+
+    await waitFor(() => {
+      // Listbox reopened.
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      // Active jumped to the LAST option in flatCities (Chilliwack).
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-chilliwack",
+      );
+      expect(card("chilliwack")!.getAttribute("aria-selected")).toBe("true");
+    });
+
+    // No other option should still be marked selected.
+    expect(card("vancouver")!.getAttribute("aria-selected")).toBe("false");
+    expect(card("burnaby")!.getAttribute("aria-selected")).toBe("false");
+
+    // --- Home: reopens + jumps to first option ---
+    await collapseViaClear();
+
+    await act(async () => {
+      fireEvent.keyDown(combobox, { key: "Home" });
+    });
+
+    await waitFor(() => {
+      expect(document.querySelector('[role="listbox"]')).not.toBeNull();
+      expect(combobox.getAttribute("aria-expanded")).toBe("true");
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-vancouver",
+      );
+      expect(card("vancouver")!.getAttribute("aria-selected")).toBe("true");
+    });
+
+    // --- While open, End → last; Home → first. aria-expanded stays true. ---
+    await act(async () => {
+      fireEvent.keyDown(card("vancouver")!, { key: "End" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-chilliwack",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+
+    await act(async () => {
+      fireEvent.keyDown(card("chilliwack")!, { key: "Home" });
+    });
+    await waitFor(() => {
+      expect(combobox.getAttribute("aria-activedescendant")).toBe(
+        "city-opt-vancouver",
+      );
+    });
+    expect(combobox.getAttribute("aria-expanded")).toBe("true");
+  });
 });
