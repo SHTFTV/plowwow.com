@@ -43,6 +43,30 @@ const buildRows = (origin: string): Row[] => {
   return rows;
 };
 
+const CopyFilename = ({ value }: { value: string }) => {
+  const [copied, setCopied] = useState(false);
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      toast.success("Filename copied", { description: value });
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.error("Copy failed");
+    }
+  };
+  return (
+    <button
+      type="button"
+      onClick={onCopy}
+      aria-label={`Copy ${value}`}
+      className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
+    >
+      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+    </button>
+  );
+};
+
 const SeoReport = () => {
   const origin =
     typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
