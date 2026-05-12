@@ -52,6 +52,7 @@ export default function AdminGuestPosts() {
   const page = Number.isFinite(pageParam) && pageParam > 0 ? Math.floor(pageParam) : 1;
 
   const debouncedSearch = useDebounced(search, 350);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const updateParams = useCallback(
     (patch: Record<string, string | number | null>) => {
