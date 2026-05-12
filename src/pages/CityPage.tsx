@@ -33,6 +33,8 @@ const CityPage = () => {
   const pageDescription = city.intro.slice(0, 155);
   const url = `https://plowwow.com/${city.slug}`;
   const ogImage = city.ogImage;
+  const ogImageWidth = city.ogImageWidth ?? 1200;
+  const ogImageHeight = city.ogImageHeight ?? 630;
 
   // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
