@@ -6,9 +6,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cities } from "@/data/cities";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
 
 const navItems = [
@@ -21,10 +22,58 @@ const navItems = [
   { label: "Contact", href: "/#contact" },
 ];
 
-const cityLinks = [
-  { name: "Burnaby", slug: "burnaby" },
-  ...cities.map((c) => ({ name: c.name, slug: c.slug })),
-].sort((a, b) => a.name.localeCompare(b.name));
+type CityLink = { name: string; slug: string };
+
+const cityRegions: { title: string; cities: CityLink[] }[] = [
+  {
+    title: "Metro Vancouver West",
+    cities: [
+      { name: "Vancouver", slug: "vancouver" },
+      { name: "West Vancouver", slug: "west-vancouver" },
+      { name: "North Vancouver", slug: "north-vancouver" },
+    ],
+  },
+  {
+    title: "Central Metro Vancouver",
+    cities: [
+      { name: "Burnaby", slug: "burnaby" },
+      { name: "Richmond", slug: "richmond" },
+      { name: "New Westminster", slug: "new-westminster" },
+    ],
+  },
+  {
+    title: "South Metro Vancouver",
+    cities: [
+      { name: "Surrey", slug: "surrey" },
+      { name: "Delta", slug: "delta" },
+      { name: "White Rock", slug: "white-rock" },
+    ],
+  },
+  {
+    title: "Tri-Cities & East Metro",
+    cities: [
+      { name: "Coquitlam", slug: "coquitlam" },
+      { name: "Port Coquitlam", slug: "port-coquitlam" },
+      { name: "Port Moody", slug: "port-moody" },
+    ],
+  },
+  {
+    title: "Fraser Valley Northeast",
+    cities: [
+      { name: "Maple Ridge", slug: "maple-ridge" },
+      { name: "Pitt Meadows", slug: "pitt-meadows" },
+    ],
+  },
+  {
+    title: "Fraser Valley",
+    cities: [
+      { name: "Langley", slug: "langley" },
+      { name: "Abbotsford", slug: "abbotsford" },
+      { name: "Mission", slug: "mission" },
+      { name: "Chilliwack", slug: "chilliwack" },
+    ],
+  },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
