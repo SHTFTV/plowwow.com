@@ -69,27 +69,55 @@ export default function Admin() {
       }
       setIsAdmin(true);
       setChecking(false);
-      load();
     })();
-    return () => {
-      active = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => { active = false; };
+  }, [navigate]);
 
-  const load = async () => {
+  const load = useCallback(async () => {
     setLoading(true);
-    const { data, error } = await supabase
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize - 1;
+
+    let q = supabase
       .from("quote_requests")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .select("*", { count: "exact" })
+      .order("created_at", { ascending: false })
+      .range(from, to);
+
+    if (statusFilter !== "all") q = q.eq("status", statusFilter);
+    if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+    const term = debouncedSearch.trim();
+    if (term) {
+      const safe = term.replace(/[%,()]/g, " ");
+      const pattern = `%${safe}%`;
+      q = q.or(
+        `name.ilike.${pattern},email.ilike.${pattern},phone.ilike.${pattern},address.ilike.${pattern},postal_code.ilike.${pattern}`,
+      );
+    }
+
+    const { data, error, count } = await q;
     setLoading(false);
     if (error) {
       toast({ title: "Failed to load", description: error.message, variant: "destructive" });
       return;
     }
     setRows(data ?? []);
-  };
+    setTotal(count ?? 0);
+  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch]);
+
+  const loadServiceTypes = useCallback(async () => {
+    const { data, error } = await supabase.from("quote_requests").select("service_type");
+    if (error) return;
+    const types = Array.from(new Set((data ?? []).map((r) => r.service_type))).sort();
+    setAllServiceTypes(types);
+  }, []);
+
+  useEffect(() => {
+    if (isAdmin) {
+      load();
+      loadServiceTypes();
+    }
+  }, [isAdmin, load, loadServiceTypes]);
 
   const updateStatus = async (id: string, status: Status) => {
     const prev = rows;
