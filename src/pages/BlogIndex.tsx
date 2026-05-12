@@ -218,7 +218,22 @@ const BlogIndex = () => {
   useEffect(() => {
     if (!pageJumpTipOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closePageJumpTip(true);
+      if (e.key === "Escape") {
+        closePageJumpTip(true);
+        return;
+      }
+      if (e.key === "Tab") {
+        // Focus trap: cycle Tab/Shift+Tab between the trigger button and the
+        // tooltip body so keyboard users stay inside the tooltip until it
+        // closes (Escape, outside click, or hover-out).
+        const btn = pageJumpTipBtnRef.current;
+        const tip = pageJumpTipContentRef.current;
+        if (!btn || !tip) return;
+        e.preventDefault();
+        const active = document.activeElement;
+        const next = active === btn ? tip : btn;
+        next.focus();
+      }
     };
     const onPointerDown = (e: PointerEvent) => {
       const root = pageJumpTipRef.current;
