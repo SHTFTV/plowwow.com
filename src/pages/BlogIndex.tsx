@@ -84,15 +84,22 @@ const BlogIndex = () => {
   const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
 
   const query = (searchParams.get("q") ?? "").trim();
-  const normalizedQuery = query.toLowerCase();
+  const terms = useMemo(() => tokenize(query), [query]);
 
   const posts = useMemo(() => {
-    if (!normalizedQuery) return allPosts;
+    if (terms.length === 0) return allPosts;
     return allPosts.filter((slug) => {
-      const title = titleFor(slug).toLowerCase();
-      return title.includes(normalizedQuery) || slug.includes(normalizedQuery);
+      // Build one haystack per post and require every term to appear somewhere.
+      const haystack = (
+        titleFor(slug) +
+        " " +
+        slug +
+        " " +
+        summaryFor(slug)
+      ).toLowerCase();
+      return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, normalizedQuery]);
+  }, [allPosts, terms]);
 
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
