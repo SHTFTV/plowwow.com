@@ -214,7 +214,7 @@ const PublishHelper = () => {
   };
 
   const copyAttemptsCsv = async () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const escapeCsv = (v: string | number | null): string => {
       if (v === null || v === undefined) return "";
       const s = String(v);
@@ -224,8 +224,8 @@ const PublishHelper = () => {
     const rows: (string | number)[][] = [
       ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
     ];
-    for (let i = 0; i < result.attempts.length; i++) {
-      const a = result.attempts[i];
+    for (let i = 0; i < filteredAttempts.length; i++) {
+      const a = filteredAttempts[i];
       rows.push([
         i + 1,
         a.url,
