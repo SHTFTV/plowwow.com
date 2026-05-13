@@ -152,25 +152,37 @@ const PublishHelper = () => {
       ? "https://" + url.slice("http://".length)
       : url;
 
-  const probe = async (url: string) => {
-    const start = performance.now();
+  const probe = async (url: string): Promise<{
+    ok: boolean;
+    status: number | null;
+    ms: number;
+    message?: string;
+    attempts: ProbeAttempt[];
+  }> => {
+    const attempts: ProbeAttempt[] = [];
+
+    const start1 = performance.now();
     try {
       const res = await fetch(url, { method: "GET", cache: "no-store" });
-      return { ok: true as const, status: res.status, ms: Math.round(performance.now() - start) };
-    } catch {
-      try {
-        await fetch(url, { method: "GET", mode: "no-cors", cache: "no-store" });
-        return {
-          ok: true as const,
-          status: null as number | null,
-          ms: Math.round(performance.now() - start),
-        };
-      } catch (err) {
-        return {
-          ok: false as const,
-          message: err instanceof Error ? err.message : "Network error",
-        };
-      }
+      const ms = Math.round(performance.now() - start1);
+      attempts.push({ url, mode: "cors", ok: true, status: res.status, ms });
+      return { ok: true, status: res.status, ms, attempts };
+    } catch (err) {
+      const ms = Math.round(performance.now() - start1);
+      attempts.push({ url, mode: "cors", ok: false, status: null, ms, error: toRawError(err) });
+    }
+
+    const start2 = performance.now();
+    try {
+      await fetch(url, { method: "GET", mode: "no-cors", cache: "no-store" });
+      const ms = Math.round(performance.now() - start2);
+      attempts.push({ url, mode: "no-cors", ok: true, status: null, ms });
+      return { ok: true, status: null, ms, attempts };
+    } catch (err) {
+      const ms = Math.round(performance.now() - start2);
+      const raw = toRawError(err);
+      attempts.push({ url, mode: "no-cors", ok: false, status: null, ms, error: raw });
+      return { ok: false, status: null, ms, message: raw.message, attempts };
     }
   };
 
@@ -179,7 +191,9 @@ const PublishHelper = () => {
     setChecking(true);
     setResult(null);
 
+    const all: ProbeAttempt[] = [];
     let attempt = await probe(liveUrl);
+    all.push(...attempt.attempts);
     let usedUrl = liveUrl;
     let swapped = false;
 
@@ -188,6 +202,7 @@ const PublishHelper = () => {
       if (alt !== liveUrl) {
         toast(`Retrying with ${alt.startsWith("https") ? "https" : "http"}…`);
         const second = await probe(alt);
+        all.push(...second.attempts);
         if (second.ok) {
           attempt = second;
           usedUrl = alt;
@@ -198,17 +213,17 @@ const PublishHelper = () => {
 
     if (attempt.ok) {
       if (attempt.status !== null) {
-        setResult({ kind: "ok", status: attempt.status, ms: attempt.ms, url: usedUrl, swapped });
+        setResult({ kind: "ok", status: attempt.status, ms: attempt.ms, url: usedUrl, swapped, attempts: all });
         const msg = `${attempt.status} in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""}`;
         attempt.status >= 200 && attempt.status < 400 ? toast.success(msg) : toast.error(msg);
       } else {
-        setResult({ kind: "reachable", ms: attempt.ms, url: usedUrl, swapped });
+        setResult({ kind: "reachable", ms: attempt.ms, url: usedUrl, swapped, attempts: all });
         toast.success(
           `Reachable in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""} (status hidden by CORS)`,
         );
       }
     } else {
-      setResult({ kind: "error", message: attempt.message });
+      setResult({ kind: "error", message: attempt.message ?? "Network error", attempts: all });
       toast.error("Could not reach the URL on http or https");
     }
 
