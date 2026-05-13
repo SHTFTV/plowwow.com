@@ -340,9 +340,12 @@ const PublishHelper = () => {
                 )}
 
                 {result && (
-                  <div className="mt-3">
+                  <div className="mt-3 flex flex-wrap gap-2">
                     <Button size="sm" variant="outline" onClick={copyDebug}>
                       <Copy className="w-4 h-4 mr-2" /> Copy debug summary
+                    </Button>
+                    <Button size="sm" variant="outline" onClick={copyDebugJson}>
+                      <Copy className="w-4 h-4 mr-2" /> Copy as JSON
                     </Button>
                   </div>
                 )}
