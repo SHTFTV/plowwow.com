@@ -59,6 +59,15 @@ const PublishHelper = () => {
     setDraft(saved);
   }, []);
 
+  const filteredAttempts = useMemo(() => {
+    if (!result) return [];
+    if (attemptFilter === "all") return result.attempts;
+    if (attemptFilter === "success") return result.attempts.filter((a) => a.ok);
+    if (attemptFilter === "failure") return result.attempts.filter((a) => !a.ok);
+    const status = Number(attemptFilter.replace("status:", ""));
+    return result.attempts.filter((a) => a.status === status);
+  }, [result, attemptFilter]);
+
   const normalize = (v: string) => {
     const t = v.trim();
     if (!t) return "";
