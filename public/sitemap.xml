@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- TODO: prepend project domain to <loc> values once a custom domain is set. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/north-vancouver-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/west-vancouver-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/squamish-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/tsawwassen-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>/burnaby</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>/intelligence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
