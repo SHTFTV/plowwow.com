@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Copy, ExternalLink, Loader2, Rocket, Save, Trash2, XCircle } from "lucide-react";
+import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
 
@@ -213,9 +213,19 @@ const PublishHelper = () => {
                     {result.kind === "error" && (
                       <>
                         <XCircle className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
-                        <span className="text-muted-foreground">
-                          Could not reach the URL: {result.message}
-                        </span>
+                        <div className="flex-1">
+                          <p className="text-muted-foreground mb-2">
+                            Could not reach the URL: {result.message}
+                          </p>
+                          <Button size="sm" variant="outline" onClick={verify} disabled={checking}>
+                            {checking ? (
+                              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            ) : (
+                              <RefreshCw className="w-4 h-4 mr-2" />
+                            )}
+                            {checking ? "Retrying…" : "Retry"}
+                          </Button>
+                        </div>
                       </>
                     )}
                   </div>
