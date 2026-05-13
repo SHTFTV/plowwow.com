@@ -9,10 +9,32 @@ import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Tra
 
 const STORAGE_KEY = "plowwow:liveUrl";
 
+type RawError = {
+  name: string;
+  message: string;
+  stack?: string;
+};
+
+type ProbeAttempt = {
+  url: string;
+  mode: "cors" | "no-cors";
+  ok: boolean;
+  status: number | null;
+  ms: number;
+  error?: RawError;
+};
+
 type CheckResult =
-  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean }
-  | { kind: "reachable"; ms: number; url: string; swapped?: boolean }
-  | { kind: "error"; message: string };
+  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean; attempts: ProbeAttempt[] }
+  | { kind: "reachable"; ms: number; url: string; swapped?: boolean; attempts: ProbeAttempt[] }
+  | { kind: "error"; message: string; attempts: ProbeAttempt[] };
+
+const toRawError = (err: unknown): RawError => {
+  if (err instanceof Error) {
+    return { name: err.name, message: err.message, stack: err.stack };
+  }
+  return { name: "NonError", message: String(err) };
+};
 
 const PublishHelper = () => {
   const [liveUrl, setLiveUrl] = useState("");
@@ -90,35 +112,45 @@ const PublishHelper = () => {
 
   const copyDebugJson = async () => {
     if (!result) return;
-    const payload = {
+    const base = {
       savedUrl: liveUrl,
       checkedAt: new Date().toISOString(),
       userAgent: navigator.userAgent,
-      result:
-        result.kind === "ok"
-          ? {
+      attempts: result.attempts,
+    };
+    const payload =
+      result.kind === "ok"
+        ? {
+            ...base,
+            result: {
               outcome: "ok" as const,
               triedUrl: result.url,
               schemeSwapped: !!result.swapped,
               httpStatus: result.status,
               responseTimeMs: result.ms,
-            }
-          : result.kind === "reachable"
-          ? {
+            },
+          }
+        : result.kind === "reachable"
+        ? {
+            ...base,
+            result: {
               outcome: "reachable" as const,
               triedUrl: result.url,
               schemeSwapped: !!result.swapped,
               httpStatus: null,
               httpStatusNote: "unavailable due to CORS",
               responseTimeMs: result.ms,
-            }
-          : {
+            },
+          }
+        : {
+            ...base,
+            result: {
               outcome: "error" as const,
               triedUrl: liveUrl,
               schemeSwapAttempted: true,
               message: result.message,
             },
-    };
+          };
     await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
     toast.success("Debug JSON copied");
   };
@@ -130,25 +162,37 @@ const PublishHelper = () => {
       ? "https://" + url.slice("http://".length)
       : url;
 
-  const probe = async (url: string) => {
-    const start = performance.now();
+  const probe = async (url: string): Promise<{
+    ok: boolean;
+    status: number | null;
+    ms: number;
+    message?: string;
+    attempts: ProbeAttempt[];
+  }> => {
+    const attempts: ProbeAttempt[] = [];
+
+    const start1 = performance.now();
     try {
       const res = await fetch(url, { method: "GET", cache: "no-store" });
-      return { ok: true as const, status: res.status, ms: Math.round(performance.now() - start) };
-    } catch {
-      try {
-        await fetch(url, { method: "GET", mode: "no-cors", cache: "no-store" });
-        return {
-          ok: true as const,
-          status: null as number | null,
-          ms: Math.round(performance.now() - start),
-        };
-      } catch (err) {
-        return {
-          ok: false as const,
-          message: err instanceof Error ? err.message : "Network error",
-        };
-      }
+      const ms = Math.round(performance.now() - start1);
+      attempts.push({ url, mode: "cors", ok: true, status: res.status, ms });
+      return { ok: true, status: res.status, ms, attempts };
+    } catch (err) {
+      const ms = Math.round(performance.now() - start1);
+      attempts.push({ url, mode: "cors", ok: false, status: null, ms, error: toRawError(err) });
+    }
+
+    const start2 = performance.now();
+    try {
+      await fetch(url, { method: "GET", mode: "no-cors", cache: "no-store" });
+      const ms = Math.round(performance.now() - start2);
+      attempts.push({ url, mode: "no-cors", ok: true, status: null, ms });
+      return { ok: true, status: null, ms, attempts };
+    } catch (err) {
+      const ms = Math.round(performance.now() - start2);
+      const raw = toRawError(err);
+      attempts.push({ url, mode: "no-cors", ok: false, status: null, ms, error: raw });
+      return { ok: false, status: null, ms, message: raw.message, attempts };
     }
   };
 
@@ -157,7 +201,9 @@ const PublishHelper = () => {
     setChecking(true);
     setResult(null);
 
+    const all: ProbeAttempt[] = [];
     let attempt = await probe(liveUrl);
+    all.push(...attempt.attempts);
     let usedUrl = liveUrl;
     let swapped = false;
 
@@ -166,6 +212,7 @@ const PublishHelper = () => {
       if (alt !== liveUrl) {
         toast(`Retrying with ${alt.startsWith("https") ? "https" : "http"}…`);
         const second = await probe(alt);
+        all.push(...second.attempts);
         if (second.ok) {
           attempt = second;
           usedUrl = alt;
@@ -176,17 +223,17 @@ const PublishHelper = () => {
 
     if (attempt.ok) {
       if (attempt.status !== null) {
-        setResult({ kind: "ok", status: attempt.status, ms: attempt.ms, url: usedUrl, swapped });
+        setResult({ kind: "ok", status: attempt.status, ms: attempt.ms, url: usedUrl, swapped, attempts: all });
         const msg = `${attempt.status} in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""}`;
         attempt.status >= 200 && attempt.status < 400 ? toast.success(msg) : toast.error(msg);
       } else {
-        setResult({ kind: "reachable", ms: attempt.ms, url: usedUrl, swapped });
+        setResult({ kind: "reachable", ms: attempt.ms, url: usedUrl, swapped, attempts: all });
         toast.success(
           `Reachable in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""} (status hidden by CORS)`,
         );
       }
     } else {
-      setResult({ kind: "error", message: attempt.message });
+      setResult({ kind: "error", message: attempt.message ?? "Network error", attempts: all });
       toast.error("Could not reach the URL on http or https");
     }
 
