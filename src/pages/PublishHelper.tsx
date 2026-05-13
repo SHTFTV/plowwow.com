@@ -262,6 +262,27 @@ const PublishHelper = () => {
     toast.success("Downloaded attempts.csv");
   };
 
+  const downloadAttemptsJson = () => {
+    if (!result || result.attempts.length === 0) return;
+    const payload = {
+      savedUrl: liveUrl,
+      checkedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      attempts: result.attempts,
+    };
+    const json = JSON.stringify(payload, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "attempts.json");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    toast.success("Downloaded attempts.json");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
@@ -514,6 +535,11 @@ const PublishHelper = () => {
                     {result.attempts.length > 0 && (
                       <Button size="sm" variant="outline" onClick={downloadAttemptsCsv}>
                         <Download className="w-4 h-4 mr-2" /> Download CSV
+                      </Button>
+                    )}
+                    {result.attempts.length > 0 && (
+                      <Button size="sm" variant="outline" onClick={downloadAttemptsJson}>
+                        <Download className="w-4 h-4 mr-2" /> Download JSON
                       </Button>
                     )}
                     {result.attempts.length > 0 && (
