@@ -698,6 +698,39 @@ const BlogIndex = () => {
               )}
             </div>
 
+            <div
+              role="tablist"
+              aria-label="Filter posts by category"
+              className="mb-6 flex flex-wrap gap-2"
+            >
+              {BLOG_CATEGORIES.map((cat) => {
+                const isActive = cat === activeCat;
+                return (
+                  <button
+                    key={cat}
+                    role="tab"
+                    type="button"
+                    aria-selected={isActive}
+                    onClick={() => setCategory(cat)}
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "bg-primary text-primary-foreground border border-primary"
+                        : "bg-card border border-border text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {cat}
+                    <span
+                      className={`text-xs font-mono tabular-nums ${
+                        isActive ? "text-primary-foreground/80" : "text-muted-foreground"
+                      }`}
+                    >
+                      {categoryCounts[cat]}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
             <details className="mb-6 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-muted-foreground">
               <summary className="cursor-pointer select-none font-semibold text-foreground">
                 Search settings
