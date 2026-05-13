@@ -35,6 +35,60 @@ const summaryFor = (slug: string) => {
   return body.slice(0, 200) + (body.length > 200 ? "…" : "");
 };
 
+// Slugs that have a matching hero image in /public/blog-images/<slug>.jpg.
+const SLUGS_WITH_IMAGES = new Set([
+  "cloverdale-snow-removal",
+  "fort-langley-snow-removal",
+  "lynn-valley-snow-removal",
+  "north-vancouver-snow-removal",
+  "squamish-snow-removal",
+  "steveston-snow-removal",
+  "tsawwassen-snow-removal",
+  "west-vancouver-snow-removal",
+]);
+const imageFor = (slug: string) =>
+  SLUGS_WITH_IMAGES.has(slug) ? `/blog-images/${slug}.jpg` : null;
+
+// Category taxonomy. Derived from slug + title keywords. Order matters —
+// first match wins (so "strata" beats "neighborhood" when both apply).
+type Category = "All" | "Strata" | "Commercial" | "Neighborhoods" | "Tips & News";
+export const BLOG_CATEGORIES: Category[] = [
+  "All",
+  "Neighborhoods",
+  "Strata",
+  "Commercial",
+  "Tips & News",
+];
+
+const NEIGHBORHOOD_HINTS = [
+  "burnaby", "vancouver", "richmond", "surrey", "delta", "langley", "coquitlam",
+  "port-coquitlam", "port-moody", "maple-ridge", "pitt-meadows", "new-westminster",
+  "north-vancouver", "west-vancouver", "squamish", "tsawwassen", "abbotsford",
+  "chilliwack", "mission", "white-rock", "anmore", "belcarra", "lynn-valley",
+  "steveston", "fort-langley", "cloverdale", "metrotown", "kerrisdale",
+  "shaughnessy", "killarney", "edmonds", "burquitlam", "champlain", "renfrew",
+  "kensington", "arbutus", "sapperton", "burke-mountain", "heritage-mountain",
+  "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
+  "deep-cove", "lonsdale",
+];
+
+const categoryFor = (slug: string, title: string): Category => {
+  const hay = (slug + " " + title).toLowerCase();
+  if (hay.includes("strata") || hay.includes("apartment") || hay.includes("condo")) {
+    return "Strata";
+  }
+  if (
+    hay.includes("commercial") ||
+    hay.includes("strip-mall") ||
+    hay.includes("parking") ||
+    hay.includes("business")
+  ) {
+    return "Commercial";
+  }
+  if (NEIGHBORHOOD_HINTS.some((h) => hay.includes(h))) return "Neighborhoods";
+  return "Tips & News";
+};
+
 // Wrap query matches in <mark> for visible highlighting. Case-insensitive,
 // safe against regex injection by escaping the needle.
 const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -102,10 +156,37 @@ const BlogIndex = () => {
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
 
+  const rawCat = searchParams.get("cat") ?? "All";
+  const activeCat: Category = (BLOG_CATEGORIES as string[]).includes(rawCat)
+    ? (rawCat as Category)
+    : "All";
+
+  // Per-post category, memoized so chip filtering and badge rendering share
+  // the same derivation without re-parsing markdown on every render.
+  const postCategories = useMemo(() => {
+    const map: Record<string, Category> = {};
+    for (const slug of allPosts) map[slug] = categoryFor(slug, titleFor(slug));
+    return map;
+  }, [allPosts]);
+
+  // Counts per category (computed against ALL posts, ignoring the active
+  // category filter so chip counts don't change as the user filters).
+  const categoryCounts = useMemo(() => {
+    const counts: Record<Category, number> = {
+      All: allPosts.length,
+      Neighborhoods: 0,
+      Strata: 0,
+      Commercial: 0,
+      "Tips & News": 0,
+    };
+    for (const slug of allPosts) counts[postCategories[slug]] += 1;
+    return counts;
+  }, [allPosts, postCategories]);
+
   const posts = useMemo(() => {
-    if (terms.length === 0) return allPosts;
     return allPosts.filter((slug) => {
-      // Build one haystack per post and require every term to appear somewhere.
+      if (activeCat !== "All" && postCategories[slug] !== activeCat) return false;
+      if (terms.length === 0) return true;
       const haystack = (
         titleFor(slug) +
         " " +
@@ -115,7 +196,15 @@ const BlogIndex = () => {
       ).toLowerCase();
       return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, terms]);
+  }, [allPosts, terms, activeCat, postCategories]);
+
+  const setCategory = (next: Category) => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "All") params.delete("cat");
+    else params.set("cat", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
 
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
@@ -571,7 +660,7 @@ const BlogIndex = () => {
         </section>
 
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-6xl">
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
@@ -607,6 +696,39 @@ const BlogIndex = () => {
                   <X className="w-4 h-4" />
                 </button>
               )}
+            </div>
+
+            <div
+              role="tablist"
+              aria-label="Filter posts by category"
+              className="mb-6 flex flex-wrap gap-2"
+            >
+              {BLOG_CATEGORIES.map((cat) => {
+                const isActive = cat === activeCat;
+                return (
+                  <button
+                    key={cat}
+                    role="tab"
+                    type="button"
+                    aria-selected={isActive}
+                    onClick={() => setCategory(cat)}
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "bg-primary text-primary-foreground border border-primary"
+                        : "bg-card border border-border text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {cat}
+                    <span
+                      className={`text-xs font-mono tabular-nums ${
+                        isActive ? "text-primary-foreground/80" : "text-muted-foreground"
+                      }`}
+                    >
+                      {categoryCounts[cat]}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
             <details className="mb-6 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-muted-foreground">
@@ -822,9 +944,11 @@ const BlogIndex = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {visible.map((slug, i) => {
                   const isActive = i === activeIndex;
+                  const img = imageFor(slug);
+                  const cat = postCategories[slug];
                   return (
                     <Link
                       key={slug}
@@ -834,21 +958,40 @@ const BlogIndex = () => {
                       to={`/${slug}`}
                       aria-current={isActive ? "true" : undefined}
                       onMouseEnter={() => setActiveIndex(i)}
-                      className={`group block rounded-2xl border bg-card p-5 hover:border-primary hover:shadow-md transition-all ${
+                      className={`group flex flex-col rounded-2xl border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all ${
                         isActive
                           ? "border-primary ring-2 ring-primary/40 shadow-md"
                           : "border-border"
                       }`}
                     >
-                      <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
-                        {highlight(titleFor(slug), query)}
-                      </h2>
-                      <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                        {highlight(summaryFor(slug), query)}
-                      </p>
-                      <p className="mt-2 text-xs text-muted-foreground/80">
-                        {highlight(`/${slug}`, query)} →
-                      </p>
+                      <div className="aspect-[16/10] overflow-hidden bg-muted relative">
+                        {img ? (
+                          <img
+                            src={img}
+                            alt={titleFor(slug)}
+                            loading="lazy"
+                            width={1280}
+                            height={800}
+                            className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/20 via-primary/5 to-muted" />
+                        )}
+                        <span className="absolute top-3 left-3 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
+                          {cat}
+                        </span>
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                          {highlight(titleFor(slug), query)}
+                        </h2>
+                        <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-1">
+                          {highlight(summaryFor(slug), query)}
+                        </p>
+                        <p className="mt-3 text-xs text-muted-foreground/80">
+                          {highlight(`/${slug}`, query)} →
+                        </p>
+                      </div>
                     </Link>
                   );
                 })}
