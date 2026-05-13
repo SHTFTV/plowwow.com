@@ -5,13 +5,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, ExternalLink, Rocket, Save, Trash2 } from "lucide-react";
+import { CheckCircle2, Copy, ExternalLink, Loader2, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
+
+type CheckResult =
+  | { kind: "ok"; status: number; ms: number }
+  | { kind: "reachable"; ms: number }
+  | { kind: "error"; message: string };
 
 const PublishHelper = () => {
   const [liveUrl, setLiveUrl] = useState("");
   const [draft, setDraft] = useState("");
+  const [checking, setChecking] = useState(false);
+  const [result, setResult] = useState<CheckResult | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
@@ -54,6 +61,34 @@ const PublishHelper = () => {
     if (!liveUrl) return;
     await navigator.clipboard.writeText(liveUrl);
     toast.success("Copied to clipboard");
+  };
+
+  const verify = async () => {
+    if (!liveUrl) return;
+    setChecking(true);
+    setResult(null);
+    const start = performance.now();
+    try {
+      const res = await fetch(liveUrl, { method: "GET", cache: "no-store" });
+      const ms = Math.round(performance.now() - start);
+      setResult({ kind: "ok", status: res.status, ms });
+      if (res.ok) toast.success(`${res.status} in ${ms} ms`);
+      else toast.error(`HTTP ${res.status}`);
+    } catch {
+      // Likely CORS — try no-cors to confirm reachability without reading the status
+      try {
+        await fetch(liveUrl, { method: "GET", mode: "no-cors", cache: "no-store" });
+        const ms = Math.round(performance.now() - start);
+        setResult({ kind: "reachable", ms });
+        toast.success(`Reachable in ${ms} ms (status hidden by CORS)`);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Network error";
+        setResult({ kind: "error", message });
+        toast.error("Could not reach the URL");
+      }
+    } finally {
+      setChecking(false);
+    }
   };
 
   return (
@@ -131,6 +166,14 @@ const PublishHelper = () => {
                 </p>
                 <p className="font-mono text-sm break-all mb-3">{liveUrl}</p>
                 <div className="flex flex-wrap gap-2">
+                  <Button size="sm" onClick={verify} disabled={checking}>
+                    {checking ? (
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    ) : (
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                    )}
+                    {checking ? "Checking…" : "Verify reachable"}
+                  </Button>
                   <Button size="sm" variant="secondary" onClick={copy}>
                     <Copy className="w-4 h-4 mr-2" /> Copy
                   </Button>
@@ -143,6 +186,40 @@ const PublishHelper = () => {
                     <Trash2 className="w-4 h-4 mr-2" /> Clear
                   </Button>
                 </div>
+
+                {result && (
+                  <div className="mt-3 text-sm flex items-start gap-2">
+                    {result.kind === "ok" && (
+                      <>
+                        {result.status >= 200 && result.status < 400 ? (
+                          <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                        ) : (
+                          <XCircle className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
+                        )}
+                        <span>
+                          HTTP <strong>{result.status}</strong> · {result.ms} ms
+                        </span>
+                      </>
+                    )}
+                    {result.kind === "reachable" && (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                        <span>
+                          Reachable in <strong>{result.ms} ms</strong> — status hidden by
+                          cross-origin policy (normal for published sites).
+                        </span>
+                      </>
+                    )}
+                    {result.kind === "error" && (
+                      <>
+                        <XCircle className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
+                        <span className="text-muted-foreground">
+                          Could not reach the URL: {result.message}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </CardContent>
