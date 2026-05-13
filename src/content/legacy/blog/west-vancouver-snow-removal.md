@@ -1,5 +1,6 @@
-Title: West Vancouver Snow Removal | PlowWow Luxury Hillside Snow & Ice Specialists
+Title: West Vancouver Snow Removal | Hillside Specialists | PlowWow
 URL Source: https://plowwow.com/west-vancouver-snow-removal/
+Description: Luxury hillside snow removal and ice control in West Vancouver — British Properties, Caulfeild, Ambleside, Dundarave, Eagle Harbour. 24/7 by PlowWow.
 
 Markdown Content:
 # West Vancouver Snow Removal Services by PlowWow

@@ -1,5 +1,6 @@
-Title: North Vancouver Snow Removal | PlowWow 24/7 Plowing, Salting & De-Icing
+Title: North Vancouver Snow Removal & De-Icing | PlowWow
 URL Source: https://plowwow.com/north-vancouver-snow-removal/
+Description: PlowWow delivers 24/7 snow plowing, salting, and de-icing across North Vancouver — Lynn Valley, Edgemont, Deep Cove, Lonsdale, and Capilano.
 
 Markdown Content:
 # North Vancouver Snow Removal Services by PlowWow

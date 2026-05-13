@@ -1,5 +1,6 @@
-Title: Tsawwassen Snow Removal | PlowWow South Delta Snow & Ice Management
+Title: Tsawwassen Snow Removal | South Delta Ice Control | PlowWow
 URL Source: https://plowwow.com/tsawwassen-snow-removal/
+Description: Reliable snow removal and de-icing in Tsawwassen and South Delta — Beach Grove, English Bluff, Boundary Bay. 24/7 emergency response by PlowWow.
 
 Markdown Content:
 # Tsawwassen Snow Removal Services by PlowWow
