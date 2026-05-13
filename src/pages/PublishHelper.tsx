@@ -176,16 +176,16 @@ const PublishHelper = () => {
   };
 
   const copyAttemptsText = async () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const lines: string[] = [];
     lines.push("=".repeat(50));
-    lines.push(`ATTEMPTS  (${result.attempts.length})`);
+    lines.push(`ATTEMPTS  (${filteredAttempts.length})`);
     lines.push(`Saved URL: ${liveUrl}`);
     lines.push("=".repeat(50));
     lines.push("");
 
-    for (let i = 0; i < result.attempts.length; i++) {
-      const a = result.attempts[i];
+    for (let i = 0; i < filteredAttempts.length; i++) {
+      const a = filteredAttempts[i];
       lines.push("-".repeat(50));
       lines.push(`ATTEMPT ${i + 1}`);
       lines.push(`  URL   : ${a.url}`);
