@@ -201,7 +201,7 @@ const PublishHelper = () => {
     const escapeCsv = (v: string | number | null) => {
       if (v === null || v === undefined) return "";
       const s = String(v);
-      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, """)}"`;
+      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
       return s;
     };
     const rows = [
