@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
+import { CheckCircle2, Copy, Download, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
 
