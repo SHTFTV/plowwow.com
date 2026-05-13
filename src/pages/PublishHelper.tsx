@@ -396,6 +396,42 @@ const PublishHelper = () => {
                     </Button>
                   </div>
                 )}
+
+                {result && result.attempts.length > 0 && (
+                  <details className="mt-3 rounded-md border border-border bg-background/60">
+                    <summary className="cursor-pointer px-3 py-2 text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                      Attempts ({result.attempts.length})
+                    </summary>
+                    <ol className="divide-y divide-border">
+                      {result.attempts.map((a, i) => (
+                        <li key={i} className="px-3 py-2 text-xs space-y-1">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge variant={a.ok ? "secondary" : "destructive"}>
+                              {a.ok ? "ok" : "failed"}
+                            </Badge>
+                            <Badge variant="outline">{a.mode}</Badge>
+                            {a.status !== null && <Badge variant="outline">HTTP {a.status}</Badge>}
+                            <span className="text-muted-foreground">{a.ms} ms</span>
+                          </div>
+                          <p className="font-mono break-all">{a.url}</p>
+                          {a.error && (
+                            <div className="mt-1 rounded bg-muted/60 p-2">
+                              <p className="font-mono">
+                                <span className="text-destructive font-semibold">{a.error.name}</span>
+                                : {a.error.message}
+                              </p>
+                              {a.error.stack && (
+                                <pre className="mt-1 max-h-40 overflow-auto whitespace-pre-wrap text-[11px] text-muted-foreground">
+                                  {a.error.stack}
+                                </pre>
+                              )}
+                            </div>
+                          )}
+                        </li>
+                      ))}
+                    </ol>
+                  </details>
+                )}
               </div>
             )}
           </CardContent>
