@@ -63,6 +63,31 @@ const PublishHelper = () => {
     toast.success("Copied to clipboard");
   };
 
+  const copyDebug = async () => {
+    if (!result) return;
+    const lines = [
+      `Saved URL: ${liveUrl}`,
+      `Checked at: ${new Date().toISOString()}`,
+    ];
+    if (result.kind === "ok") {
+      lines.push(`Tried URL: ${result.url}`);
+      lines.push(`Scheme swap: ${result.swapped ? "yes" : "no"}`);
+      lines.push(`HTTP status: ${result.status}`);
+      lines.push(`Response time: ${result.ms} ms`);
+    } else if (result.kind === "reachable") {
+      lines.push(`Tried URL: ${result.url}`);
+      lines.push(`Scheme swap: ${result.swapped ? "yes" : "no"}`);
+      lines.push(`HTTP status: unavailable (CORS)`);
+      lines.push(`Response time: ${result.ms} ms`);
+    } else {
+      lines.push(`Tried URL: ${liveUrl} (and scheme-swapped fallback)`);
+      lines.push(`Result: error`);
+      lines.push(`Message: ${result.message}`);
+    }
+    await navigator.clipboard.writeText(lines.join("\n"));
+    toast.success("Debug summary copied");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
@@ -276,6 +301,14 @@ const PublishHelper = () => {
                         </div>
                       </>
                     )}
+                  </div>
+                )}
+
+                {result && (
+                  <div className="mt-3">
+                    <Button size="sm" variant="outline" onClick={copyDebug}>
+                      <Copy className="w-4 h-4 mr-2" /> Copy debug summary
+                    </Button>
                   </div>
                 )}
               </div>
