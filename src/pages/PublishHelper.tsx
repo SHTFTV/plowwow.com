@@ -415,7 +415,7 @@ const PublishHelper = () => {
                 )}
 
                 {result && (
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
                     <Button size="sm" variant="outline" onClick={copyDebug}>
                       <Copy className="w-4 h-4 mr-2" /> Copy debug summary
                     </Button>
@@ -426,6 +426,19 @@ const PublishHelper = () => {
                       <Button size="sm" variant="outline" onClick={copyAttemptsText}>
                         <Copy className="w-4 h-4 mr-2" /> Copy attempts as text
                       </Button>
+                    )}
+                    {result.attempts.length > 0 && (
+                      <div className="flex items-center gap-2 ml-auto">
+                        <Switch
+                          id="stack-toggle"
+                          checked={includeStackTraces}
+                          onCheckedChange={setIncludeStackTraces}
+                          size="sm"
+                        />
+                        <Label htmlFor="stack-toggle" className="text-xs cursor-pointer">
+                          Include stack traces
+                        </Label>
+                      </div>
                     )}
                   </div>
                 )}
