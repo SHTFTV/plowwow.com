@@ -88,6 +88,41 @@ const PublishHelper = () => {
     toast.success("Debug summary copied");
   };
 
+  const copyDebugJson = async () => {
+    if (!result) return;
+    const payload = {
+      savedUrl: liveUrl,
+      checkedAt: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      result:
+        result.kind === "ok"
+          ? {
+              outcome: "ok" as const,
+              triedUrl: result.url,
+              schemeSwapped: !!result.swapped,
+              httpStatus: result.status,
+              responseTimeMs: result.ms,
+            }
+          : result.kind === "reachable"
+          ? {
+              outcome: "reachable" as const,
+              triedUrl: result.url,
+              schemeSwapped: !!result.swapped,
+              httpStatus: null,
+              httpStatusNote: "unavailable due to CORS",
+              responseTimeMs: result.ms,
+            }
+          : {
+              outcome: "error" as const,
+              triedUrl: liveUrl,
+              schemeSwapAttempted: true,
+              message: result.message,
+            },
+    };
+    await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+    toast.success("Debug JSON copied");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
@@ -305,9 +340,12 @@ const PublishHelper = () => {
                 )}
 
                 {result && (
-                  <div className="mt-3">
+                  <div className="mt-3 flex flex-wrap gap-2">
                     <Button size="sm" variant="outline" onClick={copyDebug}>
                       <Copy className="w-4 h-4 mr-2" /> Copy debug summary
+                    </Button>
+                    <Button size="sm" variant="outline" onClick={copyDebugJson}>
+                      <Copy className="w-4 h-4 mr-2" /> Copy as JSON
                     </Button>
                   </div>
                 )}
