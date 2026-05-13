@@ -280,12 +280,12 @@ const PublishHelper = () => {
   };
 
   const downloadAttemptsJson = () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const payload = {
       savedUrl: liveUrl,
       checkedAt: new Date().toISOString(),
       userAgent: navigator.userAgent,
-      attempts: result.attempts,
+      attempts: filteredAttempts,
     };
     const json = JSON.stringify(payload, null, 2);
     const blob = new Blob([json], { type: "application/json" });
