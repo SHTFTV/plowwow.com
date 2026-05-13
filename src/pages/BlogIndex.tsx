@@ -128,10 +128,50 @@ const BlogIndex = () => {
   const visible = posts.slice(start, start + PAGE_SIZE);
 
   useEffect(() => {
-    document.title =
+    const title =
       page === 1
-        ? "PlowWow Blog — Snow Removal Insights, Neighborhoods & Strata Tips"
+        ? "PlowWow Blog — Snow Removal Insights & Strata Tips"
         : `PlowWow Blog — Page ${page} of ${totalPages}`;
+    document.title = title;
+
+    const description =
+      "PlowWow blog: snow removal insights, neighborhood guides, and strata tips for Greater Vancouver, BC.";
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement("meta"); el.setAttribute("name", name); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+    const setProp = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+      if (!el) { el = document.createElement("meta"); el.setAttribute("property", property); document.head.appendChild(el); }
+      el.setAttribute("content", content);
+    };
+    const setCanonical = (href: string) => {
+      let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+      if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
+      el.href = href;
+    };
+    setMeta("description", description);
+    setProp("og:title", title);
+    setProp("og:description", description);
+    setProp("og:type", "website");
+    setProp("og:url", "/blog");
+    setCanonical("/blog");
+
+    const ldId = "blog-index-jsonld";
+    document.getElementById(ldId)?.remove();
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.id = ldId;
+    ld.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "PlowWow Blog",
+      description,
+      url: "/blog",
+    });
+    document.head.appendChild(ld);
+    return () => { document.getElementById(ldId)?.remove(); };
   }, [page, totalPages]);
 
   const goTo = (next: number) => {
