@@ -17,6 +17,7 @@ import {
 import { CheckCircle2, Copy, Download, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
+const FILTER_KEY = "plowwow:attemptFilter";
 
 type RawError = {
   name: string;
