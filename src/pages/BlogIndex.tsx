@@ -35,6 +35,60 @@ const summaryFor = (slug: string) => {
   return body.slice(0, 200) + (body.length > 200 ? "…" : "");
 };
 
+// Slugs that have a matching hero image in /public/blog-images/<slug>.jpg.
+const SLUGS_WITH_IMAGES = new Set([
+  "cloverdale-snow-removal",
+  "fort-langley-snow-removal",
+  "lynn-valley-snow-removal",
+  "north-vancouver-snow-removal",
+  "squamish-snow-removal",
+  "steveston-snow-removal",
+  "tsawwassen-snow-removal",
+  "west-vancouver-snow-removal",
+]);
+const imageFor = (slug: string) =>
+  SLUGS_WITH_IMAGES.has(slug) ? `/blog-images/${slug}.jpg` : null;
+
+// Category taxonomy. Derived from slug + title keywords. Order matters —
+// first match wins (so "strata" beats "neighborhood" when both apply).
+type Category = "All" | "Strata" | "Commercial" | "Neighborhoods" | "Tips & News";
+export const BLOG_CATEGORIES: Category[] = [
+  "All",
+  "Neighborhoods",
+  "Strata",
+  "Commercial",
+  "Tips & News",
+];
+
+const NEIGHBORHOOD_HINTS = [
+  "burnaby", "vancouver", "richmond", "surrey", "delta", "langley", "coquitlam",
+  "port-coquitlam", "port-moody", "maple-ridge", "pitt-meadows", "new-westminster",
+  "north-vancouver", "west-vancouver", "squamish", "tsawwassen", "abbotsford",
+  "chilliwack", "mission", "white-rock", "anmore", "belcarra", "lynn-valley",
+  "steveston", "fort-langley", "cloverdale", "metrotown", "kerrisdale",
+  "shaughnessy", "killarney", "edmonds", "burquitlam", "champlain", "renfrew",
+  "kensington", "arbutus", "sapperton", "burke-mountain", "heritage-mountain",
+  "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
+  "deep-cove", "lonsdale",
+];
+
+const categoryFor = (slug: string, title: string): Category => {
+  const hay = (slug + " " + title).toLowerCase();
+  if (hay.includes("strata") || hay.includes("apartment") || hay.includes("condo")) {
+    return "Strata";
+  }
+  if (
+    hay.includes("commercial") ||
+    hay.includes("strip-mall") ||
+    hay.includes("parking") ||
+    hay.includes("business")
+  ) {
+    return "Commercial";
+  }
+  if (NEIGHBORHOOD_HINTS.some((h) => hay.includes(h))) return "Neighborhoods";
+  return "Tips & News";
+};
+
 // Wrap query matches in <mark> for visible highlighting. Case-insensitive,
 // safe against regex injection by escaping the needle.
 const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
