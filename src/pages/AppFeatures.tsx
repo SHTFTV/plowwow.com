@@ -197,6 +197,11 @@ const AppFeatures = () => {
   useEffect(() => {
     document.title = TITLE;
     setMeta("description", DESCRIPTION);
+    setProp("og:title", TITLE);
+    setProp("og:description", DESCRIPTION);
+    setProp("og:url", PATH);
+    setProp("og:type", "website");
+    setCanonical(PATH);
 
     // SoftwareApplication JSON-LD for AEO / rich snippets
     const ldId = "app-features-jsonld";
