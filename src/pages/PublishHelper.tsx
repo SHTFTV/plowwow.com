@@ -433,7 +433,6 @@ const PublishHelper = () => {
                           id="stack-toggle"
                           checked={includeStackTraces}
                           onCheckedChange={setIncludeStackTraces}
-                          size="sm"
                         />
                         <Label htmlFor="stack-toggle" className="text-xs cursor-pointer">
                           Include stack traces
