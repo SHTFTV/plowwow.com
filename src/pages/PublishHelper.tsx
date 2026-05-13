@@ -419,6 +419,11 @@ const PublishHelper = () => {
                     <Button size="sm" variant="outline" onClick={copyDebugJson}>
                       <Copy className="w-4 h-4 mr-2" /> Copy as JSON
                     </Button>
+                    {result.attempts.length > 0 && (
+                      <Button size="sm" variant="outline" onClick={copyAttemptsText}>
+                        <Copy className="w-4 h-4 mr-2" /> Copy attempts as text
+                      </Button>
+                    )}
                   </div>
                 )}
 
