@@ -944,9 +944,11 @@ const BlogIndex = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {visible.map((slug, i) => {
                   const isActive = i === activeIndex;
+                  const img = imageFor(slug);
+                  const cat = postCategories[slug];
                   return (
                     <Link
                       key={slug}
@@ -956,21 +958,40 @@ const BlogIndex = () => {
                       to={`/${slug}`}
                       aria-current={isActive ? "true" : undefined}
                       onMouseEnter={() => setActiveIndex(i)}
-                      className={`group block rounded-2xl border bg-card p-5 hover:border-primary hover:shadow-md transition-all ${
+                      className={`group flex flex-col rounded-2xl border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all ${
                         isActive
                           ? "border-primary ring-2 ring-primary/40 shadow-md"
                           : "border-border"
                       }`}
                     >
-                      <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
-                        {highlight(titleFor(slug), query)}
-                      </h2>
-                      <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                        {highlight(summaryFor(slug), query)}
-                      </p>
-                      <p className="mt-2 text-xs text-muted-foreground/80">
-                        {highlight(`/${slug}`, query)} →
-                      </p>
+                      <div className="aspect-[16/10] overflow-hidden bg-muted relative">
+                        {img ? (
+                          <img
+                            src={img}
+                            alt={titleFor(slug)}
+                            loading="lazy"
+                            width={1280}
+                            height={800}
+                            className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/20 via-primary/5 to-muted" />
+                        )}
+                        <span className="absolute top-3 left-3 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
+                          {cat}
+                        </span>
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                          {highlight(titleFor(slug), query)}
+                        </h2>
+                        <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-1">
+                          {highlight(summaryFor(slug), query)}
+                        </p>
+                        <p className="mt-3 text-xs text-muted-foreground/80">
+                          {highlight(`/${slug}`, query)} →
+                        </p>
+                      </div>
                     </Link>
                   );
                 })}
