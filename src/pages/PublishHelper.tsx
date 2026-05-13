@@ -52,13 +52,25 @@ const PublishHelper = () => {
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
   const [includeStackTraces, setIncludeStackTraces] = useState(true);
-  const [attemptFilter, setAttemptFilter] = useState<"all" | "success" | "failure" | `status:${number}`>("all");
+  const [attemptFilter, setAttemptFilter] = useState<"all" | "success" | "failure" | `status:${number}`>(() => {
+    const saved = localStorage.getItem(FILTER_KEY);
+    if (saved === "success" || saved === "failure") return saved;
+    if (saved?.startsWith("status:")) {
+      const n = Number(saved.replace("status:", ""));
+      if (!Number.isNaN(n)) return `status:${n}` as `status:${number}`;
+    }
+    return "all";
+  });
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
     setLiveUrl(saved);
     setDraft(saved);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem(FILTER_KEY, attemptFilter);
+  }, [attemptFilter]);
 
   const filteredAttempts = useMemo(() => {
     if (!result) return [];
