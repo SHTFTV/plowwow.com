@@ -16,6 +16,7 @@ import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
 import GuestPost from "./pages/GuestPost.tsx";
 import AdminGuestPosts from "./pages/AdminGuestPosts.tsx";
+import PublishHelper from "./pages/PublishHelper.tsx";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/advanced-technology" element={<AppFeatures />} />
           <Route path="/app-features" element={<AppFeatures />} />
           <Route path="/guest-post" element={<GuestPost />} />
+          <Route path="/publish-helper" element={<PublishHelper />} />
           {legacyPageSlugs.map((slug) => (
             <Route
               key={`page-${slug}`}
