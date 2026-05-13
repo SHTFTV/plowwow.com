@@ -575,12 +575,38 @@ const PublishHelper = () => {
                 )}
 
                 {result && result.attempts.length > 0 && (
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">Filter:</span>
+                    <Select
+                      value={attemptFilter}
+                      onValueChange={(v) => setAttemptFilter(v as typeof attemptFilter)}
+                    >
+                      <SelectTrigger className="h-8 w-auto text-xs min-w-[140px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All attempts</SelectItem>
+                        <SelectItem value="success">Success only</SelectItem>
+                        <SelectItem value="failure">Failure only</SelectItem>
+                        {Array.from(new Set(result.attempts.map((a) => a.status).filter((s): s is number => s !== null)))
+                          .sort((a, b) => a - b)
+                          .map((status) => (
+                            <SelectItem key={status} value={`status:${status}`}>
+                              HTTP {status}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {result && filteredAttempts.length > 0 && (
                   <details className="mt-3 rounded-md border border-border bg-background/60">
                     <summary className="cursor-pointer px-3 py-2 text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                      Attempts ({result.attempts.length})
+                      Attempts ({filteredAttempts.length} of {result.attempts.length})
                     </summary>
                     <ol className="divide-y divide-border">
-                      {result.attempts.map((a, i) => (
+                      {filteredAttempts.map((a, i) => (
                         <li key={i} className="px-3 py-2 text-xs space-y-1">
                           <div className="flex flex-wrap items-center gap-2">
                             <Badge variant={a.ok ? "secondary" : "destructive"}>
