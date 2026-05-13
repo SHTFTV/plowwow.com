@@ -51,6 +51,7 @@ const PublishHelper = () => {
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
   const [includeStackTraces, setIncludeStackTraces] = useState(true);
+  const [attemptFilter, setAttemptFilter] = useState<"all" | "success" | "failure" | `status:${number}`>("all");
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
