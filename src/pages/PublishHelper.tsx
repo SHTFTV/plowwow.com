@@ -9,10 +9,32 @@ import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Tra
 
 const STORAGE_KEY = "plowwow:liveUrl";
 
+type RawError = {
+  name: string;
+  message: string;
+  stack?: string;
+};
+
+type ProbeAttempt = {
+  url: string;
+  mode: "cors" | "no-cors";
+  ok: boolean;
+  status: number | null;
+  ms: number;
+  error?: RawError;
+};
+
 type CheckResult =
-  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean }
-  | { kind: "reachable"; ms: number; url: string; swapped?: boolean }
-  | { kind: "error"; message: string };
+  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean; attempts: ProbeAttempt[] }
+  | { kind: "reachable"; ms: number; url: string; swapped?: boolean; attempts: ProbeAttempt[] }
+  | { kind: "error"; message: string; attempts: ProbeAttempt[] };
+
+const toRawError = (err: unknown): RawError => {
+  if (err instanceof Error) {
+    return { name: err.name, message: err.message, stack: err.stack };
+  }
+  return { name: "NonError", message: String(err) };
+};
 
 const PublishHelper = () => {
   const [liveUrl, setLiveUrl] = useState("");
