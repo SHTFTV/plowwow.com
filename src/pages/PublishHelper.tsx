@@ -225,6 +225,43 @@ const PublishHelper = () => {
     toast.success("Attempts copied as CSV");
   };
 
+  const downloadAttemptsCsv = () => {
+    if (!result || result.attempts.length === 0) return;
+    const escapeCsv = (v: string | number | null): string => {
+      if (v === null || v === undefined) return "";
+      const s = String(v);
+      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+      return s;
+    };
+    const rows: (string | number)[][] = [
+      ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
+    ];
+    for (let i = 0; i < result.attempts.length; i++) {
+      const a = result.attempts[i];
+      rows.push([
+        i + 1,
+        a.url,
+        a.mode,
+        a.ok ? "ok" : "failed",
+        a.status ?? "",
+        a.ms,
+        a.error?.name ?? "",
+        a.error?.message ?? "",
+      ]);
+    }
+    const csv = rows.map((r) => r.map(escapeCsv).join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "attempts.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    toast.success("Downloaded attempts.csv");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
