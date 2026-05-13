@@ -155,6 +155,31 @@ const PublishHelper = () => {
     toast.success("Debug JSON copied");
   };
 
+  const copyAttemptsText = async () => {
+    if (!result || result.attempts.length === 0) return;
+    const lines = [
+      `Attempts (${result.attempts.length})`,
+      "—".repeat(40),
+    ];
+    for (const a of result.attempts) {
+      lines.push(`URL: ${a.url}`);
+      lines.push(`Mode: ${a.mode}`);
+      lines.push(`Result: ${a.ok ? "ok" : "failed"}`);
+      if (a.status !== null) lines.push(`Status: HTTP ${a.status}`);
+      lines.push(`Time: ${a.ms} ms`);
+      if (a.error) {
+        lines.push(`Error: ${a.error.name}: ${a.error.message}`);
+        if (a.error.stack) {
+          lines.push("Stack trace:");
+          lines.push(a.error.stack);
+        }
+      }
+      lines.push("");
+    }
+    await navigator.clipboard.writeText(lines.join("\n"));
+    toast.success("Attempts copied as text");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
