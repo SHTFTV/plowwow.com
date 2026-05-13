@@ -166,6 +166,14 @@ const PublishHelper = () => {
                 </p>
                 <p className="font-mono text-sm break-all mb-3">{liveUrl}</p>
                 <div className="flex flex-wrap gap-2">
+                  <Button size="sm" onClick={verify} disabled={checking}>
+                    {checking ? (
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    ) : (
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                    )}
+                    {checking ? "Checking…" : "Verify reachable"}
+                  </Button>
                   <Button size="sm" variant="secondary" onClick={copy}>
                     <Copy className="w-4 h-4 mr-2" /> Copy
                   </Button>
@@ -178,6 +186,40 @@ const PublishHelper = () => {
                     <Trash2 className="w-4 h-4 mr-2" /> Clear
                   </Button>
                 </div>
+
+                {result && (
+                  <div className="mt-3 text-sm flex items-start gap-2">
+                    {result.kind === "ok" && (
+                      <>
+                        {result.status >= 200 && result.status < 400 ? (
+                          <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                        ) : (
+                          <XCircle className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
+                        )}
+                        <span>
+                          HTTP <strong>{result.status}</strong> · {result.ms} ms
+                        </span>
+                      </>
+                    )}
+                    {result.kind === "reachable" && (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                        <span>
+                          Reachable in <strong>{result.ms} ms</strong> — status hidden by
+                          cross-origin policy (normal for published sites).
+                        </span>
+                      </>
+                    )}
+                    {result.kind === "error" && (
+                      <>
+                        <XCircle className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
+                        <span className="text-muted-foreground">
+                          Could not reach the URL: {result.message}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </CardContent>
