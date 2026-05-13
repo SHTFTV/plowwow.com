@@ -10,8 +10,8 @@ import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Tra
 const STORAGE_KEY = "plowwow:liveUrl";
 
 type CheckResult =
-  | { kind: "ok"; status: number; ms: number }
-  | { kind: "reachable"; ms: number }
+  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean }
+  | { kind: "reachable"; ms: number; url: string; swapped?: boolean }
   | { kind: "error"; message: string };
 
 const PublishHelper = () => {
