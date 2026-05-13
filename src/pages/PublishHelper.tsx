@@ -204,7 +204,7 @@ const PublishHelper = () => {
       if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
       return s;
     };
-    const rows = [
+    const rows: (string | number)[][] = [
       ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
     ];
     for (let i = 0; i < result.attempts.length; i++) {
