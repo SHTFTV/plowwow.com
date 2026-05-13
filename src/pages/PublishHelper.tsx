@@ -10,8 +10,8 @@ import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Tra
 const STORAGE_KEY = "plowwow:liveUrl";
 
 type CheckResult =
-  | { kind: "ok"; status: number; ms: number }
-  | { kind: "reachable"; ms: number }
+  | { kind: "ok"; status: number; ms: number; url: string; swapped?: boolean }
+  | { kind: "reachable"; ms: number; url: string; swapped?: boolean }
   | { kind: "error"; message: string };
 
 const PublishHelper = () => {
@@ -63,32 +63,74 @@ const PublishHelper = () => {
     toast.success("Copied to clipboard");
   };
 
+  const swapScheme = (url: string) =>
+    url.startsWith("https://")
+      ? "http://" + url.slice("https://".length)
+      : url.startsWith("http://")
+      ? "https://" + url.slice("http://".length)
+      : url;
+
+  const probe = async (url: string) => {
+    const start = performance.now();
+    try {
+      const res = await fetch(url, { method: "GET", cache: "no-store" });
+      return { ok: true as const, status: res.status, ms: Math.round(performance.now() - start) };
+    } catch {
+      try {
+        await fetch(url, { method: "GET", mode: "no-cors", cache: "no-store" });
+        return {
+          ok: true as const,
+          status: null as number | null,
+          ms: Math.round(performance.now() - start),
+        };
+      } catch (err) {
+        return {
+          ok: false as const,
+          message: err instanceof Error ? err.message : "Network error",
+        };
+      }
+    }
+  };
+
   const verify = async () => {
     if (!liveUrl) return;
     setChecking(true);
     setResult(null);
-    const start = performance.now();
-    try {
-      const res = await fetch(liveUrl, { method: "GET", cache: "no-store" });
-      const ms = Math.round(performance.now() - start);
-      setResult({ kind: "ok", status: res.status, ms });
-      if (res.ok) toast.success(`${res.status} in ${ms} ms`);
-      else toast.error(`HTTP ${res.status}`);
-    } catch {
-      // Likely CORS — try no-cors to confirm reachability without reading the status
-      try {
-        await fetch(liveUrl, { method: "GET", mode: "no-cors", cache: "no-store" });
-        const ms = Math.round(performance.now() - start);
-        setResult({ kind: "reachable", ms });
-        toast.success(`Reachable in ${ms} ms (status hidden by CORS)`);
-      } catch (err) {
-        const message = err instanceof Error ? err.message : "Network error";
-        setResult({ kind: "error", message });
-        toast.error("Could not reach the URL");
+
+    let attempt = await probe(liveUrl);
+    let usedUrl = liveUrl;
+    let swapped = false;
+
+    if (!attempt.ok) {
+      const alt = swapScheme(liveUrl);
+      if (alt !== liveUrl) {
+        toast(`Retrying with ${alt.startsWith("https") ? "https" : "http"}…`);
+        const second = await probe(alt);
+        if (second.ok) {
+          attempt = second;
+          usedUrl = alt;
+          swapped = true;
+        }
       }
-    } finally {
-      setChecking(false);
     }
+
+    if (attempt.ok) {
+      if (attempt.status !== null) {
+        setResult({ kind: "ok", status: attempt.status, ms: attempt.ms, url: usedUrl, swapped });
+        const msg = `${attempt.status} in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""}`;
+        attempt.status >= 200 && attempt.status < 400 ? toast.success(msg) : toast.error(msg);
+      } else {
+        setResult({ kind: "reachable", ms: attempt.ms, url: usedUrl, swapped });
+        toast.success(
+          `Reachable in ${attempt.ms} ms${swapped ? " (after scheme swap)" : ""} (status hidden by CORS)`,
+        );
+      }
+    } else {
+      setResult({ kind: "error", message: attempt.message });
+      toast.error("Could not reach the URL on http or https");
+    }
+
+    setChecking(false);
   };
 
   return (
@@ -198,6 +240,9 @@ const PublishHelper = () => {
                         )}
                         <span>
                           HTTP <strong>{result.status}</strong> · {result.ms} ms
+                          {result.swapped && (
+                            <span className="text-muted-foreground"> · via {result.url}</span>
+                          )}
                         </span>
                       </>
                     )}
@@ -205,8 +250,11 @@ const PublishHelper = () => {
                       <>
                         <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
                         <span>
-                          Reachable in <strong>{result.ms} ms</strong> — status hidden by
-                          cross-origin policy (normal for published sites).
+                          Reachable in <strong>{result.ms} ms</strong>
+                          {result.swapped && (
+                            <span className="text-muted-foreground"> · via {result.url}</span>
+                          )}
+                          {" "}— status hidden by cross-origin policy (normal for published sites).
                         </span>
                       </>
                     )}
