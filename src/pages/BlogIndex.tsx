@@ -660,7 +660,7 @@ const BlogIndex = () => {
         </section>
 
         <section className="py-12">
-          <div className="container max-w-4xl">
+          <div className="container max-w-6xl">
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
