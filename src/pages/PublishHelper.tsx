@@ -112,35 +112,45 @@ const PublishHelper = () => {
 
   const copyDebugJson = async () => {
     if (!result) return;
-    const payload = {
+    const base = {
       savedUrl: liveUrl,
       checkedAt: new Date().toISOString(),
       userAgent: navigator.userAgent,
-      result:
-        result.kind === "ok"
-          ? {
+      attempts: result.attempts,
+    };
+    const payload =
+      result.kind === "ok"
+        ? {
+            ...base,
+            result: {
               outcome: "ok" as const,
               triedUrl: result.url,
               schemeSwapped: !!result.swapped,
               httpStatus: result.status,
               responseTimeMs: result.ms,
-            }
-          : result.kind === "reachable"
-          ? {
+            },
+          }
+        : result.kind === "reachable"
+        ? {
+            ...base,
+            result: {
               outcome: "reachable" as const,
               triedUrl: result.url,
               schemeSwapped: !!result.swapped,
               httpStatus: null,
               httpStatusNote: "unavailable due to CORS",
               responseTimeMs: result.ms,
-            }
-          : {
+            },
+          }
+        : {
+            ...base,
+            result: {
               outcome: "error" as const,
               triedUrl: liveUrl,
               schemeSwapAttempted: true,
               message: result.message,
             },
-    };
+          };
     await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
     toast.success("Debug JSON copied");
   };
