@@ -5,6 +5,10 @@
   <url><loc>/west-vancouver-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>/squamish-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>/tsawwassen-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/lynn-valley-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/steveston-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/fort-langley-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/cloverdale-snow-removal</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>/burnaby</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>/intelligence</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
