@@ -240,6 +240,9 @@ const PublishHelper = () => {
                         )}
                         <span>
                           HTTP <strong>{result.status}</strong> · {result.ms} ms
+                          {result.swapped && (
+                            <span className="text-muted-foreground"> · via {result.url}</span>
+                          )}
                         </span>
                       </>
                     )}
@@ -247,8 +250,11 @@ const PublishHelper = () => {
                       <>
                         <CheckCircle2 className="w-4 h-4 mt-0.5 text-primary shrink-0" />
                         <span>
-                          Reachable in <strong>{result.ms} ms</strong> — status hidden by
-                          cross-origin policy (normal for published sites).
+                          Reachable in <strong>{result.ms} ms</strong>
+                          {result.swapped && (
+                            <span className="text-muted-foreground"> · via {result.url}</span>
+                          )}
+                          {" "}— status hidden by cross-origin policy (normal for published sites).
                         </span>
                       </>
                     )}
