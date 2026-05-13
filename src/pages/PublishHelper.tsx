@@ -610,6 +610,11 @@ const PublishHelper = () => {
                           ))}
                       </SelectContent>
                     </Select>
+                    {attemptFilter !== "all" && (
+                      <Button size="sm" variant="ghost" className="h-8 px-2 text-xs" onClick={() => setAttemptFilter("all")}>
+                        <RefreshCw className="w-3 h-3 mr-1" /> Reset
+                      </Button>
+                    )}
                   </div>
                 )}
 
