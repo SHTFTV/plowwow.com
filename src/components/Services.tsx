@@ -8,25 +8,25 @@ const services = [
     title: "Snow Clearing",
     description: "Clearing Snow with Priority Service Makes For The Best Safety",
     image: snowClearing,
-    alt: "Crew shoveling and clearing fresh snow from a residential walkway in BC",
+    alt: "PlowWow branded Ford F-350 snow plow truck with yellow salt spreader parked at the warehouse, ready for priority snow clearing service in BC",
   },
   {
     title: "Snow Plowing",
     description: "24/7 Snow Plowing and Snow Removal — We Put The Wow in Plow",
     image: snowPlowing,
-    alt: "Snow plow truck clearing a commercial parking lot during a winter storm",
+    alt: "PlowWow snow plow truck and ATV plow on display at a snow industry tradeshow with the PlowWow.com mascot banner overhead",
   },
   {
     title: "Salting and Sanding",
     description: "Making Slip Free Surfaces is What We Do Best. Keeping Accurate Records",
     image: salting,
-    alt: "Worker spreading de-icing salt and sand on an icy sidewalk for slip-free traction",
+    alt: "PlowWow mascot in an orange safety vest pushing a stainless steel walk-behind salt spreader on a cleared residential sidewalk",
   },
   {
     title: "Snow Relocation",
     description: "When Snow Events Happen, Snow Relocation Might Be An Option",
     image: snowRelocation,
-    alt: "Heavy equipment loading and hauling away large piles of snow after a major snowfall",
+    alt: "PlowWow-wrapped skid steer loader with snowflake graphics relocating large snow piles at a commercial loading dock",
   },
 ];
 
