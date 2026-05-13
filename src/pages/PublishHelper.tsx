@@ -43,6 +43,7 @@ const PublishHelper = () => {
   const [draft, setDraft] = useState("");
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
+  const [includeStackTraces, setIncludeStackTraces] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
