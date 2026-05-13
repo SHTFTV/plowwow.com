@@ -1,0 +1,11 @@
+# PlowWow
+
+> 24/7 snow removal, salting, and de-icing across Greater Vancouver, BC — for residential, strata, and commercial properties. Also the maker of PlowWow snow removal software for contractors.
+
+## Pages
+
+- [Home](/): Service overview and quote request.
+- [Burnaby](/burnaby): Local snow removal for Burnaby with live weather and SD41 alerts.
+- [Intelligence](/intelligence): PWIE engine, Weather Brain, Salt-Scan AI, Ghost Fleet GPS, Wow-Shield™ vault.
+- [App Features](/app-features): PlowWow snow removal software and dispatch app for contractors.
+- [Blog](/blog): Snow removal insights, neighborhood guides, and strata tips.

@@ -97,7 +97,31 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       }
       el.setAttribute("content", content);
     };
+    const setProp = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    const setCanonical = (href: string) => {
+      let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+      if (!el) {
+        el = document.createElement("link");
+        el.rel = "canonical";
+        document.head.appendChild(el);
+      }
+      el.href = href;
+    };
     setMeta("description", description);
+    const path = `/${slug}`;
+    setProp("og:title", title);
+    setProp("og:description", description);
+    setProp("og:url", path);
+    setProp("og:type", kind === "blog" ? "article" : "website");
+    setCanonical(path);
 
     // FAQPage JSON-LD for SEO / AEO / LLM grounding.
     const ldId = "legacy-page-faq-jsonld";
@@ -117,10 +141,30 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       });
       document.head.appendChild(ld);
     }
+
+    // Article JSON-LD for blog posts.
+    const articleId = "legacy-page-article-jsonld";
+    document.getElementById(articleId)?.remove();
+    if (kind === "blog") {
+      const art = document.createElement("script");
+      art.type = "application/ld+json";
+      art.id = articleId;
+      art.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
+        description,
+        author: { "@type": "Organization", name: "PlowWow" },
+        publisher: { "@type": "Organization", name: "PlowWow" },
+        mainEntityOfPage: path,
+      });
+      document.head.appendChild(art);
+    }
     return () => {
       document.getElementById(ldId)?.remove();
+      document.getElementById(articleId)?.remove();
     };
-  }, [title, description, faqs]);
+  }, [title, description, faqs, kind, slug]);
 
   return (
     <div className="min-h-screen">
