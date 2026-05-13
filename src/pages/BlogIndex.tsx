@@ -156,10 +156,37 @@ const BlogIndex = () => {
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
 
+  const rawCat = searchParams.get("cat") ?? "All";
+  const activeCat: Category = (BLOG_CATEGORIES as string[]).includes(rawCat)
+    ? (rawCat as Category)
+    : "All";
+
+  // Per-post category, memoized so chip filtering and badge rendering share
+  // the same derivation without re-parsing markdown on every render.
+  const postCategories = useMemo(() => {
+    const map: Record<string, Category> = {};
+    for (const slug of allPosts) map[slug] = categoryFor(slug, titleFor(slug));
+    return map;
+  }, [allPosts]);
+
+  // Counts per category (computed against ALL posts, ignoring the active
+  // category filter so chip counts don't change as the user filters).
+  const categoryCounts = useMemo(() => {
+    const counts: Record<Category, number> = {
+      All: allPosts.length,
+      Neighborhoods: 0,
+      Strata: 0,
+      Commercial: 0,
+      "Tips & News": 0,
+    };
+    for (const slug of allPosts) counts[postCategories[slug]] += 1;
+    return counts;
+  }, [allPosts, postCategories]);
+
   const posts = useMemo(() => {
-    if (terms.length === 0) return allPosts;
     return allPosts.filter((slug) => {
-      // Build one haystack per post and require every term to appear somewhere.
+      if (activeCat !== "All" && postCategories[slug] !== activeCat) return false;
+      if (terms.length === 0) return true;
       const haystack = (
         titleFor(slug) +
         " " +
@@ -169,7 +196,15 @@ const BlogIndex = () => {
       ).toLowerCase();
       return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, terms]);
+  }, [allPosts, terms, activeCat, postCategories]);
+
+  const setCategory = (next: Category) => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "All") params.delete("cat");
+    else params.set("cat", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
 
   const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
 
