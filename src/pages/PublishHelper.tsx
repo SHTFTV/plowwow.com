@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { CheckCircle2, Copy, Download, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
@@ -44,12 +51,22 @@ const PublishHelper = () => {
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
   const [includeStackTraces, setIncludeStackTraces] = useState(true);
+  const [attemptFilter, setAttemptFilter] = useState<"all" | "success" | "failure" | `status:${number}`>("all");
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
     setLiveUrl(saved);
     setDraft(saved);
   }, []);
+
+  const filteredAttempts = useMemo(() => {
+    if (!result) return [];
+    if (attemptFilter === "all") return result.attempts;
+    if (attemptFilter === "success") return result.attempts.filter((a) => a.ok);
+    if (attemptFilter === "failure") return result.attempts.filter((a) => !a.ok);
+    const status = Number(attemptFilter.replace("status:", ""));
+    return result.attempts.filter((a) => a.status === status);
+  }, [result, attemptFilter]);
 
   const normalize = (v: string) => {
     const t = v.trim();
@@ -159,16 +176,16 @@ const PublishHelper = () => {
   };
 
   const copyAttemptsText = async () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const lines: string[] = [];
     lines.push("=".repeat(50));
-    lines.push(`ATTEMPTS  (${result.attempts.length})`);
+    lines.push(`ATTEMPTS  (${filteredAttempts.length})`);
     lines.push(`Saved URL: ${liveUrl}`);
     lines.push("=".repeat(50));
     lines.push("");
 
-    for (let i = 0; i < result.attempts.length; i++) {
-      const a = result.attempts[i];
+    for (let i = 0; i < filteredAttempts.length; i++) {
+      const a = filteredAttempts[i];
       lines.push("-".repeat(50));
       lines.push(`ATTEMPT ${i + 1}`);
       lines.push(`  URL   : ${a.url}`);
@@ -197,7 +214,7 @@ const PublishHelper = () => {
   };
 
   const copyAttemptsCsv = async () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const escapeCsv = (v: string | number | null): string => {
       if (v === null || v === undefined) return "";
       const s = String(v);
@@ -207,8 +224,8 @@ const PublishHelper = () => {
     const rows: (string | number)[][] = [
       ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
     ];
-    for (let i = 0; i < result.attempts.length; i++) {
-      const a = result.attempts[i];
+    for (let i = 0; i < filteredAttempts.length; i++) {
+      const a = filteredAttempts[i];
       rows.push([
         i + 1,
         a.url,
@@ -226,7 +243,7 @@ const PublishHelper = () => {
   };
 
   const downloadAttemptsCsv = () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const escapeCsv = (v: string | number | null): string => {
       if (v === null || v === undefined) return "";
       const s = String(v);
@@ -236,8 +253,8 @@ const PublishHelper = () => {
     const rows: (string | number)[][] = [
       ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
     ];
-    for (let i = 0; i < result.attempts.length; i++) {
-      const a = result.attempts[i];
+    for (let i = 0; i < filteredAttempts.length; i++) {
+      const a = filteredAttempts[i];
       rows.push([
         i + 1,
         a.url,
@@ -263,12 +280,12 @@ const PublishHelper = () => {
   };
 
   const downloadAttemptsJson = () => {
-    if (!result || result.attempts.length === 0) return;
+    if (!result || filteredAttempts.length === 0) return;
     const payload = {
       savedUrl: liveUrl,
       checkedAt: new Date().toISOString(),
       userAgent: navigator.userAgent,
-      attempts: result.attempts,
+      attempts: filteredAttempts,
     };
     const json = JSON.stringify(payload, null, 2);
     const blob = new Blob([json], { type: "application/json" });
@@ -558,12 +575,38 @@ const PublishHelper = () => {
                 )}
 
                 {result && result.attempts.length > 0 && (
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">Filter:</span>
+                    <Select
+                      value={attemptFilter}
+                      onValueChange={(v) => setAttemptFilter(v as typeof attemptFilter)}
+                    >
+                      <SelectTrigger className="h-8 w-auto text-xs min-w-[140px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">All attempts</SelectItem>
+                        <SelectItem value="success">Success only</SelectItem>
+                        <SelectItem value="failure">Failure only</SelectItem>
+                        {Array.from(new Set(result.attempts.map((a) => a.status).filter((s): s is number => s !== null)))
+                          .sort((a, b) => a - b)
+                          .map((status) => (
+                            <SelectItem key={status} value={`status:${status}`}>
+                              HTTP {status}
+                            </SelectItem>
+                          ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {result && filteredAttempts.length > 0 && (
                   <details className="mt-3 rounded-md border border-border bg-background/60">
                     <summary className="cursor-pointer px-3 py-2 text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                      Attempts ({result.attempts.length})
+                      Attempts ({filteredAttempts.length} of {result.attempts.length})
                     </summary>
                     <ol className="divide-y divide-border">
-                      {result.attempts.map((a, i) => (
+                      {filteredAttempts.map((a, i) => (
                         <li key={i} className="px-3 py-2 text-xs space-y-1">
                           <div className="flex flex-wrap items-center gap-2">
                             <Badge variant={a.ok ? "secondary" : "destructive"}>
