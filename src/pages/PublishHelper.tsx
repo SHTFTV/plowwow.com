@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { CheckCircle2, Copy, ExternalLink, Loader2, RefreshCw, Rocket, Save, Trash2, XCircle } from "lucide-react";
 
 const STORAGE_KEY = "plowwow:liveUrl";
@@ -41,6 +43,7 @@ const PublishHelper = () => {
   const [draft, setDraft] = useState("");
   const [checking, setChecking] = useState(false);
   const [result, setResult] = useState<CheckResult | null>(null);
+  const [includeStackTraces, setIncludeStackTraces] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) ?? "";
@@ -169,7 +172,7 @@ const PublishHelper = () => {
       lines.push(`Time: ${a.ms} ms`);
       if (a.error) {
         lines.push(`Error: ${a.error.name}: ${a.error.message}`);
-        if (a.error.stack) {
+        if (includeStackTraces && a.error.stack) {
           lines.push("Stack trace:");
           lines.push(a.error.stack);
         }
@@ -412,7 +415,7 @@ const PublishHelper = () => {
                 )}
 
                 {result && (
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
                     <Button size="sm" variant="outline" onClick={copyDebug}>
                       <Copy className="w-4 h-4 mr-2" /> Copy debug summary
                     </Button>
@@ -423,6 +426,18 @@ const PublishHelper = () => {
                       <Button size="sm" variant="outline" onClick={copyAttemptsText}>
                         <Copy className="w-4 h-4 mr-2" /> Copy attempts as text
                       </Button>
+                    )}
+                    {result.attempts.length > 0 && (
+                      <div className="flex items-center gap-2 ml-auto">
+                        <Switch
+                          id="stack-toggle"
+                          checked={includeStackTraces}
+                          onCheckedChange={setIncludeStackTraces}
+                        />
+                        <Label htmlFor="stack-toggle" className="text-xs cursor-pointer">
+                          Include stack traces
+                        </Label>
+                      </div>
                     )}
                   </div>
                 )}
