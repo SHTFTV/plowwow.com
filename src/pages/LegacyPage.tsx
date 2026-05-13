@@ -36,12 +36,15 @@ export const legacyBlogSlugs = Object.keys(blogBySlug);
 
 const parseFrontmatter = (raw: string) => {
   // Jina Reader emits "Title: ...\nURL Source: ...\n\nMarkdown Content:\n<body>"
+  // Optional "Description: ..." line is honored when present.
   const titleMatch = raw.match(/^Title:\s*(.+)$/m);
   const urlMatch = raw.match(/^URL Source:\s*(.+)$/m);
+  const descMatch = raw.match(/^Description:\s*(.+)$/m);
   const bodyMatch = raw.match(/Markdown Content:\s*\n([\s\S]*)$/);
   return {
     title: titleMatch?.[1]?.trim() ?? "PlowWow",
     sourceUrl: urlMatch?.[1]?.trim() ?? "",
+    metaDescription: descMatch?.[1]?.trim() ?? "",
     body: (bodyMatch?.[1] ?? raw).trim(),
   };
 };
@@ -79,10 +82,12 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
   if (!raw) return <Navigate to="/" replace />;
 
-  const { title, body } = parseFrontmatter(raw);
-  const description = truncateForMeta(
-    body.replace(/[#>*_`\[\]()!]/g, " ").replace(/\s+/g, " ").trim(),
-  );
+  const { title, body, metaDescription } = parseFrontmatter(raw);
+  const description = metaDescription
+    ? truncateForMeta(metaDescription)
+    : truncateForMeta(
+        body.replace(/[#>*_`\[\]()!]/g, " ").replace(/\s+/g, " ").trim(),
+      );
   const faqs = extractFaqs(body);
 
   useEffect(() => {

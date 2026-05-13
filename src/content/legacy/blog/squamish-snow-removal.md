@@ -1,5 +1,6 @@
-Title: Squamish Snow Removal | PlowWow Sea-to-Sky 24/7 Plowing & Ice Control
+Title: Squamish Snow Removal | Sea-to-Sky Plowing | PlowWow
 URL Source: https://plowwow.com/squamish-snow-removal/
+Description: PlowWow handles Squamish snow plowing, salting, and 24/7 ice control across Garibaldi Highlands, Valleycliffe, Brackendale, and the Sea-to-Sky corridor.
 
 Markdown Content:
 # Squamish Snow Removal Services by PlowWow
