@@ -172,7 +172,7 @@ const PublishHelper = () => {
       lines.push(`Time: ${a.ms} ms`);
       if (a.error) {
         lines.push(`Error: ${a.error.name}: ${a.error.message}`);
-        if (a.error.stack) {
+        if (includeStackTraces && a.error.stack) {
           lines.push("Stack trace:");
           lines.push(a.error.stack);
         }
