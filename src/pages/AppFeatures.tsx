@@ -18,14 +18,27 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const TITLE = "PlowWow App — Snow Removal Software & Dispatch App for Contractors";
+const TITLE = "PlowWow App — Snow Removal Software for Contractors";
 const DESCRIPTION =
-  "PlowWow is snow removal software built for contractors: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield™ liability vault, Ghost Fleet GPS, QuickBooks sync, and progress billing. $10/month per 100,000 population. Try it free.";
+  "Snow removal software for contractors: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield vault, GPS tracking, QuickBooks sync.";
+const PATH = "/app-features";
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
   if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }
   el.content = content;
+};
+
+const setProp = (property: string, content: string) => {
+  let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+  if (!el) { el = document.createElement("meta"); el.setAttribute("property", property); document.head.appendChild(el); }
+  el.content = content;
+};
+
+const setCanonical = (href: string) => {
+  let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
+  el.href = href;
 };
 
 const features = [

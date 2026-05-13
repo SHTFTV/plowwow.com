@@ -10,9 +10,10 @@ import WowShield from "@/components/intelligence/WowShield";
 import GhostFleet from "@/components/intelligence/GhostFleet";
 import IntelligenceCTA from "@/components/intelligence/IntelligenceCTA";
 
-const TITLE = "Snow Removal Intelligence | PlowWow PWIE Engine, Weather Brain & Wow-Shield";
+const TITLE = "PlowWow Snow Intelligence — PWIE & Wow-Shield";
 const DESCRIPTION =
-  "PlowWow's Snow Intelligence stack: the PWIE Ice-Fighter formula, Weather Brain forecasting, Salt-Scan AI, Ghost Fleet GPS dispatch and the Wow-Shield™ Liability Vault. Proof of work for BC strata and commercial properties.";
+  "PlowWow's snow intelligence stack: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Ghost Fleet GPS, and Wow-Shield™ liability vault.";
+const PATH = "/intelligence";
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -24,10 +25,35 @@ const setMeta = (name: string, content: string) => {
   el.content = content;
 };
 
+const setProp = (property: string, content: string) => {
+  let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute("property", property);
+    document.head.appendChild(el);
+  }
+  el.content = content;
+};
+
+const setCanonical = (href: string) => {
+  let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = "canonical";
+    document.head.appendChild(el);
+  }
+  el.href = href;
+};
+
 const Intelligence = () => {
   useEffect(() => {
     document.title = TITLE;
     setMeta("description", DESCRIPTION);
+    setProp("og:title", TITLE);
+    setProp("og:description", DESCRIPTION);
+    setProp("og:url", PATH);
+    setProp("og:type", "website");
+    setCanonical(PATH);
 
     const ldId = "intelligence-jsonld";
     document.getElementById(ldId)?.remove();
