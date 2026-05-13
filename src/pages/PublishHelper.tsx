@@ -470,6 +470,11 @@ const PublishHelper = () => {
                       </Button>
                     )}
                     {result.attempts.length > 0 && (
+                      <Button size="sm" variant="outline" onClick={copyAttemptsCsv}>
+                        <Copy className="w-4 h-4 mr-2" /> Copy attempts as CSV
+                      </Button>
+                    )}
+                    {result.attempts.length > 0 && (
                       <div className="flex items-center gap-2 ml-auto">
                         <Switch
                           id="stack-toggle"
