@@ -196,6 +196,35 @@ const PublishHelper = () => {
     toast.success("Attempts copied as text");
   };
 
+  const copyAttemptsCsv = async () => {
+    if (!result || result.attempts.length === 0) return;
+    const escapeCsv = (v: string | number | null): string => {
+      if (v === null || v === undefined) return "";
+      const s = String(v);
+      if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+      return s;
+    };
+    const rows: (string | number)[][] = [
+      ["Attempt", "URL", "Mode", "Result", "HTTP Status", "Time (ms)", "Error Name", "Error Message"],
+    ];
+    for (let i = 0; i < result.attempts.length; i++) {
+      const a = result.attempts[i];
+      rows.push([
+        i + 1,
+        a.url,
+        a.mode,
+        a.ok ? "ok" : "failed",
+        a.status ?? "",
+        a.ms,
+        a.error?.name ?? "",
+        a.error?.message ?? "",
+      ]);
+    }
+    const csv = rows.map((r) => r.map(escapeCsv).join(",")).join("\n");
+    await navigator.clipboard.writeText(csv);
+    toast.success("Attempts copied as CSV");
+  };
+
   const swapScheme = (url: string) =>
     url.startsWith("https://")
       ? "http://" + url.slice("https://".length)
@@ -438,6 +467,11 @@ const PublishHelper = () => {
                     {result.attempts.length > 0 && (
                       <Button size="sm" variant="outline" onClick={copyAttemptsText}>
                         <Copy className="w-4 h-4 mr-2" /> Copy attempts as text
+                      </Button>
+                    )}
+                    {result.attempts.length > 0 && (
+                      <Button size="sm" variant="outline" onClick={copyAttemptsCsv}>
+                        <Copy className="w-4 h-4 mr-2" /> Copy attempts as CSV
                       </Button>
                     )}
                     {result.attempts.length > 0 && (
