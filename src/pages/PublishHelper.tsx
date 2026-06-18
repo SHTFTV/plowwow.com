@@ -418,27 +418,21 @@ const PublishHelper = () => {
         <Card className="mb-6">
           <CardHeader>
             <CardTitle className="text-lg">How to publish</CardTitle>
-            <CardDescription>Publishing happens inside the Lovable editor — not from this page.</CardDescription>
+            <CardDescription>Run a production build and upload it to your host.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-sm">
             <div>
-              <Badge variant="secondary" className="mb-2">Desktop</Badge>
+              <Badge variant="secondary" className="mb-2">Build</Badge>
               <p className="text-muted-foreground">
-                Click the <strong className="text-foreground">Publish</strong> button in the
-                top-right of the Lovable editor → <strong className="text-foreground">Update</strong>.
+                Run <strong className="text-foreground">bun run build</strong>. The static site
+                is generated in the <strong className="text-foreground">dist/</strong> folder.
               </p>
             </div>
             <div>
-              <Badge variant="secondary" className="mb-2">Mobile</Badge>
+              <Badge variant="secondary" className="mb-2">Deploy</Badge>
               <p className="text-muted-foreground">
-                Switch to Preview, tap the <strong className="text-foreground">…</strong> button
-                in the bottom-right → <strong className="text-foreground">Publish</strong>.
-              </p>
-            </div>
-            <div className="pt-2 border-t border-border">
-              <p className="text-muted-foreground">
-                Frontend changes go live after you click Update. Backend changes (functions,
-                database) deploy automatically.
+                Drag the <strong className="text-foreground">dist/</strong> folder into Netlify
+                (or your host of choice) to publish.
               </p>
             </div>
           </CardContent>
@@ -455,7 +449,7 @@ const PublishHelper = () => {
             <div className="flex flex-col sm:flex-row gap-2">
               <Input
                 type="url"
-                placeholder="https://your-site.lovable.app"
+                placeholder="https://plowwow.com"
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && save()}
