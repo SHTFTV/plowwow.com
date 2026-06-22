@@ -1,4 +1,5 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import NotFound from "./NotFound";
 import { Phone, ShieldCheck, Truck, Clock, MapPin, Snowflake } from "lucide-react";
 import {
   Bar,
@@ -37,7 +38,7 @@ const CityPage = () => {
   const normalizedSlug = citySlug?.replace(/\/+$/, "");
   const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
 
-  if (!city) return <Navigate to="/" replace />;
+  if (!city) return <NotFound />;
 
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = truncateForMeta(city.intro);
