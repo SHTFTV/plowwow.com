@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
-    slug: "brentwood-burnaby-strata-snow-removal",
-    title: "Brentwood Burnaby Strata Snow Removal",
+    slug: "lougheed-town-centre-burnaby-snow-removal",
+    title: "Lougheed Town Centre Burnaby",
     blurb:
-      "Mid-rise condos, townhomes, and mixed-use buildings near Brentwood Town Centre — auto-dispatch, fixed seasonal pricing, full photo + GPS logs.",
-    image: "/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
-    alt: "PlowWow plow truck clearing a Brentwood Burnaby strata townhome complex at dawn",
+      "Mall lots, high-rise strata, and SkyTrain park-and-rides cleared and salted before North Burnaby wakes up.",
+    image: "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
+    alt: "PlowWow plow truck clearing a snowy commercial parking lot at Lougheed Highway and North Road in north Burnaby at dawn",
   },
   {
-    slug: "capitol-hill-burnaby-commercial-snow-removal",
-    title: "Capitol Hill Burnaby Commercial Snow Removal",
+    slug: "highgate-burnaby-strata-snow-removal",
+    title: "Highgate Burnaby Strata",
     blurb:
-      "Hastings Heights retail and office lots cleared and salted before open. Elevation-tuned dispatch — when the hill gets snow, the trucks roll.",
-    image: "/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
-    alt: "Skid-steer clearing a Capitol Hill Burnaby commercial parking lot at sunrise",
+      "High-rise and townhome strata along Kingsway and Edmonds — auto-dispatch, photo + GPS logs, fixed seasonal pricing.",
+    image: "/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+    alt: "PlowWow crew salting a snow-covered high-rise strata entrance and sidewalk along Kingsway in south Burnaby",
   },
   {
-    slug: "westwood-plateau-coquitlam-parking-lot-snow-removal",
-    title: "Westwood Plateau Coquitlam Parking Lots",
+    slug: "hastings-sunrise-east-vancouver-snow-removal",
+    title: "Hastings-Sunrise East Vancouver",
     blurb:
-      "The Plateau gets 2x the snow of the rest of Metro Vancouver. Our parking lot program is built for that elevation — fixed pricing, hauling included.",
-    image: "/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
-    alt: "PlowWow plow truck clearing a large Westwood Plateau Coquitlam parking lot in heavy snow",
+      "Character-home driveways, Hastings Street storefronts, and PNE-area commercial lots — city sidewalk bylaw compliance guaranteed.",
+    image: "/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
+    alt: "PlowWow worker shoveling and salting a snow-covered character home sidewalk on a tree-lined East Hastings street at dawn",
   },
   {
-    slug: "austin-heights-coquitlam-strip-mall-snow-removal",
-    title: "Austin Heights Coquitlam Strip Malls",
+    slug: "mount-pleasant-east-vancouver-snow-removal",
+    title: "Mount Pleasant East Vancouver",
     blurb:
-      "Pre-open lot clearing, salted storefront sidewalks, and rear loading access — guaranteed completion windows for every Austin Avenue tenant.",
-    image: "/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
-    alt: "Cleared and salted strip mall storefront sidewalk in Austin Heights Coquitlam at dawn",
+      "Main Street brewery and retail storefronts, mid-rise strata, and creative-office buildings cleared and salted before open.",
+    image: "/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
+    alt: "PlowWow crew salting the snow-covered sidewalk in front of a Main Street brewery and brick storefront at dawn",
   },
 ];
 
