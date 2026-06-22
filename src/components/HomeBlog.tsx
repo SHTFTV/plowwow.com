@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
-    slug: "lynn-valley-snow-removal",
-    title: "Lynn Valley Snow Removal",
+    slug: "brentwood-burnaby-strata-snow-removal",
+    title: "Brentwood Burnaby Strata Snow Removal",
     blurb:
-      "How PlowWow handles the North Shore snow belt — from Mountain Highway to Upper Lynn — when the rain–snow line drops.",
-    image: "/blog-images/lynn-valley-snow-removal.jpg",
-    alt: "Snowy Lynn Valley street at dawn with North Shore mountains behind",
+      "Mid-rise condos, townhomes, and mixed-use buildings near Brentwood Town Centre — auto-dispatch, fixed seasonal pricing, full photo + GPS logs.",
+    image: "/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
+    alt: "PlowWow plow truck clearing a Brentwood Burnaby strata townhome complex at dawn",
   },
   {
-    slug: "steveston-snow-removal",
-    title: "Steveston Snow Removal",
+    slug: "capitol-hill-burnaby-commercial-snow-removal",
+    title: "Capitol Hill Burnaby Commercial Snow Removal",
     blurb:
-      "Coastal South Richmond snow events are rare but disruptive. Here's how we keep Steveston Village and Imperial Landing moving.",
-    image: "/blog-images/steveston-snow-removal.jpg",
-    alt: "Light snow on Steveston Village street with fishing boats in the harbor",
+      "Hastings Heights retail and office lots cleared and salted before open. Elevation-tuned dispatch — when the hill gets snow, the trucks roll.",
+    image: "/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
+    alt: "Skid-steer clearing a Capitol Hill Burnaby commercial parking lot at sunrise",
   },
   {
-    slug: "fort-langley-snow-removal",
-    title: "Fort Langley Snow Removal",
+    slug: "westwood-plateau-coquitlam-parking-lot-snow-removal",
+    title: "Westwood Plateau Coquitlam Parking Lots",
     blurb:
-      "Heritage Glover Road, Bedford Landing, and Walnut Grove east — careful, low-impact snow & de-icing for the historic village.",
-    image: "/blog-images/fort-langley-snow-removal.jpg",
-    alt: "Historic Fort Langley main street under fresh snow at dusk",
+      "The Plateau gets 2x the snow of the rest of Metro Vancouver. Our parking lot program is built for that elevation — fixed pricing, hauling included.",
+    image: "/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
+    alt: "PlowWow plow truck clearing a large Westwood Plateau Coquitlam parking lot in heavy snow",
   },
   {
-    slug: "cloverdale-snow-removal",
-    title: "Cloverdale Snow Removal",
+    slug: "austin-heights-coquitlam-strip-mall-snow-removal",
+    title: "Austin Heights Coquitlam Strip Malls",
     blurb:
-      "Cloverdale, Clayton Heights, and Pacific Douglas get the brunt of Fraser Valley outflow. PlowWow plows, salts, and reports 24/7.",
-    image: "/blog-images/cloverdale-snow-removal.jpg",
-    alt: "Cloverdale Surrey commercial plaza freshly plowed at sunrise",
+      "Pre-open lot clearing, salted storefront sidewalks, and rear loading access — guaranteed completion windows for every Austin Avenue tenant.",
+    image: "/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
+    alt: "Cleared and salted strip mall storefront sidewalk in Austin Heights Coquitlam at dawn",
   },
 ];
 
