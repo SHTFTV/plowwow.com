@@ -1,11 +1,46 @@
 # PlowWow
 
-> 24/7 snow removal, salting, and de-icing across Greater Vancouver, BC — for residential, strata, and commercial properties. Also the maker of PlowWow snow removal software for contractors.
+> PlowWow is Greater Vancouver's 24/7 snow removal and de-icing company serving residential homeowners, strata corporations, and commercial properties across BC's Lower Mainland. PlowWow also builds and operates snow removal contractor software (dispatch app, GPS fleet tracking, Salt-Scan AI).
 
-## Pages
+## Company
+- Founded: Surrey, BC, Canada
+- Phone: 604-761-1518
+- Address: 19906 32 Ave, Langley, BC V3A 4T1
+- Owner: Industry Army Marketing Inc.
 
-- [Home](/): Service overview and quote request.
-- [Burnaby](/burnaby): Local snow removal for Burnaby with live weather and SD41 alerts.
-- [Intelligence](/intelligence): PWIE engine, Weather Brain, Salt-Scan AI, Ghost Fleet GPS, Wow-Shield™ vault.
-- [App Features](/app-features): PlowWow snow removal software and dispatch app for contractors.
-- [Blog](/blog): Snow removal insights, neighborhood guides, and strata tips.
+## Core Services
+- Residential snow removal (driveways, walkways)
+- Strata snow removal (full-property management)
+- Commercial snow removal (parking lots, loading docks)
+- De-icing and salting (liquid and granular)
+- 24/7 emergency snow response
+
+## Technology Platform
+- PWIE Engine (Predictive Winter Intelligence Engine)
+- Weather Brain (hyperlocal forecast integration)
+- Salt-Scan AI (usage optimization)
+- Ghost Fleet GPS (real-time truck tracking)
+- Wow-Shield™ (liability documentation vault)
+
+## Service Areas (Greater Vancouver, BC)
+Vancouver, Burnaby, Surrey, Richmond, Coquitlam, North Vancouver, West Vancouver, Langley, Delta, New Westminster, Port Coquitlam, Port Moody, Abbotsford, Chilliwack, Maple Ridge, Mission, White Rock, Pitt Meadows, Squamish, Tsawwassen, Steveston, Fort Langley, Cloverdale, Lynn Valley, Kitsilano, Marpole, Oakridge, Fraserview, Metrotown
+
+## Key Pages
+- [Home](https://plowwow.com/): Service overview and quote request
+- [Burnaby](https://plowwow.com/burnaby): Local snow removal for Burnaby
+- [Intelligence](https://plowwow.com/intelligence): AI and tech platform overview
+- [App Features](https://plowwow.com/app-features): Contractor dispatch software
+- [Blog](https://plowwow.com/blog): Snow removal guides and neighbourhood tips
+- [How It Works](https://plowwow.com/how-it-works): Service process explained
+- [Commercial](https://plowwow.com/commercial): Commercial property services
+- [Contact](https://plowwow.com/contact): Get a free quote
+
+## Pricing
+Territory-based contractor licensing model. Residential and strata quotes provided on request.
+
+## Operated By
+Industry Army Marketing Inc. — Surrey, BC, Canada
+Contact: build@buildershaus.com | 604-761-1518
+
+## Last Updated
+2026-06-22
