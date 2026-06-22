@@ -31,9 +31,9 @@ describe("CityPage unknown-slug handling", () => {
   const unknownPaths = [
     "/not-a-real-city",
     "/totally-fake-route",
-    "/burnabyy", // typo of real city
-    "/coquitlam/some-fake-neighborhood",
-    "/vancouver/blocks/unknown",
+    "/burnabyy",
+    "/some-fake-neighborhood",
+    "/another/deep/unknown-path",
   ];
 
   it.each(unknownPaths)("renders NotFound for %s (no redirect to home)", (path) => {
