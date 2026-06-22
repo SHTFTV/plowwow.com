@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
-    slug: "lougheed-town-centre-burnaby-snow-removal",
-    title: "Lougheed Town Centre Burnaby",
+    slug: "oakridge-vancouver-snow-removal",
+    title: "Oakridge Vancouver",
     blurb:
-      "Mall lots, high-rise strata, and SkyTrain park-and-rides cleared and salted before North Burnaby wakes up.",
-    image: "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
-    alt: "PlowWow plow truck clearing a snowy commercial parking lot at Lougheed Highway and North Road in north Burnaby at dawn",
+      "Cambie corridor strata towers, Oakridge Centre retail, and Canada Line frontages cleared and salted before the first commute.",
+    image: "/blog-images/oakridge-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving in front of a freshly plowed Oakridge low-rise strata driveway at blue hour with snow-dusted evergreens",
   },
   {
-    slug: "highgate-burnaby-strata-snow-removal",
-    title: "Highgate Burnaby Strata",
+    slug: "marpole-vancouver-snow-removal",
+    title: "Marpole Vancouver",
     blurb:
-      "High-rise and townhome strata along Kingsway and Edmonds — auto-dispatch, photo + GPS logs, fixed seasonal pricing.",
-    image: "/blog-images/highgate-burnaby-strata-snow-removal.jpg",
-    alt: "PlowWow crew salting a snow-covered high-rise strata entrance and sidewalk along Kingsway in south Burnaby",
+      "Granville Street retail, walk-up apartments, and Marine Drive commercial lots — pre-treated before the storm, salted before open.",
+    image: "/blog-images/marpole-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed and salted Granville Street sidewalk in Marpole with lit storefronts and light snow falling",
   },
   {
-    slug: "hastings-sunrise-east-vancouver-snow-removal",
-    title: "Hastings-Sunrise East Vancouver",
+    slug: "kitsilano-vancouver-snow-removal",
+    title: "Kitsilano Vancouver",
     blurb:
-      "Character-home driveways, Hastings Street storefronts, and PNE-area commercial lots — city sidewalk bylaw compliance guaranteed.",
-    image: "/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
-    alt: "PlowWow worker shoveling and salting a snow-covered character home sidewalk on a tree-lined East Hastings street at dawn",
+      "Character-home stairs, West 4th and West Broadway storefronts, and low-rise strata across Kits — 60-minute response.",
+    image: "/blog-images/kitsilano-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a snow-covered Kitsilano street with character homes, a skid steer plowing in the background and English Bay in the distance",
   },
   {
-    slug: "mount-pleasant-east-vancouver-snow-removal",
-    title: "Mount Pleasant East Vancouver",
+    slug: "fraserview-vancouver-snow-removal",
+    title: "Fraserview Vancouver",
     blurb:
-      "Main Street brewery and retail storefronts, mid-rise strata, and creative-office buildings cleared and salted before open.",
-    image: "/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
-    alt: "PlowWow crew salting the snow-covered sidewalk in front of a Main Street brewery and brick storefront at dawn",
+      "Sloped Fraserview driveways, Killarney-edge townhomes, and Victoria Drive commercial — first-priority salt for the long Marine Drive slope.",
+    image: "/blog-images/fraserview-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a sloped Fraserview residential street at cold blue dawn with townhomes and the Fraserview Golf Course tree line in the distance",
   },
 ];
 
