@@ -4,6 +4,30 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
+    slug: "shaughnessy-vancouver-snow-removal",
+    title: "Shaughnessy Vancouver",
+    blurb:
+      "Heritage estates on The Crescent and Angus Drive — long sloped driveways, salt-safe chemistry for sandstone and bronze, 4:00 AM dispatch.",
+    image: "/blog-images/shaughnessy-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a freshly plowed tree-lined Shaughnessy boulevard at blue dawn with snow-dusted heritage mansions",
+  },
+  {
+    slug: "dunbar-vancouver-snow-removal",
+    title: "Dunbar Vancouver",
+    blurb:
+      "Character craftsman homes, West 41st storefronts, and Southlands-adjacent estates — pet-safe granules, traction sand on stone stairs.",
+    image: "/blog-images/dunbar-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a salted Dunbar Vancouver street at blue dawn with character craftsman homes and West 41st storefronts in the distance",
+  },
+  {
+    slug: "point-grey-vancouver-snow-removal",
+    title: "Point Grey Vancouver",
+    blurb:
+      "NW Marine Drive cliff-edge estates, UBC-corridor strata, and Sasamat Village retail — drift-mapped routes and unlimited reapplication passes.",
+    image: "/blog-images/point-grey-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed Point Grey street with English Bay and the North Shore mountains in the distance and modernist cliff-edge homes nearby",
+  },
+  {
     slug: "oakridge-vancouver-snow-removal",
     title: "Oakridge Vancouver",
     blurb:
@@ -11,31 +35,8 @@ const FEATURED = [
     image: "/blog-images/oakridge-vancouver-snow-removal.jpg",
     alt: "PlowWow mascot waving in front of a freshly plowed Oakridge low-rise strata driveway at blue hour with snow-dusted evergreens",
   },
-  {
-    slug: "marpole-vancouver-snow-removal",
-    title: "Marpole Vancouver",
-    blurb:
-      "Granville Street retail, walk-up apartments, and Marine Drive commercial lots — pre-treated before the storm, salted before open.",
-    image: "/blog-images/marpole-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a plowed and salted Granville Street sidewalk in Marpole with lit storefronts and light snow falling",
-  },
-  {
-    slug: "kitsilano-vancouver-snow-removal",
-    title: "Kitsilano Vancouver",
-    blurb:
-      "Character-home stairs, West 4th and West Broadway storefronts, and low-rise strata across Kits — 60-minute response.",
-    image: "/blog-images/kitsilano-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a snow-covered Kitsilano street with character homes, a skid steer plowing in the background and English Bay in the distance",
-  },
-  {
-    slug: "fraserview-vancouver-snow-removal",
-    title: "Fraserview Vancouver",
-    blurb:
-      "Sloped Fraserview driveways, Killarney-edge townhomes, and Victoria Drive commercial — first-priority salt for the long Marine Drive slope.",
-    image: "/blog-images/fraserview-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a sloped Fraserview residential street at cold blue dawn with townhomes and the Fraserview Golf Course tree line in the distance",
-  },
 ];
+
 
 const HomeBlog = () => (
   <section className="py-16 md:py-24 bg-muted/30" aria-labelledby="home-blog-heading">

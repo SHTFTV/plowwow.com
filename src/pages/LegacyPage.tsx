@@ -147,10 +147,18 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       document.head.appendChild(ld);
     }
 
-    // Article JSON-LD for blog posts.
+    // Article + BreadcrumbList JSON-LD for blog posts. Hero image (when a
+    // matching /blog-images/<slug>.jpg exists in /public) is included on the
+    // Article for richer SEO/AEO/LLM grounding.
     const articleId = "legacy-page-article-jsonld";
+    const crumbId = "legacy-page-breadcrumb-jsonld";
     document.getElementById(articleId)?.remove();
+    document.getElementById(crumbId)?.remove();
     if (kind === "blog") {
+      // Detect inline hero image from the markdown body (first `![alt](path)`).
+      const imgMatch = body.match(/!\[([^\]]*)\]\((\/[^)\s]+)\)/);
+      const heroPath = imgMatch?.[2];
+      const heroAlt = imgMatch?.[1] ?? title;
       const art = document.createElement("script");
       art.type = "application/ld+json";
       art.id = articleId;
@@ -159,17 +167,56 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         "@type": "Article",
         headline: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
         description,
-        author: { "@type": "Organization", name: "PlowWow" },
-        publisher: { "@type": "Organization", name: "PlowWow" },
-        mainEntityOfPage: path,
+        ...(heroPath
+          ? {
+              image: {
+                "@type": "ImageObject",
+                url: heroPath,
+                caption: heroAlt,
+              },
+            }
+          : {}),
+        author: { "@type": "Organization", name: "PlowWow", url: "/" },
+        publisher: {
+          "@type": "Organization",
+          name: "PlowWow",
+          url: "/",
+          logo: {
+            "@type": "ImageObject",
+            url: "/favicon.ico",
+          },
+        },
+        inLanguage: "en-CA",
+        mainEntityOfPage: { "@type": "WebPage", "@id": path },
       });
       document.head.appendChild(art);
+
+      const crumb = document.createElement("script");
+      crumb.type = "application/ld+json";
+      crumb.id = crumbId;
+      crumb.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "/blog" },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
+            item: path,
+          },
+        ],
+      });
+      document.head.appendChild(crumb);
     }
     return () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(articleId)?.remove();
+      document.getElementById(crumbId)?.remove();
     };
-  }, [title, description, faqs, kind, slug]);
+  }, [title, description, faqs, kind, slug, body]);
+
 
   return (
     <div className="min-h-screen">
