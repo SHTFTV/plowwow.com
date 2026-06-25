@@ -113,3 +113,22 @@ Call (604) 761-1518 or email Wow@PlowWow.com. We schedule a 15-minute on-site wa
 PlowWow has been clearing Dunbar character homes, West 41st storefronts, and Southlands-adjacent estates for 10+ years with a documented pet-safe and heritage-safe chemistry program. We accept new Dunbar seasonal contracts through October 31 each year. Call (604) 761-1518 to schedule your pre-season walk-through.
 
 **PlowWow Snow Removal & De-Ice Management** — Serving Dunbar, Southlands, Kerrisdale, West Point Grey, and the full Vancouver west side. 24/7 dispatch. $5M insured. WorkSafeBC certified.
+
+## Recent Snow History and What It Means for Dunbar
+
+Dunbar's winter pattern over the last five years has been defined by the neighborhood's elevation and tree canopy — snow lingers, refreezes overnight, and refreezes again the following night. The 2021–2022 season delivered 38 cm in a single late-December event that closed West 41st for two days; PlowWow ran continuous crews from 4:00 AM Tuesday through 11:00 PM Wednesday to clear contracted addresses. The 2022–2023 freezing-rain events glazed Dunbar Street sidewalks badly enough that the City of Vancouver issued a public advisory; properties on our contracts had documented post-storm photos that proved bylaw compliance and saved at least four owners from formal warning letters. The 2023–2024 season was a typical 3-event Vancouver winter; the 2024–2025 early-November surprise caught many character-home owners without snow service yet contracted, leading to a wave of mid-season signups. The 2025–2026 season opened with the December arctic outflow that PlowWow's pre-positioned crews handled without missing a single contracted address.
+
+The takeaway for Dunbar: the dense canopy that makes the neighborhood beautiful also slows natural melt, which means a single morning clearing is rarely enough. Every Dunbar seasonal contract includes refreeze-window reapplication at no additional cost.
+
+## What Your Pre-Season Walk-Through Covers
+
+Every new Dunbar seasonal contract begins with a 15-minute on-site walk-through during October. The walk-through documents:
+
+* **Property perimeter and snow envelope** — driveway, walkways, stairs, side entries, and city sidewalk frontage.
+* **Heritage-material flagging** — every sandstone foundation course, brick stair, slate walkway, and bronze or cast-iron fixture within the snow envelope is logged with its allowable chemistry profile.
+* **Pet-safe scope** — confirmation that all walkable surfaces will receive potassium-formate granules instead of traditional ice melt.
+* **Drainage and downspout locations** — so piled snow doesn't block winter drainage during melt events.
+* **Vehicle access** — coordination for properties with shared lanes, narrow setbacks, or specific arrival-time preferences.
+* **Refuse and recycling schedule** — so cleared paths align with City pickup days.
+
+The walk-through report is delivered as a PDF with annotated photos and becomes the operating document for the season.

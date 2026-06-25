@@ -103,3 +103,23 @@ Call (604) 761-1518 or email Wow@PlowWow.com. We schedule a 20-minute on-site wa
 PlowWow has the only dedicated Point Grey snow crew with mapped drift zones, material-specific chemistry, and a documented track record on NW Marine Drive cliff-edge properties. We accept new Point Grey seasonal contracts through October 31 each year. Call (604) 761-1518 to schedule your pre-season walk-through.
 
 **PlowWow Snow Removal & De-Ice Management** — Serving Point Grey, West Point Grey, NW Marine Drive, Sasamat Village, Dunbar, and the full Vancouver west side. 24/7 dispatch. $5M insured. WorkSafeBC certified.
+
+## Recent Snow History and What It Means for Point Grey
+
+Point Grey's recent winters have been dominated by wind, not just accumulation. The 2021–2022 season's late-December event paired 38 cm of snow with sustained 70 km/h outflow winds along NW Marine Drive — every cliff-edge property required at least three clearing passes in 48 hours to keep driveways and entries usable. The 2022–2023 freezing-rain events combined with marine salt aerosol to produce particularly slippery surface textures on Belmont Avenue stone walkways; properties without pre-storm traction sand saw multiple near-miss incidents that triggered insurance-claim risk assessments. The 2023–2024 season was milder in accumulation but featured two outflow wind events that drifted snow back across previously-cleared driveways within hours. The 2024–2025 early-November surprise tested route capacity neighborhood-wide. The 2025–2026 December arctic outflow paired arctic temperatures with 80+ km/h gusts, producing the most aggressive drift behaviour the neighborhood has seen in a decade.
+
+The takeaway for Point Grey: the wind profile makes single-pass clearing structurally inadequate during outflow events. Every Point Grey seasonal contract includes unlimited reapplication passes at no additional cost, and our cliff-edge route includes a confirmed second pass by 10:00 AM during any active wind advisory.
+
+## What Your Pre-Season Walk-Through Covers
+
+Every new Point Grey seasonal contract begins with a 20-minute on-site walk-through during October (longer for cliff-edge estates with multiple material zones). The walk-through documents:
+
+* **Property GPS perimeter** — the full snow envelope, geo-fenced for dispatch.
+* **Material zone map** — every concrete, basalt, limestone, bronze, weathering-steel, and glass surface is logged with its chemistry profile and any hand-clearing requirement.
+* **Drift zone mapping** — windward edges, hedge-run lee zones, and venturi corners flagged for pre-storm traction sand and mid-storm second passes.
+* **Glass-facade exclusion zones** — where ice-melt granules cannot be broadcast to avoid micro-pitting on adjacent glass.
+* **Specimen landscape elements** — every protected tree, shrub, and stone feature within the snow envelope.
+* **Access constraints** — cliff-edge driveway turnaround radii, narrow entry gates, and any landscape-architect coordination required.
+* **Priority tier and event-pass commitments** — confirmed second-pass timing during wind advisories.
+
+The walk-through report is delivered as a PDF with annotated photos and material-zone overlays; it becomes the operating document for the season and is reviewed annually with the property owner and landscape architect of record.

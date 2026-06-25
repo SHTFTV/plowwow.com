@@ -89,3 +89,23 @@ Call (604) 761-1518 or email Wow@PlowWow.com. We schedule a 20-minute on-site wa
 PlowWow is the only Vancouver snow removal contractor with a dedicated Shaughnessy crew, heritage-safe chemistry program, and a documented track record of zero landscape-damage claims on heritage properties. We accept new Shaughnessy seasonal contracts through October 31 each year, with a small late-window allocation reserved through November 15. Call (604) 761-1518 to schedule your pre-season walk-through.
 
 **PlowWow Snow Removal & De-Ice Management** — Serving Shaughnessy, Kerrisdale, Arbutus Ridge, South Granville, and the full Vancouver west side. 24/7 dispatch. $5M insured. WorkSafeBC certified.
+
+## Recent Snow History and What It Means for Shaughnessy
+
+The last five winters in Shaughnessy have followed a clear pattern that informs how we structure routes and equipment staging. The 2021–2022 season delivered the largest single-event accumulation in two decades — 42 cm over a 36-hour window in late December — which buried Angus Drive driveways under packed snow for nearly a week. The 2022–2023 season was milder in total accumulation but punishing in freezing-rain events: three separate ice storms in January glazed The Crescent's stone walkways with 4–6 mm of clear ice that took two full days to safely chemistry-clear. The 2023–2024 season returned to a more typical Vancouver profile — three discrete snow events of 8–15 cm each, separated by warm-and-melt windows. The 2024–2025 season delivered an unusually early November snowfall (12 cm on November 19) that caught several contractors flat-footed and underscored the value of having a fully-staged Shaughnessy crew before the first storm. The 2025–2026 season opened with an arctic outflow event in early December that tested every cliff-edge and exposed-corner property in the neighborhood.
+
+The takeaway for Shaughnessy property owners: variability is the rule, not the exception. A single contractor with a single piece of equipment and a single chemistry approach will fail during at least one event per season. PlowWow's tiered route structure, equipment redundancy (two backup track loaders staged at our Marpole yard, 8 minutes from the neighborhood), and multi-chemistry program is designed specifically for the variability of recent Shaughnessy winters.
+
+## What Your Pre-Season Walk-Through Covers
+
+Every new Shaughnessy seasonal contract begins with a 20-minute on-site walk-through during October. Here's what the walk-through documents:
+
+* **Property GPS perimeter** — the full snow envelope is geo-fenced so dispatch knows exactly which surfaces are in scope.
+* **Material zone map** — every paving, edging, and structural material is logged with its allowable chemistry profile.
+* **Specimen tree and shrub locations** — every heritage tree, magnolia, rhododendron, and Japanese maple within the snow envelope is marked so equipment paths avoid drip lines.
+* **Landscape lighting and irrigation** — every low-voltage fixture, irrigation head, and surface-mounted control valve is flagged so it isn't clipped by plow blades or buried by piled snow.
+* **Snow relocation zones** — designated turf or non-specimen bed corners where piled snow can melt without damaging landscaping.
+* **Access and gate codes** — gate codes, key locations, alarm-system contact info, and any concierge or property-staff coordination details.
+* **Priority tier assignment** — Tier 1, 2, or 3 dispatch based on occupancy, medical priority, and event schedule.
+
+The walk-through report is delivered as a PDF with annotated photos and a written scope of work. It becomes the operating document for the season and is reviewed and updated before each subsequent winter.
