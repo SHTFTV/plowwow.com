@@ -38,9 +38,16 @@ const summaryFor = (slug: string) => {
 // Slugs that have a matching hero image in /public/blog-images/<slug>.jpg.
 const SLUGS_WITH_IMAGES = new Set([
   "cloverdale-snow-removal",
+  "dunbar-vancouver-snow-removal",
   "fort-langley-snow-removal",
+  "fraserview-vancouver-snow-removal",
+  "kitsilano-vancouver-snow-removal",
   "lynn-valley-snow-removal",
+  "marpole-vancouver-snow-removal",
   "north-vancouver-snow-removal",
+  "oakridge-vancouver-snow-removal",
+  "point-grey-vancouver-snow-removal",
+  "shaughnessy-vancouver-snow-removal",
   "squamish-snow-removal",
   "steveston-snow-removal",
   "tsawwassen-snow-removal",
