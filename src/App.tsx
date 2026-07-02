@@ -37,7 +37,6 @@ const App = () => (
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/intelligence" element={<Intelligence />} />
           <Route path="/advanced-technology" element={<AppFeatures />} />
-          <Route path="/app-features" element={<AppFeatures />} />
           <Route path="/guest-post" element={<GuestPost />} />
           <Route path="/publish-helper" element={<PublishHelper />} />
           <Route path="/takeoff" element={<Takeoff />} />

@@ -18,10 +18,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const TITLE = "PlowWow App — Snow Removal Software for Contractors";
+const TITLE = "Advanced Snow Removal Technology | PlowWow";
 const DESCRIPTION =
-  "Snow removal software for contractors: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield vault, GPS tracking, QuickBooks sync.";
-const PATH = "/app-features";
+  "Explore PlowWow's advanced snow tech: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield liability vault, GPS fleet, QuickBooks sync.";
+const PATH = "/advanced-technology";
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
