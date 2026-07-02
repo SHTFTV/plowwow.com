@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      estimates: {
+        Row: {
+          created_at: string
+          curb_linear_ft: number
+          id: string
+          lot_sqft: number
+          notes: string | null
+          per_visit: number
+          plow_per_sqft: number
+          property_address: string
+          salt_bags_season: number
+          salt_per_bag: number
+          subtotal: number
+          updated_at: string
+          user_id: string
+          visits_per_season: number
+          walkways_count: number
+        }
+        Insert: {
+          created_at?: string
+          curb_linear_ft?: number
+          id?: string
+          lot_sqft?: number
+          notes?: string | null
+          per_visit: number
+          plow_per_sqft: number
+          property_address: string
+          salt_bags_season?: number
+          salt_per_bag: number
+          subtotal?: number
+          updated_at?: string
+          user_id: string
+          visits_per_season?: number
+          walkways_count?: number
+        }
+        Update: {
+          created_at?: string
+          curb_linear_ft?: number
+          id?: string
+          lot_sqft?: number
+          notes?: string | null
+          per_visit?: number
+          plow_per_sqft?: number
+          property_address?: string
+          salt_bags_season?: number
+          salt_per_bag?: number
+          subtotal?: number
+          updated_at?: string
+          user_id?: string
+          visits_per_season?: number
+          walkways_count?: number
+        }
+        Relationships: []
+      }
       guest_post_submissions: {
         Row: {
           created_at: string
@@ -89,6 +143,39 @@ export type Database = {
           service_type?: string
           status?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      rate_cards: {
+        Row: {
+          created_at: string
+          currency: string
+          id: string
+          per_visit: number
+          plow_per_sqft: number
+          salt_per_bag: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          currency?: string
+          id?: string
+          per_visit?: number
+          plow_per_sqft?: number
+          salt_per_bag?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          currency?: string
+          id?: string
+          per_visit?: number
+          plow_per_sqft?: number
+          salt_per_bag?: number
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
