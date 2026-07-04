@@ -30,3 +30,4 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://plowwow.com/sitemap.xml
+Sitemap: https://plowwow.com/sitemap-images.xml
