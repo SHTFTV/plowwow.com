@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
-    slug: "shaughnessy-vancouver-snow-removal",
-    title: "Shaughnessy Vancouver",
+    slug: "west-end-vancouver-snow-removal",
+    title: "West End Vancouver",
     blurb:
-      "Heritage estates on The Crescent and Angus Drive — long sloped driveways, salt-safe chemistry for sandstone and bronze, 4:00 AM dispatch.",
-    image: "/blog-images/shaughnessy-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a freshly plowed tree-lined Shaughnessy boulevard at blue dawn with snow-dusted heritage mansions",
+      "Davie, Denman and Robson strata towers, English Bay commercial — 24/7 dispatch, pet-safe de-icer, pre-dawn parkade-ramp completion.",
+    image: "/blog-images/west-end-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a freshly plowed Davie Street at blue dawn with snow-dusted West End towers and English Bay in the distance",
   },
   {
-    slug: "dunbar-vancouver-snow-removal",
-    title: "Dunbar Vancouver",
+    slug: "yaletown-vancouver-snow-removal",
+    title: "Yaletown Vancouver",
     blurb:
-      "Character craftsman homes, West 41st storefronts, and Southlands-adjacent estates — pet-safe granules, traction sand on stone stairs.",
-    image: "/blog-images/dunbar-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a salted Dunbar Vancouver street at blue dawn with character craftsman homes and West 41st storefronts in the distance",
+      "Mainland Street heritage-brick sidewalks, restaurant patios, loft strata and False Creek commercial — rubber-edge blades and dawn service.",
+    image: "/blog-images/yaletown-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance",
   },
   {
-    slug: "point-grey-vancouver-snow-removal",
-    title: "Point Grey Vancouver",
+    slug: "coal-harbour-vancouver-snow-removal",
+    title: "Coal Harbour Vancouver",
     blurb:
-      "NW Marine Drive cliff-edge estates, UBC-corridor strata, and Sasamat Village retail — drift-mapped routes and unlimited reapplication passes.",
-    image: "/blog-images/point-grey-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a plowed Point Grey street with English Bay and the North Shore mountains in the distance and modernist cliff-edge homes nearby",
+      "Luxury waterfront strata, Cordova and Hastings towers, marina walkways — concierge-coordinated dispatch and pre-dawn completion window.",
+    image: "/blog-images/coal-harbour-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed Coal Harbour waterfront promenade at blue dawn with luxury towers, seaplanes and snow-capped North Shore mountains",
   },
   {
-    slug: "oakridge-vancouver-snow-removal",
-    title: "Oakridge Vancouver",
+    slug: "commercial-drive-vancouver-snow-removal",
+    title: "Commercial Drive",
     blurb:
-      "Cambie corridor strata towers, Oakridge Centre retail, and Canada Line frontages cleared and salted before the first commute.",
-    image: "/blog-images/oakridge-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving in front of a freshly plowed Oakridge low-rise strata driveway at blue hour with snow-dusted evergreens",
+      "The Drive retail, Italian cafes, Grandview-Woodland strata — 6:15 AM pre-open completion, unlimited salt runs, pet-safe granules.",
+    image: "/blog-images/commercial-drive-vancouver-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed Commercial Drive at blue dawn with snow-dusted Italian cafes, indie storefronts and string lights",
   },
 ];
 
