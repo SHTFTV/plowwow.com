@@ -80,7 +80,9 @@ const hasSnapshots =
   });
 
 describe.runIf(hasSnapshots)("structured data: on-disk snapshot payloads", () => {
-  const dirs = readdirSync(SNAP_DIR).filter((n) => statSync(resolve(SNAP_DIR, n)).isDirectory());
+  const dirs = hasSnapshots
+    ? readdirSync(SNAP_DIR).filter((n) => statSync(resolve(SNAP_DIR, n)).isDirectory())
+    : [];
   for (const d of dirs) {
     const afterPath = resolve(SNAP_DIR, d, "after.json");
     if (!existsSync(afterPath)) continue;
