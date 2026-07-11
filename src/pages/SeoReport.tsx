@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 type Row = {
   city: string;
