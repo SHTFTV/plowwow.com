@@ -1,7 +1,7 @@
 {
-  "allowlist": "/tmp/allow.json",
-  "allowedCount": 1,
-  "structuredChangeCount": 1,
+  "allowlist": "/dev-server/seo-baseline-allow.json",
+  "allowedCount": 0,
+  "structuredChangeCount": 0,
   "violationCount": 0,
   "violations": []
 }
