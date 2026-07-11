@@ -1,0 +1,50 @@
+[
+  {
+    "field": "jsonld.LocalBusiness",
+    "from": {
+      "name": "PlowWow Snow Removal — Vancouver",
+      "url": "https://plowwow.com/vancouver",
+      "image": "https://plowwow.com/og-vancouver.jpg",
+      "telephone": "+1-000-000-0000",
+      "areaServed": "Vancouver, BC",
+      "priceRange": "$$"
+    },
+    "to": {
+      "name": "PlowWow Snow Removal — Vancouver",
+      "url": "https://plowwow.com/vancouver",
+      "image": "https://plowwow.com/og-vancouver.jpg",
+      "telephone": "+1-604-761-1518",
+      "areaServed": "Vancouver, BC",
+      "priceRange": "$$"
+    }
+  },
+  {
+    "field": "jsonld.FAQPage",
+    "from": {
+      "questionCount": 2,
+      "entries": [
+        {
+          "q": "Do you service Vancouver during heavy snow events?",
+          "a": "OLD ANSWER"
+        },
+        {
+          "q": "How fast can you dispatch in downtown Vancouver?",
+          "a": "Most downtown sites are reached within 60–90 minutes of trigger. Contracted strata properties get same-storm priority."
+        }
+      ]
+    },
+    "to": {
+      "questionCount": 2,
+      "entries": [
+        {
+          "q": "Do you service Vancouver during heavy snow events?",
+          "a": "Yes — our Vancouver fleet runs 24/7 during snowfall warnings with priority routes for strata and commercial contracts."
+        },
+        {
+          "q": "How fast can you dispatch in downtown Vancouver?",
+          "a": "Most downtown sites are reached within 60–90 minutes of trigger. Contracted strata properties get same-storm priority."
+        }
+      ]
+    }
+  }
+]

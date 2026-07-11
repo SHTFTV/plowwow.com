@@ -62,6 +62,8 @@ jobs:
         id: report
         env:
           SEO_REPORT_BASELINE: seo-baseline/seo-report.json
+          SEO_STRUCTURED_ALLOWLIST: seo-baseline-allow.json
+          SEO_FAIL_ON_STRUCTURED_DIFF: "1"
         run: bunx tsx scripts/seo-report.ts
         continue-on-error: true
 
@@ -93,6 +95,17 @@ jobs:
           name: seo-report
           path: seo-report/
           retention-days: 14
+
+      - name: Surface unapproved structured-data (LocalBusiness/FAQPage) changes
+        if: always()
+        run: |
+          if [ -f seo-report/seo-diff-violations.json ]; then
+            count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('seo-report/seo-diff-violations.json','utf8')).violationCount ?? 0)")
+            if [ "$count" != "0" ]; then
+              echo "::error::$count unapproved LocalBusiness/FAQPage change(s) — inspect seo-report/seo-diff-violations.json and seo-report/structured-data-snapshots/, then add the paths to seo-baseline-allow.json to acknowledge."
+              cat seo-report/seo-diff-violations.json
+            fi
+          fi
 
       - name: Fail the job if the report or tests failed
         if: always()

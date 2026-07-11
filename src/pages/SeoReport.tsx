@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 type Row = {
   city: string;
@@ -300,14 +301,35 @@ const SeoReport = () => {
   };
 
   useEffect(() => {
-    document.title = "City SEO Report — Canonical vs og:url";
-    const meta = document.querySelector('meta[name="robots"]') ?? (() => {
-      const m = document.createElement("meta");
-      m.setAttribute("name", "robots");
-      document.head.appendChild(m);
-      return m;
-    })();
-    meta.setAttribute("content", "noindex");
+    const TITLE = "City SEO Report — Canonicals & OG URLs | PlowWow";
+    const DESCRIPTION =
+      "Internal SEO audit report comparing canonical and og:url tags across every PlowWow city route and neighborhood landing page.";
+    const PATH = "/seo-report";
+    applyPageMeta({
+      title: TITLE,
+      description: DESCRIPTION,
+      path: PATH,
+      noindex: true,
+      ogImage: "https://plowwow.com/og-default.jpg",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: TITLE,
+          description: DESCRIPTION,
+          url: `https://plowwow.com${PATH}`,
+          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+            { "@type": "ListItem", position: 2, name: "SEO Report", item: `https://plowwow.com${PATH}` },
+          ],
+        },
+      ],
+    });
   }, []);
 
   return (
