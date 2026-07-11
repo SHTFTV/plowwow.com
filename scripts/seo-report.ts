@@ -7,9 +7,46 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "./routes";
 import { readImageMeta } from "../src/test/helpers/image-size";
+import { cities, type City } from "../src/data/cities";
 
 const OUT_DIR = resolve(process.cwd(), "seo-report");
 mkdirSync(OUT_DIR, { recursive: true });
+
+// Structured-data snapshot for a route, mirroring what CityPage.tsx emits.
+// Keep in lockstep with src/pages/CityPage.tsx so the diff surfaces any
+// runtime schema change on the next report run.
+type StructuredData = {
+  localBusiness?: {
+    name: string;
+    url: string;
+    image: string;
+    telephone: string;
+    areaServed: string;
+    priceRange: string;
+  };
+  faqPage?: {
+    questionCount: number;
+    // Stable hash of the FAQ q/a pairs so any content edit shows up in diff.
+    entries: Array<{ q: string; a: string }>;
+  };
+};
+
+function buildStructuredData(city: City, url: string, ogImage: string): StructuredData {
+  return {
+    localBusiness: {
+      name: `PlowWow Snow Removal — ${city.name}`,
+      url,
+      image: ogImage,
+      telephone: "+1-604-761-1518",
+      areaServed: `${city.name}, ${city.province}`,
+      priceRange: "$$",
+    },
+    faqPage: {
+      questionCount: city.faqs.length,
+      entries: city.faqs.map((f) => ({ q: f.q, a: f.a })),
+    },
+  };
+}
 
 type Row = {
   path: string;
@@ -25,6 +62,7 @@ type Row = {
   ogImageFormat: string | null;
   ogImageMime: string | null;
   ogImageTruncated: boolean;
+  structuredData?: StructuredData;
   warnings: string[];
 };
 
