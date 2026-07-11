@@ -5,7 +5,10 @@ import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { BASE_URL, collectRoutes } from "./routes";
 
-const routes = collectRoutes();
+// Dedupe by path — a legacy content file may share a slug with a static route.
+const routes = Array.from(
+  new Map(collectRoutes().map((r) => [r.path, r])).values()
+);
 const today = new Date().toISOString().slice(0, 10);
 
 const urls = routes
