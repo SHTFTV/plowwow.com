@@ -12,17 +12,55 @@ import { resolve, relative } from "node:path";
 
 const ROOT = process.cwd();
 const SNAP_DIR = resolve(ROOT, "seo-report", "structured-data-snapshots");
+const VIOLATIONS_PATH = resolve(ROOT, "seo-report", "seo-diff-violations.json");
+
+// CLI flags:
+//   --only-failed         → only render diffs for routes listed as violations
+//                           in seo-report/seo-diff-violations.json
+//   --routes=/a,/b        → explicit path allowlist (union with --only-failed)
+const argv = process.argv.slice(2);
+const onlyFailed = argv.includes("--only-failed");
+const routesArg = argv.find((a) => a.startsWith("--routes="));
+const explicitRoutes = routesArg
+  ? routesArg.slice("--routes=".length).split(",").map((s) => s.trim()).filter(Boolean)
+  : [];
+
+let routeAllowSet: Set<string> | null = null;
+if (onlyFailed || explicitRoutes.length) {
+  const set = new Set<string>(explicitRoutes);
+  if (onlyFailed) {
+    if (!existsSync(VIOLATIONS_PATH)) {
+      console.error(`✗ --only-failed: ${VIOLATIONS_PATH} not found. Run seo-report.ts first.`);
+      process.exit(2);
+    }
+    const doc = JSON.parse(readFileSync(VIOLATIONS_PATH, "utf8")) as { violations?: Array<{ path: string }> };
+    for (const v of doc.violations ?? []) set.add(v.path);
+  }
+  if (set.size === 0) {
+    console.log("ℹ no failed / requested routes — nothing to render.");
+    process.exit(0);
+  }
+  routeAllowSet = set;
+  console.log(`ℹ partial render for ${set.size} route(s): ${[...set].join(", ")}`);
+}
 
 if (!existsSync(SNAP_DIR)) {
   console.log(`ℹ ${relative(ROOT, SNAP_DIR)} does not exist — nothing to render.`);
   process.exit(0);
 }
 
+const sanitize = (p: string) => (p === "/" ? "root" : p.replace(/^\/+/, "").replace(/[\/]+/g, "__"));
+
 const routeDirs = readdirSync(SNAP_DIR)
   .map((n) => resolve(SNAP_DIR, n))
   .filter((p) => {
     try {
-      return statSync(p).isDirectory() && existsSync(resolve(p, "before.json")) && existsSync(resolve(p, "after.json"));
+      if (!(statSync(p).isDirectory() && existsSync(resolve(p, "before.json")) && existsSync(resolve(p, "after.json")))) {
+        return false;
+      }
+      if (!routeAllowSet) return true;
+      const dirName = relative(SNAP_DIR, p);
+      return [...routeAllowSet].some((r) => sanitize(r) === dirName);
     } catch {
       return false;
     }
