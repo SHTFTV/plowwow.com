@@ -77,6 +77,7 @@ jobs:
             src/test/seo-score.test.tsx \
             src/test/meta.exact.test.tsx \
             src/test/og-image.reachable.test.ts \
+            src/test/static-routes-parity.test.tsx \
             --reporter=verbose \
             --reporter=json --outputFile=seo-report/vitest-results.json
         continue-on-error: true
@@ -95,6 +96,23 @@ jobs:
           name: seo-report
           path: seo-report/
           retention-days: 14
+          if-no-files-found: warn
+
+      # Dedicated upload for the structured-data diff evidence so reviewers can
+      # grab it directly without downloading the whole seo-report bundle — and
+      # so it survives even if the primary upload above is somehow skipped.
+      - name: Upload structured-data snapshots + violations (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-structured-data-diff
+          path: |
+            seo-report/structured-data-snapshots/**
+            seo-report/seo-diff-violations.json
+            seo-report/seo-diff.json
+            seo-report/seo-diff.md
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Surface unapproved structured-data (LocalBusiness/FAQPage) changes
         if: always()
