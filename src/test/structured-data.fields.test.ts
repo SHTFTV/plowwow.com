@@ -11,59 +11,53 @@ import { resolve } from "node:path";
 import { cities } from "@/data/cities";
 import { BASE_URL } from "../../scripts/routes";
 
-const REQUIRED_LB = ["name", "url", "image", "telephone", "areaServed", "priceRange"] as const;
+import { getValidators, formatErrors } from "../../scripts/lib/structured-data-schema";
+import { normalizeJson } from "../../scripts/lib/normalize";
 
-function assertValidUrl(u: unknown, ctx: string) {
-  expect(typeof u, `${ctx}: url must be string`).toBe("string");
-  const s = String(u);
-  expect(() => new URL(s), `${ctx}: not parseable as URL — "${s}"`).not.toThrow();
-  const parsed = new URL(s);
-  expect(["http:", "https:"].includes(parsed.protocol), `${ctx}: bad protocol ${parsed.protocol}`).toBe(true);
-  expect(s.startsWith(BASE_URL), `${ctx}: expected plowwow.com absolute URL — got "${s}"`).toBe(true);
+const { localBusiness: validateLB, faqPage: validateFAQ, structuredData: validateSD } = getValidators();
+
+function validateLocalBusiness(lb: unknown, ctx: string) {
+  const normalized = normalizeJson(lb as any);
+  const ok = validateLB(normalized);
+  expect(ok, `${ctx}: LocalBusiness schema — ${formatErrors(validateLB)}`).toBe(true);
 }
 
-function validateLocalBusiness(lb: Record<string, unknown>, ctx: string) {
-  for (const f of REQUIRED_LB) {
-    expect(lb[f], `${ctx}: LocalBusiness.${f} missing`).toBeTruthy();
-    expect(String(lb[f]).trim().length, `${ctx}: LocalBusiness.${f} empty`).toBeGreaterThan(0);
-  }
-  assertValidUrl(lb.url, `${ctx} LocalBusiness.url`);
-  assertValidUrl(lb.image, `${ctx} LocalBusiness.image`);
-  expect(String(lb.telephone)).toMatch(/^\+?[0-9\-\s().]+$/);
-}
-
-function validateFaqPage(faq: any, ctx: string) {
-  expect(typeof faq.questionCount, `${ctx}: FAQPage.questionCount must be number`).toBe("number");
-  expect(faq.questionCount, `${ctx}: FAQPage.questionCount must be > 0`).toBeGreaterThan(0);
-  expect(Array.isArray(faq.entries), `${ctx}: FAQPage.entries must be array`).toBe(true);
-  expect(faq.entries.length, `${ctx}: FAQPage.entries length mismatch`).toBe(faq.questionCount);
-  faq.entries.forEach((e: any, i: number) => {
-    expect(typeof e.q === "string" && e.q.trim().length > 0, `${ctx}: FAQ[${i}].q empty`).toBe(true);
-    expect(typeof e.a === "string" && e.a.trim().length > 0, `${ctx}: FAQ[${i}].a empty`).toBe(true);
-    // URL-looking substrings inside FAQ answers must be well-formed.
-    for (const m of e.a.matchAll(/https?:\/\/\S+/g)) {
+function validateFaqPage(faq: unknown, ctx: string) {
+  const normalized = normalizeJson(faq as any);
+  const ok = validateFAQ(normalized);
+  expect(ok, `${ctx}: FAQPage schema — ${formatErrors(validateFAQ)}`).toBe(true);
+  // Extra structural rule the AJV schema can't express: FAQ answers' embedded
+  // URLs must parse. Cheaper here than a per-item schema keyword.
+  for (const [i, e] of (normalized as any).entries.entries()) {
+    for (const m of String(e.a).matchAll(/https?:\/\/\S+/g)) {
       expect(() => new URL(m[0].replace(/[.,;:)]+$/, "")), `${ctx}: FAQ[${i}].a bad URL "${m[0]}"`).not.toThrow();
     }
-  });
+  }
 }
 
-describe("structured data: city LocalBusiness + FAQPage required fields", () => {
+describe("structured data: city LocalBusiness + FAQPage schemas (AJV)", () => {
   for (const city of cities) {
-    it(`/${city.slug} — LocalBusiness + FAQPage fields valid`, () => {
+    it(`/${city.slug} — schema-valid LocalBusiness + FAQPage`, () => {
       const url = `${BASE_URL}/${city.slug}`;
-      const lb = {
-        name: `PlowWow Snow Removal — ${city.name}`,
-        url,
-        image: city.ogImage,
-        telephone: "+1-604-761-1518",
-        areaServed: `${city.name}, ${city.province}`,
-        priceRange: "$$",
+      const payload = {
+        localBusiness: {
+          name: `PlowWow Snow Removal — ${city.name}`,
+          url,
+          image: city.ogImage,
+          telephone: "+1-604-761-1518",
+          areaServed: `${city.name}, ${city.province}`,
+          priceRange: "$$",
+        },
+        faqPage: {
+          questionCount: city.faqs.length,
+          entries: city.faqs.map((f) => ({ q: f.q, a: f.a })),
+        },
       };
-      validateLocalBusiness(lb, `/${city.slug}`);
-      validateFaqPage(
-        { questionCount: city.faqs.length, entries: city.faqs.map((f) => ({ q: f.q, a: f.a })) },
-        `/${city.slug}`,
-      );
+      const normalized = normalizeJson(payload);
+      const ok = validateSD(normalized);
+      expect(ok, `/${city.slug}: StructuredData schema — ${formatErrors(validateSD)}`).toBe(true);
+      validateLocalBusiness(payload.localBusiness, `/${city.slug}`);
+      validateFaqPage(payload.faqPage, `/${city.slug}`);
     });
   }
 });
