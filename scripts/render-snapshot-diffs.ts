@@ -9,6 +9,7 @@
 // optional; missing @playwright/test only warns.
 import { mkdirSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { resolve, relative } from "node:path";
+import { resolveChangedRoutes } from "./lib/git-changed-routes";
 
 const ROOT = process.cwd();
 const SNAP_DIR = resolve(ROOT, "seo-report", "structured-data-snapshots");
@@ -17,16 +18,20 @@ const VIOLATIONS_PATH = resolve(ROOT, "seo-report", "seo-diff-violations.json");
 // CLI flags:
 //   --only-failed         → only render diffs for routes listed as violations
 //                           in seo-report/seo-diff-violations.json
-//   --routes=/a,/b        → explicit path allowlist (union with --only-failed)
+//   --changed             → only render diffs for routes impacted by the
+//                           current git diff (vs. SEO_CHANGED_BASE ||
+//                           origin/main || main || HEAD~1)
+//   --routes=/a,/b        → explicit path allowlist (union with the flags above)
 const argv = process.argv.slice(2);
 const onlyFailed = argv.includes("--only-failed");
+const onlyChanged = argv.includes("--changed");
 const routesArg = argv.find((a) => a.startsWith("--routes="));
 const explicitRoutes = routesArg
   ? routesArg.slice("--routes=".length).split(",").map((s) => s.trim()).filter(Boolean)
   : [];
 
 let routeAllowSet: Set<string> | null = null;
-if (onlyFailed || explicitRoutes.length) {
+if (onlyFailed || onlyChanged || explicitRoutes.length) {
   const set = new Set<string>(explicitRoutes);
   if (onlyFailed) {
     if (!existsSync(VIOLATIONS_PATH)) {
@@ -36,8 +41,15 @@ if (onlyFailed || explicitRoutes.length) {
     const doc = JSON.parse(readFileSync(VIOLATIONS_PATH, "utf8")) as { violations?: Array<{ path: string }> };
     for (const v of doc.violations ?? []) set.add(v.path);
   }
+  if (onlyChanged) {
+    const { routes, base, reason, files } = resolveChangedRoutes();
+    console.log(
+      `ℹ --changed: git base=${base ?? "<none>"}${reason ? ` (${reason})` : ""}, ${files.length} changed file(s) → ${routes.length} route(s)`,
+    );
+    for (const p of routes) set.add(p);
+  }
   if (set.size === 0) {
-    console.log("ℹ no failed / requested routes — nothing to render.");
+    console.log("ℹ no failed / changed / requested routes — nothing to render.");
     process.exit(0);
   }
   routeAllowSet = set;
