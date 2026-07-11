@@ -1,0 +1,51 @@
+name: SEO Regression
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  seo:
+    name: SEO Regression Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun global store
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-store-${{ hashFiles('bun.lock', 'bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-store-
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('bun.lock', 'bun.lockb') }}
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Regenerate sitemap (parity check with routes.ts)
+        run: bunx tsx scripts/generate-sitemap.ts
+
+      - name: Fail if sitemap.xml would change (drift from routes.ts)
+        run: |
+          if ! git diff --quiet -- public/sitemap.xml; then
+            echo "::error::public/sitemap.xml is out of sync with scripts/routes.ts"
+            git --no-pager diff -- public/sitemap.xml | head -80
+            exit 1
+          fi
+
+      - name: Run SEO regression suite
+        run: bunx vitest run src/test/seo.regression.test.tsx src/test/sitemap-robots.diff.test.ts src/test/jsonld.schema.test.tsx src/test/seo-score.test.tsx --reporter=verbose
