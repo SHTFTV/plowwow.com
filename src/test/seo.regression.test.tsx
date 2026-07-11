@@ -22,38 +22,54 @@ vi.mock("recharts", async () => {
   };
 });
 
-// Silence Supabase network calls in Auth/Admin
-vi.mock("@/integrations/supabase/client", () => ({
-  supabase: {
-    auth: {
-      getSession: () => Promise.resolve({ data: { session: null } }),
-      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
-      signInWithPassword: () => Promise.resolve({ error: null }),
-      signUp: () => Promise.resolve({ error: null }),
-      signOut: () => Promise.resolve({ error: null }),
+// Silence Supabase network calls; return an authenticated admin session so
+// Admin/Auth mount their applyPageMeta effect without redirecting.
+vi.mock("@/integrations/supabase/client", () => {
+  const fakeSession = { user: { id: "test-admin" } };
+  return {
+    supabase: {
+      auth: {
+        getSession: () => Promise.resolve({ data: { session: fakeSession } }),
+        onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+        signInWithPassword: () => Promise.resolve({ error: null }),
+        signUp: () => Promise.resolve({ error: null }),
+        signOut: () => Promise.resolve({ error: null }),
+      },
+      from: () => {
+        const chain: any = {
+          select: () => chain,
+          eq: () => chain,
+          order: () => chain,
+          range: () => Promise.resolve({ data: [], count: 0, error: null }),
+          maybeSingle: () => Promise.resolve({ data: { role: "admin" }, error: null }),
+        };
+        return chain;
+      },
     },
-    from: () => ({
-      select: () => ({
-        eq: () => ({ maybeSingle: () => Promise.resolve({ data: null, error: null }) }),
-        order: () => ({ range: () => Promise.resolve({ data: [], count: 0, error: null }) }),
-      }),
-    }),
-  },
-}));
+  };
+});
 
 const BASE = "https://plowwow.com";
 
-const renderAt = (path: string, element: React.ReactElement) =>
+const renderPage = (path: string, element: React.ReactElement) =>
   render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/:citySlug" element={<CityPage />} />
+        <Route path={path} element={element} />
         <Route path="*" element={element} />
       </Routes>
     </MemoryRouter>
   );
 
-const headTag = (sel: string) => document.head.querySelector(sel);
+const renderCity = (path: string) =>
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <Routes>
+        <Route path="/:citySlug" element={<CityPage />} />
+      </Routes>
+    </MemoryRouter>
+  );
+
 const metaName = (n: string) =>
   (document.head.querySelector(`meta[name="${n}"]`) as HTMLMetaElement | null)?.content;
 const metaProp = (p: string) =>
@@ -91,7 +107,7 @@ describe("SEO metadata — static pages", () => {
 
   for (const c of cases) {
     it(`${c.name}: sets title, description, canonical, og:*, and JSON-LD`, async () => {
-      renderAt(c.path, c.element);
+      renderPage(c.path, c.element);
       await waitFor(() => {
         expect(document.title).toContain(c.titleIncludes);
       });
@@ -121,31 +137,34 @@ describe("SEO metadata — static pages", () => {
 
 describe("SEO metadata — dynamic /:citySlug", () => {
   const sample = cities.slice(0, 4);
-  it.each(sample.map((c) => [c.slug]))("city %s has self-referencing canonical and unique meta", async (slug) => {
-    renderAt(`/${slug}`, <div />);
-    await waitFor(() => {
-      expect(document.title).toContain("PlowWow");
-    });
-    const url = `${BASE}/${slug}`;
-    expect(canonicalHref()).toBe(url);
-    expect(metaProp("og:url")).toBe(url);
-    expect(metaProp("og:title")).toBe(document.title);
-    expect(metaProp("og:image")).toMatch(/^https?:\/\//);
-    const desc = metaName("description")!;
-    expect(desc.length).toBeGreaterThan(30);
-    expect(desc.length).toBeLessThanOrEqual(200);
-    // LocalBusiness + FAQPage JSON-LD present on city pages
-    const blocks = jsonLdBlocks();
-    const types = blocks.map((b) => b["@type"]);
-    expect(types).toContain("LocalBusiness");
-    expect(types).toContain("FAQPage");
-  });
+
+  it.each(sample.map((c) => [c.slug]))(
+    "city %s has self-referencing canonical (path) and LocalBusiness+FAQ JSON-LD",
+    async (slug) => {
+      renderCity(`/${slug}`);
+      await waitFor(() => {
+        expect(document.title).toContain("PlowWow");
+      });
+      // Canonical/og:url self-reference by path (origin varies in jsdom)
+      const canon = canonicalHref()!;
+      expect(canon.endsWith(`/${slug}`)).toBe(true);
+      expect(metaProp("og:url")!.endsWith(`/${slug}`)).toBe(true);
+      expect(metaProp("og:title")).toBe(document.title);
+      expect(metaProp("og:image")).toMatch(/^https?:\/\//);
+      const desc = metaName("description")!;
+      expect(desc.length).toBeGreaterThan(30);
+      expect(desc.length).toBeLessThanOrEqual(200);
+      const types = jsonLdBlocks().map((b) => b["@type"]);
+      expect(types).toContain("LocalBusiness");
+      expect(types).toContain("FAQPage");
+    }
+  );
 
   it("titles differ across sample city routes", async () => {
     const titles: string[] = [];
     for (const c of sample) {
       document.head.innerHTML = "";
-      const { unmount } = renderAt(`/${c.slug}`, <div />);
+      const { unmount } = renderCity(`/${c.slug}`);
       await waitFor(() => expect(document.title).toContain("PlowWow"));
       titles.push(document.title);
       unmount();
@@ -168,7 +187,7 @@ describe("sitemap.xml + robots.txt inclusion rules", () => {
     expect(sitemap).not.toMatch(/<loc>https:\/\/plowwow\.com\/admin(\/|<)/);
   });
 
-  it("robots.txt disallows /auth and /admin, allows sitemap", () => {
+  it("robots.txt disallows /auth and /admin, references sitemap", () => {
     expect(robots).toMatch(/Disallow:\s*\/admin/);
     expect(robots).toMatch(/Disallow:\s*\/auth/);
     expect(robots).toMatch(/Sitemap:\s*https:\/\/plowwow\.com\/sitemap\.xml/);
