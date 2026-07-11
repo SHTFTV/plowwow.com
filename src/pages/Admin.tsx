@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import { LogOut, RefreshCw } from "lucide-react";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 type QuoteRequest = Tables<"quote_requests">;
 
