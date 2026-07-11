@@ -47,8 +47,21 @@ jobs:
             exit 1
           fi
 
-      - name: Generate per-route SEO report
+      - name: Download previous SEO report (baseline for diff)
+        id: baseline
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: seo.yml
+          workflow_conclusion: success
+          name: seo-report
+          path: seo-baseline/
+          if_no_artifact_found: warn
+        continue-on-error: true
+
+      - name: Generate per-route SEO report (with diff vs. baseline)
         id: report
+        env:
+          SEO_REPORT_BASELINE: seo-baseline/seo-report.json
         run: bunx tsx scripts/seo-report.ts
         continue-on-error: true
 
