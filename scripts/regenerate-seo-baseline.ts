@@ -22,6 +22,7 @@
 import { execFileSync } from "node:child_process";
 import { mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
+import { resolveChangedRoutes } from "./lib/git-changed-routes";
 
 const ROOT = process.cwd();
 const REPORT_DIR = resolve(ROOT, "seo-report");
@@ -34,6 +35,7 @@ const EXISTING_BASELINE = resolve(BASELINE_DIR, "seo-report.json");
 const argv = process.argv.slice(2);
 const skipShots = argv.includes("--no-shots");
 const onlyFailed = argv.includes("--only-failed");
+const onlyChanged = argv.includes("--changed");
 const routesArg = argv.find((a) => a.startsWith("--routes="));
 const explicitRoutes = routesArg
   ? routesArg
@@ -55,11 +57,19 @@ function readFailedRoutes(): string[] {
 }
 
 let routeAllowlist: string[] | null = null;
-if (onlyFailed || explicitRoutes.length) {
-  routeAllowlist = onlyFailed ? readFailedRoutes() : [];
-  if (explicitRoutes.length) routeAllowlist = Array.from(new Set([...(routeAllowlist ?? []), ...explicitRoutes]));
+if (onlyFailed || onlyChanged || explicitRoutes.length) {
+  const set = new Set<string>(explicitRoutes);
+  if (onlyFailed) for (const p of readFailedRoutes()) set.add(p);
+  if (onlyChanged) {
+    const { routes, base, reason, files } = resolveChangedRoutes();
+    console.log(
+      `ℹ --changed: git base=${base ?? "<none>"}${reason ? ` (${reason})` : ""}, ${files.length} changed file(s) → ${routes.length} route(s)`,
+    );
+    for (const p of routes) set.add(p);
+  }
+  routeAllowlist = [...set];
   if (routeAllowlist.length === 0) {
-    console.log("ℹ no failed / requested routes to regenerate — nothing to do.");
+    console.log("ℹ no failed / changed / requested routes to regenerate — nothing to do.");
     process.exit(0);
   }
   console.log(`ℹ partial regeneration for ${routeAllowlist.length} route(s): ${routeAllowlist.join(", ")}`);
