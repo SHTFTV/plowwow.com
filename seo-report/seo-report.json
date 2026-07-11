@@ -3,7 +3,7 @@
     "totalRoutes": 161,
     "routesWithWarnings": 50,
     "missingOgImages": 0,
-    "generatedAt": "2026-07-11T02:26:43.645Z"
+    "generatedAt": "2026-07-11T02:29:46.825Z"
   },
   "rows": [
     {
@@ -148,6 +148,29 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Vancouver",
+          "url": "https://plowwow.com/vancouver",
+          "image": "https://plowwow.com/og-vancouver.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Vancouver, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 2,
+          "entries": [
+            {
+              "q": "Do you service Vancouver during heavy snow events?",
+              "a": "Yes — our Vancouver fleet runs 24/7 during snowfall warnings with priority routes for strata and commercial contracts."
+            },
+            {
+              "q": "How fast can you dispatch in downtown Vancouver?",
+              "a": "Most downtown sites are reached within 60–90 minutes of trigger. Contracted strata properties get same-storm priority."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -164,6 +187,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — New Westminster",
+          "url": "https://plowwow.com/new-westminster",
+          "image": "https://plowwow.com/og-new-westminster.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "New Westminster, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you handle New West's hillside driveways?",
+              "a": "Yes. Our trucks are equipped for grade and we pre-salt steep approaches before storms when forecast triggers fire."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -180,6 +222,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Coquitlam",
+          "url": "https://plowwow.com/coquitlam",
+          "image": "https://plowwow.com/og-coquitlam.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Coquitlam, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Why does Coquitlam need more salt than Vancouver?",
+              "a": "Burke Mountain and Westwood Plateau routinely see 2–3× the snowfall of low-elevation Coquitlam. We stage extra salt for these routes."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -196,6 +257,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Port Coquitlam",
+          "url": "https://plowwow.com/port-coquitlam",
+          "image": "https://plowwow.com/og-port-coquitlam.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Port Coquitlam, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you do PoCo commercial lots overnight?",
+              "a": "Yes — most retail and industrial lots are cleared pre-open between 2–6am during snow events."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -212,6 +292,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Port Moody",
+          "url": "https://plowwow.com/port-moody",
+          "image": "https://plowwow.com/og-port-moody.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Port Moody, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you photo-document service in Port Moody?",
+              "a": "Every site gets timestamped before/after photos uploaded to your strata portal after each event."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -228,6 +327,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Pitt Meadows",
+          "url": "https://plowwow.com/pitt-meadows",
+          "image": "https://plowwow.com/og-pitt-meadows.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Pitt Meadows, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you service Pitt Meadows industrial lots?",
+              "a": "Yes — including yards near the airport and Lougheed corridor. Larger sites get dedicated equipment per event."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -244,6 +362,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Maple Ridge",
+          "url": "https://plowwow.com/maple-ridge",
+          "image": "https://plowwow.com/og-maple-ridge.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Maple Ridge, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Does Maple Ridge get more snow than the rest of the Lower Mainland?",
+              "a": "Yes — north-side neighborhoods like Silver Valley sit higher and accumulate notably more than valley-floor Vancouver."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -260,6 +397,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Surrey",
+          "url": "https://plowwow.com/surrey",
+          "image": "https://plowwow.com/og-surrey.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Surrey, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Can you cover all of Surrey in a single storm?",
+              "a": "Yes — Surrey is our largest geographic zone and gets the most trucks. Contracted sites are always prioritized first."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -276,6 +432,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Langley",
+          "url": "https://plowwow.com/langley",
+          "image": "https://plowwow.com/og-langley.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Langley, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you service Langley acreages?",
+              "a": "Yes — longer driveways and farm approaches are quoted by length and surface; we run trucks suited to gravel and packed lanes."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -292,6 +467,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Abbotsford",
+          "url": "https://plowwow.com/abbotsford",
+          "image": "https://plowwow.com/og-abbotsford.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Abbotsford, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Why does Abbotsford get hit harder than Vancouver?",
+              "a": "Abbotsford sits in the eastern Fraser Valley where outflow winds and elevation push storm totals well above the coast. Sumas Mountain in particular sees the most accumulation in our service area."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -308,6 +502,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — West Vancouver",
+          "url": "https://plowwow.com/west-vancouver",
+          "image": "https://plowwow.com/og-west-vancouver.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "West Vancouver, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you handle steep West Van driveways?",
+              "a": "Yes — our trucks are equipped for grade and we pre-salt British Properties and Caulfeild ahead of forecast snow events."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -324,6 +537,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — North Vancouver",
+          "url": "https://plowwow.com/north-vancouver",
+          "image": "https://plowwow.com/og-north-vancouver.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "North Vancouver, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "How quickly do you dispatch to the North Shore?",
+              "a": "Lynn Valley and Edgemont contracted strata sites are typically reached within 60–90 minutes of trigger during snow events."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -340,6 +572,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Richmond",
+          "url": "https://plowwow.com/richmond",
+          "image": "https://plowwow.com/og-richmond.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Richmond, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you service Richmond commercial lots overnight?",
+              "a": "Yes — most retail and industrial lots are cleared pre-open between 2–6am during snow events."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -356,6 +607,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Delta",
+          "url": "https://plowwow.com/delta",
+          "image": "https://plowwow.com/og-delta.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Delta, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do you cover Tilbury industrial sites?",
+              "a": "Yes — large yards and warehouse lots are quoted by area and run on dedicated equipment per event."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -372,6 +642,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — White Rock",
+          "url": "https://plowwow.com/white-rock",
+          "image": "https://plowwow.com/og-white-rock.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "White Rock, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Do hillside White Rock streets get pre-salted?",
+              "a": "Yes — grade approaches are pre-salted ahead of forecast events to keep traction safe for residents and delivery vehicles."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -388,6 +677,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Mission",
+          "url": "https://plowwow.com/mission",
+          "image": "https://plowwow.com/og-mission.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Mission, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Does Mission get hit harder than Vancouver?",
+              "a": "Yes — eastern Fraser Valley outflow winds and elevation push Mission's storm totals well above the coast."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
@@ -404,6 +712,25 @@
       "ogImageFormat": "jpeg",
       "ogImageMime": "image/jpeg",
       "ogImageTruncated": false,
+      "structuredData": {
+        "localBusiness": {
+          "name": "PlowWow Snow Removal — Chilliwack",
+          "url": "https://plowwow.com/chilliwack",
+          "image": "https://plowwow.com/og-chilliwack.jpg",
+          "telephone": "+1-604-761-1518",
+          "areaServed": "Chilliwack, BC",
+          "priceRange": "$$"
+        },
+        "faqPage": {
+          "questionCount": 1,
+          "entries": [
+            {
+              "q": "Why does Chilliwack need more salt than the coast?",
+              "a": "Promontory and the eastern valley routinely see 2–3× the snowfall of Vancouver. We stage extra salt and equipment locally."
+            }
+          ]
+        }
+      },
       "warnings": []
     },
     {
