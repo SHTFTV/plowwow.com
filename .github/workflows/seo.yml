@@ -96,6 +96,17 @@ jobs:
           path: seo-report/
           retention-days: 14
 
+      - name: Surface unapproved structured-data (LocalBusiness/FAQPage) changes
+        if: always()
+        run: |
+          if [ -f seo-report/seo-diff-violations.json ]; then
+            count=$(node -e "console.log(JSON.parse(require('fs').readFileSync('seo-report/seo-diff-violations.json','utf8')).violationCount ?? 0)")
+            if [ "$count" != "0" ]; then
+              echo "::error::$count unapproved LocalBusiness/FAQPage change(s) — inspect seo-report/seo-diff-violations.json and seo-report/structured-data-snapshots/, then add the paths to seo-baseline-allow.json to acknowledge."
+              cat seo-report/seo-diff-violations.json
+            fi
+          fi
+
       - name: Fail the job if the report or tests failed
         if: always()
         run: |
