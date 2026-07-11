@@ -4,36 +4,36 @@ import { Link } from "react-router-dom";
 // in src/content/legacy/blog/<slug>.md and a hero image in /public/blog-images.
 const FEATURED = [
   {
-    slug: "west-end-vancouver-snow-removal",
-    title: "West End Vancouver",
+    slug: "metrotown-burnaby-strata-commercial-snow-removal",
+    title: "Metrotown Burnaby",
     blurb:
-      "Davie, Denman and Robson strata towers, English Bay commercial — 24/7 dispatch, pet-safe de-icer, pre-dawn parkade-ramp completion.",
-    image: "/blog-images/west-end-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a freshly plowed Davie Street at blue dawn with snow-dusted West End towers and English Bay in the distance",
+      "Kingsway towers, Metropolis frontage and transit-heavy sidewalks — 24/7 dispatch, seasonal contracts and pet-safe de-icer before first commute.",
+    image: "/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+    alt: "PlowWow mascot waving beside a plowed Metrotown Burnaby street at blue dawn with snow-dusted towers and transit platforms behind",
   },
   {
-    slug: "yaletown-vancouver-snow-removal",
-    title: "Yaletown Vancouver",
+    slug: "gastown-vancouver-commercial-snow-removal",
+    title: "Gastown Vancouver",
     blurb:
-      "Mainland Street heritage-brick sidewalks, restaurant patios, loft strata and False Creek commercial — rubber-edge blades and dawn service.",
-    image: "/blog-images/yaletown-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance",
+      "Water Street cobblestones, heritage lofts and restaurant frontages — overnight salting, dawn clearing and documented seasonal service.",
+    image: "/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+    alt: "PlowWow mascot waving on a plowed Gastown Water Street beside the steam clock and snowy heritage brick storefronts",
   },
   {
-    slug: "coal-harbour-vancouver-snow-removal",
-    title: "Coal Harbour Vancouver",
+    slug: "burke-mountain-coquitlam-strata-snow-removal",
+    title: "Burke Mountain",
     blurb:
-      "Luxury waterfront strata, Cordova and Hastings towers, marina walkways — concierge-coordinated dispatch and pre-dawn completion window.",
-    image: "/blog-images/coal-harbour-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a plowed Coal Harbour waterfront promenade at blue dawn with luxury towers, seaplanes and snow-capped North Shore mountains",
+      "Steep hillside strata roads, freezing-rain risk and school-run driveways — elevation-aware dispatch and fixed winter pricing.",
+    image: "/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
+    alt: "PlowWow mascot waving above a plowed Burke Mountain hillside road with snowy pines and valley fog below",
   },
   {
-    slug: "commercial-drive-vancouver-snow-removal",
-    title: "Commercial Drive",
+    slug: "silver-valley-maple-ridge-strata-snow-removal",
+    title: "Silver Valley",
     blurb:
-      "The Drive retail, Italian cafes, Grandview-Woodland strata — 6:15 AM pre-open completion, unlimited salt runs, pet-safe granules.",
-    image: "/blog-images/commercial-drive-vancouver-snow-removal.jpg",
-    alt: "PlowWow mascot waving on a plowed Commercial Drive at blue dawn with snow-dusted Italian cafes, indie storefronts and string lights",
+      "Mountain-edge townhome complexes and steep access roads — 24 hour service, seasonal packages and GPS-logged de-icing runs.",
+    image: "/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
+    alt: "PlowWow mascot waving near a plowed Silver Valley Maple Ridge townhome road with snowy cedars and Golden Ears peaks",
   },
 ];
 
