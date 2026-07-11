@@ -78,6 +78,10 @@ const CASES: Case[] = [
   { name: "Auth", path: "/auth", el: <Auth />, expectedCanonical: "https://plowwow.com/auth" },
   { name: "Admin", path: "/admin", el: <Admin />, expectedCanonical: "https://plowwow.com/admin" },
   { name: "SeoReport", path: "/seo-report", el: <SeoReport />, expectedCanonical: "https://plowwow.com/seo-report" },
+  { name: "Intelligence", path: "/intelligence", el: <Intelligence />, expectedCanonical: "https://plowwow.com/intelligence" },
+  { name: "AppFeatures", path: "/advanced-technology", el: <AppFeatures />, expectedCanonical: "https://plowwow.com/advanced-technology" },
+  { name: "BlogIndex", path: "/blog", el: <BlogIndex />, expectedCanonical: "https://plowwow.com/blog" },
+  { name: "Takeoff", path: "/takeoff", el: <Takeoff />, expectedCanonical: "https://plowwow.com/takeoff" },
 ];
 
 describe("static routes: og/twitter parity + DOM↔JSON-LD cross-validation", () => {
