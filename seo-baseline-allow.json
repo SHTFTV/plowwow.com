@@ -1,0 +1,4 @@
+{
+  "note": "Paths listed here are permitted to change their LocalBusiness or FAQPage JSON-LD payloads between CI runs. Add a route (e.g. \"/vancouver\") temporarily when you intentionally update its structured data; remove it after the baseline catches up. CI fails when scripts/seo-report.ts is run with SEO_FAIL_ON_STRUCTURED_DIFF=1 and any changed structured-data route is not on this list.",
+  "allowedPaths": []
+}
