@@ -62,6 +62,8 @@ jobs:
         id: report
         env:
           SEO_REPORT_BASELINE: seo-baseline/seo-report.json
+          SEO_STRUCTURED_ALLOWLIST: seo-baseline-allow.json
+          SEO_FAIL_ON_STRUCTURED_DIFF: "1"
         run: bunx tsx scripts/seo-report.ts
         continue-on-error: true
 
