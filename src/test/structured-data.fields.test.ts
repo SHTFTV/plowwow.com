@@ -108,8 +108,11 @@ describe("structured data: city LocalBusiness + FAQPage schemas (AJV)", () => {
       };
       const normalized = normalizeJson(payload);
       const ok = validateSD(normalized);
-      expect(ok, `/${city.slug}: StructuredData schema — ${formatErrors(validateSD)}`).toBe(true);
-      validateLocalBusiness(payload.localBusiness, `/${city.slug}`);
+      expect(ok, `/${city.slug}: StructuredData schema\n  ${formatErrors(validateSD)}`).toBe(true);
+      validateLocalBusiness(payload.localBusiness, `/${city.slug}`, {
+        url,
+        imageStartsWith: `${BASE_URL}/`,
+      });
       validateFaqPage(payload.faqPage, `/${city.slug}`);
     });
   }
