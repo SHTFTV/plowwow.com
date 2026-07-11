@@ -8,6 +8,7 @@ import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "./routes";
 import { readImageMeta } from "../src/test/helpers/image-size";
 import { cities, type City } from "../src/data/cities";
+import { normalizeJson, canonicalStringify } from "./lib/normalize";
 
 const OUT_DIR = resolve(process.cwd(), "seo-report");
 mkdirSync(OUT_DIR, { recursive: true });
@@ -32,7 +33,9 @@ type StructuredData = {
 };
 
 function buildStructuredData(city: City, url: string, ogImage: string): StructuredData {
-  return {
+  // Route through normalizeJson so trailing spaces, key ordering, and
+  // internal whitespace runs can never cause a snapshot to churn.
+  return normalizeJson({
     localBusiness: {
       name: `PlowWow Snow Removal — ${city.name}`,
       url,
@@ -45,7 +48,7 @@ function buildStructuredData(city: City, url: string, ogImage: string): Structur
       questionCount: city.faqs.length,
       entries: city.faqs.map((f) => ({ q: f.q, a: f.a })),
     },
-  };
+  }) as StructuredData;
 }
 
 type Row = {
@@ -212,28 +215,29 @@ if (baselinePath && existsSync(baselinePath)) {
       }
     }
     // Structured-data diff (LocalBusiness + FAQPage). Compare via canonical
-    // JSON so any field change — including nested FAQ entries — is caught.
-    const curSD = JSON.stringify(cur.structuredData ?? null);
-    const prevSD = JSON.stringify((p as Row).structuredData ?? null);
+    // normalized JSON so key order, whitespace, and unrelated formatting
+    // never trigger a false-positive diff.
+    const curSD = canonicalStringify(cur.structuredData ?? null);
+    const prevSD = canonicalStringify((p as Row).structuredData ?? null);
     if (curSD !== prevSD) {
       const curObj = cur.structuredData ?? {};
       const prevObj = (p as Row).structuredData ?? {};
-      const lbCur = JSON.stringify(curObj.localBusiness ?? null);
-      const lbPrev = JSON.stringify(prevObj.localBusiness ?? null);
+      const lbCur = canonicalStringify(curObj.localBusiness ?? null);
+      const lbPrev = canonicalStringify(prevObj.localBusiness ?? null);
       if (lbCur !== lbPrev) {
         changes.push({
           field: "jsonld.LocalBusiness" as DiffField,
-          from: prevObj.localBusiness ?? null,
-          to: curObj.localBusiness ?? null,
+          from: normalizeJson(prevObj.localBusiness ?? null),
+          to: normalizeJson(curObj.localBusiness ?? null),
         });
       }
-      const faqCur = JSON.stringify(curObj.faqPage ?? null);
-      const faqPrev = JSON.stringify(prevObj.faqPage ?? null);
+      const faqCur = canonicalStringify(curObj.faqPage ?? null);
+      const faqPrev = canonicalStringify(prevObj.faqPage ?? null);
       if (faqCur !== faqPrev) {
         changes.push({
           field: "jsonld.FAQPage" as DiffField,
-          from: prevObj.faqPage ?? null,
-          to: curObj.faqPage ?? null,
+          from: normalizeJson(prevObj.faqPage ?? null),
+          to: normalizeJson(curObj.faqPage ?? null),
         });
       }
     }
@@ -329,19 +333,15 @@ for (const d of diffJson.diffs) {
   _mkdir(snapDir, { recursive: true });
   writeFileSync(
     resolve(snapDir, "before.json"),
-    JSON.stringify((d as any).previous.structuredData ?? null, null, 2),
+    canonicalStringify((d as any).previous.structuredData ?? null),
   );
   writeFileSync(
     resolve(snapDir, "after.json"),
-    JSON.stringify((d as any).current.structuredData ?? null, null, 2),
+    canonicalStringify((d as any).current.structuredData ?? null),
   );
   writeFileSync(
     resolve(snapDir, "changes.json"),
-    JSON.stringify(
-      d.changes.filter((c) => STRUCTURED_FIELDS.has(String(c.field))),
-      null,
-      2,
-    ),
+    canonicalStringify(d.changes.filter((c) => STRUCTURED_FIELDS.has(String(c.field)))),
   );
 
   structuredChanges.push({
