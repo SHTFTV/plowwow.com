@@ -247,12 +247,19 @@ const BlogIndex = () => {
       if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
       el.href = href;
     };
+    const URL_ABS = "https://plowwow.com/blog";
+    const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
     setProp("og:description", description);
     setProp("og:type", "website");
-    setProp("og:url", "/blog");
-    setCanonical("/blog");
+    setProp("og:url", URL_ABS);
+    setProp("og:image", OG_IMAGE);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", OG_IMAGE);
+    setCanonical(URL_ABS);
 
     const ldId = "blog-index-jsonld";
     document.getElementById(ldId)?.remove();
@@ -264,10 +271,28 @@ const BlogIndex = () => {
       "@type": "CollectionPage",
       name: "PlowWow Blog",
       description,
-      url: "/blog",
+      url: URL_ABS,
     });
     document.head.appendChild(ld);
-    return () => { document.getElementById(ldId)?.remove(); };
+
+    // WebPage JSON-LD — url MUST equal canonical for parity tests.
+    const wpId = "blog-index-webpage-jsonld";
+    document.getElementById(wpId)?.remove();
+    const wp = document.createElement("script");
+    wp.type = "application/ld+json";
+    wp.id = wpId;
+    wp.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: title,
+      description,
+      url: URL_ABS,
+    });
+    document.head.appendChild(wp);
+    return () => {
+      document.getElementById(ldId)?.remove();
+      document.getElementById(wpId)?.remove();
+    };
   }, [page, totalPages]);
 
   const goTo = (next: number) => {
