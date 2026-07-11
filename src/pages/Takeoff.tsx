@@ -80,15 +80,56 @@ const Takeoff = () => {
 
   // SEO
   useEffect(() => {
-    document.title = "Snow Contract Takeoff & Estimate Tool | PlowWow";
+    const TITLE = "Snow Contract Takeoff & Estimate Tool | PlowWow";
+    const DESC = "Build snow-contract takeoffs and export branded PDF estimates using your own editable rate card.";
+    const URL_ABS = "https://plowwow.com/takeoff";
+    const OG_IMAGE = "https://plowwow.com/og-default.jpg";
+    document.title = TITLE;
     const set = (sel: string, attr: string, val: string) => {
-      const el = document.querySelector(sel);
+      let el = document.querySelector(sel);
+      if (!el) {
+        if (sel.startsWith('meta[name="')) {
+          el = document.createElement("meta");
+          (el as HTMLMetaElement).name = sel.slice(11, -2);
+          document.head.appendChild(el);
+        } else if (sel.startsWith('meta[property="')) {
+          el = document.createElement("meta");
+          el.setAttribute("property", sel.slice(15, -2));
+          document.head.appendChild(el);
+        } else if (sel === 'link[rel="canonical"]') {
+          el = document.createElement("link");
+          (el as HTMLLinkElement).rel = "canonical";
+          document.head.appendChild(el);
+        }
+      }
       if (el) el.setAttribute(attr, val);
     };
-    set('meta[name="description"]', "content", "Build snow-contract takeoffs and export branded PDF estimates using your own editable rate card.");
-    set('link[rel="canonical"]', "href", "https://plowwow.com/takeoff");
-    set('meta[property="og:url"]', "content", "https://plowwow.com/takeoff");
-    set('meta[property="og:title"]', "content", "Snow Contract Takeoff & Estimate Tool | PlowWow");
+    set('meta[name="description"]', "content", DESC);
+    set('link[rel="canonical"]', "href", URL_ABS);
+    set('meta[property="og:url"]', "content", URL_ABS);
+    set('meta[property="og:title"]', "content", TITLE);
+    set('meta[property="og:description"]', "content", DESC);
+    set('meta[property="og:type"]', "content", "website");
+    set('meta[property="og:image"]', "content", OG_IMAGE);
+    set('meta[name="twitter:card"]', "content", "summary_large_image");
+    set('meta[name="twitter:title"]', "content", TITLE);
+    set('meta[name="twitter:description"]', "content", DESC);
+    set('meta[name="twitter:image"]', "content", OG_IMAGE);
+
+    const wpId = "takeoff-webpage-jsonld";
+    document.getElementById(wpId)?.remove();
+    const wp = document.createElement("script");
+    wp.type = "application/ld+json";
+    wp.id = wpId;
+    wp.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: TITLE,
+      description: DESC,
+      url: URL_ABS,
+    });
+    document.head.appendChild(wp);
+    return () => { document.getElementById(wpId)?.remove(); };
   }, []);
 
   // Auth
