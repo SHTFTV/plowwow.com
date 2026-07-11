@@ -6,7 +6,7 @@
 //
 // Schemas are intentionally strict: additionalProperties=false so any new
 // field surfaces as a schema failure until the schema catches up.
-import Ajv, { type JSONSchemaType, type ValidateFunction } from "ajv";
+import Ajv, { type ValidateFunction, type SchemaObject } from "ajv";
 import addFormats from "ajv-formats";
 
 export type LocalBusinessSnapshot = {
@@ -29,7 +29,8 @@ export type StructuredDataSnapshot = {
   faqPage?: FaqPageSnapshot;
 };
 
-export const localBusinessSchema: JSONSchemaType<LocalBusinessSnapshot> = {
+export const localBusinessSchema: SchemaObject = {
+  $id: "plowwow://schemas/local-business.json",
   type: "object",
   required: ["name", "url", "image", "telephone", "areaServed", "priceRange"],
   additionalProperties: false,
@@ -43,7 +44,8 @@ export const localBusinessSchema: JSONSchemaType<LocalBusinessSnapshot> = {
   },
 };
 
-export const faqEntrySchema: JSONSchemaType<FaqEntry> = {
+export const faqEntrySchema: SchemaObject = {
+  $id: "plowwow://schemas/faq-entry.json",
   type: "object",
   required: ["q", "a"],
   additionalProperties: false,
@@ -53,7 +55,8 @@ export const faqEntrySchema: JSONSchemaType<FaqEntry> = {
   },
 };
 
-export const faqPageSchema: JSONSchemaType<FaqPageSnapshot> = {
+export const faqPageSchema: SchemaObject = {
+  $id: "plowwow://schemas/faq-page.json",
   type: "object",
   required: ["questionCount", "entries"],
   additionalProperties: false,
@@ -63,14 +66,15 @@ export const faqPageSchema: JSONSchemaType<FaqPageSnapshot> = {
   },
 };
 
-export const structuredDataSchema: JSONSchemaType<StructuredDataSnapshot> = {
+export const structuredDataSchema: SchemaObject = {
+  $id: "plowwow://schemas/structured-data.json",
   type: "object",
   additionalProperties: false,
   properties: {
-    localBusiness: { ...localBusinessSchema, nullable: true } as any,
-    faqPage: { ...faqPageSchema, nullable: true } as any,
+    localBusiness: localBusinessSchema,
+    faqPage: faqPageSchema,
   },
-} as JSONSchemaType<StructuredDataSnapshot>;
+};
 
 let cached: {
   ajv: Ajv;
@@ -85,9 +89,9 @@ export function getValidators() {
   addFormats(ajv);
   cached = {
     ajv,
-    localBusiness: ajv.compile(localBusinessSchema),
-    faqPage: ajv.compile(faqPageSchema),
-    structuredData: ajv.compile(structuredDataSchema),
+    localBusiness: ajv.compile<LocalBusinessSnapshot>(localBusinessSchema),
+    faqPage: ajv.compile<FaqPageSnapshot>(faqPageSchema),
+    structuredData: ajv.compile<StructuredDataSnapshot>(structuredDataSchema),
   };
   return cached;
 }
