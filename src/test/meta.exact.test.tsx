@@ -66,9 +66,9 @@ const FIXTURES: Expected[] = [
     name: "Auth",
     path: "/auth",
     el: <Auth />,
-    title: "Sign In or Create Account | PlowWow",
+    title: "Sign In | PlowWow Contractor Portal",
     description:
-      "Sign in to your PlowWow contractor account, manage takeoffs, and access saved snow removal estimates and admin tools.",
+      "Secure sign-in for PlowWow contractors and admins. Access your snow ops dashboard, takeoff estimates, and account tools.",
     ogImage: `${BASE}/og-default.jpg`,
     robots: "noindex, nofollow",
   },
@@ -78,7 +78,7 @@ const FIXTURES: Expected[] = [
     el: <Admin />,
     title: "Admin Dashboard | PlowWow",
     description:
-      "Internal PlowWow admin — manage guest post submissions, moderate content, and monitor operational metrics for the platform.",
+      "PlowWow internal admin dashboard for managing quote requests, contractors, and snow ops operations.",
     ogImage: `${BASE}/og-default.jpg`,
     robots: "noindex, nofollow",
   },
@@ -86,9 +86,9 @@ const FIXTURES: Expected[] = [
     name: "NotFound",
     path: "/definitely-missing",
     el: <NotFound />,
-    title: "Page Not Found | PlowWow",
+    title: "Page Not Found (404) | PlowWow",
     description:
-      "The page you requested could not be found. Return to PlowWow's snow removal home page, explore cities, or browse the neighborhood blog.",
+      "The page you are looking for does not exist. Return to PlowWow for 24/7 snow removal, salting, and de-icing across Greater Vancouver.",
     ogImage: `${BASE}/og-default.jpg`,
     robots: "noindex, nofollow",
   },
