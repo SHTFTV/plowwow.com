@@ -211,6 +211,32 @@ if (baselinePath && existsSync(baselinePath)) {
         changes.push({ field: f, from: (p as any)[f], to: (cur as any)[f] });
       }
     }
+    // Structured-data diff (LocalBusiness + FAQPage). Compare via canonical
+    // JSON so any field change — including nested FAQ entries — is caught.
+    const curSD = JSON.stringify(cur.structuredData ?? null);
+    const prevSD = JSON.stringify((p as Row).structuredData ?? null);
+    if (curSD !== prevSD) {
+      const curObj = cur.structuredData ?? {};
+      const prevObj = (p as Row).structuredData ?? {};
+      const lbCur = JSON.stringify(curObj.localBusiness ?? null);
+      const lbPrev = JSON.stringify(prevObj.localBusiness ?? null);
+      if (lbCur !== lbPrev) {
+        changes.push({
+          field: "jsonld.LocalBusiness" as DiffField,
+          from: prevObj.localBusiness ?? null,
+          to: curObj.localBusiness ?? null,
+        });
+      }
+      const faqCur = JSON.stringify(curObj.faqPage ?? null);
+      const faqPrev = JSON.stringify(prevObj.faqPage ?? null);
+      if (faqCur !== faqPrev) {
+        changes.push({
+          field: "jsonld.FAQPage" as DiffField,
+          from: prevObj.faqPage ?? null,
+          to: curObj.faqPage ?? null,
+        });
+      }
+    }
     if (changes.length) diffs.push({ path, status: "changed", changes, current: cur, previous: p });
   }
   for (const [path, p] of prevByPath) {
