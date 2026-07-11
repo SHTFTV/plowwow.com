@@ -96,8 +96,17 @@ export function getValidators() {
   return cached;
 }
 
+// Format AJV errors so the test output pinpoints WHERE (JSON pointer) and WHY
+// (keyword like `required` / `type` / `format` / `pattern`) validation failed.
+// Example: `/localBusiness/url [format] must match format "uri" (uri)`
 export function formatErrors(v: ValidateFunction<any>): string {
   return (v.errors ?? [])
-    .map((e) => `${e.instancePath || "/"} ${e.message ?? "invalid"}${e.params ? " " + JSON.stringify(e.params) : ""}`)
-    .join("; ");
+    .map((e) => {
+      const where = e.instancePath || "/";
+      const keyword = `[${e.keyword ?? "?"}]`;
+      const params = e.params ? " " + JSON.stringify(e.params) : "";
+      const schemaPath = e.schemaPath ? ` (schema: ${e.schemaPath})` : "";
+      return `${where} ${keyword} ${e.message ?? "invalid"}${params}${schemaPath}`;
+    })
+    .join("\n  ");
 }
