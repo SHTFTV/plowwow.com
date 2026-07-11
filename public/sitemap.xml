@@ -28,7 +28,7 @@
     <loc>https://plowwow.com/advanced-technology</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://plowwow.com/takeoff</loc>
@@ -164,12 +164,6 @@
   </url>
   <url>
     <loc>https://plowwow.com/about</loc>
-    <lastmod>2026-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://plowwow.com/advanced-technology</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
