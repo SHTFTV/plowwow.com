@@ -215,28 +215,29 @@ if (baselinePath && existsSync(baselinePath)) {
       }
     }
     // Structured-data diff (LocalBusiness + FAQPage). Compare via canonical
-    // JSON so any field change — including nested FAQ entries — is caught.
-    const curSD = JSON.stringify(cur.structuredData ?? null);
-    const prevSD = JSON.stringify((p as Row).structuredData ?? null);
+    // normalized JSON so key order, whitespace, and unrelated formatting
+    // never trigger a false-positive diff.
+    const curSD = canonicalStringify(cur.structuredData ?? null);
+    const prevSD = canonicalStringify((p as Row).structuredData ?? null);
     if (curSD !== prevSD) {
       const curObj = cur.structuredData ?? {};
       const prevObj = (p as Row).structuredData ?? {};
-      const lbCur = JSON.stringify(curObj.localBusiness ?? null);
-      const lbPrev = JSON.stringify(prevObj.localBusiness ?? null);
+      const lbCur = canonicalStringify(curObj.localBusiness ?? null);
+      const lbPrev = canonicalStringify(prevObj.localBusiness ?? null);
       if (lbCur !== lbPrev) {
         changes.push({
           field: "jsonld.LocalBusiness" as DiffField,
-          from: prevObj.localBusiness ?? null,
-          to: curObj.localBusiness ?? null,
+          from: normalizeJson(prevObj.localBusiness ?? null),
+          to: normalizeJson(curObj.localBusiness ?? null),
         });
       }
-      const faqCur = JSON.stringify(curObj.faqPage ?? null);
-      const faqPrev = JSON.stringify(prevObj.faqPage ?? null);
+      const faqCur = canonicalStringify(curObj.faqPage ?? null);
+      const faqPrev = canonicalStringify(prevObj.faqPage ?? null);
       if (faqCur !== faqPrev) {
         changes.push({
           field: "jsonld.FAQPage" as DiffField,
-          from: prevObj.faqPage ?? null,
-          to: curObj.faqPage ?? null,
+          from: normalizeJson(prevObj.faqPage ?? null),
+          to: normalizeJson(curObj.faqPage ?? null),
         });
       }
     }
