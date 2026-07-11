@@ -1,9 +1,12 @@
-// Emit a per-route SEO report (JSON + Markdown) to /tmp/seo-report/.
-// Consumed by CI as an uploaded artifact.
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+// Emit a per-route SEO report (JSON + Markdown) to ./seo-report/.
+// If a baseline report is provided via SEO_REPORT_BASELINE (path to a prior
+// seo-report.json), also emit seo-diff.{json,md} showing per-route changes
+// to title / description / og:image / canonical-style fields against the
+// previous successful run. Consumed by CI as an uploaded artifact.
+import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "./routes";
-import { readImageSize } from "../src/test/helpers/image-size";
+import { readImageMeta } from "../src/test/helpers/image-size";
 
 const OUT_DIR = resolve(process.cwd(), "seo-report");
 mkdirSync(OUT_DIR, { recursive: true });
@@ -19,6 +22,9 @@ type Row = {
   ogImageExists: boolean;
   ogImageWidth: number | null;
   ogImageHeight: number | null;
+  ogImageFormat: string | null;
+  ogImageMime: string | null;
+  ogImageTruncated: boolean;
   warnings: string[];
 };
 
@@ -33,17 +39,24 @@ for (const r of collectRoutes()) {
   let exists = false;
   let w: number | null = null;
   let h: number | null = null;
+  let format: string | null = null;
+  let mime: string | null = null;
+  let truncated = false;
   if (r.ogImage?.startsWith(BASE_URL + "/")) {
     const p = resolve(process.cwd(), "public", r.ogImage.slice(BASE_URL.length + 1));
     exists = existsSync(p);
     if (exists) {
-      const s = readImageSize(p);
-      if (s) {
-        w = s.width;
-        h = s.height;
+      const meta = readImageMeta(p);
+      if (meta) {
+        w = meta.width;
+        h = meta.height;
+        format = meta.format;
+        mime = meta.mime;
+        truncated = meta.truncated;
         if (w < 600 || h < 315) warnings.push(`og:image ${w}×${h} below min 600×315`);
+        if (truncated) warnings.push(`og:image truncated (missing EOI/IEND)`);
       } else {
-        warnings.push("og:image unreadable");
+        warnings.push("og:image unreadable / not PNG or JPEG");
       }
     } else {
       warnings.push("og:image missing on disk");
@@ -65,6 +78,9 @@ for (const r of collectRoutes()) {
     ogImageExists: exists,
     ogImageWidth: w,
     ogImageHeight: h,
+    ogImageFormat: format,
+    ogImageMime: mime,
+    ogImageTruncated: truncated,
     warnings,
   });
 }
@@ -76,10 +92,7 @@ const summary = {
   generatedAt: new Date().toISOString(),
 };
 
-writeFileSync(
-  resolve(OUT_DIR, "seo-report.json"),
-  JSON.stringify({ summary, rows }, null, 2),
-);
+writeFileSync(resolve(OUT_DIR, "seo-report.json"), JSON.stringify({ summary, rows }, null, 2));
 
 const md = [
   `# SEO Report`,
@@ -96,19 +109,120 @@ const md = [
   ``,
   `## All routes`,
   ``,
-  `| Path | Title (len) | Desc (len) | og:image | Size |`,
-  `|---|---|---|---|---|`,
+  `| Path | Title (len) | Desc (len) | og:image | Size | Format |`,
+  `|---|---|---|---|---|---|`,
   ...rows.map(
     (r) =>
-      `| \`${r.path}\` | ${r.titleLen} | ${r.descLen} | ${r.ogImage ?? "—"} | ${r.ogImageWidth && r.ogImageHeight ? `${r.ogImageWidth}×${r.ogImageHeight}` : "—"} |`,
+      `| \`${r.path}\` | ${r.titleLen} | ${r.descLen} | ${r.ogImage ?? "—"} | ${r.ogImageWidth && r.ogImageHeight ? `${r.ogImageWidth}×${r.ogImageHeight}` : "—"} | ${r.ogImageFormat ?? "—"} |`,
   ),
 ].join("\n");
 
 writeFileSync(resolve(OUT_DIR, "seo-report.md"), md);
 
+// ---------------------------------------------------------------------------
+// Per-route diff vs. previous successful run
+// ---------------------------------------------------------------------------
+const baselinePath = process.env.SEO_REPORT_BASELINE;
+const DIFF_FIELDS = [
+  "title",
+  "description",
+  "ogImage",
+  "ogImageFormat",
+  "ogImageMime",
+  "ogImageWidth",
+  "ogImageHeight",
+] as const;
+type DiffField = (typeof DIFF_FIELDS)[number];
+
+type Change = { field: DiffField; from: unknown; to: unknown };
+type DiffRow =
+  | { path: string; status: "added"; current: Row }
+  | { path: string; status: "removed"; previous: Row }
+  | { path: string; status: "changed"; changes: Change[]; current: Row; previous: Row };
+
+let diffMd = "# SEO Diff\n\n_No baseline supplied — first run or previous artifact unavailable._\n";
+let diffJson: { baseline: string | null; diffs: DiffRow[] } = { baseline: null, diffs: [] };
+
+if (baselinePath && existsSync(baselinePath)) {
+  const prev = JSON.parse(readFileSync(baselinePath, "utf8")) as { rows: Row[] };
+  const prevByPath = new Map(prev.rows.map((r) => [r.path, r]));
+  const currByPath = new Map(rows.map((r) => [r.path, r]));
+
+  const diffs: DiffRow[] = [];
+  for (const [path, cur] of currByPath) {
+    const p = prevByPath.get(path);
+    if (!p) {
+      diffs.push({ path, status: "added", current: cur });
+      continue;
+    }
+    const changes: Change[] = [];
+    for (const f of DIFF_FIELDS) {
+      if ((cur as any)[f] !== (p as any)[f]) {
+        changes.push({ field: f, from: (p as any)[f], to: (cur as any)[f] });
+      }
+    }
+    if (changes.length) diffs.push({ path, status: "changed", changes, current: cur, previous: p });
+  }
+  for (const [path, p] of prevByPath) {
+    if (!currByPath.has(path)) diffs.push({ path, status: "removed", previous: p });
+  }
+
+  diffJson = { baseline: baselinePath, diffs };
+
+  const added = diffs.filter((d) => d.status === "added");
+  const removed = diffs.filter((d) => d.status === "removed");
+  const changed = diffs.filter((d) => d.status === "changed");
+
+  const fmt = (v: unknown) =>
+    v === null || v === undefined ? "—" : String(v).replace(/\|/g, "\\|");
+
+  diffMd = [
+    `# SEO Diff`,
+    ``,
+    `Baseline: \`${baselinePath}\``,
+    ``,
+    `- Added routes: **${added.length}**`,
+    `- Removed routes: **${removed.length}**`,
+    `- Changed routes: **${changed.length}**`,
+    ``,
+    ...(added.length
+      ? [`## Added`, ``, ...added.map((d) => `- \`${d.path}\``), ``]
+      : []),
+    ...(removed.length
+      ? [`## Removed`, ``, ...removed.map((d) => `- \`${d.path}\``), ``]
+      : []),
+    ...(changed.length
+      ? [
+          `## Changed`,
+          ``,
+          ...changed.flatMap((d) =>
+            d.status === "changed"
+              ? [
+                  `### \`${d.path}\``,
+                  ``,
+                  `| Field | Previous | Current |`,
+                  `|---|---|---|`,
+                  ...d.changes.map((c) => `| ${c.field} | ${fmt(c.from)} | ${fmt(c.to)} |`),
+                  ``,
+                ]
+              : [],
+          ),
+        ]
+      : []),
+  ].join("\n");
+}
+
+writeFileSync(resolve(OUT_DIR, "seo-diff.json"), JSON.stringify(diffJson, null, 2));
+writeFileSync(resolve(OUT_DIR, "seo-diff.md"), diffMd);
+
 console.log(
   `✓ seo-report written — ${summary.totalRoutes} routes, ${summary.routesWithWarnings} with warnings, ${summary.missingOgImages} missing og:images`,
 );
+if (diffJson.baseline) {
+  console.log(`✓ seo-diff written — ${diffJson.diffs.length} route(s) differ from baseline`);
+} else {
+  console.log(`ℹ seo-diff skipped — no baseline (set SEO_REPORT_BASELINE to enable)`);
+}
 
 if (summary.missingOgImages > 0) {
   console.error(`✗ ${summary.missingOgImages} missing og:image(s) — see seo-report.md`);

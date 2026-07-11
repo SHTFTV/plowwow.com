@@ -3,7 +3,7 @@
     "totalRoutes": 161,
     "routesWithWarnings": 50,
     "missingOgImages": 0,
-    "generatedAt": "2026-07-11T02:21:39.766Z"
+    "generatedAt": "2026-07-11T02:26:43.645Z"
   },
   "rows": [
     {
@@ -17,6 +17,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -30,6 +33,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -43,6 +49,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -56,6 +65,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -69,6 +81,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -82,6 +97,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -95,6 +113,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -108,6 +129,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -121,6 +145,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -134,6 +161,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -147,6 +177,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -160,6 +193,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -173,6 +209,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -186,6 +225,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -199,6 +241,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -212,6 +257,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -225,6 +273,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -238,6 +289,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -251,6 +305,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -264,6 +321,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -277,6 +337,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -290,6 +353,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -303,6 +369,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -316,6 +385,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -329,6 +401,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -342,6 +417,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -355,6 +433,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 68"
       ]
@@ -370,6 +451,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -383,6 +467,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -396,6 +483,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -409,6 +499,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -422,6 +515,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -435,6 +531,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -450,6 +549,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -463,6 +565,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 68"
       ]
@@ -478,6 +583,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -491,6 +599,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -504,6 +615,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 67"
       ]
@@ -519,6 +633,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -532,6 +649,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -545,6 +665,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -558,6 +681,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -573,6 +699,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -586,6 +715,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 67"
       ]
@@ -601,6 +733,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -614,6 +749,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 73"
       ]
@@ -629,6 +767,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 70"
       ]
@@ -644,6 +785,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -659,6 +803,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 72"
       ]
@@ -674,6 +821,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -687,6 +837,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -702,6 +855,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -717,6 +873,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -730,6 +889,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -743,6 +905,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -756,6 +921,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -769,6 +937,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -782,6 +953,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 75"
       ]
@@ -797,6 +971,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -810,6 +987,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -823,6 +1003,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -836,6 +1019,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -849,6 +1035,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 67"
       ]
@@ -864,6 +1053,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 68"
       ]
@@ -879,6 +1071,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -892,6 +1087,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -907,6 +1105,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 960,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -920,6 +1121,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 960,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -933,6 +1137,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -946,6 +1153,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 72"
       ]
@@ -961,6 +1171,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -974,6 +1187,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -987,6 +1203,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1000,6 +1219,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1013,6 +1235,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1026,6 +1251,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 960,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1039,6 +1267,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1052,6 +1283,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1065,6 +1299,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1078,6 +1315,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 70"
       ]
@@ -1093,6 +1333,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 72"
       ]
@@ -1108,6 +1351,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 76"
       ]
@@ -1123,6 +1369,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 78"
       ]
@@ -1138,6 +1387,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1151,6 +1403,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1164,6 +1419,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1177,6 +1435,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 76"
       ]
@@ -1192,6 +1453,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -1207,6 +1471,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 74"
       ]
@@ -1222,6 +1489,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1237,6 +1507,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1250,6 +1523,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1263,6 +1539,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1278,6 +1557,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1291,6 +1573,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1304,6 +1589,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1317,6 +1605,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1330,6 +1621,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1343,6 +1637,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1356,6 +1653,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1369,6 +1669,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 79"
       ]
@@ -1384,6 +1687,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1397,6 +1703,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1410,6 +1719,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1423,6 +1735,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1436,6 +1751,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1449,6 +1767,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1462,6 +1783,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 71"
       ]
@@ -1477,6 +1801,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1490,6 +1817,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1503,6 +1833,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1516,6 +1849,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 75"
       ]
@@ -1531,6 +1867,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 74"
       ]
@@ -1546,6 +1885,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 76"
       ]
@@ -1561,6 +1903,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1574,6 +1919,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1587,6 +1935,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1600,6 +1951,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1613,6 +1967,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1628,6 +1985,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1641,6 +2001,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 85"
       ]
@@ -1656,6 +2019,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 77"
       ]
@@ -1671,6 +2037,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 77"
       ]
@@ -1686,6 +2055,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1699,6 +2071,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1712,6 +2087,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 77"
       ]
@@ -1727,6 +2105,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1740,6 +2121,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1755,6 +2139,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1768,6 +2155,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1781,6 +2171,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 70"
       ]
@@ -1796,6 +2189,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1809,6 +2205,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1824,6 +2223,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 69"
       ]
@@ -1839,6 +2241,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 72"
       ]
@@ -1854,6 +2259,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 73"
       ]
@@ -1869,6 +2277,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1882,6 +2293,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1895,6 +2309,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 75"
       ]
@@ -1910,6 +2327,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 71"
       ]
@@ -1925,6 +2345,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 76"
       ]
@@ -1940,6 +2363,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1953,6 +2379,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 70"
       ]
@@ -1968,6 +2397,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1981,6 +2413,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -1994,6 +2429,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2007,6 +2445,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2020,6 +2461,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2033,6 +2477,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 75"
       ]
@@ -2048,6 +2495,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2061,6 +2511,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2074,6 +2527,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2087,6 +2543,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2100,6 +2559,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2113,6 +2575,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2126,6 +2591,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 720,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2139,6 +2607,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1280,
       "ogImageHeight": 960,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2152,6 +2623,9 @@
       "ogImageExists": true,
       "ogImageWidth": 945,
       "ogImageHeight": 630,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 74"
       ]
@@ -2167,6 +2641,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1024,
       "ogImageHeight": 1024,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": []
     },
     {
@@ -2180,6 +2657,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 66"
       ]
@@ -2195,6 +2675,9 @@
       "ogImageExists": true,
       "ogImageWidth": 1376,
       "ogImageHeight": 768,
+      "ogImageFormat": "jpeg",
+      "ogImageMime": "image/jpeg",
+      "ogImageTruncated": false,
       "warnings": [
         "title length 70"
       ]
