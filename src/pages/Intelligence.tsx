@@ -17,7 +17,6 @@ const BASE = "https://plowwow.com";
 const PATH = "/intelligence";
 const URL_ABS = `${BASE}${PATH}`;
 const OG_IMAGE = `${BASE}/og-default.jpg`;
-const PATH = "/intelligence";
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
