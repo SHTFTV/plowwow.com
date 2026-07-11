@@ -47,5 +47,44 @@ jobs:
             exit 1
           fi
 
+      - name: Generate per-route SEO report
+        id: report
+        run: bunx tsx scripts/seo-report.ts
+        continue-on-error: true
+
       - name: Run SEO regression suite
-        run: bunx vitest run src/test/seo.regression.test.tsx src/test/sitemap-robots.diff.test.ts src/test/jsonld.schema.test.tsx src/test/seo-score.test.tsx --reporter=verbose
+        id: tests
+        run: |
+          bunx vitest run \
+            src/test/seo.regression.test.tsx \
+            src/test/sitemap-robots.diff.test.ts \
+            src/test/jsonld.schema.test.tsx \
+            src/test/seo-score.test.tsx \
+            src/test/meta.exact.test.tsx \
+            src/test/og-image.reachable.test.ts \
+            --reporter=verbose \
+            --reporter=json --outputFile=seo-report/vitest-results.json
+        continue-on-error: true
+
+      - name: Stage sitemap + robots for artifact
+        if: always()
+        run: |
+          mkdir -p seo-report
+          cp public/sitemap.xml seo-report/sitemap.xml || true
+          cp public/robots.txt seo-report/robots.txt || true
+
+      - name: Upload SEO artifacts (sitemap, robots, per-route report, vitest results)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report
+          path: seo-report/
+          retention-days: 14
+
+      - name: Fail the job if the report or tests failed
+        if: always()
+        run: |
+          if [ "${{ steps.report.outcome }}" != "success" ] || [ "${{ steps.tests.outcome }}" != "success" ]; then
+            echo "::error::SEO regression failed — inspect the 'seo-report' artifact."
+            exit 1
+          fi
