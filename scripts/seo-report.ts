@@ -105,6 +105,17 @@ for (const r of collectRoutes()) {
     warnings.push("no og:image");
   }
 
+  // City routes carry LocalBusiness + FAQPage JSON-LD in the rendered DOM.
+  // Snapshot them so the diff surfaces any structured-data change.
+  let structuredData: StructuredData | undefined;
+  if (r.kind === "city") {
+    const slug = r.path.replace(/^\//, "");
+    const city = cities.find((c) => c.slug === slug);
+    if (city && r.ogImage) {
+      structuredData = buildStructuredData(city, `${BASE_URL}${r.path}`, r.ogImage);
+    }
+  }
+
   rows.push({
     path: r.path,
     kind: r.kind,
@@ -119,6 +130,7 @@ for (const r of collectRoutes()) {
     ogImageFormat: format,
     ogImageMime: mime,
     ogImageTruncated: truncated,
+    structuredData,
     warnings,
   });
 }
