@@ -294,11 +294,104 @@ if (baselinePath && existsSync(baselinePath)) {
 writeFileSync(resolve(OUT_DIR, "seo-diff.json"), JSON.stringify(diffJson, null, 2));
 writeFileSync(resolve(OUT_DIR, "seo-diff.md"), diffMd);
 
+// ---------------------------------------------------------------------------
+// Structured-data snapshots + baseline-allowlist violation check
+// ---------------------------------------------------------------------------
+// For every route whose LocalBusiness or FAQPage payload changed vs. baseline,
+// dump before/after JSON side-by-side so a human can diff the exact payload
+// crawlers would see. Then intersect the change list with an allowlist
+// (`seo-baseline-allow.json`, default at repo root). Any changed route that
+// isn't listed becomes a "violation" — CI fails if
+// SEO_FAIL_ON_STRUCTURED_DIFF=1 and violations exist.
+import { mkdirSync as _mkdir } from "node:fs";
+const SNAP_DIR = resolve(OUT_DIR, "structured-data-snapshots");
+_mkdir(SNAP_DIR, { recursive: true });
+
+const STRUCTURED_FIELDS = new Set(["jsonld.LocalBusiness", "jsonld.FAQPage"]);
+const sanitize = (p: string) => p.replace(/^\/+/, "").replace(/[\/]+/g, "__") || "root";
+
+type StructuredViolation = {
+  path: string;
+  fields: string[];
+  before: StructuredData | null;
+  after: StructuredData | null;
+};
+
+const structuredChanges: StructuredViolation[] = [];
+for (const d of diffJson.diffs) {
+  if (d.status !== "changed") continue;
+  const structFields = d.changes
+    .filter((c) => STRUCTURED_FIELDS.has(String(c.field)))
+    .map((c) => String(c.field));
+  if (!structFields.length) continue;
+
+  const snapDir = resolve(SNAP_DIR, sanitize(d.path));
+  _mkdir(snapDir, { recursive: true });
+  writeFileSync(
+    resolve(snapDir, "before.json"),
+    JSON.stringify((d as any).previous.structuredData ?? null, null, 2),
+  );
+  writeFileSync(
+    resolve(snapDir, "after.json"),
+    JSON.stringify((d as any).current.structuredData ?? null, null, 2),
+  );
+  writeFileSync(
+    resolve(snapDir, "changes.json"),
+    JSON.stringify(
+      d.changes.filter((c) => STRUCTURED_FIELDS.has(String(c.field))),
+      null,
+      2,
+    ),
+  );
+
+  structuredChanges.push({
+    path: d.path,
+    fields: structFields,
+    before: (d as any).previous.structuredData ?? null,
+    after: (d as any).current.structuredData ?? null,
+  });
+}
+
+// Load allowlist. Shape: { allowedPaths: string[], note?: string }.
+type Allow = { allowedPaths?: string[]; note?: string };
+const allowPath = process.env.SEO_STRUCTURED_ALLOWLIST
+  ? resolve(process.cwd(), process.env.SEO_STRUCTURED_ALLOWLIST)
+  : resolve(process.cwd(), "seo-baseline-allow.json");
+let allow: Allow = { allowedPaths: [] };
+if (existsSync(allowPath)) {
+  try {
+    allow = JSON.parse(readFileSync(allowPath, "utf8")) as Allow;
+  } catch (e) {
+    console.error(`✗ failed to parse ${allowPath}:`, (e as Error).message);
+    process.exit(2);
+  }
+}
+const allowed = new Set(allow.allowedPaths ?? []);
+const violations = structuredChanges.filter((c) => !allowed.has(c.path));
+
+writeFileSync(
+  resolve(OUT_DIR, "seo-diff-violations.json"),
+  JSON.stringify(
+    {
+      allowlist: allowPath,
+      allowedCount: allowed.size,
+      structuredChangeCount: structuredChanges.length,
+      violationCount: violations.length,
+      violations,
+    },
+    null,
+    2,
+  ),
+);
+
 console.log(
   `✓ seo-report written — ${summary.totalRoutes} routes, ${summary.routesWithWarnings} with warnings, ${summary.missingOgImages} missing og:images`,
 );
 if (diffJson.baseline) {
   console.log(`✓ seo-diff written — ${diffJson.diffs.length} route(s) differ from baseline`);
+  console.log(
+    `✓ structured-data snapshots: ${structuredChanges.length} route(s) changed, ${violations.length} outside allowlist`,
+  );
 } else {
   console.log(`ℹ seo-diff skipped — no baseline (set SEO_REPORT_BASELINE to enable)`);
 }
@@ -306,4 +399,14 @@ if (diffJson.baseline) {
 if (summary.missingOgImages > 0) {
   console.error(`✗ ${summary.missingOgImages} missing og:image(s) — see seo-report.md`);
   process.exit(1);
+}
+
+if (process.env.SEO_FAIL_ON_STRUCTURED_DIFF === "1" && violations.length > 0) {
+  console.error(
+    `✗ ${violations.length} unapproved structured-data change(s) — see seo-report/seo-diff-violations.json`,
+  );
+  for (const v of violations) {
+    console.error(`  - ${v.path} (${v.fields.join(", ")})`);
+  }
+  process.exit(3);
 }
