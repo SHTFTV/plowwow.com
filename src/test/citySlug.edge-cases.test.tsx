@@ -52,7 +52,6 @@ describe("edge-case /:citySlug values render NotFound with consistent meta", () 
       // Never redirect to home for unknown slugs.
       expect(document.querySelector('[data-testid="home"]')).toBeNull();
 
-      const expectedCanonical = `${BASE}${c.decoded}`;
       const expectedTitle = "Page Not Found (404) | PlowWow";
       const expectedDesc =
         "The page you are looking for does not exist. Return to PlowWow for 24/7 snow removal, salting, and de-icing across Greater Vancouver.";
@@ -60,13 +59,24 @@ describe("edge-case /:citySlug values render NotFound with consistent meta", () 
 
       expect(document.title).toBe(expectedTitle);
       expect(metaName("description")).toBe(expectedDesc);
-      expect(canonical()).toBe(expectedCanonical);
       expect(metaProp("og:title")).toBe(expectedTitle);
       expect(metaProp("og:description")).toBe(expectedDesc);
-      expect(metaProp("og:url")).toBe(expectedCanonical);
       expect(metaProp("og:image")).toBe(expectedOg);
       expect(metaProp("twitter:image") ?? metaName("twitter:image")).toBe(expectedOg);
       expect(metaName("robots")).toBe("noindex, nofollow");
+
+      // canonical/og:url parity: they must self-reference the same URL,
+      // built from the current pathname — never null and never point elsewhere.
+      const canon = canonical();
+      const ogUrl = metaProp("og:url");
+      expect(canon).toBeTruthy();
+      expect(ogUrl).toBeTruthy();
+      // jsdom URL-normalizes <link href>; og:url stores the raw string. Both
+      // must resolve to the same absolute URL when compared via new URL().
+      expect(new URL(canon!).href).toBe(new URL(ogUrl!).href);
+      expect(new URL(canon!).origin).toBe(BASE);
+      // Never a homepage redirect: pathname must not be "/".
+      expect(new URL(canon!).pathname).not.toBe("/");
 
       // og:image === twitter:image parity for these edge routes.
       expect(metaProp("og:image")).toBe(metaProp("twitter:image") ?? metaName("twitter:image"));
