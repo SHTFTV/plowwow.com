@@ -7,9 +7,46 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "./routes";
 import { readImageMeta } from "../src/test/helpers/image-size";
+import { cities, type City } from "../src/data/cities";
 
 const OUT_DIR = resolve(process.cwd(), "seo-report");
 mkdirSync(OUT_DIR, { recursive: true });
+
+// Structured-data snapshot for a route, mirroring what CityPage.tsx emits.
+// Keep in lockstep with src/pages/CityPage.tsx so the diff surfaces any
+// runtime schema change on the next report run.
+type StructuredData = {
+  localBusiness?: {
+    name: string;
+    url: string;
+    image: string;
+    telephone: string;
+    areaServed: string;
+    priceRange: string;
+  };
+  faqPage?: {
+    questionCount: number;
+    // Stable hash of the FAQ q/a pairs so any content edit shows up in diff.
+    entries: Array<{ q: string; a: string }>;
+  };
+};
+
+function buildStructuredData(city: City, url: string, ogImage: string): StructuredData {
+  return {
+    localBusiness: {
+      name: `PlowWow Snow Removal — ${city.name}`,
+      url,
+      image: ogImage,
+      telephone: "+1-604-761-1518",
+      areaServed: `${city.name}, ${city.province}`,
+      priceRange: "$$",
+    },
+    faqPage: {
+      questionCount: city.faqs.length,
+      entries: city.faqs.map((f) => ({ q: f.q, a: f.a })),
+    },
+  };
+}
 
 type Row = {
   path: string;
@@ -25,6 +62,7 @@ type Row = {
   ogImageFormat: string | null;
   ogImageMime: string | null;
   ogImageTruncated: boolean;
+  structuredData?: StructuredData;
   warnings: string[];
 };
 
@@ -67,6 +105,17 @@ for (const r of collectRoutes()) {
     warnings.push("no og:image");
   }
 
+  // City routes carry LocalBusiness + FAQPage JSON-LD in the rendered DOM.
+  // Snapshot them so the diff surfaces any structured-data change.
+  let structuredData: StructuredData | undefined;
+  if (r.kind === "city") {
+    const slug = r.path.replace(/^\//, "");
+    const city = cities.find((c) => c.slug === slug);
+    if (city && r.ogImage) {
+      structuredData = buildStructuredData(city, `${BASE_URL}${r.path}`, r.ogImage);
+    }
+  }
+
   rows.push({
     path: r.path,
     kind: r.kind,
@@ -81,6 +130,7 @@ for (const r of collectRoutes()) {
     ogImageFormat: format,
     ogImageMime: mime,
     ogImageTruncated: truncated,
+    structuredData,
     warnings,
   });
 }
@@ -161,6 +211,32 @@ if (baselinePath && existsSync(baselinePath)) {
         changes.push({ field: f, from: (p as any)[f], to: (cur as any)[f] });
       }
     }
+    // Structured-data diff (LocalBusiness + FAQPage). Compare via canonical
+    // JSON so any field change — including nested FAQ entries — is caught.
+    const curSD = JSON.stringify(cur.structuredData ?? null);
+    const prevSD = JSON.stringify((p as Row).structuredData ?? null);
+    if (curSD !== prevSD) {
+      const curObj = cur.structuredData ?? {};
+      const prevObj = (p as Row).structuredData ?? {};
+      const lbCur = JSON.stringify(curObj.localBusiness ?? null);
+      const lbPrev = JSON.stringify(prevObj.localBusiness ?? null);
+      if (lbCur !== lbPrev) {
+        changes.push({
+          field: "jsonld.LocalBusiness" as DiffField,
+          from: prevObj.localBusiness ?? null,
+          to: curObj.localBusiness ?? null,
+        });
+      }
+      const faqCur = JSON.stringify(curObj.faqPage ?? null);
+      const faqPrev = JSON.stringify(prevObj.faqPage ?? null);
+      if (faqCur !== faqPrev) {
+        changes.push({
+          field: "jsonld.FAQPage" as DiffField,
+          from: prevObj.faqPage ?? null,
+          to: curObj.faqPage ?? null,
+        });
+      }
+    }
     if (changes.length) diffs.push({ path, status: "changed", changes, current: cur, previous: p });
   }
   for (const [path, p] of prevByPath) {
@@ -173,8 +249,11 @@ if (baselinePath && existsSync(baselinePath)) {
   const removed = diffs.filter((d) => d.status === "removed");
   const changed = diffs.filter((d) => d.status === "changed");
 
-  const fmt = (v: unknown) =>
-    v === null || v === undefined ? "—" : String(v).replace(/\|/g, "\\|");
+  const fmt = (v: unknown) => {
+    if (v === null || v === undefined) return "—";
+    const s = typeof v === "object" ? "`" + JSON.stringify(v) + "`" : String(v);
+    return s.replace(/\|/g, "\\|").replace(/\n/g, " ");
+  };
 
   diffMd = [
     `# SEO Diff`,

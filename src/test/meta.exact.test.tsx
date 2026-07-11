@@ -158,7 +158,20 @@ describe("exact meta-tag values per route", () => {
 // Uses window.location.origin (jsdom default) for canonical/og:url, matching
 // the runtime behavior of the page itself.
 // -----------------------------------------------------------------------------
-const CITY_SAMPLE_SLUGS = ["vancouver", "coquitlam", "new-westminster", "port-moody"];
+// Includes single-word, dashed, and multi-dashed edge-case slugs so meta
+// generation is proven consistent across slug shapes.
+const CITY_SAMPLE_SLUGS = [
+  "vancouver",
+  "coquitlam",
+  "new-westminster",
+  "port-moody",
+  "port-coquitlam",
+  "west-vancouver",
+  "north-vancouver",
+  "pitt-meadows",
+  "maple-ridge",
+  "white-rock",
+];
 
 describe("exact meta-tag values for dynamic /:citySlug routes", () => {
   for (const slug of CITY_SAMPLE_SLUGS) {
@@ -247,6 +260,25 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
         expect(entry.acceptedAnswer["@type"]).toBe("Answer");
         expect(typeof entry.acceptedAnswer.text).toBe("string");
       }
+
+      // ---- DOM ↔ JSON-LD cross-validation ---------------------------------
+      // The values crawlers ingest from the head MUST match the values inside
+      // the structured data. Drift between them creates split-brain SEO where
+      // Google's rich-result parser sees one URL/image and social crawlers
+      // another. Assert exact equality on the two fields that matter most.
+      expect(local!.url, `LocalBusiness.url must equal canonical for /${slug}`).toBe(
+        get.canonical(),
+      );
+      expect(local!.url, `LocalBusiness.url must equal og:url for /${slug}`).toBe(
+        get.prop("og:url"),
+      );
+      expect(local!.image, `LocalBusiness.image must equal og:image for /${slug}`).toBe(
+        get.prop("og:image"),
+      );
+      expect(
+        local!.image,
+        `LocalBusiness.image must equal twitter:image for /${slug}`,
+      ).toBe(get.prop("twitter:image") ?? get.name("twitter:image"));
     });
   }
 });
