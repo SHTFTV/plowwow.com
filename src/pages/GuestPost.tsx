@@ -34,8 +34,32 @@ const GuestPost = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    applyPageMeta({ title: TITLE, description: DESCRIPTION, path: PATH });
+    applyPageMeta({
+      title: TITLE,
+      description: DESCRIPTION,
+      path: PATH,
+      ogImage: "https://plowwow.com/og-default.jpg",
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: TITLE,
+          description: DESCRIPTION,
+          url: `https://plowwow.com${PATH}`,
+          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+            { "@type": "ListItem", position: 2, name: "Guest Post", item: `https://plowwow.com${PATH}` },
+          ],
+        },
+      ],
+    });
   }, []);
+
 
   const handleChange = (field: keyof GuestPostForm, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
