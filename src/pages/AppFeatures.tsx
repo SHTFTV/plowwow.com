@@ -202,9 +202,14 @@ const AppFeatures = () => {
     setMeta("description", DESCRIPTION);
     setProp("og:title", TITLE);
     setProp("og:description", DESCRIPTION);
-    setProp("og:url", PATH);
+    setProp("og:url", URL_ABS);
     setProp("og:type", "website");
-    setCanonical(PATH);
+    setProp("og:image", OG_IMAGE);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", TITLE);
+    setMeta("twitter:description", DESCRIPTION);
+    setMeta("twitter:image", OG_IMAGE);
+    setCanonical(URL_ABS);
 
     // SoftwareApplication JSON-LD for AEO / rich snippets
     const ldId = "app-features-jsonld";
@@ -251,9 +256,25 @@ const AppFeatures = () => {
     });
     document.head.appendChild(faqLd);
 
+    // WebPage JSON-LD — url MUST equal canonical for parity tests.
+    const wpId = "app-features-webpage-jsonld";
+    document.getElementById(wpId)?.remove();
+    const wp = document.createElement("script");
+    wp.type = "application/ld+json";
+    wp.id = wpId;
+    wp.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: TITLE,
+      description: DESCRIPTION,
+      url: URL_ABS,
+    });
+    document.head.appendChild(wp);
+
     return () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(faqLdId)?.remove();
+      document.getElementById(wpId)?.remove();
     };
   }, []);
 
