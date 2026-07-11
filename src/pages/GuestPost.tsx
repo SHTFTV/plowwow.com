@@ -11,10 +11,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
+import { applyPageMeta } from "@/lib/pageMeta";
 
-const TITLE = "Guest Post With Us — PlowWow";
+const TITLE = "Submit a Guest Post | PlowWow Snow Removal Blog";
 const DESCRIPTION =
-  "Share your snow removal expertise with the PlowWow community. Submit a guest post and reach contractors and property managers across British Columbia.";
+  "Pitch a guest post to PlowWow: share snow removal, strata liability, or winter ops expertise with contractors and property managers across BC.";
+const PATH = "/guest-post";
 
 const guestPostSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -32,14 +34,7 @@ const GuestPost = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    document.title = TITLE;
-    let el = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!el) {
-      el = document.createElement("meta");
-      el.name = "description";
-      document.head.appendChild(el);
-    }
-    el.content = DESCRIPTION;
+    applyPageMeta({ title: TITLE, description: DESCRIPTION, path: PATH });
   }, []);
 
   const handleChange = (field: keyof GuestPostForm, value: string) => {

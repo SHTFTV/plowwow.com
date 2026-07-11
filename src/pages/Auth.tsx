@@ -7,12 +7,22 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/hooks/use-toast";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 export default function Auth() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    applyPageMeta({
+      title: "Sign In | PlowWow Contractor Portal",
+      description: "Secure sign-in for PlowWow contractors and admins. Access your snow ops dashboard, takeoff estimates, and account tools.",
+      path: "/auth",
+      noindex: true,
+    });
+  }, []);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {

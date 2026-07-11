@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
 import { LogOut, RefreshCw } from "lucide-react";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 type QuoteRequest = Tables<"quote_requests">;
 
@@ -48,6 +49,15 @@ export default function Admin() {
   const [allServiceTypes, setAllServiceTypes] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
+
+  useEffect(() => {
+    applyPageMeta({
+      title: "Admin Dashboard | PlowWow",
+      description: "PlowWow internal admin dashboard for managing quote requests, contractors, and snow ops operations.",
+      path: "/admin",
+      noindex: true,
+    });
+  }, []);
 
   useEffect(() => {
     let active = true;

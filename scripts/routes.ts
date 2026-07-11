@@ -91,6 +91,22 @@ export function collectRoutes(): RouteMeta[] {
       ogImage: `${BASE_URL}/og-default.jpg`,
       kind: "static",
     },
+    {
+      path: "/guest-post",
+      title: "Submit a Guest Post | PlowWow Snow Removal Blog",
+      description:
+        "Pitch a guest post to PlowWow: share snow removal, strata liability, or winter ops expertise with contractors and property managers across BC.",
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    },
+    {
+      path: "/seo-report",
+      title: "City SEO Report — Canonicals & OG URLs | PlowWow",
+      description:
+        "Internal SEO audit report comparing canonical and og:url tags across every PlowWow city route and neighborhood landing page.",
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    },
   ];
   routes.push(...staticRoutes);
 
