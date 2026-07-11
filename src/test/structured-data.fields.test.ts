@@ -16,10 +16,52 @@ import { normalizeJson } from "../../scripts/lib/normalize";
 
 const { localBusiness: validateLB, faqPage: validateFAQ, structuredData: validateSD } = getValidators();
 
-function validateLocalBusiness(lb: unknown, ctx: string) {
+const CANONICAL_HOST = new URL(BASE_URL).hostname;
+
+// Cross-validate that every URL embedded in a LocalBusiness payload matches
+// the canonical host, and (when we know the expected route slug) that
+// `url` resolves to exactly that route. `image` is host-checked only —
+// individual og images can live under /og-*.jpg or /blog-images/*.jpg.
+function crossValidateLocalBusinessUrls(
+  lb: any,
+  ctx: string,
+  expected?: { url?: string; imageStartsWith?: string },
+) {
+  const parse = (raw: string, field: string) => {
+    let u: URL | null = null;
+    try {
+      u = new URL(raw);
+    } catch {
+      expect.fail(`${ctx}: LocalBusiness.${field} not a valid URL: "${raw}"`);
+    }
+    return u!;
+  };
+  const urlU = parse(String(lb.url), "url");
+  expect(urlU.protocol, `${ctx}: LocalBusiness.url must be https, got "${urlU.protocol}"`).toBe("https:");
+  expect(urlU.hostname, `${ctx}: LocalBusiness.url host must be ${CANONICAL_HOST}, got "${urlU.hostname}"`).toBe(CANONICAL_HOST);
+  if (expected?.url) {
+    expect(lb.url, `${ctx}: LocalBusiness.url must equal "${expected.url}"`).toBe(expected.url);
+  }
+  const imgU = parse(String(lb.image), "image");
+  expect(imgU.protocol, `${ctx}: LocalBusiness.image must be https, got "${imgU.protocol}"`).toBe("https:");
+  expect(imgU.hostname, `${ctx}: LocalBusiness.image host must be ${CANONICAL_HOST}, got "${imgU.hostname}"`).toBe(CANONICAL_HOST);
+  if (expected?.imageStartsWith) {
+    expect(
+      String(lb.image).startsWith(expected.imageStartsWith),
+      `${ctx}: LocalBusiness.image must start with "${expected.imageStartsWith}", got "${lb.image}"`,
+    ).toBe(true);
+  }
+}
+
+function validateLocalBusiness(
+  lb: unknown,
+  ctx: string,
+  expected?: { url?: string; imageStartsWith?: string },
+) {
   const normalized = normalizeJson(lb as any);
   const ok = validateLB(normalized);
-  expect(ok, `${ctx}: LocalBusiness schema — ${formatErrors(validateLB)}`).toBe(true);
+  expect(ok, `${ctx}: LocalBusiness schema\n  ${formatErrors(validateLB)}`).toBe(true);
+  crossValidateLocalBusinessUrls(normalized, ctx, expected);
 }
 
 function validateFaqPage(faq: unknown, ctx: string) {
