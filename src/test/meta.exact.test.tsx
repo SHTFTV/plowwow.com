@@ -158,7 +158,20 @@ describe("exact meta-tag values per route", () => {
 // Uses window.location.origin (jsdom default) for canonical/og:url, matching
 // the runtime behavior of the page itself.
 // -----------------------------------------------------------------------------
-const CITY_SAMPLE_SLUGS = ["vancouver", "coquitlam", "new-westminster", "port-moody"];
+// Includes single-word, dashed, and multi-dashed edge-case slugs so meta
+// generation is proven consistent across slug shapes.
+const CITY_SAMPLE_SLUGS = [
+  "vancouver",
+  "coquitlam",
+  "new-westminster",
+  "port-moody",
+  "port-coquitlam",
+  "west-vancouver",
+  "north-vancouver",
+  "pitt-meadows",
+  "maple-ridge",
+  "white-rock",
+];
 
 describe("exact meta-tag values for dynamic /:citySlug routes", () => {
   for (const slug of CITY_SAMPLE_SLUGS) {
