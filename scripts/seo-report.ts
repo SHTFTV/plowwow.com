@@ -8,6 +8,7 @@ import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "./routes";
 import { readImageMeta } from "../src/test/helpers/image-size";
 import { cities, type City } from "../src/data/cities";
+import { normalizeJson, canonicalStringify } from "./lib/normalize";
 
 const OUT_DIR = resolve(process.cwd(), "seo-report");
 mkdirSync(OUT_DIR, { recursive: true });
