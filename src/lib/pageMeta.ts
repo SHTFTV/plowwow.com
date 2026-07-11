@@ -1,7 +1,9 @@
-// Small runtime helper to set per-route head tags (title, description, canonical, og:*).
-// Used by pages without full SSR/Helmet — sufficient for JS-executing crawlers.
+// Runtime helper to set per-route head tags (title, description, canonical, og:*, JSON-LD).
+// Sufficient for JS-executing crawlers (Googlebot, Bingbot). Social preview crawlers
+// (LinkedIn/Slack/Facebook) fall back to the static index.html og:* tags.
 
 const BASE_URL = "https://plowwow.com";
+const JSONLD_ATTR = "data-pagemeta-jsonld";
 
 const setMetaName = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -35,14 +37,27 @@ const setCanonical = (href: string) => {
 
 const setRobots = (content: string) => setMetaName("robots", content);
 
+const setJsonLd = (blocks: Record<string, unknown>[]) => {
+  document.head.querySelectorAll(`script[${JSONLD_ATTR}]`).forEach((n) => n.remove());
+  for (const block of blocks) {
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.setAttribute(JSONLD_ATTR, "1");
+    s.text = JSON.stringify(block);
+    document.head.appendChild(s);
+  }
+};
+
 export type PageMeta = {
   title: string;
   description: string;
   path: string; // starts with "/"
   noindex?: boolean;
+  ogImage?: string; // absolute URL preferred
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
-export function applyPageMeta({ title, description, path, noindex }: PageMeta) {
+export function applyPageMeta({ title, description, path, noindex, ogImage, jsonLd }: PageMeta) {
   const url = `${BASE_URL}${path}`;
   document.title = title;
   setMetaName("description", description);
@@ -51,7 +66,16 @@ export function applyPageMeta({ title, description, path, noindex }: PageMeta) {
   setMetaProp("og:description", description);
   setMetaProp("og:url", url);
   setMetaProp("og:type", "website");
+  setMetaName("twitter:card", "summary_large_image");
   setMetaName("twitter:title", title);
   setMetaName("twitter:description", description);
+  if (ogImage) {
+    setMetaProp("og:image", ogImage);
+    setMetaName("twitter:image", ogImage);
+  }
   setRobots(noindex ? "noindex, nofollow" : "index, follow");
+  if (jsonLd) setJsonLd(Array.isArray(jsonLd) ? jsonLd : [jsonLd]);
+  else setJsonLd([]);
 }
+
+export const PAGEMETA_BASE_URL = BASE_URL;
