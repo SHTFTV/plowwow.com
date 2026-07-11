@@ -13,7 +13,10 @@ import IntelligenceCTA from "@/components/intelligence/IntelligenceCTA";
 const TITLE = "PlowWow Snow Intelligence — PWIE & Wow-Shield";
 const DESCRIPTION =
   "PlowWow's snow intelligence stack: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Ghost Fleet GPS, and Wow-Shield™ liability vault.";
+const BASE = "https://plowwow.com";
 const PATH = "/intelligence";
+const URL_ABS = `${BASE}${PATH}`;
+const OG_IMAGE = `${BASE}/og-default.jpg`;
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -51,9 +54,14 @@ const Intelligence = () => {
     setMeta("description", DESCRIPTION);
     setProp("og:title", TITLE);
     setProp("og:description", DESCRIPTION);
-    setProp("og:url", PATH);
+    setProp("og:url", URL_ABS);
     setProp("og:type", "website");
-    setCanonical(PATH);
+    setProp("og:image", OG_IMAGE);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", TITLE);
+    setMeta("twitter:description", DESCRIPTION);
+    setMeta("twitter:image", OG_IMAGE);
+    setCanonical(URL_ABS);
 
     const ldId = "intelligence-jsonld";
     document.getElementById(ldId)?.remove();
@@ -81,8 +89,24 @@ const Intelligence = () => {
       description: DESCRIPTION,
     });
     document.head.appendChild(script);
+
+    // WebPage JSON-LD — url MUST equal canonical for parity tests.
+    const wpId = "intelligence-webpage-jsonld";
+    document.getElementById(wpId)?.remove();
+    const wp = document.createElement("script");
+    wp.type = "application/ld+json";
+    wp.id = wpId;
+    wp.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: TITLE,
+      description: DESCRIPTION,
+      url: URL_ABS,
+    });
+    document.head.appendChild(wp);
     return () => {
       document.getElementById(ldId)?.remove();
+      document.getElementById(wpId)?.remove();
     };
   }, []);
 
