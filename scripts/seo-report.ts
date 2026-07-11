@@ -332,19 +332,15 @@ for (const d of diffJson.diffs) {
   _mkdir(snapDir, { recursive: true });
   writeFileSync(
     resolve(snapDir, "before.json"),
-    JSON.stringify((d as any).previous.structuredData ?? null, null, 2),
+    canonicalStringify((d as any).previous.structuredData ?? null),
   );
   writeFileSync(
     resolve(snapDir, "after.json"),
-    JSON.stringify((d as any).current.structuredData ?? null, null, 2),
+    canonicalStringify((d as any).current.structuredData ?? null),
   );
   writeFileSync(
     resolve(snapDir, "changes.json"),
-    JSON.stringify(
-      d.changes.filter((c) => STRUCTURED_FIELDS.has(String(c.field))),
-      null,
-      2,
-    ),
+    canonicalStringify(d.changes.filter((c) => STRUCTURED_FIELDS.has(String(c.field)))),
   );
 
   structuredChanges.push({
