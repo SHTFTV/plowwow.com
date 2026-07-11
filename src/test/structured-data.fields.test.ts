@@ -32,13 +32,15 @@ function validateFaqPage(faq: unknown, ctx: string) {
   for (const [i, e] of (normalized as any).entries.entries()) {
     for (const m of String(e.a).matchAll(/https?:\/\/\S+/g)) {
       const raw = m[0].replace(/[.,;:)]+$/, "");
-      let parsed: URL;
-      expect(() => { parsed = new URL(raw); }, `${ctx}: FAQ[${i}].a bad URL "${raw}"`).not.toThrow();
-      // @ts-expect-error assigned inside the assertion above
-      const u = parsed!;
-      if (u.hostname.endsWith("plowwow.com")) {
-        expect(u.protocol, `${ctx}: FAQ[${i}].a must use https for plowwow.com URL "${raw}"`).toBe("https:");
-        expect(u.hostname, `${ctx}: FAQ[${i}].a must use canonical host plowwow.com, got "${u.hostname}"`).toBe("plowwow.com");
+      let parsed: URL | null = null;
+      try {
+        parsed = new URL(raw);
+      } catch {
+        expect.fail(`${ctx}: FAQ[${i}].a bad URL "${raw}"`);
+      }
+      if (parsed && parsed.hostname.endsWith("plowwow.com")) {
+        expect(parsed.protocol, `${ctx}: FAQ[${i}].a must use https for plowwow.com URL "${raw}"`).toBe("https:");
+        expect(parsed.hostname, `${ctx}: FAQ[${i}].a must use canonical host plowwow.com, got "${parsed.hostname}"`).toBe("plowwow.com");
       }
     }
   }
