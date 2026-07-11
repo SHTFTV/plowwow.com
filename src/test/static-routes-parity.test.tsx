@@ -19,6 +19,10 @@ import GuestPost from "@/pages/GuestPost";
 import Auth from "@/pages/Auth";
 import Admin from "@/pages/Admin";
 import SeoReport from "@/pages/SeoReport";
+import Intelligence from "@/pages/Intelligence";
+import AppFeatures from "@/pages/AppFeatures";
+import BlogIndex from "@/pages/BlogIndex";
+import Takeoff from "@/pages/Takeoff";
 
 vi.mock("@/integrations/supabase/client", () => {
   const fakeSession = { user: { id: "test-admin" } };
