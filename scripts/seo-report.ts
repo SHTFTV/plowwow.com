@@ -249,8 +249,11 @@ if (baselinePath && existsSync(baselinePath)) {
   const removed = diffs.filter((d) => d.status === "removed");
   const changed = diffs.filter((d) => d.status === "changed");
 
-  const fmt = (v: unknown) =>
-    v === null || v === undefined ? "—" : String(v).replace(/\|/g, "\\|");
+  const fmt = (v: unknown) => {
+    if (v === null || v === undefined) return "—";
+    const s = typeof v === "object" ? "`" + JSON.stringify(v) + "`" : String(v);
+    return s.replace(/\|/g, "\\|").replace(/\n/g, " ");
+  };
 
   diffMd = [
     `# SEO Diff`,
