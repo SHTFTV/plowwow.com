@@ -1,7 +1,7 @@
 // Shared source of truth for every prerendered/public route.
 // Consumed by scripts/generate-sitemap.ts and scripts/prerender.ts.
 
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { cities } from "../src/data/cities";
 
@@ -139,11 +139,15 @@ export function collectRoutes(): RouteMeta[] {
   for (const slug of readSlugs(resolve(CONTENT_DIR, "blog"))) {
     const raw = readFileSync(resolve(CONTENT_DIR, "blog", `${slug}.md`), "utf8");
     const { title, description } = parseLegacy(raw);
+    const heroPath = resolve(process.cwd(), "public/blog-images", `${slug}.jpg`);
+    const ogImage = existsSync(heroPath)
+      ? `${BASE_URL}/blog-images/${slug}.jpg`
+      : `${BASE_URL}/og-default.jpg`;
     routes.push({
       path: `/${slug}`,
       title,
       description: truncate(description),
-      ogImage: `${BASE_URL}/blog-images/${slug}.jpg`,
+      ogImage,
       kind: "legacy-blog",
     });
   }
