@@ -12,6 +12,9 @@ import GuestPost from "@/pages/GuestPost";
 import Auth from "@/pages/Auth";
 import Admin from "@/pages/Admin";
 import NotFound from "@/pages/NotFound";
+import CityPage from "@/pages/CityPage";
+import { getCityBySlug } from "@/data/cities";
+import { truncateForMeta } from "@/lib/seo";
 
 vi.mock("@/integrations/supabase/client", () => {
   const fakeSession = { user: { id: "test-admin" } };
