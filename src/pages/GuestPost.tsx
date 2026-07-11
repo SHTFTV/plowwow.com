@@ -34,14 +34,7 @@ const GuestPost = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    document.title = TITLE;
-    let el = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!el) {
-      el = document.createElement("meta");
-      el.name = "description";
-      document.head.appendChild(el);
-    }
-    el.content = DESCRIPTION;
+    applyPageMeta({ title: TITLE, description: DESCRIPTION, path: PATH });
   }, []);
 
   const handleChange = (field: keyof GuestPostForm, value: string) => {
