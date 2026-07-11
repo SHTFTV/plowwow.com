@@ -76,8 +76,8 @@ const metaProp = (p: string) =>
   (document.head.querySelector(`meta[property="${p}"]`) as HTMLMetaElement | null)?.content;
 const canonicalHref = () =>
   (document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null)?.href;
-const jsonLdBlocks = () =>
-  Array.from(document.head.querySelectorAll('script[type="application/ld+json"]'))
+const jsonLdBlocks = (scope: ParentNode = document) =>
+  Array.from(scope.querySelectorAll('script[type="application/ld+json"]'))
     .map((s) => {
       try {
         return JSON.parse(s.textContent || "{}");
@@ -86,6 +86,7 @@ const jsonLdBlocks = () =>
       }
     })
     .filter(Boolean) as any[];
+
 
 beforeEach(() => {
   document.head.innerHTML = "";
