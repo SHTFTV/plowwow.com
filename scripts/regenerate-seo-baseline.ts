@@ -3,13 +3,18 @@
 // easy to review.
 //
 // Usage:
-//   bun run seo:baseline               # writes seo-baseline/seo-report.json
-//                                      # + seo-baseline/screenshots/*.png
-//   bun run seo:baseline -- --no-shots # JSON only, skip Playwright screenshots
+//   bun run seo:baseline                  # full rebuild: JSON + every screenshot
+//   bun run seo:baseline -- --no-shots    # JSON only, skip Playwright screenshots
+//   bun run seo:baseline -- --only-failed # rebuild JSON, then re-render ONLY the
+//                                         # routes listed in the last run's
+//                                         # seo-report/seo-diff-violations.json
+//                                         # (or paths from --routes=/a,/b)
+//   bun run seo:baseline -- --routes=/vancouver,/burnaby
+//                                         # explicit route allowlist
 //
-// After running, commit the updated seo-baseline/ files (and, if the changes
-// were expected, add the affected paths to seo-baseline-allow.json so CI
-// stops flagging them).
+// --only-failed / --routes both narrow BOTH the baseline promotion (only
+// listed routes are updated in seo-baseline/seo-report.json) AND the
+// screenshot render pass, so partial baseline refreshes stay surgical.
 
 import { execFileSync } from "node:child_process";
 import { mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, rmSync } from "node:fs";
@@ -20,8 +25,43 @@ const REPORT_DIR = resolve(ROOT, "seo-report");
 const BASELINE_DIR = resolve(ROOT, "seo-baseline");
 const SNAP_DIR = resolve(REPORT_DIR, "structured-data-snapshots");
 const SHOTS_DIR = resolve(BASELINE_DIR, "screenshots");
+const VIOLATIONS_PATH = resolve(REPORT_DIR, "seo-diff-violations.json");
+const EXISTING_BASELINE = resolve(BASELINE_DIR, "seo-report.json");
 
-const skipShots = process.argv.includes("--no-shots");
+const argv = process.argv.slice(2);
+const skipShots = argv.includes("--no-shots");
+const onlyFailed = argv.includes("--only-failed");
+const routesArg = argv.find((a) => a.startsWith("--routes="));
+const explicitRoutes = routesArg
+  ? routesArg
+      .slice("--routes=".length)
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean)
+  : [];
+
+function readFailedRoutes(): string[] {
+  if (!existsSync(VIOLATIONS_PATH)) {
+    console.error(
+      `✗ --only-failed: ${VIOLATIONS_PATH} not found. Run \`bunx tsx scripts/seo-report.ts\` (with a baseline) first.`,
+    );
+    process.exit(2);
+  }
+  const doc = JSON.parse(readFileSync(VIOLATIONS_PATH, "utf8")) as { violations?: Array<{ path: string }> };
+  return (doc.violations ?? []).map((v) => v.path);
+}
+
+let routeAllowlist: string[] | null = null;
+if (onlyFailed || explicitRoutes.length) {
+  routeAllowlist = onlyFailed ? readFailedRoutes() : [];
+  if (explicitRoutes.length) routeAllowlist = Array.from(new Set([...(routeAllowlist ?? []), ...explicitRoutes]));
+  if (routeAllowlist.length === 0) {
+    console.log("ℹ no failed / requested routes to regenerate — nothing to do.");
+    process.exit(0);
+  }
+  console.log(`ℹ partial regeneration for ${routeAllowlist.length} route(s): ${routeAllowlist.join(", ")}`);
+}
+const routeAllowSet = routeAllowlist ? new Set(routeAllowlist) : null;
 
 function run(cmd: string, args: string[], env: NodeJS.ProcessEnv = {}) {
   console.log(`$ ${cmd} ${args.join(" ")}`);
@@ -44,8 +84,28 @@ if (!existsSync(src)) {
   console.error(`✗ seo-report.json missing at ${src} — cannot promote baseline.`);
   process.exit(2);
 }
-copyFileSync(src, resolve(BASELINE_DIR, "seo-report.json"));
-console.log(`✓ baseline JSON → seo-baseline/seo-report.json`);
+
+if (routeAllowSet && existsSync(EXISTING_BASELINE)) {
+  // Merge: keep every existing baseline row, overlay only the allowlisted paths
+  // from the freshly generated report. Rows for paths not in the current
+  // report are dropped so removed routes don't linger in the baseline.
+  const prev = JSON.parse(readFileSync(EXISTING_BASELINE, "utf8")) as { rows: any[]; summary?: any };
+  const fresh = JSON.parse(readFileSync(src, "utf8")) as { rows: any[]; summary?: any };
+  const freshByPath = new Map(fresh.rows.map((r) => [r.path, r]));
+  const merged = prev.rows.map((r) => (routeAllowSet.has(r.path) && freshByPath.has(r.path) ? freshByPath.get(r.path)! : r));
+  // Also pick up any brand-new allowlisted paths not yet in the baseline.
+  for (const p of routeAllowSet) {
+    if (!merged.find((r) => r.path === p) && freshByPath.has(p)) merged.push(freshByPath.get(p)!);
+  }
+  writeFileSync(
+    resolve(BASELINE_DIR, "seo-report.json"),
+    JSON.stringify({ summary: { ...(fresh.summary ?? {}), partialRegeneration: Array.from(routeAllowSet) }, rows: merged }, null, 2),
+  );
+  console.log(`✓ baseline JSON updated in place for ${routeAllowSet.size} route(s) → seo-baseline/seo-report.json`);
+} else {
+  copyFileSync(src, EXISTING_BASELINE);
+  console.log(`✓ baseline JSON → seo-baseline/seo-report.json`);
+}
 
 // 3. Render PNG screenshots of every LocalBusiness + FAQPage payload.
 if (skipShots) {
@@ -64,7 +124,11 @@ type Row = {
 
 const report = JSON.parse(readFileSync(src, "utf8")) as { rows: Row[] };
 const cityRows = report.rows.filter(
-  (r) => r.kind === "city" && r.structuredData && (r.structuredData.localBusiness || r.structuredData.faqPage),
+  (r) =>
+    r.kind === "city" &&
+    r.structuredData &&
+    (r.structuredData.localBusiness || r.structuredData.faqPage) &&
+    (routeAllowSet ? routeAllowSet.has(r.path) : true),
 );
 
 if (cityRows.length === 0) {
