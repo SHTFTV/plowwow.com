@@ -51,6 +51,15 @@ export default function Admin() {
   const [pageSize, setPageSize] = useState(25);
 
   useEffect(() => {
+    applyPageMeta({
+      title: "Admin Dashboard | PlowWow",
+      description: "PlowWow internal admin dashboard for managing quote requests, contractors, and snow ops operations.",
+      path: "/admin",
+      noindex: true,
+    });
+  }, []);
+
+  useEffect(() => {
     let active = true;
     (async () => {
       const { data: sess } = await supabase.auth.getSession();
