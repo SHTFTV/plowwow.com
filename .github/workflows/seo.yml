@@ -98,10 +98,15 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
+      - name: Render structured-data diff PNGs (before / after / diff)
+        if: always()
+        run: bunx tsx scripts/render-snapshot-diffs.ts
+        continue-on-error: true
+
       # Dedicated upload for the structured-data diff evidence so reviewers can
       # grab it directly without downloading the whole seo-report bundle — and
       # so it survives even if the primary upload above is somehow skipped.
-      - name: Upload structured-data snapshots + violations (always)
+      - name: Upload structured-data snapshots + violations + diff PNGs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -113,6 +118,10 @@ jobs:
             seo-report/seo-diff.md
           retention-days: 30
           if-no-files-found: warn
+
+      - name: Post structured-data violations table to job summary
+        if: always()
+        run: bunx tsx scripts/violations-summary.ts >> "$GITHUB_STEP_SUMMARY"
 
       - name: Surface unapproved structured-data (LocalBusiness/FAQPage) changes
         if: always()

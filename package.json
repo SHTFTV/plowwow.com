@@ -13,7 +13,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "seo:baseline": "tsx scripts/regenerate-seo-baseline.ts"
+    "seo:baseline": "tsx scripts/regenerate-seo-baseline.ts",
+    "seo:snapshot-diffs": "tsx scripts/render-snapshot-diffs.ts",
+    "seo:violations-summary": "tsx scripts/violations-summary.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
