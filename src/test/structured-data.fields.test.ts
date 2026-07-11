@@ -138,7 +138,14 @@ describe.runIf(hasSnapshots)("structured data: on-disk snapshot payloads", () =>
     if (!existsSync(afterPath)) continue;
     it(`snapshot ${d}/after.json — valid LocalBusiness + FAQPage payload`, () => {
       const payload = JSON.parse(readFileSync(afterPath, "utf8"));
-      if (payload?.localBusiness) validateLocalBusiness(payload.localBusiness, `snapshot ${d}`);
+      // Reverse the sanitize() used by seo-report.ts: "__" ↔ "/", "root" ↔ "/"
+      const routePath = d === "root" ? "/" : "/" + d.replace(/__/g, "/");
+      const expectedUrl = routePath === "/" ? BASE_URL : `${BASE_URL}${routePath}`;
+      if (payload?.localBusiness)
+        validateLocalBusiness(payload.localBusiness, `snapshot ${d}`, {
+          url: expectedUrl,
+          imageStartsWith: `${BASE_URL}/`,
+        });
       if (payload?.faqPage) validateFaqPage(payload.faqPage, `snapshot ${d}`);
     });
   }
