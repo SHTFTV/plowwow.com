@@ -25,12 +25,21 @@ function validateLocalBusiness(lb: unknown, ctx: string) {
 function validateFaqPage(faq: unknown, ctx: string) {
   const normalized = normalizeJson(faq as any);
   const ok = validateFAQ(normalized);
-  expect(ok, `${ctx}: FAQPage schema — ${formatErrors(validateFAQ)}`).toBe(true);
+  expect(ok, `${ctx}: FAQPage schema\n  ${formatErrors(validateFAQ)}`).toBe(true);
   // Extra structural rule the AJV schema can't express: FAQ answers' embedded
-  // URLs must parse. Cheaper here than a per-item schema keyword.
+  // URLs must parse, and any plowwow.com URLs must use the canonical host
+  // (no trailing "www.", no http://) so LLM crawlers see one source of truth.
   for (const [i, e] of (normalized as any).entries.entries()) {
     for (const m of String(e.a).matchAll(/https?:\/\/\S+/g)) {
-      expect(() => new URL(m[0].replace(/[.,;:)]+$/, "")), `${ctx}: FAQ[${i}].a bad URL "${m[0]}"`).not.toThrow();
+      const raw = m[0].replace(/[.,;:)]+$/, "");
+      let parsed: URL;
+      expect(() => { parsed = new URL(raw); }, `${ctx}: FAQ[${i}].a bad URL "${raw}"`).not.toThrow();
+      // @ts-expect-error assigned inside the assertion above
+      const u = parsed!;
+      if (u.hostname.endsWith("plowwow.com")) {
+        expect(u.protocol, `${ctx}: FAQ[${i}].a must use https for plowwow.com URL "${raw}"`).toBe("https:");
+        expect(u.hostname, `${ctx}: FAQ[${i}].a must use canonical host plowwow.com, got "${u.hostname}"`).toBe("plowwow.com");
+      }
     }
   }
 }
