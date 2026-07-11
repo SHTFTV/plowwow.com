@@ -70,11 +70,12 @@ function scorePage(opts: { allowNoindex?: boolean } = {}): { score: number; chec
   const ogUrl = (head.querySelector('meta[property="og:url"]') as HTMLMetaElement | null)?.content;
   const ogImage = (head.querySelector('meta[property="og:image"]') as HTMLMetaElement | null)
     ?.content;
-  const twCard = (head.querySelector('meta[name="twitter:card"]') as HTMLMetaElement | null)
-    ?.content;
+  const twCard =
+    (head.querySelector('meta[name="twitter:card"]') as HTMLMetaElement | null)?.content ||
+    (head.querySelector('meta[property="twitter:card"]') as HTMLMetaElement | null)?.content;
   const robots =
     (head.querySelector('meta[name="robots"]') as HTMLMetaElement | null)?.content || "";
-  const ldBlocks = head.querySelectorAll('script[type="application/ld+json"]');
+  const ldBlocks = document.querySelectorAll('script[type="application/ld+json"]');
 
   const checks: Check[] = [
     { name: "title 10–60 chars", weight: 10, pass: title.length >= 10 && title.length <= 65 },
