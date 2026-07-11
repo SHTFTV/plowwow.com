@@ -1,11 +1,18 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    applyPageMeta({
+      title: "Page Not Found (404) | PlowWow",
+      description: "The page you are looking for does not exist. Return to PlowWow for 24/7 snow removal, salting, and de-icing across Greater Vancouver.",
+      path: location.pathname || "/404",
+      noindex: true,
+    });
   }, [location.pathname]);
 
   return (
