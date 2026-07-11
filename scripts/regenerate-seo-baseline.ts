@@ -8,12 +8,15 @@
 //   bun run seo:baseline -- --only-failed # rebuild JSON, then re-render ONLY the
 //                                         # routes listed in the last run's
 //                                         # seo-report/seo-diff-violations.json
-//                                         # (or paths from --routes=/a,/b)
+//   bun run seo:baseline -- --changed     # rebuild JSON, then re-render ONLY
+//                                         # routes impacted by the current
+//                                         # git diff vs. origin/main (override
+//                                         # base with SEO_CHANGED_BASE=<ref>)
 //   bun run seo:baseline -- --routes=/vancouver,/burnaby
 //                                         # explicit route allowlist
 //
-// --only-failed / --routes both narrow BOTH the baseline promotion (only
-// listed routes are updated in seo-baseline/seo-report.json) AND the
+// --only-failed / --changed / --routes narrow BOTH the baseline promotion
+// (only listed routes are updated in seo-baseline/seo-report.json) AND the
 // screenshot render pass, so partial baseline refreshes stay surgical.
 
 import { execFileSync } from "node:child_process";
