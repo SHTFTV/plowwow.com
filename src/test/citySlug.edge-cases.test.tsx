@@ -13,13 +13,16 @@ import NotFound from "@/pages/NotFound";
 
 const BASE = "https://plowwow.com";
 
+// Each entry: raw path we navigate to. We don't hard-code the canonical
+// because jsdom normalizes <link href> (percent-encoding unicode); instead
+// we assert canonical === og:url === `${BASE}${location.pathname}` parity.
 const EDGE_SLUGS = [
-  { label: "percent-encoded space", raw: "/%20vancouver", decoded: "/ vancouver" },
-  { label: "percent-encoded non-ascii", raw: "/%C3%BCbercity", decoded: "/übercity" },
-  { label: "unicode literal", raw: "/münchen", decoded: "/münchen" },
-  { label: "trailing dash", raw: "/vancouver-", decoded: "/vancouver-" },
-  { label: "leading dash", raw: "/-vancouver", decoded: "/-vancouver" },
-  { label: "double dash", raw: "/burnaby--east", decoded: "/burnaby--east" },
+  { label: "percent-encoded space", raw: "/%20vancouver" },
+  { label: "percent-encoded non-ascii", raw: "/%C3%BCbercity" },
+  { label: "unicode literal", raw: "/münchen" },
+  { label: "trailing dash", raw: "/vancouver-" },
+  { label: "leading dash", raw: "/-vancouver" },
+  { label: "double dash", raw: "/burnaby--east" },
 ];
 
 function metaProp(p: string) {
