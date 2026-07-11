@@ -22,6 +22,9 @@ const TITLE = "Advanced Snow Removal Technology | PlowWow";
 const DESCRIPTION =
   "Explore PlowWow's advanced snow tech: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Wow-Shield liability vault, GPS fleet, QuickBooks sync.";
 const PATH = "/advanced-technology";
+const BASE = "https://plowwow.com";
+const URL_ABS = `${BASE}${PATH}`;
+const OG_IMAGE = `${BASE}/og-default.jpg`;
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
