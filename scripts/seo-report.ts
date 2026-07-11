@@ -33,7 +33,9 @@ type StructuredData = {
 };
 
 function buildStructuredData(city: City, url: string, ogImage: string): StructuredData {
-  return {
+  // Route through normalizeJson so trailing spaces, key ordering, and
+  // internal whitespace runs can never cause a snapshot to churn.
+  return normalizeJson({
     localBusiness: {
       name: `PlowWow Snow Removal — ${city.name}`,
       url,
@@ -46,7 +48,7 @@ function buildStructuredData(city: City, url: string, ogImage: string): Structur
       questionCount: city.faqs.length,
       entries: city.faqs.map((f) => ({ q: f.q, a: f.a })),
     },
-  };
+  }) as StructuredData;
 }
 
 type Row = {
