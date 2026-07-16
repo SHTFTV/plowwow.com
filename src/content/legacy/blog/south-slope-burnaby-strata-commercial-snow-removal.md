@@ -10,6 +10,8 @@ Markdown Content:
 
 When winter hits **South Slope**, Burnaby, strata councils, property managers and commercial operators need one thing: a snow-and-ice partner who is already on-site before the morning commute — not one still checking the forecast. **PlowWow** is the seasonal-contract snow removal company South Slope property managers, Byrne Road industrial landlords and hillside strata boards call for guaranteed 24/7 response, GPS-logged salt runs, pet-safe de-icer and a fixed winter budget.
 
+**[Get a free South Slope Burnaby snow removal quote →](/quote)**
+
 ![PlowWow mascot waving on a freshly plowed South Slope Burnaby hillside street at blue dawn with Fraser River valley lights below and snow-lined cedar hedges](/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg)
 
 ## Why South Slope Snow Removal Is Different
