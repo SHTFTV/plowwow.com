@@ -242,12 +242,18 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {kind === "blog" && (
           <section className="py-10 border-t border-border">
-            <div className="container max-w-3xl">
+            <div className="container max-w-3xl flex flex-wrap items-center justify-between gap-4">
               <Link
                 to="/blog"
                 className="text-sm font-semibold text-primary hover:underline"
               >
                 ← All blog posts
+              </Link>
+              <Link
+                to="/quote"
+                className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow hover:bg-primary/90"
+              >
+                Get a free snow removal quote →
               </Link>
             </div>
           </section>
