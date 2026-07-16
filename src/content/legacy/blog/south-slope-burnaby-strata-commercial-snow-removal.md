@@ -144,6 +144,7 @@ Ask for a fixed seasonal quote for **South Slope, Burnaby**, and we will book a 
 
 ## Related Neighborhood Guides
 
+- [Get a free snow removal quote](/quote)
 - [Burnaby snow removal overview](/burnaby-snow-removal)
 - [Edmonds Burnaby strata & commercial snow removal](/blog/edmonds-burnaby-strata-commercial-snow-removal)
 - [Metrotown Burnaby strata & commercial snow removal](/blog/metrotown-burnaby-strata-commercial-snow-removal)
