@@ -54,12 +54,12 @@ const parseFrontmatter = (raw: string) => {
 // H3 or H2) are the answer.
 const extractFaqs = (body: string): { question: string; answer: string }[] => {
   const faqSectionMatch = body.match(
-    /^##\s+Frequently Asked Questions\s*\n([\s\S]*?)(?=\n##\s|\n#\s|$)/m,
+    /(?:^|\n)##\s+Frequently Asked Questions\s*\n([\s\S]*?)(?=\n##\s|\n#\s(?!#)|$(?![\s\S]))/,
   );
   if (!faqSectionMatch) return [];
   const section = faqSectionMatch[1];
   const faqs: { question: string; answer: string }[] = [];
-  const re = /^###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$)/gm;
+  const re = /(?:^|\n)###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$(?![\s\S]))/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(section)) !== null) {
     const question = m[1].trim();
