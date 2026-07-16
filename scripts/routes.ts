@@ -92,6 +92,14 @@ export function collectRoutes(): RouteMeta[] {
       kind: "static",
     },
     {
+      path: "/quote",
+      title: "Get a Snow Removal Quote | PlowWow Metro Vancouver",
+      description:
+        "Request a fixed seasonal snow removal quote for your Metro Vancouver strata, commercial or industrial property. 24/7 dispatch, GPS-logged salt runs.",
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    },
+    {
       path: "/guest-post",
       title: "Submit a Guest Post | PlowWow Snow Removal Blog",
       description:

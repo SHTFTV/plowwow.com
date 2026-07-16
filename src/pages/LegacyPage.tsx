@@ -54,12 +54,12 @@ const parseFrontmatter = (raw: string) => {
 // H3 or H2) are the answer.
 const extractFaqs = (body: string): { question: string; answer: string }[] => {
   const faqSectionMatch = body.match(
-    /^##\s+Frequently Asked Questions\s*\n([\s\S]*?)(?=\n##\s|\n#\s|$)/m,
+    /(?:^|\n)##\s+Frequently Asked Questions\s*\n([\s\S]*?)(?=\n##\s|\n#\s(?!#)|$(?![\s\S]))/,
   );
   if (!faqSectionMatch) return [];
   const section = faqSectionMatch[1];
   const faqs: { question: string; answer: string }[] = [];
-  const re = /^###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$)/gm;
+  const re = /(?:^|\n)###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$(?![\s\S]))/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(section)) !== null) {
     const question = m[1].trim();
@@ -242,12 +242,18 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {kind === "blog" && (
           <section className="py-10 border-t border-border">
-            <div className="container max-w-3xl">
+            <div className="container max-w-3xl flex flex-wrap items-center justify-between gap-4">
               <Link
                 to="/blog"
                 className="text-sm font-semibold text-primary hover:underline"
               >
                 ← All blog posts
+              </Link>
+              <Link
+                to="/quote"
+                className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow hover:bg-primary/90"
+              >
+                Get a free snow removal quote →
               </Link>
             </div>
           </section>
