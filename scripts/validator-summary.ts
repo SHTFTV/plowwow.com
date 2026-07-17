@@ -225,6 +225,9 @@ type SkipDoc = {
   totals?: { legacy: number; hydration: number; robots: number; jsonLd: number };
   skipped?: { legacy: number; hydration: number; robots: number; jsonLd: number };
   emitted?: number;
+  failOnSkipped?: { legacy?: number; hydration?: number; robots?: number; jsonLd?: number; total?: number };
+  failOnSkippedEnabled?: boolean;
+  violations?: { category: string; skipped: number; limit: number }[];
 };
 const skipDoc = readJson<SkipDoc>("annotation-skipped.json");
 if (skipDoc?.skipped) {
@@ -238,6 +241,12 @@ if (skipDoc?.skipped) {
   md.push(`  - \`hydration\` — ${t.hydration - s.hydration}/${t.hydration} shown (cap ${c.hydration}, **${s.hydration}** skipped)`);
   md.push(`  - \`jsonLd\` — ${t.jsonLd - s.jsonLd}/${t.jsonLd} shown (cap ${c.jsonLd}, **${s.jsonLd}** skipped)`);
   md.push(`  - \`robots\` — ${t.robots - s.robots}/${t.robots} shown (cap ${c.robots}, **${s.robots}** skipped)`);
+  if (skipDoc.violations?.length) {
+    md.push(`- ❌ **fail-on-skipped** limits exceeded${skipDoc.failOnSkippedEnabled ? "" : " _(reporting only — enable with `--fail-on-skipped`)_"}:`);
+    for (const v of skipDoc.violations) {
+      md.push(`  - \`${v.category}\` — skipped ${v.skipped} > limit ${v.limit}`);
+    }
+  }
   md.push("");
 }
 
