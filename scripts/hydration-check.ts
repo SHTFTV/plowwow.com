@@ -109,6 +109,7 @@ async function main() {
   const browser = await chromium.launch({ headless: true });
 
   const sample = collectSample();
+  type LdSummary = { types: string[]; ids: string[]; count: number };
   type Result = {
     url: string;
     hydrated: boolean;
@@ -119,8 +120,47 @@ async function main() {
     ogTags: Record<string, string>;
     twitterTags: Record<string, string>;
     ogLocaleAlternates: string[];
+    jsonLd: LdSummary;
+    jsonLdExpected: LdSummary;
     issues: string[];
   };
+
+  // Snapshot the prerendered JSON-LD from dist/<path>/index.html so we can
+  // assert every schema block that shipped in raw HTML survives hydration.
+  function readStaticLd(canonicalUrl: string): LdSummary {
+    const path = new URL(canonicalUrl).pathname.replace(/\/+$/, "") || "/";
+    const file =
+      path === "/"
+        ? resolve(DIST, "index.html")
+        : resolve(DIST, path.replace(/^\//, ""), "index.html");
+    if (!existsSync(file)) return { types: [], ids: [], count: 0 };
+    const html = readFileSync(file, "utf8");
+    return summarizeLd(extractLdBlocks(html));
+  }
+  function extractLdBlocks(html: string): unknown[] {
+    const rx = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+    const out: unknown[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(html))) {
+      try { out.push(JSON.parse(m[1])); } catch { /* preflight handles */ }
+    }
+    return out;
+  }
+  function summarizeLd(nodes: unknown[]): LdSummary {
+    const types = new Set<string>();
+    const ids = new Set<string>();
+    const visit = (n: any) => {
+      if (!n || typeof n !== "object") return;
+      if (Array.isArray(n)) return n.forEach(visit);
+      if (n["@graph"]) (n["@graph"] as any[]).forEach(visit);
+      const t = n["@type"];
+      if (t) (Array.isArray(t) ? t : [t]).forEach((x) => types.add(String(x)));
+      if (typeof n["@id"] === "string") ids.add(n["@id"]);
+    };
+    nodes.forEach(visit);
+    return { types: [...types].sort(), ids: [...ids].sort(), count: nodes.length };
+  }
+
   const results: Result[] = [];
 
   try {
