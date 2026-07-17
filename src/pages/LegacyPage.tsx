@@ -165,12 +165,38 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       el.href = href;
     };
     setMeta("description", description);
+    const origin =
+      typeof window !== "undefined"
+        ? window.location.origin.replace(/\/+$/, "")
+        : "https://plowwow.com";
     const path = `/${slug}`;
+    const absoluteUrl = `${origin}${path}`;
+    // Prefer the post's inline hero image; fall back to a branded hero.
+    const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
+    const heroCandidate =
+      heroFromBody ||
+      (kind === "blog" ? `/blog-images/${slug}.jpg` : null) ||
+      "https://plowwow.com/wp-content/uploads/hero.jpg";
+    const absoluteImage = heroCandidate.startsWith("http")
+      ? heroCandidate
+      : `${origin}${heroCandidate}`;
     setProp("og:title", title);
     setProp("og:description", description);
-    setProp("og:url", path);
+    setProp("og:url", absoluteUrl);
     setProp("og:type", kind === "blog" ? "article" : "website");
-    setCanonical(path);
+    setProp("og:site_name", "PlowWow");
+    setProp("og:locale", "en_CA");
+    setProp("og:image", absoluteImage);
+    setProp("og:image:width", "1200");
+    setProp("og:image:height", "630");
+    setProp("og:image:alt", title);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:site", "@plowwow");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", absoluteImage);
+    setMeta("twitter:image:alt", title);
+    setCanonical(absoluteUrl);
 
     // Remove any stale article time meta so non-blog pages don't inherit them.
     document
@@ -181,6 +207,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       setProp("article:published_time", dates.publishedAt);
       setProp("article:modified_time", dates.updatedAt || dates.publishedAt);
     }
+
 
     // FAQPage JSON-LD for SEO / AEO / LLM grounding.
     const ldId = "legacy-page-faq-jsonld";

@@ -22,6 +22,7 @@ import Quote from "./pages/Quote.tsx";
 import Locations from "./pages/Locations.tsx";
 import AdminLinkAudit from "./pages/AdminLinkAudit.tsx";
 import AdminGscCoverage from "./pages/AdminGscCoverage.tsx";
+import AdminJsonLdValidator from "./pages/AdminJsonLdValidator.tsx";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/admin/guest-posts" element={<AdminGuestPosts />} />
           <Route path="/admin/link-audit" element={<AdminLinkAudit />} />
           <Route path="/admin/gsc-coverage" element={<AdminGscCoverage />} />
+          <Route path="/admin/jsonld-validator" element={<AdminJsonLdValidator />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
