@@ -1443,7 +1443,7 @@ if (isDirectRun) {
     lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
     writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
     // Spreadsheet-friendly CSV of the same diff.
-    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff));
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff, { include: includeCats }));
     process.stdout.write(
       `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
     );
