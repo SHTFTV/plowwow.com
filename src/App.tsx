@@ -36,6 +36,8 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/guest-posts" element={<AdminGuestPosts />} />
+          <Route path="/admin/link-audit" element={<AdminLinkAudit />} />
+          <Route path="/admin/gsc-coverage" element={<AdminGscCoverage />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
