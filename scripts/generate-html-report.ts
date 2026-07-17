@@ -43,6 +43,16 @@ const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
 const robots = readJson<RobotsDoc>("robots-directives.json");
 const baseline = readJson<BaselineDoc>("baseline-diff.json");
 const validationMd = readText("validation-report.md");
+type SkippedDoc = {
+  caps?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  totals?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  skipped?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  emitted?: number;
+  failOnSkipped?: { legacy?: number; hydration?: number; robots?: number; jsonLd?: number; total?: number };
+  failOnSkippedEnabled?: boolean;
+  violations?: { category: string; skipped: number; limit: number }[];
+};
+const skippedDoc = readJson<SkippedDoc>("annotation-skipped.json");
 const meta = readJson<{ git?: { sha?: string; ref?: string }; ci?: { runUrl?: string | null; runId?: string | null }; generatedAt?: string }>("../repro-metadata.json")
   ?? readJson<{ git?: { sha?: string; ref?: string }; ci?: { runUrl?: string | null; runId?: string | null }; generatedAt?: string }>("repro-metadata.json");
 
