@@ -54,17 +54,18 @@ function collectRefs(): Ref[] {
   return [...map.values()];
 }
 
-type Check = Ref & { ok: boolean; issues: string[]; info: Record<string, unknown> };
+type Check = Ref & { ok: boolean; issues: string[]; warnings: string[]; info: Record<string, unknown> };
 
 async function checkOne(ref: Ref): Promise<Check> {
   const issues: string[] = [];
+  const warnings: string[] = [];
   const info: Record<string, unknown> = {};
   let url: URL | null = null;
   try {
     url = new URL(ref.url);
   } catch {
     issues.push(`not absolute: ${ref.url}`);
-    return { ...ref, ok: false, issues, info };
+    return { ...ref, ok: false, issues, warnings, info };
   }
   if (url.protocol !== "https:") issues.push(`protocol=${url.protocol} (must be https)`);
 
@@ -91,7 +92,11 @@ async function checkOne(ref: Ref): Promise<Check> {
         height = meta.height;
         mime = meta.mime;
         if (meta.truncated) issues.push(`image truncated (missing end marker)`);
-        if (extFmt && meta.format !== extFmt) issues.push(`decoded format=${meta.format} ≠ ext=${extFmt}`);
+        // Format mismatch (e.g. PNG bytes served with .jpg extension) is a real
+        // signal but non-blocking — social scrapers key off Content-Type, not
+        // extension. Report as warning so it shows up in the report.
+        if (extFmt && meta.format !== extFmt)
+          warnings.push(`decoded format=${meta.format} ≠ ext=${extFmt}`);
       }
     }
   } else {
@@ -103,8 +108,7 @@ async function checkOne(ref: Ref): Promise<Check> {
       mime = res.headers.get("content-type");
       if (!res.ok) issues.push(`status=${res.status}`);
       if (extFmt && mime && !mime.toLowerCase().includes(extFmt))
-        issues.push(`content-type=${mime} ≠ ext=${extFmt}`);
-      // Dimension check skipped for remote (would require downloading body).
+        warnings.push(`content-type=${mime} ≠ ext=${extFmt}`);
       info.dimensionCheck = "skipped (remote)";
     } catch (err) {
       issues.push(`fetch failed: ${err instanceof Error ? err.message : String(err)}`);
@@ -116,11 +120,15 @@ async function checkOne(ref: Ref): Promise<Check> {
   info.width = width;
   info.height = height;
   if (isLocal && width && height) {
+    // OG spec absolute minimum: 600×315. Below that, LinkedIn/Facebook refuse
+    // the large-summary render entirely, so this is a hard failure.
     if (width < MIN_W || height < MIN_H)
-      issues.push(`dimensions ${width}×${height} < ${MIN_W}×${MIN_H}`);
+      issues.push(`dimensions ${width}×${height} < ${MIN_W}×${MIN_H} (OG minimum)`);
+    else if (width < RECOMMENDED_W || height < RECOMMENDED_H)
+      warnings.push(`dimensions ${width}×${height} below recommended ${RECOMMENDED_W}×${RECOMMENDED_H}`);
   }
 
-  return { ...ref, ok: issues.length === 0, issues, info };
+  return { ...ref, ok: issues.length === 0, issues, warnings, info };
 }
 
 async function main() {
