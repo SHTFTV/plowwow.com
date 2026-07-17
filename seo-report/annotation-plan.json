@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-07-17T22:38:27.006Z",
+  "caps": {
+    "legacy": 20,
+    "hydration": 20,
+    "robots": 20,
+    "jsonLd": 20
+  },
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
+  "dryRun": true,
+  "dryRunMode": "output",
+  "totals": {
+    "legacy": 1,
+    "hydration": 0,
+    "robots": 0,
+    "jsonLd": 0
+  },
+  "skipped": {
+    "legacy": 0,
+    "hydration": 0,
+    "robots": 0,
+    "jsonLd": 0
+  },
+  "totalEmitted": 0,
+  "totalWouldEmit": 1,
+  "totalSkipped": 0,
+  "categories": {
+    "legacy": {
+      "category": "legacy",
+      "rawFailures": 17,
+      "matched": 1,
+      "emitted": 1,
+      "skippedByCap": 0,
+      "filteredOut": 16,
+      "status": "partial",
+      "topSkipped": [],
+      "topFiltered": [
+        {
+          "reason": "filter",
+          "summary": "/snow-removal-in-burquitlam (locale/variant mismatch)"
+        },
+        {
+          "reason": "filter",
+          "summary": "/abbotsford-snow-removal (locale/variant mismatch)"
+        },
+        {
+          "reason": "filter",
+          "summary": "/locations (locale/variant mismatch)"
+        },
+        {
+          "reason": "filter",
+          "summary": "/quote (locale/variant mismatch)"
+        },
+        {
+          "reason": "filter",
+          "summary": "/blog/advanced-technology (locale/variant mismatch)"
+        }
+      ]
+    },
+    "hydration": {
+      "category": "hydration",
+      "rawFailures": 0,
+      "matched": 0,
+      "emitted": 0,
+      "skippedByCap": 0,
+      "filteredOut": 0,
+      "status": "no-matching-failures",
+      "topSkipped": [],
+      "topFiltered": []
+    },
+    "jsonLd": {
+      "category": "jsonLd",
+      "rawFailures": 0,
+      "matched": 0,
+      "emitted": 0,
+      "skippedByCap": 0,
+      "filteredOut": 0,
+      "status": "no-matching-failures",
+      "topSkipped": [],
+      "topFiltered": []
+    },
+    "robots": {
+      "category": "robots",
+      "rawFailures": 0,
+      "matched": 0,
+      "emitted": 0,
+      "skippedByCap": 0,
+      "filteredOut": 0,
+      "status": "no-matching-failures",
+      "topSkipped": [],
+      "topFiltered": []
+    }
+  },
+  "annotations": [
+    {
+      "level": "error",
+      "file": "netlify.toml",
+      "title": "Legacy redirect failing: /blog",
+      "message": "Expected 301 → /blog/ but got: first hop status=200 (expected 301)"
+    }
+  ]
+}
