@@ -44,7 +44,12 @@ const locs = pageUrls;
 const missing: string[] = [];
 const dupTitle: string[] = [];
 const dupDesc: string[] = [];
-const smokeReport: { url: string; title: string }[] = [];
+const missingCanonical: string[] = [];
+const badCanonical: string[] = [];
+const hreflangGaps: { url: string; missing: string[] }[] = [];
+const smokeReport: { url: string; title: string; hreflang: string[] }[] = [];
+
+const REQUIRED_HREFLANG = [...SUPPORTED_LOCALES, "x-default"];
 
 for (const loc of locs) {
   const u = new URL(loc);
@@ -62,15 +67,33 @@ for (const loc of locs) {
   const html = readFileSync(file, "utf8");
   const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
   const desc = html.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? "";
-  smokeReport.push({ url: loc, title });
+  const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]*)"/)?.[1] ?? "";
+  const hreflangs = [...html.matchAll(/<link\s+rel="alternate"\s+hreflang="([^"]+)"[^>]*>/g)].map(
+    (m) => m[1],
+  );
+  smokeReport.push({ url: loc, title, hreflang: hreflangs });
 
   if (path !== "/" && title === homeTitle) dupTitle.push(`${loc}  →  ${title}`);
   if (path !== "/" && desc === homeDesc) dupDesc.push(`${loc}  →  ${desc.slice(0, 80)}…`);
+
+  // Canonical must exist and self-reference the sitemap URL.
+  if (!canonical) missingCanonical.push(loc);
+  else if (canonical.replace(/\/+$/, "") !== loc.replace(/\/+$/, ""))
+    badCanonical.push(`${loc}  →  canonical=${canonical}`);
+
+  // Every configured locale + x-default must appear as hreflang.
+  const gaps = REQUIRED_HREFLANG.filter((l) => !hreflangs.includes(l));
+  if (gaps.length) hreflangGaps.push({ url: loc, missing: gaps });
 }
 
+mkdirSync(resolve("seo-report"), { recursive: true });
 writeFileSync(
   resolve("seo-report/build-smoke.json"),
-  JSON.stringify(smokeReport, null, 2),
+  JSON.stringify(
+    { generatedAt: new Date().toISOString(), locales: REQUIRED_HREFLANG, routes: smokeReport, hreflangGaps },
+    null,
+    2,
+  ),
 );
 
 let failed = false;
@@ -89,6 +112,24 @@ if (dupDesc.length) {
   for (const m of dupDesc.slice(0, 20)) console.error("  " + m);
   failed = true;
 }
+if (missingCanonical.length) {
+  console.error(`\n✗ ${missingCanonical.length} route(s) missing <link rel="canonical">:`);
+  for (const m of missingCanonical.slice(0, 20)) console.error("  " + m);
+  failed = true;
+}
+if (badCanonical.length) {
+  console.error(`\n✗ ${badCanonical.length} route(s) have non-self-referencing canonical:`);
+  for (const m of badCanonical.slice(0, 20)) console.error("  " + m);
+  failed = true;
+}
+if (hreflangGaps.length) {
+  console.error(
+    `\n✗ ${hreflangGaps.length} route(s) missing hreflang for supported locales (need: ${REQUIRED_HREFLANG.join(", ")}):`,
+  );
+  for (const g of hreflangGaps.slice(0, 20))
+    console.error(`  ${g.url}  →  missing: ${g.missing.join(", ")}`);
+  failed = true;
+}
 
 if (failed) {
   console.error(`\nBuild validation failed. See seo-report/build-smoke.json.`);
@@ -96,5 +137,5 @@ if (failed) {
 }
 
 console.log(
-  `✓ build-validate: ${smokeReport.length} sitemap URLs, all present, all unique titles/descriptions.`,
+  `✓ build-validate: ${smokeReport.length} URLs · unique titles/descs · canonical + hreflang [${REQUIRED_HREFLANG.join(", ")}] present.`,
 );
