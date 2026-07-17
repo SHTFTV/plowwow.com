@@ -43,6 +43,66 @@ describe("parseConfig", () => {
   });
 });
 
+describe("parseConfig with config file", () => {
+  it("uses config values when CLI/env are not set", () => {
+    const { caps, filter, failOnSkipped } = parseConfig([], {}, {
+      caps: { default: 5, legacy: 10 },
+      filter: { locale: "en-CA", variant: "blog" },
+      failOnSkipped: { legacy: 50, total: 100 },
+    });
+    expect(caps).toEqual({ legacy: 10, hydration: 5, robots: 5, jsonLd: 5 });
+    expect(filter).toEqual({ locale: "en-CA", variant: "blog" });
+    expect(failOnSkipped.legacy).toBe(50);
+    expect(failOnSkipped.total).toBe(100);
+  });
+
+  it("CLI overrides config, env overrides config, config overrides default", () => {
+    const { caps, filter } = parseConfig(
+      ["--max-legacy=99"],
+      { SEO_ANN_MAX_HYDRATION: "7", SEO_BASELINE_VARIANT: "envvariant" },
+      { caps: { legacy: 10, hydration: 10, robots: 8 }, filter: { locale: "fr", variant: "cfg" } },
+    );
+    expect(caps.legacy).toBe(99); // CLI
+    expect(caps.hydration).toBe(7); // env
+    expect(caps.robots).toBe(8); // config
+    expect(caps.jsonLd).toBe(20); // built-in default
+    expect(filter.locale).toBe("fr"); // config (no CLI/env)
+    expect(filter.variant).toBe("envvariant"); // env beats config
+  });
+
+  it("--fail-on-skipped flag toggles enforcement", () => {
+    expect(parseConfig([], {}).failOnSkippedEnabled).toBe(false);
+    expect(parseConfig(["--fail-on-skipped"], {}).failOnSkippedEnabled).toBe(true);
+    expect(parseConfig([], { SEO_ANN_FAIL_ON_SKIPPED: "1" }).failOnSkippedEnabled).toBe(true);
+  });
+});
+
+describe("evaluateSkippedLimits", () => {
+  it("returns empty when no limits set", () => {
+    expect(evaluateSkippedLimits({ legacy: 5, hydration: 5, robots: 5, jsonLd: 5 }, {})).toEqual([]);
+  });
+
+  it("flags per-category violations", () => {
+    const v = evaluateSkippedLimits(
+      { legacy: 30, hydration: 2, robots: 0, jsonLd: 0 },
+      { legacy: 10, hydration: 5 },
+    );
+    expect(v).toEqual([{ category: "legacy", skipped: 30, limit: 10 }]);
+  });
+
+  it("flags total violations independently", () => {
+    const v = evaluateSkippedLimits(
+      { legacy: 10, hydration: 10, robots: 10, jsonLd: 10 },
+      { total: 20 },
+    );
+    expect(v).toEqual([{ category: "total", skipped: 40, limit: 20 }]);
+  });
+
+  it("does not flag equal-to-limit counts", () => {
+    expect(evaluateSkippedLimits({ legacy: 5, hydration: 0, robots: 0, jsonLd: 0 }, { legacy: 5 })).toEqual([]);
+  });
+});
+
 describe("passesFilter", () => {
   it("passes everything when filter is empty", () => {
     expect(passesFilter("/burnaby-snow-removal/", {})).toBe(true);
