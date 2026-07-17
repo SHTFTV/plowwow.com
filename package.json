@@ -7,8 +7,8 @@
     "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
     "dev": "vite",
     "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
-    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts",
-    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts",
+    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts",
+    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts",
     "seo:smoke": "tsx scripts/build-validate.ts",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -18,7 +18,9 @@
     "seo:snapshot-diffs": "tsx scripts/render-snapshot-diffs.ts",
     "seo:violations-summary": "tsx scripts/violations-summary.ts",
     "seo:content-audit": "tsx scripts/seo-content-audit.ts",
-    "seo:jsonld-preflight": "tsx scripts/jsonld-preflight.ts"
+    "seo:jsonld-preflight": "tsx scripts/jsonld-preflight.ts",
+    "seo:locale-snapshot": "tsx scripts/jsonld-locale-snapshot.ts",
+    "seo:verify-redirects": "tsx scripts/verify-redirects.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

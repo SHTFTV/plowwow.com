@@ -1,0 +1,3969 @@
+{
+  "generatedAt": "2026-07-17T20:31:39.270Z",
+  "locales": [
+    "en-CA",
+    "en"
+  ],
+  "routes": {
+    "/24-7-service/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/abbotsford/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/abbotsford/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/abbotsford-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/abbotsford-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/abbotsford-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/about/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/advanced-technology/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/albion-maple-ridge-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/albion-maple-ridge-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/anmore-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/apartment-complexes/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/app/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/austin-heights-coquitlam-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/austin-heights-coquitlam-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/austin-heights-coquitlam-strip-mall-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 5
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/austin-heights-coquitlam-strip-mall-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/belcarra-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/brentwood-burnaby-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 5
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/brentwood-burnaby-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/broadmoor-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/broadmoor-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/buckingham-heights-burnaby/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/buckingham-heights-burnaby/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/burke-mountain-coquitlam-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/burke-mountain-coquitlam-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/burke-mountain-snow/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/burke-mountain-snow/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/burnaby/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/burnaby-heights-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/burnaby-heights-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/burnaby-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/burnaby-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/burnaby-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/cambie-village-vancouver-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/cambie-village-vancouver-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/can-i-push-snow-onto-the-street/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/can-i-push-snow-onto-the-street/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/capitol-hill-burnaby-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 5
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/capitol-hill-burnaby-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/cariboo-heights-burnaby-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/cariboo-heights-burnaby-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/cedar-valley-mission-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/cedar-valley-mission-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/champlain-heights-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/champlain-heights-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/chilliwack/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/chilliwack/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/chilliwack-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/chilliwack-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 4
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/chilliwack-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/cloverdale-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/cloverdale-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/coal-harbour-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/coal-harbour-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/commercial/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/commercial-drive-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/commercial-drive-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/commercial-snow-removal-burnaby/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/commercial-snow-removal-burnaby/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/commercial-snow-removal-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/commercial-snow-removal-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/contact/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/coquitlam/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/coquitlam/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/coquitlam-centre-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/coquitlam-centre-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/coquitlam-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/coquitlam-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/coquitlam-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/deer-lake-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/deer-lake-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/delta/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/delta/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/delta-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/delta-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/delta-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/does-it-snow-in-vancouver-weather-guide/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/does-it-snow-in-vancouver-weather-guide/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/downtown-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/downtown-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/dunbar-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/dunbar-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/eagle-ridge-coquitlam-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/eagle-ridge-coquitlam-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/east-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/east-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/edmonds-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/edmonds-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/false-creek-vancouver-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/false-creek-vancouver-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/fort-langley-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/fort-langley-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/fraserview-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/fraserview-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/garden-city-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/garden-city-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/gastown-vancouver-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/gastown-vancouver-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/grandview-woodland-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/grandview-woodland-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/guest-post/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/hamilton-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/hamilton-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/happy-new-year-metro-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/happy-new-year-metro-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/hastings-sunrise-east-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/hastings-sunrise-east-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/heritage-mountain/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/heritage-mountain/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/highgate-burnaby-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/highgate-burnaby-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/how-it-works/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/intelligence/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/kensington-cedar-cottage-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/kensington-cedar-cottage-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/kitsilano-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/kitsilano-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/langley/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/langley/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/langley-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/langley-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/langley-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/locations/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/lougheed-town-centre-burnaby-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/lougheed-town-centre-burnaby-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/lynn-valley-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/lynn-valley-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/maillardville-coquitlam-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/maillardville-coquitlam-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/maple-ridge/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/maple-ridge/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/maple-ridge-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/maple-ridge-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/maple-ridge-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/marketing/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/marpole-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/marpole-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/metrotown-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/metrotown-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/metrotown-snow-removal-company/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/metrotown-snow-removal-company/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/metrotown-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/metrotown-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/middlegate-snow-removal-burnaby/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/middlegate-snow-removal-burnaby/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/mission/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/mission/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/mission-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/mission-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/mission-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/montecito-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/montecito-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/mount-pleasant-east-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/mount-pleasant-east-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/new-westminster/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/new-westminster/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/new-westminster-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/new-westminster-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/new-westminster-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/north-vancouver/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/north-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/north-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/north-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/now-removal-arbutus/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/now-removal-arbutus/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/oakridge-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/oakridge-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/pitt-meadows/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/pitt-meadows/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/pitt-meadows-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/plow-wow-cutest-snow-removal-brand-marketing-platform/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/plow-wow-cutest-snow-removal-brand-marketing-platform/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/plowwow-service-areas/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/point-grey-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/point-grey-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/port-coquitlam/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/port-coquitlam/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/port-coquitlam-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/port-coquitlam-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/port-coquitlam-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/port-moody/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/port-moody/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/port-moody-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/port-moody-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/port-moody-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/professional-snow-removal-in-middle-gate-burnaby/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/professional-snow-removal-in-middle-gate-burnaby/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/promontory-chilliwack-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/promontory-chilliwack-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/quote/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/ranch-park-coquitlam-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/ranch-park-coquitlam-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/record-snow-falls-in-bc/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/record-snow-falls-in-bc/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/residential-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/richmond/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/richmond/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/richmond-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/richmond-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/richmond-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/riley-park-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/riley-park-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/river-springs-coquitlam-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/river-springs-coquitlam-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/sapperton-new-westminster/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/sapperton-new-westminster/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/sardis-chilliwack-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/sardis-chilliwack-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/satisfaction-guaranteed/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/seafair-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/seafair-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/seo-report/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/services/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/sfu-burnaby-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/sfu-burnaby-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/shaughnessy-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/shaughnessy-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/shaughnessy-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/shaughnessy-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/silver-valley-maple-ridge/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/silver-valley-maple-ridge/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/silver-valley-maple-ridge-strata-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/silver-valley-maple-ridge-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/silverdale-mission-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/silverdale-mission-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/skid-steer-snow-removal-in-langley-bc/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/skid-steer-snow-removal-in-langley-bc/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/skilled-courteous-team/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/snow-blowers-for-sidewalks/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/snow-relocation/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/snow-removal-in-burquitlam/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-in-burquitlam/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-kensington-prairie/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-kensington-prairie/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-management-system/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/snow-removal-renfrew-heights/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-renfrew-heights/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-services-in-killarney-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-services-in-killarney-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/snow-removal-west-side-vancouver/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/snow-removal-west-side-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/south-cambie-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/south-cambie-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/south-slope-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/south-slope-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/squamish-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/squamish-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/steveston-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/steveston-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/strata-complexes/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/strata-experts/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/strathcona-east-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/strathcona-east-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/strip-malls/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/suncrest-burnaby-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/suncrest-burnaby-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/sunset-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/sunset-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/surrey/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/surrey/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/surrey-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/surrey-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/surrey-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/takeoff/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/terra-nova-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/terra-nova-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/the-worlds-cutest-snow-removal-brand/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/the-worlds-cutest-snow-removal-brand/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/tsawwassen-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/tsawwassen-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/vancouver/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 2
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/vancouver-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/victoria-fraserview-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/victoria-fraserview-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/west-end-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/west-end-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/west-vancouver/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/west-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/west-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/west-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/westridge-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 8
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/westridge-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/westwood-plateau-coquitlam-parking-lot-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 5
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/westwood-plateau-coquitlam-parking-lot-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/white-christmas-2025-burnaby/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/white-christmas-2025-burnaby/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/white-rock/": {
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 1
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/white-rock/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/white-rock-snow-removal/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/white-rock-strata-commercial-snow-plowing/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/white-rock-strata-commercial-snow-plowing/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/willingdon-heights-burnaby-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/willingdon-heights-burnaby-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/yaletown-vancouver-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/yaletown-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    }
+  },
+  "issues": []
+}

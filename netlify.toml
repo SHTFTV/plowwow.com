@@ -104,12 +104,11 @@
   status = 301
   force = true
 
-# --- 301: typo fix ---
-[[redirects]]
-  from = "/now-removal-arbutus"
-  to = "/snow-removal-in-arbutus/"
-  status = 301
-  force = true
+# (Removed: stale /now-removal-arbutus → /snow-removal-in-arbutus/ rule.
+# The target page doesn't exist and /now-removal-arbutus/ is the canonical
+# slug; scripts/verify-redirects.ts flagged it as a broken redirect.)
+
+
 
 # --- Real 404 for missing /city/* and /blog/* paths ---
 # Prevents SPA fallback from serving homepage <title>/<meta> for URLs that
