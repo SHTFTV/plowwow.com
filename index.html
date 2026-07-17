@@ -148,6 +148,39 @@
     }
     </script>
 
+    <!-- Schema: Organization + WebSite graph -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://plowwow.com/#organization",
+          "name": "PlowWow",
+          "url": "https://plowwow.com",
+          "logo": "https://plowwow.com/wp-content/uploads/logo.png",
+          "image": "https://plowwow.com/wp-content/uploads/hero.jpg",
+          "telephone": "+1-604-761-1518",
+          "priceRange": "$$",
+          "description": "The premier international snow removal network and marketing cooperative connecting local owner-operators with commercial and residential clients across North America.",
+          "areaServed": [
+            { "@type": "Country", "name": "CA", "description": "Canada nationwide network" },
+            { "@type": "Country", "name": "US", "description": "United States nationwide network" }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://plowwow.com/#website",
+          "url": "https://plowwow.com",
+          "name": "PlowWow",
+          "publisher": { "@id": "https://plowwow.com/#organization" }
+        }
+      ]
+    }
+    </script>
+
+
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
