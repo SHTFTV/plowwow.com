@@ -43,6 +43,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://plowwow.com/locations</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://plowwow.com/guest-post</loc>
     <lastmod>2026-07-17</lastmod>
     <changefreq>weekly</changefreq>
