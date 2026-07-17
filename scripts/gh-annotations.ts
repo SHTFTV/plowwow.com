@@ -1394,13 +1394,13 @@ if (isDirectRun) {
         for (const r of rowsOut) {
           lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
         }
-        const dest = resolve(artifactsDir, "regression-thresholds.csv");
+        const dest = resolve(artifactsDir, withPrefix("regression-thresholds.csv"));
         writeFileSync(dest, lines.join("\n") + "\n");
         written.csv = dest;
         process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
       }
       if (printFmts.has("json")) {
-        const dest = resolve(artifactsDir, "regression-thresholds.json");
+        const dest = resolve(artifactsDir, withPrefix("regression-thresholds.json"));
         writeFileSync(
           dest,
           JSON.stringify(
@@ -1412,17 +1412,50 @@ if (isDirectRun) {
         written.json = dest;
         process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
       }
+      // Human-readable summary table on stdout (in addition to the files) so
+      // reviewers scanning the raw job log can compare bands without opening
+      // any artifact. Rendered as a fixed-width markdown-ish table.
+      const colWidths = {
+        category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
+        minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
+        major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
+        critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
+        source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
+      };
+      const pad = (s: string, w: number) => s.padEnd(w, " ");
+      process.stdout.write(`Regression thresholds (deltaPercent):\n`);
+      process.stdout.write(
+        `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
+      );
+      process.stdout.write(
+        `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
+      );
+      for (const r of rowsOut) {
+        process.stdout.write(
+          `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+        );
+      }
       // Emit a small manifest so validator-summary.ts can add PR-comment links
       // even when --artifacts-dir moved the files out of seo-report/.
       try {
         mkdirSync(REPORT_DIR, { recursive: true });
         writeFileSync(
           resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
-          JSON.stringify({ generatedAt: new Date().toISOString(), artifactsDir, ...written }, null, 2),
+          JSON.stringify(
+            {
+              generatedAt: new Date().toISOString(),
+              artifactsDir,
+              filenamePrefix: artifactsFilenamePrefix || undefined,
+              ...written,
+            },
+            null,
+            2,
+          ),
         );
       } catch { /* non-fatal */ }
     }
   }
+
 
 
 
