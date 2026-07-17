@@ -10,7 +10,7 @@
 //
 // Uploads happen in the workflow; this script only assembles the file.
 
-import { existsSync, readdirSync, writeFileSync, statSync, mkdirSync, rmSync } from "node:fs";
+import { existsSync, readdirSync, writeFileSync, statSync, mkdirSync, rmSync, copyFileSync } from "node:fs";
 import { resolve, relative } from "node:path";
 import { spawnSync } from "node:child_process";
 
