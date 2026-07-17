@@ -12,7 +12,7 @@ import { resolve, dirname } from "node:path";
 import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 import { cities } from "../src/data/cities";
 import { blogPosts } from "../src/generated/blog-posts";
-import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl } from "./lib/locales";
+import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl, ALTERNATE_OG_LOCALES } from "./lib/locales";
 
 const DIST = resolve("dist");
 const TEMPLATE_PATH = resolve(DIST, "index.html");
