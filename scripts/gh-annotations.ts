@@ -1021,6 +1021,56 @@ if (isDirectRun) {
     );
   }
 
+  // annotation-plan-summary.json — compact top-level totals + per-category
+  // skipped-reason breakdowns for automated parsing (dashboards, alerts).
+  {
+    const categoriesSummary: Record<string, {
+      status: CategoryPlan["status"];
+      rawFailures: number;
+      matched: number;
+      emitted: number;
+      skippedByCap: number;
+      filteredOut: number;
+      topSkippedReasons: { reason: SkipReason | "filter"; summary: string }[];
+    }> = {};
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const p = plan.categories[cat];
+      categoriesSummary[cat] = {
+        status: p.status,
+        rawFailures: p.rawFailures,
+        matched: p.matched,
+        emitted: p.emitted,
+        skippedByCap: p.skippedByCap,
+        filteredOut: p.filteredOut,
+        topSkippedReasons: [
+          ...p.topSkipped.map((s) => ({ reason: s.reason, summary: s.summary })),
+          ...p.topFiltered.map((s) => ({ reason: s.reason, summary: s.summary })),
+        ],
+      };
+    }
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan-summary.json"),
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          filter,
+          caps,
+          totals: {
+            planned: annotations.length,
+            emitted: dryRun ? 0 : annotations.length,
+            wouldEmit: annotations.length,
+            skipped: plan.totalSkipped,
+            skippedByCap: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
+            rawFailures: totals.legacy + totals.hydration + totals.robots + totals.jsonLd,
+          },
+          categories: categoriesSummary,
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
   // --dry-run=output --plan-format=csv writes annotation-plan.csv alongside JSON.
   if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
     writeFileSync(
