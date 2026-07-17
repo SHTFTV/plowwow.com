@@ -20,6 +20,12 @@
 //   --dry-run=output          Same as --dry-run and always write
 //                             seo-report/annotation-plan.json (planned vs
 //                             skipped counts + per-item details).
+//   --write-sample-config[=path]
+//                             Write a fully documented config template and exit.
+//   --fail-on-plan-regression[=N]
+//                             Exit 1 when the --compare selection's totalSkipped
+//                             grows by more than N (default 0) vs the base.
+//                             skipped counts + per-item details).
 //
 // Env fallbacks: SEO_ANN_MAX_{LEGACY,HYDRATION,ROBOTS,JSONLD},
 // SEO_BASELINE_LOCALE/VARIANT, SEO_ANN_CONFIG,
