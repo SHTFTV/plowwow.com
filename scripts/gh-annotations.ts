@@ -1171,6 +1171,23 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
+  // --print-regression-thresholds — print the severity bands used by
+  // --fail-on-regression-severity to stdout (as a ::notice + human line) so
+  // reviewers can see the exact thresholds before evaluation. Does NOT exit;
+  // combines with the rest of the run.
+  if (hasFlag(argv, "print-regression-thresholds")) {
+    const rows = (Object.keys(SEVERITY_BANDS) as SeverityBand[])
+      .map((b) => `${b}=>${SEVERITY_BANDS[b]}%`)
+      .join(", ");
+    process.stdout.write(
+      `::notice title=SEO annotations regression thresholds::deltaPercent bands: ${rows}\n`,
+    );
+    process.stdout.write(`Regression severity bands (deltaPercent of skippedByCap):\n`);
+    for (const b of Object.keys(SEVERITY_BANDS) as SeverityBand[]) {
+      process.stdout.write(`  ${b}: > ${SEVERITY_BANDS[b]}%\n`);
+    }
+  }
+
   // --schema-error-report[=path] — write schema-drift-errors.json with the
   // structured path/expected/actual/snippet details for each failing field.
   // Runs BEFORE --write-sample-config so both flags can be combined; the file
@@ -1196,6 +1213,28 @@ if (isDirectRun) {
     process.stdout.write(
       `Wrote schema-drift-errors.json → ${dest} (${errs.length} error(s))\n`,
     );
+    // --schema-error-report-format=csv writes a companion CSV file next to JSON.
+    const schemaFmt = argVal(argv, "schema-error-report-format");
+    if (schemaFmt === "csv") {
+      const csvDest = dest.replace(/\.json$/i, "") + ".csv";
+      const esc = (v: unknown) => {
+        const s = String(v ?? "");
+        return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+      };
+      const header = ["path", "keyword", "expected", "actual", "snippet"];
+      const rows: string[][] = [header];
+      for (const e of errs) {
+        rows.push([
+          (e as { path?: string }).path ?? "",
+          (e as { keyword?: string }).keyword ?? "",
+          JSON.stringify((e as { expected?: unknown }).expected ?? null),
+          JSON.stringify((e as { actual?: unknown }).actual ?? null),
+          (e as { snippet?: string }).snippet ?? "",
+        ]);
+      }
+      writeFileSync(csvDest, rows.map((r) => r.map(esc).join(",")).join("\n") + "\n");
+      process.stdout.write(`Wrote schema-drift-errors.csv → ${csvDest}\n`);
+    }
     if (errs.length) {
       process.stdout.write(
         `::error title=SEO annotations sample-config drift::${errs.length} field(s) drifted; see ${dest}\n`,
