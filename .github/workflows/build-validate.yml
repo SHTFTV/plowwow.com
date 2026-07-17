@@ -182,6 +182,26 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
+      - name: Upload annotation-plan-summary.json (top-level totals + skipped reasons)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: annotation-plan-summary
+          path: seo-report/annotation-plan-summary.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload annotation-plan-regression.json (per-category regression deltas)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: annotation-plan-regression
+          path: seo-report/annotation-plan-regression.json
+          retention-days: 30
+          if-no-files-found: warn
+
+
+
 
       - name: Upload validation-report.html (standalone, no unzip needed)
         if: always()
