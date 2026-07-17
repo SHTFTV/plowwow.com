@@ -170,7 +170,17 @@ if (regression) {
     md.push(``);
     md.push(`| Category | Before | After | Δ | Δ% | Exceeds |`);
     md.push(`|---|---:|---:|---:|---:|:---:|`);
-    for (const c of regression.perCategory) {
+    // Sort by absolute skipped delta (desc), tie-break by absolute deltaPercent
+    // (desc) so the most impactful regressions surface first. Infinity ranks
+    // above any finite percentage.
+    const sorted = [...regression.perCategory].sort((a, b) => {
+      const da = Math.abs(b.delta) - Math.abs(a.delta);
+      if (da !== 0) return da;
+      const ap = Number.isFinite(a.deltaPercent) ? Math.abs(a.deltaPercent) : Number.POSITIVE_INFINITY;
+      const bp = Number.isFinite(b.deltaPercent) ? Math.abs(b.deltaPercent) : Number.POSITIVE_INFINITY;
+      return bp - ap;
+    });
+    for (const c of sorted) {
       const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
       md.push(`| \`${c.category}\` | ${c.before} | ${c.after} | ${c.delta >= 0 ? "+" : ""}${c.delta} | ${cPct} | ${c.exceeds ? "❌" : "—"} |`);
     }
@@ -199,6 +209,7 @@ if (artifactUrl) {
   md.push(`- 📝 [annotation-plan-diff.md](${runUrl}/artifacts) — human-readable plan diff table`);
   md.push(`- 📈 [annotation-plan-diff.csv](${runUrl}/artifacts) — spreadsheet-friendly plan diff (from \`--compare-locale/--compare-variant\`)`);
   md.push(`- 📇 [annotation-plan-summary.json](${runUrl}/artifacts) — compact totals + per-category skipped-reason breakdown`);
+  md.push(`- 📊 [annotation-plan-summary.csv](${runUrl}/artifacts) — spreadsheet-friendly plan summary (from \`--plan-summary-format=csv\`)`);
   md.push(`- 🚨 [annotation-plan-regression.json](${runUrl}/artifacts) — per-category regression deltas + threshold (when \`--fail-on-plan-regression\` runs)`);
 
   const files: [string, string][] = [
