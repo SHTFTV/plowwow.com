@@ -281,14 +281,17 @@ async function main() {
   }
 
   const failed = checks.filter((c) => !c.ok);
+  const cache = cacheStats();
   writeFileSync(
     resolve("seo-report/legacy-redirects.json"),
     JSON.stringify(
-      { generatedAt: new Date().toISOString(), base, total: checks.length, failed: failed.length, checks },
+      { generatedAt: new Date().toISOString(), base, total: checks.length, failed: failed.length, cache, checks },
       null,
       2,
     ),
   );
+  // Standalone cache-stats artifact so validator-summary can surface hit rate.
+  writeFileSync(resolve("seo-report/http-cache-stats.json"), JSON.stringify(cache, null, 2));
   const md = [
     `# Legacy redirect crawl`,
     ``,
