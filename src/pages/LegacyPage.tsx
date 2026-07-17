@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { truncateForMeta } from "@/lib/seo";
 import { blogPosts } from "@/generated/blog-posts";
+import { cityForBlogSlug, siblingsForBlogSlug } from "@/lib/internalLinks";
 
 const blogDatesBySlug: Record<string, { publishedAt: string; updatedAt: string }> =
   Object.fromEntries(
@@ -356,24 +357,76 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           </article>
         </section>
 
-        {kind === "blog" && (
-          <section className="py-10 border-t border-border">
-            <div className="container max-w-3xl flex flex-wrap items-center justify-between gap-4">
-              <Link
-                to="/blog"
-                className="text-sm font-semibold text-primary hover:underline"
-              >
-                ← All blog posts
-              </Link>
-              <Link
-                to="/quote"
-                className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow hover:bg-primary/90"
-              >
-                Get a free snow removal quote →
-              </Link>
-            </div>
-          </section>
-        )}
+        {kind === "blog" && (() => {
+          const parentCity = cityForBlogSlug(slug);
+          const siblings = siblingsForBlogSlug(slug, 4);
+          return (
+            <>
+              {(parentCity || siblings.length > 0) && (
+                <section className="py-10 border-t border-border bg-muted/30">
+                  <div className="container max-w-3xl">
+                    <h2 className="text-xl font-black text-foreground mb-4">
+                      Related {parentCity ? `${parentCity.name} ` : ""}snow removal pages
+                    </h2>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {parentCity && (
+                        <Link
+                          to={parentCity.path}
+                          className="block rounded-xl border border-primary/40 bg-primary/5 p-4 hover:border-primary hover:bg-primary/10 transition-colors"
+                        >
+                          <span className="text-xs uppercase tracking-wider font-bold text-primary">
+                            City hub
+                          </span>
+                          <p className="mt-1 font-bold text-foreground">
+                            {parentCity.name} snow removal &amp; de-icing →
+                          </p>
+                        </Link>
+                      )}
+                      <Link
+                        to="/locations"
+                        className="block rounded-xl border border-border bg-card p-4 hover:border-primary transition-colors"
+                      >
+                        <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                          Service map
+                        </span>
+                        <p className="mt-1 font-bold text-foreground">
+                          All PlowWow service areas →
+                        </p>
+                      </Link>
+                      {siblings.map((s) => (
+                        <Link
+                          key={s.slug}
+                          to={`/${s.slug}`}
+                          className="block rounded-xl border border-border bg-card p-4 hover:border-primary transition-colors"
+                        >
+                          <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                            Nearby
+                          </span>
+                          <p className="mt-1 text-sm font-semibold text-foreground leading-snug">
+                            {s.title}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+              <section className="py-10 border-t border-border">
+                <div className="container max-w-3xl flex flex-wrap items-center justify-between gap-4">
+                  <Link to="/blog" className="text-sm font-semibold text-primary hover:underline">
+                    ← All blog posts
+                  </Link>
+                  <Link
+                    to="/quote"
+                    className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow hover:bg-primary/90"
+                  >
+                    Get a free snow removal quote →
+                  </Link>
+                </div>
+              </section>
+            </>
+          );
+        })()}
 
         <ContactForm />
       </main>
