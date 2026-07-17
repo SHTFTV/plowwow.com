@@ -1450,6 +1450,17 @@ if (isDirectRun) {
   const rawExclude = parseCategoryExclude(
     argVal(argv, "plan-category-exclude") ?? process.env.SEO_ANN_PLAN_CATEGORY_EXCLUDE ?? null,
   );
+  // Conflict check — same category in both include AND exclude is ambiguous.
+  // Fail fast with a clear, actionable error.
+  if (rawInclude && rawExclude) {
+    const conflicts = rawInclude.filter((c) => rawExclude.includes(c));
+    if (conflicts.length) {
+      const msg = `Categories cannot appear in both --plan-category-include and --plan-category-exclude: ${conflicts.join(", ")}`;
+      process.stdout.write(`::error title=SEO annotations category conflict::${esc(msg)}\n`);
+      process.stderr.write(msg + "\n");
+      process.exit(2);
+    }
+  }
   const includeCats = resolveCategorySelection(rawInclude, rawExclude);
 
 
