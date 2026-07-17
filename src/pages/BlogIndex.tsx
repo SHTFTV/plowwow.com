@@ -156,23 +156,44 @@ const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
+  // Sort key & date filter come from the URL so they're shareable.
+  const rawSort = searchParams.get("sort") ?? "published";
+  const sortBy: "published" | "updated" =
+    rawSort === "updated" ? "updated" : "published";
+  const rawWindow = searchParams.get("window") ?? "all";
+  const dateWindow: "all" | "7d" | "30d" | "90d" | "365d" =
+    rawWindow === "7d" || rawWindow === "30d" || rawWindow === "90d" || rawWindow === "365d"
+      ? rawWindow
+      : "all";
+  const windowMs: Record<typeof dateWindow, number | null> = {
+    all: null,
+    "7d": 7 * 864e5,
+    "30d": 30 * 864e5,
+    "90d": 90 * 864e5,
+    "365d": 365 * 864e5,
+  };
+
   // Newest first (left→right, top→bottom). Falls back to alpha for posts
-  // without a publishedAt entry so they still appear deterministically.
+  // without a date entry so they still appear deterministically.
   const allPosts = useMemo(
     () => {
       const slugs = Array.from(
         new Set([...blogPosts.map((post) => post.slug), ...legacyBlogSlugs]),
       );
+      const keyOf = (slug: string) =>
+        sortBy === "updated"
+          ? updatedAtBySlug[slug] ?? publishedAtBySlug[slug] ?? ""
+          : publishedAtBySlug[slug] ?? "";
       return slugs.sort((a, b) => {
-        const da = publishedAtBySlug[a] ?? "";
-        const db = publishedAtBySlug[b] ?? "";
+        const da = keyOf(a);
+        const db = keyOf(b);
         if (da && db && da !== db) return db.localeCompare(da);
         if (da && !db) return -1;
         if (!da && db) return 1;
         return a.localeCompare(b);
       });
     },
-    [],
+    [sortBy],
   );
 
   const query = (searchParams.get("q") ?? "").trim();
@@ -206,8 +227,19 @@ const BlogIndex = () => {
   }, [allPosts, postCategories]);
 
   const posts = useMemo(() => {
+    const cutoff = windowMs[dateWindow];
+    const now = Date.now();
     return allPosts.filter((slug) => {
       if (activeCat !== "All" && postCategories[slug] !== activeCat) return false;
+      if (cutoff != null) {
+        const iso =
+          sortBy === "updated"
+            ? updatedAtBySlug[slug] ?? publishedAtBySlug[slug]
+            : publishedAtBySlug[slug];
+        if (!iso) return false;
+        const t = Date.parse(iso);
+        if (!Number.isFinite(t) || now - t > cutoff) return false;
+      }
       if (terms.length === 0) return true;
       const haystack = (
         titleFor(slug) +
@@ -218,12 +250,28 @@ const BlogIndex = () => {
       ).toLowerCase();
       return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, terms, activeCat, postCategories]);
+  }, [allPosts, terms, activeCat, postCategories, dateWindow, sortBy]);
 
   const setCategory = (next: Category) => {
     const params = new URLSearchParams(searchParams);
     if (next === "All") params.delete("cat");
     else params.set("cat", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
+
+  const setSort = (next: "published" | "updated") => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "published") params.delete("sort");
+    else params.set("sort", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
+
+  const setDateWindow = (next: typeof dateWindow) => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "all") params.delete("window");
+    else params.set("window", next);
     params.delete("page");
     setSearchParams(params, { replace: true });
   };
@@ -778,6 +826,74 @@ const BlogIndex = () => {
               })}
             </div>
 
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <div
+                role="group"
+                aria-label="Sort posts"
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+              >
+                <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Sort
+                </span>
+                {([
+                  ["published", "Newest published"],
+                  ["updated", "Recently updated"],
+                ] as const).map(([key, label]) => {
+                  const isActive = sortBy === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setSort(key)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div
+                role="group"
+                aria-label="Filter by date"
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+              >
+                <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  {sortBy === "updated" ? "Updated" : "Published"}
+                </span>
+                {([
+                  ["all", "All time"],
+                  ["7d", "7 days"],
+                  ["30d", "30 days"],
+                  ["90d", "90 days"],
+                  ["365d", "1 year"],
+                ] as const).map(([key, label]) => {
+                  const isActive = dateWindow === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setDateWindow(key)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+
             <details className="mb-6 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-muted-foreground">
               <summary className="cursor-pointer select-none font-semibold text-foreground">
                 Search settings
@@ -1052,8 +1168,11 @@ const BlogIndex = () => {
                           {wasUpdated && (
                             <time
                               dateTime={updatedAt}
-                              className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground"
+                              title={`Updated on ${formatDate(updatedAt)} (originally published ${formatDate(publishedAt)})`}
+                              aria-label={`Updated on ${formatDate(updatedAt)}`}
+                              className="inline-flex items-center gap-1 rounded-full border border-secondary/40 bg-secondary/15 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-secondary-foreground cursor-help"
                             >
+                              <span className="inline-block w-1.5 h-1.5 rounded-full bg-secondary" aria-hidden="true" />
                               Updated {formatDate(updatedAt)}
                             </time>
                           )}
