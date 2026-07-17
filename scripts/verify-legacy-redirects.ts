@@ -118,22 +118,65 @@ type Check = {
   reason?: string;
 };
 
+const REQUEST_TIMEOUT_MS = Number(process.env.LEGACY_TIMEOUT_MS ?? 15_000);
+const MAX_RETRIES = Number(process.env.LEGACY_RETRIES ?? 3);
+const RETRY_BASE_DELAY_MS = Number(process.env.LEGACY_RETRY_BASE_MS ?? 500);
+
+// Transient signals worth retrying — everything else counts as a real result.
+function isTransient(status: number, msg?: string): boolean {
+  if (status === 0) return true; // network/DNS/reset
+  if (status === 408 || status === 425 || status === 429) return true;
+  if (status >= 500 && status <= 599) return true;
+  if (msg && /(ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket hang up|network|timeout|fetch failed)/i.test(msg))
+    return true;
+  return false;
+}
+
+async function fetchOnce(url: string): Promise<{ status: number; location: string | null; err?: string }> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, { redirect: "manual", signal: ctrl.signal });
+    return { status: res.status, location: res.headers.get("location") };
+  } catch (err) {
+    return { status: 0, location: null, err: (err as Error).message };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchWithRetry(url: string): Promise<{ status: number; location: string | null; attempts: number; err?: string }> {
+  let lastErr: string | undefined;
+  let lastStatus = 0;
+  let lastLoc: string | null = null;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const r = await fetchOnce(url);
+    lastStatus = r.status;
+    lastLoc = r.location;
+    lastErr = r.err;
+    if (!isTransient(r.status, r.err)) {
+      return { status: r.status, location: r.location, attempts: attempt, err: r.err };
+    }
+    if (attempt < MAX_RETRIES) {
+      const delay = RETRY_BASE_DELAY_MS * 2 ** (attempt - 1) + Math.floor(Math.random() * 200);
+      await new Promise((res) => setTimeout(res, delay));
+    }
+  }
+  return { status: lastStatus, location: lastLoc, attempts: MAX_RETRIES, err: lastErr };
+}
+
 async function crawl(base: string, path: string): Promise<Check["hops"]> {
   const hops: Check["hops"] = [];
   let current = base + path;
   for (let i = 0; i < MAX_HOPS + 1; i++) {
-    let res: Response;
-    try {
-      res = await fetch(current, { redirect: "manual" });
-    } catch (err) {
-      hops.push({ url: current, status: 0, location: `error: ${(err as Error).message}` });
+    const r = await fetchWithRetry(current);
+    if (r.status === 0) {
+      hops.push({ url: current, status: 0, location: `error after ${r.attempts} attempts: ${r.err ?? "unknown"}` });
       return hops;
     }
-    const loc = res.headers.get("location");
-    hops.push({ url: current, status: res.status, location: loc });
-    if (res.status < 300 || res.status >= 400 || !loc) return hops;
-    // Resolve relative Location
-    current = new URL(loc, current).toString();
+    hops.push({ url: current, status: r.status, location: r.location });
+    if (r.status < 300 || r.status >= 400 || !r.location) return hops;
+    current = new URL(r.location, current).toString();
   }
   return hops;
 }
