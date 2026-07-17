@@ -309,17 +309,18 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       svc.text = JSON.stringify({
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "SnowRemovalService"],
-        "@id": `${path}#localbusiness`,
+        "@id": `${absoluteUrl}#localbusiness`,
         name: `PlowWow Snow Removal — ${areaName}`,
-        url: path,
+        url: absoluteUrl,
         telephone: "+1-604-761-1518",
         priceRange: "$$",
-        image: heroPath || "https://plowwow.com/wp-content/uploads/hero.jpg",
-        logo: "https://plowwow.com/wp-content/uploads/logo.png",
+        image: heroPath ? (heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`) : absoluteImage,
+        logo: "https://plowwow.com/icon-192.png",
         areaServed: { "@type": "Place", name: areaName },
         provider: { "@id": "https://plowwow.com/#organization" },
         serviceType: "Snow Removal, De-Icing & Salting",
         address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47" },
       });
       document.head.appendChild(svc);
     }
