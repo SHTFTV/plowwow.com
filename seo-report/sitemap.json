@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-07-17T20:37:08.886Z",
+  "totalUrls": 181,
+  "expectedCities": 17,
+  "expectedBlogPosts": 116,
+  "requiredHreflang": [
+    "en-CA",
+    "en",
+    "x-default"
+  ],
+  "totalIssues": 0,
+  "sections": [
+    {
+      "title": "Missing child sitemap files",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "City URLs missing from sitemap",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Blog URLs missing from sitemap",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "URLs missing <lastmod>",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Invalid or future <lastmod>",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Inconsistent hreflang mapping",
+      "count": 0,
+      "rows": []
+    }
+  ]
+}

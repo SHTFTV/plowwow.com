@@ -12,7 +12,7 @@ import { resolve, dirname } from "node:path";
 import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 import { cities } from "../src/data/cities";
 import { blogPosts } from "../src/generated/blog-posts";
-import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl } from "./lib/locales";
+import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl, ALTERNATE_OG_LOCALES } from "./lib/locales";
 
 const DIST = resolve("dist");
 const TEMPLATE_PATH = resolve(DIST, "index.html");
@@ -239,6 +239,19 @@ function renderHead(route: RouteMeta): string {
     /<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/,
     `<meta property="og:image" content="${img}" />`,
   );
+
+  // og:locale:alternate — one per non-primary supported locale, so link
+  // previews on locale-aware surfaces (LinkedIn, Facebook) advertise every
+  // variant we ship. Inserted after og:locale so validators see them together.
+  if (ALTERNATE_OG_LOCALES.length) {
+    const alternates = ALTERNATE_OG_LOCALES
+      .map((l) => `<meta property="og:locale:alternate" content="${l}" />`)
+      .join("\n    ");
+    html = html.replace(
+      /(<meta\s+property="og:locale"\s+content="[^"]*"\s*\/>)/,
+      `$1\n    ${alternates}`,
+    );
+  }
 
   // Twitter
   html = html.replace(

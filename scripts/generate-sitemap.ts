@@ -14,6 +14,7 @@
 import { writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
+import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl } from "./lib/locales";
 
 const today = new Date().toISOString().slice(0, 10);
 const withSlash = (p: string) => (p === "/" ? "/" : p.endsWith("/") ? p : `${p}/`);
@@ -26,11 +27,17 @@ const priorityFor = (r: RouteMeta) =>
   r.path === "/" ? "1.0" : r.kind === "city" || r.kind === "static" ? "0.8" : "0.6";
 
 function urlBlock(r: RouteMeta): string {
+  const path = withSlash(r.path);
+  const hreflangLinks = [
+    ...SUPPORTED_LOCALES.map(
+      (l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${localizedUrl(BASE_URL, path, l)}" />`,
+    ),
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(BASE_URL, path, X_DEFAULT_LOCALE)}" />`,
+  ];
   return [
     "  <url>",
-    `    <loc>${BASE_URL}${withSlash(r.path)}</loc>`,
-    `    <xhtml:link rel="alternate" hreflang="en-CA" href="${BASE_URL}${withSlash(r.path)}" />`,
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(r.path)}" />`,
+    `    <loc>${BASE_URL}${path}</loc>`,
+    ...hreflangLinks,
     `    <lastmod>${today}</lastmod>`,
     `    <changefreq>weekly</changefreq>`,
     `    <priority>${priorityFor(r)}</priority>`,

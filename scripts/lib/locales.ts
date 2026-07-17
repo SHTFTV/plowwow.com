@@ -15,3 +15,14 @@ export const X_DEFAULT_LOCALE: SupportedLocale = "en-CA";
 export function localizedUrl(baseUrl: string, canonicalPath: string, _locale: SupportedLocale): string {
   return `${baseUrl}${canonicalPath}`;
 }
+
+// OG spec uses `xx_XX` underscore form for og:locale (vs BCP-47 dashes in
+// hreflang). Convert once, centrally, so the prerender and validators agree.
+export function ogLocale(locale: SupportedLocale): string {
+  return locale.replace("-", "_");
+}
+export const PRIMARY_OG_LOCALE = ogLocale(X_DEFAULT_LOCALE);
+export const ALTERNATE_OG_LOCALES = SUPPORTED_LOCALES
+  .filter((l) => l !== X_DEFAULT_LOCALE)
+  .map(ogLocale);
+
