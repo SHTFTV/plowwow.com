@@ -248,10 +248,10 @@ async function main() {
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
         try {
-          const res = await fetch(final.url, { signal: ctrl.signal });
-          if (res.ok) { finalHtml = await res.text(); getErr = undefined; break; }
-          getErr = `status=${res.status}`;
-          if (!isTransient(res.status)) break;
+          const r = await cachedFetch(final.url, { signal: ctrl.signal, captureBody: true });
+          if (r.status >= 200 && r.status < 300 && r.body != null) { finalHtml = r.body; getErr = undefined; break; }
+          getErr = `status=${r.status}`;
+          if (!isTransient(r.status)) break;
         } catch (err) { getErr = (err as Error).message; if (!isTransient(0, getErr)) break; }
         finally { clearTimeout(timer); }
         if (attempt < MAX_RETRIES) await new Promise((r) => setTimeout(r, RETRY_BASE_DELAY_MS * 2 ** (attempt - 1)));
