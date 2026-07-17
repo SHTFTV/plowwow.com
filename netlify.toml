@@ -46,8 +46,24 @@
   status = 301
   force = true
 
+# --- Real 404 for missing /city/* and /blog/* paths ---
+# Prevents SPA fallback from serving homepage <title>/<meta> for URLs that
+# aren't prerendered. `force = false` lets real files (if any exist under
+# dist/city/ or dist/blog/) win; otherwise Netlify serves dist/404.html
+# with an HTTP 404 status.
+[[redirects]]
+  from = "/city/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/404.html"
+  status = 404
+
 # --- SPA fallback (kept in sync with public/_redirects) ---
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
