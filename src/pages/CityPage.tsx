@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/accordion";
 import { getCityBySlug, cities } from "@/data/cities";
 import { truncateForMeta } from "@/lib/seo";
+import { postsForCity } from "@/lib/internalLinks";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -370,6 +371,43 @@ const CityPage = () => {
             </Accordion>
           </div>
         </section>
+
+        {/* Neighborhood guides for this city */}
+        {(() => {
+          const posts = city ? postsForCity(city.slug).slice(0, 9) : [];
+          if (posts.length === 0) return null;
+          return (
+            <section className="py-14 bg-muted/30 border-t border-border">
+              <div className="container">
+                <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+                  <h2 className="text-2xl md:text-3xl font-black text-foreground">
+                    {city.name} neighborhood snow removal guides
+                  </h2>
+                  <Link to="/locations" className="text-sm font-semibold text-primary hover:underline">
+                    All service areas →
+                  </Link>
+                </div>
+                <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {posts.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        to={`/${p.slug}`}
+                        className="block h-full rounded-xl border border-border bg-card p-4 hover:border-primary hover:shadow-sm transition-all"
+                      >
+                        <span className="text-xs uppercase tracking-wider font-bold text-primary">
+                          {city.name}
+                        </span>
+                        <p className="mt-1 text-sm font-semibold text-foreground leading-snug">
+                          {p.title}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          );
+        })()}
 
         {/* Other cities */}
         <section className="py-14 border-t border-border">
