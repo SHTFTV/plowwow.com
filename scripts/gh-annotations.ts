@@ -662,6 +662,31 @@ if (isDirectRun) {
     legacy, hydration, jsonld, robots, caps, filter,
   });
 
+  // --plan-format=csv writes an additional annotation-plan.csv artifact.
+  const planFormat = argVal(argv, "plan-format");
+  // --top-skipped-reasons=<n> controls how many top skipped reasons appear
+  // in each per-category ::notice line.
+  const TOP_NOTICE = intOr(argVal(argv, "top-skipped-reasons") ?? process.env.SEO_ANN_TOP_SKIPPED_REASONS, 3);
+
+  // --compare-locale=<code> / --compare-variant=<name>: compute a second plan
+  // using the alternate filter and write a diff report showing how planned
+  // and skipped counts change between the two selections.
+  const cmpLocale = argVal(argv, "compare-locale");
+  const cmpVariant = argVal(argv, "compare-variant");
+  const compareFilter: Filter | null =
+    cmpLocale != null || cmpVariant != null
+      ? { locale: cmpLocale ?? filter.locale, variant: cmpVariant ?? filter.variant }
+      : null;
+  const comparePlan = compareFilter
+    ? selectAnnotations({ legacy, hydration, jsonld, robots, caps, filter: compareFilter }).plan
+    : null;
+  const planDiff = compareFilter && comparePlan
+    ? diffPlans(plan, comparePlan, {
+        a: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}`,
+        b: `locale=${compareFilter.locale ?? "*"},variant=${compareFilter.variant ?? "*"}`,
+      })
+    : null;
+
   if (dryRun) {
     process.stderr.write(
       `[gh-annotations dry-run${dryRunOutput ? "=output" : ""}] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
