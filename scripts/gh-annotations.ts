@@ -1056,13 +1056,74 @@ export function parseSeverityBand(raw: string | undefined | null): SeverityBand 
   return null;
 }
 
+/** Per-category severity bands. When missing, callers should fall back to
+ *  the top-level `default` entry and finally to the built-in SEVERITY_BANDS. */
+export type CategoryBands = Record<SeverityBand, number>;
+export type RegressionThresholdsConfig = {
+  default?: Partial<CategoryBands>;
+} & Partial<Record<Category, Partial<CategoryBands>>>;
+
+/** Resolve the effective bands for one category by layering
+ *  builtin < config.default < config[category]. */
+export function resolveCategoryBands(
+  category: Category,
+  config: RegressionThresholdsConfig | null | undefined,
+): CategoryBands {
+  const def: CategoryBands = { ...SEVERITY_BANDS, ...(config?.default ?? {}) };
+  return { ...def, ...(config?.[category] ?? {}) };
+}
+
+/** Load and validate a per-category regression-thresholds config file. Throws
+ *  a user-friendly Error when the shape or values are invalid. */
+export function loadRegressionThresholdsConfig(path: string): RegressionThresholdsConfig {
+  const abs = resolve(path);
+  if (!existsSync(abs)) {
+    throw new Error(`--fail-on-regression-thresholds-config: file not found: ${abs}`);
+  }
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(abs, "utf8"));
+  } catch (e) {
+    throw new Error(`--fail-on-regression-thresholds-config: invalid JSON in ${abs}: ${(e as Error).message}`);
+  }
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    throw new Error(`--fail-on-regression-thresholds-config: expected a JSON object at top level`);
+  }
+  const validCats = new Set<string>(["default", "legacy", "hydration", "jsonLd", "robots"]);
+  const validBands: readonly SeverityBand[] = ["minor", "major", "critical"];
+  const out: RegressionThresholdsConfig = {};
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (!validCats.has(key)) {
+      throw new Error(`--fail-on-regression-thresholds-config: unknown key "${key}" (expected one of default|legacy|hydration|jsonLd|robots)`);
+    }
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      throw new Error(`--fail-on-regression-thresholds-config: "${key}" must be an object of {minor,major,critical} numbers`);
+    }
+    const bands: Partial<CategoryBands> = {};
+    for (const [b, v] of Object.entries(value as Record<string, unknown>)) {
+      if (!(validBands as readonly string[]).includes(b)) {
+        throw new Error(`--fail-on-regression-thresholds-config: "${key}.${b}" is not a valid band (expected minor|major|critical)`);
+      }
+      if (typeof v !== "number" || !Number.isFinite(v) || v < 0) {
+        throw new Error(`--fail-on-regression-thresholds-config: "${key}.${b}" must be a non-negative finite number (got ${JSON.stringify(v)})`);
+      }
+      bands[b as SeverityBand] = v;
+    }
+    (out as Record<string, Partial<CategoryBands>>)[key] = bands;
+  }
+  return out;
+}
+
 /** Evaluate a plan diff against a severity band. Returns per-category exceed
  *  flags and whether the overall check should fail (any category exceeds).
+ *  When a per-category thresholds config is supplied, each category's
+ *  effective band value is looked up independently.
  */
 export function evaluateRegressionSeverity(
   diff: ReturnType<typeof diffPlans>,
   band: SeverityBand,
   include?: Category[] | null,
+  config?: RegressionThresholdsConfig | null,
 ): {
   triggered: boolean;
   band: SeverityBand;
@@ -1073,20 +1134,24 @@ export function evaluateRegressionSeverity(
     after: number;
     delta: number;
     deltaPercent: number;
+    thresholdPercent: number;
     exceeds: boolean;
   }[];
 } {
-  const thresholdPercent = SEVERITY_BANDS[band];
+  const defaultBands: CategoryBands = { ...SEVERITY_BANDS, ...(config?.default ?? {}) };
+  const thresholdPercent = defaultBands[band];
   const cats: Category[] = include && include.length
     ? include
     : ["legacy", "hydration", "jsonLd", "robots"];
   const perCategory = cats.map((c) => {
+    const bands = resolveCategoryBands(c, config ?? null);
+    const catThreshold = bands[band];
     const cb = diff.categories[c].skippedByCap.a;
     const ca = diff.categories[c].skippedByCap.b;
     const cd = diff.categories[c].skippedByCap.delta;
     const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
-    const exceeds = cp > thresholdPercent;
-    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+    const exceeds = cp > catThreshold;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, thresholdPercent: catThreshold, exceeds };
   });
   return {
     triggered: perCategory.some((c) => c.exceeds),
@@ -1095,6 +1160,7 @@ export function evaluateRegressionSeverity(
     perCategory,
   };
 }
+
 
 /** Serialize a regression evaluation (from evaluateRegression) to CSV. */
 export function regressionToCsv(
