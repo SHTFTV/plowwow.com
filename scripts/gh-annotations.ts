@@ -1056,13 +1056,74 @@ export function parseSeverityBand(raw: string | undefined | null): SeverityBand 
   return null;
 }
 
+/** Per-category severity bands. When missing, callers should fall back to
+ *  the top-level `default` entry and finally to the built-in SEVERITY_BANDS. */
+export type CategoryBands = Record<SeverityBand, number>;
+export type RegressionThresholdsConfig = {
+  default?: Partial<CategoryBands>;
+} & Partial<Record<Category, Partial<CategoryBands>>>;
+
+/** Resolve the effective bands for one category by layering
+ *  builtin < config.default < config[category]. */
+export function resolveCategoryBands(
+  category: Category,
+  config: RegressionThresholdsConfig | null | undefined,
+): CategoryBands {
+  const def: CategoryBands = { ...SEVERITY_BANDS, ...(config?.default ?? {}) };
+  return { ...def, ...(config?.[category] ?? {}) };
+}
+
+/** Load and validate a per-category regression-thresholds config file. Throws
+ *  a user-friendly Error when the shape or values are invalid. */
+export function loadRegressionThresholdsConfig(path: string): RegressionThresholdsConfig {
+  const abs = resolve(path);
+  if (!existsSync(abs)) {
+    throw new Error(`--fail-on-regression-thresholds-config: file not found: ${abs}`);
+  }
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(abs, "utf8"));
+  } catch (e) {
+    throw new Error(`--fail-on-regression-thresholds-config: invalid JSON in ${abs}: ${(e as Error).message}`);
+  }
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    throw new Error(`--fail-on-regression-thresholds-config: expected a JSON object at top level`);
+  }
+  const validCats = new Set<string>(["default", "legacy", "hydration", "jsonLd", "robots"]);
+  const validBands: readonly SeverityBand[] = ["minor", "major", "critical"];
+  const out: RegressionThresholdsConfig = {};
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    if (!validCats.has(key)) {
+      throw new Error(`--fail-on-regression-thresholds-config: unknown key "${key}" (expected one of default|legacy|hydration|jsonLd|robots)`);
+    }
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      throw new Error(`--fail-on-regression-thresholds-config: "${key}" must be an object of {minor,major,critical} numbers`);
+    }
+    const bands: Partial<CategoryBands> = {};
+    for (const [b, v] of Object.entries(value as Record<string, unknown>)) {
+      if (!(validBands as readonly string[]).includes(b)) {
+        throw new Error(`--fail-on-regression-thresholds-config: "${key}.${b}" is not a valid band (expected minor|major|critical)`);
+      }
+      if (typeof v !== "number" || !Number.isFinite(v) || v < 0) {
+        throw new Error(`--fail-on-regression-thresholds-config: "${key}.${b}" must be a non-negative finite number (got ${JSON.stringify(v)})`);
+      }
+      bands[b as SeverityBand] = v;
+    }
+    (out as Record<string, Partial<CategoryBands>>)[key] = bands;
+  }
+  return out;
+}
+
 /** Evaluate a plan diff against a severity band. Returns per-category exceed
  *  flags and whether the overall check should fail (any category exceeds).
+ *  When a per-category thresholds config is supplied, each category's
+ *  effective band value is looked up independently.
  */
 export function evaluateRegressionSeverity(
   diff: ReturnType<typeof diffPlans>,
   band: SeverityBand,
   include?: Category[] | null,
+  config?: RegressionThresholdsConfig | null,
 ): {
   triggered: boolean;
   band: SeverityBand;
@@ -1073,20 +1134,24 @@ export function evaluateRegressionSeverity(
     after: number;
     delta: number;
     deltaPercent: number;
+    thresholdPercent: number;
     exceeds: boolean;
   }[];
 } {
-  const thresholdPercent = SEVERITY_BANDS[band];
+  const defaultBands: CategoryBands = { ...SEVERITY_BANDS, ...(config?.default ?? {}) };
+  const thresholdPercent = defaultBands[band];
   const cats: Category[] = include && include.length
     ? include
     : ["legacy", "hydration", "jsonLd", "robots"];
   const perCategory = cats.map((c) => {
+    const bands = resolveCategoryBands(c, config ?? null);
+    const catThreshold = bands[band];
     const cb = diff.categories[c].skippedByCap.a;
     const ca = diff.categories[c].skippedByCap.b;
     const cd = diff.categories[c].skippedByCap.delta;
     const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
-    const exceeds = cp > thresholdPercent;
-    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+    const exceeds = cp > catThreshold;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, thresholdPercent: catThreshold, exceeds };
   });
   return {
     triggered: perCategory.some((c) => c.exceeds),
@@ -1095,6 +1160,7 @@ export function evaluateRegressionSeverity(
     perCategory,
   };
 }
+
 
 /** Serialize a regression evaluation (from evaluateRegression) to CSV. */
 export function regressionToCsv(
@@ -1171,22 +1237,95 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
-  // --print-regression-thresholds — print the severity bands used by
-  // --fail-on-regression-severity to stdout (as a ::notice + human line) so
-  // reviewers can see the exact thresholds before evaluation. Does NOT exit;
-  // combines with the rest of the run.
-  if (hasFlag(argv, "print-regression-thresholds")) {
-    const rows = (Object.keys(SEVERITY_BANDS) as SeverityBand[])
-      .map((b) => `${b}=>${SEVERITY_BANDS[b]}%`)
-      .join(", ");
-    process.stdout.write(
-      `::notice title=SEO annotations regression thresholds::deltaPercent bands: ${rows}\n`,
-    );
-    process.stdout.write(`Regression severity bands (deltaPercent of skippedByCap):\n`);
-    for (const b of Object.keys(SEVERITY_BANDS) as SeverityBand[]) {
-      process.stdout.write(`  ${b}: > ${SEVERITY_BANDS[b]}%\n`);
+  // --fail-on-regression-thresholds-config=<path> — load per-category
+  // critical/major/minor bands from a JSON file. Loaded early so
+  // --print-regression-thresholds and later severity checks both see it.
+  const thresholdsCfgPath = argVal(argv, "fail-on-regression-thresholds-config")
+    ?? process.env.SEO_ANN_REGRESSION_THRESHOLDS_CONFIG;
+  let thresholdsConfig: RegressionThresholdsConfig | null = null;
+  if (thresholdsCfgPath) {
+    try {
+      thresholdsConfig = loadRegressionThresholdsConfig(thresholdsCfgPath);
+    } catch (e) {
+      const msg = (e as Error).message;
+      process.stdout.write(`::error title=Invalid regression thresholds config::${esc(msg)}\n`);
+      process.stderr.write(msg + "\n");
+      process.exit(2);
     }
   }
+  const bandsFor = (c: Category) => resolveCategoryBands(c, thresholdsConfig);
+
+  // --print-regression-thresholds[=<path>] — print the severity bands used by
+  // --fail-on-regression-severity to stdout (as a ::notice + human line) so
+  // reviewers can see the exact thresholds before evaluation. Optionally
+  // writes a CSV/JSON artifact when --print-regression-thresholds-format is
+  // provided. Does NOT exit; combines with the rest of the run.
+  if (hasFlag(argv, "print-regression-thresholds") || argv.some((a) => a.startsWith("--print-regression-thresholds="))) {
+    const ALL_CATS: readonly Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+    const defaultBands: CategoryBands = { ...SEVERITY_BANDS, ...(thresholdsConfig?.default ?? {}) };
+    const rows = (Object.keys(defaultBands) as SeverityBand[])
+      .map((b) => `${b}=>${defaultBands[b]}%`)
+      .join(", ");
+    process.stdout.write(
+      `::notice title=SEO annotations regression thresholds::deltaPercent bands (default): ${rows}${thresholdsConfig ? " (from config)" : ""}\n`,
+    );
+    process.stdout.write(`Regression severity bands (deltaPercent of skippedByCap):\n`);
+    process.stdout.write(`  default: minor>${defaultBands.minor}% major>${defaultBands.major}% critical>${defaultBands.critical}%\n`);
+    if (thresholdsConfig) {
+      for (const c of ALL_CATS) {
+        if (thresholdsConfig[c]) {
+          const b = bandsFor(c);
+          process.stdout.write(`  ${c}: minor>${b.minor}% major>${b.major}% critical>${b.critical}%\n`);
+        }
+      }
+    }
+    // --print-regression-thresholds-format=csv|json|csv,json
+    const printFmtRaw = argVal(argv, "print-regression-thresholds-format")
+      ?? argVal(argv, "print-regression-thresholds"); // support --flag=csv shorthand
+    const printFmts = new Set(
+      (printFmtRaw ?? "")
+        .split(",")
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s === "csv" || s === "json"),
+    );
+    if (printFmts.size > 0) {
+      mkdirSync(REPORT_DIR, { recursive: true });
+      const rowsOut: Array<{ category: string; minor: number; major: number; critical: number; source: string }> = [
+        { category: "default", ...defaultBands, source: thresholdsConfig?.default ? "config" : "builtin" },
+      ];
+      for (const c of ALL_CATS) {
+        const b = bandsFor(c);
+        rowsOut.push({ category: c, ...b, source: thresholdsConfig?.[c] ? "config" : "default" });
+      }
+      if (printFmts.has("csv")) {
+        const escCsv = (v: unknown) => {
+          const s = String(v ?? "");
+          return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+        };
+        const header = ["category", "minor", "major", "critical", "source"];
+        const lines = [header.join(",")];
+        for (const r of rowsOut) {
+          lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
+        }
+        const dest = resolve(REPORT_DIR, "regression-thresholds.csv");
+        writeFileSync(dest, lines.join("\n") + "\n");
+        process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
+      }
+      if (printFmts.has("json")) {
+        const dest = resolve(REPORT_DIR, "regression-thresholds.json");
+        writeFileSync(
+          dest,
+          JSON.stringify(
+            { generatedAt: new Date().toISOString(), source: thresholdsConfig ? thresholdsCfgPath : null, bands: rowsOut },
+            null,
+            2,
+          ),
+        );
+        process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
+      }
+    }
+  }
+
 
   // --schema-error-report[=path] — write schema-drift-errors.json with the
   // structured path/expected/actual/snippet details for each failing field.
@@ -1196,14 +1335,24 @@ if (isDirectRun) {
     const p = argVal(argv, "schema-error-report");
     const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
     mkdirSync(resolve(dest, ".."), { recursive: true });
-    const errs = getSampleConfigTemplateErrors();
+    const allErrs = getSampleConfigTemplateErrors();
+    // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
+    const maxErrsRaw = argVal(argv, "schema-error-report-max-errors") ?? process.env.SEO_ANN_SCHEMA_ERROR_MAX;
+    const maxErrs = maxErrsRaw != null && maxErrsRaw !== "" && Number.isFinite(Number(maxErrsRaw)) && Number(maxErrsRaw) >= 0
+      ? Math.floor(Number(maxErrsRaw))
+      : null;
+    const errs = maxErrs != null ? allErrs.slice(0, maxErrs) : allErrs;
+    const truncated = maxErrs != null && allErrs.length > errs.length;
     writeFileSync(
       dest,
       JSON.stringify(
         {
           generatedAt: new Date().toISOString(),
-          drift: errs.length > 0,
+          drift: allErrs.length > 0,
           count: errs.length,
+          totalCount: allErrs.length,
+          truncated,
+          maxErrors: maxErrs,
           errors: errs,
         },
         null,
@@ -1211,7 +1360,7 @@ if (isDirectRun) {
       ),
     );
     process.stdout.write(
-      `Wrote schema-drift-errors.json → ${dest} (${errs.length} error(s))\n`,
+      `Wrote schema-drift-errors.json → ${dest} (${errs.length}${truncated ? `/${allErrs.length}` : ""} error(s)${truncated ? `; capped at ${maxErrs}` : ""})\n`,
     );
     // --schema-error-report-format=csv writes a companion CSV file next to JSON.
     const schemaFmt = argVal(argv, "schema-error-report-format");
@@ -1233,15 +1382,23 @@ if (isDirectRun) {
         ]);
       }
       writeFileSync(csvDest, rows.map((r) => r.map(esc).join(",")).join("\n") + "\n");
-      process.stdout.write(`Wrote schema-drift-errors.csv → ${csvDest}\n`);
-    }
-    if (errs.length) {
       process.stdout.write(
-        `::error title=SEO annotations sample-config drift::${errs.length} field(s) drifted; see ${dest}\n`,
+        `Wrote schema-drift-errors.csv → ${csvDest}${truncated ? ` (capped at ${maxErrs} of ${allErrs.length})` : ""}\n`,
+      );
+    }
+    if (truncated) {
+      process.stdout.write(
+        `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
+      );
+    }
+    if (allErrs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
     }
     // Continue: allow --write-sample-config or normal run to follow.
   }
+
 
   // --write-sample-config[=path] — write a fully documented template and exit.
   if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
@@ -1293,6 +1450,17 @@ if (isDirectRun) {
   const rawExclude = parseCategoryExclude(
     argVal(argv, "plan-category-exclude") ?? process.env.SEO_ANN_PLAN_CATEGORY_EXCLUDE ?? null,
   );
+  // Conflict check — same category in both include AND exclude is ambiguous.
+  // Fail fast with a clear, actionable error.
+  if (rawInclude && rawExclude) {
+    const conflicts = rawInclude.filter((c) => rawExclude.includes(c));
+    if (conflicts.length) {
+      const msg = `Categories cannot appear in both --plan-category-include and --plan-category-exclude: ${conflicts.join(", ")}`;
+      process.stdout.write(`::error title=SEO annotations category conflict::${esc(msg)}\n`);
+      process.stderr.write(msg + "\n");
+      process.exit(2);
+    }
+  }
   const includeCats = resolveCategorySelection(rawInclude, rawExclude);
 
 
@@ -1547,7 +1715,7 @@ if (isDirectRun) {
       // Persist per-category regression deltas so validator-summary.ts can
       // surface them in the PR comment even when we exit non-zero here.
       const severityEval = severityBand
-        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats)
+        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats, thresholdsConfig)
         : null;
       writeFileSync(
         resolve(REPORT_DIR, "annotation-plan-regression.json"),
@@ -1598,7 +1766,7 @@ if (isDirectRun) {
           if (!c.exceeds) continue;
           const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
           process.stdout.write(
-            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${severityEval.thresholdPercent}%)\n`,
+            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${c.thresholdPercent}%)\n`,
           );
         }
       }
