@@ -5,6 +5,19 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { legacyBlogSlugs } from "./LegacyPage";
+import { blogPosts } from "@/generated/blog-posts";
+
+const publishedAtBySlug: Record<string, string> = Object.fromEntries(
+  blogPosts.map((p) => [p.slug, p.publishedAt]),
+);
+const formatDate = (iso: string | undefined) =>
+  iso
+    ? new Date(iso).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : "";
 
 const blogFiles = import.meta.glob("/src/content/legacy/blog/*.md", {
   query: "?raw",
@@ -158,7 +171,20 @@ const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
+  // Newest first (left→right, top→bottom). Falls back to alpha for posts
+  // without a publishedAt entry so they still appear deterministically.
+  const allPosts = useMemo(
+    () =>
+      [...legacyBlogSlugs].sort((a, b) => {
+        const da = publishedAtBySlug[a] ?? "";
+        const db = publishedAtBySlug[b] ?? "";
+        if (da && db && da !== db) return db.localeCompare(da);
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+        return a.localeCompare(b);
+      }),
+    [],
+  );
 
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
@@ -1014,7 +1040,15 @@ const BlogIndex = () => {
                         </span>
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                        {publishedAtBySlug[slug] && (
+                          <time
+                            dateTime={publishedAtBySlug[slug]}
+                            className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+                          >
+                            {formatDate(publishedAtBySlug[slug])}
+                          </time>
+                        )}
+                        <h2 className="mt-1 font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
                           {highlight(titleFor(slug), query)}
                         </h2>
                         <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-1">

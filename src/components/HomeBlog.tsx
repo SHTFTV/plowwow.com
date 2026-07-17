@@ -49,7 +49,17 @@ const HomeBlog = () => (
               />
             </div>
             <div className="p-5 flex flex-col flex-1">
-              <h3 className="text-lg font-bold text-foreground leading-snug">
+              <time
+                dateTime={p.publishedAt}
+                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+              >
+                {new Date(p.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+              <h3 className="mt-1 text-lg font-bold text-foreground leading-snug">
                 {p.title}
               </h3>
               <p className="mt-2 text-sm text-muted-foreground flex-1">{p.blurb}</p>
