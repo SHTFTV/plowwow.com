@@ -23,6 +23,8 @@ import Locations from "./pages/Locations.tsx";
 import AdminLinkAudit from "./pages/AdminLinkAudit.tsx";
 import AdminGscCoverage from "./pages/AdminGscCoverage.tsx";
 import AdminJsonLdValidator from "./pages/AdminJsonLdValidator.tsx";
+import AdminSeoSettings from "./pages/AdminSeoSettings.tsx";
+import AdminNeighborhoods from "./pages/AdminNeighborhoods.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,8 @@ const App = () => (
           <Route path="/admin/link-audit" element={<AdminLinkAudit />} />
           <Route path="/admin/gsc-coverage" element={<AdminGscCoverage />} />
           <Route path="/admin/jsonld-validator" element={<AdminJsonLdValidator />} />
+          <Route path="/admin/seo-settings" element={<AdminSeoSettings />} />
+          <Route path="/admin/neighborhoods" element={<AdminNeighborhoods />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
