@@ -350,7 +350,7 @@ async function main() {
   writeFileSync(
     resolve("seo-report/hydration.json"),
     JSON.stringify(
-      { generatedAt: new Date().toISOString(), base, sampleSize: results.length, failed: failed.length, results },
+      { generatedAt: new Date().toISOString(), base, sampleSize: results.length, failed: failed.length, seed, seedSource, weights, results },
       null,
       2,
     ),
