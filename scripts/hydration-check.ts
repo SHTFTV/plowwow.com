@@ -265,6 +265,17 @@ async function main() {
       if (twImg && !/^https:\/\//.test(twImg))
         issues.push(`twitter:image not absolute-https: ${twImg}`);
 
+      // JSON-LD snapshot: every @type + @id shipped in raw HTML must still
+      // be present after hydration. Extra hydration-added blocks are OK.
+      const missingTypes = jsonLdExpected.types.filter((t) => !jsonLd.types.includes(t));
+      if (missingTypes.length)
+        issues.push(`JSON-LD @types missing after hydration: ${missingTypes.join(", ")}`);
+      const missingIds = jsonLdExpected.ids.filter((id) => !jsonLd.ids.includes(id));
+      if (missingIds.length)
+        issues.push(`JSON-LD @ids missing after hydration: ${missingIds.slice(0, 3).join(", ")}${missingIds.length > 3 ? "…" : ""}`);
+      if (jsonLdExpected.count && jsonLd.count < jsonLdExpected.count)
+        issues.push(`JSON-LD block count dropped ${jsonLdExpected.count} → ${jsonLd.count} after hydration`);
+
       results.push({
         url: canonicalUrl,
         hydrated,
@@ -275,6 +286,8 @@ async function main() {
         ogTags,
         twitterTags,
         ogLocaleAlternates,
+        jsonLd,
+        jsonLdExpected,
         issues,
       });
     }
