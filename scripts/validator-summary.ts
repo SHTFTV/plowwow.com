@@ -211,6 +211,9 @@ if (artifactUrl) {
   md.push(`- 📇 [annotation-plan-summary.json](${runUrl}/artifacts) — compact totals + per-category skipped-reason breakdown`);
   md.push(`- 📊 [annotation-plan-summary.csv](${runUrl}/artifacts) — spreadsheet-friendly plan summary (from \`--plan-summary-format=csv\`)`);
   md.push(`- 🚨 [annotation-plan-regression.json](${runUrl}/artifacts) — per-category regression deltas + threshold (when \`--fail-on-plan-regression\` runs)`);
+  md.push(`- 📉 [annotation-plan-regression.csv](${runUrl}/artifacts) — spreadsheet-friendly regression deltas (from \`--plan-regression-format=csv\`)`);
+  md.push(`- 🧪 [schema-drift-errors.json](${runUrl}/artifacts) — sample-config schema drift details (from \`--schema-error-report\`)`);
+  md.push(`- 🧪 [schema-drift-errors.csv](${runUrl}/artifacts) — spreadsheet-friendly schema drift (from \`--schema-error-report-format=csv\`)`);
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
