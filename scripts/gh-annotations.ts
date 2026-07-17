@@ -1237,6 +1237,22 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
+  // --help / -h — print a concise usage summary (only the flags added in the
+  // recent iterations that need per-run documentation) and exit 0.
+  if (argv.includes("--help") || argv.includes("-h")) {
+    process.stdout.write(CLI_HELP);
+    process.exit(0);
+  }
+
+  // --artifacts-dir=<path> (env SEO_ANN_ARTIFACTS_DIR) — override the output
+  // directory for generated artifacts. Defaults to REPORT_DIR ("seo-report").
+  // Applies to regression-thresholds.{csv,json} and to the default location of
+  // schema-drift-errors.{json,csv} when no explicit --schema-error-report=<path>
+  // is provided. The directory is created on demand.
+  const artifactsDir = resolve(
+    argVal(argv, "artifacts-dir") ?? process.env.SEO_ANN_ARTIFACTS_DIR ?? REPORT_DIR,
+  );
+
   // --fail-on-regression-thresholds-config=<path> — load per-category
   // critical/major/minor bands from a JSON file. Loaded early so
   // --print-regression-thresholds and later severity checks both see it.
@@ -1254,6 +1270,7 @@ if (isDirectRun) {
     }
   }
   const bandsFor = (c: Category) => resolveCategoryBands(c, thresholdsConfig);
+
 
   // --print-regression-thresholds[=<path>] — print the severity bands used by
   // --fail-on-regression-severity to stdout (as a ::notice + human line) so
