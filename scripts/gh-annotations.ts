@@ -1336,7 +1336,10 @@ if (isDirectRun) {
       filteredOut: number;
       topSkippedReasons: { reason: SkipReason | "filter"; summary: string }[];
     }> = {};
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const summaryCats: readonly Category[] = includeCats && includeCats.length
+      ? includeCats
+      : (["legacy", "hydration", "jsonLd", "robots"] as const);
+    for (const cat of summaryCats) {
       const p = plan.categories[cat];
       // Prefer cap-skipped reasons first (they indicate CI-suppressed output),
       // then fill remaining slots with filter-skipped reasons.
