@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.sd41-alerts]
 verify_jwt = false
+
+[functions.nightly-link-audit]
+verify_jwt = false
