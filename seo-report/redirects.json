@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-07-17T20:30:46.948Z",
+  "crawlBase": null,
+  "checks": [
+    {
+      "source": "/snow-removal-in-burquitlam",
+      "expected": "/snow-removal-in-burquitlam/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/albion-maple-ridge-strata-commercial-snow-removal",
+      "expected": "/albion-maple-ridge-strata-commercial-snow-removal/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/blog",
+      "expected": "/blog/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/locations",
+      "expected": "/locations/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/quote",
+      "expected": "/quote/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/blog/:slug",
+      "expected": "/:slug/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/blog/:slug/",
+      "expected": "/:slug/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/posts/:slug",
+      "expected": "/:slug/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/posts/:slug/",
+      "expected": "/:slug/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal",
+      "expected": "/metrotown-snow-removal/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal/*",
+      "expected": "/metrotown-snow-removal/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/metrotown-strata-snow-removal",
+      "expected": "/metrotown-snow-removal/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/metrotown-strata-snow-removal/*",
+      "expected": "/metrotown-snow-removal/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/metrotown-snow-removal-company",
+      "expected": "/metrotown-snow-removal/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/metrotown-snow-removal-company/*",
+      "expected": "/metrotown-snow-removal/",
+      "status": "skip",
+      "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/now-removal-arbutus",
+      "expected": "/snow-removal-in-arbutus/",
+      "status": "fail",
+      "reason": "redirect target has no prerendered page at dist/snow-removal-in-arbutus/"
+    }
+  ]
+}

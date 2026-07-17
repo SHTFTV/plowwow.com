@@ -1,20 +1,11 @@
 {
-  "generatedAt": "2026-07-17T20:30:09.896Z",
+  "generatedAt": "2026-07-17T20:30:46.393Z",
   "locales": [
     "en-CA",
     "en"
   ],
   "routes": {
     "/24-7-service/": {
-      "BreadcrumbList": {
-        "length": 2
-      },
-      "LocalBusiness": {
-        "hasProvider": false,
-        "hasAggregateRating": false
-      }
-    },
-    "/404.html/": {
       "BreadcrumbList": {
         "length": 2
       },
@@ -3974,11 +3965,5 @@
       }
     }
   },
-  "issues": [
-    {
-      "route": "/404.html/",
-      "type": "BreadcrumbList",
-      "issue": "final crumb URL \"https://plowwow.com/\" ≠ canonical \"https://plowwow.com/404.html/\""
-    }
-  ]
+  "issues": []
 }
