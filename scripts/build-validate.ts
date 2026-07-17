@@ -5,8 +5,9 @@
 //
 // Fails the build (exit 1) on any violation.
 
-import { readFileSync, existsSync, writeFileSync } from "node:fs";
+import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { SUPPORTED_LOCALES } from "./lib/locales";
 
 const DIST = resolve("dist");
 const SITEMAP = resolve(DIST, "sitemap.xml");
