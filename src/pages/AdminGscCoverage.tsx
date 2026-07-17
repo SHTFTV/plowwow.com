@@ -100,12 +100,12 @@ export default function AdminGscCoverage() {
           </div>
         )}
 
-        {latest && latest.errors?.length > 0 && (
+        {latest && normalizeErrors(latest.errors).length > 0 && (
           <Card>
             <CardHeader><CardTitle>Latest errors</CardTitle></CardHeader>
             <CardContent>
               <ul className="space-y-1 text-sm">
-                {latest.errors.map((e, i) => (
+                {normalizeErrors(latest.errors).map((e, i) => (
                   <li key={i}><Badge variant="destructive" className="mr-2">{e.reason}</Badge>{e.url}</li>
                 ))}
               </ul>
