@@ -696,11 +696,173 @@ export const SAMPLE_CONFIG_TEMPLATE = `{
 }
 `;
 
-/** Write a fully documented config template. Returns the resolved path. */
-export function writeSampleConfig(path?: string): string {
+/** Strip `//` line and `/* ... *\/` block comments from a JSON-ish source. */
+export function stripJsonComments(src: string): string {
+  let out = "";
+  let i = 0;
+  let inStr = false;
+  let strCh = "";
+  while (i < src.length) {
+    const c = src[i];
+    const n = src[i + 1];
+    if (inStr) {
+      out += c;
+      if (c === "\\" && i + 1 < src.length) { out += src[i + 1]; i += 2; continue; }
+      if (c === strCh) inStr = false;
+      i++;
+      continue;
+    }
+    if (c === '"' || c === "'") { inStr = true; strCh = c; out += c; i++; continue; }
+    if (c === "/" && n === "/") { while (i < src.length && src[i] !== "\n") i++; continue; }
+    if (c === "/" && n === "*") { i += 2; while (i < src.length && !(src[i] === "*" && src[i + 1] === "/")) i++; i += 2; continue; }
+    out += c; i++;
+  }
+  return out;
+}
+
+type JsonSchema = {
+  type?: string | string[];
+  properties?: Record<string, JsonSchema>;
+  additionalProperties?: boolean | JsonSchema;
+  minimum?: number;
+  minLength?: number;
+};
+
+/** Minimal JSON Schema (draft-07 subset) validator: type, properties,
+ *  additionalProperties, minimum, minLength. Sufficient for our config schema.
+ */
+export function validateAgainstSchema(value: unknown, schema: JsonSchema, path = "$"): string[] {
+  const errs: string[] = [];
+  const typeOf = (v: unknown): string => {
+    if (v === null) return "null";
+    if (Array.isArray(v)) return "array";
+    if (Number.isInteger(v as number)) return "integer";
+    return typeof v;
+  };
+  if (schema.type) {
+    const allowed = Array.isArray(schema.type) ? schema.type : [schema.type];
+    const t = typeOf(value);
+    const ok = allowed.some((a) => a === t || (a === "number" && t === "integer"));
+    if (!ok) errs.push(`${path} — expected type ${allowed.join("|")} (got ${t})`);
+  }
+  if (typeof value === "number" && typeof schema.minimum === "number" && value < schema.minimum) {
+    errs.push(`${path} — expected >= ${schema.minimum} (got ${value})`);
+  }
+  if (typeof value === "string" && typeof schema.minLength === "number" && value.length < schema.minLength) {
+    errs.push(`${path} — expected minLength ${schema.minLength} (got ${value.length})`);
+  }
+  if (schema.properties && value && typeof value === "object" && !Array.isArray(value)) {
+    const obj = value as Record<string, unknown>;
+    for (const [k, sub] of Object.entries(schema.properties)) {
+      if (k in obj) errs.push(...validateAgainstSchema(obj[k], sub, `${path}.${k}`));
+    }
+    if (schema.additionalProperties === false) {
+      for (const k of Object.keys(obj)) {
+        if (!(k in schema.properties)) errs.push(`${path}.${k} — unknown property (additionalProperties=false)`);
+      }
+    }
+  }
+  return errs;
+}
+
+/** Parse SAMPLE_CONFIG_TEMPLATE and validate it against the JSON schema.
+ *  Throws with an actionable message when the documented template ever drifts
+ *  from seo-annotations.config.schema.json (fail-fast). Ignores the `$schema`
+ *  field which is a hint for editors, not a config value.
+ */
+export function validateSampleConfigTemplate(schemaPath?: string): void {
+  const sp = resolve(schemaPath ?? "seo-annotations.config.schema.json");
+  if (!existsSync(sp)) {
+    throw new Error(`Sample config validation: schema file not found at ${sp}`);
+  }
+  const schema = JSON.parse(readFileSync(sp, "utf8")) as JsonSchema;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(stripJsonComments(SAMPLE_CONFIG_TEMPLATE));
+  } catch (e) {
+    throw new Error(`Sample config template is not valid JSON (after stripping comments): ${(e as Error).message}`);
+  }
+  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+    delete (parsed as Record<string, unknown>).$schema;
+  }
+  const errs = validateAgainstSchema(parsed, schema);
+  if (errs.length) {
+    throw new Error(
+      `SAMPLE_CONFIG_TEMPLATE has drifted from ${sp}:\n  - ${errs.join("\n  - ")}\n` +
+        `Fix SAMPLE_CONFIG_TEMPLATE in scripts/gh-annotations.ts or update the schema.`,
+    );
+  }
+  // Also cross-check with the runtime validator so both stay in sync.
+  validateConfig(parsed, "SAMPLE_CONFIG_TEMPLATE");
+}
+
+/** Write a fully documented config template. Returns the resolved path.
+ *  Fails fast (throws) when the template no longer matches the JSON schema.
+ */
+export function writeSampleConfig(path?: string, schemaPath?: string): string {
+  validateSampleConfigTemplate(schemaPath);
   const dest = resolve(path ?? "seo-annotations.config.sample.json");
   writeFileSync(dest, SAMPLE_CONFIG_TEMPLATE);
   return dest;
+}
+
+/** Parse a --fail-on-plan-regression threshold value. Accepts absolute
+ *  integers ("5") or percent strings ("25%"). Returns { kind, value }.
+ *  Undefined/empty → { kind: "absolute", value: 0 }.
+ */
+export function parseRegressionThreshold(
+  raw: string | number | undefined,
+): { kind: "absolute" | "percent"; value: number } {
+  if (raw == null || raw === "") return { kind: "absolute", value: 0 };
+  const s = String(raw).trim();
+  if (s.endsWith("%")) {
+    const n = Number(s.slice(0, -1));
+    if (Number.isFinite(n) && n >= 0) return { kind: "percent", value: n };
+    return { kind: "absolute", value: 0 };
+  }
+  const n = Number(s);
+  if (Number.isFinite(n) && n >= 0) return { kind: "absolute", value: Math.floor(n) };
+  return { kind: "absolute", value: 0 };
+}
+
+/** Evaluate a plan diff against a regression threshold. */
+export function evaluateRegression(
+  diff: ReturnType<typeof diffPlans>,
+  threshold: { kind: "absolute" | "percent"; value: number },
+): {
+  triggered: boolean;
+  metric: "totalSkipped";
+  before: number;
+  after: number;
+  delta: number;
+  deltaPercent: number; // Infinity when before=0 and delta>0
+  threshold: { kind: "absolute" | "percent"; value: number };
+  perCategory: {
+    category: Category;
+    before: number;
+    after: number;
+    delta: number;
+    deltaPercent: number;
+    exceeds: boolean;
+  }[];
+} {
+  const before = diff.totalSkipped.a;
+  const after = diff.totalSkipped.b;
+  const delta = diff.totalSkipped.delta;
+  const pct = before > 0 ? (delta / before) * 100 : delta > 0 ? Infinity : 0;
+  const triggered =
+    threshold.kind === "percent" ? pct > threshold.value : delta > threshold.value;
+  const cats: Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const perCategory = cats.map((c) => {
+    const cb = diff.categories[c].skippedByCap.a;
+    const ca = diff.categories[c].skippedByCap.b;
+    const cd = diff.categories[c].skippedByCap.delta;
+    const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
+    const exceeds =
+      threshold.kind === "percent" ? cp > threshold.value : cd > threshold.value;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+  });
+  return { triggered, metric: "totalSkipped", before, after, delta, deltaPercent: pct, threshold, perCategory };
 }
 
 
