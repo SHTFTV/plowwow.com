@@ -150,6 +150,10 @@ if (artifactUrl) {
   md.push(`- 📦 [repro-bundle.zip](${runUrl}/artifacts) — download the \`repro-bundle\` artifact`);
   md.push(`- 📊 [annotation-skipped.json](${runUrl}/artifacts) — download the \`annotation-skipped\` artifact (per-category cap counts)`);
   md.push(`- 🧭 [annotation-plan.json](${runUrl}/artifacts) — download the \`annotation-plan\` artifact (planned vs skipped details + top reasons per category)`);
+  md.push(`- 📑 [annotation-plan.csv](${runUrl}/artifacts) — spreadsheet-friendly per-category plan (from \`--plan-format=csv\`)`);
+  md.push(`- 🔀 [annotation-plan-diff.json](${runUrl}/artifacts) — plan diff between two locale/variant selections`);
+  md.push(`- 📝 [annotation-plan-diff.md](${runUrl}/artifacts) — human-readable plan diff table`);
+  md.push(`- 📈 [annotation-plan-diff.csv](${runUrl}/artifacts) — spreadsheet-friendly plan diff (from \`--compare-locale/--compare-variant\`)`);
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],

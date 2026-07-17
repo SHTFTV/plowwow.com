@@ -20,6 +20,12 @@
 //   --dry-run=output          Same as --dry-run and always write
 //                             seo-report/annotation-plan.json (planned vs
 //                             skipped counts + per-item details).
+//   --write-sample-config[=path]
+//                             Write a fully documented config template and exit.
+//   --fail-on-plan-regression[=N]
+//                             Exit 1 when the --compare selection's totalSkipped
+//                             grows by more than N (default 0) vs the base.
+//                             skipped counts + per-item details).
 //
 // Env fallbacks: SEO_ANN_MAX_{LEGACY,HYDRATION,ROBOTS,JSONLD},
 // SEO_BASELINE_LOCALE/VARIANT, SEO_ANN_CONFIG,
@@ -612,6 +618,91 @@ export function diffPlans(
   };
 }
 
+/** Serialize a plan diff (from diffPlans) to CSV. One row per category, plus totals rows. */
+export function planDiffToCsv(diff: ReturnType<typeof diffPlans>): string {
+  const header = [
+    "category",
+    "emitted_a", "emitted_b", "emitted_delta",
+    "skippedByCap_a", "skippedByCap_b", "skippedByCap_delta",
+    "filteredOut_a", "filteredOut_b", "filteredOut_delta",
+    "matched_a", "matched_b", "matched_delta",
+    "status_a", "status_b", "status_changed",
+  ];
+  const escCsv = (v: unknown) => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const rows: string[][] = [header];
+  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const d = diff.categories[cat];
+    rows.push([
+      cat,
+      String(d.emitted.a), String(d.emitted.b), String(d.emitted.delta),
+      String(d.skippedByCap.a), String(d.skippedByCap.b), String(d.skippedByCap.delta),
+      String(d.filteredOut.a), String(d.filteredOut.b), String(d.filteredOut.delta),
+      String(d.matched.a), String(d.matched.b), String(d.matched.delta),
+      d.status.a, d.status.b, String(d.status.changed),
+    ]);
+  }
+  rows.push([
+    "__totalEmitted__",
+    String(diff.totalEmitted.a), String(diff.totalEmitted.b), String(diff.totalEmitted.delta),
+    "", "", "", "", "", "", "", "", "", "", "", "",
+  ]);
+  rows.push([
+    "__totalSkipped__",
+    String(diff.totalSkipped.a), String(diff.totalSkipped.b), String(diff.totalSkipped.delta),
+    "", "", "", "", "", "", "", "", "", "", "", "",
+  ]);
+  const prefix = `# A: ${diff.labels.a}\n# B: ${diff.labels.b}\n`;
+  return prefix + rows.map((r) => r.map(escCsv).join(",")).join("\n") + "\n";
+}
+
+/** Fully documented config template written by --write-sample-config. */
+export const SAMPLE_CONFIG_TEMPLATE = `{
+  "$schema": "./seo-annotations.config.schema.json",
+
+  // Per-category caps on the number of GitHub Actions annotations emitted.
+  // 'default' is used when a per-category value is not set. CLI flags
+  // (--max, --max-legacy, --max-hydration, --max-robots, --max-jsonld) and
+  // env vars (SEO_ANN_MAX_{LEGACY,HYDRATION,ROBOTS,JSONLD}) override these.
+  "caps": {
+    "default": 20,
+    "legacy": 20,
+    "hydration": 20,
+    "robots": 20,
+    "jsonLd": 20
+  },
+
+  // Restrict annotations to a locale and/or page variant. Overridden by
+  // --locale/--variant CLI flags or SEO_BASELINE_LOCALE/SEO_BASELINE_VARIANT.
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
+
+  // Per-category (and total) caps on *skipped* failures. When
+  // --fail-on-skipped is set (or SEO_ANN_FAIL_ON_SKIPPED=1), exceeding any
+  // limit causes CI to exit non-zero so overly restrictive thresholds surface
+  // early. Individual limits are also honored via env:
+  // SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL}.
+  "failOnSkipped": {
+    "legacy": 50,
+    "hydration": 50,
+    "robots": 20,
+    "jsonLd": 20,
+    "total": 100
+  }
+}
+`;
+
+/** Write a fully documented config template. Returns the resolved path. */
+export function writeSampleConfig(path?: string): string {
+  const dest = resolve(path ?? "seo-annotations.config.sample.json");
+  writeFileSync(dest, SAMPLE_CONFIG_TEMPLATE);
+  return dest;
+}
+
 
 
 function emit(a: Annotation) {
@@ -634,6 +725,15 @@ const isDirectRun = (() => {
 
 if (isDirectRun) {
   const argv = process.argv.slice(2);
+
+  // --write-sample-config[=path] — write a fully documented template and exit.
+  if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
+    const p = argVal(argv, "write-sample-config");
+    const dest = writeSampleConfig(p);
+    process.stdout.write(`Wrote sample config → ${dest}\n`);
+    process.exit(0);
+  }
+
   const configPath = argVal(argv, "config") ?? process.env.SEO_ANN_CONFIG;
   let config: AnnotationsConfig;
   try {
@@ -792,9 +892,32 @@ if (isDirectRun) {
     lines.push(`Total emitted: ${planDiff.totalEmitted.a} → ${planDiff.totalEmitted.b} (Δ ${planDiff.totalEmitted.delta >= 0 ? "+" : ""}${planDiff.totalEmitted.delta})`);
     lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
     writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
+    // Spreadsheet-friendly CSV of the same diff.
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff));
     process.stdout.write(
       `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
     );
+  }
+
+  // --fail-on-plan-regression[=N] — exit 1 when the compare selection's total
+  // skipped increases by more than N (default 0) vs the base selection.
+  const regressionArg = argVal(argv, "fail-on-plan-regression");
+  const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
+  if (regressionFlag) {
+    if (!planDiff) {
+      process.stdout.write(
+        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
+      );
+    } else {
+      const threshold = intOr(regressionArg, 0);
+      const delta = planDiff.totalSkipped.delta;
+      if (delta > threshold) {
+        process.stdout.write(
+          `::error title=SEO annotations plan regression::totalSkipped ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ+${delta}) exceeds threshold ${threshold}\n`,
+        );
+        process.exit(1);
+      }
+    }
   }
 
   const filterDesc = filter.locale || filter.variant
