@@ -73,16 +73,20 @@ function group(nodes: unknown[]): Record<string, any[]> {
 
 function urlsIn(node: any): string[] {
   const urls: string[] = [];
-  const visit = (v: any) => {
+  const visit = (k: string | null, v: any) => {
     if (!v) return;
+    // Skip context/type references — schema.org is a vocabulary URL, not content.
+    if (k === "@context" || k === "@type") return;
     if (typeof v === "string") {
-      if (/^https?:\/\//.test(v)) urls.push(v);
+      if (/^https?:\/\//.test(v) && !v.startsWith("https://schema.org")) urls.push(v);
       return;
     }
-    if (Array.isArray(v)) v.forEach(visit);
-    else if (typeof v === "object") Object.values(v).forEach(visit);
+    if (Array.isArray(v)) v.forEach((x) => visit(null, x));
+    else if (typeof v === "object") {
+      for (const [ck, cv] of Object.entries(v)) visit(ck, cv);
+    }
   };
-  visit(node);
+  visit(null, node);
   return urls;
 }
 
