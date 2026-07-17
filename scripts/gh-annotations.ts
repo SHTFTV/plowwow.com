@@ -143,9 +143,10 @@ function correctedSnippetFor(path: string): string {
 }
 
 function fmtIssue(i: ConfigIssue): string {
+  const ptr = i.pointer ? ` (pointer ${i.pointer})` : "";
   const locStr = i.loc ? ` [line ${i.loc.line}:${i.loc.column}${i.loc.endLine ? `-${i.loc.endLine}:${i.loc.endColumn}` : ""}]` : "";
   const snip = i.snippet ? `\n      corrected: ${i.snippet}` : "";
-  return `${i.path} (pointer ${i.pointer})${locStr} — expected ${i.expected} (got ${i.got}); example: ${i.example}${snip}`;
+  return `${i.path}${ptr}${locStr} — expected ${i.expected} (got ${i.got}); example: ${i.example}${snip}`;
 }
 
 /**
