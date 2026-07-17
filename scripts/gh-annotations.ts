@@ -1306,7 +1306,7 @@ if (isDirectRun) {
         .filter((s) => s === "csv" || s === "json"),
     );
     if (printFmts.size > 0) {
-      mkdirSync(REPORT_DIR, { recursive: true });
+      mkdirSync(artifactsDir, { recursive: true });
       const rowsOut: Array<{ category: string; minor: number; major: number; critical: number; source: string }> = [
         { category: "default", ...defaultBands, source: thresholdsConfig?.default ? "config" : "builtin" },
       ];
@@ -1314,6 +1314,7 @@ if (isDirectRun) {
         const b = bandsFor(c);
         rowsOut.push({ category: c, ...b, source: thresholdsConfig?.[c] ? "config" : "default" });
       }
+      const written: { csv?: string; json?: string } = {};
       if (printFmts.has("csv")) {
         const escCsv = (v: unknown) => {
           const s = String(v ?? "");
@@ -1324,12 +1325,13 @@ if (isDirectRun) {
         for (const r of rowsOut) {
           lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
         }
-        const dest = resolve(REPORT_DIR, "regression-thresholds.csv");
+        const dest = resolve(artifactsDir, "regression-thresholds.csv");
         writeFileSync(dest, lines.join("\n") + "\n");
+        written.csv = dest;
         process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
       }
       if (printFmts.has("json")) {
-        const dest = resolve(REPORT_DIR, "regression-thresholds.json");
+        const dest = resolve(artifactsDir, "regression-thresholds.json");
         writeFileSync(
           dest,
           JSON.stringify(
@@ -1338,10 +1340,21 @@ if (isDirectRun) {
             2,
           ),
         );
+        written.json = dest;
         process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
       }
+      // Emit a small manifest so validator-summary.ts can add PR-comment links
+      // even when --artifacts-dir moved the files out of seo-report/.
+      try {
+        mkdirSync(REPORT_DIR, { recursive: true });
+        writeFileSync(
+          resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
+          JSON.stringify({ generatedAt: new Date().toISOString(), artifactsDir, ...written }, null, 2),
+        );
+      } catch { /* non-fatal */ }
     }
   }
+
 
 
   // --schema-error-report[=path] — write schema-drift-errors.json with the
