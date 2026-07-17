@@ -137,8 +137,8 @@ async function fetchOnce(url: string): Promise<{ status: number; location: strin
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
   try {
-    const res = await fetch(url, { redirect: "manual", signal: ctrl.signal });
-    return { status: res.status, location: res.headers.get("location") };
+    const r = await cachedFetch(url, { method: "GET", redirect: "manual", signal: ctrl.signal, captureBody: false });
+    return { status: r.status, location: r.location };
   } catch (err) {
     return { status: 0, location: null, err: (err as Error).message };
   } finally {
