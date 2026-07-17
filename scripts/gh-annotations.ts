@@ -553,7 +553,38 @@ export function selectAnnotations(input: {
 }
 
 /** Serialize an AnnotationPlan to CSV. One row per category. */
-export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } = {}): string {
+/** Parse a --plan-category-include=cat1,cat2 value into a normalized Category[]
+ *  (order preserved, unknown values dropped). Undefined/empty → null (no filter).
+ */
+export function parseCategoryInclude(raw: string | undefined | null): Category[] | null {
+  if (raw == null) return null;
+  const s = String(raw).trim();
+  if (!s) return null;
+  const valid: readonly Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const aliases: Record<string, Category> = {
+    legacy: "legacy",
+    "legacy-redirects": "legacy",
+    hydration: "hydration",
+    robots: "robots",
+    jsonld: "jsonLd",
+    "json-ld": "jsonLd",
+    jsonLd: "jsonLd",
+  };
+  const seen = new Set<Category>();
+  const out: Category[] = [];
+  for (const raw of s.split(",")) {
+    const t = raw.trim();
+    if (!t) continue;
+    const norm = aliases[t] ?? (valid.includes(t as Category) ? (t as Category) : null);
+    if (norm && !seen.has(norm)) { seen.add(norm); out.push(norm); }
+  }
+  return out.length ? out : null;
+}
+
+export function planToCsv(
+  plan: AnnotationPlan,
+  meta: { filterLabel?: string; include?: Category[] | null } = {},
+): string {
   const header = [
     "category", "rawFailures", "matched", "emitted", "skippedByCap",
     "filteredOut", "status", "topSkipped", "topFiltered",
@@ -563,7 +594,10 @@ export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } =
     const s = String(v ?? "");
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
-  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+  const cats: Category[] = meta.include && meta.include.length
+    ? meta.include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  for (const cat of cats) {
     const p = plan.categories[cat];
     rows.push([
       cat,
