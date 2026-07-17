@@ -54,13 +54,9 @@ describe("passesFilter", () => {
   });
 
   it("filters by page variant", () => {
-    // /blog/... routes classify as a blog variant per pageVariantOf().
     const blog = "/blog/lynn-valley-snow-removal/";
-    // If it matches the variant, must return true; otherwise false.
-    const matched = passesFilter(blog, { variant: "blog" });
-    const mismatched = passesFilter(blog, { variant: "commercial-blog" });
-    expect(matched || mismatched).toBe(true); // one of them matches
-    expect(matched && mismatched).toBe(false); // never both
+    expect(passesFilter(blog, { variant: "neighborhood-blog" })).toBe(true);
+    expect(passesFilter(blog, { variant: "commercial-blog" })).toBe(false);
   });
 });
 
