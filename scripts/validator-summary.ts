@@ -12,7 +12,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadThresholds, evaluate, type CategoryOutcome } from "./lib/thresholds";
-import { runBaselineDiff } from "./lib/baseline";
+import { runBaselineDiff, parseFilterFromArgv } from "./lib/baseline";
 
 const REPORT_DIR = resolve("seo-report");
 mkdirSync(REPORT_DIR, { recursive: true });
