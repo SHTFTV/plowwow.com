@@ -104,8 +104,12 @@ export default function AdminLinkAudit() {
             <h1 className="text-3xl font-black">Internal Link Audit</h1>
             <p className="text-muted-foreground">Orphan neighborhood posts and city hubs missing cross-links.</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button variant="outline" asChild><Link to="/admin/gsc-coverage">GSC Coverage →</Link></Button>
+            <Button variant="outline" onClick={exportCsv} disabled={!report}>
+              <Download className="w-4 h-4 mr-2" />
+              Export CSV
+            </Button>
             <Button onClick={runNow} disabled={running}>
               <RefreshCw className={`w-4 h-4 mr-2 ${running ? "animate-spin" : ""}`} />
               Run now
