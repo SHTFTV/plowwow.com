@@ -5,6 +5,19 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { legacyBlogSlugs } from "./LegacyPage";
+import { blogPosts } from "@/generated/blog-posts";
+
+const publishedAtBySlug: Record<string, string> = Object.fromEntries(
+  blogPosts.map((p) => [p.slug, p.publishedAt]),
+);
+const formatDate = (iso: string | undefined) =>
+  iso
+    ? new Date(iso).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    : "";
 
 const blogFiles = import.meta.glob("/src/content/legacy/blog/*.md", {
   query: "?raw",
