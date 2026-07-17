@@ -20,7 +20,33 @@ export type CategoryDiff = {
   currentFailures: number;
   newFailures: string[]; // stable keys unique to current run
   resolved: string[];     // keys present in baseline but no longer failing
+  /** For legacyRedirects: newFailures bucketed by locale × page-variant. */
+  grouped?: Record<string, Record<string, string[]>>;
 };
+
+/** Extract a locale prefix from a path like `/fr/…` or return `en-CA` as default. */
+export function localeOf(pathOrUrl: string): string {
+  try {
+    const p = pathOrUrl.startsWith("http") ? new URL(pathOrUrl).pathname : pathOrUrl;
+    const m = /^\/([a-z]{2}(?:-[a-z]{2})?)\//i.exec(p);
+    if (m && /^(fr|es|de|zh|ja|pa|hi|en)(-[a-z]{2})?$/i.test(m[1])) return m[1].toLowerCase();
+  } catch {}
+  return "en-CA";
+}
+
+/** Classify a plowwow URL/path into a page variant bucket. */
+export function pageVariantOf(pathOrUrl: string): string {
+  const p = pathOrUrl.startsWith("http") ? new URL(pathOrUrl).pathname : pathOrUrl;
+  if (/-strata-commercial-snow-(removal|plowing)\/?$/.test(p)) return "commercial-blog";
+  if (/-snow-removal\/?$/.test(p)) return "neighborhood-blog";
+  if (/^\/snow-removal-in-/.test(p)) return "legacy-city-slug";
+  if (/^\/blog(\/|$)/.test(p)) return "blog";
+  if (/^\/locations(\/|$)/.test(p)) return "locations";
+  if (/^\/[a-z-]+\/?$/.test(p)) return "city-hub";
+  if (p === "/" || p === "") return "home";
+  return "other";
+}
+
 
 function readJson<T>(dir: string, name: string): T | null {
   const p = resolve(dir, name);
