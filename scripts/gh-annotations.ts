@@ -653,7 +653,10 @@ export function diffPlans(
 }
 
 /** Serialize a plan diff (from diffPlans) to CSV. One row per category, plus totals rows. */
-export function planDiffToCsv(diff: ReturnType<typeof diffPlans>): string {
+export function planDiffToCsv(
+  diff: ReturnType<typeof diffPlans>,
+  opts: { include?: Category[] | null } = {},
+): string {
   const header = [
     "category",
     "emitted_a", "emitted_b", "emitted_delta",
