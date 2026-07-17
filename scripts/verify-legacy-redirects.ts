@@ -16,6 +16,7 @@
 
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { cachedFetch, snapshotStats as cacheStats, CACHE_ENABLED } from "./lib/http-cache";
 
 const NETLIFY_TOML = resolve("netlify.toml");
 const DIST = resolve("dist");
