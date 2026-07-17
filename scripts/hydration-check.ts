@@ -14,9 +14,18 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { SUPPORTED_LOCALES } from "./lib/locales";
+import { SUPPORTED_LOCALES, PRIMARY_OG_LOCALE, ALTERNATE_OG_LOCALES } from "./lib/locales";
 
 const REQUIRED_HREFLANG = [...SUPPORTED_LOCALES, "x-default"];
+const REQUIRED_OG = [
+  "og:title",
+  "og:description",
+  "og:url",
+  "og:image",
+  "og:type",
+  "og:locale",
+] as const;
+const REQUIRED_TWITTER = ["twitter:card", "twitter:title", "twitter:description", "twitter:image"] as const;
 const DIST = resolve("dist");
 const SITEMAP = resolve(DIST, "sitemap.xml");
 
