@@ -85,7 +85,7 @@ function intOrUndef(v: string | number | undefined): number | undefined {
 
 export type ConfigIssue = {
   path: string;
-  pointer: string;                 // RFC 6901 JSON Pointer
+  pointer?: string;                // RFC 6901 JSON Pointer
   expected: string;
   got: string;
   example: string;
