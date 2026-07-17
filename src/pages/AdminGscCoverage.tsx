@@ -21,6 +21,29 @@ type Snapshot = {
   errors: { url: string; reason: string }[];
 };
 
+// Defensive normalization: DB rows may contain older or partial error payloads
+// (missing url, non-string reason, nested objects). Coerce into a stable
+// { url, reason }[] shape before render.
+function normalizeErrors(raw: unknown): { url: string; reason: string }[] {
+  if (!Array.isArray(raw)) return [];
+  const out: { url: string; reason: string }[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") continue;
+    const rec = item as Record<string, unknown>;
+    const url = typeof rec.url === "string" ? rec.url : rec.url == null ? "" : String(rec.url);
+    const rr = rec.reason ?? rec.error ?? rec.coverageState ?? rec.verdict ?? "Unknown";
+    let reason: string;
+    if (typeof rr === "string") reason = rr;
+    else if (rr == null) reason = "Unknown";
+    else { try { reason = JSON.stringify(rr); } catch { reason = String(rr); } }
+    reason = reason.trim() || "Unknown";
+    if (reason.length > 500) reason = reason.slice(0, 497) + "…";
+    if (!url) continue;
+    out.push({ url, reason });
+  }
+  return out;
+}
+
 export default function AdminGscCoverage() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
@@ -100,12 +123,12 @@ export default function AdminGscCoverage() {
           </div>
         )}
 
-        {latest && latest.errors?.length > 0 && (
+        {latest && normalizeErrors(latest.errors).length > 0 && (
           <Card>
             <CardHeader><CardTitle>Latest errors</CardTitle></CardHeader>
             <CardContent>
               <ul className="space-y-1 text-sm">
-                {latest.errors.map((e, i) => (
+                {normalizeErrors(latest.errors).map((e, i) => (
                   <li key={i}><Badge variant="destructive" className="mr-2">{e.reason}</Badge>{e.url}</li>
                 ))}
               </ul>

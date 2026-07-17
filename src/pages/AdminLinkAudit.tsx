@@ -7,7 +7,21 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { toast } from "@/hooks/use-toast";
 import { applyPageMeta } from "@/lib/pageMeta";
-import { RefreshCw, AlertTriangle, ExternalLink } from "lucide-react";
+import { RefreshCw, AlertTriangle, ExternalLink, Download } from "lucide-react";
+
+function csvEscape(v: string | number) {
+  const s = String(v ?? "");
+  return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+function downloadCsv(filename: string, rows: (string | number)[][]) {
+  const csv = rows.map((r) => r.map(csvEscape).join(",")).join("\r\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
 
 type Report = {
   generatedAt: string;
@@ -79,6 +93,21 @@ export default function AdminLinkAudit() {
     loadEverything();
   }
 
+  function exportCsv() {
+    if (!report) {
+      toast({ title: "No report yet", description: "Run the audit first.", variant: "destructive" });
+      return;
+    }
+    const stamp = new Date(report.generatedAt || Date.now()).toISOString().replace(/[:.]/g, "-");
+    const rows: (string | number)[][] = [];
+    rows.push(["type", "slug", "name_or_title", "path", "post_count"]);
+    for (const p of report.orphanPosts) rows.push(["orphan_post", p.slug, p.title, `/${p.slug}`, ""]);
+    for (const c of report.citiesWithoutPosts) rows.push(["empty_city", c.slug, c.name, c.path, 0]);
+    for (const c of report.cityPostCounts) rows.push(["city_post_count", c.slug, c.name, `/${c.slug}`, c.count]);
+    downloadCsv(`link-audit-${stamp}.csv`, rows);
+    toast({ title: "CSV exported", description: `${rows.length - 1} rows.` });
+  }
+
   if (checking) return <div className="p-8">Checking access…</div>;
   if (!isAdmin) return <div className="p-8">Admin access required. <Link to="/auth" className="underline">Sign in</Link></div>;
 
@@ -90,8 +119,12 @@ export default function AdminLinkAudit() {
             <h1 className="text-3xl font-black">Internal Link Audit</h1>
             <p className="text-muted-foreground">Orphan neighborhood posts and city hubs missing cross-links.</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button variant="outline" asChild><Link to="/admin/gsc-coverage">GSC Coverage →</Link></Button>
+            <Button variant="outline" onClick={exportCsv} disabled={!report}>
+              <Download className="w-4 h-4 mr-2" />
+              Export CSV
+            </Button>
             <Button onClick={runNow} disabled={running}>
               <RefreshCw className={`w-4 h-4 mr-2 ${running ? "animate-spin" : ""}`} />
               Run now
