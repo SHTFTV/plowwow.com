@@ -150,3 +150,21 @@ md.push("");
 const body = md.join("\n");
 writeFileSync(resolve(REPORT_DIR, "pr-comment.md"), body);
 process.stdout.write(body + "\n");
+
+// Persist outcomes so downstream jobs can react without re-parsing markdown.
+writeFileSync(
+  resolve(REPORT_DIR, "threshold-outcomes.json"),
+  JSON.stringify({ generatedAt: new Date().toISOString(), outcomes, baseline: { hasBaseline, totalNewSinceBaseline, diffs: baselineDiffs } }, null, 2),
+);
+
+// In baseline-diff mode (SEO_BASELINE_MODE=1), only NEW failures fail the run.
+// Otherwise, any category with status="fail" fails the run.
+const baselineMode = process.env.SEO_BASELINE_MODE === "1";
+const criticalFail = baselineMode
+  ? totalNewSinceBaseline > 0
+  : outcomes.some((o) => o.status === "fail");
+if (criticalFail) {
+  console.error(`\n✗ validator-summary: critical thresholds exceeded${baselineMode ? " (baseline-diff mode)" : ""}`);
+  process.exit(1);
+}
+
