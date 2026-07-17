@@ -1449,34 +1449,63 @@ if (isDirectRun) {
     );
   }
 
+  // --plan-regression-format=csv → write annotation-plan-regression.csv (needs
+  // a compare selection; emitted whenever `planDiff` is available).
+  const regressionFormat = argVal(argv, "plan-regression-format");
+
+  // --fail-on-regression-severity=<band> — fail when any category's
+  // deltaPercent exceeds the band's threshold (minor=1%, major=25%,
+  // critical=50%). Runs independently of --fail-on-plan-regression.
+  const severityArg = argVal(argv, "fail-on-regression-severity") ?? process.env.SEO_ANN_FAIL_ON_REGRESSION_SEVERITY;
+  const severityBand = parseSeverityBand(severityArg);
+  if (severityArg != null && !severityBand) {
+    process.stdout.write(
+      `::error title=SEO annotations severity::Invalid --fail-on-regression-severity=${severityArg} (expected minor|major|critical)\n`,
+    );
+    process.exit(2);
+  }
+
   // --fail-on-plan-regression[=N|N%] — exit 1 when the compare selection's
   // totalSkipped grows more than the threshold (absolute count, default 0, or
   // a percentage of the base when suffixed with `%`).
   const regressionArg = argVal(argv, "fail-on-plan-regression");
   const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
-  if (regressionFlag) {
+  if (regressionFlag || severityBand) {
     if (!planDiff) {
       process.stdout.write(
-        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
+        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression/--fail-on-regression-severity set but no --compare-locale/--compare-variant provided; skipping.\n`,
       );
     } else {
       const threshold = parseRegressionThreshold(regressionArg);
       const regression = evaluateRegression(planDiff, threshold);
       // Persist per-category regression deltas so validator-summary.ts can
       // surface them in the PR comment even when we exit non-zero here.
+      const severityEval = severityBand
+        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats)
+        : null;
       writeFileSync(
         resolve(REPORT_DIR, "annotation-plan-regression.json"),
         JSON.stringify(
           {
             generatedAt: new Date().toISOString(),
             labels: planDiff.labels,
+            include: includeCats,
             ...regression,
+            severity: severityEval,
           },
           null,
           2,
         ),
       );
-      if (regression.triggered) {
+      if (regressionFormat === "csv") {
+        writeFileSync(
+          resolve(REPORT_DIR, "annotation-plan-regression.csv"),
+          regressionToCsv(regression, { include: includeCats, labels: planDiff.labels }),
+        );
+      }
+      let shouldFail = false;
+      if (regressionFlag && regression.triggered) {
+        shouldFail = true;
         const tDesc = threshold.kind === "percent" ? `${threshold.value}%` : `${threshold.value}`;
         const pctDesc = Number.isFinite(regression.deltaPercent)
           ? `${regression.deltaPercent.toFixed(1)}%`
@@ -1485,6 +1514,7 @@ if (isDirectRun) {
           `::error title=SEO annotations plan regression::totalSkipped ${regression.before} → ${regression.after} (Δ+${regression.delta}, ${pctDesc}) exceeds threshold ${tDesc}\n`,
         );
         for (const c of regression.perCategory) {
+          if (includeCats && !includeCats.includes(c.category)) continue;
           if (c.delta === 0 && !c.exceeds) continue;
           const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
           const level = c.exceeds ? "error" : "notice";
@@ -1492,8 +1522,21 @@ if (isDirectRun) {
             `::${level} title=SEO annotations regression (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) threshold ${tDesc}\n`,
           );
         }
-        process.exit(1);
       }
+      if (severityEval && severityEval.triggered) {
+        shouldFail = true;
+        process.stdout.write(
+          `::error title=SEO annotations regression severity::band=${severityEval.band} (>${severityEval.thresholdPercent}%) exceeded\n`,
+        );
+        for (const c of severityEval.perCategory) {
+          if (!c.exceeds) continue;
+          const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
+          process.stdout.write(
+            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${severityEval.thresholdPercent}%)\n`,
+          );
+        }
+      }
+      if (shouldFail) process.exit(1);
     }
   }
 
