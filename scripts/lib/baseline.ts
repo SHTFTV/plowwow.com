@@ -94,16 +94,38 @@ function diffCategory(category: string, base: string[], curr: string[]): Categor
   };
 }
 
+/** Group legacyRedirects newFailures by locale × page variant for at-a-glance triage. */
+function groupLegacyByLocaleVariant(newFailures: string[]): Record<string, Record<string, string[]>> {
+  const out: Record<string, Record<string, string[]>> = {};
+  for (const key of newFailures) {
+    // key format: "source→expected"
+    const [source, expected] = key.split("→");
+    const target = expected ?? source ?? key;
+    const locale = localeOf(target);
+    const variant = pageVariantOf(target);
+    (out[locale] ??= {})[variant] ??= [];
+    out[locale][variant].push(key);
+  }
+  return out;
+}
+
 export function runBaselineDiff(): { diffs: CategoryDiff[]; hasBaseline: boolean } {
   const hasBaseline = existsSync(BASELINE_DIR) && readdirSync(BASELINE_DIR).length > 0;
+  const legacyDiff = diffCategory(
+    "legacyRedirects",
+    keysLegacy(readJson(BASELINE_DIR, "legacy-redirects.json")),
+    keysLegacy(readJson(REPORT_DIR, "legacy-redirects.json")),
+  );
+  legacyDiff.grouped = groupLegacyByLocaleVariant(legacyDiff.newFailures);
   const diffs: CategoryDiff[] = [
-    diffCategory("legacyRedirects", keysLegacy(readJson(BASELINE_DIR, "legacy-redirects.json")), keysLegacy(readJson(REPORT_DIR, "legacy-redirects.json"))),
+    legacyDiff,
     diffCategory("hydration", keysHydration(readJson(BASELINE_DIR, "hydration.json")), keysHydration(readJson(REPORT_DIR, "hydration.json"))),
     diffCategory("jsonLd", keysJsonLd(readJson(BASELINE_DIR, "jsonld-preflight.json")), keysJsonLd(readJson(REPORT_DIR, "jsonld-preflight.json"))),
     diffCategory("robots", keysRobots(readJson(BASELINE_DIR, "robots-directives.json")), keysRobots(readJson(REPORT_DIR, "robots-directives.json"))),
   ];
   return { diffs, hasBaseline };
 }
+
 
 const BASELINE_FILES = [
   "legacy-redirects.json",
