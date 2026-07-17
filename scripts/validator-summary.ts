@@ -198,6 +198,8 @@ if (artifactUrl) {
   md.push(`- 🔀 [annotation-plan-diff.json](${runUrl}/artifacts) — plan diff between two locale/variant selections`);
   md.push(`- 📝 [annotation-plan-diff.md](${runUrl}/artifacts) — human-readable plan diff table`);
   md.push(`- 📈 [annotation-plan-diff.csv](${runUrl}/artifacts) — spreadsheet-friendly plan diff (from \`--compare-locale/--compare-variant\`)`);
+  md.push(`- 📇 [annotation-plan-summary.json](${runUrl}/artifacts) — compact totals + per-category skipped-reason breakdown`);
+  md.push(`- 🚨 [annotation-plan-regression.json](${runUrl}/artifacts) — per-category regression deltas + threshold (when \`--fail-on-plan-regression\` runs)`);
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
