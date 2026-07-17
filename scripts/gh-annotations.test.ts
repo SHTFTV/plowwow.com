@@ -8,7 +8,7 @@
 //   - env-var fallbacks work
 
 import { describe, it, expect } from "vitest";
-import { parseConfig, passesFilter, selectAnnotations, evaluateSkippedLimits } from "./gh-annotations";
+import { parseConfig, passesFilter, selectAnnotations, evaluateSkippedLimits, validateConfig } from "./gh-annotations";
 
 describe("parseConfig", () => {
   it("honors global --max default across categories", () => {
@@ -191,3 +191,52 @@ describe("selectAnnotations caps + skipped counts", () => {
     expect(skipped).toEqual({ legacy: 0, hydration: 0, robots: 0, jsonLd: 0 });
   });
 });
+
+describe("validateConfig", () => {
+  it("accepts a valid config", () => {
+    expect(() => validateConfig({ caps: { default: 20, legacy: 5 }, filter: { locale: "en-CA" } })).not.toThrow();
+  });
+
+  it("accepts an empty/undefined config", () => {
+    expect(validateConfig(undefined)).toEqual({});
+    expect(validateConfig({})).toEqual({});
+  });
+
+  it("rejects non-object root", () => {
+    expect(() => validateConfig([1, 2, 3])).toThrow(/must be a JSON object/);
+    expect(() => validateConfig("nope")).toThrow(/must be a JSON object/);
+  });
+
+  it("rejects negative or non-integer caps with a friendly message", () => {
+    expect(() => validateConfig({ caps: { legacy: -1 } })).toThrow(/caps\.legacy.*non-negative integer/);
+    expect(() => validateConfig({ caps: { hydration: 1.5 } })).toThrow(/caps\.hydration.*non-negative integer/);
+    expect(() => validateConfig({ caps: { jsonLd: "20" } })).toThrow(/caps\.jsonLd.*non-negative integer/);
+  });
+
+  it("rejects unknown caps keys", () => {
+    expect(() => validateConfig({ caps: { bogus: 5 } })).toThrow(/caps\.bogus.*not a recognized key/);
+  });
+
+  it("rejects empty filter strings and unknown filter keys", () => {
+    expect(() => validateConfig({ filter: { locale: "" } })).toThrow(/filter\.locale.*non-empty string/);
+    expect(() => validateConfig({ filter: { region: "us" } })).toThrow(/filter\.region.*not recognized/);
+  });
+
+  it("rejects invalid failOnSkipped values", () => {
+    expect(() => validateConfig({ failOnSkipped: { total: -3 } })).toThrow(/failOnSkipped\.total/);
+    expect(() => validateConfig({ failOnSkipped: { weird: 5 } })).toThrow(/failOnSkipped\.weird.*not recognized/);
+  });
+
+  it("aggregates multiple errors in one message", () => {
+    try {
+      validateConfig({ caps: { legacy: -1, jsonLd: "x" }, filter: { locale: "" } });
+      expect.fail("expected validateConfig to throw");
+    } catch (e) {
+      const msg = (e as Error).message;
+      expect(msg).toMatch(/caps\.legacy/);
+      expect(msg).toMatch(/caps\.jsonLd/);
+      expect(msg).toMatch(/filter\.locale/);
+    }
+  });
+});
+

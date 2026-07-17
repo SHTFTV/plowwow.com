@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SEO Annotations Config",
+  "description": "Defaults for scripts/gh-annotations.ts. CLI flags and env vars override values here.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "caps": {
+      "type": "object",
+      "description": "Per-category caps on emitted GitHub Actions annotations.",
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": "integer", "minimum": 0 },
+        "legacy": { "type": "integer", "minimum": 0 },
+        "hydration": { "type": "integer", "minimum": 0 },
+        "robots": { "type": "integer", "minimum": 0 },
+        "jsonLd": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "filter": {
+      "type": "object",
+      "description": "Restrict annotations to a locale and/or page variant.",
+      "additionalProperties": false,
+      "properties": {
+        "locale": { "type": "string", "minLength": 1 },
+        "variant": { "type": "string", "minLength": 1 }
+      }
+    },
+    "failOnSkipped": {
+      "type": "object",
+      "description": "Per-category (and total) caps on skipped failures. Exceeding a limit exits non-zero when --fail-on-skipped is set.",
+      "additionalProperties": false,
+      "properties": {
+        "legacy": { "type": "integer", "minimum": 0 },
+        "hydration": { "type": "integer", "minimum": 0 },
+        "robots": { "type": "integer", "minimum": 0 },
+        "jsonLd": { "type": "integer", "minimum": 0 },
+        "total": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}
