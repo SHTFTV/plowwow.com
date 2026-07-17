@@ -128,6 +128,10 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         body.replace(/[#>*_`\[\]()!]/g, " ").replace(/\s+/g, " ").trim(),
       );
   const faqs = extractFaqs(body);
+  const changelog = kind === "blog" ? extractChangelog(body) : [];
+  const dates = kind === "blog" ? blogDatesBySlug[slug] : undefined;
+  const wasUpdated =
+    !!dates && !!dates.updatedAt && dates.updatedAt !== dates.publishedAt;
 
   useEffect(() => {
     if (typeof document === "undefined") return;
