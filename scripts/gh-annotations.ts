@@ -35,9 +35,22 @@ import { resolve } from "node:path";
 import { localeOf, pageVariantOf } from "./lib/baseline";
 
 const REPORT_DIR = resolve("seo-report");
+const DEFAULT_CONFIG_PATH = resolve("seo-annotations.config.json");
 
 export type Filter = { locale?: string; variant?: string };
 export type Caps = { legacy: number; hydration: number; robots: number; jsonLd: number };
+export type FailOnSkipped = {
+  legacy?: number;
+  hydration?: number;
+  robots?: number;
+  jsonLd?: number;
+  total?: number;
+};
+export type AnnotationsConfig = {
+  caps?: Partial<Caps> & { default?: number };
+  filter?: Filter;
+  failOnSkipped?: FailOnSkipped;
+};
 export type Annotation = {
   level: "error" | "warning";
   file: string;
@@ -61,27 +74,92 @@ function argVal(argv: string[], name: string): string | undefined {
   const hit = argv.find((a) => a.startsWith(`--${name}=`));
   return hit ? hit.split("=").slice(1).join("=") || undefined : undefined;
 }
-function intOr(v: string | undefined, fallback: number): number {
+function hasFlag(argv: string[], name: string): boolean {
+  return argv.includes(`--${name}`);
+}
+function intOr(v: string | number | undefined, fallback: number): number {
   if (v == null) return fallback;
   const n = Number(v);
   return Number.isFinite(n) && n >= 0 ? Math.floor(n) : fallback;
 }
+function intOrUndef(v: string | number | undefined): number | undefined {
+  if (v == null) return undefined;
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined;
+}
 
-/** Parse CLI + env into a resolved caps + filter config (pure; testable). */
-export function parseConfig(argv: string[], env: NodeJS.ProcessEnv = process.env): { caps: Caps; filter: Filter } {
-  const DEFAULT_MAX = intOr(argVal(argv, "max") ?? env.SEO_ANNOTATIONS_TOP, 20);
+/** Load a JSON config file, returning `{}` if the file is missing or invalid. */
+export function loadConfigFile(path?: string): AnnotationsConfig {
+  const p = path ?? DEFAULT_CONFIG_PATH;
+  if (!existsSync(p)) return {};
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8"));
+    return (raw && typeof raw === "object" ? raw : {}) as AnnotationsConfig;
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Parse CLI + env + config into a resolved caps + filter config (pure; testable).
+ * Precedence (highest first): CLI flag > env var > config file > built-in default.
+ */
+export function parseConfig(
+  argv: string[],
+  env: NodeJS.ProcessEnv = process.env,
+  config: AnnotationsConfig = {},
+): { caps: Caps; filter: Filter; failOnSkipped: FailOnSkipped; failOnSkippedEnabled: boolean } {
+  const cfgDefault = intOrUndef(config.caps?.default);
+  const DEFAULT_MAX = intOr(argVal(argv, "max") ?? env.SEO_ANNOTATIONS_TOP, cfgDefault ?? 20);
+  const pick = (
+    cli: string,
+    envKey: string,
+    cfgKey: keyof Caps,
+  ): number => intOr(argVal(argv, cli) ?? env[envKey], intOr(config.caps?.[cfgKey], DEFAULT_MAX));
   return {
     caps: {
-      legacy: intOr(argVal(argv, "max-legacy") ?? env.SEO_ANN_MAX_LEGACY, DEFAULT_MAX),
-      hydration: intOr(argVal(argv, "max-hydration") ?? env.SEO_ANN_MAX_HYDRATION, DEFAULT_MAX),
-      robots: intOr(argVal(argv, "max-robots") ?? env.SEO_ANN_MAX_ROBOTS, DEFAULT_MAX),
-      jsonLd: intOr(argVal(argv, "max-jsonld") ?? env.SEO_ANN_MAX_JSONLD, DEFAULT_MAX),
+      legacy: pick("max-legacy", "SEO_ANN_MAX_LEGACY", "legacy"),
+      hydration: pick("max-hydration", "SEO_ANN_MAX_HYDRATION", "hydration"),
+      robots: pick("max-robots", "SEO_ANN_MAX_ROBOTS", "robots"),
+      jsonLd: pick("max-jsonld", "SEO_ANN_MAX_JSONLD", "jsonLd"),
     },
     filter: {
-      locale: argVal(argv, "locale") ?? env.SEO_BASELINE_LOCALE ?? undefined,
-      variant: argVal(argv, "variant") ?? env.SEO_BASELINE_VARIANT ?? undefined,
+      locale: argVal(argv, "locale") ?? env.SEO_BASELINE_LOCALE ?? config.filter?.locale ?? undefined,
+      variant: argVal(argv, "variant") ?? env.SEO_BASELINE_VARIANT ?? config.filter?.variant ?? undefined,
     },
+    failOnSkipped: {
+      legacy: intOrUndef(env.SEO_ANN_FAIL_ON_SKIPPED_LEGACY) ?? config.failOnSkipped?.legacy,
+      hydration: intOrUndef(env.SEO_ANN_FAIL_ON_SKIPPED_HYDRATION) ?? config.failOnSkipped?.hydration,
+      robots: intOrUndef(env.SEO_ANN_FAIL_ON_SKIPPED_ROBOTS) ?? config.failOnSkipped?.robots,
+      jsonLd: intOrUndef(env.SEO_ANN_FAIL_ON_SKIPPED_JSONLD) ?? config.failOnSkipped?.jsonLd,
+      total: intOrUndef(env.SEO_ANN_FAIL_ON_SKIPPED_TOTAL) ?? config.failOnSkipped?.total,
+    },
+    failOnSkippedEnabled:
+      hasFlag(argv, "fail-on-skipped") || env.SEO_ANN_FAIL_ON_SKIPPED === "1",
   };
+}
+
+/**
+ * Evaluate skipped counts against `failOnSkipped` limits. Returns a list of
+ * violations (empty when limits are unset or not exceeded).
+ */
+export function evaluateSkippedLimits(
+  skipped: SkippedCounts,
+  limits: FailOnSkipped,
+): { category: string; skipped: number; limit: number }[] {
+  const violations: { category: string; skipped: number; limit: number }[] = [];
+  const cats: (keyof SkippedCounts)[] = ["legacy", "hydration", "robots", "jsonLd"];
+  for (const c of cats) {
+    const lim = limits[c];
+    if (typeof lim === "number" && skipped[c] > lim) {
+      violations.push({ category: c, skipped: skipped[c], limit: lim });
+    }
+  }
+  const total = skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd;
+  if (typeof limits.total === "number" && total > limits.total) {
+    violations.push({ category: "total", skipped: total, limit: limits.total });
+  }
+  return violations;
 }
 
 function readJson<T>(name: string): T | null {
