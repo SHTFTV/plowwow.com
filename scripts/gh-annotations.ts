@@ -1428,7 +1428,10 @@ if (isDirectRun) {
     lines.push(``);
     lines.push(`| Category | Emitted (A→B) | Δ | Cap-skipped (A→B) | Δ | Filter-skipped (A→B) | Δ | Status (A→B) |`);
     lines.push(`|---|---:|---:|---:|---:|---:|---:|---|`);
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const diffCats: readonly Category[] = includeCats && includeCats.length
+      ? includeCats
+      : (["legacy", "hydration", "jsonLd", "robots"] as const);
+    for (const cat of diffCats) {
       const d = planDiff.categories[cat];
       const arrow = (n: number) => (n > 0 ? `+${n}` : `${n}`);
       lines.push(
