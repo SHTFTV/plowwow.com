@@ -68,6 +68,51 @@ export type Database = {
         }
         Relationships: []
       }
+      gsc_coverage_snapshots: {
+        Row: {
+          captured_at: string
+          created_at: string
+          errors: Json
+          id: string
+          raw: Json | null
+          site_url: string
+          sitemaps_submitted: number
+          urls_crawled_not_indexed: number
+          urls_discovered_not_indexed: number
+          urls_excluded: number
+          urls_indexed: number
+          urls_submitted: number
+        }
+        Insert: {
+          captured_at?: string
+          created_at?: string
+          errors?: Json
+          id?: string
+          raw?: Json | null
+          site_url: string
+          sitemaps_submitted?: number
+          urls_crawled_not_indexed?: number
+          urls_discovered_not_indexed?: number
+          urls_excluded?: number
+          urls_indexed?: number
+          urls_submitted?: number
+        }
+        Update: {
+          captured_at?: string
+          created_at?: string
+          errors?: Json
+          id?: string
+          raw?: Json | null
+          site_url?: string
+          sitemaps_submitted?: number
+          urls_crawled_not_indexed?: number
+          urls_discovered_not_indexed?: number
+          urls_excluded?: number
+          urls_indexed?: number
+          urls_submitted?: number
+        }
+        Relationships: []
+      }
       guest_post_submissions: {
         Row: {
           created_at: string
@@ -98,6 +143,42 @@ export type Database = {
           status?: string
           topic?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      link_audit_runs: {
+        Row: {
+          cities_total: number
+          cities_without_posts_count: number
+          created_at: string
+          email_status: string | null
+          id: string
+          orphan_posts_count: number
+          posts_total: number
+          ran_at: string
+          report: Json
+        }
+        Insert: {
+          cities_total: number
+          cities_without_posts_count: number
+          created_at?: string
+          email_status?: string | null
+          id?: string
+          orphan_posts_count: number
+          posts_total: number
+          ran_at?: string
+          report: Json
+        }
+        Update: {
+          cities_total?: number
+          cities_without_posts_count?: number
+          created_at?: string
+          email_status?: string | null
+          id?: string
+          orphan_posts_count?: number
+          posts_total?: number
+          ran_at?: string
+          report?: Json
         }
         Relationships: []
       }
