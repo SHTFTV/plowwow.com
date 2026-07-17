@@ -85,13 +85,68 @@ function intOrUndef(v: string | number | undefined): number | undefined {
 
 export type ConfigIssue = {
   path: string;
+  pointer?: string;                // RFC 6901 JSON Pointer
   expected: string;
   got: string;
   example: string;
+  loc?: { line: number; column: number; endLine?: number; endColumn?: number };
+  snippet?: string;                // corrected snippet for the field
 };
 
+function pathToPointer(path: string): string {
+  const parts = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  return "/" + parts.map((p) => p.replace(/~/g, "~0").replace(/\//g, "~1")).join("/");
+}
+
+/** Locate line/column of a dotted JSON path inside raw source. Best-effort. */
+export function locateJsonPath(
+  source: string,
+  path: string,
+): { line: number; column: number; endLine?: number; endColumn?: number } | undefined {
+  const segs = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  if (!segs.length) return undefined;
+  let idx = 0;
+  for (const seg of segs) {
+    const re = new RegExp(`"${seg.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"\\s*:`, "g");
+    re.lastIndex = idx;
+    const m = re.exec(source);
+    if (!m) return undefined;
+    idx = m.index + m[0].length;
+  }
+  const valueStart = idx;
+  const keyStart = source.lastIndexOf('"', valueStart - 2);
+  const anchor = keyStart >= 0 ? keyStart : valueStart;
+  const before = source.slice(0, anchor);
+  const line = before.split("\n").length;
+  const column = anchor - (before.lastIndexOf("\n") + 1) + 1;
+  let depth = 0, end = valueStart;
+  while (end < source.length) {
+    const c = source[end];
+    if (c === "{" || c === "[") depth++;
+    else if (c === "}" || c === "]") { if (depth === 0) break; depth--; }
+    else if ((c === "," || c === "\n") && depth === 0) break;
+    end++;
+  }
+  const vs = source.slice(0, end);
+  const endLine = vs.split("\n").length;
+  const endColumn = end - (vs.lastIndexOf("\n") + 1) + 1;
+  return { line, column, endLine, endColumn };
+}
+
+function correctedSnippetFor(path: string): string {
+  const segs = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  const [root, key] = segs;
+  if (root === "caps") return `"caps": { "${key ?? "legacy"}": 20 }`;
+  if (root === "filter") return `"filter": { "${key ?? "locale"}": "${key === "variant" ? "blog" : "en-CA"}" }`;
+  if (root === "failOnSkipped") return `"failOnSkipped": { "${key ?? "total"}": 100 }`;
+  return `{ "caps": { "default": 20 } }`;
+}
+
 function fmtIssue(i: ConfigIssue): string {
-  return `${i.path} — expected ${i.expected} (got ${i.got}); example: ${i.example}`;
+  const ptr = i.pointer ? ` (pointer ${i.pointer})` : "";
+  const locStr = i.loc ? ` [line ${i.loc.line}:${i.loc.column}${i.loc.endLine ? `-${i.loc.endLine}:${i.loc.endColumn}` : ""}]` : "";
+  const snip = i.snippet ? `\n      corrected: ${i.snippet}` : "";
+  return `${i.path}${ptr}${locStr} — expected ${i.expected} (got ${i.got}); example: ${i.example}${snip}`;
 }
 
 /**
@@ -99,7 +154,7 @@ function fmtIssue(i: ConfigIssue): string {
  * message that includes JSON path, expected type/range, and a corrected
  * snippet for each failure. Exported for tests.
  */
-export function validateConfig(raw: unknown, source = "config"): AnnotationsConfig {
+export function validateConfig(raw: unknown, source = "config", sourceText?: string): AnnotationsConfig {
   const issues: ConfigIssue[] = [];
   const isObj = (v: unknown): v is Record<string, unknown> =>
     !!v && typeof v === "object" && !Array.isArray(v);
@@ -181,6 +236,14 @@ export function validateConfig(raw: unknown, source = "config"): AnnotationsConf
     }
   }
   if (issues.length) {
+    for (const i of issues) {
+      i.pointer = pathToPointer(i.path);
+      i.snippet = correctedSnippetFor(i.path);
+      if (sourceText) {
+        const loc = locateJsonPath(sourceText, i.path);
+        if (loc) i.loc = loc;
+      }
+    }
     throw new Error(
       `Invalid ${source}:\n  - ${issues.map(fmtIssue).join("\n  - ")}\n` +
         `See seo-annotations.config.schema.json for the expected shape.`,
@@ -193,13 +256,14 @@ export function validateConfig(raw: unknown, source = "config"): AnnotationsConf
 export function loadConfigFile(path?: string): AnnotationsConfig {
   const p = path ?? DEFAULT_CONFIG_PATH;
   if (!existsSync(p)) return {};
+  const text = readFileSync(p, "utf8");
   let raw: unknown;
   try {
-    raw = JSON.parse(readFileSync(p, "utf8"));
+    raw = JSON.parse(text);
   } catch (e) {
     throw new Error(`Failed to parse ${p} as JSON: ${(e as Error).message}`);
   }
-  return validateConfig(raw, p);
+  return validateConfig(raw, p, text);
 }
 
 
@@ -482,6 +546,74 @@ export function selectAnnotations(input: {
   return { annotations, skipped, totals, plan };
 }
 
+/** Serialize an AnnotationPlan to CSV. One row per category. */
+export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } = {}): string {
+  const header = [
+    "category", "rawFailures", "matched", "emitted", "skippedByCap",
+    "filteredOut", "status", "topSkipped", "topFiltered",
+  ];
+  const rows: string[][] = [header];
+  const esc = (v: unknown) => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const p = plan.categories[cat];
+    rows.push([
+      cat,
+      String(p.rawFailures), String(p.matched), String(p.emitted),
+      String(p.skippedByCap), String(p.filteredOut), p.status,
+      p.topSkipped.map((s) => s.summary).join(" | "),
+      p.topFiltered.map((s) => s.summary).join(" | "),
+    ]);
+  }
+  const prefix = meta.filterLabel ? `# filter: ${meta.filterLabel}\n` : "";
+  return prefix + rows.map((r) => r.map(esc).join(",")).join("\n") + "\n";
+}
+
+/**
+ * Diff two annotation plans (a vs b) showing per-category delta of counts
+ * and status transitions. Used by --compare-locale / --compare-variant.
+ */
+export function diffPlans(
+  a: AnnotationPlan,
+  b: AnnotationPlan,
+  labels: { a: string; b: string } = { a: "A", b: "B" },
+): {
+  labels: { a: string; b: string };
+  categories: Record<Category, {
+    emitted: { a: number; b: number; delta: number };
+    skippedByCap: { a: number; b: number; delta: number };
+    filteredOut: { a: number; b: number; delta: number };
+    matched: { a: number; b: number; delta: number };
+    status: { a: string; b: string; changed: boolean };
+  }>;
+  totalEmitted: { a: number; b: number; delta: number };
+  totalSkipped: { a: number; b: number; delta: number };
+} {
+  const cats: Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const categories = {} as ReturnType<typeof diffPlans>["categories"];
+  for (const c of cats) {
+    const pa = a.categories[c];
+    const pb = b.categories[c];
+    categories[c] = {
+      emitted: { a: pa.emitted, b: pb.emitted, delta: pb.emitted - pa.emitted },
+      skippedByCap: { a: pa.skippedByCap, b: pb.skippedByCap, delta: pb.skippedByCap - pa.skippedByCap },
+      filteredOut: { a: pa.filteredOut, b: pb.filteredOut, delta: pb.filteredOut - pa.filteredOut },
+      matched: { a: pa.matched, b: pb.matched, delta: pb.matched - pa.matched },
+      status: { a: pa.status, b: pb.status, changed: pa.status !== pb.status },
+    };
+  }
+  return {
+    labels,
+    categories,
+    totalEmitted: { a: a.totalEmitted, b: b.totalEmitted, delta: b.totalEmitted - a.totalEmitted },
+    totalSkipped: { a: a.totalSkipped, b: b.totalSkipped, delta: b.totalSkipped - a.totalSkipped },
+  };
+}
+
+
+
 function emit(a: Annotation) {
   const parts = [`file=${a.file}`];
   if (a.line) parts.push(`line=${a.line}`);
@@ -529,6 +661,31 @@ if (isDirectRun) {
   const { annotations, skipped, totals, plan } = selectAnnotations({
     legacy, hydration, jsonld, robots, caps, filter,
   });
+
+  // --plan-format=csv writes an additional annotation-plan.csv artifact.
+  const planFormat = argVal(argv, "plan-format");
+  // --top-skipped-reasons=<n> controls how many top skipped reasons appear
+  // in each per-category ::notice line.
+  const TOP_NOTICE = intOr(argVal(argv, "top-skipped-reasons") ?? process.env.SEO_ANN_TOP_SKIPPED_REASONS, 3);
+
+  // --compare-locale=<code> / --compare-variant=<name>: compute a second plan
+  // using the alternate filter and write a diff report showing how planned
+  // and skipped counts change between the two selections.
+  const cmpLocale = argVal(argv, "compare-locale");
+  const cmpVariant = argVal(argv, "compare-variant");
+  const compareFilter: Filter | null =
+    cmpLocale != null || cmpVariant != null
+      ? { locale: cmpLocale ?? filter.locale, variant: cmpVariant ?? filter.variant }
+      : null;
+  const comparePlan = compareFilter
+    ? selectAnnotations({ legacy, hydration, jsonld, robots, caps, filter: compareFilter }).plan
+    : null;
+  const planDiff = compareFilter && comparePlan
+    ? diffPlans(plan, comparePlan, {
+        a: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}`,
+        b: `locale=${compareFilter.locale ?? "*"},variant=${compareFilter.variant ?? "*"}`,
+      })
+    : null;
 
   if (dryRun) {
     process.stderr.write(
@@ -602,6 +759,44 @@ if (isDirectRun) {
     );
   }
 
+  // --dry-run=output --plan-format=csv writes annotation-plan.csv alongside JSON.
+  if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan.csv"),
+      planToCsv(plan, { filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}` }),
+    );
+  }
+
+  // --compare-locale / --compare-variant: write annotation-plan-diff.{json,md}.
+  if (planDiff && comparePlan) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan-diff.json"),
+      JSON.stringify({ generatedAt: new Date().toISOString(), diff: planDiff, a: plan, b: comparePlan }, null, 2),
+    );
+    const lines: string[] = [];
+    lines.push(`# Annotation plan diff`);
+    lines.push(``);
+    lines.push(`- A: \`${planDiff.labels.a}\``);
+    lines.push(`- B: \`${planDiff.labels.b}\``);
+    lines.push(``);
+    lines.push(`| Category | Emitted (A→B) | Δ | Cap-skipped (A→B) | Δ | Filter-skipped (A→B) | Δ | Status (A→B) |`);
+    lines.push(`|---|---:|---:|---:|---:|---:|---:|---|`);
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const d = planDiff.categories[cat];
+      const arrow = (n: number) => (n > 0 ? `+${n}` : `${n}`);
+      lines.push(
+        `| ${cat} | ${d.emitted.a}→${d.emitted.b} | ${arrow(d.emitted.delta)} | ${d.skippedByCap.a}→${d.skippedByCap.b} | ${arrow(d.skippedByCap.delta)} | ${d.filteredOut.a}→${d.filteredOut.b} | ${arrow(d.filteredOut.delta)} | ${d.status.a}${d.status.changed ? ` → **${d.status.b}**` : ""} |`,
+      );
+    }
+    lines.push(``);
+    lines.push(`Total emitted: ${planDiff.totalEmitted.a} → ${planDiff.totalEmitted.b} (Δ ${planDiff.totalEmitted.delta >= 0 ? "+" : ""}${planDiff.totalEmitted.delta})`);
+    lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
+    process.stdout.write(
+      `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
+    );
+  }
+
   const filterDesc = filter.locale || filter.variant
     ? ` filter[locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}]`
     : "";
@@ -616,7 +811,7 @@ if (isDirectRun) {
 
   // Per-category notices — always emit one per category with status + top N
   // skipped reasons so reviewers can debug omissions directly from Checks UI.
-  const TOP_NOTICE = 3;
+  // Count controlled by --top-skipped-reasons=<n> (default 3).
   for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
     const p = plan.categories[cat];
     const reasonLabel: Record<CategoryPlan["status"], string> = {

@@ -1,0 +1,6 @@
+# filter: locale=en-CA,variant=blog
+category,rawFailures,matched,emitted,skippedByCap,filteredOut,status,topSkipped,topFiltered
+legacy,17,1,1,0,16,partial,,/snow-removal-in-burquitlam (locale/variant mismatch) | /abbotsford-snow-removal (locale/variant mismatch) | /locations (locale/variant mismatch) | /quote (locale/variant mismatch) | /blog/advanced-technology (locale/variant mismatch)
+hydration,0,0,0,0,0,no-matching-failures,,
+jsonLd,0,0,0,0,0,no-matching-failures,,
+robots,0,0,0,0,0,no-matching-failures,,
