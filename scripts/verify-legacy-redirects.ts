@@ -187,7 +187,7 @@ async function main() {
     .replace(/\/+$/, "");
   mkdirSync(resolve("seo-report"), { recursive: true });
 
-  console.log(`  legacy-redirects: timeout=${REQUEST_TIMEOUT_MS}ms retries=${MAX_RETRIES} backoff=${RETRY_BASE_DELAY_MS}ms`);
+  console.log(`  legacy-redirects: timeout=${REQUEST_TIMEOUT_MS}ms retries=${MAX_RETRIES} backoff=${RETRY_BASE_DELAY_MS}ms cache=${CACHE_ENABLED ? "on" : "off"}`);
   if (!base) {
     const note = "NETLIFY_BASE / CRAWL_URL not set — skipping live redirect checks (vite preview doesn't process netlify.toml).";
     console.log(`⏭  legacy-redirects: ${note}`);
