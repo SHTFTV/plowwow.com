@@ -176,6 +176,8 @@ async function main() {
       let ogTags: Record<string, string> = {};
       let twitterTags: Record<string, string> = {};
       let ogLocaleAlternates: string[] = [];
+      let jsonLd: LdSummary = { types: [], ids: [], count: 0 };
+      const jsonLdExpected = readStaticLd(canonicalUrl);
       try {
         await page.goto(testUrl, { waitUntil: "networkidle", timeout: 20_000 });
         await page.waitForFunction(
