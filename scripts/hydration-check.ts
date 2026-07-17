@@ -156,9 +156,43 @@ async function main() {
   // Lazy-load playwright — devDep is already present.
   const { chromium } = await import("@playwright/test");
   const browser = await chromium.launch({ headless: true });
+  // Stable viewport + fixed user agent so timing-sensitive tag assertions are
+  // deterministic across CI runs. Cap network to a modest profile to keep
+  // hydration timing consistent regardless of runner speed.
+  const context = await browser.newContext({
+    viewport: { width: 1280, height: 800 },
+    userAgent: "Mozilla/5.0 (compatible; PlowwowHydrationCheck/1.0; +https://plowwow.com)",
+    locale: "en-CA",
+    timezoneId: "America/Vancouver",
+    reducedMotion: "reduce",
+    serviceWorkers: "block",
+  });
+  context.setDefaultTimeout(Number(process.env.HYDRATION_TIMEOUT_MS ?? 25_000));
+  context.setDefaultNavigationTimeout(Number(process.env.HYDRATION_NAV_TIMEOUT_MS ?? 25_000));
 
   const { urls: sample, seed, seedSource, weights } = collectSample();
   console.log(`  hydration-check sample: ${sample.length} urls · seed=${seed} (${seedSource}) · weights=${JSON.stringify(weights)}`);
+
+  // Export the exact sample as a standalone artifact so failing runs are fully
+  // reproducible without parsing hydration.json.
+  mkdirSync(resolve("seo-report"), { recursive: true });
+  writeFileSync(
+    resolve("seo-report/hydration-sample.json"),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        seed,
+        seedSource,
+        weights,
+        cap: Number(process.env.HYDRATION_MAX ?? 30),
+        urls: sample,
+        reproduce: `HYDRATION_SEED=${seedSource} HYDRATION_WEIGHTS='${Object.entries(weights).map(([k,v])=>`${k}=${v}`).join(",")}' HYDRATION_MAX=${sample.length} bun run seo:hydration`,
+      },
+      null,
+      2,
+    ),
+  );
+
   type LdSummary = { types: string[]; ids: string[]; count: number };
   type Result = {
     url: string;
