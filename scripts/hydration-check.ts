@@ -49,12 +49,29 @@ function collectSample(): string[] {
   }
   const uniq = [...new Set(pages)].sort();
   const home = uniq.find((u) => new URL(u).pathname === "/") ?? uniq[0];
-  const cities = uniq.filter((u) => /\/(vancouver|burnaby|richmond|surrey|coquitlam)\/$/.test(u)).slice(0, 2);
-  const blogs = uniq
-    .filter((u) => /-strata-commercial-snow-(removal|plowing)\/$/.test(u))
-    .slice(0, 4);
-  const misc = uniq.filter((u) => /\/(blog|locations)\/$/.test(u));
-  return [...new Set([home, ...misc, ...cities, ...blogs])];
+  // Sample every "hub" city and a wide slice of neighborhood/blog pages so
+  // OG/Twitter (incl. og:locale:alternate) + JSON-LD get exercised across
+  // every URL shape the sitemap ships. Env HYDRATION_MAX caps total pages.
+  const cityRx = /\/(vancouver|burnaby|richmond|surrey|coquitlam|north-vancouver|west-vancouver|langley|maple-ridge|delta|new-westminster|port-coquitlam|port-moody|white-rock|abbotsford|chilliwack|mission|pitt-meadows|squamish|tsawwassen|anmore|belcarra)\/$/;
+  const cities = uniq.filter((u) => cityRx.test(u));
+  const blogs = uniq.filter((u) =>
+    /-strata-commercial-snow-(removal|plowing)\/$/.test(u) ||
+    /-snow-removal\/$/.test(u),
+  );
+  const misc = uniq.filter((u) => /\/(blog|locations|quote|app-features|intelligence)\/$/.test(u));
+  const cap = Number(process.env.HYDRATION_MAX ?? 30);
+  const pick = <T,>(arr: T[], n: number) => {
+    if (arr.length <= n) return arr;
+    const step = arr.length / n;
+    return Array.from({ length: n }, (_, i) => arr[Math.floor(i * step)]);
+  };
+  const combined = [
+    home,
+    ...misc,
+    ...pick(cities, Math.min(cities.length, Math.max(6, Math.floor(cap * 0.4)))),
+    ...pick(blogs, Math.min(blogs.length, Math.max(10, Math.floor(cap * 0.5)))),
+  ];
+  return [...new Set(combined)].slice(0, cap);
 }
 
 async function waitForServer(url: string, timeoutMs = 30_000): Promise<void> {
@@ -92,6 +109,7 @@ async function main() {
   const browser = await chromium.launch({ headless: true });
 
   const sample = collectSample();
+  type LdSummary = { types: string[]; ids: string[]; count: number };
   type Result = {
     url: string;
     hydrated: boolean;
@@ -102,8 +120,47 @@ async function main() {
     ogTags: Record<string, string>;
     twitterTags: Record<string, string>;
     ogLocaleAlternates: string[];
+    jsonLd: LdSummary;
+    jsonLdExpected: LdSummary;
     issues: string[];
   };
+
+  // Snapshot the prerendered JSON-LD from dist/<path>/index.html so we can
+  // assert every schema block that shipped in raw HTML survives hydration.
+  function readStaticLd(canonicalUrl: string): LdSummary {
+    const path = new URL(canonicalUrl).pathname.replace(/\/+$/, "") || "/";
+    const file =
+      path === "/"
+        ? resolve(DIST, "index.html")
+        : resolve(DIST, path.replace(/^\//, ""), "index.html");
+    if (!existsSync(file)) return { types: [], ids: [], count: 0 };
+    const html = readFileSync(file, "utf8");
+    return summarizeLd(extractLdBlocks(html));
+  }
+  function extractLdBlocks(html: string): unknown[] {
+    const rx = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+    const out: unknown[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(html))) {
+      try { out.push(JSON.parse(m[1])); } catch { /* preflight handles */ }
+    }
+    return out;
+  }
+  function summarizeLd(nodes: unknown[]): LdSummary {
+    const types = new Set<string>();
+    const ids = new Set<string>();
+    const visit = (n: any) => {
+      if (!n || typeof n !== "object") return;
+      if (Array.isArray(n)) return n.forEach(visit);
+      if (n["@graph"]) (n["@graph"] as any[]).forEach(visit);
+      const t = n["@type"];
+      if (t) (Array.isArray(t) ? t : [t]).forEach((x) => types.add(String(x)));
+      if (typeof n["@id"] === "string") ids.add(n["@id"]);
+    };
+    nodes.forEach(visit);
+    return { types: [...types].sort(), ids: [...ids].sort(), count: nodes.length };
+  }
+
   const results: Result[] = [];
 
   try {
@@ -119,6 +176,8 @@ async function main() {
       let ogTags: Record<string, string> = {};
       let twitterTags: Record<string, string> = {};
       let ogLocaleAlternates: string[] = [];
+      let jsonLd: LdSummary = { types: [], ids: [], count: 0 };
+      const jsonLdExpected = readStaticLd(canonicalUrl);
       try {
         await page.goto(testUrl, { waitUntil: "networkidle", timeout: 20_000 });
         await page.waitForFunction(
@@ -144,12 +203,16 @@ async function main() {
           const ogAlts = Array.from(
             document.head.querySelectorAll<HTMLMetaElement>('meta[property="og:locale:alternate"]'),
           ).map((m) => m.getAttribute("content") ?? "");
+          const ldRaw = Array.from(
+            document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]'),
+          ).map((s) => s.textContent ?? "");
           return {
             canonical: canon?.href ?? null,
             hreflangs: alts.map((a) => `${a.hreflang}|${a.href}`),
             ogTags: ogEntries,
             twitterTags: twEntries,
             ogLocaleAlternates: ogAlts,
+            ldRaw,
           };
         });
         canonical = data.canonical;
@@ -157,6 +220,11 @@ async function main() {
         ogTags = data.ogTags;
         twitterTags = data.twitterTags;
         ogLocaleAlternates = data.ogLocaleAlternates;
+        const parsed: unknown[] = [];
+        for (const s of data.ldRaw) {
+          try { parsed.push(JSON.parse(s)); } catch { /* handled below */ }
+        }
+        jsonLd = summarizeLd(parsed);
       } catch (err) {
         issues.push(`page load failed: ${err instanceof Error ? err.message : String(err)}`);
       } finally {
@@ -197,6 +265,17 @@ async function main() {
       if (twImg && !/^https:\/\//.test(twImg))
         issues.push(`twitter:image not absolute-https: ${twImg}`);
 
+      // JSON-LD snapshot: every @type + @id shipped in raw HTML must still
+      // be present after hydration. Extra hydration-added blocks are OK.
+      const missingTypes = jsonLdExpected.types.filter((t) => !jsonLd.types.includes(t));
+      if (missingTypes.length)
+        issues.push(`JSON-LD @types missing after hydration: ${missingTypes.join(", ")}`);
+      const missingIds = jsonLdExpected.ids.filter((id) => !jsonLd.ids.includes(id));
+      if (missingIds.length)
+        issues.push(`JSON-LD @ids missing after hydration: ${missingIds.slice(0, 3).join(", ")}${missingIds.length > 3 ? "…" : ""}`);
+      if (jsonLdExpected.count && jsonLd.count < jsonLdExpected.count)
+        issues.push(`JSON-LD block count dropped ${jsonLdExpected.count} → ${jsonLd.count} after hydration`);
+
       results.push({
         url: canonicalUrl,
         hydrated,
@@ -207,6 +286,8 @@ async function main() {
         ogTags,
         twitterTags,
         ogLocaleAlternates,
+        jsonLd,
+        jsonLdExpected,
         issues,
       });
     }
