@@ -773,7 +773,10 @@ export function validateAgainstSchema(value: unknown, schema: JsonSchema, path =
 export function validateSampleConfigTemplate(schemaPath?: string): void {
   // Resolve default schema next to this script so the fail-fast check works
   // regardless of the caller's cwd (e.g. tests use a tmp cwd).
-  const defaultPath = resolve(__dirname, "..", "seo-annotations.config.schema.json");
+  const here = (() => {
+    try { return new URL(".", import.meta.url).pathname; } catch { return process.cwd(); }
+  })();
+  const defaultPath = resolve(here, "..", "seo-annotations.config.schema.json");
   const sp = schemaPath ? resolve(schemaPath) : defaultPath;
   if (!existsSync(sp)) {
     throw new Error(`Sample config validation: schema file not found at ${sp}`);
