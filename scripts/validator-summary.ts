@@ -104,21 +104,58 @@ const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff();
 const totalNewSinceBaseline = baselineDiffs.reduce((n, d) => n + d.newFailures.length, 0);
 md.push(`### Baseline regression`);
 if (!hasBaseline) {
-  md.push(`- _No baseline present. Run \`bun scripts/lib/baseline.ts accept\` after a clean run._`);
+  md.push(`- _No baseline present. Run \`bun run seo:baseline-accept -- --yes\` after a clean run._`);
 } else {
   md.push(`- **${totalNewSinceBaseline}** new failure(s) since last accepted baseline.`);
   for (const d of baselineDiffs) {
     if (!d.newFailures.length) continue;
     md.push(`  - \`${d.category}\`: ${d.newFailures.length} new`);
-    for (const k of d.newFailures.slice(0, 3)) md.push(`    - \`${k}\``);
+    // For legacyRedirects, surface the locale × page-variant grouping so we
+    // can immediately see which city/blog URLs regressed.
+    if (d.category === "legacyRedirects" && d.grouped) {
+      for (const [locale, variants] of Object.entries(d.grouped)) {
+        const counts = Object.entries(variants)
+          .map(([v, keys]) => `${v}=${keys.length}`)
+          .join(", ");
+        md.push(`    - _${locale}_: ${counts}`);
+        for (const [variant, keys] of Object.entries(variants)) {
+          for (const k of keys.slice(0, 3)) md.push(`      - \`${variant}\` · \`${k}\``);
+        }
+      }
+    } else {
+      for (const k of d.newFailures.slice(0, 3)) md.push(`    - \`${k}\``);
+    }
   }
 }
 md.push("");
 
+// Direct artifact links — GitHub Actions serves the run's artifact index at
+// #artifacts and individual files are accessible under checks/annotations only
+// via download, but linking each report by name still gives reviewers a
+// one-click destination for the underlying JSON/MD once the artifact is
+// downloaded.
 if (artifactUrl) {
-  md.push(`📎 [Full validation report + artifacts](${artifactUrl})`);
+  md.push(`### 📎 Artifacts`);
+  md.push(`- 🔗 [Full workflow run + artifact index](${artifactUrl})`);
+  const files: [string, string][] = [
+    ["Validation report (MD)", "seo-report/validation-report.md"],
+    ["Validation report (JSON)", "seo-report/validation-report.json"],
+    ["Legacy redirects", "seo-report/legacy-redirects.md"],
+    ["Hydration check", "seo-report/hydration.md"],
+    ["Hydration sample (reproducer)", "seo-report/hydration-sample.json"],
+    ["JSON-LD preflight", "seo-report/jsonld-preflight.json"],
+    ["Robots directives", "seo-report/robots-directives.md"],
+    ["Baseline diff", "seo-report/baseline-diff.md"],
+    ["Baseline accept preview", "seo-report/baseline-accept-preview.md"],
+    ["Threshold outcomes", "seo-report/threshold-outcomes.json"],
+    ["HTTP cache stats", "seo-report/http-cache-stats.json"],
+  ];
+  for (const [label, path] of files) {
+    md.push(`- \`${path}\` — ${label}`);
+  }
   md.push("");
 }
+
 
 md.push(`### Top failing legacy redirects`);
 md.push(
