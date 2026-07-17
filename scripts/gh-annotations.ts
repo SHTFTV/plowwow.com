@@ -1309,6 +1309,19 @@ if (isDirectRun) {
     argVal(argv, "artifacts-dir") ?? process.env.SEO_ANN_ARTIFACTS_DIR ?? REPORT_DIR,
   );
 
+  // --artifacts-filename-prefix=<prefix> (env SEO_ANN_ARTIFACTS_FILENAME_PREFIX)
+  // — prepend this string to the *filenames* (not paths) of generated artifacts
+  // inside --artifacts-dir. Applies to regression-thresholds.{csv,json},
+  // schema-drift-errors.{json,csv} (only when their path defaults into
+  // artifactsDir), and their manifests. Does NOT affect files whose path was
+  // set explicitly via --schema-error-report=<path>. Prefix is used verbatim.
+  const artifactsFilenamePrefix =
+    argVal(argv, "artifacts-filename-prefix")
+    ?? process.env.SEO_ANN_ARTIFACTS_FILENAME_PREFIX
+    ?? "";
+  const withPrefix = (name: string) => `${artifactsFilenamePrefix}${name}`;
+
+
   // --fail-on-regression-thresholds-config=<path> — load per-category
   // critical/major/minor bands from a JSON file. Loaded early so
   // --print-regression-thresholds and later severity checks both see it.
