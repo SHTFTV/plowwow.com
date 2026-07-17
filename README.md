@@ -87,6 +87,76 @@ Any failures skipped by the caps are counted in
 **"Annotation caps"**, and shown in the HTML report's **"Skipped by caps"**
 section.
 
+#### Generated artifacts + advanced flags
+
+Run `bunx tsx scripts/gh-annotations.ts --help` for the full list; the flags
+below need a bit more explanation.
+
+| Flag | Purpose |
+| ---- | ------- |
+| `--artifacts-dir=<path>` (env `SEO_ANN_ARTIFACTS_DIR`) | Override the output directory for the artifacts listed below. Defaults to `seo-report/`. |
+| `--print-regression-thresholds` | Print severity bands (minor/major/critical, as `deltaPercent`) to stdout as a `::notice` line. |
+| `--print-regression-thresholds-format=csv,json` | Also write `regression-thresholds.csv` and/or `regression-thresholds.json` into `--artifacts-dir`. CSV columns: `category,minor,major,critical,source`. |
+| `--fail-on-regression-thresholds-config=<path>` (env `SEO_ANN_REGRESSION_THRESHOLDS_CONFIG`) | Load per-category minor/major/critical bands from JSON. See schema below. |
+| `--schema-error-report[=<path>]` | Write `schema-drift-errors.json` (default location: `--artifacts-dir/schema-drift-errors.json`). |
+| `--schema-error-report-format=csv` | Also write `schema-drift-errors.csv` alongside the JSON. |
+| `--schema-error-report-max-errors=<N>` (env `SEO_ANN_SCHEMA_ERROR_MAX`) | Cap rows written to both JSON and CSV. JSON adds `{ totalCount, truncated, maxErrors }`; a `::warning` is emitted if truncated. |
+| `--plan-category-include=<cats>` / `--plan-category-exclude=<cats>` | Restrict/filter PR tables + CSV outputs to specific categories (`legacy,hydration,jsonLd,robots`). Overlapping include/exclude values exit `2` with a clear error. |
+
+**Artifact filenames** (all in `--artifacts-dir`, defaulting to `seo-report/`):
+
+- `regression-thresholds.csv` — spreadsheet of resolved severity bands per category.
+- `regression-thresholds.json` — same data plus source (`config`/`default`/`builtin`) and the config file path when loaded.
+- `schema-drift-errors.json` — structured sample-config drift with `path`, `keyword`, `expected`, `actual`, `snippet`.
+- `schema-drift-errors.csv` — same fields as CSV rows.
+
+The PR comment auto-links `regression-thresholds.csv` / `.json` whenever
+`--print-regression-thresholds-format` writes them.
+
+**`--fail-on-regression-thresholds-config` JSON schema:**
+
+```jsonc
+{
+  // Optional; used when a category has no override. Falls back to
+  // built-in { minor: 1, major: 25, critical: 50 } when omitted.
+  "default":   { "minor": 1, "major": 25, "critical": 50 },
+  "legacy":    { "minor": 2 },        // inherits major/critical from default
+  "hydration": { "critical": 40 },
+  "jsonLd":    { "minor": 5, "major": 15, "critical": 30 },
+  "robots":    { "minor": 1, "major": 10, "critical": 25 }
+}
+```
+
+Rules: keys must be `default`, `legacy`, `hydration`, `jsonLd`, or `robots`;
+each value is an object of `{ minor, major, critical }` non-negative finite
+numbers (percent). Missing bands inherit from `default`, then built-ins.
+Invalid shapes exit `2` with an actionable message.
+
+**Additional examples:**
+
+```bash
+# Print + persist the severity bands used by --fail-on-regression-severity
+bunx tsx scripts/gh-annotations.ts \
+  --print-regression-thresholds \
+  --print-regression-thresholds-format=csv,json
+
+# Use a custom bands config and route artifacts to a per-run dir
+bunx tsx scripts/gh-annotations.ts \
+  --artifacts-dir=out/ci-run-42 \
+  --fail-on-regression-thresholds-config=./ci/thresholds.json \
+  --print-regression-thresholds-format=json \
+  --fail-on-regression-severity=major \
+  --compare-locale=fr
+
+# Cap noisy schema-drift dumps to the top 25 rows in both JSON + CSV
+bunx tsx scripts/gh-annotations.ts \
+  --schema-error-report \
+  --schema-error-report-format=csv \
+  --schema-error-report-max-errors=25
+```
+
+
+
 ### Repro bundle — `scripts/bundle-repro.ts`
 
 Packages `seo-report/` + `hydration-sample.json` + config metadata into a
