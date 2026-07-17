@@ -38,10 +38,16 @@ export type CacheStats = {
   ttlMs: number;
   hits: number;
   misses: number;
+  /** Total wall-clock ms spent inside cachedFetch (network + cache read). */
+  totalMs: number;
+  /** Cumulative ms saved by cache hits, estimated from avg miss latency. */
+  savedMs: number;
+  /** Sum of ms actually spent on network (misses). */
+  networkMs: number;
   entries: { url: string; method: string; status: number; fetchedAt: string; hits: number }[];
 };
 
-const stats: CacheStats = { enabled: ENABLED, ttlMs: DEFAULT_TTL_MS, hits: 0, misses: 0, entries: [] };
+const stats: CacheStats = { enabled: ENABLED, ttlMs: DEFAULT_TTL_MS, hits: 0, misses: 0, totalMs: 0, savedMs: 0, networkMs: 0, entries: [] };
 
 function keyFor(method: string, url: string): string {
   return createHash("sha1").update(`${method.toUpperCase()} ${url}`).digest("hex");
