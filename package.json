@@ -36,7 +36,9 @@
     "seo:baseline-accept": "tsx scripts/lib/baseline.ts accept",
     "seo:thresholds-validate": "tsx scripts/lib/thresholds.ts validate",
     "seo:gh-annotations": "tsx scripts/gh-annotations.ts",
-    "seo:repro-bundle": "tsx scripts/bundle-repro.ts"
+    "seo:repro-bundle": "tsx scripts/bundle-repro.ts",
+    "seo:repro-replay": "tsx scripts/bundle-repro.ts --bundle=seo-report/repro-bundle.zip",
+    "seo:html-report": "tsx scripts/generate-html-report.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
