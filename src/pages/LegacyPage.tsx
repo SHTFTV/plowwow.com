@@ -7,6 +7,45 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { truncateForMeta } from "@/lib/seo";
+import { blogPosts } from "@/generated/blog-posts";
+
+const blogDatesBySlug: Record<string, { publishedAt: string; updatedAt: string }> =
+  Object.fromEntries(
+    blogPosts.map((p) => [p.slug, { publishedAt: p.publishedAt, updatedAt: p.updatedAt }]),
+  );
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+// Extract a "## Changelog" section as a list of { date, note } entries.
+// Each H3 (### 2026-07-17) is the date; following text (until next H3/H2) is
+// the note. Falls back to bullet list items ("- 2026-07-17: note").
+const extractChangelog = (body: string): { date: string; note: string }[] => {
+  const secMatch = body.match(
+    /(?:^|\n)##\s+(?:Changelog|What(?:'s|s)?\s+Changed|Revision(?:\s+History)?)\s*\n([\s\S]*?)(?=\n##\s|\n#\s(?!#)|$(?![\s\S]))/i,
+  );
+  if (!secMatch) return [];
+  const section = secMatch[1];
+  const entries: { date: string; note: string }[] = [];
+  const h3Re = /(?:^|\n)###\s+(.+?)\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$(?![\s\S]))/g;
+  let m: RegExpExecArray | null;
+  while ((m = h3Re.exec(section)) !== null) {
+    const note = m[2].replace(/[#>*_`]/g, " ").replace(/\s+/g, " ").trim();
+    entries.push({ date: m[1].trim(), note });
+  }
+  if (entries.length === 0) {
+    const bulletRe = /^[-*]\s+(\d{4}-\d{2}-\d{2})\s*[:—-]\s*(.+)$/gm;
+    let b: RegExpExecArray | null;
+    while ((b = bulletRe.exec(section)) !== null) {
+      entries.push({ date: b[1].trim(), note: b[2].trim() });
+    }
+  }
+  return entries;
+};
 
 // Eagerly import every preserved markdown file as raw text at build time.
 const pageFiles = import.meta.glob("/src/content/legacy/pages/*.md", {
