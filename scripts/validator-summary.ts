@@ -83,6 +83,38 @@ md.push(`- robots.txt directives: ${robotsFailures.length} failure(s)`);
 md.push("");
 md.push(`**Total failures: ${totalFailures}**`);
 md.push("");
+
+// Threshold gating — categories map to counters above.
+const outcomes: CategoryOutcome[] = [
+  evaluate("legacyRedirects", legacyFailing.length, thresholds),
+  evaluate("hydration", hydrationFailing.length, thresholds),
+  evaluate("jsonLd", jsonldFindings.length, thresholds),
+  evaluate("robots", robotsFailures.length, thresholds),
+  evaluate("validation", validation?.totalIssues ?? 0, thresholds),
+];
+const icon = (s: string) => (s === "fail" ? "❌" : s === "warn" ? "⚠️" : "✅");
+md.push(`### Threshold gates`);
+for (const o of outcomes) {
+  md.push(`- ${icon(o.status)} \`${o.category}\` — ${o.failures} failure(s), threshold ${o.threshold.max} (${o.threshold.severity})`);
+}
+md.push("");
+
+// Baseline regression — new failures only (baseline suppresses acknowledged issues).
+const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff();
+const totalNewSinceBaseline = baselineDiffs.reduce((n, d) => n + d.newFailures.length, 0);
+md.push(`### Baseline regression`);
+if (!hasBaseline) {
+  md.push(`- _No baseline present. Run \`bun scripts/lib/baseline.ts accept\` after a clean run._`);
+} else {
+  md.push(`- **${totalNewSinceBaseline}** new failure(s) since last accepted baseline.`);
+  for (const d of baselineDiffs) {
+    if (!d.newFailures.length) continue;
+    md.push(`  - \`${d.category}\`: ${d.newFailures.length} new`);
+    for (const k of d.newFailures.slice(0, 3)) md.push(`    - \`${k}\``);
+  }
+}
+md.push("");
+
 if (artifactUrl) {
   md.push(`📎 [Full validation report + artifacts](${artifactUrl})`);
   md.push("");
