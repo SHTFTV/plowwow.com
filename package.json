@@ -24,6 +24,7 @@
     "seo:og-twitter": "tsx scripts/og-twitter-validate.ts",
     "seo:sitemap": "tsx scripts/sitemap-lastmod-validate.ts",
     "seo:hydration": "tsx scripts/hydration-check.ts",
+    "seo:hydration-replay": "tsx scripts/hydration-check.ts --replay=seo-report/hydration-sample.json",
     "seo:html-lang": "tsx scripts/html-lang-validate.ts",
     "seo:og-image": "tsx scripts/og-image-reachable.ts",
     "seo:robots-sitemap": "tsx scripts/robots-sitemap-fetch.ts",
