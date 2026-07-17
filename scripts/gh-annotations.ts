@@ -1222,6 +1222,14 @@ if (isDirectRun) {
   // --top-skipped-reasons=<n> controls how many top skipped reasons appear
   // in each per-category ::notice line.
   const TOP_NOTICE = intOr(argVal(argv, "top-skipped-reasons") ?? process.env.SEO_ANN_TOP_SKIPPED_REASONS, 3);
+  // --plan-category-include=cat1,cat2 restricts PR tables and CSV outputs to
+  // the listed categories. `null` = no restriction. Accepts aliases (jsonld,
+  // json-ld, legacy-redirects).
+  const includeCats = parseCategoryInclude(
+    argVal(argv, "plan-category-include") ?? process.env.SEO_ANN_PLAN_CATEGORY_INCLUDE ?? null,
+  );
+
+
 
   // --compare-locale=<code> / --compare-variant=<name>: compute a second plan
   // using the alternate filter and write a diff report showing how planned
