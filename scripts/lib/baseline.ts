@@ -109,7 +109,25 @@ function groupLegacyByLocaleVariant(newFailures: string[]): Record<string, Recor
   return out;
 }
 
-export function runBaselineDiff(): { diffs: CategoryDiff[]; hasBaseline: boolean } {
+export type BaselineFilter = { locale?: string; variant?: string };
+
+/** Apply a locale/variant filter to a legacy-redirect diff's newFailures + grouped map. */
+function applyFilter(diff: CategoryDiff, filter: BaselineFilter): CategoryDiff {
+  if (diff.category !== "legacyRedirects" || (!filter.locale && !filter.variant)) return diff;
+  const grouped: Record<string, Record<string, string[]>> = {};
+  const kept: string[] = [];
+  for (const [loc, variants] of Object.entries(diff.grouped ?? {})) {
+    if (filter.locale && loc !== filter.locale) continue;
+    for (const [variant, keys] of Object.entries(variants)) {
+      if (filter.variant && variant !== filter.variant) continue;
+      (grouped[loc] ??= {})[variant] = keys;
+      kept.push(...keys);
+    }
+  }
+  return { ...diff, newFailures: kept, grouped };
+}
+
+export function runBaselineDiff(filter: BaselineFilter = {}): { diffs: CategoryDiff[]; hasBaseline: boolean; filter: BaselineFilter } {
   const hasBaseline = existsSync(BASELINE_DIR) && readdirSync(BASELINE_DIR).length > 0;
   const legacyDiff = diffCategory(
     "legacyRedirects",
@@ -118,12 +136,25 @@ export function runBaselineDiff(): { diffs: CategoryDiff[]; hasBaseline: boolean
   );
   legacyDiff.grouped = groupLegacyByLocaleVariant(legacyDiff.newFailures);
   const diffs: CategoryDiff[] = [
-    legacyDiff,
+    applyFilter(legacyDiff, filter),
     diffCategory("hydration", keysHydration(readJson(BASELINE_DIR, "hydration.json")), keysHydration(readJson(REPORT_DIR, "hydration.json"))),
     diffCategory("jsonLd", keysJsonLd(readJson(BASELINE_DIR, "jsonld-preflight.json")), keysJsonLd(readJson(REPORT_DIR, "jsonld-preflight.json"))),
     diffCategory("robots", keysRobots(readJson(BASELINE_DIR, "robots-directives.json")), keysRobots(readJson(REPORT_DIR, "robots-directives.json"))),
   ];
-  return { diffs, hasBaseline };
+  return { diffs, hasBaseline, filter };
+}
+
+/** Read locale/variant filter from CLI flags (`--locale=…`, `--variant=…`) or env (SEO_BASELINE_LOCALE / _VARIANT). */
+export function parseFilterFromArgv(argv: string[]): BaselineFilter {
+  const get = (name: string): string | undefined => {
+    const flag = argv.find((a) => a.startsWith(`--${name}=`));
+    if (flag) return flag.split("=").slice(1).join("=") || undefined;
+    return undefined;
+  };
+  return {
+    locale: get("locale") ?? process.env.SEO_BASELINE_LOCALE ?? undefined,
+    variant: get("variant") ?? process.env.SEO_BASELINE_VARIANT ?? undefined,
+  };
 }
 
 
