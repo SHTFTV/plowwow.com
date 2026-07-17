@@ -53,7 +53,7 @@ export default function AdminGscCoverage() {
   async function loadSnapshots() {
     const { data } = await supabase.from("gsc_coverage_snapshots")
       .select("*").order("captured_at", { ascending: false }).limit(30);
-    setSnapshots((data ?? []) as Snapshot[]);
+    setSnapshots((data ?? []) as unknown as Snapshot[]);
   }
 
   async function refresh() {
