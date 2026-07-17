@@ -93,6 +93,21 @@ export default function AdminLinkAudit() {
     loadEverything();
   }
 
+  function exportCsv() {
+    if (!report) {
+      toast({ title: "No report yet", description: "Run the audit first.", variant: "destructive" });
+      return;
+    }
+    const stamp = new Date(report.generatedAt || Date.now()).toISOString().replace(/[:.]/g, "-");
+    const rows: (string | number)[][] = [];
+    rows.push(["type", "slug", "name_or_title", "path", "post_count"]);
+    for (const p of report.orphanPosts) rows.push(["orphan_post", p.slug, p.title, `/${p.slug}`, ""]);
+    for (const c of report.citiesWithoutPosts) rows.push(["empty_city", c.slug, c.name, c.path, 0]);
+    for (const c of report.cityPostCounts) rows.push(["city_post_count", c.slug, c.name, `/${c.slug}`, c.count]);
+    downloadCsv(`link-audit-${stamp}.csv`, rows);
+    toast({ title: "CSV exported", description: `${rows.length - 1} rows.` });
+  }
+
   if (checking) return <div className="p-8">Checking access…</div>;
   if (!isAdmin) return <div className="p-8">Admin access required. <Link to="/auth" className="underline">Sign in</Link></div>;
 
