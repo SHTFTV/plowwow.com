@@ -240,6 +240,19 @@ function renderHead(route: RouteMeta): string {
     `<meta property="og:image" content="${img}" />`,
   );
 
+  // og:locale:alternate — one per non-primary supported locale, so link
+  // previews on locale-aware surfaces (LinkedIn, Facebook) advertise every
+  // variant we ship. Inserted after og:locale so validators see them together.
+  if (ALTERNATE_OG_LOCALES.length) {
+    const alternates = ALTERNATE_OG_LOCALES
+      .map((l) => `<meta property="og:locale:alternate" content="${l}" />`)
+      .join("\n    ");
+    html = html.replace(
+      /(<meta\s+property="og:locale"\s+content="[^"]*"\s*\/>)/,
+      `$1\n    ${alternates}`,
+    );
+  }
+
   // Twitter
   html = html.replace(
     /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
