@@ -1766,7 +1766,7 @@ if (isDirectRun) {
           if (!c.exceeds) continue;
           const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
           process.stdout.write(
-            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${severityEval.thresholdPercent}%)\n`,
+            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${c.thresholdPercent}%)\n`,
           );
         }
       }
