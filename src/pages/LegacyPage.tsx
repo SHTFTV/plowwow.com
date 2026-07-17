@@ -167,6 +167,16 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     setProp("og:type", kind === "blog" ? "article" : "website");
     setCanonical(path);
 
+    // Remove any stale article time meta so non-blog pages don't inherit them.
+    document
+      .querySelectorAll('meta[property="article:published_time"], meta[property="article:modified_time"]')
+      .forEach((el) => el.remove());
+    const dates = kind === "blog" ? blogDatesBySlug[slug] : undefined;
+    if (dates) {
+      setProp("article:published_time", dates.publishedAt);
+      setProp("article:modified_time", dates.updatedAt || dates.publishedAt);
+    }
+
     // FAQPage JSON-LD for SEO / AEO / LLM grounding.
     const ldId = "legacy-page-faq-jsonld";
     document.getElementById(ldId)?.remove();
