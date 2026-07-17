@@ -269,13 +269,40 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         ],
       });
       document.head.appendChild(crumb);
+
+      // SnowRemovalService / LocalBusiness block for neighborhood posts.
+      const svcId = "legacy-page-service-jsonld";
+      document.getElementById(svcId)?.remove();
+      const areaMatch = title.match(/^(.*?)(?:\s*[-–|]\s*|\s+in\s+|\s+snow)/i);
+      const areaName = areaMatch?.[1]?.trim() || title.replace(/\s*\|\s*PlowWow.*$/i, "");
+      const svc = document.createElement("script");
+      svc.type = "application/ld+json";
+      svc.id = svcId;
+      svc.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "SnowRemovalService"],
+        "@id": `${path}#localbusiness`,
+        name: `PlowWow Snow Removal — ${areaName}`,
+        url: path,
+        telephone: "+1-604-761-1518",
+        priceRange: "$$",
+        image: heroPath || "https://plowwow.com/wp-content/uploads/hero.jpg",
+        logo: "https://plowwow.com/wp-content/uploads/logo.png",
+        areaServed: { "@type": "Place", name: areaName },
+        provider: { "@id": "https://plowwow.com/#organization" },
+        serviceType: "Snow Removal, De-Icing & Salting",
+        address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
+      });
+      document.head.appendChild(svc);
     }
     return () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(articleId)?.remove();
       document.getElementById(crumbId)?.remove();
+      document.getElementById("legacy-page-service-jsonld")?.remove();
     };
   }, [title, description, faqs, kind, slug, body]);
+
 
 
   return (

@@ -101,15 +101,30 @@ const CityPage = () => {
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "SnowRemovalService"],
+    "@id": `${url}#localbusiness`,
     name: `PlowWow Snow Removal — ${city.name}`,
     image: ogImage,
+    logo: "https://plowwow.com/wp-content/uploads/logo.png",
     url,
     telephone: "+1-604-761-1518",
+    priceRange: "$$",
     areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
     address: { "@type": "PostalAddress", addressLocality: city.name, addressRegion: city.province, addressCountry: "CA" },
-    priceRange: "$$",
+    provider: { "@id": "https://plowwow.com/#organization" },
+    serviceType: "Snow Removal, De-Icing & Salting",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${city.name} Snow & Ice Services`,
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Snow Plowing" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strata & HOA Snow Removal" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "De-Icing & Salting" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Residential Driveway Clearing" } },
+      ],
+    },
   };
+
 
   const faqSchema = {
     "@context": "https://schema.org",
