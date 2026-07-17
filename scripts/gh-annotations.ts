@@ -581,6 +581,29 @@ export function parseCategoryInclude(raw: string | undefined | null): Category[]
   return out.length ? out : null;
 }
 
+/** Alias for parseCategoryInclude — parses --plan-category-exclude=cat1,cat2. */
+export const parseCategoryExclude = parseCategoryInclude;
+
+/** Resolve the effective category selection given optional include and exclude
+ *  filters. Effective = (include ?? ALL) minus exclude. Returns null when the
+ *  result equals the full default set (i.e. no filtering needed) so callers can
+ *  keep their existing "no include" fast paths. Returns [] when everything is
+ *  excluded.
+ */
+export function resolveCategorySelection(
+  include: Category[] | null | undefined,
+  exclude: Category[] | null | undefined,
+): Category[] | null {
+  const ALL: readonly Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const base: Category[] = include && include.length ? [...include] : [...ALL];
+  const ex = new Set(exclude ?? []);
+  const out = base.filter((c) => !ex.has(c));
+  const sameAsAll =
+    !include && !exclude ||
+    (out.length === ALL.length && ALL.every((c, i) => out[i] === c));
+  return sameAsAll ? null : out;
+}
+
 export function planToCsv(
   plan: AnnotationPlan,
   meta: { filterLabel?: string; include?: Category[] | null } = {},
