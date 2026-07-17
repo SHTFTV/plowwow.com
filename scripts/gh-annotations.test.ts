@@ -8,7 +8,7 @@
 //   - env-var fallbacks work
 
 import { describe, it, expect } from "vitest";
-import { parseConfig, passesFilter, selectAnnotations } from "./gh-annotations";
+import { parseConfig, passesFilter, selectAnnotations, evaluateSkippedLimits } from "./gh-annotations";
 
 describe("parseConfig", () => {
   it("honors global --max default across categories", () => {
