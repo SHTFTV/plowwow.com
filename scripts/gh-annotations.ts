@@ -719,6 +719,15 @@ const isDirectRun = (() => {
 
 if (isDirectRun) {
   const argv = process.argv.slice(2);
+
+  // --write-sample-config[=path] — write a fully documented template and exit.
+  if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
+    const p = argVal(argv, "write-sample-config");
+    const dest = writeSampleConfig(p);
+    process.stdout.write(`Wrote sample config → ${dest}\n`);
+    process.exit(0);
+  }
+
   const configPath = argVal(argv, "config") ?? process.env.SEO_ANN_CONFIG;
   let config: AnnotationsConfig;
   try {
