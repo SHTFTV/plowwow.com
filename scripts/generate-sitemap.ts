@@ -1,43 +1,85 @@
-// Generate public/sitemap.xml from the shared route list.
+// Generate a sitemap INDEX plus split child sitemaps from the shared route list.
 // Runs via `prebuild` (and `predev` for local parity).
+//
+// Outputs (all under /public):
+//   sitemap.xml            — <sitemapindex> referencing the child sitemaps
+//   sitemap-static.xml     — home + top-level static pages (blog hub, quote, etc.)
+//   sitemap-cities.xml     — every /:citySlug landing page
+//   sitemap-blog.xml       — every /blog/* and legacy-blog neighborhood post
+//   sitemap-pages.xml      — remaining legacy content pages
+//
+// public/sitemap-images.xml is generated separately and is referenced from the
+// sitemap index as well so image discovery scales as posts grow.
 
-import { writeFileSync } from "node:fs";
+import { writeFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { BASE_URL, collectRoutes } from "./routes";
+import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 
-// Dedupe by path — a legacy content file may share a slug with a static route.
-const routes = Array.from(
-  new Map(collectRoutes().map((r) => [r.path, r])).values()
-);
 const today = new Date().toISOString().slice(0, 10);
-
-// Canonical form: trailing slash on every non-root URL.
 const withSlash = (p: string) => (p === "/" ? "/" : p.endsWith("/") ? p : `${p}/`);
 
-const urls = routes
-  .map((r) => {
-    const priority =
-      r.path === "/"
-        ? "1.0"
-        : r.kind === "city" || r.kind === "static"
-          ? "0.8"
-          : "0.6";
-    return [
-      "  <url>",
-      `    <loc>${BASE_URL}${withSlash(r.path)}</loc>`,
-      `    <lastmod>${today}</lastmod>`,
-      `    <changefreq>weekly</changefreq>`,
-      `    <priority>${priority}</priority>`,
-      "  </url>",
-    ].join("\n");
-  })
-  .join("\n");
+const routes = Array.from(
+  new Map(collectRoutes().map((r) => [r.path, r])).values(),
+);
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
+const priorityFor = (r: RouteMeta) =>
+  r.path === "/" ? "1.0" : r.kind === "city" || r.kind === "static" ? "0.8" : "0.6";
+
+function urlBlock(r: RouteMeta): string {
+  return [
+    "  <url>",
+    `    <loc>${BASE_URL}${withSlash(r.path)}</loc>`,
+    `    <xhtml:link rel="alternate" hreflang="en-CA" href="${BASE_URL}${withSlash(r.path)}" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(r.path)}" />`,
+    `    <lastmod>${today}</lastmod>`,
+    `    <changefreq>weekly</changefreq>`,
+    `    <priority>${priorityFor(r)}</priority>`,
+    "  </url>",
+  ].join("\n");
+}
+
+function writeUrlset(filename: string, subset: RouteMeta[]) {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${subset.map(urlBlock).join("\n")}
 </urlset>
 `;
+  writeFileSync(resolve("public", filename), xml);
+  console.log(`✓ ${filename} (${subset.length} urls)`);
+}
 
-writeFileSync(resolve("public/sitemap.xml"), xml);
-console.log(`✓ sitemap.xml written (${routes.length} routes)`);
+// --- Split routes into buckets -------------------------------------------------
+const staticRoutes = routes.filter((r) => r.kind === "static");
+const cityRoutes = routes.filter((r) => r.kind === "city");
+const blogRoutes = routes.filter((r) => r.kind === "legacy-blog");
+const pageRoutes = routes.filter((r) => r.kind === "legacy-page");
+
+writeUrlset("sitemap-static.xml", staticRoutes);
+writeUrlset("sitemap-cities.xml", cityRoutes);
+writeUrlset("sitemap-blog.xml", blogRoutes);
+if (pageRoutes.length) writeUrlset("sitemap-pages.xml", pageRoutes);
+
+// --- Sitemap index -------------------------------------------------------------
+const children = [
+  "sitemap-static.xml",
+  "sitemap-cities.xml",
+  "sitemap-blog.xml",
+  pageRoutes.length ? "sitemap-pages.xml" : null,
+  existsSync(resolve("public/sitemap-images.xml")) ? "sitemap-images.xml" : null,
+].filter(Boolean) as string[];
+
+const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${children
+  .map(
+    (f) => `  <sitemap>
+    <loc>${BASE_URL}/${f}</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>`,
+  )
+  .join("\n")}
+</sitemapindex>
+`;
+writeFileSync(resolve("public/sitemap.xml"), indexXml);
+console.log(`✓ sitemap.xml index (${children.length} child sitemaps)`);
