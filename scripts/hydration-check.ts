@@ -156,7 +156,8 @@ async function main() {
   const { chromium } = await import("@playwright/test");
   const browser = await chromium.launch({ headless: true });
 
-  const sample = collectSample();
+  const { urls: sample, seed, seedSource, weights } = collectSample();
+  console.log(`  hydration-check sample: ${sample.length} urls · seed=${seed} (${seedSource}) · weights=${JSON.stringify(weights)}`);
   type LdSummary = { types: string[]; ids: string[]; count: number };
   type Result = {
     url: string;
