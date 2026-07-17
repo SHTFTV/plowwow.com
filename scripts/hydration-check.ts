@@ -362,7 +362,7 @@ async function main() {
     `_Generated ${new Date().toISOString()}_`,
     ``,
     `- Base URL: \`${base}\``,
-    `- Sample size: **${results.length}**`,
+    `- Sample size: **${results.length}** · seed \`${seed}\` (\`${seedSource}\`) · weights \`${JSON.stringify(weights)}\``,
     `- Failed: **${failed.length}**`,
     `- Required hreflang: \`${REQUIRED_HREFLANG.join(", ")}\``,
     ``,
