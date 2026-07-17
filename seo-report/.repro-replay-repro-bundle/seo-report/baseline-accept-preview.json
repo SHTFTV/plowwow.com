@@ -1,6 +1,23 @@
 {
   "hasBaseline": false,
-  "filter": {},
+  "files": [
+    {
+      "name": "legacy-redirects.json",
+      "action": "add"
+    },
+    {
+      "name": "hydration.json",
+      "action": "missing"
+    },
+    {
+      "name": "jsonld-preflight.json",
+      "action": "missing"
+    },
+    {
+      "name": "robots-directives.json",
+      "action": "add"
+    }
+  ],
   "diffs": [
     {
       "category": "legacyRedirects",
@@ -25,38 +42,7 @@
         "/anmore-snow-removal→/anmore-snow-removal/",
         "/belcarra-snow-removal→/belcarra-snow-removal/"
       ],
-      "resolved": [],
-      "grouped": {
-        "en-CA": {
-          "legacy-city-slug": [
-            "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/"
-          ],
-          "neighborhood-blog": [
-            "/abbotsford-snow-removal→/abbotsford-snow-removal/",
-            "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
-            "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
-            "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
-            "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
-            "/metrotown-snow-removal-company→/metrotown-snow-removal/",
-            "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
-            "/anmore-snow-removal→/anmore-snow-removal/",
-            "/belcarra-snow-removal→/belcarra-snow-removal/"
-          ],
-          "blog": [
-            "/blog→/blog/"
-          ],
-          "locations": [
-            "/locations→/locations/"
-          ],
-          "city-hub": [
-            "/quote→/quote/",
-            "/blog/advanced-technology→/advanced-technology/",
-            "/blog/advanced-technology/→/advanced-technology/",
-            "/posts/advanced-technology→/advanced-technology/",
-            "/posts/advanced-technology/→/advanced-technology/"
-          ]
-        }
-      }
+      "resolved": []
     },
     {
       "category": "hydration",
@@ -80,5 +66,5 @@
       "resolved": []
     }
   ],
-  "generatedAt": "2026-07-17T21:54:10.186Z"
+  "generatedAt": "2026-07-17T21:19:21.391Z"
 }

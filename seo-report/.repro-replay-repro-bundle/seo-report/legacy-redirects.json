@@ -1,0 +1,263 @@
+{
+  "generatedAt": "2026-07-17T20:57:33.870Z",
+  "base": "https://plowwow.com",
+  "total": 17,
+  "failed": 17,
+  "checks": [
+    {
+      "source": "/snow-removal-in-burquitlam",
+      "expected": "/snow-removal-in-burquitlam/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/snow-removal-in-burquitlam",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/abbotsford-snow-removal",
+      "expected": "/abbotsford-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/abbotsford-snow-removal",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/blog",
+      "expected": "/blog/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/blog",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/locations",
+      "expected": "/locations/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/locations",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/quote",
+      "expected": "/quote/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/quote",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/blog/advanced-technology",
+      "expected": "/advanced-technology/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/blog/advanced-technology",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/blog/advanced-technology/",
+      "expected": "/advanced-technology/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/blog/advanced-technology/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/posts/advanced-technology",
+      "expected": "/advanced-technology/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/posts/advanced-technology",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/posts/advanced-technology/",
+      "expected": "/advanced-technology/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/posts/advanced-technology/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal/",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-strata-snow-removal",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-strata-snow-removal",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-strata-snow-removal/",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-strata-snow-removal/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-snow-removal-company",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-snow-removal-company",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/metrotown-snow-removal-company/",
+      "expected": "/metrotown-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/metrotown-snow-removal-company/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/anmore-snow-removal",
+      "expected": "/anmore-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/anmore-snow-removal",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    },
+    {
+      "source": "/belcarra-snow-removal",
+      "expected": "/belcarra-snow-removal/",
+      "hops": [
+        {
+          "url": "https://plowwow.com/belcarra-snow-removal",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "finalStatus": 200,
+      "finalCanonical": null,
+      "ok": false,
+      "reason": "first hop status=200 (expected 301)"
+    }
+  ]
+}

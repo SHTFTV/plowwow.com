@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-17T20:57:22.028Z",
+  "base": "http://localhost:4179",
+  "httpStatus": 200,
+  "contentType": "text/plain",
+  "expectedSitemaps": [
+    "https://plowwow.com/sitemap.xml",
+    "https://plowwow.com/sitemap-static.xml",
+    "https://plowwow.com/sitemap-cities.xml",
+    "https://plowwow.com/sitemap-blog.xml",
+    "https://plowwow.com/sitemap-images.xml"
+  ],
+  "missingSitemaps": [],
+  "missingUserAgents": [],
+  "blockMisses": [],
+  "failures": []
+}
