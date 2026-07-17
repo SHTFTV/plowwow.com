@@ -1061,8 +1061,9 @@ if (isDirectRun) {
     );
   }
 
-  // --fail-on-plan-regression[=N] — exit 1 when the compare selection's total
-  // skipped increases by more than N (default 0) vs the base selection.
+  // --fail-on-plan-regression[=N|N%] — exit 1 when the compare selection's
+  // totalSkipped grows more than the threshold (absolute count, default 0, or
+  // a percentage of the base when suffixed with `%`).
   const regressionArg = argVal(argv, "fail-on-plan-regression");
   const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
   if (regressionFlag) {
@@ -1071,12 +1072,38 @@ if (isDirectRun) {
         `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
       );
     } else {
-      const threshold = intOr(regressionArg, 0);
-      const delta = planDiff.totalSkipped.delta;
-      if (delta > threshold) {
+      const threshold = parseRegressionThreshold(regressionArg);
+      const regression = evaluateRegression(planDiff, threshold);
+      // Persist per-category regression deltas so validator-summary.ts can
+      // surface them in the PR comment even when we exit non-zero here.
+      writeFileSync(
+        resolve(REPORT_DIR, "annotation-plan-regression.json"),
+        JSON.stringify(
+          {
+            generatedAt: new Date().toISOString(),
+            labels: planDiff.labels,
+            ...regression,
+          },
+          null,
+          2,
+        ),
+      );
+      if (regression.triggered) {
+        const tDesc = threshold.kind === "percent" ? `${threshold.value}%` : `${threshold.value}`;
+        const pctDesc = Number.isFinite(regression.deltaPercent)
+          ? `${regression.deltaPercent.toFixed(1)}%`
+          : "∞%";
         process.stdout.write(
-          `::error title=SEO annotations plan regression::totalSkipped ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ+${delta}) exceeds threshold ${threshold}\n`,
+          `::error title=SEO annotations plan regression::totalSkipped ${regression.before} → ${regression.after} (Δ+${regression.delta}, ${pctDesc}) exceeds threshold ${tDesc}\n`,
         );
+        for (const c of regression.perCategory) {
+          if (c.delta === 0 && !c.exceeds) continue;
+          const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
+          const level = c.exceeds ? "error" : "notice";
+          process.stdout.write(
+            `::${level} title=SEO annotations regression (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) threshold ${tDesc}\n`,
+          );
+        }
         process.exit(1);
       }
     }
