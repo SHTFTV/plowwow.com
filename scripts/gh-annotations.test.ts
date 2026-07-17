@@ -310,7 +310,19 @@ import { spawnSync } from "node:child_process";
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve as pathResolve } from "node:path";
-import { planToCsv, planDiffToCsv, diffPlans, selectAnnotations, writeSampleConfig, SAMPLE_CONFIG_TEMPLATE } from "./gh-annotations";
+import {
+  planToCsv,
+  planDiffToCsv,
+  diffPlans,
+  selectAnnotations as _sa,
+  writeSampleConfig,
+  SAMPLE_CONFIG_TEMPLATE,
+  validateSampleConfigTemplate,
+  stripJsonComments,
+  validateAgainstSchema,
+  parseRegressionThreshold,
+  evaluateRegression,
+} from "./gh-annotations";
 
 const CAPS = { legacy: 5, hydration: 5, robots: 5, jsonLd: 5 };
 const legacyDoc = {
