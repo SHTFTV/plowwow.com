@@ -886,9 +886,32 @@ if (isDirectRun) {
     lines.push(`Total emitted: ${planDiff.totalEmitted.a} → ${planDiff.totalEmitted.b} (Δ ${planDiff.totalEmitted.delta >= 0 ? "+" : ""}${planDiff.totalEmitted.delta})`);
     lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
     writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
+    // Spreadsheet-friendly CSV of the same diff.
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff));
     process.stdout.write(
       `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
     );
+  }
+
+  // --fail-on-plan-regression[=N] — exit 1 when the compare selection's total
+  // skipped increases by more than N (default 0) vs the base selection.
+  const regressionArg = argVal(argv, "fail-on-plan-regression");
+  const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
+  if (regressionFlag) {
+    if (!planDiff) {
+      process.stdout.write(
+        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
+      );
+    } else {
+      const threshold = intOr(regressionArg, 0);
+      const delta = planDiff.totalSkipped.delta;
+      if (delta > threshold) {
+        process.stdout.write(
+          `::error title=SEO annotations plan regression::totalSkipped ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ+${delta}) exceeds threshold ${threshold}\n`,
+        );
+        process.exit(1);
+      }
+    }
   }
 
   const filterDesc = filter.locale || filter.variant
