@@ -150,6 +150,10 @@ function cityLocalBusiness(route: RouteMeta, url: string): LD | null {
 }
 
 function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: string): LD {
+  const slug = route.path.replace(/^\/+/, "");
+  const post = blogPosts.find((p) => p.slug === slug);
+  const datePublished = post?.publishedAt ?? new Date().toISOString();
+  const dateModified = post?.updatedAt ?? datePublished;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -157,6 +161,8 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
     description: route.description,
     url,
     image: heroAbs,
+    datePublished,
+    dateModified,
     author: { "@type": "Organization", name: "PlowWow", url: `${BASE_URL}/` },
     publisher: {
       "@type": "Organization",
