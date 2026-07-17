@@ -1363,7 +1363,7 @@ if (isDirectRun) {
   // is always written (empty array when there is no drift).
   if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
     const p = argVal(argv, "schema-error-report");
-    const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
+    const dest = resolve(p && p.length ? p : resolve(artifactsDir, "schema-drift-errors.json"));
     mkdirSync(resolve(dest, ".."), { recursive: true });
     const allErrs = getSampleConfigTemplateErrors();
     // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
