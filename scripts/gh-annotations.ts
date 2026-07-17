@@ -1148,6 +1148,39 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
+  // --schema-error-report[=path] — write schema-drift-errors.json with the
+  // structured path/expected/actual/snippet details for each failing field.
+  // Runs BEFORE --write-sample-config so both flags can be combined; the file
+  // is always written (empty array when there is no drift).
+  if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
+    const p = argVal(argv, "schema-error-report");
+    const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
+    mkdirSync(resolve(dest, ".."), { recursive: true });
+    const errs = getSampleConfigTemplateErrors();
+    writeFileSync(
+      dest,
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          drift: errs.length > 0,
+          count: errs.length,
+          errors: errs,
+        },
+        null,
+        2,
+      ),
+    );
+    process.stdout.write(
+      `Wrote schema-drift-errors.json → ${dest} (${errs.length} error(s))\n`,
+    );
+    if (errs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations sample-config drift::${errs.length} field(s) drifted; see ${dest}\n`,
+      );
+    }
+    // Continue: allow --write-sample-config or normal run to follow.
+  }
+
   // --write-sample-config[=path] — write a fully documented template and exit.
   if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
     const p = argVal(argv, "write-sample-config");
