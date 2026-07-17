@@ -1133,6 +1133,8 @@ if (isDirectRun) {
 
   // annotation-plan-summary.json — compact top-level totals + per-category
   // skipped-reason breakdowns for automated parsing (dashboards, alerts).
+  // The number of reasons per category is bounded by --top-skipped-reasons=<n>
+  // (same knob that controls per-category ::notice output).
   {
     const categoriesSummary: Record<string, {
       status: CategoryPlan["status"];
@@ -1145,6 +1147,13 @@ if (isDirectRun) {
     }> = {};
     for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
       const p = plan.categories[cat];
+      // Prefer cap-skipped reasons first (they indicate CI-suppressed output),
+      // then fill remaining slots with filter-skipped reasons.
+      const reasons: { reason: SkipReason | "filter"; summary: string }[] = [];
+      for (const s of p.topSkipped.slice(0, TOP_NOTICE)) reasons.push({ reason: s.reason, summary: s.summary });
+      for (const s of p.topFiltered.slice(0, Math.max(0, TOP_NOTICE - reasons.length))) {
+        reasons.push({ reason: s.reason, summary: s.summary });
+      }
       categoriesSummary[cat] = {
         status: p.status,
         rawFailures: p.rawFailures,
@@ -1152,33 +1161,52 @@ if (isDirectRun) {
         emitted: p.emitted,
         skippedByCap: p.skippedByCap,
         filteredOut: p.filteredOut,
-        topSkippedReasons: [
-          ...p.topSkipped.map((s) => ({ reason: s.reason, summary: s.summary })),
-          ...p.topFiltered.map((s) => ({ reason: s.reason, summary: s.summary })),
-        ],
+        topSkippedReasons: reasons,
       };
     }
+    const summaryDoc = {
+      generatedAt: new Date().toISOString(),
+      filter,
+      caps,
+      topSkippedReasons: TOP_NOTICE,
+      totals: {
+        planned: annotations.length,
+        emitted: dryRun ? 0 : annotations.length,
+        wouldEmit: annotations.length,
+        skipped: plan.totalSkipped,
+        skippedByCap: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
+        rawFailures: totals.legacy + totals.hydration + totals.robots + totals.jsonLd,
+      },
+      categories: categoriesSummary,
+    };
     writeFileSync(
       resolve(REPORT_DIR, "annotation-plan-summary.json"),
-      JSON.stringify(
-        {
-          generatedAt: new Date().toISOString(),
-          filter,
-          caps,
-          totals: {
-            planned: annotations.length,
-            emitted: dryRun ? 0 : annotations.length,
-            wouldEmit: annotations.length,
-            skipped: plan.totalSkipped,
-            skippedByCap: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
-            rawFailures: totals.legacy + totals.hydration + totals.robots + totals.jsonLd,
-          },
-          categories: categoriesSummary,
-        },
-        null,
-        2,
-      ),
+      JSON.stringify(summaryDoc, null, 2),
     );
+
+    // --plan-summary-format=csv writes annotation-plan-summary.csv alongside
+    // the JSON artifact for spreadsheet-friendly parsing.
+    const planSummaryFormat = argVal(argv, "plan-summary-format");
+    if (planSummaryFormat === "csv") {
+      const esc = (v: unknown): string => {
+        const s = v == null ? "" : String(v);
+        return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+      };
+      const rows: string[] = [];
+      rows.push("category,status,rawFailures,matched,emitted,skippedByCap,filteredOut,topSkippedReasons");
+      for (const [cat, c] of Object.entries(categoriesSummary)) {
+        const reasons = c.topSkippedReasons.map((r) => `${r.reason}: ${r.summary}`).join(" | ");
+        rows.push(
+          [cat, c.status, c.rawFailures, c.matched, c.emitted, c.skippedByCap, c.filteredOut, reasons]
+            .map(esc)
+            .join(","),
+        );
+      }
+      rows.push("");
+      rows.push("metric,value");
+      for (const [k, v] of Object.entries(summaryDoc.totals)) rows.push(`${esc(k)},${esc(v)}`);
+      writeFileSync(resolve(REPORT_DIR, "annotation-plan-summary.csv"), rows.join("\n") + "\n");
+    }
   }
 
   // --dry-run=output --plan-format=csv writes annotation-plan.csv alongside JSON.
