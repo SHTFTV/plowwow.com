@@ -514,21 +514,25 @@ if (isDirectRun) {
     process.exit(2);
   }
   const { caps, filter, failOnSkipped, failOnSkippedEnabled } = parseConfig(argv, process.env, config);
-  const dryRun = hasFlag(argv, "dry-run") || process.env.SEO_ANN_DRY_RUN === "1";
+  // --dry-run              → dry-run mode, do not write annotation-plan.json (unless env forces)
+  // --dry-run=output       → dry-run mode AND explicitly emit annotation-plan.json
+  const dryRunVal = argVal(argv, "dry-run");
+  const dryRunFlag = hasFlag(argv, "dry-run") || dryRunVal != null || process.env.SEO_ANN_DRY_RUN === "1";
+  const dryRun = dryRunFlag;
+  const emitPlanFile = true; // always write annotation-plan.json for CI artifact
+  const dryRunOutput = dryRunVal === "output";
   const legacy = readJson<LegacyDoc>("legacy-redirects.json");
   const hydration = readJson<HydrationDoc>("hydration.json");
   const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
   const robots = readJson<RobotsDoc>("robots-directives.json");
 
-  const { annotations, skipped, totals } = selectAnnotations({
+  const { annotations, skipped, totals, plan } = selectAnnotations({
     legacy, hydration, jsonld, robots, caps, filter,
   });
 
   if (dryRun) {
-    // Preview mode — print what would be annotated / skipped to stderr, do not
-    // emit any ::error/::warning workflow commands.
     process.stderr.write(
-      `[gh-annotations dry-run] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
+      `[gh-annotations dry-run${dryRunOutput ? "=output" : ""}] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
     );
     process.stderr.write(
       `[gh-annotations dry-run] caps legacy=${caps.legacy} hydration=${caps.hydration} robots=${caps.robots} jsonLd=${caps.jsonLd}\n`,
@@ -536,17 +540,16 @@ if (isDirectRun) {
     for (const a of annotations) {
       process.stderr.write(`  WILL EMIT [${a.level}] ${a.file} — ${a.title}\n`);
     }
-    (["legacy", "hydration", "jsonLd", "robots"] as const).forEach((k) => {
-      if (skipped[k] > 0) {
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const p = plan.categories[cat];
+      if (p.skippedByCap > 0 || p.filteredOut > 0) {
         process.stderr.write(
-          `  SKIPPED  [${k}] ${skipped[k]} of ${totals[k]} (cap ${caps[k]})\n`,
+          `  SKIPPED  [${cat}] cap=${p.skippedByCap} filter=${p.filteredOut} (of ${p.rawFailures} raw, ${p.matched} matched, cap ${caps[cat]})\n`,
         );
       }
-    });
+    }
     process.stderr.write(
-      `[gh-annotations dry-run] would emit ${annotations.length}, skip ${
-        skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd
-      }\n`,
+      `[gh-annotations dry-run] would emit ${annotations.length}, skip ${plan.totalSkipped}\n`,
     );
   } else {
     for (const a of annotations) emit(a);
@@ -565,6 +568,7 @@ if (isDirectRun) {
         emitted: dryRun ? 0 : annotations.length,
         wouldEmit: annotations.length,
         dryRun,
+        dryRunMode: dryRunOutput ? "output" : dryRun ? "preview" : null,
         failOnSkipped,
         failOnSkippedEnabled,
         violations,
@@ -574,29 +578,68 @@ if (isDirectRun) {
     ),
   );
 
+  // annotation-plan.json — planned vs skipped counts + per-item details for
+  // debugging. Always written so CI can upload it as a dedicated artifact;
+  // `--dry-run=output` guarantees the plan file exists even when the caller
+  // wants to skip emission entirely.
+  if (emitPlanFile || dryRunOutput) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan.json"),
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          caps, filter, dryRun, dryRunMode: dryRunOutput ? "output" : dryRun ? "preview" : null,
+          totals, skipped,
+          totalEmitted: dryRun ? 0 : annotations.length,
+          totalWouldEmit: annotations.length,
+          totalSkipped: plan.totalSkipped,
+          categories: plan.categories,
+          annotations: plan.annotations,
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
   const filterDesc = filter.locale || filter.variant
     ? ` filter[locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}]`
     : "";
   const capsDesc = `caps[legacy=${caps.legacy},hydration=${caps.hydration},robots=${caps.robots},jsonLd=${caps.jsonLd}]`;
   const skippedDesc = `skipped[legacy=${skipped.legacy},hydration=${skipped.hydration},robots=${skipped.robots},jsonLd=${skipped.jsonLd}]`;
-  const dryDesc = dryRun ? " [dry-run]" : "";
+  const dryDesc = dryRun ? (dryRunOutput ? " [dry-run=output]" : " [dry-run]") : "";
   process.stdout.write(
     `::notice title=SEO annotations${dryDesc}::${dryRun ? "would emit " : ""}${annotations.length} annotation(s) ` +
       `(legacy=${totals.legacy}, hydration=${totals.hydration}, jsonLd=${totals.jsonLd}, robots=${totals.robots}) ` +
       `${capsDesc} ${skippedDesc}${filterDesc}\n`,
   );
 
-  // Per-category skipped totals — surface omissions directly in the Checks UI
-  // so reviewers see what got dropped without opening the HTML report.
-  const totalSkipped = skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd;
-  if (totalSkipped > 0) {
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
-      if (skipped[cat] > 0) {
-        process.stdout.write(
-          `::notice title=SEO annotations skipped (${cat})::${skipped[cat]} of ${totals[cat]} ${cat} finding(s) omitted (cap ${caps[cat]})\n`,
-        );
-      }
-    }
+  // Per-category notices — always emit one per category with status + top N
+  // skipped reasons so reviewers can debug omissions directly from Checks UI.
+  const TOP_NOTICE = 3;
+  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const p = plan.categories[cat];
+    const reasonLabel: Record<CategoryPlan["status"], string> = {
+      "ok": "all emitted",
+      "cap-reached": `cap reached (cap ${caps[cat]})`,
+      "filter-mismatch": `filter mismatch (locale=${filter.locale ?? "*"}, variant=${filter.variant ?? "*"})`,
+      "no-matching-failures": "no matching failures",
+      "partial": "partial",
+    };
+    const parts = [
+      `${p.emitted}/${p.rawFailures} emitted`,
+      `matched=${p.matched}`,
+      `cap-skipped=${p.skippedByCap}`,
+      `filter-skipped=${p.filteredOut}`,
+      `status=${reasonLabel[p.status]}`,
+    ];
+    const samples: string[] = [];
+    for (const s of p.topSkipped.slice(0, TOP_NOTICE)) samples.push(`cap: ${s.summary}`);
+    for (const s of p.topFiltered.slice(0, Math.max(0, TOP_NOTICE - samples.length))) samples.push(`filter: ${s.summary}`);
+    const samplesDesc = samples.length ? ` · top skipped: ${samples.join(" | ")}` : "";
+    process.stdout.write(
+      `::notice title=SEO annotations (${cat})::${parts.join(" ")}${samplesDesc}\n`,
+    );
   }
 
   if (failOnSkippedEnabled && violations.length) {
