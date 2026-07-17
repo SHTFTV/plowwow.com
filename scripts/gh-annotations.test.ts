@@ -469,17 +469,19 @@ describe("gh-annotations CLI (end-to-end)", () => {
     // To force a regression, invert: A filter with no failures (0 skipped),
     // compare with matches over the cap (>0 skipped).
     mkdirSync(join(cwd, "seo-report"), { recursive: true });
+    // fr-locale paths with page-variant "other". A=en-CA drops all → 0 skipped;
+    // B=fr keeps all → 3 matched, cap=1 → 2 cap-skipped. Δskipped=+2 > 0.
     writeFileSync(join(cwd, "seo-report", "legacy-redirects.json"), JSON.stringify({
       checks: [
-        { source: "/fr/blog/a", expected: "/fr/blog/a/", ok: false, reason: "200" },
-        { source: "/fr/blog/b", expected: "/fr/blog/b/", ok: false, reason: "200" },
-        { source: "/fr/blog/c", expected: "/fr/blog/c/", ok: false, reason: "200" },
+        { source: "/fr/xa", expected: "/fr/xa/", ok: false, reason: "200" },
+        { source: "/fr/xb", expected: "/fr/xb/", ok: false, reason: "200" },
+        { source: "/fr/xc", expected: "/fr/xc/", ok: false, reason: "200" },
       ],
     }));
     const r = runCli(
       [
         "--dry-run=output",
-        "--locale=en-CA", "--variant=blog",
+        "--locale=en-CA",
         "--compare-locale=fr",
         "--max-legacy=1",
         "--fail-on-plan-regression=0",
