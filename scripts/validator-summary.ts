@@ -214,6 +214,23 @@ if (artifactUrl) {
   md.push(`- 📉 [annotation-plan-regression.csv](${runUrl}/artifacts) — spreadsheet-friendly regression deltas (from \`--plan-regression-format=csv\`)`);
   md.push(`- 🧪 [schema-drift-errors.json](${runUrl}/artifacts) — sample-config schema drift details (from \`--schema-error-report\`)`);
   md.push(`- 🧪 [schema-drift-errors.csv](${runUrl}/artifacts) — spreadsheet-friendly schema drift (from \`--schema-error-report-format=csv\`)`);
+  // regression-thresholds.{csv,json} are only written when
+  // --print-regression-thresholds-format is enabled; add the links
+  // conditionally by consulting the manifest gh-annotations.ts writes.
+  try {
+    const manifestPath = join("seo-report", "regression-thresholds-artifacts.json");
+    if (existsSync(manifestPath)) {
+      const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+        csv?: string; json?: string;
+      };
+      if (manifest.csv) {
+        md.push(`- 🎚️ [regression-thresholds.csv](${runUrl}/artifacts) — per-category minor/major/critical bands (from \`--print-regression-thresholds-format=csv\`)`);
+      }
+      if (manifest.json) {
+        md.push(`- 🎚️ [regression-thresholds.json](${runUrl}/artifacts) — per-category bands + source (from \`--print-regression-thresholds-format=json\`)`);
+      }
+    }
+  } catch { /* non-fatal */ }
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
