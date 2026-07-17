@@ -192,11 +192,15 @@ async function main() {
   context.setDefaultTimeout(Number(process.env.HYDRATION_TIMEOUT_MS ?? 25_000));
   context.setDefaultNavigationTimeout(Number(process.env.HYDRATION_NAV_TIMEOUT_MS ?? 25_000));
 
-  const { urls: sample, seed, seedSource, weights } = collectSample();
-  console.log(`  hydration-check sample: ${sample.length} urls · seed=${seed} (${seedSource}) · weights=${JSON.stringify(weights)}`);
+  const { urls: sample, seed, seedSource, weights, replayFrom } = collectSample();
+  console.log(
+    `  hydration-check sample: ${sample.length} urls · seed=${seed} (${seedSource}) · weights=${JSON.stringify(weights)}` +
+    (replayFrom ? ` · replay=${replayFrom}` : ""),
+  );
 
   // Export the exact sample as a standalone artifact so failing runs are fully
-  // reproducible without parsing hydration.json.
+  // reproducible without parsing hydration.json. When replaying an existing
+  // sample we keep the source path so the artifact self-documents its origin.
   mkdirSync(resolve("seo-report"), { recursive: true });
   writeFileSync(
     resolve("seo-report/hydration-sample.json"),
@@ -206,14 +210,18 @@ async function main() {
         seed,
         seedSource,
         weights,
-        cap: Number(process.env.HYDRATION_MAX ?? 30),
+        cap: Number(process.env.HYDRATION_MAX ?? sample.length),
         urls: sample,
-        reproduce: `HYDRATION_SEED=${seedSource} HYDRATION_WEIGHTS='${Object.entries(weights).map(([k,v])=>`${k}=${v}`).join(",")}' HYDRATION_MAX=${sample.length} bun run seo:hydration`,
+        replayFrom: replayFrom ?? null,
+        reproduce: replayFrom
+          ? `HYDRATION_REPLAY=${replayFrom} bun run seo:hydration`
+          : `HYDRATION_SEED=${seedSource} HYDRATION_WEIGHTS='${Object.entries(weights).map(([k,v])=>`${k}=${v}`).join(",")}' HYDRATION_MAX=${sample.length} bun run seo:hydration`,
       },
       null,
       2,
     ),
   );
+
 
   type LdSummary = { types: string[]; ids: string[]; count: number };
   type Result = {
