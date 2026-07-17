@@ -1407,7 +1407,10 @@ if (isDirectRun) {
   if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
     writeFileSync(
       resolve(REPORT_DIR, "annotation-plan.csv"),
-      planToCsv(plan, { filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}` }),
+      planToCsv(plan, {
+        filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}`,
+        include: includeCats,
+      }),
     );
   }
 
