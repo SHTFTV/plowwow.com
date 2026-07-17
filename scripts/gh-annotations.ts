@@ -85,13 +85,67 @@ function intOrUndef(v: string | number | undefined): number | undefined {
 
 export type ConfigIssue = {
   path: string;
+  pointer: string;                 // RFC 6901 JSON Pointer
   expected: string;
   got: string;
   example: string;
+  loc?: { line: number; column: number; endLine?: number; endColumn?: number };
+  snippet?: string;                // corrected snippet for the field
 };
 
+function pathToPointer(path: string): string {
+  const parts = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  return "/" + parts.map((p) => p.replace(/~/g, "~0").replace(/\//g, "~1")).join("/");
+}
+
+/** Locate line/column of a dotted JSON path inside raw source. Best-effort. */
+export function locateJsonPath(
+  source: string,
+  path: string,
+): { line: number; column: number; endLine?: number; endColumn?: number } | undefined {
+  const segs = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  if (!segs.length) return undefined;
+  let idx = 0;
+  for (const seg of segs) {
+    const re = new RegExp(`"${seg.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"\\s*:`, "g");
+    re.lastIndex = idx;
+    const m = re.exec(source);
+    if (!m) return undefined;
+    idx = m.index + m[0].length;
+  }
+  const valueStart = idx;
+  const keyStart = source.lastIndexOf('"', valueStart - 2);
+  const anchor = keyStart >= 0 ? keyStart : valueStart;
+  const before = source.slice(0, anchor);
+  const line = before.split("\n").length;
+  const column = anchor - (before.lastIndexOf("\n") + 1) + 1;
+  let depth = 0, end = valueStart;
+  while (end < source.length) {
+    const c = source[end];
+    if (c === "{" || c === "[") depth++;
+    else if (c === "}" || c === "]") { if (depth === 0) break; depth--; }
+    else if ((c === "," || c === "\n") && depth === 0) break;
+    end++;
+  }
+  const vs = source.slice(0, end);
+  const endLine = vs.split("\n").length;
+  const endColumn = end - (vs.lastIndexOf("\n") + 1) + 1;
+  return { line, column, endLine, endColumn };
+}
+
+function correctedSnippetFor(path: string): string {
+  const segs = path.replace(/^\$\.?/, "").split(".").filter(Boolean);
+  const [root, key] = segs;
+  if (root === "caps") return `"caps": { "${key ?? "legacy"}": 20 }`;
+  if (root === "filter") return `"filter": { "${key ?? "locale"}": "${key === "variant" ? "blog" : "en-CA"}" }`;
+  if (root === "failOnSkipped") return `"failOnSkipped": { "${key ?? "total"}": 100 }`;
+  return `{ "caps": { "default": 20 } }`;
+}
+
 function fmtIssue(i: ConfigIssue): string {
-  return `${i.path} — expected ${i.expected} (got ${i.got}); example: ${i.example}`;
+  const locStr = i.loc ? ` [line ${i.loc.line}:${i.loc.column}${i.loc.endLine ? `-${i.loc.endLine}:${i.loc.endColumn}` : ""}]` : "";
+  const snip = i.snippet ? `\n      corrected: ${i.snippet}` : "";
+  return `${i.path} (pointer ${i.pointer})${locStr} — expected ${i.expected} (got ${i.got}); example: ${i.example}${snip}`;
 }
 
 /**
