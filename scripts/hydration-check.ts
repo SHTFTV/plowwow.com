@@ -14,9 +14,18 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { SUPPORTED_LOCALES } from "./lib/locales";
+import { SUPPORTED_LOCALES, PRIMARY_OG_LOCALE, ALTERNATE_OG_LOCALES } from "./lib/locales";
 
 const REQUIRED_HREFLANG = [...SUPPORTED_LOCALES, "x-default"];
+const REQUIRED_OG = [
+  "og:title",
+  "og:description",
+  "og:url",
+  "og:image",
+  "og:type",
+  "og:locale",
+] as const;
+const REQUIRED_TWITTER = ["twitter:card", "twitter:title", "twitter:description", "twitter:image"] as const;
 const DIST = resolve("dist");
 const SITEMAP = resolve(DIST, "sitemap.xml");
 
@@ -90,6 +99,9 @@ async function main() {
     canonicalOk: boolean;
     hreflangs: string[];
     missingHreflang: string[];
+    ogTags: Record<string, string>;
+    twitterTags: Record<string, string>;
+    ogLocaleAlternates: string[];
     issues: string[];
   };
   const results: Result[] = [];
@@ -104,27 +116,47 @@ async function main() {
       let canonical: string | null = null;
       let hydrated = false;
       let hreflangs: string[] = [];
+      let ogTags: Record<string, string> = {};
+      let twitterTags: Record<string, string> = {};
+      let ogLocaleAlternates: string[] = [];
       try {
         await page.goto(testUrl, { waitUntil: "networkidle", timeout: 20_000 });
-        // Ensure React has mounted — #root has children after hydration.
         await page.waitForFunction(
           () => !!document.getElementById("root")?.firstElementChild,
           { timeout: 10_000 },
         );
         hydrated = true;
-        // Post-hydration read.
         const data = await page.evaluate(() => {
           const canon = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
           const alts = Array.from(
             document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]'),
           );
+          const ogEntries: Record<string, string> = {};
+          for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[property^="og:"]')) {
+            const key = m.getAttribute("property")!;
+            if (key === "og:locale:alternate") continue;
+            ogEntries[key] = m.getAttribute("content") ?? "";
+          }
+          const twEntries: Record<string, string> = {};
+          for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[name^="twitter:"]')) {
+            twEntries[m.getAttribute("name")!] = m.getAttribute("content") ?? "";
+          }
+          const ogAlts = Array.from(
+            document.head.querySelectorAll<HTMLMetaElement>('meta[property="og:locale:alternate"]'),
+          ).map((m) => m.getAttribute("content") ?? "");
           return {
             canonical: canon?.href ?? null,
             hreflangs: alts.map((a) => `${a.hreflang}|${a.href}`),
+            ogTags: ogEntries,
+            twitterTags: twEntries,
+            ogLocaleAlternates: ogAlts,
           };
         });
         canonical = data.canonical;
         hreflangs = data.hreflangs;
+        ogTags = data.ogTags;
+        twitterTags = data.twitterTags;
+        ogLocaleAlternates = data.ogLocaleAlternates;
       } catch (err) {
         issues.push(`page load failed: ${err instanceof Error ? err.message : String(err)}`);
       } finally {
@@ -141,6 +173,30 @@ async function main() {
       if (missingHreflang.length)
         issues.push(`missing hreflang after hydration: ${missingHreflang.join(", ")}`);
 
+      // OG/Twitter presence + correctness after hydration.
+      for (const k of REQUIRED_OG) {
+        if (!ogTags[k]) issues.push(`missing ${k} after hydration`);
+      }
+      for (const k of REQUIRED_TWITTER) {
+        if (!twitterTags[k]) issues.push(`missing ${k} after hydration`);
+      }
+      if (ogTags["og:locale"] && ogTags["og:locale"] !== PRIMARY_OG_LOCALE)
+        issues.push(`og:locale=${ogTags["og:locale"]} (expected ${PRIMARY_OG_LOCALE})`);
+      for (const alt of ALTERNATE_OG_LOCALES) {
+        if (!ogLocaleAlternates.includes(alt))
+          issues.push(`missing og:locale:alternate=${alt} after hydration`);
+      }
+      if (twitterTags["twitter:card"] && twitterTags["twitter:card"] !== "summary_large_image")
+        issues.push(`twitter:card=${twitterTags["twitter:card"]} (expected summary_large_image)`);
+      const ogUrl = ogTags["og:url"];
+      if (ogUrl && canonNorm(ogUrl) !== canonicalUrl.replace(/\/+$/, ""))
+        issues.push(`og:url=${ogUrl} ≠ canonical ${canonicalUrl}`);
+      const ogImg = ogTags["og:image"];
+      if (ogImg && !/^https:\/\//.test(ogImg)) issues.push(`og:image not absolute-https: ${ogImg}`);
+      const twImg = twitterTags["twitter:image"];
+      if (twImg && !/^https:\/\//.test(twImg))
+        issues.push(`twitter:image not absolute-https: ${twImg}`);
+
       results.push({
         url: canonicalUrl,
         hydrated,
@@ -148,6 +204,9 @@ async function main() {
         canonicalOk,
         hreflangs,
         missingHreflang,
+        ogTags,
+        twitterTags,
+        ogLocaleAlternates,
         issues,
       });
     }

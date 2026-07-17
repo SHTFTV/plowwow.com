@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-07-17T20:45:53.378Z",
+  "base": "http://localhost:4178",
+  "failed": 0,
+  "checks": [
+    {
+      "name": "robots.txt",
+      "url": "http://localhost:4178/robots.txt",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/plain",
+        "Sitemap: entries=5"
+      ]
+    },
+    {
+      "name": "sitemap.xml (index)",
+      "url": "http://localhost:4178/sitemap.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isSitemapIndex=true",
+        "references=5"
+      ]
+    },
+    {
+      "name": "split /sitemap-static.xml",
+      "url": "http://localhost:4178/sitemap-static.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isUrlset=true",
+        "urls=9"
+      ]
+    },
+    {
+      "name": "split /sitemap-cities.xml",
+      "url": "http://localhost:4178/sitemap-cities.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isUrlset=true",
+        "urls=17"
+      ]
+    },
+    {
+      "name": "split /sitemap-blog.xml",
+      "url": "http://localhost:4178/sitemap-blog.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isUrlset=true",
+        "urls=116"
+      ]
+    },
+    {
+      "name": "split /sitemap-pages.xml",
+      "url": "http://localhost:4178/sitemap-pages.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isUrlset=true",
+        "urls=39"
+      ]
+    },
+    {
+      "name": "split /sitemap-images.xml",
+      "url": "http://localhost:4178/sitemap-images.xml",
+      "ok": true,
+      "details": [
+        "status=200",
+        "content-type=text/xml",
+        "isUrlset=true",
+        "urls=112"
+      ]
+    }
+  ]
+}

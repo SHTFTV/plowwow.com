@@ -1,0 +1,3850 @@
+{
+  "generatedAt": "2026-07-17T20:45:48.203Z",
+  "total": 202,
+  "failed": 0,
+  "warnings": 122,
+  "minDimensions": "600x315",
+  "recommendedDimensions": "1200x630",
+  "results": [
+    {
+      "url": "https://plowwow.com/og-default.jpg",
+      "kind": "og:image",
+      "sources": [
+        "24-7-service/index.html",
+        "404.html",
+        "abbotsford-snow-removal/index.html",
+        "about/index.html",
+        "advanced-technology/index.html",
+        "anmore-snow-removal/index.html",
+        "apartment-complexes/index.html",
+        "app/index.html",
+        "belcarra-snow-removal/index.html",
+        "blog/index.html",
+        "buckingham-heights-burnaby/index.html",
+        "burke-mountain-snow/index.html",
+        "burnaby-snow-removal/index.html",
+        "can-i-push-snow-onto-the-street/index.html",
+        "chilliwack-snow-removal/index.html",
+        "commercial/index.html",
+        "commercial-snow-removal-burnaby/index.html",
+        "commercial-snow-removal-vancouver/index.html",
+        "contact/index.html",
+        "coquitlam-snow-removal/index.html",
+        "delta-snow-removal/index.html",
+        "east-vancouver/index.html",
+        "guest-post/index.html",
+        "happy-new-year-metro-vancouver/index.html",
+        "heritage-mountain/index.html",
+        "how-it-works/index.html",
+        "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors/index.html",
+        "index.html",
+        "intelligence/index.html",
+        "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver/index.html",
+        "langley-snow-removal/index.html",
+        "locations/index.html",
+        "maple-ridge-snow-removal/index.html",
+        "marketing/index.html",
+        "metrotown-snow-removal/index.html",
+        "metrotown-snow-removal-company/index.html",
+        "metrotown-strata-snow-removal/index.html",
+        "middlegate-snow-removal-burnaby/index.html",
+        "mission-snow-removal/index.html",
+        "new-westminster-snow-removal/index.html",
+        "now-removal-arbutus/index.html",
+        "pitt-meadows-snow-removal/index.html",
+        "plow-wow-cutest-snow-removal-brand-marketing-platform/index.html",
+        "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist/index.html",
+        "plowwow-service-areas/index.html",
+        "port-coquitlam-snow-removal/index.html",
+        "port-moody-snow-removal/index.html",
+        "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/index.html",
+        "professional-snow-removal-in-middle-gate-burnaby/index.html",
+        "quote/index.html",
+        "record-snow-falls-in-bc/index.html",
+        "residential-snow-removal/index.html",
+        "richmond-snow-removal/index.html",
+        "sapperton-new-westminster/index.html",
+        "satisfaction-guaranteed/index.html",
+        "seo-report/index.html",
+        "services/index.html",
+        "sfu-burnaby-snow-removal/index.html",
+        "shaughnessy-snow-removal/index.html",
+        "silver-valley-maple-ridge/index.html",
+        "skid-steer-snow-removal-in-langley-bc/index.html",
+        "skilled-courteous-team/index.html",
+        "snow-blowers-for-sidewalks/index.html",
+        "snow-relocation/index.html",
+        "snow-removal-in-burquitlam/index.html",
+        "snow-removal-kensington-prairie/index.html",
+        "snow-removal-management-system/index.html",
+        "snow-removal-renfrew-heights/index.html",
+        "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/index.html",
+        "snow-removal-services-in-killarney-vancouver/index.html",
+        "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow/index.html",
+        "snow-removal-west-side-vancouver/index.html",
+        "strata-complexes/index.html",
+        "strata-experts/index.html",
+        "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/index.html",
+        "strip-malls/index.html",
+        "surrey-snow-removal/index.html",
+        "takeoff/index.html",
+        "the-worlds-cutest-snow-removal-brand/index.html",
+        "vancouver-snow-removal/index.html",
+        "white-christmas-2025-burnaby/index.html",
+        "white-rock-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-default.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "24-7-service/index.html",
+        "404.html",
+        "abbotsford-snow-removal/index.html",
+        "about/index.html",
+        "advanced-technology/index.html",
+        "anmore-snow-removal/index.html",
+        "apartment-complexes/index.html",
+        "app/index.html",
+        "belcarra-snow-removal/index.html",
+        "blog/index.html",
+        "buckingham-heights-burnaby/index.html",
+        "burke-mountain-snow/index.html",
+        "burnaby-snow-removal/index.html",
+        "can-i-push-snow-onto-the-street/index.html",
+        "chilliwack-snow-removal/index.html",
+        "commercial/index.html",
+        "commercial-snow-removal-burnaby/index.html",
+        "commercial-snow-removal-vancouver/index.html",
+        "contact/index.html",
+        "coquitlam-snow-removal/index.html",
+        "delta-snow-removal/index.html",
+        "east-vancouver/index.html",
+        "guest-post/index.html",
+        "happy-new-year-metro-vancouver/index.html",
+        "heritage-mountain/index.html",
+        "how-it-works/index.html",
+        "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors/index.html",
+        "index.html",
+        "intelligence/index.html",
+        "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver/index.html",
+        "langley-snow-removal/index.html",
+        "locations/index.html",
+        "maple-ridge-snow-removal/index.html",
+        "marketing/index.html",
+        "metrotown-snow-removal/index.html",
+        "metrotown-snow-removal-company/index.html",
+        "metrotown-strata-snow-removal/index.html",
+        "middlegate-snow-removal-burnaby/index.html",
+        "mission-snow-removal/index.html",
+        "new-westminster-snow-removal/index.html",
+        "now-removal-arbutus/index.html",
+        "pitt-meadows-snow-removal/index.html",
+        "plow-wow-cutest-snow-removal-brand-marketing-platform/index.html",
+        "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist/index.html",
+        "plowwow-service-areas/index.html",
+        "port-coquitlam-snow-removal/index.html",
+        "port-moody-snow-removal/index.html",
+        "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/index.html",
+        "professional-snow-removal-in-middle-gate-burnaby/index.html",
+        "quote/index.html",
+        "record-snow-falls-in-bc/index.html",
+        "residential-snow-removal/index.html",
+        "richmond-snow-removal/index.html",
+        "sapperton-new-westminster/index.html",
+        "satisfaction-guaranteed/index.html",
+        "seo-report/index.html",
+        "services/index.html",
+        "sfu-burnaby-snow-removal/index.html",
+        "shaughnessy-snow-removal/index.html",
+        "silver-valley-maple-ridge/index.html",
+        "skid-steer-snow-removal-in-langley-bc/index.html",
+        "skilled-courteous-team/index.html",
+        "snow-blowers-for-sidewalks/index.html",
+        "snow-relocation/index.html",
+        "snow-removal-in-burquitlam/index.html",
+        "snow-removal-kensington-prairie/index.html",
+        "snow-removal-management-system/index.html",
+        "snow-removal-renfrew-heights/index.html",
+        "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/index.html",
+        "snow-removal-services-in-killarney-vancouver/index.html",
+        "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow/index.html",
+        "snow-removal-west-side-vancouver/index.html",
+        "strata-complexes/index.html",
+        "strata-experts/index.html",
+        "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/index.html",
+        "strip-malls/index.html",
+        "surrey-snow-removal/index.html",
+        "takeoff/index.html",
+        "the-worlds-cutest-snow-removal-brand/index.html",
+        "vancouver-snow-removal/index.html",
+        "white-christmas-2025-burnaby/index.html",
+        "white-rock-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-abbotsford.jpg",
+      "kind": "og:image",
+      "sources": [
+        "abbotsford/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-abbotsford.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "abbotsford/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/abbotsford-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "abbotsford-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/abbotsford-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "abbotsford-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "albion-maple-ridge-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "albion-maple-ridge-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "austin-heights-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "austin-heights-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "austin-heights-coquitlam-strip-mall-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "austin-heights-coquitlam-strip-mall-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "brentwood-burnaby-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "brentwood-burnaby-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "broadmoor-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "broadmoor-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "burke-mountain-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "burke-mountain-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-burnaby.jpg",
+      "kind": "og:image",
+      "sources": [
+        "burnaby/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-burnaby.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "burnaby/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "burnaby-heights-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "burnaby-heights-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "burnaby-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "burnaby-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "cambie-village-vancouver-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "cambie-village-vancouver-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "capitol-hill-burnaby-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "capitol-hill-burnaby-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cariboo-heights-burnaby-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "cariboo-heights-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cariboo-heights-burnaby-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "cariboo-heights-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "cedar-valley-mission-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "cedar-valley-mission-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "champlain-heights-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "champlain-heights-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-chilliwack.jpg",
+      "kind": "og:image",
+      "sources": [
+        "chilliwack/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-chilliwack.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "chilliwack/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "chilliwack-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "chilliwack-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cloverdale-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "cloverdale-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/cloverdale-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "cloverdale-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coal-harbour-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "coal-harbour-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coal-harbour-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "coal-harbour-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/commercial-drive-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "commercial-drive-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/commercial-drive-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "commercial-drive-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-coquitlam.jpg",
+      "kind": "og:image",
+      "sources": [
+        "coquitlam/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-coquitlam.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "coquitlam/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "coquitlam-centre-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "coquitlam-centre-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "coquitlam-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "coquitlam-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "deer-lake-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "deer-lake-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-delta.jpg",
+      "kind": "og:image",
+      "sources": [
+        "delta/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-delta.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "delta/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/delta-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "delta-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/delta-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "delta-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
+      "kind": "og:image",
+      "sources": [
+        "does-it-snow-in-vancouver-weather-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "does-it-snow-in-vancouver-weather-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "downtown-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "downtown-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/dunbar-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "dunbar-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/dunbar-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "dunbar-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "eagle-ridge-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "eagle-ridge-coquitlam-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "edmonds-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "edmonds-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "false-creek-vancouver-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "false-creek-vancouver-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fort-langley-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "fort-langley-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fort-langley-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "fort-langley-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fraserview-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "fraserview-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fraserview-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "fraserview-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "garden-city-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "garden-city-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "gastown-vancouver-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "gastown-vancouver-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "grandview-woodland-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "grandview-woodland-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "hamilton-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "hamilton-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "hastings-sunrise-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "hastings-sunrise-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "highgate-burnaby-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "highgate-burnaby-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "kensington-cedar-cottage-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "kensington-cedar-cottage-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/kitsilano-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "kitsilano-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/kitsilano-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "kitsilano-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-langley.jpg",
+      "kind": "og:image",
+      "sources": [
+        "langley/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-langley.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "langley/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/langley-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "langley-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/langley-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "langley-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "lougheed-town-centre-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "lougheed-town-centre-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/lynn-valley-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "lynn-valley-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/lynn-valley-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "lynn-valley-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/maillardville-coquitlam-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "maillardville-coquitlam-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/maillardville-coquitlam-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "maillardville-coquitlam-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-maple-ridge.jpg",
+      "kind": "og:image",
+      "sources": [
+        "maple-ridge/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-maple-ridge.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "maple-ridge/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "maple-ridge-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "maple-ridge-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/marpole-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "marpole-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/marpole-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "marpole-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "metrotown-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "metrotown-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-mission.jpg",
+      "kind": "og:image",
+      "sources": [
+        "mission/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-mission.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "mission/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/mission-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "mission-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/mission-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "mission-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "montecito-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "montecito-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "mount-pleasant-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "mount-pleasant-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-new-westminster.jpg",
+      "kind": "og:image",
+      "sources": [
+        "new-westminster/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-new-westminster.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "new-westminster/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "new-westminster-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "new-westminster-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-north-vancouver.jpg",
+      "kind": "og:image",
+      "sources": [
+        "north-vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-north-vancouver.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "north-vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/north-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "north-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/north-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "north-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/oakridge-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "oakridge-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/oakridge-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "oakridge-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-pitt-meadows.jpg",
+      "kind": "og:image",
+      "sources": [
+        "pitt-meadows/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-pitt-meadows.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "pitt-meadows/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/point-grey-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "point-grey-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/point-grey-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "point-grey-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-port-coquitlam.jpg",
+      "kind": "og:image",
+      "sources": [
+        "port-coquitlam/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-port-coquitlam.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "port-coquitlam/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "port-coquitlam-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "port-coquitlam-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-port-moody.jpg",
+      "kind": "og:image",
+      "sources": [
+        "port-moody/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-port-moody.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "port-moody/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "port-moody-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "port-moody-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "promontory-chilliwack-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "promontory-chilliwack-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "ranch-park-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "ranch-park-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-richmond.jpg",
+      "kind": "og:image",
+      "sources": [
+        "richmond/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-richmond.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "richmond/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/richmond-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "richmond-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/richmond-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "richmond-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/riley-park-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "riley-park-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/riley-park-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "riley-park-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "river-springs-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "river-springs-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "sardis-chilliwack-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "sardis-chilliwack-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "seafair-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "seafair-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/shaughnessy-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "shaughnessy-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/shaughnessy-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "shaughnessy-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "silver-valley-maple-ridge-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "silver-valley-maple-ridge-strata-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "silverdale-mission-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "silverdale-mission-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "south-cambie-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "south-cambie-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "south-slope-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "south-slope-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/squamish-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "squamish-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/squamish-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "squamish-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/steveston-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "steveston-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/steveston-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "steveston-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/strathcona-east-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "strathcona-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/strathcona-east-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "strathcona-east-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/suncrest-burnaby-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "suncrest-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/suncrest-burnaby-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "suncrest-burnaby-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sunset-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "sunset-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sunset-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "sunset-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-surrey.jpg",
+      "kind": "og:image",
+      "sources": [
+        "surrey/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-surrey.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "surrey/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "surrey-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "surrey-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "terra-nova-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "terra-nova-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/tsawwassen-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "tsawwassen-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/tsawwassen-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "tsawwassen-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-vancouver.jpg",
+      "kind": "og:image",
+      "sources": [
+        "vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-vancouver.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "victoria-fraserview-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "victoria-fraserview-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/west-end-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "west-end-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/west-end-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "west-end-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-west-vancouver.jpg",
+      "kind": "og:image",
+      "sources": [
+        "west-vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-west-vancouver.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "west-vancouver/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/west-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "west-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/west-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "west-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "westridge-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "westridge-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "westwood-plateau-coquitlam-parking-lot-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "westwood-plateau-coquitlam-parking-lot-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1280,
+        "height": 960
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-white-rock.jpg",
+      "kind": "og:image",
+      "sources": [
+        "white-rock/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/og-white-rock.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "white-rock/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 945×630 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 945,
+        "height": 630
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
+      "kind": "og:image",
+      "sources": [
+        "white-rock-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "white-rock-strata-commercial-snow-plowing/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "dimensions 1024×1024 below recommended 1200×630"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "willingdon-heights-burnaby-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "willingdon-heights-burnaby-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/yaletown-vancouver-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "yaletown-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/yaletown-vancouver-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "yaletown-vancouver-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    }
+  ]
+}

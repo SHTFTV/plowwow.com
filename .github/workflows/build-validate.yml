@@ -121,6 +121,12 @@ jobs:
             seo-report/sitemap.md
             seo-report/hydration.json
             seo-report/hydration.md
+            seo-report/html-lang.json
+            seo-report/html-lang.md
+            seo-report/og-image-reachable.json
+            seo-report/og-image-reachable.md
+            seo-report/robots-sitemap.json
+            seo-report/robots-sitemap.md
           retention-days: 14
           if-no-files-found: warn
 
@@ -128,9 +134,14 @@ jobs:
         if: always() && steps.build.outcome == 'success'
         run: bunx playwright install --with-deps chromium
 
-      - name: Post-build hydration check
+      - name: Post-build hydration check (OG/Twitter + canonical + hreflang)
         if: always() && steps.build.outcome == 'success'
         run: bunx tsx scripts/hydration-check.ts
+        continue-on-error: true
+
+      - name: Post-build robots.txt + sitemap index public fetch
+        if: always() && steps.build.outcome == 'success'
+        run: bunx tsx scripts/robots-sitemap-fetch.ts
         continue-on-error: true
 
       - name: Fail job if build or validators failed
