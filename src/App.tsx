@@ -20,6 +20,8 @@ import PublishHelper from "./pages/PublishHelper.tsx";
 import Takeoff from "./pages/Takeoff.tsx";
 import Quote from "./pages/Quote.tsx";
 import Locations from "./pages/Locations.tsx";
+import AdminLinkAudit from "./pages/AdminLinkAudit.tsx";
+import AdminGscCoverage from "./pages/AdminGscCoverage.tsx";
 
 const queryClient = new QueryClient();
 
