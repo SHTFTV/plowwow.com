@@ -15,8 +15,30 @@ const HOME_HTML = readFileSync(resolve(DIST, "index.html"), "utf8");
 const homeTitle = HOME_HTML.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
 const homeDesc = HOME_HTML.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? "";
 
-const sitemap = readFileSync(SITEMAP, "utf8");
-const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+// Walk sitemap index → collect all <loc> from child <urlset> sitemaps.
+// The index itself has no page URLs, only child sitemap URLs (which are .xml
+// files served from /public and copied verbatim into dist/).
+function locsFrom(file: string): string[] {
+  if (!existsSync(file)) return [];
+  const xml = readFileSync(file, "utf8");
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+}
+
+const topLocs = locsFrom(SITEMAP);
+const isChildSitemap = (u: string) => u.endsWith(".xml");
+const childSitemapUrls = topLocs.filter(isChildSitemap);
+const pageUrls = topLocs.filter((u) => !isChildSitemap(u));
+
+for (const child of childSitemapUrls) {
+  const path = new URL(child).pathname.replace(/^\//, "");
+  const childPath = resolve(DIST, path);
+  if (!existsSync(childPath)) {
+    console.error(`✗ sitemap index references missing child file: ${child}`);
+    process.exit(1);
+  }
+  pageUrls.push(...locsFrom(childPath));
+}
+const locs = pageUrls;
 
 const missing: string[] = [];
 const dupTitle: string[] = [];
