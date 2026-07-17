@@ -248,11 +248,15 @@ async function main() {
     return;
   }
 
-  const { diffs, hasBaseline } = runBaselineDiff();
+  const filter = parseFilterFromArgv(process.argv.slice(3));
+  const { diffs, hasBaseline } = runBaselineDiff(filter);
   mkdirSync(REPORT_DIR, { recursive: true });
-  writeFileSync(resolve(REPORT_DIR, "baseline-diff.json"), JSON.stringify({ hasBaseline, diffs, generatedAt: new Date().toISOString() }, null, 2));
+  writeFileSync(resolve(REPORT_DIR, "baseline-diff.json"), JSON.stringify({ hasBaseline, filter, diffs, generatedAt: new Date().toISOString() }, null, 2));
 
   const md: string[] = [`# SEO Baseline Diff`, ``];
+  if (filter.locale || filter.variant) {
+    md.push(`_Filter: locale=\`${filter.locale ?? "*"}\` · variant=\`${filter.variant ?? "*"}\`_`, ``);
+  }
   if (!hasBaseline) md.push(`⚠️ No baseline present — run \`bun run seo:baseline-accept -- --yes\` after a clean run.`, ``);
   for (const d of diffs) {
     md.push(`## ${d.category}`);
@@ -265,7 +269,7 @@ async function main() {
   }
   writeFileSync(resolve(REPORT_DIR, "baseline-diff.md"), md.join("\n"));
   const totalNew = diffs.reduce((n, d) => n + d.newFailures.length, 0);
-  console.log(`baseline-diff: ${totalNew} new failure(s) across ${diffs.length} categories → seo-report/baseline-diff.{json,md}`);
+  console.log(`baseline-diff: ${totalNew} new failure(s) across ${diffs.length} categories${filter.locale || filter.variant ? ` (filtered)` : ""} → seo-report/baseline-diff.{json,md}`);
 }
 
 if (import.meta.main) {
