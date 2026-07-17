@@ -38,6 +38,62 @@ import { localeOf, pageVariantOf } from "./lib/baseline";
 const REPORT_DIR = resolve("seo-report");
 const DEFAULT_CONFIG_PATH = resolve("seo-annotations.config.json");
 
+/** Concise CLI help text — printed by `--help`/`-h`. Only documents flags added
+ *  in the recent iterations that need per-run explanation; the exhaustive
+ *  reference lives in README.md. */
+const CLI_HELP = `\
+gh-annotations — emit GitHub Actions annotations for SEO check failures.
+
+Artifact output:
+  --artifacts-dir=<path>            Directory for generated artifacts
+                                    (default: seo-report/). Applies to
+                                    regression-thresholds.{csv,json} and the
+                                    default schema-drift-errors.{json,csv}
+                                    location. Env: SEO_ANN_ARTIFACTS_DIR.
+
+Regression thresholds:
+  --print-regression-thresholds           Print severity bands to stdout.
+  --print-regression-thresholds-format=csv|json|csv,json
+                                          Also write regression-thresholds.csv
+                                          and/or regression-thresholds.json
+                                          into --artifacts-dir. Columns:
+                                          category,minor,major,critical,source.
+  --fail-on-regression-thresholds-config=<path>
+                                          Load per-category minor/major/critical
+                                          bands from JSON. Shape:
+                                            {
+                                              "default":   { "minor": 1, "major": 25, "critical": 50 },
+                                              "legacy":    { "minor": 2 },
+                                              "hydration": { "critical": 40 },
+                                              "jsonLd":    { ... },
+                                              "robots":    { ... }
+                                            }
+                                          Each band is a non-negative number
+                                          (percent). Missing bands fall back to
+                                          "default" and then built-in values
+                                          (minor=1, major=25, critical=50).
+                                          Env: SEO_ANN_REGRESSION_THRESHOLDS_CONFIG.
+
+Schema-drift report:
+  --schema-error-report[=<path>]                 Write schema-drift-errors.json.
+  --schema-error-report-format=csv               Also write schema-drift-errors.csv.
+  --schema-error-report-max-errors=<N>           Cap rows written to JSON/CSV.
+                                                 JSON includes { totalCount,
+                                                 truncated, maxErrors }.
+                                                 Env: SEO_ANN_SCHEMA_ERROR_MAX.
+
+Plan category filtering:
+  --plan-category-include=<c,...>   Restrict PR tables & CSV to categories.
+  --plan-category-exclude=<c,...>   Remove categories from the selection.
+                                    Fails fast (exit 2) if the same category
+                                    appears in both include and exclude.
+
+Categories: legacy | hydration | jsonLd | robots
+Severity bands: minor | major | critical (deltaPercent thresholds)
+`;
+
+
+
 export type Filter = { locale?: string; variant?: string };
 export type Caps = { legacy: number; hydration: number; robots: number; jsonLd: number };
 export type FailOnSkipped = {
