@@ -155,12 +155,21 @@ jobs:
         run: bunx tsx scripts/bundle-repro.ts
         continue-on-error: true
 
-      - name: Upload repro bundle
+      - name: Upload repro bundle (zip)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: repro-bundle
           path: seo-report/repro-bundle.zip
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload validation-report.html (standalone, no unzip needed)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report-html
+          path: seo-report/validation-report.html
           retention-days: 30
           if-no-files-found: warn
 
