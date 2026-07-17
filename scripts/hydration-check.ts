@@ -203,12 +203,16 @@ async function main() {
           const ogAlts = Array.from(
             document.head.querySelectorAll<HTMLMetaElement>('meta[property="og:locale:alternate"]'),
           ).map((m) => m.getAttribute("content") ?? "");
+          const ldRaw = Array.from(
+            document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]'),
+          ).map((s) => s.textContent ?? "");
           return {
             canonical: canon?.href ?? null,
             hreflangs: alts.map((a) => `${a.hreflang}|${a.href}`),
             ogTags: ogEntries,
             twitterTags: twEntries,
             ogLocaleAlternates: ogAlts,
+            ldRaw,
           };
         });
         canonical = data.canonical;
@@ -216,6 +220,11 @@ async function main() {
         ogTags = data.ogTags;
         twitterTags = data.twitterTags;
         ogLocaleAlternates = data.ogLocaleAlternates;
+        const parsed: unknown[] = [];
+        for (const s of data.ldRaw) {
+          try { parsed.push(JSON.parse(s)); } catch { /* handled below */ }
+        }
+        jsonLd = summarizeLd(parsed);
       } catch (err) {
         issues.push(`page load failed: ${err instanceof Error ? err.message : String(err)}`);
       } finally {
