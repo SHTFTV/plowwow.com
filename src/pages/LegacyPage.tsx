@@ -169,7 +169,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       typeof window !== "undefined"
         ? window.location.origin.replace(/\/+$/, "")
         : "https://plowwow.com";
-    const path = `/${slug}`;
+    const path = `/${slug}/`;
     const absoluteUrl = `${origin}${path}`;
     // Prefer the post's inline hero image; fall back to a branded hero.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
