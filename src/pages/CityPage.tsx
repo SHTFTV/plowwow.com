@@ -121,6 +121,16 @@ const CityPage = () => {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://plowwow.com/locations" },
+      { "@type": "ListItem", position: 3, name: city.name, item: url },
+    ],
+  };
+
   const otherCities = cities.filter((c) => c.slug !== city.slug);
   const { sections: copySections } = buildCityCopy(city);
 
@@ -134,6 +144,11 @@ const CityPage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <TopBar />
       <Navbar />
 
