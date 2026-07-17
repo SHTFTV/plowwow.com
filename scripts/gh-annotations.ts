@@ -725,44 +725,142 @@ type JsonSchema = {
   properties?: Record<string, JsonSchema>;
   additionalProperties?: boolean | JsonSchema;
   minimum?: number;
+  maximum?: number;
   minLength?: number;
 };
 
-/** Minimal JSON Schema (draft-07 subset) validator: type, properties,
- *  additionalProperties, minimum, minLength. Sufficient for our config schema.
+export type SchemaError = {
+  path: string;             // e.g. "$.caps.legacy"
+  keyword: "type" | "minimum" | "maximum" | "minLength" | "additionalProperties";
+  expected: string;         // human-readable expectation (types/range)
+  actual: string;           // e.g. "string \"20\"" or ">= 0"
+  example: unknown;         // a corrected value for this field
+  snippet: string;          // JSON snippet like `"legacy": 20`
+};
+
+/** Build a sensible corrected example value for a given schema node. */
+function exampleFor(schema: JsonSchema): unknown {
+  const t = Array.isArray(schema.type) ? schema.type[0] : schema.type;
+  if (t === "integer" || t === "number") {
+    const min = typeof schema.minimum === "number" ? schema.minimum : 0;
+    return Math.max(min, 20);
+  }
+  if (t === "string") return "example";
+  if (t === "boolean") return true;
+  if (t === "array") return [];
+  if (t === "object") return {};
+  return null;
+}
+
+/** Minimal JSON Schema (draft-07 subset) validator returning structured
+ *  errors: type, properties, additionalProperties, minimum, maximum, minLength.
  */
-export function validateAgainstSchema(value: unknown, schema: JsonSchema, path = "$"): string[] {
-  const errs: string[] = [];
+export function validateAgainstSchemaDetailed(
+  value: unknown,
+  schema: JsonSchema,
+  path = "$",
+  fieldName: string | null = null,
+): SchemaError[] {
+  const errs: SchemaError[] = [];
   const typeOf = (v: unknown): string => {
     if (v === null) return "null";
     if (Array.isArray(v)) return "array";
     if (Number.isInteger(v as number)) return "integer";
     return typeof v;
   };
+  const mkSnippet = (name: string | null, val: unknown): string =>
+    name ? `"${name}": ${JSON.stringify(val)}` : JSON.stringify(val);
+
   if (schema.type) {
     const allowed = Array.isArray(schema.type) ? schema.type : [schema.type];
     const t = typeOf(value);
     const ok = allowed.some((a) => a === t || (a === "number" && t === "integer"));
-    if (!ok) errs.push(`${path} — expected type ${allowed.join("|")} (got ${t})`);
+    if (!ok) {
+      const ex = exampleFor(schema);
+      errs.push({
+        path,
+        keyword: "type",
+        expected: allowed.join(" | "),
+        actual: `${t} (${JSON.stringify(value)})`,
+        example: ex,
+        snippet: mkSnippet(fieldName, ex),
+      });
+    }
   }
   if (typeof value === "number" && typeof schema.minimum === "number" && value < schema.minimum) {
-    errs.push(`${path} — expected >= ${schema.minimum} (got ${value})`);
+    const ex = schema.minimum;
+    errs.push({
+      path,
+      keyword: "minimum",
+      expected: `>= ${schema.minimum}`,
+      actual: `${value}`,
+      example: ex,
+      snippet: mkSnippet(fieldName, ex),
+    });
+  }
+  if (typeof value === "number" && typeof schema.maximum === "number" && value > schema.maximum) {
+    const ex = schema.maximum;
+    errs.push({
+      path,
+      keyword: "maximum",
+      expected: `<= ${schema.maximum}`,
+      actual: `${value}`,
+      example: ex,
+      snippet: mkSnippet(fieldName, ex),
+    });
   }
   if (typeof value === "string" && typeof schema.minLength === "number" && value.length < schema.minLength) {
-    errs.push(`${path} — expected minLength ${schema.minLength} (got ${value.length})`);
+    const ex = "example";
+    errs.push({
+      path,
+      keyword: "minLength",
+      expected: `minLength ${schema.minLength}`,
+      actual: `length ${value.length}`,
+      example: ex,
+      snippet: mkSnippet(fieldName, ex),
+    });
   }
   if (schema.properties && value && typeof value === "object" && !Array.isArray(value)) {
     const obj = value as Record<string, unknown>;
     for (const [k, sub] of Object.entries(schema.properties)) {
-      if (k in obj) errs.push(...validateAgainstSchema(obj[k], sub, `${path}.${k}`));
+      if (k in obj) errs.push(...validateAgainstSchemaDetailed(obj[k], sub, `${path}.${k}`, k));
     }
     if (schema.additionalProperties === false) {
       for (const k of Object.keys(obj)) {
-        if (!(k in schema.properties)) errs.push(`${path}.${k} — unknown property (additionalProperties=false)`);
+        if (!(k in schema.properties)) {
+          errs.push({
+            path: `${path}.${k}`,
+            keyword: "additionalProperties",
+            expected: `one of: ${Object.keys(schema.properties).join(", ")}`,
+            actual: `unknown property "${k}"`,
+            example: undefined,
+            snippet: `// remove "${k}" from ${path}`,
+          });
+        }
       }
     }
   }
   return errs;
+}
+
+/** Legacy string-based validator, retained for callers/tests that expect
+ *  flat message strings. Wraps validateAgainstSchemaDetailed. */
+export function validateAgainstSchema(value: unknown, schema: JsonSchema, path = "$"): string[] {
+  return validateAgainstSchemaDetailed(value, schema, path).map(
+    (e) => `${e.path} — expected ${e.expected} (got ${e.actual})`,
+  );
+}
+
+/** Format a SchemaError as a multi-line human message with corrected snippet. */
+export function formatSchemaError(e: SchemaError): string {
+  const lines = [
+    `  • ${e.path}`,
+    `      keyword : ${e.keyword}`,
+    `      expected: ${e.expected}`,
+    `      actual  : ${e.actual}`,
+  ];
+  if (e.snippet) lines.push(`      fix     : ${e.snippet}`);
+  return lines.join("\n");
 }
 
 /** Parse SAMPLE_CONFIG_TEMPLATE and validate it against the JSON schema.
@@ -797,10 +895,10 @@ export function validateSampleConfigTemplate(schemaPath?: string): void {
   if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
     delete (parsed as Record<string, unknown>).$schema;
   }
-  const errs = validateAgainstSchema(parsed, schema);
+  const errs = validateAgainstSchemaDetailed(parsed, schema);
   if (errs.length) {
     throw new Error(
-      `SAMPLE_CONFIG_TEMPLATE has drifted from ${sp}:\n  - ${errs.join("\n  - ")}\n` +
+      `SAMPLE_CONFIG_TEMPLATE has drifted from ${sp}:\n${errs.map(formatSchemaError).join("\n")}\n` +
         `Fix SAMPLE_CONFIG_TEMPLATE in scripts/gh-annotations.ts or update the schema.`,
     );
   }
