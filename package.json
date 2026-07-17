@@ -15,7 +15,9 @@
     "test:watch": "vitest",
     "seo:baseline": "tsx scripts/regenerate-seo-baseline.ts",
     "seo:snapshot-diffs": "tsx scripts/render-snapshot-diffs.ts",
-    "seo:violations-summary": "tsx scripts/violations-summary.ts"
+    "seo:violations-summary": "tsx scripts/violations-summary.ts",
+    "seo:content-audit": "tsx scripts/seo-content-audit.ts",
+    "seo:jsonld-preflight": "tsx scripts/jsonld-preflight.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
