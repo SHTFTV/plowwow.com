@@ -238,5 +238,70 @@ describe("validateConfig", () => {
       expect(msg).toMatch(/filter\.locale/);
     }
   });
+
+  it("includes JSON path, expected type, and example snippet in error", () => {
+    try {
+      validateConfig({ caps: { legacy: -1 } });
+      expect.fail("expected throw");
+    } catch (e) {
+      const msg = (e as Error).message;
+      expect(msg).toMatch(/\$\.caps\.legacy/);
+      expect(msg).toMatch(/non-negative integer/);
+      expect(msg).toMatch(/example:.*"caps".*"legacy":\s*20/);
+    }
+  });
 });
+
+describe("selectAnnotations plan output", () => {
+  const caps = { legacy: 2, hydration: 2, robots: 2, jsonLd: 2 };
+  const filter = {};
+
+  it("returns per-category plan with rawFailures/matched/emitted/status", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [
+        { source: "/a", expected: "/a/", ok: false, reason: "200" },
+        { source: "/b", expected: "/b/", ok: false, reason: "200" },
+        { source: "/c", expected: "/c/", ok: false, reason: "200" },
+      ] },
+      caps, filter,
+    });
+    expect(plan.categories.legacy.rawFailures).toBe(3);
+    expect(plan.categories.legacy.matched).toBe(3);
+    expect(plan.categories.legacy.emitted).toBe(2);
+    expect(plan.categories.legacy.skippedByCap).toBe(1);
+    expect(plan.categories.legacy.status).toBe("cap-reached");
+    expect(plan.categories.legacy.topSkipped[0].reason).toBe("cap");
+    expect(plan.categories.legacy.topSkipped[0].summary).toContain("/c");
+  });
+
+  it("marks status=no-matching-failures when nothing failed", () => {
+    const { plan } = selectAnnotations({ caps, filter });
+    expect(plan.categories.legacy.status).toBe("no-matching-failures");
+    expect(plan.categories.hydration.status).toBe("no-matching-failures");
+  });
+
+  it("marks status=filter-mismatch when filter drops all matches", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [{ source: "/x", expected: "/y", ok: false, reason: "z" }] },
+      caps, filter: { locale: "fr-CA" },
+    });
+    expect(plan.categories.legacy.rawFailures).toBe(1);
+    expect(plan.categories.legacy.matched).toBe(0);
+    expect(plan.categories.legacy.filteredOut).toBe(1);
+    expect(plan.categories.legacy.status).toBe("filter-mismatch");
+    expect(plan.categories.legacy.topFiltered[0].reason).toBe("filter");
+  });
+
+  it("totalEmitted/totalSkipped roll up across categories", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [{ source: "/a", expected: "/a/", ok: false }] },
+      hydration: { results: [{ url: "http://x/1", issues: ["i1", "i2", "i3"] }] },
+      caps: { legacy: 5, hydration: 2, robots: 5, jsonLd: 5 },
+      filter,
+    });
+    expect(plan.totalEmitted).toBe(1 + 2);
+    expect(plan.totalSkipped).toBe(1);
+  });
+});
+
 
