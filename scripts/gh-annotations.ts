@@ -153,7 +153,7 @@ function fmtIssue(i: ConfigIssue): string {
  * message that includes JSON path, expected type/range, and a corrected
  * snippet for each failure. Exported for tests.
  */
-export function validateConfig(raw: unknown, source = "config"): AnnotationsConfig {
+export function validateConfig(raw: unknown, source = "config", sourceText?: string): AnnotationsConfig {
   const issues: ConfigIssue[] = [];
   const isObj = (v: unknown): v is Record<string, unknown> =>
     !!v && typeof v === "object" && !Array.isArray(v);
