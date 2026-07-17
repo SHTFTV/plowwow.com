@@ -252,7 +252,9 @@ async function main() {
       // Rewrite to whatever origin the preview / external target uses.
       const path = new URL(canonicalUrl).pathname;
       const testUrl = base + path;
-      const page = await browser.newPage();
+      const maxAttempts = Number(process.env.HYDRATION_RETRIES ?? 2) + 1;
+      const navTimeout = Number(process.env.HYDRATION_NAV_TIMEOUT_MS ?? 25_000);
+      const hydrateTimeout = Number(process.env.HYDRATION_HYDRATE_TIMEOUT_MS ?? 12_000);
       const issues: string[] = [];
       let canonical: string | null = null;
       let hydrated = false;
@@ -262,57 +264,70 @@ async function main() {
       let ogLocaleAlternates: string[] = [];
       let jsonLd: LdSummary = { types: [], ids: [], count: 0 };
       const jsonLdExpected = readStaticLd(canonicalUrl);
-      try {
-        await page.goto(testUrl, { waitUntil: "networkidle", timeout: 20_000 });
-        await page.waitForFunction(
-          () => !!document.getElementById("root")?.firstElementChild,
-          { timeout: 10_000 },
-        );
-        hydrated = true;
-        const data = await page.evaluate(() => {
-          const canon = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-          const alts = Array.from(
-            document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]'),
+      let lastErr: unknown = null;
+      for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        const page = await context.newPage();
+        try {
+          await page.goto(testUrl, { waitUntil: "networkidle", timeout: navTimeout });
+          await page.waitForFunction(
+            () => !!document.getElementById("root")?.firstElementChild,
+            { timeout: hydrateTimeout },
           );
-          const ogEntries: Record<string, string> = {};
-          for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[property^="og:"]')) {
-            const key = m.getAttribute("property")!;
-            if (key === "og:locale:alternate") continue;
-            ogEntries[key] = m.getAttribute("content") ?? "";
+          hydrated = true;
+          const data = await page.evaluate(() => {
+            const canon = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+            const alts = Array.from(
+              document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]'),
+            );
+            const ogEntries: Record<string, string> = {};
+            for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[property^="og:"]')) {
+              const key = m.getAttribute("property")!;
+              if (key === "og:locale:alternate") continue;
+              ogEntries[key] = m.getAttribute("content") ?? "";
+            }
+            const twEntries: Record<string, string> = {};
+            for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[name^="twitter:"]')) {
+              twEntries[m.getAttribute("name")!] = m.getAttribute("content") ?? "";
+            }
+            const ogAlts = Array.from(
+              document.head.querySelectorAll<HTMLMetaElement>('meta[property="og:locale:alternate"]'),
+            ).map((m) => m.getAttribute("content") ?? "");
+            const ldRaw = Array.from(
+              document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]'),
+            ).map((s) => s.textContent ?? "");
+            return {
+              canonical: canon?.href ?? null,
+              hreflangs: alts.map((a) => `${a.hreflang}|${a.href}`),
+              ogTags: ogEntries,
+              twitterTags: twEntries,
+              ogLocaleAlternates: ogAlts,
+              ldRaw,
+            };
+          });
+          canonical = data.canonical;
+          hreflangs = data.hreflangs;
+          ogTags = data.ogTags;
+          twitterTags = data.twitterTags;
+          ogLocaleAlternates = data.ogLocaleAlternates;
+          const parsed: unknown[] = [];
+          for (const s of data.ldRaw) {
+            try { parsed.push(JSON.parse(s)); } catch { /* handled below */ }
           }
-          const twEntries: Record<string, string> = {};
-          for (const m of document.head.querySelectorAll<HTMLMetaElement>('meta[name^="twitter:"]')) {
-            twEntries[m.getAttribute("name")!] = m.getAttribute("content") ?? "";
+          jsonLd = summarizeLd(parsed);
+          lastErr = null;
+          break; // success — no retry
+        } catch (err) {
+          lastErr = err;
+          if (attempt < maxAttempts) {
+            const backoff = 500 * attempt;
+            await new Promise((r) => setTimeout(r, backoff));
           }
-          const ogAlts = Array.from(
-            document.head.querySelectorAll<HTMLMetaElement>('meta[property="og:locale:alternate"]'),
-          ).map((m) => m.getAttribute("content") ?? "");
-          const ldRaw = Array.from(
-            document.querySelectorAll<HTMLScriptElement>('script[type="application/ld+json"]'),
-          ).map((s) => s.textContent ?? "");
-          return {
-            canonical: canon?.href ?? null,
-            hreflangs: alts.map((a) => `${a.hreflang}|${a.href}`),
-            ogTags: ogEntries,
-            twitterTags: twEntries,
-            ogLocaleAlternates: ogAlts,
-            ldRaw,
-          };
-        });
-        canonical = data.canonical;
-        hreflangs = data.hreflangs;
-        ogTags = data.ogTags;
-        twitterTags = data.twitterTags;
-        ogLocaleAlternates = data.ogLocaleAlternates;
-        const parsed: unknown[] = [];
-        for (const s of data.ldRaw) {
-          try { parsed.push(JSON.parse(s)); } catch { /* handled below */ }
+        } finally {
+          await page.close();
         }
-        jsonLd = summarizeLd(parsed);
-      } catch (err) {
-        issues.push(`page load failed: ${err instanceof Error ? err.message : String(err)}`);
-      } finally {
-        await page.close();
+      }
+      if (lastErr) {
+        issues.push(`page load failed after ${maxAttempts} attempts: ${lastErr instanceof Error ? lastErr.message : String(lastErr)}`);
       }
 
       const canonNorm = (s: string | null) =>
