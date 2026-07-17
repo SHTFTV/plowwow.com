@@ -1040,7 +1040,15 @@ const BlogIndex = () => {
                         </span>
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <h2 className="font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                        {publishedAtBySlug[slug] && (
+                          <time
+                            dateTime={publishedAtBySlug[slug]}
+                            className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+                          >
+                            {formatDate(publishedAtBySlug[slug])}
+                          </time>
+                        )}
+                        <h2 className="mt-1 font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
                           {highlight(titleFor(slug), query)}
                         </h2>
                         <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-1">
