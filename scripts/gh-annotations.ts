@@ -1335,14 +1335,24 @@ if (isDirectRun) {
     const p = argVal(argv, "schema-error-report");
     const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
     mkdirSync(resolve(dest, ".."), { recursive: true });
-    const errs = getSampleConfigTemplateErrors();
+    const allErrs = getSampleConfigTemplateErrors();
+    // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
+    const maxErrsRaw = argVal(argv, "schema-error-report-max-errors") ?? process.env.SEO_ANN_SCHEMA_ERROR_MAX;
+    const maxErrs = maxErrsRaw != null && maxErrsRaw !== "" && Number.isFinite(Number(maxErrsRaw)) && Number(maxErrsRaw) >= 0
+      ? Math.floor(Number(maxErrsRaw))
+      : null;
+    const errs = maxErrs != null ? allErrs.slice(0, maxErrs) : allErrs;
+    const truncated = maxErrs != null && allErrs.length > errs.length;
     writeFileSync(
       dest,
       JSON.stringify(
         {
           generatedAt: new Date().toISOString(),
-          drift: errs.length > 0,
+          drift: allErrs.length > 0,
           count: errs.length,
+          totalCount: allErrs.length,
+          truncated,
+          maxErrors: maxErrs,
           errors: errs,
         },
         null,
@@ -1350,7 +1360,7 @@ if (isDirectRun) {
       ),
     );
     process.stdout.write(
-      `Wrote schema-drift-errors.json → ${dest} (${errs.length} error(s))\n`,
+      `Wrote schema-drift-errors.json → ${dest} (${errs.length}${truncated ? `/${allErrs.length}` : ""} error(s)${truncated ? `; capped at ${maxErrs}` : ""})\n`,
     );
     // --schema-error-report-format=csv writes a companion CSV file next to JSON.
     const schemaFmt = argVal(argv, "schema-error-report-format");
@@ -1372,15 +1382,23 @@ if (isDirectRun) {
         ]);
       }
       writeFileSync(csvDest, rows.map((r) => r.map(esc).join(",")).join("\n") + "\n");
-      process.stdout.write(`Wrote schema-drift-errors.csv → ${csvDest}\n`);
-    }
-    if (errs.length) {
       process.stdout.write(
-        `::error title=SEO annotations sample-config drift::${errs.length} field(s) drifted; see ${dest}\n`,
+        `Wrote schema-drift-errors.csv → ${csvDest}${truncated ? ` (capped at ${maxErrs} of ${allErrs.length})` : ""}\n`,
+      );
+    }
+    if (truncated) {
+      process.stdout.write(
+        `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
+      );
+    }
+    if (allErrs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
     }
     // Continue: allow --write-sample-config or normal run to follow.
   }
+
 
   // --write-sample-config[=path] — write a fully documented template and exit.
   if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
