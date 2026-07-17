@@ -11,6 +11,9 @@ const routes = Array.from(
 );
 const today = new Date().toISOString().slice(0, 10);
 
+// Canonical form: trailing slash on every non-root URL.
+const withSlash = (p: string) => (p === "/" ? "/" : p.endsWith("/") ? p : `${p}/`);
+
 const urls = routes
   .map((r) => {
     const priority =
@@ -21,7 +24,7 @@ const urls = routes
           : "0.6";
     return [
       "  <url>",
-      `    <loc>${BASE_URL}${r.path}</loc>`,
+      `    <loc>${BASE_URL}${withSlash(r.path)}</loc>`,
       `    <lastmod>${today}</lastmod>`,
       `    <changefreq>weekly</changefreq>`,
       `    <priority>${priority}</priority>`,

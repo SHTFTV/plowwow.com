@@ -169,7 +169,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       typeof window !== "undefined"
         ? window.location.origin.replace(/\/+$/, "")
         : "https://plowwow.com";
-    const path = `/${slug}`;
+    const path = `/${slug}/`;
     const absoluteUrl = `${origin}${path}`;
     // Prefer the post's inline hero image; fall back to a branded hero.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
@@ -245,26 +245,27 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       art.id = articleId;
       art.text = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
         headline: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
         description,
+        url: absoluteUrl,
         ...(heroPath
           ? {
               image: {
                 "@type": "ImageObject",
-                url: heroPath,
+                url: heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`,
                 caption: heroAlt,
               },
             }
-          : {}),
-        author: { "@type": "Organization", name: "PlowWow", url: "/" },
+          : { image: absoluteImage }),
+        author: { "@type": "Organization", name: "PlowWow", url: "https://plowwow.com/" },
         publisher: {
           "@type": "Organization",
           name: "PlowWow",
-          url: "/",
+          url: "https://plowwow.com/",
           logo: {
             "@type": "ImageObject",
-            url: "/favicon.ico",
+            url: "https://plowwow.com/icon-192.png",
           },
         },
         inLanguage: "en-CA",
@@ -274,7 +275,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
               dateModified: dates.updatedAt || dates.publishedAt,
             }
           : {}),
-        mainEntityOfPage: { "@type": "WebPage", "@id": path },
+        mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl },
       });
       document.head.appendChild(art);
 
@@ -285,13 +286,13 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-          { "@type": "ListItem", position: 2, name: "Blog", item: "/blog" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://plowwow.com/blog/" },
           {
             "@type": "ListItem",
             position: 3,
             name: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
-            item: path,
+            item: absoluteUrl,
           },
         ],
       });
@@ -308,17 +309,18 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       svc.text = JSON.stringify({
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "SnowRemovalService"],
-        "@id": `${path}#localbusiness`,
+        "@id": `${absoluteUrl}#localbusiness`,
         name: `PlowWow Snow Removal — ${areaName}`,
-        url: path,
+        url: absoluteUrl,
         telephone: "+1-604-761-1518",
         priceRange: "$$",
-        image: heroPath || "https://plowwow.com/wp-content/uploads/hero.jpg",
-        logo: "https://plowwow.com/wp-content/uploads/logo.png",
+        image: heroPath ? (heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`) : absoluteImage,
+        logo: "https://plowwow.com/icon-192.png",
         areaServed: { "@type": "Place", name: areaName },
         provider: { "@id": "https://plowwow.com/#organization" },
         serviceType: "Snow Removal, De-Icing & Salting",
         address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
+        aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47" },
       });
       document.head.appendChild(svc);
     }

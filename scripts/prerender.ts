@@ -27,7 +27,8 @@ const esc = (s: string) =>
     .replace(/'/g, "&#39;");
 
 function renderHead(route: RouteMeta): string {
-  const url = `${BASE_URL}${route.path}`;
+  const canonicalPath = route.path === "/" ? "/" : route.path.endsWith("/") ? route.path : `${route.path}/`;
+  const url = `${BASE_URL}${canonicalPath}`;
   const title = esc(route.title);
   const desc = esc(route.description);
   const img = esc(route.ogImage ?? `${BASE_URL}/og-default.jpg`);
