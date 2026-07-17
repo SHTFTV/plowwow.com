@@ -249,13 +249,15 @@ function renderHead(route: RouteMeta): string {
 
   // -------------------------------------------------------------------------
   // Inject hreflang + full JSON-LD graph, immediately before </head>.
-  // Self-referencing hreflang (en-CA + x-default) — this is a single-locale
-  // property today but the tag surface is validated so we can add locales
-  // without another prerender rewrite.
+  // Emits one <link rel="alternate" hreflang="…"> per SUPPORTED_LOCALES plus
+  // a x-default fallback. build-validate.ts asserts every locale is present
+  // on every canonical page (see scripts/lib/locales.ts).
   // -------------------------------------------------------------------------
   const hreflang = [
-    `<link rel="alternate" hreflang="en-CA" href="${url}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${url}" />`,
+    ...SUPPORTED_LOCALES.map(
+      (loc) => `<link rel="alternate" hreflang="${loc}" href="${esc(localizedUrl(BASE_URL, canonicalPath, loc))}" />`,
+    ),
+    `<link rel="alternate" hreflang="x-default" href="${esc(localizedUrl(BASE_URL, canonicalPath, X_DEFAULT_LOCALE))}" />`,
   ].join("\n    ");
 
   const graph: LD[] = [];
