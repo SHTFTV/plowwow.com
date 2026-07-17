@@ -696,11 +696,185 @@ export const SAMPLE_CONFIG_TEMPLATE = `{
 }
 `;
 
-/** Write a fully documented config template. Returns the resolved path. */
-export function writeSampleConfig(path?: string): string {
+/** Strip `//` line and `/* ... *\/` block comments from a JSON-ish source. */
+export function stripJsonComments(src: string): string {
+  let out = "";
+  let i = 0;
+  let inStr = false;
+  let strCh = "";
+  while (i < src.length) {
+    const c = src[i];
+    const n = src[i + 1];
+    if (inStr) {
+      out += c;
+      if (c === "\\" && i + 1 < src.length) { out += src[i + 1]; i += 2; continue; }
+      if (c === strCh) inStr = false;
+      i++;
+      continue;
+    }
+    if (c === '"' || c === "'") { inStr = true; strCh = c; out += c; i++; continue; }
+    if (c === "/" && n === "/") { while (i < src.length && src[i] !== "\n") i++; continue; }
+    if (c === "/" && n === "*") { i += 2; while (i < src.length && !(src[i] === "*" && src[i + 1] === "/")) i++; i += 2; continue; }
+    out += c; i++;
+  }
+  return out;
+}
+
+type JsonSchema = {
+  type?: string | string[];
+  properties?: Record<string, JsonSchema>;
+  additionalProperties?: boolean | JsonSchema;
+  minimum?: number;
+  minLength?: number;
+};
+
+/** Minimal JSON Schema (draft-07 subset) validator: type, properties,
+ *  additionalProperties, minimum, minLength. Sufficient for our config schema.
+ */
+export function validateAgainstSchema(value: unknown, schema: JsonSchema, path = "$"): string[] {
+  const errs: string[] = [];
+  const typeOf = (v: unknown): string => {
+    if (v === null) return "null";
+    if (Array.isArray(v)) return "array";
+    if (Number.isInteger(v as number)) return "integer";
+    return typeof v;
+  };
+  if (schema.type) {
+    const allowed = Array.isArray(schema.type) ? schema.type : [schema.type];
+    const t = typeOf(value);
+    const ok = allowed.some((a) => a === t || (a === "number" && t === "integer"));
+    if (!ok) errs.push(`${path} — expected type ${allowed.join("|")} (got ${t})`);
+  }
+  if (typeof value === "number" && typeof schema.minimum === "number" && value < schema.minimum) {
+    errs.push(`${path} — expected >= ${schema.minimum} (got ${value})`);
+  }
+  if (typeof value === "string" && typeof schema.minLength === "number" && value.length < schema.minLength) {
+    errs.push(`${path} — expected minLength ${schema.minLength} (got ${value.length})`);
+  }
+  if (schema.properties && value && typeof value === "object" && !Array.isArray(value)) {
+    const obj = value as Record<string, unknown>;
+    for (const [k, sub] of Object.entries(schema.properties)) {
+      if (k in obj) errs.push(...validateAgainstSchema(obj[k], sub, `${path}.${k}`));
+    }
+    if (schema.additionalProperties === false) {
+      for (const k of Object.keys(obj)) {
+        if (!(k in schema.properties)) errs.push(`${path}.${k} — unknown property (additionalProperties=false)`);
+      }
+    }
+  }
+  return errs;
+}
+
+/** Parse SAMPLE_CONFIG_TEMPLATE and validate it against the JSON schema.
+ *  Throws with an actionable message when the documented template ever drifts
+ *  from seo-annotations.config.schema.json (fail-fast). Ignores the `$schema`
+ *  field which is a hint for editors, not a config value.
+ */
+export function validateSampleConfigTemplate(schemaPath?: string): void {
+  // Try caller-provided path, then cwd, then next-to-this-script. This makes
+  // the fail-fast check work from CI, from unit tests (tmp cwd), and from the
+  // CLI regardless of where it was invoked.
+  const candidates: string[] = [];
+  if (schemaPath) candidates.push(resolve(schemaPath));
+  else {
+    candidates.push(resolve("seo-annotations.config.schema.json"));
+    try {
+      const here = new URL(".", import.meta.url).pathname;
+      if (here) candidates.push(resolve(here, "..", "seo-annotations.config.schema.json"));
+    } catch { /* noop */ }
+  }
+  const sp = candidates.find((p) => existsSync(p));
+  if (!sp) {
+    throw new Error(`Sample config validation: schema file not found (tried: ${candidates.join(", ")})`);
+  }
+  const schema = JSON.parse(readFileSync(sp, "utf8")) as JsonSchema;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(stripJsonComments(SAMPLE_CONFIG_TEMPLATE));
+  } catch (e) {
+    throw new Error(`Sample config template is not valid JSON (after stripping comments): ${(e as Error).message}`);
+  }
+  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+    delete (parsed as Record<string, unknown>).$schema;
+  }
+  const errs = validateAgainstSchema(parsed, schema);
+  if (errs.length) {
+    throw new Error(
+      `SAMPLE_CONFIG_TEMPLATE has drifted from ${sp}:\n  - ${errs.join("\n  - ")}\n` +
+        `Fix SAMPLE_CONFIG_TEMPLATE in scripts/gh-annotations.ts or update the schema.`,
+    );
+  }
+  // Also cross-check with the runtime validator so both stay in sync.
+  validateConfig(parsed, "SAMPLE_CONFIG_TEMPLATE");
+}
+
+/** Write a fully documented config template. Returns the resolved path.
+ *  Fails fast (throws) when the template no longer matches the JSON schema.
+ */
+export function writeSampleConfig(path?: string, schemaPath?: string): string {
+  validateSampleConfigTemplate(schemaPath);
   const dest = resolve(path ?? "seo-annotations.config.sample.json");
   writeFileSync(dest, SAMPLE_CONFIG_TEMPLATE);
   return dest;
+}
+
+/** Parse a --fail-on-plan-regression threshold value. Accepts absolute
+ *  integers ("5") or percent strings ("25%"). Returns { kind, value }.
+ *  Undefined/empty → { kind: "absolute", value: 0 }.
+ */
+export function parseRegressionThreshold(
+  raw: string | number | undefined,
+): { kind: "absolute" | "percent"; value: number } {
+  if (raw == null || raw === "") return { kind: "absolute", value: 0 };
+  const s = String(raw).trim();
+  if (s.endsWith("%")) {
+    const n = Number(s.slice(0, -1));
+    if (Number.isFinite(n) && n >= 0) return { kind: "percent", value: n };
+    return { kind: "absolute", value: 0 };
+  }
+  const n = Number(s);
+  if (Number.isFinite(n) && n >= 0) return { kind: "absolute", value: Math.floor(n) };
+  return { kind: "absolute", value: 0 };
+}
+
+/** Evaluate a plan diff against a regression threshold. */
+export function evaluateRegression(
+  diff: ReturnType<typeof diffPlans>,
+  threshold: { kind: "absolute" | "percent"; value: number },
+): {
+  triggered: boolean;
+  metric: "totalSkipped";
+  before: number;
+  after: number;
+  delta: number;
+  deltaPercent: number; // Infinity when before=0 and delta>0
+  threshold: { kind: "absolute" | "percent"; value: number };
+  perCategory: {
+    category: Category;
+    before: number;
+    after: number;
+    delta: number;
+    deltaPercent: number;
+    exceeds: boolean;
+  }[];
+} {
+  const before = diff.totalSkipped.a;
+  const after = diff.totalSkipped.b;
+  const delta = diff.totalSkipped.delta;
+  const pct = before > 0 ? (delta / before) * 100 : delta > 0 ? Infinity : 0;
+  const triggered =
+    threshold.kind === "percent" ? pct > threshold.value : delta > threshold.value;
+  const cats: Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const perCategory = cats.map((c) => {
+    const cb = diff.categories[c].skippedByCap.a;
+    const ca = diff.categories[c].skippedByCap.b;
+    const cd = diff.categories[c].skippedByCap.delta;
+    const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
+    const exceeds =
+      threshold.kind === "percent" ? cp > threshold.value : cd > threshold.value;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+  });
+  return { triggered, metric: "totalSkipped", before, after, delta, deltaPercent: pct, threshold, perCategory };
 }
 
 
@@ -859,6 +1033,56 @@ if (isDirectRun) {
     );
   }
 
+  // annotation-plan-summary.json — compact top-level totals + per-category
+  // skipped-reason breakdowns for automated parsing (dashboards, alerts).
+  {
+    const categoriesSummary: Record<string, {
+      status: CategoryPlan["status"];
+      rawFailures: number;
+      matched: number;
+      emitted: number;
+      skippedByCap: number;
+      filteredOut: number;
+      topSkippedReasons: { reason: SkipReason | "filter"; summary: string }[];
+    }> = {};
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const p = plan.categories[cat];
+      categoriesSummary[cat] = {
+        status: p.status,
+        rawFailures: p.rawFailures,
+        matched: p.matched,
+        emitted: p.emitted,
+        skippedByCap: p.skippedByCap,
+        filteredOut: p.filteredOut,
+        topSkippedReasons: [
+          ...p.topSkipped.map((s) => ({ reason: s.reason, summary: s.summary })),
+          ...p.topFiltered.map((s) => ({ reason: s.reason, summary: s.summary })),
+        ],
+      };
+    }
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan-summary.json"),
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          filter,
+          caps,
+          totals: {
+            planned: annotations.length,
+            emitted: dryRun ? 0 : annotations.length,
+            wouldEmit: annotations.length,
+            skipped: plan.totalSkipped,
+            skippedByCap: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
+            rawFailures: totals.legacy + totals.hydration + totals.robots + totals.jsonLd,
+          },
+          categories: categoriesSummary,
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
   // --dry-run=output --plan-format=csv writes annotation-plan.csv alongside JSON.
   if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
     writeFileSync(
@@ -899,8 +1123,9 @@ if (isDirectRun) {
     );
   }
 
-  // --fail-on-plan-regression[=N] — exit 1 when the compare selection's total
-  // skipped increases by more than N (default 0) vs the base selection.
+  // --fail-on-plan-regression[=N|N%] — exit 1 when the compare selection's
+  // totalSkipped grows more than the threshold (absolute count, default 0, or
+  // a percentage of the base when suffixed with `%`).
   const regressionArg = argVal(argv, "fail-on-plan-regression");
   const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
   if (regressionFlag) {
@@ -909,12 +1134,38 @@ if (isDirectRun) {
         `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
       );
     } else {
-      const threshold = intOr(regressionArg, 0);
-      const delta = planDiff.totalSkipped.delta;
-      if (delta > threshold) {
+      const threshold = parseRegressionThreshold(regressionArg);
+      const regression = evaluateRegression(planDiff, threshold);
+      // Persist per-category regression deltas so validator-summary.ts can
+      // surface them in the PR comment even when we exit non-zero here.
+      writeFileSync(
+        resolve(REPORT_DIR, "annotation-plan-regression.json"),
+        JSON.stringify(
+          {
+            generatedAt: new Date().toISOString(),
+            labels: planDiff.labels,
+            ...regression,
+          },
+          null,
+          2,
+        ),
+      );
+      if (regression.triggered) {
+        const tDesc = threshold.kind === "percent" ? `${threshold.value}%` : `${threshold.value}`;
+        const pctDesc = Number.isFinite(regression.deltaPercent)
+          ? `${regression.deltaPercent.toFixed(1)}%`
+          : "∞%";
         process.stdout.write(
-          `::error title=SEO annotations plan regression::totalSkipped ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ+${delta}) exceeds threshold ${threshold}\n`,
+          `::error title=SEO annotations plan regression::totalSkipped ${regression.before} → ${regression.after} (Δ+${regression.delta}, ${pctDesc}) exceeds threshold ${tDesc}\n`,
         );
+        for (const c of regression.perCategory) {
+          if (c.delta === 0 && !c.exceeds) continue;
+          const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
+          const level = c.exceeds ? "error" : "notice";
+          process.stdout.write(
+            `::${level} title=SEO annotations regression (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) threshold ${tDesc}\n`,
+          );
+        }
         process.exit(1);
       }
     }

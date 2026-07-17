@@ -134,6 +134,50 @@ if (!hasBaseline) {
 }
 md.push("");
 
+// Plan-regression detail — surface per-category deltas + threshold when
+// --fail-on-plan-regression fired (gh-annotations.ts writes this artifact
+// unconditionally when the flag is set so the PR comment can render it even
+// on a non-zero exit).
+type RegressionDoc = {
+  labels?: { a: string; b: string };
+  triggered?: boolean;
+  before?: number;
+  after?: number;
+  delta?: number;
+  deltaPercent?: number;
+  threshold?: { kind: "absolute" | "percent"; value: number };
+  perCategory?: {
+    category: string;
+    before: number;
+    after: number;
+    delta: number;
+    deltaPercent: number;
+    exceeds: boolean;
+  }[];
+};
+const regression = readJson<RegressionDoc>("annotation-plan-regression.json");
+if (regression) {
+  const t = regression.threshold;
+  const tDesc = t ? (t.kind === "percent" ? `${t.value}%` : `${t.value}`) : "?";
+  const pct = typeof regression.deltaPercent === "number" && Number.isFinite(regression.deltaPercent)
+    ? `${regression.deltaPercent.toFixed(1)}%`
+    : "∞%";
+  md.push(`### Plan regression ${regression.triggered ? "❌ triggered" : "✅ within threshold"}`);
+  if (regression.labels) md.push(`- Selections: A=\`${regression.labels.a}\` vs B=\`${regression.labels.b}\``);
+  md.push(`- Threshold: **${tDesc}** (${t?.kind ?? "absolute"})`);
+  md.push(`- totalSkipped: ${regression.before ?? 0} → ${regression.after ?? 0} (Δ ${(regression.delta ?? 0) >= 0 ? "+" : ""}${regression.delta ?? 0}, ${pct})`);
+  if (regression.perCategory?.length) {
+    md.push(``);
+    md.push(`| Category | Before | After | Δ | Δ% | Exceeds |`);
+    md.push(`|---|---:|---:|---:|---:|:---:|`);
+    for (const c of regression.perCategory) {
+      const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
+      md.push(`| \`${c.category}\` | ${c.before} | ${c.after} | ${c.delta >= 0 ? "+" : ""}${c.delta} | ${cPct} | ${c.exceeds ? "❌" : "—"} |`);
+    }
+  }
+  md.push("");
+}
+
 // Direct artifact links — GitHub Actions serves the run's artifact index at
 // #artifacts and individual files are accessible under checks/annotations only
 // via download, but linking each report by name still gives reviewers a
@@ -154,6 +198,8 @@ if (artifactUrl) {
   md.push(`- 🔀 [annotation-plan-diff.json](${runUrl}/artifacts) — plan diff between two locale/variant selections`);
   md.push(`- 📝 [annotation-plan-diff.md](${runUrl}/artifacts) — human-readable plan diff table`);
   md.push(`- 📈 [annotation-plan-diff.csv](${runUrl}/artifacts) — spreadsheet-friendly plan diff (from \`--compare-locale/--compare-variant\`)`);
+  md.push(`- 📇 [annotation-plan-summary.json](${runUrl}/artifacts) — compact totals + per-category skipped-reason breakdown`);
+  md.push(`- 🚨 [annotation-plan-regression.json](${runUrl}/artifacts) — per-category regression deltas + threshold (when \`--fail-on-plan-regression\` runs)`);
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
