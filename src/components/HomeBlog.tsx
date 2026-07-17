@@ -55,15 +55,24 @@ const HomeBlog = () => (
               />
             </div>
             <div className="p-5 flex flex-col flex-1">
-              <div className="mb-3 inline-flex w-fit items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary">
-                New · {formatDate(p.publishedAt)}
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary">
+                  Published · {formatDate(p.publishedAt)}
+                </span>
+                {p.updatedAt && p.updatedAt !== p.publishedAt && (
+                  <span className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                    Updated · {formatDate(p.updatedAt)}
+                  </span>
+                )}
               </div>
-              <time
-                dateTime={p.publishedAt}
-                className="sr-only"
-              >
-                {formatDate(p.publishedAt)}
+              <time dateTime={p.publishedAt} className="sr-only">
+                Published {formatDate(p.publishedAt)}
               </time>
+              {p.updatedAt && p.updatedAt !== p.publishedAt && (
+                <time dateTime={p.updatedAt} className="sr-only">
+                  Updated {formatDate(p.updatedAt)}
+                </time>
+              )}
               <h3 className="mt-1 text-lg font-bold text-foreground leading-snug">
                 {p.title}
               </h3>
