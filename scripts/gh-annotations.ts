@@ -11,24 +11,19 @@
 // CLI options:
 //   --locale=<code>           Filter legacyRedirects annotations by locale
 //   --variant=<variant>       Filter legacyRedirects annotations by page variant
-//   --max=<n>                 Global default cap per category (default: 20;
-//                             also honors SEO_ANNOTATIONS_TOP for back-compat)
-//   --max-legacy=<n>          Per-category cap: legacy redirects
-//   --max-hydration=<n>       Per-category cap: hydration issues
-//   --max-robots=<n>          Per-category cap: robots.txt directive failures
-//   --max-jsonld=<n>          Per-category cap: JSON-LD preflight findings
-//   --config=<path>           Load defaults from a JSON config file
-//                             (default: ./seo-annotations.config.json if present).
-//                             CLI > env > config > built-in defaults.
-//   --fail-on-skipped         Exit 1 when any per-category or total skipped
-//                             count exceeds `failOnSkipped` limits from config
-//                             (or SEO_ANN_FAIL_ON_SKIPPED_* env vars).
+//   --max=<n>                 Global default cap per category (default: 20)
+//   --max-legacy / -hydration / -robots / -jsonld=<n>
+//                             Per-category caps.
+//   --config=<path>           Load defaults from a JSON config file.
+//   --fail-on-skipped         Exit 1 when skipped counts exceed failOnSkipped.
+//   --dry-run                 Print planned vs skipped to stderr; emit nothing.
+//   --dry-run=output          Same as --dry-run and always write
+//                             seo-report/annotation-plan.json (planned vs
+//                             skipped counts + per-item details).
 //
-// Env fallbacks: SEO_ANN_MAX_LEGACY / _HYDRATION / _ROBOTS / _JSONLD, plus
-// SEO_BASELINE_LOCALE and SEO_BASELINE_VARIANT for the filter (shared with
-// the baseline tooling). SEO_ANN_CONFIG overrides the config file path.
-// SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL} set per-run
-// caps on skipped failures without editing the config file.
+// Env fallbacks: SEO_ANN_MAX_{LEGACY,HYDRATION,ROBOTS,JSONLD},
+// SEO_BASELINE_LOCALE/VARIANT, SEO_ANN_CONFIG,
+// SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL}.
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
