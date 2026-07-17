@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { legacyBlogSlugs } from "./LegacyPage";
 import { blogPosts } from "@/generated/blog-posts";
 
+const blogPostBySlug = new Map(blogPosts.map((p) => [p.slug, p]));
 const publishedAtBySlug: Record<string, string> = Object.fromEntries(
   blogPosts.map((p) => [p.slug, p.publishedAt]),
 );
@@ -14,7 +15,7 @@ const formatDate = (iso: string | undefined) =>
   iso
     ? new Date(iso).toLocaleDateString("en-US", {
         year: "numeric",
-        month: "short",
+        month: "long",
         day: "numeric",
       })
     : "";
@@ -48,26 +49,7 @@ const summaryFor = (slug: string) => {
   return body.slice(0, 200) + (body.length > 200 ? "…" : "");
 };
 
-// Slugs that have a matching hero image in /public/blog-images/<slug>.jpg.
-const SLUGS_WITH_IMAGES = new Set([
-  "cloverdale-snow-removal",
-  "dunbar-vancouver-snow-removal",
-  "fort-langley-snow-removal",
-  "fraserview-vancouver-snow-removal",
-  "kitsilano-vancouver-snow-removal",
-  "lynn-valley-snow-removal",
-  "marpole-vancouver-snow-removal",
-  "north-vancouver-snow-removal",
-  "oakridge-vancouver-snow-removal",
-  "point-grey-vancouver-snow-removal",
-  "shaughnessy-vancouver-snow-removal",
-  "squamish-snow-removal",
-  "steveston-snow-removal",
-  "tsawwassen-snow-removal",
-  "west-vancouver-snow-removal",
-]);
-const imageFor = (slug: string) =>
-  SLUGS_WITH_IMAGES.has(slug) ? `/blog-images/${slug}.jpg` : null;
+const imageFor = (slug: string) => blogPostBySlug.get(slug)?.image ?? null;
 
 // Category taxonomy. Derived from slug + title keywords. Order matters —
 // first match wins (so "strata" beats "neighborhood" when both apply).
@@ -174,15 +156,19 @@ const BlogIndex = () => {
   // Newest first (left→right, top→bottom). Falls back to alpha for posts
   // without a publishedAt entry so they still appear deterministically.
   const allPosts = useMemo(
-    () =>
-      [...legacyBlogSlugs].sort((a, b) => {
+    () => {
+      const slugs = Array.from(
+        new Set([...blogPosts.map((post) => post.slug), ...legacyBlogSlugs]),
+      );
+      return slugs.sort((a, b) => {
         const da = publishedAtBySlug[a] ?? "";
         const db = publishedAtBySlug[b] ?? "";
         if (da && db && da !== db) return db.localeCompare(da);
         if (da && !db) return -1;
         if (!da && db) return 1;
         return a.localeCompare(b);
-      }),
+      });
+    },
     [],
   );
 
@@ -1007,6 +993,7 @@ const BlogIndex = () => {
                   const isActive = i === activeIndex;
                   const img = imageFor(slug);
                   const cat = postCategories[slug];
+                  const publishedAt = publishedAtBySlug[slug];
                   return (
                     <Link
                       key={slug}
@@ -1038,14 +1025,22 @@ const BlogIndex = () => {
                         <span className="absolute top-3 left-3 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
                           {cat}
                         </span>
+                        {publishedAt && (
+                          <time
+                            dateTime={publishedAt}
+                            className="absolute bottom-3 left-3 rounded-md border border-primary/30 bg-background/95 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-primary shadow-sm"
+                          >
+                            {formatDate(publishedAt)}
+                          </time>
+                        )}
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        {publishedAtBySlug[slug] && (
+                        {publishedAt && (
                           <time
-                            dateTime={publishedAtBySlug[slug]}
-                            className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+                            dateTime={publishedAt}
+                            className="mb-2 inline-flex w-fit items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary"
                           >
-                            {formatDate(publishedAtBySlug[slug])}
+                            Published {formatDate(publishedAt)}
                           </time>
                         )}
                         <h2 className="mt-1 font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">

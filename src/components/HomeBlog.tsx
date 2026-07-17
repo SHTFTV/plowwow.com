@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import { blogPosts } from "@/generated/blog-posts";
 
 const latestPosts = blogPosts.filter((post) => post.image).slice(0, 4);
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
 const HomeBlog = () => (
   <section className="py-16 md:py-24 bg-muted/30" aria-labelledby="home-blog-heading">
@@ -49,15 +55,14 @@ const HomeBlog = () => (
               />
             </div>
             <div className="p-5 flex flex-col flex-1">
+              <div className="mb-3 inline-flex w-fit items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary">
+                New · {formatDate(p.publishedAt)}
+              </div>
               <time
                 dateTime={p.publishedAt}
-                className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+                className="sr-only"
               >
-                {new Date(p.publishedAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+                {formatDate(p.publishedAt)}
               </time>
               <h3 className="mt-1 text-lg font-bold text-foreground leading-snug">
                 {p.title}
