@@ -88,17 +88,78 @@ function intOrUndef(v: string | number | undefined): number | undefined {
   return Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined;
 }
 
-/** Load a JSON config file, returning `{}` if the file is missing or invalid. */
+/**
+ * Validate a parsed config object. Throws an Error with a friendly, actionable
+ * message when values are the wrong type or out of range. Exported for tests.
+ */
+export function validateConfig(raw: unknown, source = "config"): AnnotationsConfig {
+  const errs: string[] = [];
+  const isObj = (v: unknown): v is Record<string, unknown> =>
+    !!v && typeof v === "object" && !Array.isArray(v);
+  if (raw != null && !isObj(raw)) {
+    throw new Error(`[${source}] must be a JSON object, got ${Array.isArray(raw) ? "array" : typeof raw}`);
+  }
+  const cfg = (raw ?? {}) as Record<string, unknown>;
+  const checkNonNegInt = (v: unknown, path: string) => {
+    if (v == null) return;
+    if (typeof v !== "number" || !Number.isFinite(v) || v < 0 || Math.floor(v) !== v) {
+      errs.push(`${path} must be a non-negative integer (got ${JSON.stringify(v)})`);
+    }
+  };
+  if (cfg.caps != null) {
+    if (!isObj(cfg.caps)) errs.push(`caps must be an object`);
+    else {
+      const allowed = new Set(["default", "legacy", "hydration", "robots", "jsonLd"]);
+      for (const [k, v] of Object.entries(cfg.caps)) {
+        if (!allowed.has(k)) errs.push(`caps.${k} is not a recognized key (allowed: ${[...allowed].join(", ")})`);
+        else checkNonNegInt(v, `caps.${k}`);
+      }
+    }
+  }
+  if (cfg.filter != null) {
+    if (!isObj(cfg.filter)) errs.push(`filter must be an object`);
+    else {
+      for (const [k, v] of Object.entries(cfg.filter)) {
+        if (k !== "locale" && k !== "variant") {
+          errs.push(`filter.${k} is not recognized (allowed: locale, variant)`);
+        } else if (v != null && (typeof v !== "string" || !v.trim())) {
+          errs.push(`filter.${k} must be a non-empty string`);
+        }
+      }
+    }
+  }
+  if (cfg.failOnSkipped != null) {
+    if (!isObj(cfg.failOnSkipped)) errs.push(`failOnSkipped must be an object`);
+    else {
+      const allowed = new Set(["legacy", "hydration", "robots", "jsonLd", "total"]);
+      for (const [k, v] of Object.entries(cfg.failOnSkipped)) {
+        if (!allowed.has(k)) errs.push(`failOnSkipped.${k} is not recognized (allowed: ${[...allowed].join(", ")})`);
+        else checkNonNegInt(v, `failOnSkipped.${k}`);
+      }
+    }
+  }
+  if (errs.length) {
+    throw new Error(
+      `Invalid ${source}:\n  - ${errs.join("\n  - ")}\n` +
+        `See seo-annotations.config.schema.json for the expected shape.`,
+    );
+  }
+  return cfg as AnnotationsConfig;
+}
+
+/** Load a JSON config file. Missing file → `{}`. Invalid shape → throws. */
 export function loadConfigFile(path?: string): AnnotationsConfig {
   const p = path ?? DEFAULT_CONFIG_PATH;
   if (!existsSync(p)) return {};
+  let raw: unknown;
   try {
-    const raw = JSON.parse(readFileSync(p, "utf8"));
-    return (raw && typeof raw === "object" ? raw : {}) as AnnotationsConfig;
-  } catch {
-    return {};
+    raw = JSON.parse(readFileSync(p, "utf8"));
+  } catch (e) {
+    throw new Error(`Failed to parse ${p} as JSON: ${(e as Error).message}`);
   }
+  return validateConfig(raw, p);
 }
+
 
 /**
  * Parse CLI + env + config into a resolved caps + filter config (pure; testable).
