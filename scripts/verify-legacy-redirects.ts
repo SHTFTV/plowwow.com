@@ -16,6 +16,7 @@
 
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { cachedFetch, snapshotStats as cacheStats, CACHE_ENABLED } from "./lib/http-cache";
 
 const NETLIFY_TOML = resolve("netlify.toml");
 const DIST = resolve("dist");
@@ -136,8 +137,8 @@ async function fetchOnce(url: string): Promise<{ status: number; location: strin
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
   try {
-    const res = await fetch(url, { redirect: "manual", signal: ctrl.signal });
-    return { status: res.status, location: res.headers.get("location") };
+    const r = await cachedFetch(url, { method: "GET", redirect: "manual", signal: ctrl.signal, captureBody: false });
+    return { status: r.status, location: r.location };
   } catch (err) {
     return { status: 0, location: null, err: (err as Error).message };
   } finally {
@@ -186,7 +187,7 @@ async function main() {
     .replace(/\/+$/, "");
   mkdirSync(resolve("seo-report"), { recursive: true });
 
-  console.log(`  legacy-redirects: timeout=${REQUEST_TIMEOUT_MS}ms retries=${MAX_RETRIES} backoff=${RETRY_BASE_DELAY_MS}ms`);
+  console.log(`  legacy-redirects: timeout=${REQUEST_TIMEOUT_MS}ms retries=${MAX_RETRIES} backoff=${RETRY_BASE_DELAY_MS}ms cache=${CACHE_ENABLED ? "on" : "off"}`);
   if (!base) {
     const note = "NETLIFY_BASE / CRAWL_URL not set — skipping live redirect checks (vite preview doesn't process netlify.toml).";
     console.log(`⏭  legacy-redirects: ${note}`);
@@ -247,10 +248,10 @@ async function main() {
         const ctrl = new AbortController();
         const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
         try {
-          const res = await fetch(final.url, { signal: ctrl.signal });
-          if (res.ok) { finalHtml = await res.text(); getErr = undefined; break; }
-          getErr = `status=${res.status}`;
-          if (!isTransient(res.status)) break;
+          const r = await cachedFetch(final.url, { signal: ctrl.signal, captureBody: true });
+          if (r.status >= 200 && r.status < 300 && r.body != null) { finalHtml = r.body; getErr = undefined; break; }
+          getErr = `status=${r.status}`;
+          if (!isTransient(r.status)) break;
         } catch (err) { getErr = (err as Error).message; if (!isTransient(0, getErr)) break; }
         finally { clearTimeout(timer); }
         if (attempt < MAX_RETRIES) await new Promise((r) => setTimeout(r, RETRY_BASE_DELAY_MS * 2 ** (attempt - 1)));
@@ -280,14 +281,17 @@ async function main() {
   }
 
   const failed = checks.filter((c) => !c.ok);
+  const cache = cacheStats();
   writeFileSync(
     resolve("seo-report/legacy-redirects.json"),
     JSON.stringify(
-      { generatedAt: new Date().toISOString(), base, total: checks.length, failed: failed.length, checks },
+      { generatedAt: new Date().toISOString(), base, total: checks.length, failed: failed.length, cache, checks },
       null,
       2,
     ),
   );
+  // Standalone cache-stats artifact so validator-summary can surface hit rate.
+  writeFileSync(resolve("seo-report/http-cache-stats.json"), JSON.stringify(cache, null, 2));
   const md = [
     `# Legacy redirect crawl`,
     ``,

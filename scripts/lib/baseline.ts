@@ -20,7 +20,33 @@ export type CategoryDiff = {
   currentFailures: number;
   newFailures: string[]; // stable keys unique to current run
   resolved: string[];     // keys present in baseline but no longer failing
+  /** For legacyRedirects: newFailures bucketed by locale × page-variant. */
+  grouped?: Record<string, Record<string, string[]>>;
 };
+
+/** Extract a locale prefix from a path like `/fr/…` or return `en-CA` as default. */
+export function localeOf(pathOrUrl: string): string {
+  try {
+    const p = pathOrUrl.startsWith("http") ? new URL(pathOrUrl).pathname : pathOrUrl;
+    const m = /^\/([a-z]{2}(?:-[a-z]{2})?)\//i.exec(p);
+    if (m && /^(fr|es|de|zh|ja|pa|hi|en)(-[a-z]{2})?$/i.test(m[1])) return m[1].toLowerCase();
+  } catch {}
+  return "en-CA";
+}
+
+/** Classify a plowwow URL/path into a page variant bucket. */
+export function pageVariantOf(pathOrUrl: string): string {
+  const p = pathOrUrl.startsWith("http") ? new URL(pathOrUrl).pathname : pathOrUrl;
+  if (/-strata-commercial-snow-(removal|plowing)\/?$/.test(p)) return "commercial-blog";
+  if (/-snow-removal\/?$/.test(p)) return "neighborhood-blog";
+  if (/^\/snow-removal-in-/.test(p)) return "legacy-city-slug";
+  if (/^\/blog(\/|$)/.test(p)) return "blog";
+  if (/^\/locations(\/|$)/.test(p)) return "locations";
+  if (/^\/[a-z-]+\/?$/.test(p)) return "city-hub";
+  if (p === "/" || p === "") return "home";
+  return "other";
+}
+
 
 function readJson<T>(dir: string, name: string): T | null {
   const p = resolve(dir, name);
@@ -68,16 +94,38 @@ function diffCategory(category: string, base: string[], curr: string[]): Categor
   };
 }
 
+/** Group legacyRedirects newFailures by locale × page variant for at-a-glance triage. */
+function groupLegacyByLocaleVariant(newFailures: string[]): Record<string, Record<string, string[]>> {
+  const out: Record<string, Record<string, string[]>> = {};
+  for (const key of newFailures) {
+    // key format: "source→expected"
+    const [source, expected] = key.split("→");
+    const target = expected ?? source ?? key;
+    const locale = localeOf(target);
+    const variant = pageVariantOf(target);
+    (out[locale] ??= {})[variant] ??= [];
+    out[locale][variant].push(key);
+  }
+  return out;
+}
+
 export function runBaselineDiff(): { diffs: CategoryDiff[]; hasBaseline: boolean } {
   const hasBaseline = existsSync(BASELINE_DIR) && readdirSync(BASELINE_DIR).length > 0;
+  const legacyDiff = diffCategory(
+    "legacyRedirects",
+    keysLegacy(readJson(BASELINE_DIR, "legacy-redirects.json")),
+    keysLegacy(readJson(REPORT_DIR, "legacy-redirects.json")),
+  );
+  legacyDiff.grouped = groupLegacyByLocaleVariant(legacyDiff.newFailures);
   const diffs: CategoryDiff[] = [
-    diffCategory("legacyRedirects", keysLegacy(readJson(BASELINE_DIR, "legacy-redirects.json")), keysLegacy(readJson(REPORT_DIR, "legacy-redirects.json"))),
+    legacyDiff,
     diffCategory("hydration", keysHydration(readJson(BASELINE_DIR, "hydration.json")), keysHydration(readJson(REPORT_DIR, "hydration.json"))),
     diffCategory("jsonLd", keysJsonLd(readJson(BASELINE_DIR, "jsonld-preflight.json")), keysJsonLd(readJson(REPORT_DIR, "jsonld-preflight.json"))),
     diffCategory("robots", keysRobots(readJson(BASELINE_DIR, "robots-directives.json")), keysRobots(readJson(REPORT_DIR, "robots-directives.json"))),
   ];
   return { diffs, hasBaseline };
 }
+
 
 const BASELINE_FILES = [
   "legacy-redirects.json",
