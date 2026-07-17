@@ -95,6 +95,8 @@ const snapshot: Record<string, Record<string, unknown>> = {};
 
 const files = walk(DIST);
 for (const file of files) {
+  // Skip the static 404 page — it isn't a canonical route.
+  if (file.endsWith("/404.html")) continue;
   const rel = file.replace(DIST + "/", "").replace(/\/?index\.html$/, "") || "/";
   const routePath = rel === "/" ? "/" : `/${rel}/`;
   const canonicalUrl = `${BASE_URL}${routePath}`;
