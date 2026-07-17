@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T20:30:46.948Z",
+  "generatedAt": "2026-07-17T20:31:39.788Z",
   "crawlBase": null,
   "checks": [
     {
@@ -91,12 +91,6 @@
       "expected": "/metrotown-snow-removal/",
       "status": "skip",
       "reason": "no sitemap example matches this redirect pattern"
-    },
-    {
-      "source": "/now-removal-arbutus",
-      "expected": "/snow-removal-in-arbutus/",
-      "status": "fail",
-      "reason": "redirect target has no prerendered page at dist/snow-removal-in-arbutus/"
     }
   ]
 }
