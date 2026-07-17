@@ -20,16 +20,19 @@ const plainText = (markdown: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const gitTimestamp = (file: string) => {
+const gitTimestamps = (file: string): { first: number; last: number } => {
   try {
-    const value = execFileSync("git", ["log", "-1", "--format=%ct", "--", file], {
+    const value = execFileSync("git", ["log", "--format=%ct", "--", file], {
       cwd: process.cwd(),
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
     }).trim();
-    return value ? Number(value) * 1000 : 0;
+    if (!value) return { first: 0, last: 0 };
+    const times = value.split(/\s+/).map((v) => Number(v) * 1000).filter((n) => Number.isFinite(n) && n > 0);
+    if (times.length === 0) return { first: 0, last: 0 };
+    return { first: times[times.length - 1], last: times[0] };
   } catch {
-    return 0;
+    return { first: 0, last: 0 };
   }
 };
 
@@ -45,7 +48,8 @@ const posts = readdirSync(BLOG_DIR)
     const imageMatch = body.match(/!\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]+")?\)/);
     const heroPath = resolve(IMAGE_DIR, `${slug}.jpg`);
     const hasHeroImage = existsSync(heroPath);
-    const publishedAtMs = gitTimestamp(`src/content/legacy/blog/${file}`) || statSync(filePath).mtimeMs;
+    const publishedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).first || statSync(filePath).mtimeMs;
+    const updatedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).last || statSync(filePath).mtimeMs;
 
     return {
       slug,
@@ -54,6 +58,7 @@ const posts = readdirSync(BLOG_DIR)
       image: hasHeroImage ? `/blog-images/${slug}.jpg` : null,
       alt: imageMatch?.[1]?.trim() || `${title} by PlowWow`,
       publishedAt: new Date(publishedAtMs).toISOString(),
+      updatedAt: new Date(updatedAtMs).toISOString(),
     };
   })
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
@@ -61,7 +66,7 @@ const posts = readdirSync(BLOG_DIR)
 mkdirSync(resolve(process.cwd(), "src/generated"), { recursive: true });
 writeFileSync(
   OUT_FILE,
-  `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string | null;\n  alt: string;\n  publishedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,
+  `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string | null;\n  alt: string;\n  publishedAt: string;\n  updatedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,
 );
 
 console.log(`✓ blog-posts.ts written (${posts.length} posts)`);
