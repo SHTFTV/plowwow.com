@@ -7,8 +7,8 @@
     "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
     "dev": "vite",
     "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
-    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts",
-    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts",
+    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts",
+    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts",
     "seo:smoke": "tsx scripts/build-validate.ts",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -20,7 +20,10 @@
     "seo:content-audit": "tsx scripts/seo-content-audit.ts",
     "seo:jsonld-preflight": "tsx scripts/jsonld-preflight.ts",
     "seo:locale-snapshot": "tsx scripts/jsonld-locale-snapshot.ts",
-    "seo:verify-redirects": "tsx scripts/verify-redirects.ts"
+    "seo:verify-redirects": "tsx scripts/verify-redirects.ts",
+    "seo:og-twitter": "tsx scripts/og-twitter-validate.ts",
+    "seo:sitemap": "tsx scripts/sitemap-lastmod-validate.ts",
+    "seo:hydration": "tsx scripts/hydration-check.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
