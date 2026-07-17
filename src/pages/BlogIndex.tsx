@@ -997,6 +997,8 @@ const BlogIndex = () => {
                   const img = imageFor(slug);
                   const cat = postCategories[slug];
                   const publishedAt = publishedAtBySlug[slug];
+                  const updatedAt = updatedAtBySlug[slug];
+                  const wasUpdated = updatedAt && updatedAt !== publishedAt;
                   return (
                     <Link
                       key={slug}
