@@ -171,7 +171,20 @@ const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const allPosts = useMemo(() => [...legacyBlogSlugs].sort(), []);
+  // Newest first (left→right, top→bottom). Falls back to alpha for posts
+  // without a publishedAt entry so they still appear deterministically.
+  const allPosts = useMemo(
+    () =>
+      [...legacyBlogSlugs].sort((a, b) => {
+        const da = publishedAtBySlug[a] ?? "";
+        const db = publishedAtBySlug[b] ?? "";
+        if (da && db && da !== db) return db.localeCompare(da);
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+        return a.localeCompare(b);
+      }),
+    [],
+  );
 
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
