@@ -292,7 +292,10 @@ const isDirectRun = (() => {
 })();
 
 if (isDirectRun) {
-  const { caps, filter } = parseConfig(process.argv.slice(2));
+  const argv = process.argv.slice(2);
+  const configPath = argVal(argv, "config") ?? process.env.SEO_ANN_CONFIG;
+  const config = loadConfigFile(configPath);
+  const { caps, filter, failOnSkipped, failOnSkippedEnabled } = parseConfig(argv, process.env, config);
   const legacy = readJson<LegacyDoc>("legacy-redirects.json");
   const hydration = readJson<HydrationDoc>("hydration.json");
   const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
@@ -304,11 +307,24 @@ if (isDirectRun) {
 
   for (const a of annotations) emit(a);
 
+  const violations = evaluateSkippedLimits(skipped, failOnSkipped);
+
   // Persist skipped/total counts for the PR-comment renderer.
   mkdirSync(REPORT_DIR, { recursive: true });
   writeFileSync(
     resolve(REPORT_DIR, "annotation-skipped.json"),
-    JSON.stringify({ generatedAt: new Date().toISOString(), caps, filter, totals, skipped, emitted: annotations.length }, null, 2),
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        caps, filter, totals, skipped,
+        emitted: annotations.length,
+        failOnSkipped,
+        failOnSkippedEnabled,
+        violations,
+      },
+      null,
+      2,
+    ),
   );
 
   const filterDesc = filter.locale || filter.variant
@@ -321,4 +337,13 @@ if (isDirectRun) {
       `(legacy=${totals.legacy}, hydration=${totals.hydration}, jsonLd=${totals.jsonLd}, robots=${totals.robots}) ` +
       `${capsDesc} ${skippedDesc}${filterDesc}\n`,
   );
+
+  if (failOnSkippedEnabled && violations.length) {
+    for (const v of violations) {
+      process.stdout.write(
+        `::error title=SEO annotations skipped cap exceeded::${v.category} skipped=${v.skipped} > limit=${v.limit}\n`,
+      );
+    }
+    process.exit(1);
+  }
 }
