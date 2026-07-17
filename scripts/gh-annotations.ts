@@ -670,7 +670,10 @@ export function planDiffToCsv(
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const rows: string[][] = [header];
-  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+  const cats: Category[] = opts.include && opts.include.length
+    ? opts.include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  for (const cat of cats) {
     const d = diff.categories[cat];
     rows.push([
       cat,
