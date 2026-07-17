@@ -391,6 +391,7 @@ async function main() {
       });
     }
   } finally {
+    await context.close().catch(() => {});
     await browser.close();
     if (server && !server.killed) server.kill("SIGTERM");
   }
