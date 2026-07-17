@@ -1237,22 +1237,95 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
-  // --print-regression-thresholds — print the severity bands used by
-  // --fail-on-regression-severity to stdout (as a ::notice + human line) so
-  // reviewers can see the exact thresholds before evaluation. Does NOT exit;
-  // combines with the rest of the run.
-  if (hasFlag(argv, "print-regression-thresholds")) {
-    const rows = (Object.keys(SEVERITY_BANDS) as SeverityBand[])
-      .map((b) => `${b}=>${SEVERITY_BANDS[b]}%`)
-      .join(", ");
-    process.stdout.write(
-      `::notice title=SEO annotations regression thresholds::deltaPercent bands: ${rows}\n`,
-    );
-    process.stdout.write(`Regression severity bands (deltaPercent of skippedByCap):\n`);
-    for (const b of Object.keys(SEVERITY_BANDS) as SeverityBand[]) {
-      process.stdout.write(`  ${b}: > ${SEVERITY_BANDS[b]}%\n`);
+  // --fail-on-regression-thresholds-config=<path> — load per-category
+  // critical/major/minor bands from a JSON file. Loaded early so
+  // --print-regression-thresholds and later severity checks both see it.
+  const thresholdsCfgPath = argVal(argv, "fail-on-regression-thresholds-config")
+    ?? process.env.SEO_ANN_REGRESSION_THRESHOLDS_CONFIG;
+  let thresholdsConfig: RegressionThresholdsConfig | null = null;
+  if (thresholdsCfgPath) {
+    try {
+      thresholdsConfig = loadRegressionThresholdsConfig(thresholdsCfgPath);
+    } catch (e) {
+      const msg = (e as Error).message;
+      process.stdout.write(`::error title=Invalid regression thresholds config::${esc(msg)}\n`);
+      process.stderr.write(msg + "\n");
+      process.exit(2);
     }
   }
+  const bandsFor = (c: Category) => resolveCategoryBands(c, thresholdsConfig);
+
+  // --print-regression-thresholds[=<path>] — print the severity bands used by
+  // --fail-on-regression-severity to stdout (as a ::notice + human line) so
+  // reviewers can see the exact thresholds before evaluation. Optionally
+  // writes a CSV/JSON artifact when --print-regression-thresholds-format is
+  // provided. Does NOT exit; combines with the rest of the run.
+  if (hasFlag(argv, "print-regression-thresholds") || argv.some((a) => a.startsWith("--print-regression-thresholds="))) {
+    const ALL_CATS: readonly Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+    const defaultBands: CategoryBands = { ...SEVERITY_BANDS, ...(thresholdsConfig?.default ?? {}) };
+    const rows = (Object.keys(defaultBands) as SeverityBand[])
+      .map((b) => `${b}=>${defaultBands[b]}%`)
+      .join(", ");
+    process.stdout.write(
+      `::notice title=SEO annotations regression thresholds::deltaPercent bands (default): ${rows}${thresholdsConfig ? " (from config)" : ""}\n`,
+    );
+    process.stdout.write(`Regression severity bands (deltaPercent of skippedByCap):\n`);
+    process.stdout.write(`  default: minor>${defaultBands.minor}% major>${defaultBands.major}% critical>${defaultBands.critical}%\n`);
+    if (thresholdsConfig) {
+      for (const c of ALL_CATS) {
+        if (thresholdsConfig[c]) {
+          const b = bandsFor(c);
+          process.stdout.write(`  ${c}: minor>${b.minor}% major>${b.major}% critical>${b.critical}%\n`);
+        }
+      }
+    }
+    // --print-regression-thresholds-format=csv|json|csv,json
+    const printFmtRaw = argVal(argv, "print-regression-thresholds-format")
+      ?? argVal(argv, "print-regression-thresholds"); // support --flag=csv shorthand
+    const printFmts = new Set(
+      (printFmtRaw ?? "")
+        .split(",")
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s === "csv" || s === "json"),
+    );
+    if (printFmts.size > 0) {
+      mkdirSync(REPORT_DIR, { recursive: true });
+      const rowsOut: Array<{ category: string; minor: number; major: number; critical: number; source: string }> = [
+        { category: "default", ...defaultBands, source: thresholdsConfig?.default ? "config" : "builtin" },
+      ];
+      for (const c of ALL_CATS) {
+        const b = bandsFor(c);
+        rowsOut.push({ category: c, ...b, source: thresholdsConfig?.[c] ? "config" : "default" });
+      }
+      if (printFmts.has("csv")) {
+        const escCsv = (v: unknown) => {
+          const s = String(v ?? "");
+          return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+        };
+        const header = ["category", "minor", "major", "critical", "source"];
+        const lines = [header.join(",")];
+        for (const r of rowsOut) {
+          lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
+        }
+        const dest = resolve(REPORT_DIR, "regression-thresholds.csv");
+        writeFileSync(dest, lines.join("\n") + "\n");
+        process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
+      }
+      if (printFmts.has("json")) {
+        const dest = resolve(REPORT_DIR, "regression-thresholds.json");
+        writeFileSync(
+          dest,
+          JSON.stringify(
+            { generatedAt: new Date().toISOString(), source: thresholdsConfig ? thresholdsCfgPath : null, bands: rowsOut },
+            null,
+            2,
+          ),
+        );
+        process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
+      }
+    }
+  }
+
 
   // --schema-error-report[=path] — write schema-drift-errors.json with the
   // structured path/expected/actual/snippet details for each failing field.
