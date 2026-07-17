@@ -1,0 +1,47 @@
+{
+  "hasBaseline": false,
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
+  "diffs": [
+    {
+      "category": "legacyRedirects",
+      "baselineFailures": 0,
+      "currentFailures": 17,
+      "newFailures": [
+        "/blog→/blog/"
+      ],
+      "resolved": [],
+      "grouped": {
+        "en-CA": {
+          "blog": [
+            "/blog→/blog/"
+          ]
+        }
+      }
+    },
+    {
+      "category": "hydration",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    },
+    {
+      "category": "jsonLd",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    },
+    {
+      "category": "robots",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    }
+  ],
+  "generatedAt": "2026-07-17T21:36:05.898Z"
+}

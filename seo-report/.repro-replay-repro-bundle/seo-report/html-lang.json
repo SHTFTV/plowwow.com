@@ -1,0 +1,3524 @@
+{
+  "generatedAt": "2026-07-17T20:45:47.547Z",
+  "expectedLang": "en-CA",
+  "total": 293,
+  "failed": 0,
+  "results": [
+    {
+      "url": "https://plowwow.com/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/intelligence/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/takeoff/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/quote/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/locations/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/guest-post/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/seo-report/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/new-westminster/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-coquitlam/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-moody/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/pitt-meadows/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maple-ridge/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/surrey/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/langley/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/abbotsford/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/west-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/north-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/richmond/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/delta/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-rock/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mission/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/chilliwack/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/abbotsford-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/albion-maple-ridge-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/austin-heights-coquitlam-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/austin-heights-coquitlam-strip-mall-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/brentwood-burnaby-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/broadmoor-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/buckingham-heights-burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burke-mountain-coquitlam-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burke-mountain-snow/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby-heights-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cambie-village-vancouver-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/can-i-push-snow-onto-the-street/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/capitol-hill-burnaby-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cariboo-heights-burnaby-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cedar-valley-mission-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/champlain-heights-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/chilliwack-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cloverdale-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coal-harbour-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-drive-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-snow-removal-burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-snow-removal-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam-centre-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/deer-lake-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/delta-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/does-it-snow-in-vancouver-weather-guide/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/downtown-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/dunbar-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/eagle-ridge-coquitlam-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/east-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/edmonds-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/false-creek-vancouver-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/fort-langley-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/fraserview-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/garden-city-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/gastown-vancouver-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/grandview-woodland-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/hamilton-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/happy-new-year-metro-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/hastings-sunrise-east-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/heritage-mountain/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/highgate-burnaby-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kensington-cedar-cottage-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kitsilano-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/langley-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/lougheed-town-centre-burnaby-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/lynn-valley-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maillardville-coquitlam-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maple-ridge-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/marpole-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-snow-removal-company/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/middlegate-snow-removal-burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mission-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/montecito-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mount-pleasant-east-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/new-westminster-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/north-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/now-removal-arbutus/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/oakridge-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/plow-wow-cutest-snow-removal-brand-marketing-platform/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/point-grey-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-coquitlam-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-moody-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/professional-snow-removal-in-middle-gate-burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/promontory-chilliwack-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/ranch-park-coquitlam-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/record-snow-falls-in-bc/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/richmond-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/riley-park-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/river-springs-coquitlam-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sapperton-new-westminster/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sardis-chilliwack-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/seafair-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sfu-burnaby-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/shaughnessy-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/shaughnessy-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silver-valley-maple-ridge-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silver-valley-maple-ridge/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silverdale-mission-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/skid-steer-snow-removal-in-langley-bc/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-in-burquitlam/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-kensington-prairie/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-renfrew-heights/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-services-in-killarney-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-west-side-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/south-cambie-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/south-slope-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/squamish-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/steveston-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strathcona-east-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/suncrest-burnaby-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sunset-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/surrey-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/terra-nova-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/the-worlds-cutest-snow-removal-brand/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/tsawwassen-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/victoria-fraserview-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/west-end-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/west-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/westridge-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/westwood-plateau-coquitlam-parking-lot-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-christmas-2025-burnaby/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-rock-strata-commercial-snow-plowing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/willingdon-heights-burnaby-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/yaletown-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/advanced-technology/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/24-7-service/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/abbotsford-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/about/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/anmore-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/apartment-complexes/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/app/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/belcarra-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/chilliwack-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/contact/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/delta-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/how-it-works/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/langley-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maple-ridge-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/marketing/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mission-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/new-westminster-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/pitt-meadows-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/plowwow-service-areas/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-coquitlam-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-moody-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/residential-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/richmond-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/satisfaction-guaranteed/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/services/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/skilled-courteous-team/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-blowers-for-sidewalks/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-relocation/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-management-system/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strata-complexes/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strata-experts/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strip-malls/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/surrey-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-rock-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/abbotsford-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/albion-maple-ridge-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/austin-heights-coquitlam-strip-mall-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/brentwood-burnaby-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/buckingham-heights-burnaby",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burke-mountain-coquitlam-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burke-mountain-snow",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby-heights-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/burnaby-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cambie-village-vancouver-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/can-i-push-snow-onto-the-street",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/capitol-hill-burnaby-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cariboo-heights-burnaby-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/chilliwack-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cloverdale-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coal-harbour-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-drive-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-snow-removal-burnaby",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/commercial-snow-removal-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam-centre-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/coquitlam-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/delta-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/does-it-snow-in-vancouver-weather-guide",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/downtown-vancouver-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/dunbar-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/eagle-ridge-coquitlam-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/east-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/edmonds-burnaby-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/false-creek-vancouver-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/fort-langley-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/fraserview-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/gastown-vancouver-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/happy-new-year-metro-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/hastings-sunrise-east-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/heritage-mountain",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/highgate-burnaby-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kensington-cedar-cottage-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kitsilano-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/langley-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/lougheed-town-centre-burnaby-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/lynn-valley-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maillardville-coquitlam-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/maple-ridge-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/marpole-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-snow-removal-company",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/metrotown-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/middlegate-snow-removal-burnaby",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mission-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/mount-pleasant-east-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/new-westminster-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/north-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/now-removal-arbutus",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/oakridge-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/plow-wow-cutest-snow-removal-brand-marketing-platform",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/point-grey-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-coquitlam-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/port-moody-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/professional-snow-removal-in-middle-gate-burnaby",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/promontory-chilliwack-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/record-snow-falls-in-bc",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/richmond-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sapperton-new-westminster",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sardis-chilliwack-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/sfu-burnaby-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/shaughnessy-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/shaughnessy-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silver-valley-maple-ridge-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silver-valley-maple-ridge",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/skid-steer-snow-removal-in-langley-bc",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-in-burquitlam",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-kensington-prairie",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-renfrew-heights",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-services-in-killarney-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/snow-removal-west-side-vancouver",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/squamish-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/steveston-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strathcona-east-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/suncrest-burnaby-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/surrey-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/the-worlds-cutest-snow-removal-brand",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/tsawwassen-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/west-end-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/west-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/westwood-plateau-coquitlam-parking-lot-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-christmas-2025-burnaby",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/white-rock-strata-commercial-snow-plowing",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/willingdon-heights-burnaby-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/yaletown-vancouver-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/grandview-woodland-vancouver-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/victoria-fraserview-vancouver-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/deer-lake-burnaby-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/montecito-burnaby-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/ranch-park-coquitlam-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/river-springs-coquitlam-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/austin-heights-coquitlam-strata-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/terra-nova-richmond-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/hamilton-richmond-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/garden-city-richmond-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/champlain-heights-vancouver-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/south-cambie-vancouver-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/broadmoor-richmond-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/seafair-richmond-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/silverdale-mission-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/cedar-valley-mission-strata-commercial-snow-removal",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    }
+  ]
+}
