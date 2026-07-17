@@ -759,7 +759,43 @@ if (isDirectRun) {
     );
   }
 
-  const filterDesc = filter.locale || filter.variant
+  // --dry-run=output --plan-format=csv writes annotation-plan.csv alongside JSON.
+  if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan.csv"),
+      planToCsv(plan, { filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}` }),
+    );
+  }
+
+  // --compare-locale / --compare-variant: write annotation-plan-diff.{json,md}.
+  if (planDiff && comparePlan) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan-diff.json"),
+      JSON.stringify({ generatedAt: new Date().toISOString(), diff: planDiff, a: plan, b: comparePlan }, null, 2),
+    );
+    const lines: string[] = [];
+    lines.push(`# Annotation plan diff`);
+    lines.push(``);
+    lines.push(`- A: \`${planDiff.labels.a}\``);
+    lines.push(`- B: \`${planDiff.labels.b}\``);
+    lines.push(``);
+    lines.push(`| Category | Emitted (A→B) | Δ | Cap-skipped (A→B) | Δ | Filter-skipped (A→B) | Δ | Status (A→B) |`);
+    lines.push(`|---|---:|---:|---:|---:|---:|---:|---|`);
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const d = planDiff.categories[cat];
+      const arrow = (n: number) => (n > 0 ? `+${n}` : `${n}`);
+      lines.push(
+        `| ${cat} | ${d.emitted.a}→${d.emitted.b} | ${arrow(d.emitted.delta)} | ${d.skippedByCap.a}→${d.skippedByCap.b} | ${arrow(d.skippedByCap.delta)} | ${d.filteredOut.a}→${d.filteredOut.b} | ${arrow(d.filteredOut.delta)} | ${d.status.a}${d.status.changed ? ` → **${d.status.b}**` : ""} |`,
+      );
+    }
+    lines.push(``);
+    lines.push(`Total emitted: ${planDiff.totalEmitted.a} → ${planDiff.totalEmitted.b} (Δ ${planDiff.totalEmitted.delta >= 0 ? "+" : ""}${planDiff.totalEmitted.delta})`);
+    lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
+    process.stdout.write(
+      `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
+    );
+  }
     ? ` filter[locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}]`
     : "";
   const capsDesc = `caps[legacy=${caps.legacy},hydration=${caps.hydration},robots=${caps.robots},jsonLd=${caps.jsonLd}]`;
