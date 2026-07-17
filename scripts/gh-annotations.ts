@@ -771,15 +771,21 @@ export function validateAgainstSchema(value: unknown, schema: JsonSchema, path =
  *  field which is a hint for editors, not a config value.
  */
 export function validateSampleConfigTemplate(schemaPath?: string): void {
-  // Resolve default schema next to this script so the fail-fast check works
-  // regardless of the caller's cwd (e.g. tests use a tmp cwd).
-  const here = (() => {
-    try { return new URL(".", import.meta.url).pathname; } catch { return process.cwd(); }
-  })();
-  const defaultPath = resolve(here, "..", "seo-annotations.config.schema.json");
-  const sp = schemaPath ? resolve(schemaPath) : defaultPath;
-  if (!existsSync(sp)) {
-    throw new Error(`Sample config validation: schema file not found at ${sp}`);
+  // Try caller-provided path, then cwd, then next-to-this-script. This makes
+  // the fail-fast check work from CI, from unit tests (tmp cwd), and from the
+  // CLI regardless of where it was invoked.
+  const candidates: string[] = [];
+  if (schemaPath) candidates.push(resolve(schemaPath));
+  else {
+    candidates.push(resolve("seo-annotations.config.schema.json"));
+    try {
+      const here = new URL(".", import.meta.url).pathname;
+      if (here) candidates.push(resolve(here, "..", "seo-annotations.config.schema.json"));
+    } catch { /* noop */ }
+  }
+  const sp = candidates.find((p) => existsSync(p));
+  if (!sp) {
+    throw new Error(`Sample config validation: schema file not found (tried: ${candidates.join(", ")})`);
   }
   const schema = JSON.parse(readFileSync(sp, "utf8")) as JsonSchema;
   let parsed: unknown;
