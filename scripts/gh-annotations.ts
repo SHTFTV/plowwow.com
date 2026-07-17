@@ -796,6 +796,8 @@ if (isDirectRun) {
       `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
     );
   }
+
+  const filterDesc = filter.locale || filter.variant
     ? ` filter[locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}]`
     : "";
   const capsDesc = `caps[legacy=${caps.legacy},hydration=${caps.hydration},robots=${caps.robots},jsonLd=${caps.jsonLd}]`;
