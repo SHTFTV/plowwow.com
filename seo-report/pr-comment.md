@@ -34,3 +34,6 @@
 
 ### Top failing hydration OG/Twitter issues
   - _none_
+
+### HTTP cache & timing
+- Cache: _no cached fetches recorded_ (enable with `SEO_HTTP_CACHE=1`)

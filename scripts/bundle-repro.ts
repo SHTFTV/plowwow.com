@@ -63,7 +63,7 @@ writeFileSync(resolve(STAGE, "repro-metadata.json"), JSON.stringify(metadata, nu
 // Copy thresholds config (non-fatal if missing).
 const thresholds = resolve("seo-thresholds.json");
 if (existsSync(thresholds)) {
-  const { copyFileSync } = require("node:fs");
+  
   copyFileSync(thresholds, resolve(STAGE, "seo-thresholds.json"));
 }
 
@@ -89,7 +89,7 @@ for (const f of walk(REPORT_DIR)) {
   const rel = relative(REPORT_DIR, f);
   const dst = resolve(reportStage, rel);
   mkdirSync(resolve(dst, ".."), { recursive: true });
-  const { copyFileSync } = require("node:fs");
+  
   copyFileSync(f, dst);
 }
 
