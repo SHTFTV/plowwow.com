@@ -146,11 +146,20 @@ async function main() {
     }),
   );
   const failed = results.filter((r) => !r.ok);
+  const warned = results.filter((r) => r.ok && r.warnings.length);
   mkdirSync(resolve("seo-report"), { recursive: true });
   writeFileSync(
     resolve("seo-report/og-image-reachable.json"),
     JSON.stringify(
-      { generatedAt: new Date().toISOString(), total: results.length, failed: failed.length, results },
+      {
+        generatedAt: new Date().toISOString(),
+        total: results.length,
+        failed: failed.length,
+        warnings: warned.length,
+        minDimensions: `${MIN_W}x${MIN_H}`,
+        recommendedDimensions: `${RECOMMENDED_W}x${RECOMMENDED_H}`,
+        results,
+      },
       null,
       2,
     ),
@@ -162,7 +171,9 @@ async function main() {
     ``,
     `- Unique URLs: **${results.length}**`,
     `- Failed: **${failed.length}**`,
-    `- Minimum dimensions: **${MIN_W}×${MIN_H}**`,
+    `- Warnings: **${warned.length}**`,
+    `- Minimum dimensions (hard): **${MIN_W}×${MIN_H}**`,
+    `- Recommended dimensions: **${RECOMMENDED_W}×${RECOMMENDED_H}**`,
     ``,
   ];
   if (failed.length) {
@@ -170,19 +181,31 @@ async function main() {
     for (const r of failed) {
       md.push(`### \`${r.kind}\` — ${r.url}`);
       md.push(`Referenced by ${r.sources.length} page(s), e.g. \`${r.sources[0]}\``);
-      for (const i of r.issues) md.push(`- ${i}`);
+      for (const i of r.issues) md.push(`- ❌ ${i}`);
+      for (const w of r.warnings) md.push(`- ⚠ ${w}`);
       md.push(``);
     }
-  } else md.push(`✅ Every og:image and twitter:image is absolute-https, 200, correct type, and ≥ ${MIN_W}×${MIN_H}.`);
+  }
+  if (warned.length) {
+    md.push(`## Warnings`, ``);
+    for (const r of warned.slice(0, 50)) {
+      md.push(`- \`${r.kind}\` ${r.url} — ${r.warnings.join("; ")}`);
+    }
+    md.push(``);
+  }
+  if (!failed.length && !warned.length)
+    md.push(`✅ Every og:image and twitter:image is absolute-https, 200, correct type, and ≥ ${RECOMMENDED_W}×${RECOMMENDED_H}.`);
   writeFileSync(resolve("seo-report/og-image-reachable.md"), md.join("\n"));
 
   if (failed.length) {
-    console.error(`\n✗ og-image-reachable: ${failed.length}/${results.length} images failed`);
+    console.error(`\n✗ og-image-reachable: ${failed.length}/${results.length} images failed (hard), ${warned.length} warnings`);
     for (const r of failed.slice(0, 20))
       console.error(`  · [${r.kind}] ${r.url}\n      ${r.issues.join("\n      ")}`);
     process.exit(1);
   }
-  console.log(`✓ og-image-reachable: ${results.length}/${results.length} images pass reachability + format + dimensions`);
+  console.log(
+    `✓ og-image-reachable: ${results.length}/${results.length} images reachable, ≥ ${MIN_W}×${MIN_H} (${warned.length} below recommended ${RECOMMENDED_W}×${RECOMMENDED_H})`,
+  );
 }
 
 main().catch((err) => {
