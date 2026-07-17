@@ -553,7 +553,38 @@ export function selectAnnotations(input: {
 }
 
 /** Serialize an AnnotationPlan to CSV. One row per category. */
-export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } = {}): string {
+/** Parse a --plan-category-include=cat1,cat2 value into a normalized Category[]
+ *  (order preserved, unknown values dropped). Undefined/empty → null (no filter).
+ */
+export function parseCategoryInclude(raw: string | undefined | null): Category[] | null {
+  if (raw == null) return null;
+  const s = String(raw).trim();
+  if (!s) return null;
+  const valid: readonly Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const aliases: Record<string, Category> = {
+    legacy: "legacy",
+    "legacy-redirects": "legacy",
+    hydration: "hydration",
+    robots: "robots",
+    jsonld: "jsonLd",
+    "json-ld": "jsonLd",
+    jsonLd: "jsonLd",
+  };
+  const seen = new Set<Category>();
+  const out: Category[] = [];
+  for (const raw of s.split(",")) {
+    const t = raw.trim();
+    if (!t) continue;
+    const norm = aliases[t] ?? (valid.includes(t as Category) ? (t as Category) : null);
+    if (norm && !seen.has(norm)) { seen.add(norm); out.push(norm); }
+  }
+  return out.length ? out : null;
+}
+
+export function planToCsv(
+  plan: AnnotationPlan,
+  meta: { filterLabel?: string; include?: Category[] | null } = {},
+): string {
   const header = [
     "category", "rawFailures", "matched", "emitted", "skippedByCap",
     "filteredOut", "status", "topSkipped", "topFiltered",
@@ -563,7 +594,10 @@ export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } =
     const s = String(v ?? "");
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
-  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+  const cats: Category[] = meta.include && meta.include.length
+    ? meta.include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  for (const cat of cats) {
     const p = plan.categories[cat];
     rows.push([
       cat,
@@ -619,7 +653,10 @@ export function diffPlans(
 }
 
 /** Serialize a plan diff (from diffPlans) to CSV. One row per category, plus totals rows. */
-export function planDiffToCsv(diff: ReturnType<typeof diffPlans>): string {
+export function planDiffToCsv(
+  diff: ReturnType<typeof diffPlans>,
+  opts: { include?: Category[] | null } = {},
+): string {
   const header = [
     "category",
     "emitted_a", "emitted_b", "emitted_delta",
@@ -633,7 +670,10 @@ export function planDiffToCsv(diff: ReturnType<typeof diffPlans>): string {
     return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const rows: string[][] = [header];
-  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+  const cats: Category[] = opts.include && opts.include.length
+    ? opts.include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  for (const cat of cats) {
     const d = diff.categories[cat];
     rows.push([
       cat,
@@ -975,7 +1015,117 @@ export function evaluateRegression(
   return { triggered, metric: "totalSkipped", before, after, delta, deltaPercent: pct, threshold, perCategory };
 }
 
+/** Severity band → deltaPercent threshold. A category "exceeds" the band when
+ *  its skippedByCap deltaPercent is strictly greater than the band's value.
+ *  Infinite deltaPercent (before=0 → after>0) always exceeds any finite band.
+ */
+export type SeverityBand = "minor" | "major" | "critical";
+export const SEVERITY_BANDS: Record<SeverityBand, number> = {
+  minor: 1,
+  major: 25,
+  critical: 50,
+};
 
+export function parseSeverityBand(raw: string | undefined | null): SeverityBand | null {
+  if (raw == null) return null;
+  const s = String(raw).trim().toLowerCase();
+  if (s === "minor" || s === "major" || s === "critical") return s;
+  return null;
+}
+
+/** Evaluate a plan diff against a severity band. Returns per-category exceed
+ *  flags and whether the overall check should fail (any category exceeds).
+ */
+export function evaluateRegressionSeverity(
+  diff: ReturnType<typeof diffPlans>,
+  band: SeverityBand,
+  include?: Category[] | null,
+): {
+  triggered: boolean;
+  band: SeverityBand;
+  thresholdPercent: number;
+  perCategory: {
+    category: Category;
+    before: number;
+    after: number;
+    delta: number;
+    deltaPercent: number;
+    exceeds: boolean;
+  }[];
+} {
+  const thresholdPercent = SEVERITY_BANDS[band];
+  const cats: Category[] = include && include.length
+    ? include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  const perCategory = cats.map((c) => {
+    const cb = diff.categories[c].skippedByCap.a;
+    const ca = diff.categories[c].skippedByCap.b;
+    const cd = diff.categories[c].skippedByCap.delta;
+    const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
+    const exceeds = cp > thresholdPercent;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+  });
+  return {
+    triggered: perCategory.some((c) => c.exceeds),
+    band,
+    thresholdPercent,
+    perCategory,
+  };
+}
+
+/** Serialize a regression evaluation (from evaluateRegression) to CSV. */
+export function regressionToCsv(
+  regression: ReturnType<typeof evaluateRegression>,
+  opts: { include?: Category[] | null; labels?: { a: string; b: string } } = {},
+): string {
+  const escCsv = (v: unknown) => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const header = ["category", "before", "after", "delta", "deltaPercent", "exceeds"];
+  const includeSet = opts.include && opts.include.length ? new Set(opts.include) : null;
+  const rows: string[][] = [header];
+  for (const c of regression.perCategory) {
+    if (includeSet && !includeSet.has(c.category)) continue;
+    const pct = Number.isFinite(c.deltaPercent) ? c.deltaPercent.toFixed(2) : "Infinity";
+    rows.push([c.category, String(c.before), String(c.after), String(c.delta), pct, String(c.exceeds)]);
+  }
+  const totalPct = Number.isFinite(regression.deltaPercent)
+    ? regression.deltaPercent.toFixed(2)
+    : "Infinity";
+  rows.push(["__total__", String(regression.before), String(regression.after), String(regression.delta), totalPct, String(regression.triggered)]);
+  const prefix = opts.labels ? `# A: ${opts.labels.a}\n# B: ${opts.labels.b}\n` : "";
+  const tDesc = regression.threshold.kind === "percent"
+    ? `${regression.threshold.value}%`
+    : `${regression.threshold.value}`;
+  return `${prefix}# threshold: ${tDesc}\n` + rows.map((r) => r.map(escCsv).join(",")).join("\n") + "\n";
+}
+
+/** Get structured schema-drift errors for the sample-config template. Returns
+ *  an empty array when no drift is present. Used by --schema-error-report.
+ */
+export function getSampleConfigTemplateErrors(schemaPath?: string): SchemaError[] {
+  const candidates: string[] = [];
+  if (schemaPath) candidates.push(resolve(schemaPath));
+  else {
+    candidates.push(resolve("seo-annotations.config.schema.json"));
+    try {
+      const here = new URL(".", import.meta.url).pathname;
+      if (here) candidates.push(resolve(here, "..", "seo-annotations.config.schema.json"));
+    } catch { /* noop */ }
+  }
+  const sp = candidates.find((p) => existsSync(p));
+  if (!sp) return [];
+  const schema = JSON.parse(readFileSync(sp, "utf8")) as JsonSchema;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(stripJsonComments(SAMPLE_CONFIG_TEMPLATE));
+  } catch { return []; }
+  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+    delete (parsed as Record<string, unknown>).$schema;
+  }
+  return validateAgainstSchemaDetailed(parsed, schema);
+}
 
 function emit(a: Annotation) {
   const parts = [`file=${a.file}`];
@@ -997,6 +1147,39 @@ const isDirectRun = (() => {
 
 if (isDirectRun) {
   const argv = process.argv.slice(2);
+
+  // --schema-error-report[=path] — write schema-drift-errors.json with the
+  // structured path/expected/actual/snippet details for each failing field.
+  // Runs BEFORE --write-sample-config so both flags can be combined; the file
+  // is always written (empty array when there is no drift).
+  if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
+    const p = argVal(argv, "schema-error-report");
+    const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
+    mkdirSync(resolve(dest, ".."), { recursive: true });
+    const errs = getSampleConfigTemplateErrors();
+    writeFileSync(
+      dest,
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          drift: errs.length > 0,
+          count: errs.length,
+          errors: errs,
+        },
+        null,
+        2,
+      ),
+    );
+    process.stdout.write(
+      `Wrote schema-drift-errors.json → ${dest} (${errs.length} error(s))\n`,
+    );
+    if (errs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations sample-config drift::${errs.length} field(s) drifted; see ${dest}\n`,
+      );
+    }
+    // Continue: allow --write-sample-config or normal run to follow.
+  }
 
   // --write-sample-config[=path] — write a fully documented template and exit.
   if (argv.some((a) => a === "--write-sample-config" || a.startsWith("--write-sample-config="))) {
@@ -1039,6 +1222,14 @@ if (isDirectRun) {
   // --top-skipped-reasons=<n> controls how many top skipped reasons appear
   // in each per-category ::notice line.
   const TOP_NOTICE = intOr(argVal(argv, "top-skipped-reasons") ?? process.env.SEO_ANN_TOP_SKIPPED_REASONS, 3);
+  // --plan-category-include=cat1,cat2 restricts PR tables and CSV outputs to
+  // the listed categories. `null` = no restriction. Accepts aliases (jsonld,
+  // json-ld, legacy-redirects).
+  const includeCats = parseCategoryInclude(
+    argVal(argv, "plan-category-include") ?? process.env.SEO_ANN_PLAN_CATEGORY_INCLUDE ?? null,
+  );
+
+
 
   // --compare-locale=<code> / --compare-variant=<name>: compute a second plan
   // using the alternate filter and write a diff report showing how planned
@@ -1145,7 +1336,10 @@ if (isDirectRun) {
       filteredOut: number;
       topSkippedReasons: { reason: SkipReason | "filter"; summary: string }[];
     }> = {};
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const summaryCats: readonly Category[] = includeCats && includeCats.length
+      ? includeCats
+      : (["legacy", "hydration", "jsonLd", "robots"] as const);
+    for (const cat of summaryCats) {
       const p = plan.categories[cat];
       // Prefer cap-skipped reasons first (they indicate CI-suppressed output),
       // then fill remaining slots with filter-skipped reasons.
@@ -1213,7 +1407,10 @@ if (isDirectRun) {
   if (planFormat === "csv" || (dryRunOutput && planFormat === "csv")) {
     writeFileSync(
       resolve(REPORT_DIR, "annotation-plan.csv"),
-      planToCsv(plan, { filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}` }),
+      planToCsv(plan, {
+        filterLabel: `locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}`,
+        include: includeCats,
+      }),
     );
   }
 
@@ -1231,7 +1428,10 @@ if (isDirectRun) {
     lines.push(``);
     lines.push(`| Category | Emitted (A→B) | Δ | Cap-skipped (A→B) | Δ | Filter-skipped (A→B) | Δ | Status (A→B) |`);
     lines.push(`|---|---:|---:|---:|---:|---:|---:|---|`);
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const diffCats: readonly Category[] = includeCats && includeCats.length
+      ? includeCats
+      : (["legacy", "hydration", "jsonLd", "robots"] as const);
+    for (const cat of diffCats) {
       const d = planDiff.categories[cat];
       const arrow = (n: number) => (n > 0 ? `+${n}` : `${n}`);
       lines.push(
@@ -1243,10 +1443,26 @@ if (isDirectRun) {
     lines.push(`Total skipped: ${planDiff.totalSkipped.a} → ${planDiff.totalSkipped.b} (Δ ${planDiff.totalSkipped.delta >= 0 ? "+" : ""}${planDiff.totalSkipped.delta})`);
     writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.md"), lines.join("\n") + "\n");
     // Spreadsheet-friendly CSV of the same diff.
-    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff));
+    writeFileSync(resolve(REPORT_DIR, "annotation-plan-diff.csv"), planDiffToCsv(planDiff, { include: includeCats }));
     process.stdout.write(
       `::notice title=SEO annotations diff::${planDiff.labels.a} vs ${planDiff.labels.b} — Δemitted=${planDiff.totalEmitted.delta} Δskipped=${planDiff.totalSkipped.delta}\n`,
     );
+  }
+
+  // --plan-regression-format=csv → write annotation-plan-regression.csv (needs
+  // a compare selection; emitted whenever `planDiff` is available).
+  const regressionFormat = argVal(argv, "plan-regression-format");
+
+  // --fail-on-regression-severity=<band> — fail when any category's
+  // deltaPercent exceeds the band's threshold (minor=1%, major=25%,
+  // critical=50%). Runs independently of --fail-on-plan-regression.
+  const severityArg = argVal(argv, "fail-on-regression-severity") ?? process.env.SEO_ANN_FAIL_ON_REGRESSION_SEVERITY;
+  const severityBand = parseSeverityBand(severityArg);
+  if (severityArg != null && !severityBand) {
+    process.stdout.write(
+      `::error title=SEO annotations severity::Invalid --fail-on-regression-severity=${severityArg} (expected minor|major|critical)\n`,
+    );
+    process.exit(2);
   }
 
   // --fail-on-plan-regression[=N|N%] — exit 1 when the compare selection's
@@ -1254,29 +1470,42 @@ if (isDirectRun) {
   // a percentage of the base when suffixed with `%`).
   const regressionArg = argVal(argv, "fail-on-plan-regression");
   const regressionFlag = hasFlag(argv, "fail-on-plan-regression") || regressionArg != null;
-  if (regressionFlag) {
+  if (regressionFlag || severityBand) {
     if (!planDiff) {
       process.stdout.write(
-        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression set but no --compare-locale/--compare-variant provided; skipping.\n`,
+        `::warning title=SEO annotations plan-regression::--fail-on-plan-regression/--fail-on-regression-severity set but no --compare-locale/--compare-variant provided; skipping.\n`,
       );
     } else {
       const threshold = parseRegressionThreshold(regressionArg);
       const regression = evaluateRegression(planDiff, threshold);
       // Persist per-category regression deltas so validator-summary.ts can
       // surface them in the PR comment even when we exit non-zero here.
+      const severityEval = severityBand
+        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats)
+        : null;
       writeFileSync(
         resolve(REPORT_DIR, "annotation-plan-regression.json"),
         JSON.stringify(
           {
             generatedAt: new Date().toISOString(),
             labels: planDiff.labels,
+            include: includeCats,
             ...regression,
+            severity: severityEval,
           },
           null,
           2,
         ),
       );
-      if (regression.triggered) {
+      if (regressionFormat === "csv") {
+        writeFileSync(
+          resolve(REPORT_DIR, "annotation-plan-regression.csv"),
+          regressionToCsv(regression, { include: includeCats, labels: planDiff.labels }),
+        );
+      }
+      let shouldFail = false;
+      if (regressionFlag && regression.triggered) {
+        shouldFail = true;
         const tDesc = threshold.kind === "percent" ? `${threshold.value}%` : `${threshold.value}`;
         const pctDesc = Number.isFinite(regression.deltaPercent)
           ? `${regression.deltaPercent.toFixed(1)}%`
@@ -1285,6 +1514,7 @@ if (isDirectRun) {
           `::error title=SEO annotations plan regression::totalSkipped ${regression.before} → ${regression.after} (Δ+${regression.delta}, ${pctDesc}) exceeds threshold ${tDesc}\n`,
         );
         for (const c of regression.perCategory) {
+          if (includeCats && !includeCats.includes(c.category)) continue;
           if (c.delta === 0 && !c.exceeds) continue;
           const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
           const level = c.exceeds ? "error" : "notice";
@@ -1292,8 +1522,21 @@ if (isDirectRun) {
             `::${level} title=SEO annotations regression (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) threshold ${tDesc}\n`,
           );
         }
-        process.exit(1);
       }
+      if (severityEval && severityEval.triggered) {
+        shouldFail = true;
+        process.stdout.write(
+          `::error title=SEO annotations regression severity::band=${severityEval.band} (>${severityEval.thresholdPercent}%) exceeded\n`,
+        );
+        for (const c of severityEval.perCategory) {
+          if (!c.exceeds) continue;
+          const cPct = Number.isFinite(c.deltaPercent) ? `${c.deltaPercent.toFixed(1)}%` : "∞%";
+          process.stdout.write(
+            `::error title=SEO annotations severity (${c.category})::skippedByCap ${c.before} → ${c.after} (Δ${c.delta >= 0 ? "+" : ""}${c.delta}, ${cPct}) band ${severityEval.band} (>${severityEval.thresholdPercent}%)\n`,
+          );
+        }
+      }
+      if (shouldFail) process.exit(1);
     }
   }
 
