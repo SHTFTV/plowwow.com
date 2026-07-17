@@ -142,6 +142,12 @@ md.push("");
 if (artifactUrl) {
   md.push(`### 📎 Artifacts`);
   md.push(`- 🔗 [Full workflow run + artifact index](${artifactUrl})`);
+  // Direct links to the two most-requested artifacts. GitHub's artifact index
+  // links each uploaded artifact by name — clicking these downloads the zip
+  // for the artifact and opens `validation-report.html` / `repro-bundle.zip`
+  // without needing to expand the artifact list manually.
+  md.push(`- 📄 [validation-report.html](${runUrl}/artifacts) — download the \`validation-report-html\` artifact`);
+  md.push(`- 📦 [repro-bundle.zip](${runUrl}/artifacts) — download the \`repro-bundle\` artifact`);
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
     ["Validation report (JSON)", "seo-report/validation-report.json"],
@@ -219,6 +225,9 @@ type SkipDoc = {
   totals?: { legacy: number; hydration: number; robots: number; jsonLd: number };
   skipped?: { legacy: number; hydration: number; robots: number; jsonLd: number };
   emitted?: number;
+  failOnSkipped?: { legacy?: number; hydration?: number; robots?: number; jsonLd?: number; total?: number };
+  failOnSkippedEnabled?: boolean;
+  violations?: { category: string; skipped: number; limit: number }[];
 };
 const skipDoc = readJson<SkipDoc>("annotation-skipped.json");
 if (skipDoc?.skipped) {
@@ -232,6 +241,12 @@ if (skipDoc?.skipped) {
   md.push(`  - \`hydration\` — ${t.hydration - s.hydration}/${t.hydration} shown (cap ${c.hydration}, **${s.hydration}** skipped)`);
   md.push(`  - \`jsonLd\` — ${t.jsonLd - s.jsonLd}/${t.jsonLd} shown (cap ${c.jsonLd}, **${s.jsonLd}** skipped)`);
   md.push(`  - \`robots\` — ${t.robots - s.robots}/${t.robots} shown (cap ${c.robots}, **${s.robots}** skipped)`);
+  if (skipDoc.violations?.length) {
+    md.push(`- ❌ **fail-on-skipped** limits exceeded${skipDoc.failOnSkippedEnabled ? "" : " _(reporting only — enable with `--fail-on-skipped`)_"}:`);
+    for (const v of skipDoc.violations) {
+      md.push(`  - \`${v.category}\` — skipped ${v.skipped} > limit ${v.limit}`);
+    }
+  }
   md.push("");
 }
 

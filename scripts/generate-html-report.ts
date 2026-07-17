@@ -43,6 +43,16 @@ const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
 const robots = readJson<RobotsDoc>("robots-directives.json");
 const baseline = readJson<BaselineDoc>("baseline-diff.json");
 const validationMd = readText("validation-report.md");
+type SkippedDoc = {
+  caps?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  totals?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  skipped?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  emitted?: number;
+  failOnSkipped?: { legacy?: number; hydration?: number; robots?: number; jsonLd?: number; total?: number };
+  failOnSkippedEnabled?: boolean;
+  violations?: { category: string; skipped: number; limit: number }[];
+};
+const skippedDoc = readJson<SkippedDoc>("annotation-skipped.json");
 const meta = readJson<{ git?: { sha?: string; ref?: string }; ci?: { runUrl?: string | null; runId?: string | null }; generatedAt?: string }>("../repro-metadata.json")
   ?? readJson<{ git?: { sha?: string; ref?: string }; ci?: { runUrl?: string | null; runId?: string | null }; generatedAt?: string }>("repro-metadata.json");
 
@@ -181,6 +191,42 @@ const html = `<!doctype html>
     <p style="margin-top:8px"><a href="./robots-directives.json">robots-directives.json</a></p>
   </div>
 </details>
+
+${(() => {
+  if (!skippedDoc?.skipped) return "";
+  const s = skippedDoc.skipped;
+  const t = skippedDoc.totals ?? { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
+  const c = skippedDoc.caps ?? { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
+  const totalSkipped = s.legacy + s.hydration + s.robots + s.jsonLd;
+  const totalShown = (skippedDoc.emitted ?? 0);
+  const rows = (["legacy", "hydration", "robots", "jsonLd"] as const).map((k) => `
+    <tr>
+      <td><code>${k}</code></td>
+      <td>${t[k]}</td>
+      <td>${c[k]}</td>
+      <td>${t[k] - s[k]}</td>
+      <td>${s[k] ? `<strong>${s[k]}</strong>` : "0"}</td>
+    </tr>`).join("");
+  const violations = skippedDoc.violations ?? [];
+  const violationsBlock = violations.length ? `
+    <p style="margin-top:12px"><strong>fail-on-skipped violations</strong>${skippedDoc.failOnSkippedEnabled ? "" : " <span class=\"pill warn\">reporting only</span>"}:</p>
+    <ul>${violations.map((v) => `<li><code>${esc(v.category)}</code> — skipped <strong>${v.skipped}</strong> &gt; limit ${v.limit}</li>`).join("")}</ul>
+  ` : "";
+  return `
+<details ${totalSkipped ? "open" : ""}>
+  <summary>Skipped by caps <span class="pill ${totalSkipped ? "warn" : "ok"}">${totalSkipped ? `${totalSkipped} skipped` : "nothing skipped"}</span></summary>
+  <div class="body">
+    <p class="meta">${totalShown} annotation(s) emitted, ${totalSkipped} finding(s) omitted from the GitHub Checks UI due to per-category caps.</p>
+    <table>
+      <thead><tr><th>Category</th><th>Total</th><th>Cap</th><th>Shown</th><th>Skipped</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    ${violationsBlock}
+    <p style="margin-top:8px"><a href="./annotation-skipped.json">annotation-skipped.json</a></p>
+  </div>
+</details>`;
+})()}
+
 
 ${baseline ? `
 <details>

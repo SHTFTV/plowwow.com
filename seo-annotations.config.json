@@ -1,0 +1,21 @@
+{
+  "$schema": "./seo-annotations.config.schema.json",
+  "caps": {
+    "default": 20,
+    "legacy": 20,
+    "hydration": 20,
+    "robots": 20,
+    "jsonLd": 20
+  },
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
+  "failOnSkipped": {
+    "legacy": 50,
+    "hydration": 50,
+    "robots": 20,
+    "jsonLd": 20,
+    "total": 100
+  }
+}

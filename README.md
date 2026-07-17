@@ -47,6 +47,24 @@ annotations in the Checks UI.
 | `--max-hydration=<n>` | `SEO_ANN_MAX_HYDRATION` | Cap for hydration annotations                            |
 | `--max-robots=<n>`  | `SEO_ANN_MAX_ROBOTS`      | Cap for robots.txt annotations                           |
 | `--max-jsonld=<n>`  | `SEO_ANN_MAX_JSONLD`      | Cap for JSON-LD annotations                              |
+| `--config=<path>`   | `SEO_ANN_CONFIG`          | Load defaults from a JSON config file (default: `./seo-annotations.config.json`) |
+| `--fail-on-skipped` | `SEO_ANN_FAIL_ON_SKIPPED=1` | Exit non-zero when skipped counts exceed `failOnSkipped` limits |
+
+**Precedence:** CLI flag > env var > config file > built-in default.
+
+**Config file (`seo-annotations.config.json`):**
+
+```jsonc
+{
+  "caps":   { "default": 20, "legacy": 20, "hydration": 20, "robots": 20, "jsonLd": 20 },
+  "filter": { "locale": "en-CA", "variant": "blog" },
+  "failOnSkipped": {
+    "legacy": 50, "hydration": 50, "robots": 20, "jsonLd": 20, "total": 100
+  }
+}
+```
+
+Per-category / total limits can also be set with `SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL}`.
 
 **Examples:**
 
@@ -59,11 +77,15 @@ bunx tsx scripts/gh-annotations.ts --max-hydration=5 --max-jsonld=5
 
 # Everything scoped to blog variant, 3 per category
 bunx tsx scripts/gh-annotations.ts --variant=blog --max=3
+
+# Fail CI if per-category caps hide too many findings
+bunx tsx scripts/gh-annotations.ts --fail-on-skipped
 ```
 
 Any failures skipped by the caps are counted in
-`seo-report/annotation-skipped.json` and surfaced in the PR comment under
-**"Annotation caps"**.
+`seo-report/annotation-skipped.json`, rendered in the PR comment under
+**"Annotation caps"**, and shown in the HTML report's **"Skipped by caps"**
+section.
 
 ### Repro bundle — `scripts/bundle-repro.ts`
 
