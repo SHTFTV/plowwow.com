@@ -100,6 +100,14 @@ export function collectRoutes(): RouteMeta[] {
       kind: "static",
     },
     {
+      path: "/locations",
+      title: "Snow Removal Service Areas | PlowWow Metro Vancouver",
+      description:
+        "Every city and neighborhood PlowWow services across Metro Vancouver and the Fraser Valley — 24/7 strata, commercial and residential snow removal.",
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    },
+    {
       path: "/guest-post",
       title: "Submit a Guest Post | PlowWow Snow Removal Blog",
       description:
