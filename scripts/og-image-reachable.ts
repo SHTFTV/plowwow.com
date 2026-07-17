@@ -19,8 +19,10 @@ import { readImageMeta, formatFromExtension } from "../src/test/helpers/image-si
 
 const DIST = resolve("dist");
 const CANONICAL_HOST = "plowwow.com";
-const MIN_W = 1200;
-const MIN_H = 630;
+const MIN_W = 600;
+const MIN_H = 315;
+const RECOMMENDED_W = 1200;
+const RECOMMENDED_H = 630;
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir, { withFileTypes: true })) {
