@@ -15,6 +15,7 @@ import { spawn, type ChildProcess } from "node:child_process";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { SUPPORTED_LOCALES, PRIMARY_OG_LOCALE, ALTERNATE_OG_LOCALES } from "./lib/locales";
+import { loadThresholds, evaluate } from "./lib/thresholds";
 
 const REQUIRED_HREFLANG = [...SUPPORTED_LOCALES, "x-default"];
 const REQUIRED_OG = [
