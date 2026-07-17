@@ -305,3 +305,199 @@ describe("selectAnnotations plan output", () => {
 });
 
 
+
+import { spawnSync } from "node:child_process";
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve as pathResolve } from "node:path";
+import { planToCsv, planDiffToCsv, diffPlans, selectAnnotations, writeSampleConfig, SAMPLE_CONFIG_TEMPLATE } from "./gh-annotations";
+
+const CAPS = { legacy: 5, hydration: 5, robots: 5, jsonLd: 5 };
+const legacyDoc = {
+  checks: [
+    { source: "/a", expected: "/a/", ok: false, reason: "200" },
+    { source: "/b", expected: "/b/", ok: false, reason: "200" },
+  ],
+};
+
+describe("planToCsv", () => {
+  it("emits header + one row per category with correct fields", () => {
+    const { plan } = selectAnnotations({ legacy: legacyDoc, caps: CAPS, filter: {} });
+    const csv = planToCsv(plan);
+    const lines = csv.trim().split("\n");
+    expect(lines[0]).toBe("category,rawFailures,matched,emitted,skippedByCap,filteredOut,status,topSkipped,topFiltered");
+    expect(lines.length).toBe(5); // header + 4 categories
+    const legacyRow = lines.find((l) => l.startsWith("legacy,"))!;
+    expect(legacyRow).toContain(",2,2,2,0,0,ok,");
+  });
+
+  it("prepends filterLabel comment when supplied", () => {
+    const { plan } = selectAnnotations({ caps: CAPS, filter: {} });
+    const csv = planToCsv(plan, { filterLabel: "locale=fr,variant=blog" });
+    expect(csv.startsWith("# filter: locale=fr,variant=blog\n")).toBe(true);
+  });
+
+  it("CSV-escapes summaries containing commas or quotes", () => {
+    const plan = selectAnnotations({
+      legacy: { checks: [{ source: "/x,y", expected: "/x,y/", ok: false, reason: 'said "hi"' }] },
+      caps: { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 }, filter: {},
+    }).plan;
+    const csv = planToCsv(plan);
+    expect(csv).toMatch(/"\/x,y → \/x,y\/"/);
+  });
+});
+
+describe("planDiffToCsv", () => {
+  it("emits header + 4 category rows + totalEmitted + totalSkipped rows", () => {
+    const a = selectAnnotations({ legacy: legacyDoc, caps: CAPS, filter: {} }).plan;
+    const b = selectAnnotations({ legacy: legacyDoc, caps: CAPS, filter: { locale: "fr" } }).plan;
+    const diff = diffPlans(a, b, { a: "en", b: "fr" });
+    const csv = planDiffToCsv(diff);
+    expect(csv.startsWith("# A: en\n# B: fr\n")).toBe(true);
+    const lines = csv.trim().split("\n").filter((l) => !l.startsWith("#"));
+    expect(lines[0]).toContain("category,emitted_a,emitted_b,emitted_delta");
+    expect(lines.length).toBe(1 + 4 + 2);
+    expect(lines.some((l) => l.startsWith("__totalEmitted__,"))).toBe(true);
+    expect(lines.some((l) => l.startsWith("__totalSkipped__,"))).toBe(true);
+    const legacyRow = lines.find((l) => l.startsWith("legacy,"))!;
+    // A had 2 emitted, B filtered all out → delta -2
+    expect(legacyRow).toContain("2,0,-2");
+  });
+});
+
+describe("writeSampleConfig", () => {
+  it("writes a documented template that parses as JSONC-like content", () => {
+    const dir = mkdtempSync(join(tmpdir(), "gh-ann-"));
+    const dest = writeSampleConfig(join(dir, "sample.json"));
+    const text = readFileSync(dest, "utf8");
+    expect(text).toBe(SAMPLE_CONFIG_TEMPLATE);
+    expect(text).toMatch(/"caps"/);
+    expect(text).toMatch(/"filter"/);
+    expect(text).toMatch(/"failOnSkipped"/);
+    expect(text).toMatch(/\$schema/);
+    // Contains explanatory comments (not strict JSON — documented template).
+    expect(text).toMatch(/\/\//);
+  });
+});
+
+// End-to-end CLI: spawn the script against a temp cwd with seeded inputs and
+// verify the plan JSON/CSV and diff JSON/MD/CSV artifacts are written correctly.
+describe("gh-annotations CLI (end-to-end)", () => {
+  const SCRIPT = pathResolve(__dirname, "gh-annotations.ts");
+
+  function runCli(args: string[], cwd: string) {
+    return spawnSync("bunx", ["tsx", SCRIPT, ...args], {
+      cwd,
+      env: { ...process.env, SEO_ANN_CONFIG: "" },
+      encoding: "utf8",
+    });
+  }
+
+  function seed(cwd: string) {
+    const reportDir = join(cwd, "seo-report");
+    mkdirSync(reportDir, { recursive: true });
+    writeFileSync(join(reportDir, "legacy-redirects.json"), JSON.stringify({
+      checks: [
+        { source: "/en-CA/blog/x", expected: "/en-CA/blog/x/", ok: false, reason: "200" },
+        { source: "/fr/blog/y", expected: "/fr/blog/y/", ok: false, reason: "200" },
+        { source: "/a", expected: "/a/", ok: true },
+      ],
+    }));
+  }
+
+  it("--dry-run=output writes annotation-plan.json without emitting ::error lines", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-"));
+    seed(cwd);
+    const r = runCli(["--dry-run=output", "--max=10"], cwd);
+    expect(r.status).toBe(0);
+    // Dry-run must NOT emit ::error workflow commands.
+    expect(r.stdout).not.toMatch(/^::error /m);
+    const planPath = join(cwd, "seo-report", "annotation-plan.json");
+    expect(existsSync(planPath)).toBe(true);
+    const plan = JSON.parse(readFileSync(planPath, "utf8"));
+    expect(plan.dryRun).toBe(true);
+    expect(plan.dryRunMode).toBe("output");
+    expect(plan.categories.legacy.rawFailures).toBe(2);
+    expect(plan.totalEmitted).toBe(0);
+    expect(plan.totalWouldEmit).toBe(2);
+  }, 30_000);
+
+  it("--plan-format=csv writes annotation-plan.csv with the header row", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-"));
+    seed(cwd);
+    const r = runCli(["--dry-run=output", "--plan-format=csv"], cwd);
+    expect(r.status).toBe(0);
+    const csvPath = join(cwd, "seo-report", "annotation-plan.csv");
+    expect(existsSync(csvPath)).toBe(true);
+    const csv = readFileSync(csvPath, "utf8");
+    expect(csv).toMatch(/^# filter:/m);
+    expect(csv).toMatch(/^category,rawFailures,matched,emitted,skippedByCap/m);
+    expect(csv).toMatch(/^legacy,/m);
+  }, 30_000);
+
+  it("--compare-locale writes plan-diff .json/.md/.csv artifacts", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-"));
+    seed(cwd);
+    const r = runCli(
+      ["--dry-run=output", "--locale=en-CA", "--variant=blog", "--compare-locale=fr"],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    const jsonPath = join(cwd, "seo-report", "annotation-plan-diff.json");
+    const mdPath = join(cwd, "seo-report", "annotation-plan-diff.md");
+    const csvPath = join(cwd, "seo-report", "annotation-plan-diff.csv");
+    expect(existsSync(jsonPath)).toBe(true);
+    expect(existsSync(mdPath)).toBe(true);
+    expect(existsSync(csvPath)).toBe(true);
+    const md = readFileSync(mdPath, "utf8");
+    expect(md).toMatch(/# Annotation plan diff/);
+    expect(md).toMatch(/locale=en-CA/);
+    expect(md).toMatch(/locale=fr/);
+    const csv = readFileSync(csvPath, "utf8");
+    expect(csv).toMatch(/^# A: locale=en-CA/m);
+    expect(csv).toMatch(/^# B: locale=fr/m);
+    expect(csv).toMatch(/^category,emitted_a,emitted_b,emitted_delta/m);
+    expect(csv).toMatch(/^__totalSkipped__,/m);
+  }, 30_000);
+
+  it("--fail-on-plan-regression=0 exits 1 when totalSkipped grows", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-"));
+    // Seed with enough failures that a tight cap causes cap-skips in A but the
+    // compare selection filters everything out (so B has 0 skipped-by-cap).
+    // Using low cap + filter=en-CA vs compare=fr where fr has no failures →
+    // A has cap-skips, B has none → delta is negative → no regression.
+    // To force a regression, invert: A filter with no failures (0 skipped),
+    // compare with matches over the cap (>0 skipped).
+    mkdirSync(join(cwd, "seo-report"), { recursive: true });
+    writeFileSync(join(cwd, "seo-report", "legacy-redirects.json"), JSON.stringify({
+      checks: [
+        { source: "/fr/blog/a", expected: "/fr/blog/a/", ok: false, reason: "200" },
+        { source: "/fr/blog/b", expected: "/fr/blog/b/", ok: false, reason: "200" },
+        { source: "/fr/blog/c", expected: "/fr/blog/c/", ok: false, reason: "200" },
+      ],
+    }));
+    const r = runCli(
+      [
+        "--dry-run=output",
+        "--locale=en-CA", "--variant=blog",
+        "--compare-locale=fr",
+        "--max-legacy=1",
+        "--fail-on-plan-regression=0",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(1);
+    expect(r.stdout).toMatch(/plan regression/i);
+  }, 30_000);
+
+  it("--write-sample-config writes template and exits 0", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-"));
+    const dest = join(cwd, "cfg.json");
+    const r = runCli([`--write-sample-config=${dest}`], cwd);
+    expect(r.status).toBe(0);
+    expect(existsSync(dest)).toBe(true);
+    const text = readFileSync(dest, "utf8");
+    expect(text).toMatch(/"caps"/);
+    expect(text).toMatch(/"failOnSkipped"/);
+  }, 30_000);
+});
