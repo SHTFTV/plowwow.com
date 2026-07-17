@@ -149,6 +149,7 @@ if (artifactUrl) {
   md.push(`- 📄 [validation-report.html](${runUrl}/artifacts) — download the \`validation-report-html\` artifact`);
   md.push(`- 📦 [repro-bundle.zip](${runUrl}/artifacts) — download the \`repro-bundle\` artifact`);
   md.push(`- 📊 [annotation-skipped.json](${runUrl}/artifacts) — download the \`annotation-skipped\` artifact (per-category cap counts)`);
+  md.push(`- 🧭 [annotation-plan.json](${runUrl}/artifacts) — download the \`annotation-plan\` artifact (planned vs skipped details + top reasons per category)`);
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
