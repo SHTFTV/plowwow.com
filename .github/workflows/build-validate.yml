@@ -93,7 +93,18 @@ jobs:
               });
             }
 
-      - name: Upload validation artifacts
+      - name: Upload validation report (always, even on failure)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: |
+            seo-report/validation-report.json
+            seo-report/validation-report.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload all SEO report artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -104,8 +115,23 @@ jobs:
             seo-report/build-smoke.json
             seo-report/jsonld-locale-snapshot.json
             seo-report/redirects.json
+            seo-report/og-twitter.json
+            seo-report/og-twitter.md
+            seo-report/sitemap.json
+            seo-report/sitemap.md
+            seo-report/hydration.json
+            seo-report/hydration.md
           retention-days: 14
           if-no-files-found: warn
+
+      - name: Install Playwright browser (Chromium)
+        if: always() && steps.build.outcome == 'success'
+        run: bunx playwright install --with-deps chromium
+
+      - name: Post-build hydration check
+        if: always() && steps.build.outcome == 'success'
+        run: bunx tsx scripts/hydration-check.ts
+        continue-on-error: true
 
       - name: Fail job if build or validators failed
         if: always()
