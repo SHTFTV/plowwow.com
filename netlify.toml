@@ -2,6 +2,71 @@
   publish = "dist"
   command = "bun run build"
 
+# Netlify's pretty-URL handling already serves /foo/index.html at /foo, but the
+# explicit 301s below force non-canonical variants (missing trailing slash,
+# legacy slug spellings, uppercase paths) to the single canonical URL so the
+# canonical <link> tag, sitemap, and Netlify agree on one URL per page.
+
+# --- 301: enforce trailing slash on city + blog patterns ---
+[[redirects]]
+  from = "/snow-removal-in-:slug"
+  to = "/snow-removal-in-:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:slug-snow-removal"
+  to = "/:slug-snow-removal/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations"
+  to = "/locations/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/quote"
+  to = "/quote/"
+  status = 301
+  force = true
+
+# --- 301: legacy slug normalization ---
+# Older external links used /blog/<slug> before we flattened blog URLs to the
+# root. Keep those working with a permanent redirect to the canonical path.
+[[redirects]]
+  from = "/blog/:slug"
+  to = "/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/:slug/"
+  to = "/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/:slug"
+  to = "/:slug/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/posts/:slug/"
+  to = "/:slug/"
+  status = 301
+  force = true
+
+
+
 # --- 301: consolidate duplicate Metrotown pages ---
 [[redirects]]
   from = "/metrotown-burnaby-strata-commercial-snow-removal"

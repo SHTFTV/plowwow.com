@@ -11,6 +11,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 import { cities } from "../src/data/cities";
+import { blogPosts } from "../src/generated/blog-posts";
+import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl } from "./lib/locales";
 
 const DIST = resolve("dist");
 const TEMPLATE_PATH = resolve(DIST, "index.html");
@@ -148,6 +150,10 @@ function cityLocalBusiness(route: RouteMeta, url: string): LD | null {
 }
 
 function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: string): LD {
+  const slug = route.path.replace(/^\/+/, "");
+  const post = blogPosts.find((p) => p.slug === slug);
+  const datePublished = post?.publishedAt ?? new Date().toISOString();
+  const dateModified = post?.updatedAt ?? datePublished;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -155,6 +161,8 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
     description: route.description,
     url,
     image: heroAbs,
+    datePublished,
+    dateModified,
     author: { "@type": "Organization", name: "PlowWow", url: `${BASE_URL}/` },
     publisher: {
       "@type": "Organization",
@@ -248,13 +256,15 @@ function renderHead(route: RouteMeta): string {
 
   // -------------------------------------------------------------------------
   // Inject hreflang + full JSON-LD graph, immediately before </head>.
-  // Self-referencing hreflang (en-CA + x-default) — this is a single-locale
-  // property today but the tag surface is validated so we can add locales
-  // without another prerender rewrite.
+  // Emits one <link rel="alternate" hreflang="…"> per SUPPORTED_LOCALES plus
+  // a x-default fallback. build-validate.ts asserts every locale is present
+  // on every canonical page (see scripts/lib/locales.ts).
   // -------------------------------------------------------------------------
   const hreflang = [
-    `<link rel="alternate" hreflang="en-CA" href="${url}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${url}" />`,
+    ...SUPPORTED_LOCALES.map(
+      (loc) => `<link rel="alternate" hreflang="${loc}" href="${esc(localizedUrl(BASE_URL, canonicalPath, loc))}" />`,
+    ),
+    `<link rel="alternate" hreflang="x-default" href="${esc(localizedUrl(BASE_URL, canonicalPath, X_DEFAULT_LOCALE))}" />`,
   ].join("\n    ");
 
   const graph: LD[] = [];
@@ -304,7 +314,7 @@ function renderHead(route: RouteMeta): string {
     `<script type="application/ld+json" data-prerendered-route="${route.path}">${JSON.stringify(
       {
         "@context": "https://schema.org",
-        "@type": route.kind === "legacy-blog" ? "Article" : "WebPage",
+        "@type": "WebPage",
         name: route.title,
         headline: route.title,
         description: route.description,
