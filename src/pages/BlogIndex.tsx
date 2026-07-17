@@ -11,6 +11,9 @@ const blogPostBySlug = new Map(blogPosts.map((p) => [p.slug, p]));
 const publishedAtBySlug: Record<string, string> = Object.fromEntries(
   blogPosts.map((p) => [p.slug, p.publishedAt]),
 );
+const updatedAtBySlug: Record<string, string> = Object.fromEntries(
+  blogPosts.map((p) => [p.slug, p.updatedAt]),
+);
 const formatDate = (iso: string | undefined) =>
   iso
     ? new Date(iso).toLocaleDateString("en-US", {
