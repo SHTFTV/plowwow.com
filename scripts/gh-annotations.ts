@@ -1715,7 +1715,7 @@ if (isDirectRun) {
       // Persist per-category regression deltas so validator-summary.ts can
       // surface them in the PR comment even when we exit non-zero here.
       const severityEval = severityBand
-        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats)
+        ? evaluateRegressionSeverity(planDiff, severityBand, includeCats, thresholdsConfig)
         : null;
       writeFileSync(
         resolve(REPORT_DIR, "annotation-plan-regression.json"),
