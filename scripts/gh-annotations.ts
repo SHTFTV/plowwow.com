@@ -83,59 +83,106 @@ function intOrUndef(v: string | number | undefined): number | undefined {
   return Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined;
 }
 
+export type ConfigIssue = {
+  path: string;
+  expected: string;
+  got: string;
+  example: string;
+};
+
+function fmtIssue(i: ConfigIssue): string {
+  return `${i.path} — expected ${i.expected} (got ${i.got}); example: ${i.example}`;
+}
+
 /**
  * Validate a parsed config object. Throws an Error with a friendly, actionable
- * message when values are the wrong type or out of range. Exported for tests.
+ * message that includes JSON path, expected type/range, and a corrected
+ * snippet for each failure. Exported for tests.
  */
 export function validateConfig(raw: unknown, source = "config"): AnnotationsConfig {
-  const errs: string[] = [];
+  const issues: ConfigIssue[] = [];
   const isObj = (v: unknown): v is Record<string, unknown> =>
     !!v && typeof v === "object" && !Array.isArray(v);
   if (raw != null && !isObj(raw)) {
-    throw new Error(`[${source}] must be a JSON object, got ${Array.isArray(raw) ? "array" : typeof raw}`);
+    throw new Error(
+      `Invalid ${source}:\n  - $ — expected JSON object (got ${
+        Array.isArray(raw) ? "array" : typeof raw
+      }); example: {"caps":{"default":20}}\n` +
+        `See seo-annotations.config.schema.json for the expected shape.`,
+    );
   }
   const cfg = (raw ?? {}) as Record<string, unknown>;
-  const checkNonNegInt = (v: unknown, path: string) => {
+  const checkNonNegInt = (v: unknown, path: string, exampleKey: string, exampleParent: string) => {
     if (v == null) return;
     if (typeof v !== "number" || !Number.isFinite(v) || v < 0 || Math.floor(v) !== v) {
-      errs.push(`${path} must be a non-negative integer (got ${JSON.stringify(v)})`);
+      issues.push({
+        path,
+        expected: "non-negative integer (>= 0)",
+        got: JSON.stringify(v),
+        example: `{"${exampleParent}":{"${exampleKey}":20}}`,
+      });
     }
   };
   if (cfg.caps != null) {
-    if (!isObj(cfg.caps)) errs.push(`caps must be an object`);
-    else {
+    if (!isObj(cfg.caps)) {
+      issues.push({ path: "$.caps", expected: "object", got: Array.isArray(cfg.caps) ? "array" : typeof cfg.caps, example: `{"caps":{"default":20,"legacy":20}}` });
+    } else {
       const allowed = new Set(["default", "legacy", "hydration", "robots", "jsonLd"]);
       for (const [k, v] of Object.entries(cfg.caps)) {
-        if (!allowed.has(k)) errs.push(`caps.${k} is not a recognized key (allowed: ${[...allowed].join(", ")})`);
-        else checkNonNegInt(v, `caps.${k}`);
+        if (!allowed.has(k)) {
+          issues.push({
+            path: `$.caps.${k}`,
+            expected: `one of: ${[...allowed].join(", ")}`,
+            got: `unknown key "${k}"`,
+            example: `{"caps":{"legacy":20}}`,
+          });
+        } else checkNonNegInt(v, `$.caps.${k}`, k, "caps");
       }
     }
   }
   if (cfg.filter != null) {
-    if (!isObj(cfg.filter)) errs.push(`filter must be an object`);
-    else {
+    if (!isObj(cfg.filter)) {
+      issues.push({ path: "$.filter", expected: "object", got: Array.isArray(cfg.filter) ? "array" : typeof cfg.filter, example: `{"filter":{"locale":"en-CA","variant":"blog"}}` });
+    } else {
       for (const [k, v] of Object.entries(cfg.filter)) {
         if (k !== "locale" && k !== "variant") {
-          errs.push(`filter.${k} is not recognized (allowed: locale, variant)`);
+          issues.push({
+            path: `$.filter.${k}`,
+            expected: "one of: locale, variant",
+            got: `unknown key "${k}"`,
+            example: `{"filter":{"locale":"en-CA"}}`,
+          });
         } else if (v != null && (typeof v !== "string" || !v.trim())) {
-          errs.push(`filter.${k} must be a non-empty string`);
+          issues.push({
+            path: `$.filter.${k}`,
+            expected: "non-empty string",
+            got: JSON.stringify(v),
+            example: `{"filter":{"${k}":"${k === "locale" ? "en-CA" : "blog"}"}}`,
+          });
         }
       }
     }
   }
   if (cfg.failOnSkipped != null) {
-    if (!isObj(cfg.failOnSkipped)) errs.push(`failOnSkipped must be an object`);
-    else {
+    if (!isObj(cfg.failOnSkipped)) {
+      issues.push({ path: "$.failOnSkipped", expected: "object", got: Array.isArray(cfg.failOnSkipped) ? "array" : typeof cfg.failOnSkipped, example: `{"failOnSkipped":{"total":100}}` });
+    } else {
       const allowed = new Set(["legacy", "hydration", "robots", "jsonLd", "total"]);
       for (const [k, v] of Object.entries(cfg.failOnSkipped)) {
-        if (!allowed.has(k)) errs.push(`failOnSkipped.${k} is not recognized (allowed: ${[...allowed].join(", ")})`);
-        else checkNonNegInt(v, `failOnSkipped.${k}`);
+        if (!allowed.has(k)) {
+          issues.push({
+            path: `$.failOnSkipped.${k}`,
+            expected: `one of: ${[...allowed].join(", ")}`,
+            got: `unknown key "${k}"`,
+            example: `{"failOnSkipped":{"total":100}}`,
+          });
+        } else checkNonNegInt(v, `$.failOnSkipped.${k}`, k, "failOnSkipped");
       }
     }
   }
-  if (errs.length) {
+  if (issues.length) {
     throw new Error(
-      `Invalid ${source}:\n  - ${errs.join("\n  - ")}\n` +
+      `Invalid ${source}:\n  - ${issues.map(fmtIssue).join("\n  - ")}\n` +
         `See seo-annotations.config.schema.json for the expected shape.`,
     );
   }
