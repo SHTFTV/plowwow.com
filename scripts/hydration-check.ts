@@ -49,12 +49,29 @@ function collectSample(): string[] {
   }
   const uniq = [...new Set(pages)].sort();
   const home = uniq.find((u) => new URL(u).pathname === "/") ?? uniq[0];
-  const cities = uniq.filter((u) => /\/(vancouver|burnaby|richmond|surrey|coquitlam)\/$/.test(u)).slice(0, 2);
-  const blogs = uniq
-    .filter((u) => /-strata-commercial-snow-(removal|plowing)\/$/.test(u))
-    .slice(0, 4);
-  const misc = uniq.filter((u) => /\/(blog|locations)\/$/.test(u));
-  return [...new Set([home, ...misc, ...cities, ...blogs])];
+  // Sample every "hub" city and a wide slice of neighborhood/blog pages so
+  // OG/Twitter (incl. og:locale:alternate) + JSON-LD get exercised across
+  // every URL shape the sitemap ships. Env HYDRATION_MAX caps total pages.
+  const cityRx = /\/(vancouver|burnaby|richmond|surrey|coquitlam|north-vancouver|west-vancouver|langley|maple-ridge|delta|new-westminster|port-coquitlam|port-moody|white-rock|abbotsford|chilliwack|mission|pitt-meadows|squamish|tsawwassen|anmore|belcarra)\/$/;
+  const cities = uniq.filter((u) => cityRx.test(u));
+  const blogs = uniq.filter((u) =>
+    /-strata-commercial-snow-(removal|plowing)\/$/.test(u) ||
+    /-snow-removal\/$/.test(u),
+  );
+  const misc = uniq.filter((u) => /\/(blog|locations|quote|app-features|intelligence)\/$/.test(u));
+  const cap = Number(process.env.HYDRATION_MAX ?? 30);
+  const pick = <T,>(arr: T[], n: number) => {
+    if (arr.length <= n) return arr;
+    const step = arr.length / n;
+    return Array.from({ length: n }, (_, i) => arr[Math.floor(i * step)]);
+  };
+  const combined = [
+    home,
+    ...misc,
+    ...pick(cities, Math.min(cities.length, Math.max(6, Math.floor(cap * 0.4)))),
+    ...pick(blogs, Math.min(blogs.length, Math.max(10, Math.floor(cap * 0.5)))),
+  ];
+  return [...new Set(combined)].slice(0, cap);
 }
 
 async function waitForServer(url: string, timeoutMs = 30_000): Promise<void> {
