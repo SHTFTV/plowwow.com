@@ -65,7 +65,28 @@ function deterministicPick<T>(arr: T[], n: number, rand: () => number): T[] {
   return copy.slice(0, n);
 }
 
-function collectSample(): { urls: string[]; seed: number; seedSource: string; weights: Record<string, number> } {
+function collectSample(): { urls: string[]; seed: number; seedSource: string; weights: Record<string, number>; replayFrom?: string } {
+  // ---- Replay mode ----------------------------------------------------------
+  // HYDRATION_REPLAY=<path-to-hydration-sample.json> (or --replay=<path> arg)
+  // rehydrates the exact seed, weights, and URL list from a prior run so a
+  // failing CI sample can be reproduced verbatim locally. Extra env
+  // (HYDRATION_SEED / HYDRATION_WEIGHTS / HYDRATION_MAX) is ignored in this
+  // mode so the replay is genuinely deterministic.
+  const replayArg = process.argv.find((a) => a.startsWith("--replay="));
+  const replayPath = replayArg?.slice("--replay=".length) ?? process.env.HYDRATION_REPLAY;
+  if (replayPath) {
+    if (!existsSync(replayPath)) {
+      throw new Error(`--replay: file not found: ${replayPath}`);
+    }
+    const raw = JSON.parse(readFileSync(replayPath, "utf8")) as {
+      seed: number; seedSource: string; weights: Record<string, number>; urls: string[];
+    };
+    if (!Array.isArray(raw.urls) || !raw.urls.length) {
+      throw new Error(`--replay: no urls in ${replayPath}`);
+    }
+    return { urls: raw.urls, seed: raw.seed, seedSource: raw.seedSource, weights: raw.weights, replayFrom: replayPath };
+  }
+
   const top = locsFrom(SITEMAP);
   const pages: string[] = [];
   for (const u of top) {
@@ -122,6 +143,7 @@ function collectSample(): { urls: string[]; seed: number; seedSource: string; we
     weights: parsed,
   };
 }
+
 
 async function waitForServer(url: string, timeoutMs = 30_000): Promise<void> {
   const start = Date.now();
