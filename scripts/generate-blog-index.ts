@@ -66,7 +66,7 @@ const posts = readdirSync(BLOG_DIR)
 mkdirSync(resolve(process.cwd(), "src/generated"), { recursive: true });
 writeFileSync(
   OUT_FILE,
-  `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string | null;\n  alt: string;\n  publishedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,
+  `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string | null;\n  alt: string;\n  publishedAt: string;\n  updatedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,
 );
 
 console.log(`✓ blog-posts.ts written (${posts.length} posts)`);
