@@ -28,7 +28,10 @@
     "seo:og-image": "tsx scripts/og-image-reachable.ts",
     "seo:robots-sitemap": "tsx scripts/robots-sitemap-fetch.ts",
     "seo:robots-directives": "tsx scripts/robots-directives-validate.ts",
-    "seo:legacy-redirects": "tsx scripts/verify-legacy-redirects.ts"
+    "seo:legacy-redirects": "tsx scripts/verify-legacy-redirects.ts",
+    "seo:validator-summary": "tsx scripts/validator-summary.ts",
+    "seo:baseline-diff": "tsx scripts/lib/baseline.ts diff",
+    "seo:baseline-accept": "tsx scripts/lib/baseline.ts accept"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
