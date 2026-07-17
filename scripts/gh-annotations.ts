@@ -773,7 +773,7 @@ if (isDirectRun) {
 
   // Per-category notices — always emit one per category with status + top N
   // skipped reasons so reviewers can debug omissions directly from Checks UI.
-  const TOP_NOTICE = 3;
+  // Count controlled by --top-skipped-reasons=<n> (default 3).
   for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
     const p = plan.categories[cat];
     const reasonLabel: Record<CategoryPlan["status"], string> = {
