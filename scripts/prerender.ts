@@ -314,7 +314,7 @@ function renderHead(route: RouteMeta): string {
     `<script type="application/ld+json" data-prerendered-route="${route.path}">${JSON.stringify(
       {
         "@context": "https://schema.org",
-        "@type": route.kind === "legacy-blog" ? "Article" : "WebPage",
+        "@type": "WebPage",
         name: route.title,
         headline: route.title,
         description: route.description,
