@@ -240,18 +240,30 @@ async function main() {
     // Verify canonical of final page matches expected.
     let finalCanonical: string | null = null;
     if (ok && final.status === 200) {
-      try {
-        const finalHtml = await fetch(final.url).then((r) => r.text());
-        finalCanonical =
-          finalHtml.match(/<link\s+rel="canonical"\s+href="([^"]*)"/)?.[1] ?? null;
+      let finalHtml: string | null = null;
+      let getErr: string | undefined;
+      for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
+        try {
+          const res = await fetch(final.url, { signal: ctrl.signal });
+          if (res.ok) { finalHtml = await res.text(); getErr = undefined; break; }
+          getErr = `status=${res.status}`;
+          if (!isTransient(res.status)) break;
+        } catch (err) { getErr = (err as Error).message; if (!isTransient(0, getErr)) break; }
+        finally { clearTimeout(timer); }
+        if (attempt < MAX_RETRIES) await new Promise((r) => setTimeout(r, RETRY_BASE_DELAY_MS * 2 ** (attempt - 1)));
+      }
+      if (finalHtml == null) {
+        ok = false;
+        reason = `final GET failed after ${MAX_RETRIES} attempts: ${getErr ?? "unknown"}`;
+      } else {
+        finalCanonical = finalHtml.match(/<link\s+rel="canonical"\s+href="([^"]*)"/)?.[1] ?? null;
         const want = `${CANONICAL_HOST}${t.expected}`.replace(/\/+$/, "");
         if ((finalCanonical ?? "").replace(/\/+$/, "") !== want) {
           ok = false;
           reason = `final canonical="${finalCanonical}" (expected ${want})`;
         }
-      } catch (err) {
-        ok = false;
-        reason = `final GET failed: ${(err as Error).message}`;
       }
     }
 
