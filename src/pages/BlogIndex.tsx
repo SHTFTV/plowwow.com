@@ -352,9 +352,25 @@ const BlogIndex = () => {
       url: URL_ABS,
     });
     document.head.appendChild(wp);
+
+    const bcId = "blog-index-breadcrumb-jsonld";
+    document.getElementById(bcId)?.remove();
+    const bc = document.createElement("script");
+    bc.type = "application/ld+json";
+    bc.id = bcId;
+    bc.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: URL_ABS },
+      ],
+    });
+    document.head.appendChild(bc);
     return () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(wpId)?.remove();
+      document.getElementById(bcId)?.remove();
     };
   }, [page, totalPages]);
 
