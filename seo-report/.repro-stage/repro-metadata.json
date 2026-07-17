@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-17T21:35:52.064Z",
+  "git": {
+    "sha": "74b069b2549024f3f2057e4c4521e4d3f772a8ad",
+    "ref": "edit/edt-caf16f1b-b270-4119-b337-246291ae8aa7"
+  },
+  "ci": {
+    "runId": null,
+    "runAttempt": null,
+    "workflow": null,
+    "repo": null,
+    "runUrl": null
+  },
+  "runtime": {
+    "node": "v22.22.0",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "seed": {
+    "HYDRATION_SEED": null,
+    "SEO_BASELINE_MODE": null,
+    "SEO_HTTP_CACHE": null,
+    "SEO_BASELINE_LOCALE": null,
+    "SEO_BASELINE_VARIANT": null
+  }
+}
