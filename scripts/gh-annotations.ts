@@ -1015,7 +1015,117 @@ export function evaluateRegression(
   return { triggered, metric: "totalSkipped", before, after, delta, deltaPercent: pct, threshold, perCategory };
 }
 
+/** Severity band → deltaPercent threshold. A category "exceeds" the band when
+ *  its skippedByCap deltaPercent is strictly greater than the band's value.
+ *  Infinite deltaPercent (before=0 → after>0) always exceeds any finite band.
+ */
+export type SeverityBand = "minor" | "major" | "critical";
+export const SEVERITY_BANDS: Record<SeverityBand, number> = {
+  minor: 1,
+  major: 25,
+  critical: 50,
+};
 
+export function parseSeverityBand(raw: string | undefined | null): SeverityBand | null {
+  if (raw == null) return null;
+  const s = String(raw).trim().toLowerCase();
+  if (s === "minor" || s === "major" || s === "critical") return s;
+  return null;
+}
+
+/** Evaluate a plan diff against a severity band. Returns per-category exceed
+ *  flags and whether the overall check should fail (any category exceeds).
+ */
+export function evaluateRegressionSeverity(
+  diff: ReturnType<typeof diffPlans>,
+  band: SeverityBand,
+  include?: Category[] | null,
+): {
+  triggered: boolean;
+  band: SeverityBand;
+  thresholdPercent: number;
+  perCategory: {
+    category: Category;
+    before: number;
+    after: number;
+    delta: number;
+    deltaPercent: number;
+    exceeds: boolean;
+  }[];
+} {
+  const thresholdPercent = SEVERITY_BANDS[band];
+  const cats: Category[] = include && include.length
+    ? include
+    : ["legacy", "hydration", "jsonLd", "robots"];
+  const perCategory = cats.map((c) => {
+    const cb = diff.categories[c].skippedByCap.a;
+    const ca = diff.categories[c].skippedByCap.b;
+    const cd = diff.categories[c].skippedByCap.delta;
+    const cp = cb > 0 ? (cd / cb) * 100 : cd > 0 ? Infinity : 0;
+    const exceeds = cp > thresholdPercent;
+    return { category: c, before: cb, after: ca, delta: cd, deltaPercent: cp, exceeds };
+  });
+  return {
+    triggered: perCategory.some((c) => c.exceeds),
+    band,
+    thresholdPercent,
+    perCategory,
+  };
+}
+
+/** Serialize a regression evaluation (from evaluateRegression) to CSV. */
+export function regressionToCsv(
+  regression: ReturnType<typeof evaluateRegression>,
+  opts: { include?: Category[] | null; labels?: { a: string; b: string } } = {},
+): string {
+  const escCsv = (v: unknown) => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  const header = ["category", "before", "after", "delta", "deltaPercent", "exceeds"];
+  const includeSet = opts.include && opts.include.length ? new Set(opts.include) : null;
+  const rows: string[][] = [header];
+  for (const c of regression.perCategory) {
+    if (includeSet && !includeSet.has(c.category)) continue;
+    const pct = Number.isFinite(c.deltaPercent) ? c.deltaPercent.toFixed(2) : "Infinity";
+    rows.push([c.category, String(c.before), String(c.after), String(c.delta), pct, String(c.exceeds)]);
+  }
+  const totalPct = Number.isFinite(regression.deltaPercent)
+    ? regression.deltaPercent.toFixed(2)
+    : "Infinity";
+  rows.push(["__total__", String(regression.before), String(regression.after), String(regression.delta), totalPct, String(regression.triggered)]);
+  const prefix = opts.labels ? `# A: ${opts.labels.a}\n# B: ${opts.labels.b}\n` : "";
+  const tDesc = regression.threshold.kind === "percent"
+    ? `${regression.threshold.value}%`
+    : `${regression.threshold.value}`;
+  return `${prefix}# threshold: ${tDesc}\n` + rows.map((r) => r.map(escCsv).join(",")).join("\n") + "\n";
+}
+
+/** Get structured schema-drift errors for the sample-config template. Returns
+ *  an empty array when no drift is present. Used by --schema-error-report.
+ */
+export function getSampleConfigTemplateErrors(schemaPath?: string): SchemaError[] {
+  const candidates: string[] = [];
+  if (schemaPath) candidates.push(resolve(schemaPath));
+  else {
+    candidates.push(resolve("seo-annotations.config.schema.json"));
+    try {
+      const here = new URL(".", import.meta.url).pathname;
+      if (here) candidates.push(resolve(here, "..", "seo-annotations.config.schema.json"));
+    } catch { /* noop */ }
+  }
+  const sp = candidates.find((p) => existsSync(p));
+  if (!sp) return [];
+  const schema = JSON.parse(readFileSync(sp, "utf8")) as JsonSchema;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(stripJsonComments(SAMPLE_CONFIG_TEMPLATE));
+  } catch { return []; }
+  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+    delete (parsed as Record<string, unknown>).$schema;
+  }
+  return validateAgainstSchemaDetailed(parsed, schema);
+}
 
 function emit(a: Annotation) {
   const parts = [`file=${a.file}`];
