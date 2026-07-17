@@ -236,6 +236,14 @@ export function validateConfig(raw: unknown, source = "config", sourceText?: str
     }
   }
   if (issues.length) {
+    for (const i of issues) {
+      i.pointer = pathToPointer(i.path);
+      i.snippet = correctedSnippetFor(i.path);
+      if (sourceText) {
+        const loc = locateJsonPath(sourceText, i.path);
+        if (loc) i.loc = loc;
+      }
+    }
     throw new Error(
       `Invalid ${source}:\n  - ${issues.map(fmtIssue).join("\n  - ")}\n` +
         `See seo-annotations.config.schema.json for the expected shape.`,
