@@ -355,8 +355,18 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
   const configPath = argVal(argv, "config") ?? process.env.SEO_ANN_CONFIG;
-  const config = loadConfigFile(configPath);
+  let config: AnnotationsConfig;
+  try {
+    config = loadConfigFile(configPath);
+  } catch (e) {
+    // Friendly, actionable failure — visible in the Checks UI.
+    const msg = (e as Error).message;
+    process.stdout.write(`::error title=Invalid SEO annotations config::${esc(msg)}\n`);
+    process.stderr.write(msg + "\n");
+    process.exit(2);
+  }
   const { caps, filter, failOnSkipped, failOnSkippedEnabled } = parseConfig(argv, process.env, config);
+  const dryRun = hasFlag(argv, "dry-run") || process.env.SEO_ANN_DRY_RUN === "1";
   const legacy = readJson<LegacyDoc>("legacy-redirects.json");
   const hydration = readJson<HydrationDoc>("hydration.json");
   const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
@@ -366,7 +376,33 @@ if (isDirectRun) {
     legacy, hydration, jsonld, robots, caps, filter,
   });
 
-  for (const a of annotations) emit(a);
+  if (dryRun) {
+    // Preview mode — print what would be annotated / skipped to stderr, do not
+    // emit any ::error/::warning workflow commands.
+    process.stderr.write(
+      `[gh-annotations dry-run] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
+    );
+    process.stderr.write(
+      `[gh-annotations dry-run] caps legacy=${caps.legacy} hydration=${caps.hydration} robots=${caps.robots} jsonLd=${caps.jsonLd}\n`,
+    );
+    for (const a of annotations) {
+      process.stderr.write(`  WILL EMIT [${a.level}] ${a.file} — ${a.title}\n`);
+    }
+    (["legacy", "hydration", "jsonLd", "robots"] as const).forEach((k) => {
+      if (skipped[k] > 0) {
+        process.stderr.write(
+          `  SKIPPED  [${k}] ${skipped[k]} of ${totals[k]} (cap ${caps[k]})\n`,
+        );
+      }
+    });
+    process.stderr.write(
+      `[gh-annotations dry-run] would emit ${annotations.length}, skip ${
+        skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd
+      }\n`,
+    );
+  } else {
+    for (const a of annotations) emit(a);
+  }
 
   const violations = evaluateSkippedLimits(skipped, failOnSkipped);
 
@@ -378,7 +414,9 @@ if (isDirectRun) {
       {
         generatedAt: new Date().toISOString(),
         caps, filter, totals, skipped,
-        emitted: annotations.length,
+        emitted: dryRun ? 0 : annotations.length,
+        wouldEmit: annotations.length,
+        dryRun,
         failOnSkipped,
         failOnSkippedEnabled,
         violations,
@@ -393,11 +431,25 @@ if (isDirectRun) {
     : "";
   const capsDesc = `caps[legacy=${caps.legacy},hydration=${caps.hydration},robots=${caps.robots},jsonLd=${caps.jsonLd}]`;
   const skippedDesc = `skipped[legacy=${skipped.legacy},hydration=${skipped.hydration},robots=${skipped.robots},jsonLd=${skipped.jsonLd}]`;
+  const dryDesc = dryRun ? " [dry-run]" : "";
   process.stdout.write(
-    `::notice title=SEO annotations::${annotations.length} annotation(s) emitted ` +
+    `::notice title=SEO annotations${dryDesc}::${dryRun ? "would emit " : ""}${annotations.length} annotation(s) ` +
       `(legacy=${totals.legacy}, hydration=${totals.hydration}, jsonLd=${totals.jsonLd}, robots=${totals.robots}) ` +
       `${capsDesc} ${skippedDesc}${filterDesc}\n`,
   );
+
+  // Per-category skipped totals — surface omissions directly in the Checks UI
+  // so reviewers see what got dropped without opening the HTML report.
+  const totalSkipped = skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd;
+  if (totalSkipped > 0) {
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      if (skipped[cat] > 0) {
+        process.stdout.write(
+          `::notice title=SEO annotations skipped (${cat})::${skipped[cat]} of ${totals[cat]} ${cat} finding(s) omitted (cap ${caps[cat]})\n`,
+        );
+      }
+    }
+  }
 
   if (failOnSkippedEnabled && violations.length) {
     for (const v of violations) {
@@ -408,3 +460,4 @@ if (isDirectRun) {
     process.exit(1);
   }
 }
+
