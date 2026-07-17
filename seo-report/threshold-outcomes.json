@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-07-17T21:26:12.331Z",
+  "outcomes": [
+    {
+      "category": "legacyRedirects",
+      "failures": 17,
+      "threshold": {
+        "max": 0,
+        "severity": "critical"
+      },
+      "status": "fail"
+    },
+    {
+      "category": "hydration",
+      "failures": 0,
+      "threshold": {
+        "max": 2,
+        "severity": "warn"
+      },
+      "status": "pass"
+    },
+    {
+      "category": "jsonLd",
+      "failures": 0,
+      "threshold": {
+        "max": 0,
+        "severity": "critical"
+      },
+      "status": "pass"
+    },
+    {
+      "category": "robots",
+      "failures": 0,
+      "threshold": {
+        "max": 0,
+        "severity": "critical"
+      },
+      "status": "pass"
+    },
+    {
+      "category": "validation",
+      "failures": 0,
+      "threshold": {
+        "max": 5,
+        "severity": "warn"
+      },
+      "status": "pass"
+    }
+  ],
+  "baseline": {
+    "hasBaseline": false,
+    "totalNewSinceBaseline": 17,
+    "diffs": [
+      {
+        "category": "legacyRedirects",
+        "baselineFailures": 0,
+        "currentFailures": 17,
+        "newFailures": [
+          "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/",
+          "/abbotsford-snow-removal→/abbotsford-snow-removal/",
+          "/blog→/blog/",
+          "/locations→/locations/",
+          "/quote→/quote/",
+          "/blog/advanced-technology→/advanced-technology/",
+          "/blog/advanced-technology/→/advanced-technology/",
+          "/posts/advanced-technology→/advanced-technology/",
+          "/posts/advanced-technology/→/advanced-technology/",
+          "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
+          "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
+          "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
+          "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
+          "/metrotown-snow-removal-company→/metrotown-snow-removal/",
+          "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
+          "/anmore-snow-removal→/anmore-snow-removal/",
+          "/belcarra-snow-removal→/belcarra-snow-removal/"
+        ],
+        "resolved": [],
+        "grouped": {
+          "en-CA": {
+            "legacy-city-slug": [
+              "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/"
+            ],
+            "neighborhood-blog": [
+              "/abbotsford-snow-removal→/abbotsford-snow-removal/",
+              "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
+              "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
+              "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
+              "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
+              "/metrotown-snow-removal-company→/metrotown-snow-removal/",
+              "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
+              "/anmore-snow-removal→/anmore-snow-removal/",
+              "/belcarra-snow-removal→/belcarra-snow-removal/"
+            ],
+            "blog": [
+              "/blog→/blog/"
+            ],
+            "locations": [
+              "/locations→/locations/"
+            ],
+            "city-hub": [
+              "/quote→/quote/",
+              "/blog/advanced-technology→/advanced-technology/",
+              "/blog/advanced-technology/→/advanced-technology/",
+              "/posts/advanced-technology→/advanced-technology/",
+              "/posts/advanced-technology/→/advanced-technology/"
+            ]
+          }
+        }
+      },
+      {
+        "category": "hydration",
+        "baselineFailures": 0,
+        "currentFailures": 0,
+        "newFailures": [],
+        "resolved": []
+      },
+      {
+        "category": "jsonLd",
+        "baselineFailures": 0,
+        "currentFailures": 0,
+        "newFailures": [],
+        "resolved": []
+      },
+      {
+        "category": "robots",
+        "baselineFailures": 0,
+        "currentFailures": 0,
+        "newFailures": [],
+        "resolved": []
+      }
+    ]
+  }
+}

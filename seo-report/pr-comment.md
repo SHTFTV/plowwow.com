@@ -9,6 +9,16 @@
 
 **Total failures: 17**
 
+### Threshold gates
+- ❌ `legacyRedirects` — 17 failure(s), threshold 0 (critical)
+- ✅ `hydration` — 0 failure(s), threshold 2 (warn)
+- ✅ `jsonLd` — 0 failure(s), threshold 0 (critical)
+- ✅ `robots` — 0 failure(s), threshold 0 (critical)
+- ✅ `validation` — 0 failure(s), threshold 5 (warn)
+
+### Baseline regression
+- _No baseline present. Run `bun run seo:baseline-accept -- --yes` after a clean run._
+
 ### Top failing legacy redirects
   - `/snow-removal-in-burquitlam` → expected `/snow-removal-in-burquitlam/` — first hop status=200 (expected 301)
   - `/abbotsford-snow-removal` → expected `/abbotsford-snow-removal/` — first hop status=200 (expected 301)
