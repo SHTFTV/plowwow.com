@@ -156,23 +156,44 @@ const BlogIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
+  // Sort key & date filter come from the URL so they're shareable.
+  const rawSort = searchParams.get("sort") ?? "published";
+  const sortBy: "published" | "updated" =
+    rawSort === "updated" ? "updated" : "published";
+  const rawWindow = searchParams.get("window") ?? "all";
+  const dateWindow: "all" | "7d" | "30d" | "90d" | "365d" =
+    rawWindow === "7d" || rawWindow === "30d" || rawWindow === "90d" || rawWindow === "365d"
+      ? rawWindow
+      : "all";
+  const windowMs: Record<typeof dateWindow, number | null> = {
+    all: null,
+    "7d": 7 * 864e5,
+    "30d": 30 * 864e5,
+    "90d": 90 * 864e5,
+    "365d": 365 * 864e5,
+  };
+
   // Newest first (left→right, top→bottom). Falls back to alpha for posts
-  // without a publishedAt entry so they still appear deterministically.
+  // without a date entry so they still appear deterministically.
   const allPosts = useMemo(
     () => {
       const slugs = Array.from(
         new Set([...blogPosts.map((post) => post.slug), ...legacyBlogSlugs]),
       );
+      const keyOf = (slug: string) =>
+        sortBy === "updated"
+          ? updatedAtBySlug[slug] ?? publishedAtBySlug[slug] ?? ""
+          : publishedAtBySlug[slug] ?? "";
       return slugs.sort((a, b) => {
-        const da = publishedAtBySlug[a] ?? "";
-        const db = publishedAtBySlug[b] ?? "";
+        const da = keyOf(a);
+        const db = keyOf(b);
         if (da && db && da !== db) return db.localeCompare(da);
         if (da && !db) return -1;
         if (!da && db) return 1;
         return a.localeCompare(b);
       });
     },
-    [],
+    [sortBy],
   );
 
   const query = (searchParams.get("q") ?? "").trim();
