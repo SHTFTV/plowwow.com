@@ -212,6 +212,29 @@ if (timing?.steps?.length) {
 }
 md.push("");
 
+// Annotation caps — surface counts of failures that were omitted from the
+// GitHub Checks UI so reviewers know when output was trimmed.
+type SkipDoc = {
+  caps?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  totals?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  skipped?: { legacy: number; hydration: number; robots: number; jsonLd: number };
+  emitted?: number;
+};
+const skipDoc = readJson<SkipDoc>("annotation-skipped.json");
+if (skipDoc?.skipped) {
+  const s = skipDoc.skipped;
+  const t = skipDoc.totals ?? { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
+  const c = skipDoc.caps ?? { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
+  const totalSkipped = s.legacy + s.hydration + s.robots + s.jsonLd;
+  md.push(`### Annotation caps`);
+  md.push(`- Emitted **${skipDoc.emitted ?? 0}** annotation(s); **${totalSkipped}** skipped due to per-category caps.`);
+  md.push(`  - \`legacy\` — ${t.legacy - s.legacy}/${t.legacy} shown (cap ${c.legacy}, **${s.legacy}** skipped)`);
+  md.push(`  - \`hydration\` — ${t.hydration - s.hydration}/${t.hydration} shown (cap ${c.hydration}, **${s.hydration}** skipped)`);
+  md.push(`  - \`jsonLd\` — ${t.jsonLd - s.jsonLd}/${t.jsonLd} shown (cap ${c.jsonLd}, **${s.jsonLd}** skipped)`);
+  md.push(`  - \`robots\` — ${t.robots - s.robots}/${t.robots} shown (cap ${c.robots}, **${s.robots}** skipped)`);
+  md.push("");
+}
+
 const body = md.join("\n");
 writeFileSync(resolve(REPORT_DIR, "pr-comment.md"), body);
 process.stdout.write(body + "\n");
