@@ -771,7 +771,10 @@ export function validateAgainstSchema(value: unknown, schema: JsonSchema, path =
  *  field which is a hint for editors, not a config value.
  */
 export function validateSampleConfigTemplate(schemaPath?: string): void {
-  const sp = resolve(schemaPath ?? "seo-annotations.config.schema.json");
+  // Resolve default schema next to this script so the fail-fast check works
+  // regardless of the caller's cwd (e.g. tests use a tmp cwd).
+  const defaultPath = resolve(__dirname, "..", "seo-annotations.config.schema.json");
+  const sp = schemaPath ? resolve(schemaPath) : defaultPath;
   if (!existsSync(sp)) {
     throw new Error(`Sample config validation: schema file not found at ${sp}`);
   }
