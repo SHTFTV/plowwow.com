@@ -100,8 +100,13 @@ for (const o of outcomes) {
 md.push("");
 
 // Baseline regression — new failures only (baseline suppresses acknowledged issues).
-const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff();
+// Filter by --locale=…/--variant=… (or SEO_BASELINE_LOCALE / _VARIANT env vars).
+const filter = parseFilterFromArgv(process.argv.slice(2));
+const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff(filter);
 const totalNewSinceBaseline = baselineDiffs.reduce((n, d) => n + d.newFailures.length, 0);
+if (filter.locale || filter.variant) {
+  md.push(`_Baseline filter: locale=\`${filter.locale ?? "*"}\` · variant=\`${filter.variant ?? "*"}\`_`, "");
+}
 md.push(`### Baseline regression`);
 if (!hasBaseline) {
   md.push(`- _No baseline present. Run \`bun run seo:baseline-accept -- --yes\` after a clean run._`);
