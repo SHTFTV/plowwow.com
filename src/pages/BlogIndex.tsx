@@ -227,8 +227,19 @@ const BlogIndex = () => {
   }, [allPosts, postCategories]);
 
   const posts = useMemo(() => {
+    const cutoff = windowMs[dateWindow];
+    const now = Date.now();
     return allPosts.filter((slug) => {
       if (activeCat !== "All" && postCategories[slug] !== activeCat) return false;
+      if (cutoff != null) {
+        const iso =
+          sortBy === "updated"
+            ? updatedAtBySlug[slug] ?? publishedAtBySlug[slug]
+            : publishedAtBySlug[slug];
+        if (!iso) return false;
+        const t = Date.parse(iso);
+        if (!Number.isFinite(t) || now - t > cutoff) return false;
+      }
       if (terms.length === 0) return true;
       const haystack = (
         titleFor(slug) +
@@ -239,12 +250,28 @@ const BlogIndex = () => {
       ).toLowerCase();
       return terms.every((t) => haystack.includes(t));
     });
-  }, [allPosts, terms, activeCat, postCategories]);
+  }, [allPosts, terms, activeCat, postCategories, dateWindow, sortBy]);
 
   const setCategory = (next: Category) => {
     const params = new URLSearchParams(searchParams);
     if (next === "All") params.delete("cat");
     else params.set("cat", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
+
+  const setSort = (next: "published" | "updated") => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "published") params.delete("sort");
+    else params.set("sort", next);
+    params.delete("page");
+    setSearchParams(params, { replace: true });
+  };
+
+  const setDateWindow = (next: typeof dateWindow) => {
+    const params = new URLSearchParams(searchParams);
+    if (next === "all") params.delete("window");
+    else params.set("window", next);
     params.delete("page");
     setSearchParams(params, { replace: true });
   };
