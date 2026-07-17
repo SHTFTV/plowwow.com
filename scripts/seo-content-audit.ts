@@ -27,7 +27,7 @@ type Row = {
 const PROPERTY_KEYWORDS = /(strata|townhome|condo|duplex|apartment|retail|commercial|industrial|residential|complex)/i;
 const NEARBY_KEYWORDS = /(landmark|corridor|nearby|adjacent|park|school|avenue|street|centre|center)/i;
 const TERRAIN_KEYWORDS = /(microclimate|elevation|slope|ridge|hill|shaded|north-facing|freezing[- ]rain|terrain)/i;
-const FAQ_HEADING = /^##+\s*(faqs?|frequently asked)/im;
+const FAQ_HEADING = /^##+\s*(?:faqs?|frequently asked)/im;
 const H3 = /^###\s+/gm;
 
 function auditFile(slug: string, raw: string): Row {
