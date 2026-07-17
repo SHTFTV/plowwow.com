@@ -245,26 +245,27 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       art.id = articleId;
       art.text = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
         headline: title.replace(/\s*\|\s*PlowWow.*$/i, ""),
         description,
+        url: absoluteUrl,
         ...(heroPath
           ? {
               image: {
                 "@type": "ImageObject",
-                url: heroPath,
+                url: heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`,
                 caption: heroAlt,
               },
             }
-          : {}),
-        author: { "@type": "Organization", name: "PlowWow", url: "/" },
+          : { image: absoluteImage }),
+        author: { "@type": "Organization", name: "PlowWow", url: "https://plowwow.com/" },
         publisher: {
           "@type": "Organization",
           name: "PlowWow",
-          url: "/",
+          url: "https://plowwow.com/",
           logo: {
             "@type": "ImageObject",
-            url: "/favicon.ico",
+            url: "https://plowwow.com/icon-192.png",
           },
         },
         inLanguage: "en-CA",
@@ -274,7 +275,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
               dateModified: dates.updatedAt || dates.publishedAt,
             }
           : {}),
-        mainEntityOfPage: { "@type": "WebPage", "@id": path },
+        mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl },
       });
       document.head.appendChild(art);
 
