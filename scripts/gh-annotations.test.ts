@@ -687,3 +687,156 @@ describe("gh-annotations CLI: percent-based --fail-on-plan-regression", () => {
     expect(doc.categories.legacy.topSkippedReasons[0].reason).toBe("cap");
   }, 30_000);
 });
+
+describe("gh-annotations CLI: new-flag behaviors", () => {
+  const SCRIPT3 = pathResolve(__dirname, "gh-annotations.ts");
+  function run3(args: string[], cwd: string) {
+    return spawnSync("bunx", ["tsx", SCRIPT3, ...args], {
+      cwd,
+      env: { ...process.env, SEO_ANN_CONFIG: "" },
+      encoding: "utf8",
+    });
+  }
+  function seedLegacy(cwd: string) {
+    mkdirSync(join(cwd, "seo-report"), { recursive: true });
+    writeFileSync(join(cwd, "seo-report", "legacy-redirects.json"), JSON.stringify({
+      checks: [{ source: "/a", expected: "/a/", ok: false, reason: "200" }],
+    }));
+  }
+
+  it("--print-regression-thresholds-format=csv,json writes both artifacts + manifest", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-thr-fmt-"));
+    seedLegacy(cwd);
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=csv,json",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    const csv = readFileSync(join(cwd, "seo-report", "regression-thresholds.csv"), "utf8");
+    expect(csv.split("\n")[0]).toBe("category,minor,major,critical,source");
+    expect(csv).toMatch(/^default,1,25,50,builtin/m);
+    expect(csv).toMatch(/^legacy,1,25,50,default/m);
+    const json = JSON.parse(readFileSync(join(cwd, "seo-report", "regression-thresholds.json"), "utf8"));
+    expect(Array.isArray(json.bands)).toBe(true);
+    expect(json.bands.find((b: any) => b.category === "default")).toMatchObject({ minor: 1, major: 25, critical: 50 });
+    const manifest = JSON.parse(
+      readFileSync(join(cwd, "seo-report", "regression-thresholds-artifacts.json"), "utf8"),
+    );
+    expect(manifest.csv).toMatch(/regression-thresholds\.csv$/);
+    expect(manifest.json).toMatch(/regression-thresholds\.json$/);
+  }, 30_000);
+
+  it("--print-regression-thresholds-format respects per-category config", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-thr-cfg-"));
+    seedLegacy(cwd);
+    const cfgPath = join(cwd, "thresholds.json");
+    writeFileSync(
+      cfgPath,
+      JSON.stringify({ default: { minor: 5 }, legacy: { critical: 80 } }),
+    );
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=csv",
+        `--fail-on-regression-thresholds-config=${cfgPath}`,
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    const csv = readFileSync(join(cwd, "seo-report", "regression-thresholds.csv"), "utf8");
+    // default row picks up minor=5 from config
+    expect(csv).toMatch(/^default,5,25,50,config/m);
+    // legacy inherits default.minor=5 and overrides critical=80
+    expect(csv).toMatch(/^legacy,5,25,80,config/m);
+    // hydration falls back to default row
+    expect(csv).toMatch(/^hydration,5,25,50,default/m);
+  }, 30_000);
+
+  it("--schema-error-report-max-errors caps rows and marks truncated=true", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-schema-cap-"));
+    seedLegacy(cwd);
+    // Inject a schema at cwd that will produce >1 drift errors against the
+    // sample template so we can meaningfully cap them.
+    const schema = {
+      type: "object",
+      additionalProperties: false,
+      properties: {},
+    };
+    writeFileSync(join(cwd, "seo-annotations.config.schema.json"), JSON.stringify(schema));
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--schema-error-report",
+        "--schema-error-report-format=csv",
+        "--schema-error-report-max-errors=1",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    const jsonPath = join(cwd, "seo-report", "schema-drift-errors.json");
+    expect(existsSync(jsonPath)).toBe(true);
+    const doc = JSON.parse(readFileSync(jsonPath, "utf8"));
+    expect(doc.maxErrors).toBe(1);
+    expect(doc.count).toBe(1);
+    // We asked for a schema that rejects the whole template, so totalCount>1.
+    expect(doc.totalCount).toBeGreaterThan(1);
+    expect(doc.truncated).toBe(true);
+    expect(doc.errors.length).toBe(1);
+    const csv = readFileSync(join(cwd, "seo-report", "schema-drift-errors.csv"), "utf8");
+    // header + exactly 1 data row
+    expect(csv.trim().split("\n").length).toBe(2);
+    // truncation warning surfaced in stdout for CI Checks UI
+    expect(r.stdout).toMatch(/schema-error-report truncated/);
+  }, 30_000);
+
+  it("--plan-category-include and --plan-category-exclude conflict exits 2 with clear error", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-conflict-"));
+    seedLegacy(cwd);
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--plan-category-include=legacy,hydration",
+        "--plan-category-exclude=hydration,robots",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(2);
+    expect(r.stdout).toMatch(/category conflict/i);
+    expect(r.stdout).toMatch(/hydration/);
+    // Non-conflicting categories are NOT surfaced.
+    expect(r.stdout).not.toMatch(/::error [^\n]*::[^\n]*\blegacy\b[^\n]*\brobots\b/);
+  }, 30_000);
+
+  it("--artifacts-dir redirects generated artifacts (and still writes the seo-report manifest)", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-artifacts-dir-"));
+    seedLegacy(cwd);
+    const outDir = join(cwd, "custom-out");
+    const r = run3(
+      [
+        "--dry-run=output",
+        `--artifacts-dir=${outDir}`,
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=csv",
+        "--schema-error-report",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    expect(existsSync(join(outDir, "regression-thresholds.csv"))).toBe(true);
+    expect(existsSync(join(outDir, "schema-drift-errors.json"))).toBe(true);
+    // Not in the default seo-report dir.
+    expect(existsSync(join(cwd, "seo-report", "regression-thresholds.csv"))).toBe(false);
+    // Manifest still lives in seo-report for the PR-comment consumer.
+    const manifest = JSON.parse(
+      readFileSync(join(cwd, "seo-report", "regression-thresholds-artifacts.json"), "utf8"),
+    );
+    expect(manifest.csv).toBe(join(outDir, "regression-thresholds.csv"));
+    expect(manifest.artifactsDir).toBe(outDir);
+  }, 30_000);
+});
+

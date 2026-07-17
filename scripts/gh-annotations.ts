@@ -38,6 +38,62 @@ import { localeOf, pageVariantOf } from "./lib/baseline";
 const REPORT_DIR = resolve("seo-report");
 const DEFAULT_CONFIG_PATH = resolve("seo-annotations.config.json");
 
+/** Concise CLI help text — printed by `--help`/`-h`. Only documents flags added
+ *  in the recent iterations that need per-run explanation; the exhaustive
+ *  reference lives in README.md. */
+const CLI_HELP = `\
+gh-annotations — emit GitHub Actions annotations for SEO check failures.
+
+Artifact output:
+  --artifacts-dir=<path>            Directory for generated artifacts
+                                    (default: seo-report/). Applies to
+                                    regression-thresholds.{csv,json} and the
+                                    default schema-drift-errors.{json,csv}
+                                    location. Env: SEO_ANN_ARTIFACTS_DIR.
+
+Regression thresholds:
+  --print-regression-thresholds           Print severity bands to stdout.
+  --print-regression-thresholds-format=csv|json|csv,json
+                                          Also write regression-thresholds.csv
+                                          and/or regression-thresholds.json
+                                          into --artifacts-dir. Columns:
+                                          category,minor,major,critical,source.
+  --fail-on-regression-thresholds-config=<path>
+                                          Load per-category minor/major/critical
+                                          bands from JSON. Shape:
+                                            {
+                                              "default":   { "minor": 1, "major": 25, "critical": 50 },
+                                              "legacy":    { "minor": 2 },
+                                              "hydration": { "critical": 40 },
+                                              "jsonLd":    { ... },
+                                              "robots":    { ... }
+                                            }
+                                          Each band is a non-negative number
+                                          (percent). Missing bands fall back to
+                                          "default" and then built-in values
+                                          (minor=1, major=25, critical=50).
+                                          Env: SEO_ANN_REGRESSION_THRESHOLDS_CONFIG.
+
+Schema-drift report:
+  --schema-error-report[=<path>]                 Write schema-drift-errors.json.
+  --schema-error-report-format=csv               Also write schema-drift-errors.csv.
+  --schema-error-report-max-errors=<N>           Cap rows written to JSON/CSV.
+                                                 JSON includes { totalCount,
+                                                 truncated, maxErrors }.
+                                                 Env: SEO_ANN_SCHEMA_ERROR_MAX.
+
+Plan category filtering:
+  --plan-category-include=<c,...>   Restrict PR tables & CSV to categories.
+  --plan-category-exclude=<c,...>   Remove categories from the selection.
+                                    Fails fast (exit 2) if the same category
+                                    appears in both include and exclude.
+
+Categories: legacy | hydration | jsonLd | robots
+Severity bands: minor | major | critical (deltaPercent thresholds)
+`;
+
+
+
 export type Filter = { locale?: string; variant?: string };
 export type Caps = { legacy: number; hydration: number; robots: number; jsonLd: number };
 export type FailOnSkipped = {
@@ -1237,6 +1293,22 @@ const isDirectRun = (() => {
 if (isDirectRun) {
   const argv = process.argv.slice(2);
 
+  // --help / -h — print a concise usage summary (only the flags added in the
+  // recent iterations that need per-run documentation) and exit 0.
+  if (argv.includes("--help") || argv.includes("-h")) {
+    process.stdout.write(CLI_HELP);
+    process.exit(0);
+  }
+
+  // --artifacts-dir=<path> (env SEO_ANN_ARTIFACTS_DIR) — override the output
+  // directory for generated artifacts. Defaults to REPORT_DIR ("seo-report").
+  // Applies to regression-thresholds.{csv,json} and to the default location of
+  // schema-drift-errors.{json,csv} when no explicit --schema-error-report=<path>
+  // is provided. The directory is created on demand.
+  const artifactsDir = resolve(
+    argVal(argv, "artifacts-dir") ?? process.env.SEO_ANN_ARTIFACTS_DIR ?? REPORT_DIR,
+  );
+
   // --fail-on-regression-thresholds-config=<path> — load per-category
   // critical/major/minor bands from a JSON file. Loaded early so
   // --print-regression-thresholds and later severity checks both see it.
@@ -1254,6 +1326,7 @@ if (isDirectRun) {
     }
   }
   const bandsFor = (c: Category) => resolveCategoryBands(c, thresholdsConfig);
+
 
   // --print-regression-thresholds[=<path>] — print the severity bands used by
   // --fail-on-regression-severity to stdout (as a ::notice + human line) so
@@ -1289,7 +1362,7 @@ if (isDirectRun) {
         .filter((s) => s === "csv" || s === "json"),
     );
     if (printFmts.size > 0) {
-      mkdirSync(REPORT_DIR, { recursive: true });
+      mkdirSync(artifactsDir, { recursive: true });
       const rowsOut: Array<{ category: string; minor: number; major: number; critical: number; source: string }> = [
         { category: "default", ...defaultBands, source: thresholdsConfig?.default ? "config" : "builtin" },
       ];
@@ -1297,6 +1370,7 @@ if (isDirectRun) {
         const b = bandsFor(c);
         rowsOut.push({ category: c, ...b, source: thresholdsConfig?.[c] ? "config" : "default" });
       }
+      const written: { csv?: string; json?: string } = {};
       if (printFmts.has("csv")) {
         const escCsv = (v: unknown) => {
           const s = String(v ?? "");
@@ -1307,12 +1381,13 @@ if (isDirectRun) {
         for (const r of rowsOut) {
           lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
         }
-        const dest = resolve(REPORT_DIR, "regression-thresholds.csv");
+        const dest = resolve(artifactsDir, "regression-thresholds.csv");
         writeFileSync(dest, lines.join("\n") + "\n");
+        written.csv = dest;
         process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
       }
       if (printFmts.has("json")) {
-        const dest = resolve(REPORT_DIR, "regression-thresholds.json");
+        const dest = resolve(artifactsDir, "regression-thresholds.json");
         writeFileSync(
           dest,
           JSON.stringify(
@@ -1321,10 +1396,21 @@ if (isDirectRun) {
             2,
           ),
         );
+        written.json = dest;
         process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
       }
+      // Emit a small manifest so validator-summary.ts can add PR-comment links
+      // even when --artifacts-dir moved the files out of seo-report/.
+      try {
+        mkdirSync(REPORT_DIR, { recursive: true });
+        writeFileSync(
+          resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
+          JSON.stringify({ generatedAt: new Date().toISOString(), artifactsDir, ...written }, null, 2),
+        );
+      } catch { /* non-fatal */ }
     }
   }
+
 
 
   // --schema-error-report[=path] — write schema-drift-errors.json with the
@@ -1333,7 +1419,7 @@ if (isDirectRun) {
   // is always written (empty array when there is no drift).
   if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
     const p = argVal(argv, "schema-error-report");
-    const dest = resolve(p && p.length ? p : resolve(REPORT_DIR, "schema-drift-errors.json"));
+    const dest = resolve(p && p.length ? p : resolve(artifactsDir, "schema-drift-errors.json"));
     mkdirSync(resolve(dest, ".."), { recursive: true });
     const allErrs = getSampleConfigTemplateErrors();
     // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
