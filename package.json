@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts",
+    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
     "dev": "vite",
-    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts",
+    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
     "build": "vite build && tsx scripts/prerender.ts",
     "build:dev": "vite build --mode development && tsx scripts/prerender.ts",
     "lint": "eslint .",
