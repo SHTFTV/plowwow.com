@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-07-17T18:31:55.999Z",
+  "totals": {
+    "posts": 116,
+    "cities": 18,
+    "orphanPosts": 20,
+    "citiesWithoutPosts": 1
+  },
+  "orphanPosts": [
+    {
+      "slug": "kensington-cedar-cottage-snow-removal",
+      "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
+    },
+    {
+      "slug": "cloverdale-snow-removal",
+      "title": "Cloverdale Snow Removal"
+    },
+    {
+      "slug": "lynn-valley-snow-removal",
+      "title": "Lynn Valley Snow Removal"
+    },
+    {
+      "slug": "steveston-snow-removal",
+      "title": "Steveston Snow Removal"
+    },
+    {
+      "slug": "squamish-snow-removal",
+      "title": "Squamish Snow Removal | Sea-to-Sky Plowing"
+    },
+    {
+      "slug": "tsawwassen-snow-removal",
+      "title": "Tsawwassen Snow Removal | South Delta Ice Control"
+    },
+    {
+      "slug": "burke-mountain-snow",
+      "title": "Burke Mountain Snow"
+    },
+    {
+      "slug": "can-i-push-snow-onto-the-street",
+      "title": "Can I push snow onto the street?"
+    },
+    {
+      "slug": "heritage-mountain",
+      "title": "PlowWow Snow Removal and De-Ice Management"
+    },
+    {
+      "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
+      "title": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors"
+    },
+    {
+      "slug": "metrotown-snow-removal-company",
+      "title": "Metrotown Snow Removal Company"
+    },
+    {
+      "slug": "metrotown-strata-snow-removal",
+      "title": "Metrotown Strata Snow Removal"
+    },
+    {
+      "slug": "now-removal-arbutus",
+      "title": "Snow Removal in Arbutus,"
+    },
+    {
+      "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
+      "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
+    },
+    {
+      "slug": "record-snow-falls-in-bc",
+      "title": "Record Snow Falls In BC"
+    },
+    {
+      "slug": "shaughnessy-snow-removal",
+      "title": "Shaughnessy Snow Removal"
+    },
+    {
+      "slug": "snow-removal-in-burquitlam",
+      "title": "Snow Removal in Burquitlam"
+    },
+    {
+      "slug": "snow-removal-kensington-prairie",
+      "title": "Snow Removal Kensington Prairie"
+    },
+    {
+      "slug": "snow-removal-renfrew-heights",
+      "title": "Serving Renfrew Heights & East Vancouver"
+    },
+    {
+      "slug": "the-worlds-cutest-snow-removal-brand",
+      "title": "The World’s Cutest Snow Removal Brand"
+    }
+  ],
+  "citiesWithoutPosts": [
+    {
+      "slug": "pitt-meadows",
+      "name": "Pitt Meadows",
+      "path": "/pitt-meadows"
+    }
+  ],
+  "cityPostCounts": [
+    {
+      "slug": "vancouver",
+      "name": "Vancouver",
+      "count": 35
+    },
+    {
+      "slug": "burnaby",
+      "name": "Burnaby",
+      "count": 22
+    },
+    {
+      "slug": "coquitlam",
+      "name": "Coquitlam",
+      "count": 10
+    },
+    {
+      "slug": "richmond",
+      "name": "Richmond",
+      "count": 6
+    },
+    {
+      "slug": "maple-ridge",
+      "name": "Maple Ridge",
+      "count": 4
+    },
+    {
+      "slug": "langley",
+      "name": "Langley",
+      "count": 3
+    },
+    {
+      "slug": "mission",
+      "name": "Mission",
+      "count": 3
+    },
+    {
+      "slug": "chilliwack",
+      "name": "Chilliwack",
+      "count": 3
+    },
+    {
+      "slug": "new-westminster",
+      "name": "New Westminster",
+      "count": 2
+    },
+    {
+      "slug": "port-coquitlam",
+      "name": "Port Coquitlam",
+      "count": 1
+    },
+    {
+      "slug": "port-moody",
+      "name": "Port Moody",
+      "count": 1
+    },
+    {
+      "slug": "surrey",
+      "name": "Surrey",
+      "count": 1
+    },
+    {
+      "slug": "abbotsford",
+      "name": "Abbotsford",
+      "count": 1
+    },
+    {
+      "slug": "west-vancouver",
+      "name": "West Vancouver",
+      "count": 1
+    },
+    {
+      "slug": "north-vancouver",
+      "name": "North Vancouver",
+      "count": 1
+    },
+    {
+      "slug": "delta",
+      "name": "Delta",
+      "count": 1
+    },
+    {
+      "slug": "white-rock",
+      "name": "White Rock",
+      "count": 1
+    },
+    {
+      "slug": "pitt-meadows",
+      "name": "Pitt Meadows",
+      "count": 0
+    }
+  ]
+}
