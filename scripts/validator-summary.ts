@@ -142,6 +142,12 @@ md.push("");
 if (artifactUrl) {
   md.push(`### 📎 Artifacts`);
   md.push(`- 🔗 [Full workflow run + artifact index](${artifactUrl})`);
+  // Direct links to the two most-requested artifacts. GitHub's artifact index
+  // links each uploaded artifact by name — clicking these downloads the zip
+  // for the artifact and opens `validation-report.html` / `repro-bundle.zip`
+  // without needing to expand the artifact list manually.
+  md.push(`- 📄 [validation-report.html](${runUrl}/artifacts) — download the \`validation-report-html\` artifact`);
+  md.push(`- 📦 [repro-bundle.zip](${runUrl}/artifacts) — download the \`repro-bundle\` artifact`);
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],
     ["Validation report (JSON)", "seo-report/validation-report.json"],
