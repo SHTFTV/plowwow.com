@@ -1246,11 +1246,15 @@ if (isDirectRun) {
   // in each per-category ::notice line.
   const TOP_NOTICE = intOr(argVal(argv, "top-skipped-reasons") ?? process.env.SEO_ANN_TOP_SKIPPED_REASONS, 3);
   // --plan-category-include=cat1,cat2 restricts PR tables and CSV outputs to
-  // the listed categories. `null` = no restriction. Accepts aliases (jsonld,
-  // json-ld, legacy-redirects).
-  const includeCats = parseCategoryInclude(
+  // the listed categories. --plan-category-exclude=cat1,cat2 removes them from
+  // whatever is selected. Effective = (include ?? all) − exclude.
+  const rawInclude = parseCategoryInclude(
     argVal(argv, "plan-category-include") ?? process.env.SEO_ANN_PLAN_CATEGORY_INCLUDE ?? null,
   );
+  const rawExclude = parseCategoryExclude(
+    argVal(argv, "plan-category-exclude") ?? process.env.SEO_ANN_PLAN_CATEGORY_EXCLUDE ?? null,
+  );
+  const includeCats = resolveCategorySelection(rawInclude, rawExclude);
 
 
 
