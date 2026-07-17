@@ -236,6 +236,12 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           },
         },
         inLanguage: "en-CA",
+        ...(dates
+          ? {
+              datePublished: dates.publishedAt,
+              dateModified: dates.updatedAt || dates.publishedAt,
+            }
+          : {}),
         mainEntityOfPage: { "@type": "WebPage", "@id": path },
       });
       document.head.appendChild(art);
