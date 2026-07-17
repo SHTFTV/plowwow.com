@@ -300,8 +300,22 @@ async function main() {
   if (!failed.length) md.push(`✅ Every legacy slug + missing-trailing-slash URL 301s in a single hop to the canonical URL.`);
   else {
     md.push(`## Failing`, ``);
-    for (const c of failed) md.push(`- \`${c.source}\` → expected \`${c.expected}\`: ${c.reason}`);
+    for (const c of failed) {
+      md.push(`### \`${c.source}\` → expected \`${c.expected}\``);
+      md.push(`- Reason: ${c.reason}`);
+      md.push(`- Final status: **${c.finalStatus}**` + (c.finalCanonical ? ` · canonical: \`${c.finalCanonical}\`` : ""));
+      md.push(`- Redirect chain (${c.hops.length} hop${c.hops.length === 1 ? "" : "s"}):`);
+      md.push("");
+      md.push("  | # | Status | URL | Location |");
+      md.push("  |---|--------|-----|----------|");
+      c.hops.forEach((h, i) => {
+        const loc = h.location ? `\`${h.location}\`` : "_(none)_";
+        md.push(`  | ${i + 1} | \`${h.status}\` | \`${h.url}\` | ${loc} |`);
+      });
+      md.push("");
+    }
   }
+
   writeFileSync(resolve("seo-report/legacy-redirects.md"), md.join("\n"));
 
   if (failed.length) {
