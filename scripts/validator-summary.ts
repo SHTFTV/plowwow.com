@@ -11,9 +11,12 @@
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { loadThresholds, evaluate, type CategoryOutcome } from "./lib/thresholds";
+import { runBaselineDiff } from "./lib/baseline";
 
 const REPORT_DIR = resolve("seo-report");
 mkdirSync(REPORT_DIR, { recursive: true });
+const thresholds = loadThresholds();
 
 function readJson<T>(name: string): T | null {
   const p = resolve(REPORT_DIR, name);
@@ -80,6 +83,38 @@ md.push(`- robots.txt directives: ${robotsFailures.length} failure(s)`);
 md.push("");
 md.push(`**Total failures: ${totalFailures}**`);
 md.push("");
+
+// Threshold gating — categories map to counters above.
+const outcomes: CategoryOutcome[] = [
+  evaluate("legacyRedirects", legacyFailing.length, thresholds),
+  evaluate("hydration", hydrationFailing.length, thresholds),
+  evaluate("jsonLd", jsonldFindings.length, thresholds),
+  evaluate("robots", robotsFailures.length, thresholds),
+  evaluate("validation", validation?.totalIssues ?? 0, thresholds),
+];
+const icon = (s: string) => (s === "fail" ? "❌" : s === "warn" ? "⚠️" : "✅");
+md.push(`### Threshold gates`);
+for (const o of outcomes) {
+  md.push(`- ${icon(o.status)} \`${o.category}\` — ${o.failures} failure(s), threshold ${o.threshold.max} (${o.threshold.severity})`);
+}
+md.push("");
+
+// Baseline regression — new failures only (baseline suppresses acknowledged issues).
+const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff();
+const totalNewSinceBaseline = baselineDiffs.reduce((n, d) => n + d.newFailures.length, 0);
+md.push(`### Baseline regression`);
+if (!hasBaseline) {
+  md.push(`- _No baseline present. Run \`bun scripts/lib/baseline.ts accept\` after a clean run._`);
+} else {
+  md.push(`- **${totalNewSinceBaseline}** new failure(s) since last accepted baseline.`);
+  for (const d of baselineDiffs) {
+    if (!d.newFailures.length) continue;
+    md.push(`  - \`${d.category}\`: ${d.newFailures.length} new`);
+    for (const k of d.newFailures.slice(0, 3)) md.push(`    - \`${k}\``);
+  }
+}
+md.push("");
+
 if (artifactUrl) {
   md.push(`📎 [Full validation report + artifacts](${artifactUrl})`);
   md.push("");
@@ -115,3 +150,21 @@ md.push("");
 const body = md.join("\n");
 writeFileSync(resolve(REPORT_DIR, "pr-comment.md"), body);
 process.stdout.write(body + "\n");
+
+// Persist outcomes so downstream jobs can react without re-parsing markdown.
+writeFileSync(
+  resolve(REPORT_DIR, "threshold-outcomes.json"),
+  JSON.stringify({ generatedAt: new Date().toISOString(), outcomes, baseline: { hasBaseline, totalNewSinceBaseline, diffs: baselineDiffs } }, null, 2),
+);
+
+// In baseline-diff mode (SEO_BASELINE_MODE=1), only NEW failures fail the run.
+// Otherwise, any category with status="fail" fails the run.
+const baselineMode = process.env.SEO_BASELINE_MODE === "1";
+const criticalFail = baselineMode
+  ? totalNewSinceBaseline > 0
+  : outcomes.some((o) => o.status === "fail");
+if (criticalFail) {
+  console.error(`\n✗ validator-summary: critical thresholds exceeded${baselineMode ? " (baseline-diff mode)" : ""}`);
+  process.exit(1);
+}
+

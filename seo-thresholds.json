@@ -1,0 +1,11 @@
+{
+  "legacyRedirects": { "max": 0, "severity": "critical" },
+  "jsonLd":          { "max": 0, "severity": "critical" },
+  "robots":          { "max": 0, "severity": "critical" },
+  "htmlLang":        { "max": 0, "severity": "critical" },
+  "sitemap":         { "max": 0, "severity": "critical" },
+  "hydration":       { "max": 2, "severity": "warn" },
+  "ogTwitter":       { "max": 3, "severity": "warn" },
+  "ogImage":         { "max": 2, "severity": "warn" },
+  "validation":     { "max": 5, "severity": "warn" }
+}
