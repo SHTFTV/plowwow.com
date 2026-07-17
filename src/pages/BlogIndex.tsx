@@ -826,6 +826,74 @@ const BlogIndex = () => {
               })}
             </div>
 
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <div
+                role="group"
+                aria-label="Sort posts"
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+              >
+                <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Sort
+                </span>
+                {([
+                  ["published", "Newest published"],
+                  ["updated", "Recently updated"],
+                ] as const).map(([key, label]) => {
+                  const isActive = sortBy === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setSort(key)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div
+                role="group"
+                aria-label="Filter by date"
+                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+              >
+                <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  {sortBy === "updated" ? "Updated" : "Published"}
+                </span>
+                {([
+                  ["all", "All time"],
+                  ["7d", "7 days"],
+                  ["30d", "30 days"],
+                  ["90d", "90 days"],
+                  ["365d", "1 year"],
+                ] as const).map(([key, label]) => {
+                  const isActive = dateWindow === key;
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={() => setDateWindow(key)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+
             <details className="mb-6 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-muted-foreground">
               <summary className="cursor-pointer select-none font-semibold text-foreground">
                 Search settings
