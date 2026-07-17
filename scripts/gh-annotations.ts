@@ -256,13 +256,14 @@ export function validateConfig(raw: unknown, source = "config", sourceText?: str
 export function loadConfigFile(path?: string): AnnotationsConfig {
   const p = path ?? DEFAULT_CONFIG_PATH;
   if (!existsSync(p)) return {};
+  const text = readFileSync(p, "utf8");
   let raw: unknown;
   try {
-    raw = JSON.parse(readFileSync(p, "utf8"));
+    raw = JSON.parse(text);
   } catch (e) {
     throw new Error(`Failed to parse ${p} as JSON: ${(e as Error).message}`);
   }
-  return validateConfig(raw, p);
+  return validateConfig(raw, p, text);
 }
 
 
