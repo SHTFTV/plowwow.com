@@ -173,6 +173,15 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
+      - name: Upload annotation-plan.json (planned vs skipped details)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: annotation-plan
+          path: seo-report/annotation-plan.json
+          retention-days: 30
+          if-no-files-found: warn
+
 
       - name: Upload validation-report.html (standalone, no unzip needed)
         if: always()

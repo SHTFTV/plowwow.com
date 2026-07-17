@@ -11,24 +11,19 @@
 // CLI options:
 //   --locale=<code>           Filter legacyRedirects annotations by locale
 //   --variant=<variant>       Filter legacyRedirects annotations by page variant
-//   --max=<n>                 Global default cap per category (default: 20;
-//                             also honors SEO_ANNOTATIONS_TOP for back-compat)
-//   --max-legacy=<n>          Per-category cap: legacy redirects
-//   --max-hydration=<n>       Per-category cap: hydration issues
-//   --max-robots=<n>          Per-category cap: robots.txt directive failures
-//   --max-jsonld=<n>          Per-category cap: JSON-LD preflight findings
-//   --config=<path>           Load defaults from a JSON config file
-//                             (default: ./seo-annotations.config.json if present).
-//                             CLI > env > config > built-in defaults.
-//   --fail-on-skipped         Exit 1 when any per-category or total skipped
-//                             count exceeds `failOnSkipped` limits from config
-//                             (or SEO_ANN_FAIL_ON_SKIPPED_* env vars).
+//   --max=<n>                 Global default cap per category (default: 20)
+//   --max-legacy / -hydration / -robots / -jsonld=<n>
+//                             Per-category caps.
+//   --config=<path>           Load defaults from a JSON config file.
+//   --fail-on-skipped         Exit 1 when skipped counts exceed failOnSkipped.
+//   --dry-run                 Print planned vs skipped to stderr; emit nothing.
+//   --dry-run=output          Same as --dry-run and always write
+//                             seo-report/annotation-plan.json (planned vs
+//                             skipped counts + per-item details).
 //
-// Env fallbacks: SEO_ANN_MAX_LEGACY / _HYDRATION / _ROBOTS / _JSONLD, plus
-// SEO_BASELINE_LOCALE and SEO_BASELINE_VARIANT for the filter (shared with
-// the baseline tooling). SEO_ANN_CONFIG overrides the config file path.
-// SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL} set per-run
-// caps on skipped failures without editing the config file.
+// Env fallbacks: SEO_ANN_MAX_{LEGACY,HYDRATION,ROBOTS,JSONLD},
+// SEO_BASELINE_LOCALE/VARIANT, SEO_ANN_CONFIG,
+// SEO_ANN_FAIL_ON_SKIPPED_{LEGACY,HYDRATION,ROBOTS,JSONLD,TOTAL}.
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
@@ -88,59 +83,106 @@ function intOrUndef(v: string | number | undefined): number | undefined {
   return Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined;
 }
 
+export type ConfigIssue = {
+  path: string;
+  expected: string;
+  got: string;
+  example: string;
+};
+
+function fmtIssue(i: ConfigIssue): string {
+  return `${i.path} — expected ${i.expected} (got ${i.got}); example: ${i.example}`;
+}
+
 /**
  * Validate a parsed config object. Throws an Error with a friendly, actionable
- * message when values are the wrong type or out of range. Exported for tests.
+ * message that includes JSON path, expected type/range, and a corrected
+ * snippet for each failure. Exported for tests.
  */
 export function validateConfig(raw: unknown, source = "config"): AnnotationsConfig {
-  const errs: string[] = [];
+  const issues: ConfigIssue[] = [];
   const isObj = (v: unknown): v is Record<string, unknown> =>
     !!v && typeof v === "object" && !Array.isArray(v);
   if (raw != null && !isObj(raw)) {
-    throw new Error(`[${source}] must be a JSON object, got ${Array.isArray(raw) ? "array" : typeof raw}`);
+    throw new Error(
+      `Invalid ${source}:\n  - $ — expected JSON object (got ${
+        Array.isArray(raw) ? "array" : typeof raw
+      }); example: {"caps":{"default":20}}\n` +
+        `See seo-annotations.config.schema.json for the expected shape.`,
+    );
   }
   const cfg = (raw ?? {}) as Record<string, unknown>;
-  const checkNonNegInt = (v: unknown, path: string) => {
+  const checkNonNegInt = (v: unknown, path: string, exampleKey: string, exampleParent: string) => {
     if (v == null) return;
     if (typeof v !== "number" || !Number.isFinite(v) || v < 0 || Math.floor(v) !== v) {
-      errs.push(`${path} must be a non-negative integer (got ${JSON.stringify(v)})`);
+      issues.push({
+        path,
+        expected: "non-negative integer (>= 0)",
+        got: JSON.stringify(v),
+        example: `{"${exampleParent}":{"${exampleKey}":20}}`,
+      });
     }
   };
   if (cfg.caps != null) {
-    if (!isObj(cfg.caps)) errs.push(`caps must be an object`);
-    else {
+    if (!isObj(cfg.caps)) {
+      issues.push({ path: "$.caps", expected: "object", got: Array.isArray(cfg.caps) ? "array" : typeof cfg.caps, example: `{"caps":{"default":20,"legacy":20}}` });
+    } else {
       const allowed = new Set(["default", "legacy", "hydration", "robots", "jsonLd"]);
       for (const [k, v] of Object.entries(cfg.caps)) {
-        if (!allowed.has(k)) errs.push(`caps.${k} is not a recognized key (allowed: ${[...allowed].join(", ")})`);
-        else checkNonNegInt(v, `caps.${k}`);
+        if (!allowed.has(k)) {
+          issues.push({
+            path: `$.caps.${k}`,
+            expected: `one of: ${[...allowed].join(", ")}`,
+            got: `unknown key "${k}"`,
+            example: `{"caps":{"legacy":20}}`,
+          });
+        } else checkNonNegInt(v, `$.caps.${k}`, k, "caps");
       }
     }
   }
   if (cfg.filter != null) {
-    if (!isObj(cfg.filter)) errs.push(`filter must be an object`);
-    else {
+    if (!isObj(cfg.filter)) {
+      issues.push({ path: "$.filter", expected: "object", got: Array.isArray(cfg.filter) ? "array" : typeof cfg.filter, example: `{"filter":{"locale":"en-CA","variant":"blog"}}` });
+    } else {
       for (const [k, v] of Object.entries(cfg.filter)) {
         if (k !== "locale" && k !== "variant") {
-          errs.push(`filter.${k} is not recognized (allowed: locale, variant)`);
+          issues.push({
+            path: `$.filter.${k}`,
+            expected: "one of: locale, variant",
+            got: `unknown key "${k}"`,
+            example: `{"filter":{"locale":"en-CA"}}`,
+          });
         } else if (v != null && (typeof v !== "string" || !v.trim())) {
-          errs.push(`filter.${k} must be a non-empty string`);
+          issues.push({
+            path: `$.filter.${k}`,
+            expected: "non-empty string",
+            got: JSON.stringify(v),
+            example: `{"filter":{"${k}":"${k === "locale" ? "en-CA" : "blog"}"}}`,
+          });
         }
       }
     }
   }
   if (cfg.failOnSkipped != null) {
-    if (!isObj(cfg.failOnSkipped)) errs.push(`failOnSkipped must be an object`);
-    else {
+    if (!isObj(cfg.failOnSkipped)) {
+      issues.push({ path: "$.failOnSkipped", expected: "object", got: Array.isArray(cfg.failOnSkipped) ? "array" : typeof cfg.failOnSkipped, example: `{"failOnSkipped":{"total":100}}` });
+    } else {
       const allowed = new Set(["legacy", "hydration", "robots", "jsonLd", "total"]);
       for (const [k, v] of Object.entries(cfg.failOnSkipped)) {
-        if (!allowed.has(k)) errs.push(`failOnSkipped.${k} is not recognized (allowed: ${[...allowed].join(", ")})`);
-        else checkNonNegInt(v, `failOnSkipped.${k}`);
+        if (!allowed.has(k)) {
+          issues.push({
+            path: `$.failOnSkipped.${k}`,
+            expected: `one of: ${[...allowed].join(", ")}`,
+            got: `unknown key "${k}"`,
+            example: `{"failOnSkipped":{"total":100}}`,
+          });
+        } else checkNonNegInt(v, `$.failOnSkipped.${k}`, k, "failOnSkipped");
       }
     }
   }
-  if (errs.length) {
+  if (issues.length) {
     throw new Error(
-      `Invalid ${source}:\n  - ${errs.join("\n  - ")}\n` +
+      `Invalid ${source}:\n  - ${issues.map(fmtIssue).join("\n  - ")}\n` +
         `See seo-annotations.config.schema.json for the expected shape.`,
     );
   }
@@ -257,6 +299,36 @@ export function passesFilter(pathOrUrl: string, filter: Filter): boolean {
   return true;
 }
 
+export type Category = "legacy" | "hydration" | "jsonLd" | "robots";
+export type SkipReason = "cap" | "filter" | "none";
+export type CategoryPlan = {
+  category: Category;
+  rawFailures: number;      // failures before filter
+  matched: number;          // failures after filter (input to cap)
+  emitted: number;
+  skippedByCap: number;
+  filteredOut: number;      // rawFailures - matched
+  status: "ok" | "cap-reached" | "filter-mismatch" | "no-matching-failures" | "partial";
+  topSkipped: { reason: SkipReason; summary: string }[];
+  topFiltered: { reason: "filter"; summary: string }[];
+};
+export type AnnotationPlan = {
+  categories: Record<Category, CategoryPlan>;
+  annotations: Annotation[];
+  totalEmitted: number;
+  totalSkipped: number;
+};
+
+const TOP_REASON_N = 5;
+
+function catStatus(p: Omit<CategoryPlan, "status" | "topSkipped" | "topFiltered">): CategoryPlan["status"] {
+  if (p.rawFailures === 0) return "no-matching-failures";
+  if (p.matched === 0 && p.filteredOut > 0) return "filter-mismatch";
+  if (p.skippedByCap > 0) return "cap-reached";
+  if (p.emitted < p.rawFailures) return "partial";
+  return "ok";
+}
+
 /** Pure annotation-selection function — used by CLI and unit tests. */
 export function selectAnnotations(input: {
   legacy?: LegacyDoc | null;
@@ -265,16 +337,17 @@ export function selectAnnotations(input: {
   robots?: RobotsDoc | null;
   caps: Caps;
   filter: Filter;
-}): { annotations: Annotation[]; skipped: SkippedCounts; totals: SkippedCounts } {
+}): { annotations: Annotation[]; skipped: SkippedCounts; totals: SkippedCounts; plan: AnnotationPlan } {
   const annotations: Annotation[] = [];
   const skipped: SkippedCounts = { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
   const totals: SkippedCounts = { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
 
   // Legacy
-  const legacyFailing = (input.legacy?.checks ?? []).filter((c) => !c.ok);
-  const legacyFiltered = legacyFailing.filter((c) => passesFilter(c.expected || c.source, input.filter));
+  const legacyRaw = (input.legacy?.checks ?? []).filter((c) => !c.ok);
+  const legacyFiltered = legacyRaw.filter((c) => passesFilter(c.expected || c.source, input.filter));
   totals.legacy = legacyFiltered.length;
-  for (const c of legacyFiltered.slice(0, input.caps.legacy)) {
+  const legacyEmitted = legacyFiltered.slice(0, input.caps.legacy);
+  for (const c of legacyEmitted) {
     annotations.push({
       level: "error",
       file: fileForRoute(c.source),
@@ -283,14 +356,17 @@ export function selectAnnotations(input: {
     });
   }
   skipped.legacy = Math.max(0, legacyFiltered.length - input.caps.legacy);
+  const legacySkippedCap = legacyFiltered.slice(input.caps.legacy);
+  const legacyFilteredOut = legacyRaw.filter((c) => !passesFilter(c.expected || c.source, input.filter));
 
   // Hydration
-  const hydrationIssues: { url: string; issue: string }[] = [];
+  const hydrationRaw: { url: string; issue: string }[] = [];
   for (const r of input.hydration?.results ?? []) {
-    for (const issue of r.issues) hydrationIssues.push({ url: r.url, issue });
+    for (const issue of r.issues) hydrationRaw.push({ url: r.url, issue });
   }
-  totals.hydration = hydrationIssues.length;
-  for (const { url, issue } of hydrationIssues.slice(0, input.caps.hydration)) {
+  totals.hydration = hydrationRaw.length;
+  const hydrationEmitted = hydrationRaw.slice(0, input.caps.hydration);
+  for (const { url, issue } of hydrationEmitted) {
     annotations.push({
       level: "warning",
       file: fileForRoute(url),
@@ -298,12 +374,14 @@ export function selectAnnotations(input: {
       message: issue,
     });
   }
-  skipped.hydration = Math.max(0, hydrationIssues.length - input.caps.hydration);
+  skipped.hydration = Math.max(0, hydrationRaw.length - input.caps.hydration);
+  const hydrationSkippedCap = hydrationRaw.slice(input.caps.hydration);
 
   // JSON-LD
-  const findings = input.jsonld?.findings ?? [];
-  totals.jsonLd = findings.length;
-  for (const f of findings.slice(0, input.caps.jsonLd)) {
+  const jsonldRaw = input.jsonld?.findings ?? [];
+  totals.jsonLd = jsonldRaw.length;
+  const jsonldEmitted = jsonldRaw.slice(0, input.caps.jsonLd);
+  for (const f of jsonldEmitted) {
     annotations.push({
       level: "error",
       file: fileForRoute(f.path ?? f.url ?? "/"),
@@ -311,7 +389,8 @@ export function selectAnnotations(input: {
       message: f.message,
     });
   }
-  skipped.jsonLd = Math.max(0, findings.length - input.caps.jsonLd);
+  skipped.jsonLd = Math.max(0, jsonldRaw.length - input.caps.jsonLd);
+  const jsonldSkippedCap = jsonldRaw.slice(input.caps.jsonLd);
 
   // Robots
   const robotsMsgs: string[] = [
@@ -321,7 +400,8 @@ export function selectAnnotations(input: {
     ...(input.robots?.blockMisses ?? []).flatMap((b) => b.missing.map((m) => `${b.userAgent}: missing "${m}"`)),
   ];
   totals.robots = robotsMsgs.length;
-  for (const msg of robotsMsgs.slice(0, input.caps.robots)) {
+  const robotsEmitted = robotsMsgs.slice(0, input.caps.robots);
+  for (const msg of robotsEmitted) {
     annotations.push({
       level: "error",
       file: "public/robots.txt",
@@ -330,8 +410,76 @@ export function selectAnnotations(input: {
     });
   }
   skipped.robots = Math.max(0, robotsMsgs.length - input.caps.robots);
+  const robotsSkippedCap = robotsMsgs.slice(input.caps.robots);
 
-  return { annotations, skipped, totals };
+  const buildCat = (
+    category: Category,
+    rawFailures: number,
+    matched: number,
+    emitted: number,
+    skippedByCap: number,
+    filteredOut: number,
+    topCap: { reason: "cap"; summary: string }[],
+    topFilter: { reason: "filter"; summary: string }[],
+  ): CategoryPlan => {
+    const base = { category, rawFailures, matched, emitted, skippedByCap, filteredOut };
+    return {
+      ...base,
+      status: catStatus(base),
+      topSkipped: topCap.slice(0, TOP_REASON_N),
+      topFiltered: topFilter.slice(0, TOP_REASON_N),
+    };
+  };
+
+  const plan: AnnotationPlan = {
+    categories: {
+      legacy: buildCat(
+        "legacy",
+        legacyRaw.length,
+        legacyFiltered.length,
+        legacyEmitted.length,
+        skipped.legacy,
+        legacyFilteredOut.length,
+        legacySkippedCap.map((c) => ({ reason: "cap", summary: `${c.source} → ${c.expected}` })),
+        legacyFilteredOut.map((c) => ({ reason: "filter", summary: `${c.source} (locale/variant mismatch)` })),
+      ),
+      hydration: buildCat(
+        "hydration",
+        hydrationRaw.length,
+        hydrationRaw.length,
+        hydrationEmitted.length,
+        skipped.hydration,
+        0,
+        hydrationSkippedCap.map((h) => ({ reason: "cap", summary: `${(() => { try { return new URL(h.url).pathname; } catch { return h.url; } })()} — ${h.issue}` })),
+        [],
+      ),
+      jsonLd: buildCat(
+        "jsonLd",
+        jsonldRaw.length,
+        jsonldRaw.length,
+        jsonldEmitted.length,
+        skipped.jsonLd,
+        0,
+        jsonldSkippedCap.map((f) => ({ reason: "cap", summary: `${f.path ?? f.url ?? "?"} — ${f.message}` })),
+        [],
+      ),
+      robots: buildCat(
+        "robots",
+        robotsMsgs.length,
+        robotsMsgs.length,
+        robotsEmitted.length,
+        skipped.robots,
+        0,
+        robotsSkippedCap.map((m) => ({ reason: "cap", summary: m })),
+        [],
+      ),
+    },
+    annotations,
+    totalEmitted: annotations.length,
+    totalSkipped: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
+  };
+
+  return { annotations, skipped, totals, plan };
 }
 
 function emit(a: Annotation) {
@@ -366,21 +514,25 @@ if (isDirectRun) {
     process.exit(2);
   }
   const { caps, filter, failOnSkipped, failOnSkippedEnabled } = parseConfig(argv, process.env, config);
-  const dryRun = hasFlag(argv, "dry-run") || process.env.SEO_ANN_DRY_RUN === "1";
+  // --dry-run              → dry-run mode, do not write annotation-plan.json (unless env forces)
+  // --dry-run=output       → dry-run mode AND explicitly emit annotation-plan.json
+  const dryRunVal = argVal(argv, "dry-run");
+  const dryRunFlag = hasFlag(argv, "dry-run") || dryRunVal != null || process.env.SEO_ANN_DRY_RUN === "1";
+  const dryRun = dryRunFlag;
+  const emitPlanFile = true; // always write annotation-plan.json for CI artifact
+  const dryRunOutput = dryRunVal === "output";
   const legacy = readJson<LegacyDoc>("legacy-redirects.json");
   const hydration = readJson<HydrationDoc>("hydration.json");
   const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
   const robots = readJson<RobotsDoc>("robots-directives.json");
 
-  const { annotations, skipped, totals } = selectAnnotations({
+  const { annotations, skipped, totals, plan } = selectAnnotations({
     legacy, hydration, jsonld, robots, caps, filter,
   });
 
   if (dryRun) {
-    // Preview mode — print what would be annotated / skipped to stderr, do not
-    // emit any ::error/::warning workflow commands.
     process.stderr.write(
-      `[gh-annotations dry-run] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
+      `[gh-annotations dry-run${dryRunOutput ? "=output" : ""}] filter locale=${filter.locale ?? "*"} variant=${filter.variant ?? "*"}\n`,
     );
     process.stderr.write(
       `[gh-annotations dry-run] caps legacy=${caps.legacy} hydration=${caps.hydration} robots=${caps.robots} jsonLd=${caps.jsonLd}\n`,
@@ -388,17 +540,16 @@ if (isDirectRun) {
     for (const a of annotations) {
       process.stderr.write(`  WILL EMIT [${a.level}] ${a.file} — ${a.title}\n`);
     }
-    (["legacy", "hydration", "jsonLd", "robots"] as const).forEach((k) => {
-      if (skipped[k] > 0) {
+    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+      const p = plan.categories[cat];
+      if (p.skippedByCap > 0 || p.filteredOut > 0) {
         process.stderr.write(
-          `  SKIPPED  [${k}] ${skipped[k]} of ${totals[k]} (cap ${caps[k]})\n`,
+          `  SKIPPED  [${cat}] cap=${p.skippedByCap} filter=${p.filteredOut} (of ${p.rawFailures} raw, ${p.matched} matched, cap ${caps[cat]})\n`,
         );
       }
-    });
+    }
     process.stderr.write(
-      `[gh-annotations dry-run] would emit ${annotations.length}, skip ${
-        skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd
-      }\n`,
+      `[gh-annotations dry-run] would emit ${annotations.length}, skip ${plan.totalSkipped}\n`,
     );
   } else {
     for (const a of annotations) emit(a);
@@ -417,6 +568,7 @@ if (isDirectRun) {
         emitted: dryRun ? 0 : annotations.length,
         wouldEmit: annotations.length,
         dryRun,
+        dryRunMode: dryRunOutput ? "output" : dryRun ? "preview" : null,
         failOnSkipped,
         failOnSkippedEnabled,
         violations,
@@ -426,29 +578,68 @@ if (isDirectRun) {
     ),
   );
 
+  // annotation-plan.json — planned vs skipped counts + per-item details for
+  // debugging. Always written so CI can upload it as a dedicated artifact;
+  // `--dry-run=output` guarantees the plan file exists even when the caller
+  // wants to skip emission entirely.
+  if (emitPlanFile || dryRunOutput) {
+    writeFileSync(
+      resolve(REPORT_DIR, "annotation-plan.json"),
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          caps, filter, dryRun, dryRunMode: dryRunOutput ? "output" : dryRun ? "preview" : null,
+          totals, skipped,
+          totalEmitted: dryRun ? 0 : annotations.length,
+          totalWouldEmit: annotations.length,
+          totalSkipped: plan.totalSkipped,
+          categories: plan.categories,
+          annotations: plan.annotations,
+        },
+        null,
+        2,
+      ),
+    );
+  }
+
   const filterDesc = filter.locale || filter.variant
     ? ` filter[locale=${filter.locale ?? "*"},variant=${filter.variant ?? "*"}]`
     : "";
   const capsDesc = `caps[legacy=${caps.legacy},hydration=${caps.hydration},robots=${caps.robots},jsonLd=${caps.jsonLd}]`;
   const skippedDesc = `skipped[legacy=${skipped.legacy},hydration=${skipped.hydration},robots=${skipped.robots},jsonLd=${skipped.jsonLd}]`;
-  const dryDesc = dryRun ? " [dry-run]" : "";
+  const dryDesc = dryRun ? (dryRunOutput ? " [dry-run=output]" : " [dry-run]") : "";
   process.stdout.write(
     `::notice title=SEO annotations${dryDesc}::${dryRun ? "would emit " : ""}${annotations.length} annotation(s) ` +
       `(legacy=${totals.legacy}, hydration=${totals.hydration}, jsonLd=${totals.jsonLd}, robots=${totals.robots}) ` +
       `${capsDesc} ${skippedDesc}${filterDesc}\n`,
   );
 
-  // Per-category skipped totals — surface omissions directly in the Checks UI
-  // so reviewers see what got dropped without opening the HTML report.
-  const totalSkipped = skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd;
-  if (totalSkipped > 0) {
-    for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
-      if (skipped[cat] > 0) {
-        process.stdout.write(
-          `::notice title=SEO annotations skipped (${cat})::${skipped[cat]} of ${totals[cat]} ${cat} finding(s) omitted (cap ${caps[cat]})\n`,
-        );
-      }
-    }
+  // Per-category notices — always emit one per category with status + top N
+  // skipped reasons so reviewers can debug omissions directly from Checks UI.
+  const TOP_NOTICE = 3;
+  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const p = plan.categories[cat];
+    const reasonLabel: Record<CategoryPlan["status"], string> = {
+      "ok": "all emitted",
+      "cap-reached": `cap reached (cap ${caps[cat]})`,
+      "filter-mismatch": `filter mismatch (locale=${filter.locale ?? "*"}, variant=${filter.variant ?? "*"})`,
+      "no-matching-failures": "no matching failures",
+      "partial": "partial",
+    };
+    const parts = [
+      `${p.emitted}/${p.rawFailures} emitted`,
+      `matched=${p.matched}`,
+      `cap-skipped=${p.skippedByCap}`,
+      `filter-skipped=${p.filteredOut}`,
+      `status=${reasonLabel[p.status]}`,
+    ];
+    const samples: string[] = [];
+    for (const s of p.topSkipped.slice(0, TOP_NOTICE)) samples.push(`cap: ${s.summary}`);
+    for (const s of p.topFiltered.slice(0, Math.max(0, TOP_NOTICE - samples.length))) samples.push(`filter: ${s.summary}`);
+    const samplesDesc = samples.length ? ` · top skipped: ${samples.join(" | ")}` : "";
+    process.stdout.write(
+      `::notice title=SEO annotations (${cat})::${parts.join(" ")}${samplesDesc}\n`,
+    );
   }
 
   if (failOnSkippedEnabled && violations.length) {

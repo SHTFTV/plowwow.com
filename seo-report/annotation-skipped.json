@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-07-17T22:38:27.005Z",
+  "caps": {
+    "legacy": 20,
+    "hydration": 20,
+    "robots": 20,
+    "jsonLd": 20
+  },
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
+  "totals": {
+    "legacy": 1,
+    "hydration": 0,
+    "robots": 0,
+    "jsonLd": 0
+  },
+  "skipped": {
+    "legacy": 0,
+    "hydration": 0,
+    "robots": 0,
+    "jsonLd": 0
+  },
+  "emitted": 0,
+  "wouldEmit": 1,
+  "dryRun": true,
+  "dryRunMode": "output",
+  "failOnSkipped": {
+    "legacy": 50,
+    "hydration": 50,
+    "robots": 20,
+    "jsonLd": 20,
+    "total": 100
+  },
+  "failOnSkippedEnabled": false,
+  "violations": []
+}

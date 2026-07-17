@@ -203,28 +203,28 @@ describe("validateConfig", () => {
   });
 
   it("rejects non-object root", () => {
-    expect(() => validateConfig([1, 2, 3])).toThrow(/must be a JSON object/);
-    expect(() => validateConfig("nope")).toThrow(/must be a JSON object/);
+    expect(() => validateConfig([1, 2, 3])).toThrow(/expected JSON object/);
+    expect(() => validateConfig("nope")).toThrow(/expected JSON object/);
   });
 
   it("rejects negative or non-integer caps with a friendly message", () => {
-    expect(() => validateConfig({ caps: { legacy: -1 } })).toThrow(/caps\.legacy.*non-negative integer/);
-    expect(() => validateConfig({ caps: { hydration: 1.5 } })).toThrow(/caps\.hydration.*non-negative integer/);
-    expect(() => validateConfig({ caps: { jsonLd: "20" } })).toThrow(/caps\.jsonLd.*non-negative integer/);
+    expect(() => validateConfig({ caps: { legacy: -1 } })).toThrow(/\$\.caps\.legacy.*non-negative integer.*example:/s);
+    expect(() => validateConfig({ caps: { hydration: 1.5 } })).toThrow(/\$\.caps\.hydration.*non-negative integer/);
+    expect(() => validateConfig({ caps: { jsonLd: "20" } })).toThrow(/\$\.caps\.jsonLd.*non-negative integer/);
   });
 
   it("rejects unknown caps keys", () => {
-    expect(() => validateConfig({ caps: { bogus: 5 } })).toThrow(/caps\.bogus.*not a recognized key/);
+    expect(() => validateConfig({ caps: { bogus: 5 } })).toThrow(/\$\.caps\.bogus.*unknown key/);
   });
 
   it("rejects empty filter strings and unknown filter keys", () => {
-    expect(() => validateConfig({ filter: { locale: "" } })).toThrow(/filter\.locale.*non-empty string/);
-    expect(() => validateConfig({ filter: { region: "us" } })).toThrow(/filter\.region.*not recognized/);
+    expect(() => validateConfig({ filter: { locale: "" } })).toThrow(/\$\.filter\.locale.*non-empty string/);
+    expect(() => validateConfig({ filter: { region: "us" } })).toThrow(/\$\.filter\.region.*unknown key/);
   });
 
   it("rejects invalid failOnSkipped values", () => {
-    expect(() => validateConfig({ failOnSkipped: { total: -3 } })).toThrow(/failOnSkipped\.total/);
-    expect(() => validateConfig({ failOnSkipped: { weird: 5 } })).toThrow(/failOnSkipped\.weird.*not recognized/);
+    expect(() => validateConfig({ failOnSkipped: { total: -3 } })).toThrow(/\$\.failOnSkipped\.total/);
+    expect(() => validateConfig({ failOnSkipped: { weird: 5 } })).toThrow(/\$\.failOnSkipped\.weird.*unknown key/);
   });
 
   it("aggregates multiple errors in one message", () => {
@@ -238,5 +238,70 @@ describe("validateConfig", () => {
       expect(msg).toMatch(/filter\.locale/);
     }
   });
+
+  it("includes JSON path, expected type, and example snippet in error", () => {
+    try {
+      validateConfig({ caps: { legacy: -1 } });
+      expect.fail("expected throw");
+    } catch (e) {
+      const msg = (e as Error).message;
+      expect(msg).toMatch(/\$\.caps\.legacy/);
+      expect(msg).toMatch(/non-negative integer/);
+      expect(msg).toMatch(/example:.*"caps".*"legacy":\s*20/);
+    }
+  });
 });
+
+describe("selectAnnotations plan output", () => {
+  const caps = { legacy: 2, hydration: 2, robots: 2, jsonLd: 2 };
+  const filter = {};
+
+  it("returns per-category plan with rawFailures/matched/emitted/status", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [
+        { source: "/a", expected: "/a/", ok: false, reason: "200" },
+        { source: "/b", expected: "/b/", ok: false, reason: "200" },
+        { source: "/c", expected: "/c/", ok: false, reason: "200" },
+      ] },
+      caps, filter,
+    });
+    expect(plan.categories.legacy.rawFailures).toBe(3);
+    expect(plan.categories.legacy.matched).toBe(3);
+    expect(plan.categories.legacy.emitted).toBe(2);
+    expect(plan.categories.legacy.skippedByCap).toBe(1);
+    expect(plan.categories.legacy.status).toBe("cap-reached");
+    expect(plan.categories.legacy.topSkipped[0].reason).toBe("cap");
+    expect(plan.categories.legacy.topSkipped[0].summary).toContain("/c");
+  });
+
+  it("marks status=no-matching-failures when nothing failed", () => {
+    const { plan } = selectAnnotations({ caps, filter });
+    expect(plan.categories.legacy.status).toBe("no-matching-failures");
+    expect(plan.categories.hydration.status).toBe("no-matching-failures");
+  });
+
+  it("marks status=filter-mismatch when filter drops all matches", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [{ source: "/x", expected: "/y", ok: false, reason: "z" }] },
+      caps, filter: { locale: "fr-CA" },
+    });
+    expect(plan.categories.legacy.rawFailures).toBe(1);
+    expect(plan.categories.legacy.matched).toBe(0);
+    expect(plan.categories.legacy.filteredOut).toBe(1);
+    expect(plan.categories.legacy.status).toBe("filter-mismatch");
+    expect(plan.categories.legacy.topFiltered[0].reason).toBe("filter");
+  });
+
+  it("totalEmitted/totalSkipped roll up across categories", () => {
+    const { plan } = selectAnnotations({
+      legacy: { checks: [{ source: "/a", expected: "/a/", ok: false }] },
+      hydration: { results: [{ url: "http://x/1", issues: ["i1", "i2", "i3"] }] },
+      caps: { legacy: 5, hydration: 2, robots: 5, jsonLd: 5 },
+      filter,
+    });
+    expect(plan.totalEmitted).toBe(1 + 2);
+    expect(plan.totalSkipped).toBe(1);
+  });
+});
+
 
