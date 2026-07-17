@@ -218,7 +218,7 @@ if (artifactUrl) {
   // --print-regression-thresholds-format is enabled; add the links
   // conditionally by consulting the manifest gh-annotations.ts writes.
   try {
-    const manifestPath = join("seo-report", "regression-thresholds-artifacts.json");
+    const manifestPath = resolve(REPORT_DIR, "regression-thresholds-artifacts.json");
     if (existsSync(manifestPath)) {
       const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
         csv?: string; json?: string;
