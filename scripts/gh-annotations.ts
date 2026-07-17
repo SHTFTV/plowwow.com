@@ -546,6 +546,74 @@ export function selectAnnotations(input: {
   return { annotations, skipped, totals, plan };
 }
 
+/** Serialize an AnnotationPlan to CSV. One row per category. */
+export function planToCsv(plan: AnnotationPlan, meta: { filterLabel?: string } = {}): string {
+  const header = [
+    "category", "rawFailures", "matched", "emitted", "skippedByCap",
+    "filteredOut", "status", "topSkipped", "topFiltered",
+  ];
+  const rows: string[][] = [header];
+  const esc = (v: unknown) => {
+    const s = String(v ?? "");
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  };
+  for (const cat of ["legacy", "hydration", "jsonLd", "robots"] as const) {
+    const p = plan.categories[cat];
+    rows.push([
+      cat,
+      String(p.rawFailures), String(p.matched), String(p.emitted),
+      String(p.skippedByCap), String(p.filteredOut), p.status,
+      p.topSkipped.map((s) => s.summary).join(" | "),
+      p.topFiltered.map((s) => s.summary).join(" | "),
+    ]);
+  }
+  const prefix = meta.filterLabel ? `# filter: ${meta.filterLabel}\n` : "";
+  return prefix + rows.map((r) => r.map(esc).join(",")).join("\n") + "\n";
+}
+
+/**
+ * Diff two annotation plans (a vs b) showing per-category delta of counts
+ * and status transitions. Used by --compare-locale / --compare-variant.
+ */
+export function diffPlans(
+  a: AnnotationPlan,
+  b: AnnotationPlan,
+  labels: { a: string; b: string } = { a: "A", b: "B" },
+): {
+  labels: { a: string; b: string };
+  categories: Record<Category, {
+    emitted: { a: number; b: number; delta: number };
+    skippedByCap: { a: number; b: number; delta: number };
+    filteredOut: { a: number; b: number; delta: number };
+    matched: { a: number; b: number; delta: number };
+    status: { a: string; b: string; changed: boolean };
+  }>;
+  totalEmitted: { a: number; b: number; delta: number };
+  totalSkipped: { a: number; b: number; delta: number };
+} {
+  const cats: Category[] = ["legacy", "hydration", "jsonLd", "robots"];
+  const categories = {} as ReturnType<typeof diffPlans>["categories"];
+  for (const c of cats) {
+    const pa = a.categories[c];
+    const pb = b.categories[c];
+    categories[c] = {
+      emitted: { a: pa.emitted, b: pb.emitted, delta: pb.emitted - pa.emitted },
+      skippedByCap: { a: pa.skippedByCap, b: pb.skippedByCap, delta: pb.skippedByCap - pa.skippedByCap },
+      filteredOut: { a: pa.filteredOut, b: pb.filteredOut, delta: pb.filteredOut - pa.filteredOut },
+      matched: { a: pa.matched, b: pb.matched, delta: pb.matched - pa.matched },
+      status: { a: pa.status, b: pb.status, changed: pa.status !== pb.status },
+    };
+  }
+  return {
+    labels,
+    categories,
+    totalEmitted: { a: a.totalEmitted, b: b.totalEmitted, delta: b.totalEmitted - a.totalEmitted },
+    totalSkipped: { a: a.totalSkipped, b: b.totalSkipped, delta: b.totalSkipped - a.totalSkipped },
+  };
+}
+
+
+
 function emit(a: Annotation) {
   const parts = [`file=${a.file}`];
   if (a.line) parts.push(`line=${a.line}`);
