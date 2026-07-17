@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T21:26:12.331Z",
+  "generatedAt": "2026-07-17T21:36:06.522Z",
   "outcomes": [
     {
       "category": "legacyRedirects",
@@ -49,6 +49,7 @@
   ],
   "baseline": {
     "hasBaseline": false,
+    "filter": {},
     "totalNewSinceBaseline": 17,
     "diffs": [
       {
@@ -129,5 +130,7 @@
         "resolved": []
       }
     ]
-  }
+  },
+  "cache": null,
+  "timing": null
 }

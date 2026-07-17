@@ -1,58 +1,22 @@
 {
   "hasBaseline": false,
+  "filter": {
+    "locale": "en-CA",
+    "variant": "blog"
+  },
   "diffs": [
     {
       "category": "legacyRedirects",
       "baselineFailures": 0,
       "currentFailures": 17,
       "newFailures": [
-        "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/",
-        "/abbotsford-snow-removal→/abbotsford-snow-removal/",
-        "/blog→/blog/",
-        "/locations→/locations/",
-        "/quote→/quote/",
-        "/blog/advanced-technology→/advanced-technology/",
-        "/blog/advanced-technology/→/advanced-technology/",
-        "/posts/advanced-technology→/advanced-technology/",
-        "/posts/advanced-technology/→/advanced-technology/",
-        "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
-        "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
-        "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
-        "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
-        "/metrotown-snow-removal-company→/metrotown-snow-removal/",
-        "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
-        "/anmore-snow-removal→/anmore-snow-removal/",
-        "/belcarra-snow-removal→/belcarra-snow-removal/"
+        "/blog→/blog/"
       ],
       "resolved": [],
       "grouped": {
         "en-CA": {
-          "legacy-city-slug": [
-            "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/"
-          ],
-          "neighborhood-blog": [
-            "/abbotsford-snow-removal→/abbotsford-snow-removal/",
-            "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
-            "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
-            "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
-            "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
-            "/metrotown-snow-removal-company→/metrotown-snow-removal/",
-            "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
-            "/anmore-snow-removal→/anmore-snow-removal/",
-            "/belcarra-snow-removal→/belcarra-snow-removal/"
-          ],
           "blog": [
             "/blog→/blog/"
-          ],
-          "locations": [
-            "/locations→/locations/"
-          ],
-          "city-hub": [
-            "/quote→/quote/",
-            "/blog/advanced-technology→/advanced-technology/",
-            "/blog/advanced-technology/→/advanced-technology/",
-            "/posts/advanced-technology→/advanced-technology/",
-            "/posts/advanced-technology/→/advanced-technology/"
           ]
         }
       }
@@ -79,5 +43,5 @@
       "resolved": []
     }
   ],
-  "generatedAt": "2026-07-17T21:26:11.562Z"
+  "generatedAt": "2026-07-17T21:36:05.898Z"
 }

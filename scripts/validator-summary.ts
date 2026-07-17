@@ -12,7 +12,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadThresholds, evaluate, type CategoryOutcome } from "./lib/thresholds";
-import { runBaselineDiff } from "./lib/baseline";
+import { runBaselineDiff, parseFilterFromArgv } from "./lib/baseline";
 
 const REPORT_DIR = resolve("seo-report");
 mkdirSync(REPORT_DIR, { recursive: true });
@@ -100,8 +100,13 @@ for (const o of outcomes) {
 md.push("");
 
 // Baseline regression — new failures only (baseline suppresses acknowledged issues).
-const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff();
+// Filter by --locale=…/--variant=… (or SEO_BASELINE_LOCALE / _VARIANT env vars).
+const filter = parseFilterFromArgv(process.argv.slice(2));
+const { diffs: baselineDiffs, hasBaseline } = runBaselineDiff(filter);
 const totalNewSinceBaseline = baselineDiffs.reduce((n, d) => n + d.newFailures.length, 0);
+if (filter.locale || filter.variant) {
+  md.push(`_Baseline filter: locale=\`${filter.locale ?? "*"}\` · variant=\`${filter.variant ?? "*"}\`_`, "");
+}
 md.push(`### Baseline regression`);
 if (!hasBaseline) {
   md.push(`- _No baseline present. Run \`bun run seo:baseline-accept -- --yes\` after a clean run._`);
@@ -184,6 +189,29 @@ md.push(
 );
 md.push("");
 
+// HTTP cache hit/miss + timing — read from seo-report/http-cache-stats.json
+// written by verify-legacy-redirects.ts and other cached validators.
+type CacheStatsDoc = { enabled?: boolean; hits?: number; misses?: number; totalMs?: number; savedMs?: number; networkMs?: number; ttlMs?: number };
+const cacheStats = readJson<CacheStatsDoc>("http-cache-stats.json");
+// Per-validator timing (populated by build-validate.ts when it wraps steps).
+type TimingDoc = { steps?: { name: string; ms: number }[]; totalMs?: number };
+const timing = readJson<TimingDoc>("timing.json");
+md.push(`### HTTP cache & timing`);
+if (cacheStats && (cacheStats.hits ?? 0) + (cacheStats.misses ?? 0) > 0) {
+  const total = (cacheStats.hits ?? 0) + (cacheStats.misses ?? 0);
+  const rate = total ? Math.round(((cacheStats.hits ?? 0) / total) * 100) : 0;
+  md.push(`- Cache: **${cacheStats.hits ?? 0}** hit(s) / **${cacheStats.misses ?? 0}** miss(es) — **${rate}%** hit rate${cacheStats.enabled === false ? " _(disabled)_" : ""}`);
+  md.push(`- Network: **${cacheStats.networkMs ?? 0}ms** across misses · saved ≈ **${Math.round(cacheStats.savedMs ?? 0)}ms** via hits · total inside cachedFetch: **${cacheStats.totalMs ?? 0}ms**`);
+} else {
+  md.push(`- Cache: _no cached fetches recorded_ (enable with \`SEO_HTTP_CACHE=1\`)`);
+}
+if (timing?.steps?.length) {
+  md.push(`- Validator step timing:`);
+  for (const s of timing.steps.slice(0, 10)) md.push(`  - \`${s.name}\` — ${s.ms}ms`);
+  if (typeof timing.totalMs === "number") md.push(`  - **total**: ${timing.totalMs}ms`);
+}
+md.push("");
+
 const body = md.join("\n");
 writeFileSync(resolve(REPORT_DIR, "pr-comment.md"), body);
 process.stdout.write(body + "\n");
@@ -191,7 +219,17 @@ process.stdout.write(body + "\n");
 // Persist outcomes so downstream jobs can react without re-parsing markdown.
 writeFileSync(
   resolve(REPORT_DIR, "threshold-outcomes.json"),
-  JSON.stringify({ generatedAt: new Date().toISOString(), outcomes, baseline: { hasBaseline, totalNewSinceBaseline, diffs: baselineDiffs } }, null, 2),
+  JSON.stringify(
+    {
+      generatedAt: new Date().toISOString(),
+      outcomes,
+      baseline: { hasBaseline, filter, totalNewSinceBaseline, diffs: baselineDiffs },
+      cache: cacheStats ?? null,
+      timing: timing ?? null,
+    },
+    null,
+    2,
+  ),
 );
 
 // In baseline-diff mode (SEO_BASELINE_MODE=1), only NEW failures fail the run.

@@ -38,10 +38,16 @@ export type CacheStats = {
   ttlMs: number;
   hits: number;
   misses: number;
+  /** Total wall-clock ms spent inside cachedFetch (network + cache read). */
+  totalMs: number;
+  /** Cumulative ms saved by cache hits, estimated from avg miss latency. */
+  savedMs: number;
+  /** Sum of ms actually spent on network (misses). */
+  networkMs: number;
   entries: { url: string; method: string; status: number; fetchedAt: string; hits: number }[];
 };
 
-const stats: CacheStats = { enabled: ENABLED, ttlMs: DEFAULT_TTL_MS, hits: 0, misses: 0, entries: [] };
+const stats: CacheStats = { enabled: ENABLED, ttlMs: DEFAULT_TTL_MS, hits: 0, misses: 0, totalMs: 0, savedMs: 0, networkMs: 0, entries: [] };
 
 function keyFor(method: string, url: string): string {
   return createHash("sha1").update(`${method.toUpperCase()} ${url}`).digest("hex");
@@ -75,15 +81,23 @@ export async function cachedFetch(
 ): Promise<{ status: number; location: string | null; contentType: string | null; body?: string; fromCache: boolean }> {
   const method = (init.method ?? "GET").toUpperCase();
   const captureBody = init.captureBody ?? method === "GET";
+  const t0 = Date.now();
   const cached = readEntry(method, url);
   if (cached) {
     cached.hits++;
     writeEntry(cached);
     stats.hits++;
+    const avgMiss = stats.misses > 0 ? stats.networkMs / stats.misses : 0;
+    stats.savedMs += avgMiss;
+    stats.totalMs += Date.now() - t0;
     return { status: cached.status, location: cached.location, contentType: cached.contentType, body: cached.body, fromCache: true };
   }
   const res = await fetch(url, init);
   const body = captureBody ? await res.text() : undefined;
+  const dur = Date.now() - t0;
+  stats.misses++;
+  stats.networkMs += dur;
+  stats.totalMs += dur;
   const entry: CachedEntry = {
     url,
     method,
@@ -95,7 +109,6 @@ export async function cachedFetch(
     hits: 0,
   };
   writeEntry(entry);
-  stats.misses++;
   return { status: entry.status, location: entry.location, contentType: entry.contentType, body: entry.body, fromCache: false };
 }
 

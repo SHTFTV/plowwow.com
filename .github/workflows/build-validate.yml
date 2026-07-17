@@ -145,6 +145,25 @@ jobs:
         run: bunx tsx scripts/robots-sitemap-fetch.ts
         continue-on-error: true
 
+      - name: Emit GitHub Actions annotations for top failures
+        if: always()
+        run: bunx tsx scripts/gh-annotations.ts
+        continue-on-error: true
+
+      - name: Assemble repro bundle (hydration sample + config + reports)
+        if: always()
+        run: bunx tsx scripts/bundle-repro.ts
+        continue-on-error: true
+
+      - name: Upload repro bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repro-bundle
+          path: seo-report/repro-bundle.zip
+          retention-days: 30
+          if-no-files-found: warn
+
       - name: Fail job if build or validators failed
         if: always()
         run: |
