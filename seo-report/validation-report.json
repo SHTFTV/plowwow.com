@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-07-17T20:29:29.755Z",
+  "totalRoutes": 293,
+  "locales": [
+    "en-CA",
+    "en",
+    "x-default"
+  ],
+  "totalIssues": 0,
+  "sections": [
+    {
+      "title": "Sitemap URLs missing from dist/",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Duplicate <title> (homepage)",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Duplicate meta description (homepage)",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Missing <link rel=canonical>",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Non-self-referencing canonical",
+      "count": 0,
+      "rows": []
+    },
+    {
+      "title": "Missing hreflang (required: en-CA, en, x-default)",
+      "count": 0,
+      "rows": []
+    }
+  ]
+}
