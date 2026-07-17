@@ -299,6 +299,36 @@ export function passesFilter(pathOrUrl: string, filter: Filter): boolean {
   return true;
 }
 
+export type Category = "legacy" | "hydration" | "jsonLd" | "robots";
+export type SkipReason = "cap" | "filter" | "none";
+export type CategoryPlan = {
+  category: Category;
+  rawFailures: number;      // failures before filter
+  matched: number;          // failures after filter (input to cap)
+  emitted: number;
+  skippedByCap: number;
+  filteredOut: number;      // rawFailures - matched
+  status: "ok" | "cap-reached" | "filter-mismatch" | "no-matching-failures" | "partial";
+  topSkipped: { reason: SkipReason; summary: string }[];
+  topFiltered: { reason: "filter"; summary: string }[];
+};
+export type AnnotationPlan = {
+  categories: Record<Category, CategoryPlan>;
+  annotations: Annotation[];
+  totalEmitted: number;
+  totalSkipped: number;
+};
+
+const TOP_REASON_N = 5;
+
+function catStatus(p: Omit<CategoryPlan, "status" | "topSkipped" | "topFiltered">): CategoryPlan["status"] {
+  if (p.rawFailures === 0) return "no-matching-failures";
+  if (p.matched === 0 && p.filteredOut > 0) return "filter-mismatch";
+  if (p.skippedByCap > 0) return "cap-reached";
+  if (p.emitted < p.rawFailures) return "partial";
+  return "ok";
+}
+
 /** Pure annotation-selection function — used by CLI and unit tests. */
 export function selectAnnotations(input: {
   legacy?: LegacyDoc | null;
@@ -307,16 +337,17 @@ export function selectAnnotations(input: {
   robots?: RobotsDoc | null;
   caps: Caps;
   filter: Filter;
-}): { annotations: Annotation[]; skipped: SkippedCounts; totals: SkippedCounts } {
+}): { annotations: Annotation[]; skipped: SkippedCounts; totals: SkippedCounts; plan: AnnotationPlan } {
   const annotations: Annotation[] = [];
   const skipped: SkippedCounts = { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
   const totals: SkippedCounts = { legacy: 0, hydration: 0, robots: 0, jsonLd: 0 };
 
   // Legacy
-  const legacyFailing = (input.legacy?.checks ?? []).filter((c) => !c.ok);
-  const legacyFiltered = legacyFailing.filter((c) => passesFilter(c.expected || c.source, input.filter));
+  const legacyRaw = (input.legacy?.checks ?? []).filter((c) => !c.ok);
+  const legacyFiltered = legacyRaw.filter((c) => passesFilter(c.expected || c.source, input.filter));
   totals.legacy = legacyFiltered.length;
-  for (const c of legacyFiltered.slice(0, input.caps.legacy)) {
+  const legacyEmitted = legacyFiltered.slice(0, input.caps.legacy);
+  for (const c of legacyEmitted) {
     annotations.push({
       level: "error",
       file: fileForRoute(c.source),
@@ -325,14 +356,17 @@ export function selectAnnotations(input: {
     });
   }
   skipped.legacy = Math.max(0, legacyFiltered.length - input.caps.legacy);
+  const legacySkippedCap = legacyFiltered.slice(input.caps.legacy);
+  const legacyFilteredOut = legacyRaw.filter((c) => !passesFilter(c.expected || c.source, input.filter));
 
   // Hydration
-  const hydrationIssues: { url: string; issue: string }[] = [];
+  const hydrationRaw: { url: string; issue: string }[] = [];
   for (const r of input.hydration?.results ?? []) {
-    for (const issue of r.issues) hydrationIssues.push({ url: r.url, issue });
+    for (const issue of r.issues) hydrationRaw.push({ url: r.url, issue });
   }
-  totals.hydration = hydrationIssues.length;
-  for (const { url, issue } of hydrationIssues.slice(0, input.caps.hydration)) {
+  totals.hydration = hydrationRaw.length;
+  const hydrationEmitted = hydrationRaw.slice(0, input.caps.hydration);
+  for (const { url, issue } of hydrationEmitted) {
     annotations.push({
       level: "warning",
       file: fileForRoute(url),
@@ -340,12 +374,14 @@ export function selectAnnotations(input: {
       message: issue,
     });
   }
-  skipped.hydration = Math.max(0, hydrationIssues.length - input.caps.hydration);
+  skipped.hydration = Math.max(0, hydrationRaw.length - input.caps.hydration);
+  const hydrationSkippedCap = hydrationRaw.slice(input.caps.hydration);
 
   // JSON-LD
-  const findings = input.jsonld?.findings ?? [];
-  totals.jsonLd = findings.length;
-  for (const f of findings.slice(0, input.caps.jsonLd)) {
+  const jsonldRaw = input.jsonld?.findings ?? [];
+  totals.jsonLd = jsonldRaw.length;
+  const jsonldEmitted = jsonldRaw.slice(0, input.caps.jsonLd);
+  for (const f of jsonldEmitted) {
     annotations.push({
       level: "error",
       file: fileForRoute(f.path ?? f.url ?? "/"),
@@ -353,7 +389,8 @@ export function selectAnnotations(input: {
       message: f.message,
     });
   }
-  skipped.jsonLd = Math.max(0, findings.length - input.caps.jsonLd);
+  skipped.jsonLd = Math.max(0, jsonldRaw.length - input.caps.jsonLd);
+  const jsonldSkippedCap = jsonldRaw.slice(input.caps.jsonLd);
 
   // Robots
   const robotsMsgs: string[] = [
@@ -363,7 +400,8 @@ export function selectAnnotations(input: {
     ...(input.robots?.blockMisses ?? []).flatMap((b) => b.missing.map((m) => `${b.userAgent}: missing "${m}"`)),
   ];
   totals.robots = robotsMsgs.length;
-  for (const msg of robotsMsgs.slice(0, input.caps.robots)) {
+  const robotsEmitted = robotsMsgs.slice(0, input.caps.robots);
+  for (const msg of robotsEmitted) {
     annotations.push({
       level: "error",
       file: "public/robots.txt",
@@ -372,8 +410,76 @@ export function selectAnnotations(input: {
     });
   }
   skipped.robots = Math.max(0, robotsMsgs.length - input.caps.robots);
+  const robotsSkippedCap = robotsMsgs.slice(input.caps.robots);
 
-  return { annotations, skipped, totals };
+  const buildCat = (
+    category: Category,
+    rawFailures: number,
+    matched: number,
+    emitted: number,
+    skippedByCap: number,
+    filteredOut: number,
+    topCap: { reason: "cap"; summary: string }[],
+    topFilter: { reason: "filter"; summary: string }[],
+  ): CategoryPlan => {
+    const base = { category, rawFailures, matched, emitted, skippedByCap, filteredOut };
+    return {
+      ...base,
+      status: catStatus(base),
+      topSkipped: topCap.slice(0, TOP_REASON_N),
+      topFiltered: topFilter.slice(0, TOP_REASON_N),
+    };
+  };
+
+  const plan: AnnotationPlan = {
+    categories: {
+      legacy: buildCat(
+        "legacy",
+        legacyRaw.length,
+        legacyFiltered.length,
+        legacyEmitted.length,
+        skipped.legacy,
+        legacyFilteredOut.length,
+        legacySkippedCap.map((c) => ({ reason: "cap", summary: `${c.source} → ${c.expected}` })),
+        legacyFilteredOut.map((c) => ({ reason: "filter", summary: `${c.source} (locale/variant mismatch)` })),
+      ),
+      hydration: buildCat(
+        "hydration",
+        hydrationRaw.length,
+        hydrationRaw.length,
+        hydrationEmitted.length,
+        skipped.hydration,
+        0,
+        hydrationSkippedCap.map((h) => ({ reason: "cap", summary: `${(() => { try { return new URL(h.url).pathname; } catch { return h.url; } })()} — ${h.issue}` })),
+        [],
+      ),
+      jsonLd: buildCat(
+        "jsonLd",
+        jsonldRaw.length,
+        jsonldRaw.length,
+        jsonldEmitted.length,
+        skipped.jsonLd,
+        0,
+        jsonldSkippedCap.map((f) => ({ reason: "cap", summary: `${f.path ?? f.url ?? "?"} — ${f.message}` })),
+        [],
+      ),
+      robots: buildCat(
+        "robots",
+        robotsMsgs.length,
+        robotsMsgs.length,
+        robotsEmitted.length,
+        skipped.robots,
+        0,
+        robotsSkippedCap.map((m) => ({ reason: "cap", summary: m })),
+        [],
+      ),
+    },
+    annotations,
+    totalEmitted: annotations.length,
+    totalSkipped: skipped.legacy + skipped.hydration + skipped.robots + skipped.jsonLd,
+  };
+
+  return { annotations, skipped, totals, plan };
 }
 
 function emit(a: Annotation) {
