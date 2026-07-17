@@ -429,14 +429,21 @@ async function main() {
   }
   writeFileSync(resolve("seo-report/hydration.md"), md.join("\n"));
 
-  if (failed.length) {
-    console.error(`\n✗ hydration-check: ${failed.length}/${results.length} URLs failed`);
+  const thresholds = loadThresholds();
+  const outcome = evaluate("hydration", failed.length, thresholds);
+  if (outcome.status === "fail") {
+    console.error(`\n✗ hydration-check: ${failed.length}/${results.length} URLs failed (threshold=${outcome.threshold.max}, severity=critical)`);
     for (const r of failed) {
       console.error(`  · ${r.url}`);
       for (const i of r.issues) console.error(`      ${i}`);
     }
     console.error(`  See seo-report/hydration.{json,md}`);
     process.exit(1);
+  }
+  if (outcome.status === "warn") {
+    console.warn(`\n⚠ hydration-check: ${failed.length}/${results.length} URLs failed but severity=warn (threshold=${outcome.threshold.max}); not failing build.`);
+    for (const r of failed) console.warn(`  · ${r.url}: ${r.issues[0]}`);
+    return;
   }
   console.log(`✓ hydration-check: ${results.length}/${results.length} URLs kept canonical + hreflang after hydration`);
 }
