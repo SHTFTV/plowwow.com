@@ -26,7 +26,9 @@
     "seo:hydration": "tsx scripts/hydration-check.ts",
     "seo:html-lang": "tsx scripts/html-lang-validate.ts",
     "seo:og-image": "tsx scripts/og-image-reachable.ts",
-    "seo:robots-sitemap": "tsx scripts/robots-sitemap-fetch.ts"
+    "seo:robots-sitemap": "tsx scripts/robots-sitemap-fetch.ts",
+    "seo:robots-directives": "tsx scripts/robots-directives-validate.ts",
+    "seo:legacy-redirects": "tsx scripts/verify-legacy-redirects.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
