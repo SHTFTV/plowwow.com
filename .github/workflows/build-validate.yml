@@ -70,19 +70,30 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Cross-validator summary → step summary + pr-comment.md
+        if: always()
+        run: |
+          bunx tsx scripts/validator-summary.ts | tee -a "$GITHUB_STEP_SUMMARY"
+        continue-on-error: true
+
       - name: Comment validation summary on PR
         if: github.event_name == 'pull_request' && always()
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const path = 'seo-report/validation-report.md';
-            if (!fs.existsSync(path)) return;
-            const body = '<!-- build-validate -->\n' + fs.readFileSync(path, 'utf8');
+            const summaryPath = 'seo-report/pr-comment.md';
+            const fallback = 'seo-report/validation-report.md';
+            const path = fs.existsSync(summaryPath) ? summaryPath : (fs.existsSync(fallback) ? fallback : null);
+            if (!path) return;
+            const raw = fs.readFileSync(path, 'utf8');
+            const body = raw.startsWith('<!-- validator-summary -->') || raw.startsWith('<!-- build-validate -->')
+              ? raw
+              : '<!-- validator-summary -->\n' + raw;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo, issue_number: context.issue.number,
             });
-            const existing = comments.find(c => c.body?.startsWith('<!-- build-validate -->'));
+            const existing = comments.find(c => c.body?.startsWith('<!-- validator-summary -->') || c.body?.startsWith('<!-- build-validate -->'));
             if (existing) {
               await github.rest.issues.updateComment({
                 ...context.repo, comment_id: existing.id, body,
@@ -101,32 +112,18 @@ jobs:
           path: |
             seo-report/validation-report.json
             seo-report/validation-report.md
+            seo-report/pr-comment.md
           retention-days: 30
           if-no-files-found: warn
 
-      - name: Upload all SEO report artifacts
+      - name: Upload all SEO report artifacts (JSON + Markdown)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: build-validate-report
+          name: seo-report
           path: |
-            seo-report/validation-report.json
-            seo-report/validation-report.md
-            seo-report/build-smoke.json
-            seo-report/jsonld-locale-snapshot.json
-            seo-report/redirects.json
-            seo-report/og-twitter.json
-            seo-report/og-twitter.md
-            seo-report/sitemap.json
-            seo-report/sitemap.md
-            seo-report/hydration.json
-            seo-report/hydration.md
-            seo-report/html-lang.json
-            seo-report/html-lang.md
-            seo-report/og-image-reachable.json
-            seo-report/og-image-reachable.md
-            seo-report/robots-sitemap.json
-            seo-report/robots-sitemap.md
+            seo-report/**/*.json
+            seo-report/**/*.md
           retention-days: 14
           if-no-files-found: warn
 
