@@ -79,24 +79,102 @@ export function runBaselineDiff(): { diffs: CategoryDiff[]; hasBaseline: boolean
   return { diffs, hasBaseline };
 }
 
-// CLI: `bun scripts/lib/baseline.ts diff` | `accept`
+const BASELINE_FILES = [
+  "legacy-redirects.json",
+  "hydration.json",
+  "jsonld-preflight.json",
+  "robots-directives.json",
+] as const;
+
+/** Compute what `accept` would change without touching disk. */
+export function acceptPreview(): {
+  files: { name: string; action: "add" | "replace" | "unchanged" | "missing"; baselineFailures?: number; currentFailures?: number }[];
+  diffs: CategoryDiff[];
+  hasBaseline: boolean;
+} {
+  const { diffs, hasBaseline } = runBaselineDiff();
+  const files = BASELINE_FILES.map((name) => {
+    const src = resolve(REPORT_DIR, name);
+    const dst = resolve(BASELINE_DIR, name);
+    if (!existsSync(src)) return { name, action: "missing" as const };
+    if (!existsSync(dst)) return { name, action: "add" as const };
+    const same = readFileSync(src, "utf8") === readFileSync(dst, "utf8");
+    return { name, action: same ? ("unchanged" as const) : ("replace" as const) };
+  });
+  return { files, diffs, hasBaseline };
+}
+
+function writePreview(): { totalNew: number; totalResolved: number } {
+  const { files, diffs, hasBaseline } = acceptPreview();
+  mkdirSync(REPORT_DIR, { recursive: true });
+  writeFileSync(
+    resolve(REPORT_DIR, "baseline-accept-preview.json"),
+    JSON.stringify({ hasBaseline, files, diffs, generatedAt: new Date().toISOString() }, null, 2),
+  );
+  const md: string[] = [`# Baseline Accept — Preview`, ``];
+  md.push(hasBaseline ? `_Existing baseline found — this preview shows what \`accept\` would overwrite._` : `⚠️ No baseline yet — \`accept\` would create one.`);
+  md.push(``, `## Files`, ``);
+  for (const f of files) md.push(`- \`${f.name}\` → **${f.action}**`);
+  md.push(``, `## Category deltas`, ``);
+  let totalNew = 0, totalResolved = 0;
+  for (const d of diffs) {
+    totalNew += d.newFailures.length;
+    totalResolved += d.resolved.length;
+    md.push(`### ${d.category}`);
+    md.push(`- baseline: **${d.baselineFailures}** → current: **${d.currentFailures}** (new: **${d.newFailures.length}**, resolved: **${d.resolved.length}**)`);
+    if (d.newFailures.length) {
+      md.push(`- Would newly accept:`);
+      for (const k of d.newFailures.slice(0, 15)) md.push(`  - \`${k}\``);
+    }
+    if (d.resolved.length) {
+      md.push(`- Would drop from baseline:`);
+      for (const k of d.resolved.slice(0, 15)) md.push(`  - \`${k}\``);
+    }
+    md.push("");
+  }
+  md.push(`> To apply, run: \`bun run seo:baseline-accept -- --yes\``);
+  writeFileSync(resolve(REPORT_DIR, "baseline-accept-preview.md"), md.join("\n"));
+  return { totalNew, totalResolved };
+}
+
+// CLI: `bun scripts/lib/baseline.ts diff | accept-preview | accept [--yes]`
 async function main() {
   const cmd = process.argv[2] ?? "diff";
-  if (cmd === "accept") {
-    mkdirSync(BASELINE_DIR, { recursive: true });
-    for (const f of ["legacy-redirects.json", "hydration.json", "jsonld-preflight.json", "robots-directives.json"]) {
-      const src = resolve(REPORT_DIR, f);
-      if (existsSync(src)) copyFileSync(src, resolve(BASELINE_DIR, f));
-    }
-    console.log(`✓ baseline updated at ${BASELINE_DIR}`);
+  const flags = new Set(process.argv.slice(3));
+
+  if (cmd === "accept-preview") {
+    const { totalNew, totalResolved } = writePreview();
+    console.log(`baseline-accept-preview: ${totalNew} new, ${totalResolved} resolved → seo-report/baseline-accept-preview.{json,md}`);
     return;
   }
+
+  if (cmd === "accept") {
+    // Always write the preview so CI/humans see what changed.
+    const { totalNew, totalResolved } = writePreview();
+    const confirmed = flags.has("--yes") || flags.has("-y") || process.env.SEO_BASELINE_CONFIRM === "1";
+    if (!confirmed) {
+      console.log(`\nbaseline-accept: preview written (${totalNew} new, ${totalResolved} resolved).`);
+      console.log(`Nothing changed on disk. Re-run with \`--yes\` (or SEO_BASELINE_CONFIRM=1) to apply.`);
+      console.log(`See: seo-report/baseline-accept-preview.md`);
+      return;
+    }
+    mkdirSync(BASELINE_DIR, { recursive: true });
+    let updated = 0;
+    for (const f of BASELINE_FILES) {
+      const src = resolve(REPORT_DIR, f);
+      if (existsSync(src)) { copyFileSync(src, resolve(BASELINE_DIR, f)); updated++; }
+    }
+    console.log(`✓ baseline updated (${updated} files) at ${BASELINE_DIR}`);
+    console.log(`  Preview snapshot kept at seo-report/baseline-accept-preview.md for audit.`);
+    return;
+  }
+
   const { diffs, hasBaseline } = runBaselineDiff();
   mkdirSync(REPORT_DIR, { recursive: true });
   writeFileSync(resolve(REPORT_DIR, "baseline-diff.json"), JSON.stringify({ hasBaseline, diffs, generatedAt: new Date().toISOString() }, null, 2));
 
   const md: string[] = [`# SEO Baseline Diff`, ``];
-  if (!hasBaseline) md.push(`⚠️ No baseline present — run \`bun scripts/lib/baseline.ts accept\` after a clean run.`, ``);
+  if (!hasBaseline) md.push(`⚠️ No baseline present — run \`bun run seo:baseline-accept -- --yes\` after a clean run.`, ``);
   for (const d of diffs) {
     md.push(`## ${d.category}`);
     md.push(`- baseline: **${d.baselineFailures}**, current: **${d.currentFailures}**, new: **${d.newFailures.length}**, resolved: **${d.resolved.length}**`);
@@ -114,3 +192,4 @@ async function main() {
 if (import.meta.main) {
   main().catch((e) => { console.error(e); process.exit(1); });
 }
+

@@ -31,7 +31,9 @@
     "seo:legacy-redirects": "tsx scripts/verify-legacy-redirects.ts",
     "seo:validator-summary": "tsx scripts/validator-summary.ts",
     "seo:baseline-diff": "tsx scripts/lib/baseline.ts diff",
-    "seo:baseline-accept": "tsx scripts/lib/baseline.ts accept"
+    "seo:baseline-accept-preview": "tsx scripts/lib/baseline.ts accept-preview",
+    "seo:baseline-accept": "tsx scripts/lib/baseline.ts accept",
+    "seo:thresholds-validate": "tsx scripts/lib/thresholds.ts validate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

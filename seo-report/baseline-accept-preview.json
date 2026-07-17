@@ -1,0 +1,70 @@
+{
+  "hasBaseline": false,
+  "files": [
+    {
+      "name": "legacy-redirects.json",
+      "action": "add"
+    },
+    {
+      "name": "hydration.json",
+      "action": "missing"
+    },
+    {
+      "name": "jsonld-preflight.json",
+      "action": "missing"
+    },
+    {
+      "name": "robots-directives.json",
+      "action": "add"
+    }
+  ],
+  "diffs": [
+    {
+      "category": "legacyRedirects",
+      "baselineFailures": 0,
+      "currentFailures": 17,
+      "newFailures": [
+        "/snow-removal-in-burquitlam→/snow-removal-in-burquitlam/",
+        "/abbotsford-snow-removal→/abbotsford-snow-removal/",
+        "/blog→/blog/",
+        "/locations→/locations/",
+        "/quote→/quote/",
+        "/blog/advanced-technology→/advanced-technology/",
+        "/blog/advanced-technology/→/advanced-technology/",
+        "/posts/advanced-technology→/advanced-technology/",
+        "/posts/advanced-technology/→/advanced-technology/",
+        "/metrotown-burnaby-strata-commercial-snow-removal→/metrotown-snow-removal/",
+        "/metrotown-burnaby-strata-commercial-snow-removal/→/metrotown-snow-removal/",
+        "/metrotown-strata-snow-removal→/metrotown-snow-removal/",
+        "/metrotown-strata-snow-removal/→/metrotown-snow-removal/",
+        "/metrotown-snow-removal-company→/metrotown-snow-removal/",
+        "/metrotown-snow-removal-company/→/metrotown-snow-removal/",
+        "/anmore-snow-removal→/anmore-snow-removal/",
+        "/belcarra-snow-removal→/belcarra-snow-removal/"
+      ],
+      "resolved": []
+    },
+    {
+      "category": "hydration",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    },
+    {
+      "category": "jsonLd",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    },
+    {
+      "category": "robots",
+      "baselineFailures": 0,
+      "currentFailures": 0,
+      "newFailures": [],
+      "resolved": []
+    }
+  ],
+  "generatedAt": "2026-07-17T21:19:21.391Z"
+}
