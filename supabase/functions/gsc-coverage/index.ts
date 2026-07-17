@@ -123,9 +123,31 @@ Deno.serve(async (req) => {
     /crawled/i.test(i.coverageState || '')
   ).length;
   const excluded = inspections.filter((i) => i.verdict === 'FAIL' || i.verdict === 'NEUTRAL').length;
+  // Normalize errors into a safe { url, reason }[] shape. Values coming from
+  // GSC may be missing, numeric, nested, or non-string — coerce and clamp so
+  // downstream renderers and the DB jsonb column always see stable strings.
+  const toReason = (i: any): string => {
+    const raw =
+      i?.error ??
+      i?.coverageState ??
+      i?.verdict ??
+      i?.pageFetchState ??
+      'Unknown';
+    let s: string;
+    if (typeof raw === 'string') s = raw;
+    else if (raw == null) s = 'Unknown';
+    else if (typeof raw === 'number' || typeof raw === 'boolean') s = String(raw);
+    else {
+      try { s = JSON.stringify(raw); } catch { s = String(raw); }
+    }
+    s = s.trim();
+    if (!s) s = 'Unknown';
+    return s.length > 500 ? s.slice(0, 497) + '…' : s;
+  };
   const errors = inspections
-    .filter((i) => i.error || i.verdict === 'FAIL')
-    .map((i) => ({ url: i.url, reason: i.error || i.coverageState || 'FAIL' }));
+    .filter((i) => i && (i.error || i.verdict === 'FAIL'))
+    .map((i) => ({ url: typeof i.url === 'string' ? i.url : String(i.url ?? ''), reason: toReason(i) }))
+    .filter((e) => e.url.length > 0);
 
   await auth.admin.from('gsc_coverage_snapshots').insert({
     site_url: SITE,
