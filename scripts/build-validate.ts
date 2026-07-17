@@ -96,46 +96,71 @@ writeFileSync(
   ),
 );
 
-let failed = false;
-if (missing.length) {
-  console.error(`\n✗ ${missing.length} sitemap URL(s) missing from dist/:`);
-  for (const m of missing) console.error("  " + m);
-  failed = true;
-}
-if (dupTitle.length) {
-  console.error(`\n✗ ${dupTitle.length} route(s) share the homepage <title>:`);
-  for (const m of dupTitle.slice(0, 20)) console.error("  " + m);
-  failed = true;
-}
-if (dupDesc.length) {
-  console.error(`\n✗ ${dupDesc.length} route(s) share the homepage meta description:`);
-  for (const m of dupDesc.slice(0, 20)) console.error("  " + m);
-  failed = true;
-}
-if (missingCanonical.length) {
-  console.error(`\n✗ ${missingCanonical.length} route(s) missing <link rel="canonical">:`);
-  for (const m of missingCanonical.slice(0, 20)) console.error("  " + m);
-  failed = true;
-}
-if (badCanonical.length) {
-  console.error(`\n✗ ${badCanonical.length} route(s) have non-self-referencing canonical:`);
-  for (const m of badCanonical.slice(0, 20)) console.error("  " + m);
-  failed = true;
-}
-if (hreflangGaps.length) {
-  console.error(
-    `\n✗ ${hreflangGaps.length} route(s) missing hreflang for supported locales (need: ${REQUIRED_HREFLANG.join(", ")}):`,
-  );
-  for (const g of hreflangGaps.slice(0, 20))
-    console.error(`  ${g.url}  →  missing: ${g.missing.join(", ")}`);
-  failed = true;
-}
+// -----------------------------------------------------------------
+// Consolidated machine + human report. Every failing city / blog URL,
+// what's missing, and the gate that will fail the build.
+// -----------------------------------------------------------------
+type Section = { title: string; rows: string[] };
+const sections: Section[] = [
+  { title: "Sitemap URLs missing from dist/", rows: missing },
+  { title: "Duplicate <title> (homepage)", rows: dupTitle },
+  { title: "Duplicate meta description (homepage)", rows: dupDesc },
+  { title: "Missing <link rel=canonical>", rows: missingCanonical },
+  { title: "Non-self-referencing canonical", rows: badCanonical },
+  {
+    title: `Missing hreflang (required: ${REQUIRED_HREFLANG.join(", ")})`,
+    rows: hreflangGaps.map((g) => `${g.url}  →  missing: ${g.missing.join(", ")}`),
+  },
+];
 
+const totalIssues = sections.reduce((n, s) => n + s.rows.length, 0);
+
+const jsonReport = {
+  generatedAt: new Date().toISOString(),
+  totalRoutes: smokeReport.length,
+  locales: REQUIRED_HREFLANG,
+  totalIssues,
+  sections: sections.map((s) => ({ title: s.title, count: s.rows.length, rows: s.rows })),
+};
+writeFileSync(resolve("seo-report/validation-report.json"), JSON.stringify(jsonReport, null, 2));
+
+const md: string[] = [
+  `# Build Validation Report`,
+  ``,
+  `_Generated ${jsonReport.generatedAt}_`,
+  ``,
+  `- Total routes: **${smokeReport.length}**`,
+  `- Required locales: \`${REQUIRED_HREFLANG.join(", ")}\``,
+  `- Total issues: **${totalIssues}**`,
+  ``,
+];
+if (totalIssues === 0) {
+  md.push(`✅ All city + blog URLs ship unique metadata, self-referencing canonicals, and every required hreflang.`);
+} else {
+  for (const s of sections) {
+    if (!s.rows.length) continue;
+    md.push(`## ${s.title} (${s.rows.length})`, ``);
+    for (const r of s.rows.slice(0, 50)) md.push(`- \`${r}\``);
+    if (s.rows.length > 50) md.push(`- …and ${s.rows.length - 50} more (see \`validation-report.json\`)`);
+    md.push(``);
+  }
+}
+writeFileSync(resolve("seo-report/validation-report.md"), md.join("\n"));
+
+const failed = totalIssues > 0;
 if (failed) {
-  console.error(`\nBuild validation failed. See seo-report/build-smoke.json.`);
+  console.error(`\n✗ build-validate found ${totalIssues} issue(s) across ${sections.filter((s) => s.rows.length).length} categor(ies):`);
+  for (const s of sections) {
+    if (!s.rows.length) continue;
+    console.error(`\n  ${s.title} (${s.rows.length}):`);
+    for (const r of s.rows.slice(0, 10)) console.error("    " + r);
+    if (s.rows.length > 10) console.error(`    …and ${s.rows.length - 10} more`);
+  }
+  console.error(`\nSee seo-report/validation-report.{json,md} for the full list.`);
   process.exit(1);
 }
 
 console.log(
   `✓ build-validate: ${smokeReport.length} URLs · unique titles/descs · canonical + hreflang [${REQUIRED_HREFLANG.join(", ")}] present.`,
 );
+console.log(`✓ report written: seo-report/validation-report.{json,md}`);
