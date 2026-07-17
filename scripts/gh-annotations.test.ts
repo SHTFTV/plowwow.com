@@ -515,3 +515,175 @@ describe("gh-annotations CLI (end-to-end)", () => {
     expect(text).toMatch(/"failOnSkipped"/);
   }, 30_000);
 });
+
+describe("validateSampleConfigTemplate", () => {
+  it("SAMPLE_CONFIG_TEMPLATE conforms to seo-annotations.config.schema.json", () => {
+    expect(() => validateSampleConfigTemplate()).not.toThrow();
+  });
+
+  it("stripJsonComments removes // and /* */ but keeps strings intact", () => {
+    const src = `{ "a": 1, // comment\n "b": "http://x/y", /* block */ "c": 2 }`;
+    const parsed = JSON.parse(stripJsonComments(src));
+    expect(parsed).toEqual({ a: 1, b: "http://x/y", c: 2 });
+  });
+
+  it("validateAgainstSchema catches unknown properties and bad types", () => {
+    const schema = {
+      type: "object",
+      properties: {
+        caps: {
+          type: "object",
+          additionalProperties: false,
+          properties: { legacy: { type: "integer", minimum: 0 } },
+        },
+      },
+    };
+    expect(validateAgainstSchema({ caps: { legacy: 5 } }, schema)).toEqual([]);
+    const errs = validateAgainstSchema({ caps: { legacy: -1, foo: 1 } }, schema);
+    expect(errs.some((e) => /legacy.*>= 0/.test(e))).toBe(true);
+    expect(errs.some((e) => /foo.*unknown/.test(e))).toBe(true);
+  });
+
+  it("throws when template drifts (simulated via bad schema)", () => {
+    // Point the validator at a strict schema that forbids `filter` entirely.
+    const dir = mkdtempSync(join(tmpdir(), "gh-ann-schema-"));
+    const schemaPath = join(dir, "bad.schema.json");
+    writeFileSync(
+      schemaPath,
+      JSON.stringify({
+        type: "object",
+        additionalProperties: false,
+        properties: { caps: { type: "object" } },
+      }),
+    );
+    expect(() => validateSampleConfigTemplate(schemaPath)).toThrow(/drifted/);
+  });
+});
+
+describe("parseRegressionThreshold", () => {
+  it("parses absolute integers", () => {
+    expect(parseRegressionThreshold("5")).toEqual({ kind: "absolute", value: 5 });
+    expect(parseRegressionThreshold(undefined)).toEqual({ kind: "absolute", value: 0 });
+  });
+  it("parses percent strings", () => {
+    expect(parseRegressionThreshold("25%")).toEqual({ kind: "percent", value: 25 });
+    expect(parseRegressionThreshold("0%")).toEqual({ kind: "percent", value: 0 });
+  });
+  it("rejects malformed values → default 0 absolute", () => {
+    expect(parseRegressionThreshold("abc")).toEqual({ kind: "absolute", value: 0 });
+    expect(parseRegressionThreshold("-5%")).toEqual({ kind: "absolute", value: 0 });
+  });
+});
+
+describe("evaluateRegression", () => {
+  const mkPlan = (skipCat: Record<string, number>) => ({
+    categories: {
+      legacy: { emitted: 0, skippedByCap: skipCat.legacy ?? 0, filteredOut: 0, matched: 0, status: "ok" },
+      hydration: { emitted: 0, skippedByCap: skipCat.hydration ?? 0, filteredOut: 0, matched: 0, status: "ok" },
+      jsonLd: { emitted: 0, skippedByCap: skipCat.jsonLd ?? 0, filteredOut: 0, matched: 0, status: "ok" },
+      robots: { emitted: 0, skippedByCap: skipCat.robots ?? 0, filteredOut: 0, matched: 0, status: "ok" },
+    },
+    totalEmitted: 0,
+    totalSkipped:
+      (skipCat.legacy ?? 0) + (skipCat.hydration ?? 0) + (skipCat.jsonLd ?? 0) + (skipCat.robots ?? 0),
+  }) as any;
+
+  it("triggers on absolute delta > threshold", () => {
+    const d = diffPlans(mkPlan({ legacy: 2 }), mkPlan({ legacy: 5 }));
+    const r = evaluateRegression(d, { kind: "absolute", value: 2 });
+    expect(r.triggered).toBe(true);
+    expect(r.delta).toBe(3);
+    expect(r.perCategory.find((c) => c.category === "legacy")?.exceeds).toBe(true);
+  });
+
+  it("does not trigger when delta equals threshold", () => {
+    const d = diffPlans(mkPlan({ legacy: 2 }), mkPlan({ legacy: 4 }));
+    const r = evaluateRegression(d, { kind: "absolute", value: 2 });
+    expect(r.triggered).toBe(false);
+  });
+
+  it("triggers on percent delta > threshold", () => {
+    const d = diffPlans(mkPlan({ legacy: 10 }), mkPlan({ legacy: 13 }));
+    // 30% increase
+    expect(evaluateRegression(d, { kind: "percent", value: 25 }).triggered).toBe(true);
+    expect(evaluateRegression(d, { kind: "percent", value: 30 }).triggered).toBe(false);
+  });
+
+  it("handles before=0 with positive delta as infinite percent", () => {
+    const d = diffPlans(mkPlan({}), mkPlan({ legacy: 1 }));
+    const r = evaluateRegression(d, { kind: "percent", value: 999 });
+    expect(r.triggered).toBe(true);
+    expect(r.deltaPercent).toBe(Infinity);
+  });
+
+  it("returns per-category exceed flags", () => {
+    const d = diffPlans(mkPlan({ legacy: 1, robots: 1 }), mkPlan({ legacy: 10, robots: 1 }));
+    const r = evaluateRegression(d, { kind: "absolute", value: 2 });
+    const byCat = Object.fromEntries(r.perCategory.map((c) => [c.category, c.exceeds]));
+    expect(byCat.legacy).toBe(true);
+    expect(byCat.robots).toBe(false);
+  });
+});
+
+describe("gh-annotations CLI: percent-based --fail-on-plan-regression", () => {
+  const SCRIPT2 = pathResolve(__dirname, "gh-annotations.ts");
+  function run2(args: string[], cwd: string) {
+    return spawnSync("bunx", ["tsx", SCRIPT2, ...args], {
+      cwd,
+      env: { ...process.env, SEO_ANN_CONFIG: "" },
+      encoding: "utf8",
+    });
+  }
+
+  it("--fail-on-plan-regression=25% exits 1 and writes annotation-plan-regression.json", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-pct-"));
+    mkdirSync(join(cwd, "seo-report"), { recursive: true });
+    // A=en-CA has 0 legacy failures; B=fr has 3 → cap=1 → 2 cap-skipped.
+    // Δ from 0 → 2 with percent threshold → infinite % → triggers.
+    writeFileSync(join(cwd, "seo-report", "legacy-redirects.json"), JSON.stringify({
+      checks: [
+        { source: "/fr/xa", expected: "/fr/xa/", ok: false, reason: "200" },
+        { source: "/fr/xb", expected: "/fr/xb/", ok: false, reason: "200" },
+        { source: "/fr/xc", expected: "/fr/xc/", ok: false, reason: "200" },
+      ],
+    }));
+    const r = run2(
+      [
+        "--dry-run=output",
+        "--locale=en-CA",
+        "--compare-locale=fr",
+        "--max-legacy=1",
+        "--fail-on-plan-regression=25%",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(1);
+    const regPath = join(cwd, "seo-report", "annotation-plan-regression.json");
+    expect(existsSync(regPath)).toBe(true);
+    const doc = JSON.parse(readFileSync(regPath, "utf8"));
+    expect(doc.triggered).toBe(true);
+    expect(doc.threshold).toEqual({ kind: "percent", value: 25 });
+    expect(doc.perCategory.find((c: any) => c.category === "legacy").exceeds).toBe(true);
+  }, 30_000);
+
+  it("writes annotation-plan-summary.json with per-category skipped reasons", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-cli-sum-"));
+    mkdirSync(join(cwd, "seo-report"), { recursive: true });
+    writeFileSync(join(cwd, "seo-report", "legacy-redirects.json"), JSON.stringify({
+      checks: [
+        { source: "/a", expected: "/a/", ok: false, reason: "200" },
+        { source: "/b", expected: "/b/", ok: false, reason: "200" },
+        { source: "/c", expected: "/c/", ok: false, reason: "200" },
+      ],
+    }));
+    const r = run2(["--dry-run=output", "--max-legacy=1"], cwd);
+    expect(r.status).toBe(0);
+    const p = join(cwd, "seo-report", "annotation-plan-summary.json");
+    expect(existsSync(p)).toBe(true);
+    const doc = JSON.parse(readFileSync(p, "utf8"));
+    expect(doc.totals.skipped).toBe(2);
+    expect(doc.categories.legacy.skippedByCap).toBe(2);
+    expect(doc.categories.legacy.topSkippedReasons.length).toBeGreaterThan(0);
+    expect(doc.categories.legacy.topSkippedReasons[0].reason).toBe("cap");
+  }, 30_000);
+});
