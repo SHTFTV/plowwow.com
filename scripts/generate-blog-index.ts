@@ -48,7 +48,8 @@ const posts = readdirSync(BLOG_DIR)
     const imageMatch = body.match(/!\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]+")?\)/);
     const heroPath = resolve(IMAGE_DIR, `${slug}.jpg`);
     const hasHeroImage = existsSync(heroPath);
-    const publishedAtMs = gitTimestamp(`src/content/legacy/blog/${file}`) || statSync(filePath).mtimeMs;
+    const publishedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).first || statSync(filePath).mtimeMs;
+    const updatedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).last || statSync(filePath).mtimeMs;
 
     return {
       slug,
@@ -57,6 +58,7 @@ const posts = readdirSync(BLOG_DIR)
       image: hasHeroImage ? `/blog-images/${slug}.jpg` : null,
       alt: imageMatch?.[1]?.trim() || `${title} by PlowWow`,
       publishedAt: new Date(publishedAtMs).toISOString(),
+      updatedAt: new Date(updatedAtMs).toISOString(),
     };
   })
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
