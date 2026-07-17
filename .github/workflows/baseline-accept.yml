@@ -1,0 +1,87 @@
+name: SEO Baseline Accept
+
+# Two-step baseline update:
+#   1. Run with `confirm=false` (default) → posts a preview summary showing
+#      exactly what would change (new/resolved failures + files touched).
+#      Nothing is written to the baseline.
+#   2. Re-run with `confirm=true` → applies the update AND still posts the
+#      same preview alongside the result for an audit trail.
+#
+# Triggered manually via workflow_dispatch so a human is always in the loop.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Set to "true" to actually update seo-report/baseline/. Leave blank/false for a preview only.'
+        required: false
+        default: 'false'
+
+jobs:
+  baseline:
+    name: Preview + optional accept
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Validate thresholds config (fail fast)
+        run: bun run seo:thresholds-validate
+
+      - name: Build + validators (produces current seo-report/*.json)
+        run: bun run build
+        continue-on-error: true
+
+      - name: Preview what baseline-accept would change
+        run: bun run seo:baseline-accept-preview
+
+      - name: Post preview to job summary
+        run: |
+          {
+            echo "## SEO Baseline — Accept Preview"
+            echo ""
+            echo "_Confirm input: \`${{ github.event.inputs.confirm }}\`_"
+            echo ""
+            if [ -f seo-report/baseline-accept-preview.md ]; then
+              cat seo-report/baseline-accept-preview.md
+            else
+              echo "_No preview produced._"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-accept-preview
+          path: |
+            seo-report/baseline-accept-preview.json
+            seo-report/baseline-accept-preview.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Apply baseline update (only when confirmed)
+        if: github.event.inputs.confirm == 'true'
+        run: bun run seo:baseline-accept -- --yes
+
+      - name: Commit updated baseline
+        if: github.event.inputs.confirm == 'true'
+        run: |
+          if git diff --quiet seo-report/baseline/; then
+            echo "No baseline changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seo-report/baseline/
+          git commit -m "chore(seo): accept baseline update [skip ci]"
+          git push
