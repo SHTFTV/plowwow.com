@@ -101,7 +101,8 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-footer-foreground/20 mt-10 pt-6 text-center text-sm opacity-60">
-        © {new Date().getFullYear()} PlowWow.com — All rights reserved.
+        <div>© {new Date().getFullYear()} PlowWow.com — All rights reserved.</div>
+        <div className="mt-1">Powered by Industry Army Marketing</div>
       </div>
     </div>
   </footer>
