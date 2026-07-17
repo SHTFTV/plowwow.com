@@ -290,8 +290,65 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
               {title.replace(/\s*\|\s*PlowWow.*$/i, "")}
             </h1>
+            {kind === "blog" && dates && (
+              <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                <time
+                  dateTime={dates.publishedAt}
+                  className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-black uppercase tracking-wider text-primary"
+                >
+                  Published {formatDate(dates.publishedAt)}
+                </time>
+                {wasUpdated && (
+                  <time
+                    dateTime={dates.updatedAt}
+                    title={`Last updated on ${formatDate(dates.updatedAt)}`}
+                    className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 font-bold uppercase tracking-wider text-muted-foreground"
+                  >
+                    Updated {formatDate(dates.updatedAt)}
+                  </time>
+                )}
+              </div>
+            )}
           </div>
         </section>
+
+        {kind === "blog" && wasUpdated && dates && (
+          <section className="pt-2 pb-4">
+            <div className="container max-w-3xl">
+              <aside
+                aria-label="What changed in this post"
+                className="rounded-2xl border border-border bg-muted/40 p-5"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <h2 className="text-sm font-black uppercase tracking-wider text-foreground">
+                    What changed
+                  </h2>
+                  <span className="text-xs text-muted-foreground">
+                    Revised {formatDate(dates.updatedAt)} · originally published{" "}
+                    {formatDate(dates.publishedAt)}
+                  </span>
+                </div>
+                {changelog.length > 0 ? (
+                  <ul className="space-y-2 text-sm text-foreground">
+                    {changelog.map((c, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="shrink-0 rounded-md border border-border bg-background px-2 py-0.5 text-[11px] font-mono text-muted-foreground">
+                          {c.date}
+                        </span>
+                        <span className="flex-1">{c.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    This post was revised on {formatDate(dates.updatedAt)} with the latest
+                    pricing, response-time, and bylaw details from our field operations.
+                  </p>
+                )}
+              </aside>
+            </div>
+          </section>
+        )}
 
         <section className="py-10 md:py-14">
           <article className="container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border max-w-none lg:prose-lg">
