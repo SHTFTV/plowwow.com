@@ -1622,10 +1622,14 @@ if (isDirectRun) {
     const allErrs = getSampleConfigTemplateErrors();
     if (allErrs.length) {
       process.stdout.write(
+        `fail-on-schema-drift: exiting non-zero — schema drift present: ${allErrs.length} error(s); no report written (pass --schema-error-report to persist details)\n`,
+      );
+      process.stdout.write(
         `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present (add --schema-error-report to persist details)\n`,
       );
       process.exit(2);
     }
+
   }
 
 
