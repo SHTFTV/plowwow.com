@@ -50,6 +50,12 @@ Artifact output:
                                     regression-thresholds.{csv,json} and the
                                     default schema-drift-errors.{json,csv}
                                     location. Env: SEO_ANN_ARTIFACTS_DIR.
+  --artifacts-filename-prefix=<s>   Prefix prepended to generated artifact
+                                    filenames inside --artifacts-dir. Does not
+                                    apply when --schema-error-report=<path>
+                                    sets the destination explicitly.
+                                    Env: SEO_ANN_ARTIFACTS_FILENAME_PREFIX.
+
 
 Regression thresholds:
   --print-regression-thresholds           Print severity bands to stdout.
@@ -81,6 +87,13 @@ Schema-drift report:
                                                  JSON includes { totalCount,
                                                  truncated, maxErrors }.
                                                  Env: SEO_ANN_SCHEMA_ERROR_MAX.
+  --fail-on-schema-drift                         Exit 2 when schema-drift
+                                                 errors are present (respects
+                                                 --schema-error-report-max-errors
+                                                 truncation: decision uses total
+                                                 drift count). Env:
+                                                 SEO_ANN_FAIL_ON_SCHEMA_DRIFT=1.
+
 
 Plan category filtering:
   --plan-category-include=<c,...>   Restrict PR tables & CSV to categories.
@@ -1309,6 +1322,19 @@ if (isDirectRun) {
     argVal(argv, "artifacts-dir") ?? process.env.SEO_ANN_ARTIFACTS_DIR ?? REPORT_DIR,
   );
 
+  // --artifacts-filename-prefix=<prefix> (env SEO_ANN_ARTIFACTS_FILENAME_PREFIX)
+  // — prepend this string to the *filenames* (not paths) of generated artifacts
+  // inside --artifacts-dir. Applies to regression-thresholds.{csv,json},
+  // schema-drift-errors.{json,csv} (only when their path defaults into
+  // artifactsDir), and their manifests. Does NOT affect files whose path was
+  // set explicitly via --schema-error-report=<path>. Prefix is used verbatim.
+  const artifactsFilenamePrefix =
+    argVal(argv, "artifacts-filename-prefix")
+    ?? process.env.SEO_ANN_ARTIFACTS_FILENAME_PREFIX
+    ?? "";
+  const withPrefix = (name: string) => `${artifactsFilenamePrefix}${name}`;
+
+
   // --fail-on-regression-thresholds-config=<path> — load per-category
   // critical/major/minor bands from a JSON file. Loaded early so
   // --print-regression-thresholds and later severity checks both see it.
@@ -1381,13 +1407,13 @@ if (isDirectRun) {
         for (const r of rowsOut) {
           lines.push([r.category, r.minor, r.major, r.critical, r.source].map(escCsv).join(","));
         }
-        const dest = resolve(artifactsDir, "regression-thresholds.csv");
+        const dest = resolve(artifactsDir, withPrefix("regression-thresholds.csv"));
         writeFileSync(dest, lines.join("\n") + "\n");
         written.csv = dest;
         process.stdout.write(`Wrote regression-thresholds.csv → ${dest}\n`);
       }
       if (printFmts.has("json")) {
-        const dest = resolve(artifactsDir, "regression-thresholds.json");
+        const dest = resolve(artifactsDir, withPrefix("regression-thresholds.json"));
         writeFileSync(
           dest,
           JSON.stringify(
@@ -1399,13 +1425,45 @@ if (isDirectRun) {
         written.json = dest;
         process.stdout.write(`Wrote regression-thresholds.json → ${dest}\n`);
       }
+      // Human-readable summary table on stdout (in addition to the files) so
+      // reviewers scanning the raw job log can compare bands without opening
+      // any artifact. Rendered as a fixed-width markdown-ish table.
+      const colWidths = {
+        category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
+        minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
+        major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
+        critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
+        source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
+      };
+      const pad = (s: string, w: number) => s.padEnd(w, " ");
+      process.stdout.write(`Regression thresholds (deltaPercent):\n`);
+      process.stdout.write(
+        `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
+      );
+      process.stdout.write(
+        `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
+      );
+      for (const r of rowsOut) {
+        process.stdout.write(
+          `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+        );
+      }
       // Emit a small manifest so validator-summary.ts can add PR-comment links
       // even when --artifacts-dir moved the files out of seo-report/.
       try {
         mkdirSync(REPORT_DIR, { recursive: true });
         writeFileSync(
           resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
-          JSON.stringify({ generatedAt: new Date().toISOString(), artifactsDir, ...written }, null, 2),
+          JSON.stringify(
+            {
+              generatedAt: new Date().toISOString(),
+              artifactsDir,
+              filenamePrefix: artifactsFilenamePrefix || undefined,
+              ...written,
+            },
+            null,
+            2,
+          ),
         );
       } catch { /* non-fatal */ }
     }
@@ -1413,13 +1471,27 @@ if (isDirectRun) {
 
 
 
+
   // --schema-error-report[=path] — write schema-drift-errors.json with the
   // structured path/expected/actual/snippet details for each failing field.
   // Runs BEFORE --write-sample-config so both flags can be combined; the file
   // is always written (empty array when there is no drift).
+  // --fail-on-schema-drift — exit non-zero (2) after writing the report(s)
+  // when schema-drift errors are present. Respects
+  // --schema-error-report-max-errors truncation: the fail decision is based
+  // on the *total* drift count (allErrs.length), not the truncated write.
+  const failOnSchemaDrift =
+    hasFlag(argv, "fail-on-schema-drift")
+    || process.env.SEO_ANN_FAIL_ON_SCHEMA_DRIFT === "1";
+
   if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
     const p = argVal(argv, "schema-error-report");
-    const dest = resolve(p && p.length ? p : resolve(artifactsDir, "schema-drift-errors.json"));
+    // Only apply the filename prefix when the destination defaults into
+    // artifactsDir; an explicit --schema-error-report=<path> is used verbatim.
+    const explicitPath = p && p.length ? p : null;
+    const dest = resolve(
+      explicitPath ?? resolve(artifactsDir, withPrefix("schema-drift-errors.json")),
+    );
     mkdirSync(resolve(dest, ".."), { recursive: true });
     const allErrs = getSampleConfigTemplateErrors();
     // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
@@ -1450,6 +1522,7 @@ if (isDirectRun) {
     );
     // --schema-error-report-format=csv writes a companion CSV file next to JSON.
     const schemaFmt = argVal(argv, "schema-error-report-format");
+    let csvDestWritten: string | null = null;
     if (schemaFmt === "csv") {
       const csvDest = dest.replace(/\.json$/i, "") + ".csv";
       const esc = (v: unknown) => {
@@ -1468,10 +1541,34 @@ if (isDirectRun) {
         ]);
       }
       writeFileSync(csvDest, rows.map((r) => r.map(esc).join(",")).join("\n") + "\n");
+      csvDestWritten = csvDest;
       process.stdout.write(
         `Wrote schema-drift-errors.csv → ${csvDest}${truncated ? ` (capped at ${maxErrs} of ${allErrs.length})` : ""}\n`,
       );
     }
+    // Emit a small manifest so validator-summary.ts can add PR-comment links
+    // conditionally (only when a schema-drift report was actually generated).
+    try {
+      mkdirSync(REPORT_DIR, { recursive: true });
+      writeFileSync(
+        resolve(REPORT_DIR, "schema-drift-artifacts.json"),
+        JSON.stringify(
+          {
+            generatedAt: new Date().toISOString(),
+            artifactsDir,
+            filenamePrefix: artifactsFilenamePrefix || undefined,
+            explicitPath: explicitPath ?? undefined,
+            json: dest,
+            csv: csvDestWritten ?? undefined,
+            totalCount: allErrs.length,
+            count: errs.length,
+            truncated,
+          },
+          null,
+          2,
+        ),
+      );
+    } catch { /* non-fatal */ }
     if (truncated) {
       process.stdout.write(
         `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
@@ -1481,9 +1578,27 @@ if (isDirectRun) {
       process.stdout.write(
         `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
+      if (failOnSchemaDrift) {
+        process.stdout.write(
+          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift)\n`,
+        );
+        process.exit(2);
+      }
     }
     // Continue: allow --write-sample-config or normal run to follow.
+  } else if (failOnSchemaDrift) {
+    // --fail-on-schema-drift on its own (no --schema-error-report) still runs
+    // the check and fails when drift is present. We do NOT write artifacts in
+    // this mode to keep the flag composable.
+    const allErrs = getSampleConfigTemplateErrors();
+    if (allErrs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present (add --schema-error-report to persist details)\n`,
+      );
+      process.exit(2);
+    }
   }
+
 
 
   // --write-sample-config[=path] — write a fully documented template and exit.

@@ -212,8 +212,26 @@ if (artifactUrl) {
   md.push(`- 📊 [annotation-plan-summary.csv](${runUrl}/artifacts) — spreadsheet-friendly plan summary (from \`--plan-summary-format=csv\`)`);
   md.push(`- 🚨 [annotation-plan-regression.json](${runUrl}/artifacts) — per-category regression deltas + threshold (when \`--fail-on-plan-regression\` runs)`);
   md.push(`- 📉 [annotation-plan-regression.csv](${runUrl}/artifacts) — spreadsheet-friendly regression deltas (from \`--plan-regression-format=csv\`)`);
-  md.push(`- 🧪 [schema-drift-errors.json](${runUrl}/artifacts) — sample-config schema drift details (from \`--schema-error-report\`)`);
-  md.push(`- 🧪 [schema-drift-errors.csv](${runUrl}/artifacts) — spreadsheet-friendly schema drift (from \`--schema-error-report-format=csv\`)`);
+  // schema-drift-errors.{json,csv} are only written when
+  // --schema-error-report is enabled; link them conditionally from the manifest
+  // gh-annotations.ts writes. Filenames may carry an --artifacts-filename-prefix.
+  try {
+    const sPath = resolve(REPORT_DIR, "schema-drift-artifacts.json");
+    if (existsSync(sPath)) {
+      const s = JSON.parse(readFileSync(sPath, "utf8")) as {
+        json?: string; csv?: string; truncated?: boolean; totalCount?: number; count?: number;
+      };
+      if (s.json) {
+        const base = s.json.split("/").pop() ?? "schema-drift-errors.json";
+        const note = s.truncated ? ` (truncated ${s.count}/${s.totalCount})` : (s.totalCount ? ` (${s.totalCount} drift)` : "");
+        md.push(`- 🧪 [${base}](${runUrl}/artifacts) — sample-config schema drift details (from \`--schema-error-report\`)${note}`);
+      }
+      if (s.csv) {
+        const base = s.csv.split("/").pop() ?? "schema-drift-errors.csv";
+        md.push(`- 🧪 [${base}](${runUrl}/artifacts) — spreadsheet-friendly schema drift (from \`--schema-error-report-format=csv\`)`);
+      }
+    }
+  } catch { /* non-fatal */ }
   // regression-thresholds.{csv,json} are only written when
   // --print-regression-thresholds-format is enabled; add the links
   // conditionally by consulting the manifest gh-annotations.ts writes.
@@ -224,13 +242,16 @@ if (artifactUrl) {
         csv?: string; json?: string;
       };
       if (manifest.csv) {
-        md.push(`- 🎚️ [regression-thresholds.csv](${runUrl}/artifacts) — per-category minor/major/critical bands (from \`--print-regression-thresholds-format=csv\`)`);
+        const base = manifest.csv.split("/").pop() ?? "regression-thresholds.csv";
+        md.push(`- 🎚️ [${base}](${runUrl}/artifacts) — per-category minor/major/critical bands (from \`--print-regression-thresholds-format=csv\`)`);
       }
       if (manifest.json) {
-        md.push(`- 🎚️ [regression-thresholds.json](${runUrl}/artifacts) — per-category bands + source (from \`--print-regression-thresholds-format=json\`)`);
+        const base = manifest.json.split("/").pop() ?? "regression-thresholds.json";
+        md.push(`- 🎚️ [${base}](${runUrl}/artifacts) — per-category bands + source (from \`--print-regression-thresholds-format=json\`)`);
       }
     }
   } catch { /* non-fatal */ }
+
 
   const files: [string, string][] = [
     ["Validation report (MD)", "seo-report/validation-report.md"],

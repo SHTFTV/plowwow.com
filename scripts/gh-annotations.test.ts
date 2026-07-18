@@ -838,5 +838,110 @@ describe("gh-annotations CLI: new-flag behaviors", () => {
     expect(manifest.csv).toBe(join(outDir, "regression-thresholds.csv"));
     expect(manifest.artifactsDir).toBe(outDir);
   }, 30_000);
+
+  it("prints a human-readable thresholds table on stdout alongside the files", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-thr-table-"));
+    seedLegacy(cwd);
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=csv,json",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    expect(r.stdout).toMatch(/Regression thresholds \(deltaPercent\):/);
+    expect(r.stdout).toMatch(/category\s+minor\s+major\s+critical\s+source/);
+    for (const c of ["default", "legacy", "hydration", "jsonLd", "robots"]) {
+      expect(r.stdout).toMatch(new RegExp(`\\b${c}\\b`));
+    }
+  }, 30_000);
+
+  it("--artifacts-filename-prefix prefixes generated filenames + manifests reflect the prefix", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-prefix-"));
+    seedLegacy(cwd);
+    const outDir = join(cwd, "out");
+    const r = run3(
+      [
+        "--dry-run=output",
+        `--artifacts-dir=${outDir}`,
+        "--artifacts-filename-prefix=ci42-",
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=csv,json",
+        "--schema-error-report",
+        "--schema-error-report-format=csv",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    expect(existsSync(join(outDir, "ci42-regression-thresholds.csv"))).toBe(true);
+    expect(existsSync(join(outDir, "ci42-regression-thresholds.json"))).toBe(true);
+    expect(existsSync(join(outDir, "ci42-schema-drift-errors.json"))).toBe(true);
+    expect(existsSync(join(outDir, "ci42-schema-drift-errors.csv"))).toBe(true);
+    expect(existsSync(join(outDir, "regression-thresholds.csv"))).toBe(false);
+    expect(existsSync(join(outDir, "schema-drift-errors.json"))).toBe(false);
+    const rt = JSON.parse(
+      readFileSync(join(cwd, "seo-report", "regression-thresholds-artifacts.json"), "utf8"),
+    );
+    expect(rt.filenamePrefix).toBe("ci42-");
+    expect(rt.csv).toBe(join(outDir, "ci42-regression-thresholds.csv"));
+    const sd = JSON.parse(
+      readFileSync(join(cwd, "seo-report", "schema-drift-artifacts.json"), "utf8"),
+    );
+    expect(sd.filenamePrefix).toBe("ci42-");
+    expect(sd.json).toBe(join(outDir, "ci42-schema-drift-errors.json"));
+    expect(sd.csv).toBe(join(outDir, "ci42-schema-drift-errors.csv"));
+  }, 30_000);
+
+  it("--fail-on-schema-drift exits 2 when drift is present (with --schema-error-report)", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-"));
+    seedLegacy(cwd);
+    writeFileSync(
+      join(cwd, "seo-annotations.config.schema.json"),
+      JSON.stringify({ type: "object", additionalProperties: false, properties: {} }),
+    );
+    const r = run3(
+      ["--dry-run=output", "--schema-error-report", "--fail-on-schema-drift"],
+      cwd,
+    );
+    expect(r.status).toBe(2);
+    expect(r.stdout).toMatch(/fail-on-schema-drift/);
+    expect(existsSync(join(cwd, "seo-report", "schema-drift-errors.json"))).toBe(true);
+  }, 30_000);
+
+  it("--fail-on-schema-drift respects --schema-error-report-max-errors truncation (uses total count)", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-trunc-"));
+    seedLegacy(cwd);
+    writeFileSync(
+      join(cwd, "seo-annotations.config.schema.json"),
+      JSON.stringify({ type: "object", additionalProperties: false, properties: {} }),
+    );
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--schema-error-report",
+        "--schema-error-report-max-errors=1",
+        "--fail-on-schema-drift",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(2);
+    const doc = JSON.parse(
+      readFileSync(join(cwd, "seo-report", "schema-drift-errors.json"), "utf8"),
+    );
+    expect(doc.truncated).toBe(true);
+    expect(doc.totalCount).toBeGreaterThan(1);
+  }, 30_000);
+
+  it("--fail-on-schema-drift exits 0 when there is no drift", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-clean-"));
+    seedLegacy(cwd);
+    const r = run3(
+      ["--dry-run=output", "--schema-error-report", "--fail-on-schema-drift"],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+  }, 30_000);
 });
 
