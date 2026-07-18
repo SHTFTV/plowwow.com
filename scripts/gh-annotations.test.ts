@@ -944,5 +944,67 @@ describe("gh-annotations CLI: new-flag behaviors", () => {
     );
     expect(r.status).toBe(0);
   }, 30_000);
+
+  it("--fail-on-schema-drift emits a detailed stdout line describing the trigger (truncated vs not)", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-detail-"));
+    seedLegacy(cwd);
+    writeFileSync(
+      join(cwd, "seo-annotations.config.schema.json"),
+      JSON.stringify({ type: "object", additionalProperties: false, properties: {} }),
+    );
+    const trunc = run3(
+      [
+        "--dry-run=output",
+        "--schema-error-report",
+        "--schema-error-report-max-errors=1",
+        "--fail-on-schema-drift",
+      ],
+      cwd,
+    );
+    expect(trunc.status).toBe(2);
+    expect(trunc.stdout).toMatch(/fail-on-schema-drift: exiting non-zero/);
+    expect(trunc.stdout).toMatch(/report truncated to 1\/\d+/);
+
+    const cwd2 = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-detail2-"));
+    seedLegacy(cwd2);
+    writeFileSync(
+      join(cwd2, "seo-annotations.config.schema.json"),
+      JSON.stringify({ type: "object", additionalProperties: false, properties: {} }),
+    );
+    const full = run3(
+      ["--dry-run=output", "--schema-error-report", "--fail-on-schema-drift"],
+      cwd2,
+    );
+    expect(full.status).toBe(2);
+    expect(full.stdout).toMatch(/report not truncated/);
+
+    const cwd3 = mkdtempSync(join(tmpdir(), "gh-ann-fail-drift-detail3-"));
+    seedLegacy(cwd3);
+    writeFileSync(
+      join(cwd3, "seo-annotations.config.schema.json"),
+      JSON.stringify({ type: "object", additionalProperties: false, properties: {} }),
+    );
+    const noReport = run3(["--dry-run=output", "--fail-on-schema-drift"], cwd3);
+    expect(noReport.status).toBe(2);
+    expect(noReport.stdout).toMatch(/no report written/);
+  }, 45_000);
+
+  it("--print-regression-thresholds-stdout-format=markdown renders a markdown pipe table on stdout", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "gh-ann-thr-md-"));
+    seedLegacy(cwd);
+    const r = run3(
+      [
+        "--dry-run=output",
+        "--print-regression-thresholds",
+        "--print-regression-thresholds-format=json",
+        "--print-regression-thresholds-stdout-format=markdown",
+      ],
+      cwd,
+    );
+    expect(r.status).toBe(0);
+    expect(r.stdout).toMatch(/\| category \| minor \| major \| critical \| source \|/);
+    expect(r.stdout).toMatch(/\| --- \| --- \| --- \| --- \| --- \|/);
+  }, 30_000);
 });
+
 
