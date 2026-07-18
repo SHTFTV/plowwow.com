@@ -1567,10 +1567,12 @@ if (isDirectRun) {
     }
     // Emit a small manifest so validator-summary.ts can add PR-comment links
     // conditionally (only when a schema-drift report was actually generated).
+    // The manifest filename honors --artifacts-filename-prefix so filenames
+    // inside --artifacts-dir remain fully deterministic.
     try {
       mkdirSync(REPORT_DIR, { recursive: true });
       writeFileSync(
-        resolve(REPORT_DIR, "schema-drift-artifacts.json"),
+        resolve(REPORT_DIR, withPrefix("schema-drift-artifacts.json")),
         JSON.stringify(
           {
             generatedAt: new Date().toISOString(),
@@ -1588,6 +1590,7 @@ if (isDirectRun) {
         ),
       );
     } catch { /* non-fatal */ }
+
     if (truncated) {
       process.stdout.write(
         `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
