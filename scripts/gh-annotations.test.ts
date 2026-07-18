@@ -882,13 +882,14 @@ describe("gh-annotations CLI: new-flag behaviors", () => {
     expect(existsSync(join(outDir, "regression-thresholds.csv"))).toBe(false);
     expect(existsSync(join(outDir, "schema-drift-errors.json"))).toBe(false);
     const rt = JSON.parse(
-      readFileSync(join(cwd, "seo-report", "regression-thresholds-artifacts.json"), "utf8"),
+      readFileSync(join(cwd, "seo-report", "ci42-regression-thresholds-artifacts.json"), "utf8"),
     );
     expect(rt.filenamePrefix).toBe("ci42-");
     expect(rt.csv).toBe(join(outDir, "ci42-regression-thresholds.csv"));
     const sd = JSON.parse(
-      readFileSync(join(cwd, "seo-report", "schema-drift-artifacts.json"), "utf8"),
+      readFileSync(join(cwd, "seo-report", "ci42-schema-drift-artifacts.json"), "utf8"),
     );
+
     expect(sd.filenamePrefix).toBe("ci42-");
     expect(sd.json).toBe(join(outDir, "ci42-schema-drift-errors.json"));
     expect(sd.csv).toBe(join(outDir, "ci42-schema-drift-errors.csv"));
