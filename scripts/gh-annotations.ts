@@ -1601,11 +1601,18 @@ if (isDirectRun) {
         `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
       if (failOnSchemaDrift) {
+        const truncNote = truncated
+          ? `report truncated to ${errs.length}/${allErrs.length} (--schema-error-report-max-errors=${maxErrs})`
+          : `report not truncated (${allErrs.length} error(s) written)`;
         process.stdout.write(
-          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift)\n`,
+          `fail-on-schema-drift: exiting non-zero — schema drift present: ${allErrs.length} error(s); ${truncNote}; report=${dest}${csvDestWritten ? `, csv=${csvDestWritten}` : ""}\n`,
+        );
+        process.stdout.write(
+          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift; ${truncNote})\n`,
         );
         process.exit(2);
       }
+
     }
     // Continue: allow --write-sample-config or normal run to follow.
   } else if (failOnSchemaDrift) {
