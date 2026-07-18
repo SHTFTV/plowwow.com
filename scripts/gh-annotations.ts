@@ -87,6 +87,13 @@ Schema-drift report:
                                                  JSON includes { totalCount,
                                                  truncated, maxErrors }.
                                                  Env: SEO_ANN_SCHEMA_ERROR_MAX.
+  --fail-on-schema-drift                         Exit 2 when schema-drift
+                                                 errors are present (respects
+                                                 --schema-error-report-max-errors
+                                                 truncation: decision uses total
+                                                 drift count). Env:
+                                                 SEO_ANN_FAIL_ON_SCHEMA_DRIFT=1.
+
 
 Plan category filtering:
   --plan-category-include=<c,...>   Restrict PR tables & CSV to categories.
