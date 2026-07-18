@@ -1427,38 +1427,56 @@ if (isDirectRun) {
       }
       // Human-readable summary table on stdout (in addition to the files) so
       // reviewers scanning the raw job log can compare bands without opening
-      // any artifact. Rendered as a fixed-width markdown-ish table.
-      const colWidths = {
-        category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
-        minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
-        major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
-        critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
-        source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
-      };
-      const pad = (s: string, w: number) => s.padEnd(w, " ");
+      // any artifact. --print-regression-thresholds-stdout-format=table|markdown
+      // selects the rendering; defaults to "table" (fixed-width).
+      const stdoutFmtRaw = (
+        argVal(argv, "print-regression-thresholds-stdout-format")
+        ?? process.env.SEO_ANN_PRINT_REGRESSION_STDOUT_FORMAT
+        ?? "table"
+      ).trim().toLowerCase();
+      const stdoutFmt = stdoutFmtRaw === "markdown" ? "markdown" : "table";
       process.stdout.write(`Regression thresholds (deltaPercent):\n`);
-      process.stdout.write(
-        `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
-      );
-      process.stdout.write(
-        `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
-      );
-      for (const r of rowsOut) {
+      if (stdoutFmt === "markdown") {
+        process.stdout.write(`| category | minor | major | critical | source |\n`);
+        process.stdout.write(`| --- | --- | --- | --- | --- |\n`);
+        for (const r of rowsOut) {
+          process.stdout.write(`| ${r.category} | ${r.minor} | ${r.major} | ${r.critical} | ${r.source} |\n`);
+        }
+      } else {
+        const colWidths = {
+          category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
+          minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
+          major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
+          critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
+          source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
+        };
+        const pad = (s: string, w: number) => s.padEnd(w, " ");
         process.stdout.write(
-          `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+          `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
         );
+        process.stdout.write(
+          `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
+        );
+        for (const r of rowsOut) {
+          process.stdout.write(
+            `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+          );
+        }
       }
       // Emit a small manifest so validator-summary.ts can add PR-comment links
-      // even when --artifacts-dir moved the files out of seo-report/.
+      // even when --artifacts-dir moved the files out of seo-report/. The
+      // manifest filename honors --artifacts-filename-prefix so downstream
+      // consumers see fully deterministic names.
       try {
         mkdirSync(REPORT_DIR, { recursive: true });
         writeFileSync(
-          resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
+          resolve(REPORT_DIR, withPrefix("regression-thresholds-artifacts.json")),
           JSON.stringify(
             {
               generatedAt: new Date().toISOString(),
               artifactsDir,
               filenamePrefix: artifactsFilenamePrefix || undefined,
+              stdoutFormat: stdoutFmt,
               ...written,
             },
             null,
@@ -1466,6 +1484,7 @@ if (isDirectRun) {
           ),
         );
       } catch { /* non-fatal */ }
+
     }
   }
 
