@@ -9,7 +9,7 @@
 //
 // Zero deps — safe to run even when validators bailed early.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadThresholds, evaluate, type CategoryOutcome } from "./lib/thresholds";
 import { runBaselineDiff, parseFilterFromArgv } from "./lib/baseline";
