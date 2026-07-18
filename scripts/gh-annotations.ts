@@ -50,6 +50,12 @@ Artifact output:
                                     regression-thresholds.{csv,json} and the
                                     default schema-drift-errors.{json,csv}
                                     location. Env: SEO_ANN_ARTIFACTS_DIR.
+  --artifacts-filename-prefix=<s>   Prefix prepended to generated artifact
+                                    filenames inside --artifacts-dir. Does not
+                                    apply when --schema-error-report=<path>
+                                    sets the destination explicitly.
+                                    Env: SEO_ANN_ARTIFACTS_FILENAME_PREFIX.
+
 
 Regression thresholds:
   --print-regression-thresholds           Print severity bands to stdout.
