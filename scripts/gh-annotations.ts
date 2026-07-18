@@ -64,6 +64,13 @@ Regression thresholds:
                                           and/or regression-thresholds.json
                                           into --artifacts-dir. Columns:
                                           category,minor,major,critical,source.
+  --print-regression-thresholds-stdout-format=table|markdown
+                                          Rendering for the human-readable
+                                          stdout summary printed alongside the
+                                          artifact files. Defaults to "table"
+                                          (fixed-width). Env:
+                                          SEO_ANN_PRINT_REGRESSION_STDOUT_FORMAT.
+
   --fail-on-regression-thresholds-config=<path>
                                           Load per-category minor/major/critical
                                           bands from JSON. Shape:
