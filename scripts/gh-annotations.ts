@@ -64,6 +64,13 @@ Regression thresholds:
                                           and/or regression-thresholds.json
                                           into --artifacts-dir. Columns:
                                           category,minor,major,critical,source.
+  --print-regression-thresholds-stdout-format=table|markdown
+                                          Rendering for the human-readable
+                                          stdout summary printed alongside the
+                                          artifact files. Defaults to "table"
+                                          (fixed-width). Env:
+                                          SEO_ANN_PRINT_REGRESSION_STDOUT_FORMAT.
+
   --fail-on-regression-thresholds-config=<path>
                                           Load per-category minor/major/critical
                                           bands from JSON. Shape:
@@ -1427,38 +1434,56 @@ if (isDirectRun) {
       }
       // Human-readable summary table on stdout (in addition to the files) so
       // reviewers scanning the raw job log can compare bands without opening
-      // any artifact. Rendered as a fixed-width markdown-ish table.
-      const colWidths = {
-        category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
-        minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
-        major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
-        critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
-        source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
-      };
-      const pad = (s: string, w: number) => s.padEnd(w, " ");
+      // any artifact. --print-regression-thresholds-stdout-format=table|markdown
+      // selects the rendering; defaults to "table" (fixed-width).
+      const stdoutFmtRaw = (
+        argVal(argv, "print-regression-thresholds-stdout-format")
+        ?? process.env.SEO_ANN_PRINT_REGRESSION_STDOUT_FORMAT
+        ?? "table"
+      ).trim().toLowerCase();
+      const stdoutFmt = stdoutFmtRaw === "markdown" ? "markdown" : "table";
       process.stdout.write(`Regression thresholds (deltaPercent):\n`);
-      process.stdout.write(
-        `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
-      );
-      process.stdout.write(
-        `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
-      );
-      for (const r of rowsOut) {
+      if (stdoutFmt === "markdown") {
+        process.stdout.write(`| category | minor | major | critical | source |\n`);
+        process.stdout.write(`| --- | --- | --- | --- | --- |\n`);
+        for (const r of rowsOut) {
+          process.stdout.write(`| ${r.category} | ${r.minor} | ${r.major} | ${r.critical} | ${r.source} |\n`);
+        }
+      } else {
+        const colWidths = {
+          category: Math.max("category".length, ...rowsOut.map((r) => r.category.length)),
+          minor: Math.max("minor".length, ...rowsOut.map((r) => String(r.minor).length)),
+          major: Math.max("major".length, ...rowsOut.map((r) => String(r.major).length)),
+          critical: Math.max("critical".length, ...rowsOut.map((r) => String(r.critical).length)),
+          source: Math.max("source".length, ...rowsOut.map((r) => r.source.length)),
+        };
+        const pad = (s: string, w: number) => s.padEnd(w, " ");
         process.stdout.write(
-          `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+          `  ${pad("category", colWidths.category)}  ${pad("minor", colWidths.minor)}  ${pad("major", colWidths.major)}  ${pad("critical", colWidths.critical)}  ${pad("source", colWidths.source)}\n`,
         );
+        process.stdout.write(
+          `  ${"-".repeat(colWidths.category)}  ${"-".repeat(colWidths.minor)}  ${"-".repeat(colWidths.major)}  ${"-".repeat(colWidths.critical)}  ${"-".repeat(colWidths.source)}\n`,
+        );
+        for (const r of rowsOut) {
+          process.stdout.write(
+            `  ${pad(r.category, colWidths.category)}  ${pad(String(r.minor), colWidths.minor)}  ${pad(String(r.major), colWidths.major)}  ${pad(String(r.critical), colWidths.critical)}  ${pad(r.source, colWidths.source)}\n`,
+          );
+        }
       }
       // Emit a small manifest so validator-summary.ts can add PR-comment links
-      // even when --artifacts-dir moved the files out of seo-report/.
+      // even when --artifacts-dir moved the files out of seo-report/. The
+      // manifest filename honors --artifacts-filename-prefix so downstream
+      // consumers see fully deterministic names.
       try {
         mkdirSync(REPORT_DIR, { recursive: true });
         writeFileSync(
-          resolve(REPORT_DIR, "regression-thresholds-artifacts.json"),
+          resolve(REPORT_DIR, withPrefix("regression-thresholds-artifacts.json")),
           JSON.stringify(
             {
               generatedAt: new Date().toISOString(),
               artifactsDir,
               filenamePrefix: artifactsFilenamePrefix || undefined,
+              stdoutFormat: stdoutFmt,
               ...written,
             },
             null,
@@ -1466,6 +1491,7 @@ if (isDirectRun) {
           ),
         );
       } catch { /* non-fatal */ }
+
     }
   }
 
@@ -1548,10 +1574,12 @@ if (isDirectRun) {
     }
     // Emit a small manifest so validator-summary.ts can add PR-comment links
     // conditionally (only when a schema-drift report was actually generated).
+    // The manifest filename honors --artifacts-filename-prefix so filenames
+    // inside --artifacts-dir remain fully deterministic.
     try {
       mkdirSync(REPORT_DIR, { recursive: true });
       writeFileSync(
-        resolve(REPORT_DIR, "schema-drift-artifacts.json"),
+        resolve(REPORT_DIR, withPrefix("schema-drift-artifacts.json")),
         JSON.stringify(
           {
             generatedAt: new Date().toISOString(),
@@ -1569,6 +1597,7 @@ if (isDirectRun) {
         ),
       );
     } catch { /* non-fatal */ }
+
     if (truncated) {
       process.stdout.write(
         `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
@@ -1579,11 +1608,18 @@ if (isDirectRun) {
         `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
       if (failOnSchemaDrift) {
+        const truncNote = truncated
+          ? `report truncated to ${errs.length}/${allErrs.length} (--schema-error-report-max-errors=${maxErrs})`
+          : `report not truncated (${allErrs.length} error(s) written)`;
         process.stdout.write(
-          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift)\n`,
+          `fail-on-schema-drift: exiting non-zero — schema drift present: ${allErrs.length} error(s); ${truncNote}; report=${dest}${csvDestWritten ? `, csv=${csvDestWritten}` : ""}\n`,
+        );
+        process.stdout.write(
+          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift; ${truncNote})\n`,
         );
         process.exit(2);
       }
+
     }
     // Continue: allow --write-sample-config or normal run to follow.
   } else if (failOnSchemaDrift) {
@@ -1593,10 +1629,14 @@ if (isDirectRun) {
     const allErrs = getSampleConfigTemplateErrors();
     if (allErrs.length) {
       process.stdout.write(
+        `fail-on-schema-drift: exiting non-zero — schema drift present: ${allErrs.length} error(s); no report written (pass --schema-error-report to persist details)\n`,
+      );
+      process.stdout.write(
         `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present (add --schema-error-report to persist details)\n`,
       );
       process.exit(2);
     }
+
   }
 
 

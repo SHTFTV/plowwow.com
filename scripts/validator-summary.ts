@@ -9,7 +9,7 @@
 //
 // Zero deps — safe to run even when validators bailed early.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { loadThresholds, evaluate, type CategoryOutcome } from "./lib/thresholds";
 import { runBaselineDiff, parseFilterFromArgv } from "./lib/baseline";
@@ -214,10 +214,18 @@ if (artifactUrl) {
   md.push(`- 📉 [annotation-plan-regression.csv](${runUrl}/artifacts) — spreadsheet-friendly regression deltas (from \`--plan-regression-format=csv\`)`);
   // schema-drift-errors.{json,csv} are only written when
   // --schema-error-report is enabled; link them conditionally from the manifest
-  // gh-annotations.ts writes. Filenames may carry an --artifacts-filename-prefix.
+  // gh-annotations.ts writes. Manifest filenames may carry an
+  // --artifacts-filename-prefix, so we scan REPORT_DIR for any matching file.
+  const findManifests = (suffix: string): string[] => {
+    try {
+      return readdirSync(REPORT_DIR)
+        .filter((n) => n === suffix || n.endsWith(`-${suffix}`) || n.endsWith(`_${suffix}`) || n.endsWith(suffix))
+        .filter((n) => n.endsWith(suffix))
+        .map((n) => resolve(REPORT_DIR, n));
+    } catch { return []; }
+  };
   try {
-    const sPath = resolve(REPORT_DIR, "schema-drift-artifacts.json");
-    if (existsSync(sPath)) {
+    for (const sPath of findManifests("schema-drift-artifacts.json")) {
       const s = JSON.parse(readFileSync(sPath, "utf8")) as {
         json?: string; csv?: string; truncated?: boolean; totalCount?: number; count?: number;
       };
@@ -236,8 +244,7 @@ if (artifactUrl) {
   // --print-regression-thresholds-format is enabled; add the links
   // conditionally by consulting the manifest gh-annotations.ts writes.
   try {
-    const manifestPath = resolve(REPORT_DIR, "regression-thresholds-artifacts.json");
-    if (existsSync(manifestPath)) {
+    for (const manifestPath of findManifests("regression-thresholds-artifacts.json")) {
       const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
         csv?: string; json?: string;
       };
@@ -251,6 +258,7 @@ if (artifactUrl) {
       }
     }
   } catch { /* non-fatal */ }
+
 
 
   const files: [string, string][] = [
