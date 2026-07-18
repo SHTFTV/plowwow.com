@@ -1463,9 +1463,22 @@ if (isDirectRun) {
   // structured path/expected/actual/snippet details for each failing field.
   // Runs BEFORE --write-sample-config so both flags can be combined; the file
   // is always written (empty array when there is no drift).
+  // --fail-on-schema-drift — exit non-zero (2) after writing the report(s)
+  // when schema-drift errors are present. Respects
+  // --schema-error-report-max-errors truncation: the fail decision is based
+  // on the *total* drift count (allErrs.length), not the truncated write.
+  const failOnSchemaDrift =
+    hasFlag(argv, "fail-on-schema-drift")
+    || process.env.SEO_ANN_FAIL_ON_SCHEMA_DRIFT === "1";
+
   if (argv.some((a) => a === "--schema-error-report" || a.startsWith("--schema-error-report="))) {
     const p = argVal(argv, "schema-error-report");
-    const dest = resolve(p && p.length ? p : resolve(artifactsDir, "schema-drift-errors.json"));
+    // Only apply the filename prefix when the destination defaults into
+    // artifactsDir; an explicit --schema-error-report=<path> is used verbatim.
+    const explicitPath = p && p.length ? p : null;
+    const dest = resolve(
+      explicitPath ?? resolve(artifactsDir, withPrefix("schema-drift-errors.json")),
+    );
     mkdirSync(resolve(dest, ".."), { recursive: true });
     const allErrs = getSampleConfigTemplateErrors();
     // --schema-error-report-max-errors=<N> caps rows written to JSON/CSV.
@@ -1496,6 +1509,7 @@ if (isDirectRun) {
     );
     // --schema-error-report-format=csv writes a companion CSV file next to JSON.
     const schemaFmt = argVal(argv, "schema-error-report-format");
+    let csvDestWritten: string | null = null;
     if (schemaFmt === "csv") {
       const csvDest = dest.replace(/\.json$/i, "") + ".csv";
       const esc = (v: unknown) => {
@@ -1514,10 +1528,34 @@ if (isDirectRun) {
         ]);
       }
       writeFileSync(csvDest, rows.map((r) => r.map(esc).join(",")).join("\n") + "\n");
+      csvDestWritten = csvDest;
       process.stdout.write(
         `Wrote schema-drift-errors.csv → ${csvDest}${truncated ? ` (capped at ${maxErrs} of ${allErrs.length})` : ""}\n`,
       );
     }
+    // Emit a small manifest so validator-summary.ts can add PR-comment links
+    // conditionally (only when a schema-drift report was actually generated).
+    try {
+      mkdirSync(REPORT_DIR, { recursive: true });
+      writeFileSync(
+        resolve(REPORT_DIR, "schema-drift-artifacts.json"),
+        JSON.stringify(
+          {
+            generatedAt: new Date().toISOString(),
+            artifactsDir,
+            filenamePrefix: artifactsFilenamePrefix || undefined,
+            explicitPath: explicitPath ?? undefined,
+            json: dest,
+            csv: csvDestWritten ?? undefined,
+            totalCount: allErrs.length,
+            count: errs.length,
+            truncated,
+          },
+          null,
+          2,
+        ),
+      );
+    } catch { /* non-fatal */ }
     if (truncated) {
       process.stdout.write(
         `::warning title=SEO annotations schema-error-report truncated::wrote ${errs.length} of ${allErrs.length} error(s) (--schema-error-report-max-errors=${maxErrs})\n`,
@@ -1527,9 +1565,27 @@ if (isDirectRun) {
       process.stdout.write(
         `::error title=SEO annotations sample-config drift::${allErrs.length} field(s) drifted; see ${dest}\n`,
       );
+      if (failOnSchemaDrift) {
+        process.stdout.write(
+          `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present; failing build (--fail-on-schema-drift)\n`,
+        );
+        process.exit(2);
+      }
     }
     // Continue: allow --write-sample-config or normal run to follow.
+  } else if (failOnSchemaDrift) {
+    // --fail-on-schema-drift on its own (no --schema-error-report) still runs
+    // the check and fails when drift is present. We do NOT write artifacts in
+    // this mode to keep the flag composable.
+    const allErrs = getSampleConfigTemplateErrors();
+    if (allErrs.length) {
+      process.stdout.write(
+        `::error title=SEO annotations fail-on-schema-drift::${allErrs.length} schema-drift error(s) present (add --schema-error-report to persist details)\n`,
+      );
+      process.exit(2);
+    }
   }
+
 
 
   // --write-sample-config[=path] — write a fully documented template and exit.
