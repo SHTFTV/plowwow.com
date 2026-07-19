@@ -343,12 +343,13 @@ export default function Admin() {
             <CardContent className="pt-6 flex items-center justify-between gap-4 flex-wrap">
               <div className="text-sm">
                 <div className="font-medium">
-                  Export {exportJob.status === "completed" ? "ready" : exportJob.status === "failed" ? "failed" : "in progress"}
+                  Export {exportJob.status === "completed" ? "ready" : exportJob.status === "failed" ? "failed" : exportJob.status === "cancelled" ? "cancelled" : "in progress"}
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {exportJob.status === "starting" && "Queued — running export…"}
-                  {exportJob.status === "running" && `Processing… ${exportJob.rowCount} rows so far`}
-                  {exportJob.status === "completed" && `${exportJob.rowCount} rows • filters embedded in file & filename`}
+                  {exportJob.status === "running" && `Processing… ${exportJob.processedRows} rows processed${exportJob.attempts > 1 ? ` • attempt ${exportJob.attempts}` : ""}${exportJob.cancelRequested ? " • cancelling…" : ""}`}
+                  {exportJob.status === "completed" && `${exportJob.rowCount} rows • ${exportJob.attempts} attempt${exportJob.attempts === 1 ? "" : "s"} • filters embedded in file & filename`}
+                  {exportJob.status === "cancelled" && `Cancelled after ${exportJob.processedRows} rows`}
                   {exportJob.status === "failed" && (exportJob.error ?? "Unknown error")}
                 </div>
               </div>
@@ -360,8 +361,11 @@ export default function Admin() {
                     </a>
                   </Button>
                 )}
-                {(exportJob.status === "completed" || exportJob.status === "failed") && (
-                  <Button variant="ghost" size="sm" onClick={() => setExportJob({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null })}>Dismiss</Button>
+                {(exportJob.status === "starting" || exportJob.status === "running") && exportJob.id && !exportJob.cancelRequested && (
+                  <Button variant="destructive" size="sm" onClick={cancelExport}>Cancel export</Button>
+                )}
+                {(exportJob.status === "completed" || exportJob.status === "failed" || exportJob.status === "cancelled") && (
+                  <Button variant="ghost" size="sm" onClick={() => setExportJob(IDLE_JOB)}>Dismiss</Button>
                 )}
                 {(exportJob.status === "starting" || exportJob.status === "running") && (
                   <RefreshCw className="h-4 w-4 animate-spin text-muted-foreground" />
