@@ -38,6 +38,29 @@ jobs:
       - name: Run tests
         run: bun run test
 
+  rls-regression:
+    name: RLS Regression (live)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('bun.lock', 'bun.lockb') }}
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+      - name: RLS regression against live Supabase
+        run: bunx vitest run src/test/rls-regression.test.ts
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || 'https://whrkfrewwstxgqoourwl.supabase.co' }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest

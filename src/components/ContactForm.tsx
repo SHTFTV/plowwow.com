@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -67,6 +67,8 @@ const ContactForm = () => {
   const [data, setData] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const startedAtRef = useRef<number>(Date.now());
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setData((d) => ({ ...d, [key]: value }));
@@ -93,7 +95,7 @@ const ContactForm = () => {
     setSubmitting(true);
     try {
       const { data: res, error } = await supabase.functions.invoke("submit-quote", {
-        body: result.data,
+        body: { ...result.data, hp: honeypot, startedAt: startedAtRef.current },
       });
       if (error || (res && (res as { error?: string }).error)) {
         const msg =
@@ -112,6 +114,8 @@ const ContactForm = () => {
         description: "We'll get back to you within 24 hours.",
       });
       setData(initial);
+      setHoneypot("");
+      startedAtRef.current = Date.now();
     } catch (err) {
       toast({
         title: "Couldn't send request",
@@ -144,6 +148,19 @@ const ContactForm = () => {
           className="bg-card rounded-2xl shadow-lg p-6 md:p-10 space-y-6 border border-border"
           noValidate
         >
+          {/* Honeypot field — hidden from real users, must remain empty */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="company_website">Company website</label>
+            <input
+              id="company_website"
+              name="company_website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
