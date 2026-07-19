@@ -25,8 +25,8 @@ const anon = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 describe.runIf(runLive)("RLS regression: anonymous access is locked down", () => {
   it("quote_requests: anon cannot read", async () => {
     const { data, error } = await anon.from("quote_requests").select("id").limit(1);
-    expect(error).not.toBeNull();
-    expect(data).toBeNull();
+    // RLS-blocked SELECT returns an empty set (no leak) — either an error or empty data.
+    if (!error) expect(data ?? []).toEqual([]);
   });
 
   it("quote_requests: anon cannot insert directly (must use submit-quote edge function)", async () => {
