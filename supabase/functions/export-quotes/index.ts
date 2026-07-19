@@ -52,9 +52,15 @@ Deno.serve(async (req) => {
 
   const { data: job, error: jobErr } = await admin
     .from("quote_export_jobs")
-    .insert({ requested_by: userId, status: "running", filters })
+    .insert({ requested_by: userId, status: "running", filters, attempts: 1, processed_rows: 0 })
     .select("id").single();
   if (jobErr || !job) return json(500, { error: jobErr?.message ?? "job insert failed" });
+
+  const checkCancel = async () => {
+    const { data } = await admin
+      .from("quote_export_jobs").select("cancel_requested").eq("id", job.id).maybeSingle();
+    return !!data?.cancel_requested;
+  };
 
   try {
     const PAGE = 1000;
@@ -77,6 +83,14 @@ Deno.serve(async (req) => {
     const chunks: string[] = [...summaryLines, COLS.join(",")];
 
     while (true) {
+      if (await checkCancel()) {
+        await admin.from("quote_export_jobs").update({
+          status: "cancelled",
+          cancelled_at: new Date().toISOString(),
+          processed_rows: total,
+        }).eq("id", job.id);
+        return json(200, { job_id: job.id, cancelled: true, row_count: total });
+      }
       let q = admin.from("quote_requests").select("*")
         .order("created_at", { ascending: false })
         .range(from, from + PAGE - 1);
@@ -96,6 +110,7 @@ Deno.serve(async (req) => {
         chunks.push(COLS.map((c) => esc((r as Record<string, unknown>)[c])).join(","));
       }
       total += data.length;
+      await admin.from("quote_export_jobs").update({ processed_rows: total }).eq("id", job.id);
       if (data.length < PAGE) break;
       from += PAGE;
       if (total >= 100_000) break; // hard cap safety
@@ -118,6 +133,7 @@ Deno.serve(async (req) => {
     await admin.from("quote_export_jobs").update({
       status: "completed",
       row_count: total,
+      processed_rows: total,
       file_path: path,
       signed_url: signed.signedUrl,
     }).eq("id", job.id);

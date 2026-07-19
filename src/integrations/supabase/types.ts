@@ -189,6 +189,10 @@ export type Database = {
           id: string
           kinds: string[]
           last_count: number | null
+          last_email_error: string | null
+          last_email_sent_at: string | null
+          last_slack_error: string | null
+          last_slack_sent_at: string | null
           last_triggered_at: string | null
           name: string
           notify_email: string
@@ -205,6 +209,10 @@ export type Database = {
           id?: string
           kinds?: string[]
           last_count?: number | null
+          last_email_error?: string | null
+          last_email_sent_at?: string | null
+          last_slack_error?: string | null
+          last_slack_sent_at?: string | null
           last_triggered_at?: string | null
           name: string
           notify_email: string
@@ -221,6 +229,10 @@ export type Database = {
           id?: string
           kinds?: string[]
           last_count?: number | null
+          last_email_error?: string | null
+          last_email_sent_at?: string | null
+          last_slack_error?: string | null
+          last_slack_sent_at?: string | null
           last_triggered_at?: string | null
           name?: string
           notify_email?: string
@@ -235,11 +247,15 @@ export type Database = {
       }
       quote_export_jobs: {
         Row: {
+          attempts: number
+          cancel_requested: boolean
+          cancelled_at: string | null
           created_at: string
           error: string | null
           file_path: string | null
           filters: Json
           id: string
+          processed_rows: number
           requested_by: string | null
           row_count: number | null
           signed_url: string | null
@@ -247,11 +263,15 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          attempts?: number
+          cancel_requested?: boolean
+          cancelled_at?: string | null
           created_at?: string
           error?: string | null
           file_path?: string | null
           filters?: Json
           id?: string
+          processed_rows?: number
           requested_by?: string | null
           row_count?: number | null
           signed_url?: string | null
@@ -259,11 +279,15 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          attempts?: number
+          cancel_requested?: boolean
+          cancelled_at?: string | null
           created_at?: string
           error?: string | null
           file_path?: string | null
           filters?: Json
           id?: string
+          processed_rows?: number
           requested_by?: string | null
           row_count?: number | null
           signed_url?: string | null

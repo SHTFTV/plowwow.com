@@ -139,12 +139,15 @@ export default function Admin() {
 
   const [exportJob, setExportJob] = useState<{
     id: string | null;
-    status: "idle" | "starting" | "running" | "completed" | "failed";
+    status: "idle" | "starting" | "running" | "completed" | "failed" | "cancelled";
     rowCount: number;
+    processedRows: number;
+    attempts: number;
     signedUrl: string | null;
     filename: string | null;
     error: string | null;
-  }>({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null });
+    cancelRequested: boolean;
+  }>({ id: null, status: "idle", rowCount: 0, processedRows: 0, attempts: 0, signedUrl: null, filename: null, error: null, cancelRequested: false });
 
   const buildFilters = useCallback(() => ({
     status: statusFilter !== "all" ? statusFilter : undefined,
@@ -159,23 +162,32 @@ export default function Admin() {
     search: debouncedSearch.trim() || undefined,
   }), [statusFilter, serviceFilter, dateFrom, dateTo, debouncedSearch]);
 
+  const IDLE_JOB = { id: null, status: "idle" as const, rowCount: 0, processedRows: 0, attempts: 0, signedUrl: null, filename: null, error: null, cancelRequested: false };
+
   const exportCsv = useCallback(async () => {
     setExporting(true);
-    setExportJob({ id: null, status: "starting", rowCount: 0, signedUrl: null, filename: null, error: null });
+    setExportJob({ ...IDLE_JOB, status: "starting" });
     try {
       const filters = buildFilters();
       const { data, error } = await supabase.functions.invoke("export-quotes", { body: filters });
       if (error) throw error;
-      const payload = data as { signed_url?: string; row_count?: number; error?: string; job_id?: string; filename?: string };
+      const payload = data as { signed_url?: string; row_count?: number; error?: string; job_id?: string; filename?: string; cancelled?: boolean };
+      if (payload?.cancelled) {
+        setExportJob((s) => ({ ...s, status: "cancelled", rowCount: payload.row_count ?? s.processedRows, processedRows: payload.row_count ?? s.processedRows }));
+        toast({ title: "Export cancelled", description: `Stopped after ${payload.row_count ?? 0} rows.` });
+        return;
+      }
       if (!payload?.signed_url) throw new Error(payload?.error ?? "No download URL returned");
-      setExportJob({
+      setExportJob((s) => ({
+        ...s,
         id: payload.job_id ?? null,
         status: "completed",
         rowCount: payload.row_count ?? 0,
-        signedUrl: payload.signed_url,
+        processedRows: payload.row_count ?? 0,
+        signedUrl: payload.signed_url ?? null,
         filename: payload.filename ?? null,
         error: null,
-      });
+      }));
       toast({ title: "Export ready", description: `${payload.row_count ?? 0} rows — click download below.` });
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Please try again.";
@@ -186,24 +198,45 @@ export default function Admin() {
     }
   }, [buildFilters]);
 
-  // Poll running job (in case of long-running exports). Currently the function
-  // completes inline, but polling lets us reflect progress if it becomes async.
+  const cancelExport = useCallback(async () => {
+    if (!exportJob.id) return;
+    setExportJob((s) => ({ ...s, cancelRequested: true }));
+    const { error } = await supabase
+      .from("quote_export_jobs")
+      .update({ cancel_requested: true })
+      .eq("id", exportJob.id);
+    if (error) {
+      toast({ title: "Cancel failed", description: error.message, variant: "destructive" });
+      setExportJob((s) => ({ ...s, cancelRequested: false }));
+    } else {
+      toast({ title: "Cancel requested", description: "The export will stop after the current page." });
+    }
+  }, [exportJob.id]);
+
+  // Poll running job for processed_rows / attempts / cancel state
   useEffect(() => {
     if (!exportJob.id || (exportJob.status !== "starting" && exportJob.status !== "running")) return;
     let cancelled = false;
     const tick = async () => {
       const { data } = await supabase
         .from("quote_export_jobs")
-        .select("status, row_count, signed_url, error")
+        .select("status, row_count, processed_rows, attempts, signed_url, error, cancel_requested")
         .eq("id", exportJob.id!)
         .maybeSingle();
       if (cancelled || !data) return;
+      const shared = {
+        processedRows: data.processed_rows ?? 0,
+        attempts: data.attempts ?? 0,
+        cancelRequested: !!data.cancel_requested,
+      };
       if (data.status === "completed") {
-        setExportJob((s) => ({ ...s, status: "completed", rowCount: data.row_count ?? 0, signedUrl: data.signed_url ?? s.signedUrl, error: null }));
+        setExportJob((s) => ({ ...s, ...shared, status: "completed", rowCount: data.row_count ?? shared.processedRows, signedUrl: data.signed_url ?? s.signedUrl, error: null }));
       } else if (data.status === "failed") {
-        setExportJob((s) => ({ ...s, status: "failed", error: data.error ?? "Failed" }));
+        setExportJob((s) => ({ ...s, ...shared, status: "failed", error: data.error ?? "Failed" }));
+      } else if (data.status === "cancelled") {
+        setExportJob((s) => ({ ...s, ...shared, status: "cancelled", rowCount: shared.processedRows }));
       } else {
-        setExportJob((s) => ({ ...s, status: "running", rowCount: data.row_count ?? s.rowCount }));
+        setExportJob((s) => ({ ...s, ...shared, status: "running", rowCount: data.row_count ?? shared.processedRows }));
       }
     };
     const iv = setInterval(tick, 1500);
@@ -310,12 +343,13 @@ export default function Admin() {
             <CardContent className="pt-6 flex items-center justify-between gap-4 flex-wrap">
               <div className="text-sm">
                 <div className="font-medium">
-                  Export {exportJob.status === "completed" ? "ready" : exportJob.status === "failed" ? "failed" : "in progress"}
+                  Export {exportJob.status === "completed" ? "ready" : exportJob.status === "failed" ? "failed" : exportJob.status === "cancelled" ? "cancelled" : "in progress"}
                 </div>
                 <div className="text-xs text-muted-foreground">
                   {exportJob.status === "starting" && "Queued — running export…"}
-                  {exportJob.status === "running" && `Processing… ${exportJob.rowCount} rows so far`}
-                  {exportJob.status === "completed" && `${exportJob.rowCount} rows • filters embedded in file & filename`}
+                  {exportJob.status === "running" && `Processing… ${exportJob.processedRows} rows processed${exportJob.attempts > 1 ? ` • attempt ${exportJob.attempts}` : ""}${exportJob.cancelRequested ? " • cancelling…" : ""}`}
+                  {exportJob.status === "completed" && `${exportJob.rowCount} rows • ${exportJob.attempts} attempt${exportJob.attempts === 1 ? "" : "s"} • filters embedded in file & filename`}
+                  {exportJob.status === "cancelled" && `Cancelled after ${exportJob.processedRows} rows`}
                   {exportJob.status === "failed" && (exportJob.error ?? "Unknown error")}
                 </div>
               </div>
@@ -327,8 +361,11 @@ export default function Admin() {
                     </a>
                   </Button>
                 )}
-                {(exportJob.status === "completed" || exportJob.status === "failed") && (
-                  <Button variant="ghost" size="sm" onClick={() => setExportJob({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null })}>Dismiss</Button>
+                {(exportJob.status === "starting" || exportJob.status === "running") && exportJob.id && !exportJob.cancelRequested && (
+                  <Button variant="destructive" size="sm" onClick={cancelExport}>Cancel export</Button>
+                )}
+                {(exportJob.status === "completed" || exportJob.status === "failed" || exportJob.status === "cancelled") && (
+                  <Button variant="ghost" size="sm" onClick={() => setExportJob(IDLE_JOB)}>Dismiss</Button>
                 )}
                 {(exportJob.status === "starting" || exportJob.status === "running") && (
                   <RefreshCw className="h-4 w-4 animate-spin text-muted-foreground" />

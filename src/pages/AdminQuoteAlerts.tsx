@@ -12,6 +12,17 @@ import { ArrowLeft, Trash2, Plus, Play } from "lucide-react";
 import { applyPageMeta } from "@/lib/pageMeta";
 
 const KIND_OPTIONS = ["honeypot","too_fast","email_limit","ip_limit","burst_limit","invalid","error","insert_error"];
+const SLACK_WEBHOOK_RE = /^https:\/\/hooks\.slack\.com\/services\/T[A-Z0-9]+\/B[A-Z0-9]+\/[A-Za-z0-9]+$/;
+
+function validateSlackWebhook(url: string): string | null {
+  if (!url) return "Slack webhook URL is required when Slack is enabled.";
+  let parsed: URL;
+  try { parsed = new URL(url); } catch { return "Not a valid URL."; }
+  if (parsed.protocol !== "https:") return "Slack webhook must use https://.";
+  if (parsed.hostname !== "hooks.slack.com") return "Host must be hooks.slack.com.";
+  if (!SLACK_WEBHOOK_RE.test(url)) return "Expected https://hooks.slack.com/services/T…/B…/… format.";
+  return null;
+}
 
 type Cfg = {
   id: string;
@@ -26,6 +37,10 @@ type Cfg = {
   notify_email_enabled: boolean;
   notify_slack_enabled: boolean;
   slack_webhook_url: string | null;
+  last_email_sent_at: string | null;
+  last_slack_sent_at: string | null;
+  last_email_error: string | null;
+  last_slack_error: string | null;
 };
 
 export default function AdminQuoteAlerts() {
@@ -65,13 +80,16 @@ export default function AdminQuoteAlerts() {
   }, []);
   useEffect(() => { if (isAdmin) load(); }, [isAdmin, load]);
 
+  const slackUrlError = slackEnabled ? validateSlackWebhook(slackUrl) : null;
+
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!emailEnabled && !slackEnabled) {
       toast({ title: "Pick at least one channel", variant: "destructive" }); return;
     }
-    if (slackEnabled && !slackUrl.startsWith("https://hooks.slack.com/")) {
-      toast({ title: "Enter a valid Slack webhook URL", variant: "destructive" }); return;
+    if (slackEnabled) {
+      const err = validateSlackWebhook(slackUrl);
+      if (err) { toast({ title: "Invalid Slack webhook", description: err, variant: "destructive" }); return; }
     }
     setSaving(true);
     const { error } = await supabase.from("quote_alert_configs").insert({
@@ -153,7 +171,20 @@ export default function AdminQuoteAlerts() {
               </div>
               <div className="grid md:grid-cols-2 gap-3">
                 <div><Label className="text-xs">Notify email {emailEnabled ? "" : "(disabled)"}</Label><Input type="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} placeholder="alerts@plowwow.com" disabled={!emailEnabled} required={emailEnabled} /></div>
-                <div><Label className="text-xs">Slack webhook URL {slackEnabled ? "" : "(disabled)"}</Label><Input value={slackUrl} onChange={(e) => setSlackUrl(e.target.value)} placeholder="https://hooks.slack.com/services/..." disabled={!slackEnabled} required={slackEnabled} /></div>
+                <div>
+                  <Label className="text-xs">Slack webhook URL {slackEnabled ? "" : "(disabled)"}</Label>
+                  <Input
+                    value={slackUrl}
+                    onChange={(e) => setSlackUrl(e.target.value)}
+                    placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+                    disabled={!slackEnabled}
+                    required={slackEnabled}
+                    aria-invalid={!!slackUrlError}
+                    className={slackUrlError ? "border-destructive" : ""}
+                  />
+                  {slackUrlError && <p className="text-xs text-destructive mt-1">{slackUrlError}</p>}
+                  {slackEnabled && !slackUrlError && slackUrl && <p className="text-xs text-muted-foreground mt-1">Looks valid.</p>}
+                </div>
               </div>
               <div>
                 <Label className="text-xs">Event kinds</Label>
@@ -176,10 +207,10 @@ export default function AdminQuoteAlerts() {
           <CardContent className="p-0 overflow-x-auto">
             <Table>
               <TableHeader><TableRow>
-                <TableHead>Name</TableHead><TableHead>Threshold</TableHead><TableHead>Window</TableHead><TableHead>Kinds</TableHead><TableHead>Channels</TableHead><TableHead>Last triggered</TableHead><TableHead>Enabled</TableHead><TableHead></TableHead>
+                <TableHead>Name</TableHead><TableHead>Threshold</TableHead><TableHead>Window</TableHead><TableHead>Kinds</TableHead><TableHead>Channels</TableHead><TableHead>Delivery</TableHead><TableHead>Last triggered</TableHead><TableHead>Enabled</TableHead><TableHead></TableHead>
               </TableRow></TableHeader>
               <TableBody>
-                {rows.length === 0 && <TableRow><TableCell colSpan={8} className="text-center py-8 text-muted-foreground">No alerts configured.</TableCell></TableRow>}
+                {rows.length === 0 && <TableRow><TableCell colSpan={9} className="text-center py-8 text-muted-foreground">No alerts configured.</TableCell></TableRow>}
                 {rows.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="text-sm font-medium">{r.name}</TableCell>
@@ -196,6 +227,26 @@ export default function AdminQuoteAlerts() {
                           <Switch checked={r.notify_slack_enabled} onCheckedChange={(v) => toggleChannel(r.id, "notify_slack_enabled", v)} disabled={!r.slack_webhook_url} />
                           <span title={r.slack_webhook_url ?? "no webhook set"}>Slack</span>
                         </label>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-xs">
+                      <div className="flex flex-col gap-1">
+                        <div>
+                          <span className="text-muted-foreground">Email:</span>{" "}
+                          {r.last_email_error
+                            ? <span className="text-destructive" title={r.last_email_error}>failed</span>
+                            : r.last_email_sent_at
+                              ? <span className="text-emerald-600" title={new Date(r.last_email_sent_at).toLocaleString()}>{new Date(r.last_email_sent_at).toLocaleString()}</span>
+                              : <span className="text-muted-foreground">—</span>}
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Slack:</span>{" "}
+                          {r.last_slack_error
+                            ? <span className="text-destructive" title={r.last_slack_error}>failed</span>
+                            : r.last_slack_sent_at
+                              ? <span className="text-emerald-600" title={new Date(r.last_slack_sent_at).toLocaleString()}>{new Date(r.last_slack_sent_at).toLocaleString()}</span>
+                              : <span className="text-muted-foreground">—</span>}
+                        </div>
                       </div>
                     </TableCell>
                     <TableCell className="text-xs text-muted-foreground">{r.last_triggered_at ? `${new Date(r.last_triggered_at).toLocaleString()} (${r.last_count})` : "—"}</TableCell>
