@@ -146,7 +146,14 @@ export default function AdminQuoteAlerts() {
                 <div><Label className="text-xs">Name</Label><Input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Spike guard" /></div>
                 <div><Label className="text-xs">Threshold</Label><Input required type="number" min={1} value={threshold} onChange={(e) => setThreshold(Number(e.target.value))} /></div>
                 <div><Label className="text-xs">Window (minutes)</Label><Input required type="number" min={1} value={windowMinutes} onChange={(e) => setWindowMinutes(Number(e.target.value))} /></div>
-                <div><Label className="text-xs">Notify email</Label><Input required type="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} placeholder="alerts@plowwow.com" /></div>
+                <div className="flex items-end gap-4">
+                  <div className="flex items-center gap-2"><Switch checked={emailEnabled} onCheckedChange={setEmailEnabled} /><span className="text-xs">Email</span></div>
+                  <div className="flex items-center gap-2"><Switch checked={slackEnabled} onCheckedChange={setSlackEnabled} /><span className="text-xs">Slack</span></div>
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-3">
+                <div><Label className="text-xs">Notify email {emailEnabled ? "" : "(disabled)"}</Label><Input type="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} placeholder="alerts@plowwow.com" disabled={!emailEnabled} required={emailEnabled} /></div>
+                <div><Label className="text-xs">Slack webhook URL {slackEnabled ? "" : "(disabled)"}</Label><Input value={slackUrl} onChange={(e) => setSlackUrl(e.target.value)} placeholder="https://hooks.slack.com/services/..." disabled={!slackEnabled} required={slackEnabled} /></div>
               </div>
               <div>
                 <Label className="text-xs">Event kinds</Label>
@@ -169,7 +176,7 @@ export default function AdminQuoteAlerts() {
           <CardContent className="p-0 overflow-x-auto">
             <Table>
               <TableHeader><TableRow>
-                <TableHead>Name</TableHead><TableHead>Threshold</TableHead><TableHead>Window</TableHead><TableHead>Kinds</TableHead><TableHead>Notify</TableHead><TableHead>Last triggered</TableHead><TableHead>Enabled</TableHead><TableHead></TableHead>
+                <TableHead>Name</TableHead><TableHead>Threshold</TableHead><TableHead>Window</TableHead><TableHead>Kinds</TableHead><TableHead>Channels</TableHead><TableHead>Last triggered</TableHead><TableHead>Enabled</TableHead><TableHead></TableHead>
               </TableRow></TableHeader>
               <TableBody>
                 {rows.length === 0 && <TableRow><TableCell colSpan={8} className="text-center py-8 text-muted-foreground">No alerts configured.</TableCell></TableRow>}
@@ -179,7 +186,18 @@ export default function AdminQuoteAlerts() {
                     <TableCell className="text-xs">{r.threshold}</TableCell>
                     <TableCell className="text-xs">{r.window_minutes}m</TableCell>
                     <TableCell className="text-xs">{r.kinds.join(", ")}</TableCell>
-                    <TableCell className="text-xs">{r.notify_email}</TableCell>
+                    <TableCell className="text-xs">
+                      <div className="flex flex-col gap-1">
+                        <label className="flex items-center gap-2">
+                          <Switch checked={r.notify_email_enabled} onCheckedChange={(v) => toggleChannel(r.id, "notify_email_enabled", v)} />
+                          <span title={r.notify_email}>Email</span>
+                        </label>
+                        <label className="flex items-center gap-2">
+                          <Switch checked={r.notify_slack_enabled} onCheckedChange={(v) => toggleChannel(r.id, "notify_slack_enabled", v)} disabled={!r.slack_webhook_url} />
+                          <span title={r.slack_webhook_url ?? "no webhook set"}>Slack</span>
+                        </label>
+                      </div>
+                    </TableCell>
                     <TableCell className="text-xs text-muted-foreground">{r.last_triggered_at ? `${new Date(r.last_triggered_at).toLocaleString()} (${r.last_count})` : "—"}</TableCell>
                     <TableCell><Switch checked={r.enabled} onCheckedChange={(v) => toggle(r.id, v)} /></TableCell>
                     <TableCell><Button size="sm" variant="ghost" onClick={() => remove(r.id)}><Trash2 className="h-4 w-4" /></Button></TableCell>
