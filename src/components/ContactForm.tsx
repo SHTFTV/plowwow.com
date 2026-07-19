@@ -161,7 +161,7 @@ const ContactForm = () => {
         } catch { /* ignore */ }
       }
 
-      const code = payload?.code as BlockCode | undefined;
+      const code = payload?.code as string | undefined;
       if (code && code !== "ok" && code !== "honeypot") {
         const copy = BLOCK_COPY[code] ?? BLOCK_COPY.error;
         setBlockMessage(copy);
