@@ -286,7 +286,35 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_quote_request_event_metrics: {
+        Args: { _since: string }
+        Returns: {
+          bucket: string
+          count: number
+          kind: string
+        }[]
+      }
+      get_quote_request_offenders: {
+        Args: { _limit?: number; _since: string }
+        Returns: {
+          blocked_count: number
+          email: string
+          ip: string
+          last_seen: string
+        }[]
+      }
+      list_quote_request_events: {
+        Args: { _limit?: number; _since: string }
+        Returns: {
+          created_at: string
+          email: string
+          id: string
+          ip: string
+          kind: string
+          meta: Json
+          user_agent: string
+        }[]
+      }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
