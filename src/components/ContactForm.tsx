@@ -233,6 +233,18 @@ const ContactForm = () => {
               onChange={(e) => setHoneypot(e.target.value)}
             />
           </div>
+          {blockMessage && (
+            <div
+              role="alert"
+              aria-live="polite"
+              className="rounded-lg border border-destructive/40 bg-destructive/5 p-4"
+            >
+              <p className="font-heading font-bold text-destructive text-sm">
+                {blockMessage.title}
+              </p>
+              <p className="text-sm text-destructive/90 mt-1">{blockMessage.description}</p>
+            </div>
+          )}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
