@@ -148,6 +148,19 @@ const ContactForm = () => {
           className="bg-card rounded-2xl shadow-lg p-6 md:p-10 space-y-6 border border-border"
           noValidate
         >
+          {/* Honeypot field — hidden from real users, must remain empty */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="company_website">Company website</label>
+            <input
+              id="company_website"
+              name="company_website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
