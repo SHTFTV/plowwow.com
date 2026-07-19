@@ -28,6 +28,7 @@ import AdminNeighborhoods from "./pages/AdminNeighborhoods.tsx";
 import AdminQuoteMetrics from "./pages/AdminQuoteMetrics.tsx";
 import AdminQuoteDenylist from "./pages/AdminQuoteDenylist.tsx";
 import AdminQuoteAlerts from "./pages/AdminQuoteAlerts.tsx";
+import AdminQuoteAuditLog from "./pages/AdminQuoteAuditLog.tsx";
 
 const queryClient = new QueryClient();
 
