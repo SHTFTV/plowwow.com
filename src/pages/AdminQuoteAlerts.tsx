@@ -229,6 +229,26 @@ export default function AdminQuoteAlerts() {
                         </label>
                       </div>
                     </TableCell>
+                    <TableCell className="text-xs">
+                      <div className="flex flex-col gap-1">
+                        <div>
+                          <span className="text-muted-foreground">Email:</span>{" "}
+                          {r.last_email_error
+                            ? <span className="text-destructive" title={r.last_email_error}>failed</span>
+                            : r.last_email_sent_at
+                              ? <span className="text-emerald-600" title={new Date(r.last_email_sent_at).toLocaleString()}>{new Date(r.last_email_sent_at).toLocaleString()}</span>
+                              : <span className="text-muted-foreground">—</span>}
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Slack:</span>{" "}
+                          {r.last_slack_error
+                            ? <span className="text-destructive" title={r.last_slack_error}>failed</span>
+                            : r.last_slack_sent_at
+                              ? <span className="text-emerald-600" title={new Date(r.last_slack_sent_at).toLocaleString()}>{new Date(r.last_slack_sent_at).toLocaleString()}</span>
+                              : <span className="text-muted-foreground">—</span>}
+                        </div>
+                      </div>
+                    </TableCell>
                     <TableCell className="text-xs text-muted-foreground">{r.last_triggered_at ? `${new Date(r.last_triggered_at).toLocaleString()} (${r.last_count})` : "—"}</TableCell>
                     <TableCell><Switch checked={r.enabled} onCheckedChange={(v) => toggle(r.id, v)} /></TableCell>
                     <TableCell><Button size="sm" variant="ghost" onClick={() => remove(r.id)}><Trash2 className="h-4 w-4" /></Button></TableCell>
