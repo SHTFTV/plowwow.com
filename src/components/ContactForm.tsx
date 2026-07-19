@@ -163,7 +163,7 @@ const ContactForm = () => {
 
       const code = payload?.code as string | undefined;
       if (code && code !== "ok" && code !== "honeypot") {
-        const copy = BLOCK_COPY[code] ?? BLOCK_COPY.error;
+        const copy = (BLOCK_COPY as Record<string, { title: string; description: string }>)[code] ?? BLOCK_COPY.error;
         setBlockMessage(copy);
         toast({ title: copy.title, description: copy.description, variant: "destructive" });
         // Surface field-level messages when the server returned validation details
