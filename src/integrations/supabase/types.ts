@@ -182,6 +182,87 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_alert_configs: {
+        Row: {
+          created_at: string
+          enabled: boolean
+          id: string
+          kinds: string[]
+          last_count: number | null
+          last_triggered_at: string | null
+          name: string
+          notify_email: string
+          threshold: number
+          updated_at: string
+          window_minutes: number
+        }
+        Insert: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          kinds?: string[]
+          last_count?: number | null
+          last_triggered_at?: string | null
+          name: string
+          notify_email: string
+          threshold: number
+          updated_at?: string
+          window_minutes: number
+        }
+        Update: {
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          kinds?: string[]
+          last_count?: number | null
+          last_triggered_at?: string | null
+          name?: string
+          notify_email?: string
+          threshold?: number
+          updated_at?: string
+          window_minutes?: number
+        }
+        Relationships: []
+      }
+      quote_export_jobs: {
+        Row: {
+          created_at: string
+          error: string | null
+          file_path: string | null
+          filters: Json
+          id: string
+          requested_by: string | null
+          row_count: number | null
+          signed_url: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          error?: string | null
+          file_path?: string | null
+          filters?: Json
+          id?: string
+          requested_by?: string | null
+          row_count?: number | null
+          signed_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          error?: string | null
+          file_path?: string | null
+          filters?: Json
+          id?: string
+          requested_by?: string | null
+          row_count?: number | null
+          signed_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           address: string
@@ -286,8 +367,25 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_quote_denylist: {
+        Args: { _email: string; _ip: string; _reason: string }
+        Returns: string
+      }
       get_quote_request_event_metrics: {
         Args: { _since: string }
+        Returns: {
+          bucket: string
+          count: number
+          kind: string
+        }[]
+      }
+      get_quote_request_event_metrics_v2: {
+        Args: {
+          _email_domain?: string
+          _ip_prefix?: string
+          _kinds?: string[]
+          _since: string
+        }
         Returns: {
           bucket: string
           count: number
@@ -303,6 +401,16 @@ export type Database = {
           last_seen: string
         }[]
       }
+      list_quote_denylist: {
+        Args: never
+        Returns: {
+          created_at: string
+          email: string
+          id: string
+          ip: string
+          reason: string
+        }[]
+      }
       list_quote_request_events: {
         Args: { _limit?: number; _since: string }
         Returns: {
@@ -315,6 +423,25 @@ export type Database = {
           user_agent: string
         }[]
       }
+      list_quote_request_events_v2: {
+        Args: {
+          _email_domain?: string
+          _ip_prefix?: string
+          _kinds?: string[]
+          _limit?: number
+          _since: string
+        }
+        Returns: {
+          created_at: string
+          email: string
+          id: string
+          ip: string
+          kind: string
+          meta: Json
+          user_agent: string
+        }[]
+      }
+      remove_quote_denylist: { Args: { _id: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
