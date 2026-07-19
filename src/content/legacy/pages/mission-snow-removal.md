@@ -1,4 +1,4 @@
-Title: Mission Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Mission Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/mission-snow-removal/
 

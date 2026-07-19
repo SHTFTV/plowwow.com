@@ -1,4 +1,4 @@
-Title: Burke Mountain Snow | PlowWow Snow Removal and De-Ice Management
+Title: Burke Mountain Snow | PlowWow
 
 URL Source: https://plowwow.com/burke-mountain-snow/
 

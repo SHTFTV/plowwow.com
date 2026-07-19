@@ -1,4 +1,4 @@
-Title: Port Coquitlam Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Port Coquitlam Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/port-coquitlam-snow-removal/
 

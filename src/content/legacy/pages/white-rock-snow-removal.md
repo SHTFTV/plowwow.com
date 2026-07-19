@@ -1,4 +1,4 @@
-Title: White Rock Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: White Rock Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/white-rock-snow-removal/
 

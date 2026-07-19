@@ -1,4 +1,4 @@
-Title: Snow Removal in Burquitlam | PlowWow Snow Removal and De-Ice Management
+Title: Snow Removal in Burquitlam | PlowWow
 
 URL Source: https://plowwow.com/snow-removal-in-burquitlam/
 

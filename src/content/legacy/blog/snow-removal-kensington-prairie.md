@@ -1,4 +1,4 @@
-Title: Snow Removal Kensington Prairie | PlowWow Snow Removal and De-Ice Management
+Title: Snow Removal Kensington Prairie | PlowWow
 
 URL Source: https://plowwow.com/snow-removal-kensington-prairie/
 

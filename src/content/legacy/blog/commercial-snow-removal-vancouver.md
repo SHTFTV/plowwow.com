@@ -1,4 +1,4 @@
-Title: Commercial Snow Removal Vancouver | PlowWow Snow Removal and De-Ice Management
+Title: Commercial Snow Removal Vancouver | PlowWow
 
 URL Source: https://plowwow.com/commercial-snow-removal-vancouver/
 

@@ -1,4 +1,4 @@
-Title: Surrey Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Surrey Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/surrey-snow-removal/
 

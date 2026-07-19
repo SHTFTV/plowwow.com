@@ -1,4 +1,4 @@
-Title: Snow Removal in Arbutus, | PlowWow Snow Removal and De-Ice Management
+Title: Snow Removal in Arbutus, | PlowWow
 
 URL Source: https://plowwow.com/now-removal-arbutus/
 

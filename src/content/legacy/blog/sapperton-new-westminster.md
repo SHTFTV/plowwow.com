@@ -1,4 +1,4 @@
-Title: Sapperton New Westminster | PlowWow Snow Removal and De-Ice Management
+Title: Sapperton New Westminster | PlowWow
 
 URL Source: https://plowwow.com/sapperton-new-westminster/
 

@@ -1,4 +1,4 @@
-Title: Metrotown Strata Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Metrotown Strata Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/metrotown-strata-snow-removal/
 

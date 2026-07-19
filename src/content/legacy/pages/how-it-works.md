@@ -1,4 +1,4 @@
-Title: How It Works | PlowWow Snow Removal and De-Ice Management
+Title: How It Works | PlowWow
 
 URL Source: https://plowwow.com/how-it-works/
 

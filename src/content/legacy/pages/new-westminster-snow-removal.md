@@ -1,4 +1,4 @@
-Title: New Westminster Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: New Westminster Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/new-westminster-snow-removal/
 

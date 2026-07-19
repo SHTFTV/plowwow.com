@@ -1,4 +1,4 @@
-Title: Pitt Meadows Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Pitt Meadows Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/pitt-meadows-snow-removal/
 
