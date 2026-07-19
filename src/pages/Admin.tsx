@@ -111,6 +111,12 @@ export default function Admin() {
 
     if (statusFilter !== "all") q = q.eq("status", statusFilter);
     if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+    if (dateFrom) q = q.gte("created_at", new Date(dateFrom).toISOString());
+    if (dateTo) {
+      const end = new Date(dateTo);
+      end.setHours(23, 59, 59, 999);
+      q = q.lte("created_at", end.toISOString());
+    }
     const term = debouncedSearch.trim();
     if (term) {
       const safe = term.replace(/[%,()]/g, " ");
@@ -128,7 +134,67 @@ export default function Admin() {
     }
     setRows(data ?? []);
     setTotal(count ?? 0);
-  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch]);
+  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch, dateFrom, dateTo]);
+
+  const exportCsv = useCallback(async () => {
+    setExporting(true);
+    try {
+      let q = supabase
+        .from("quote_requests")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(5000);
+      if (statusFilter !== "all") q = q.eq("status", statusFilter);
+      if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+      if (dateFrom) q = q.gte("created_at", new Date(dateFrom).toISOString());
+      if (dateTo) {
+        const end = new Date(dateTo);
+        end.setHours(23, 59, 59, 999);
+        q = q.lte("created_at", end.toISOString());
+      }
+      const term = debouncedSearch.trim();
+      if (term) {
+        const safe = term.replace(/[%,()]/g, " ");
+        const pattern = `%${safe}%`;
+        q = q.or(
+          `name.ilike.${pattern},email.ilike.${pattern},phone.ilike.${pattern},address.ilike.${pattern},postal_code.ilike.${pattern}`,
+        );
+      }
+      const { data, error } = await q;
+      if (error) throw error;
+      const cols = [
+        "created_at","name","email","phone","address","postal_code",
+        "service_type","contact_method","status","notes",
+      ] as const;
+      const esc = (v: unknown) => {
+        if (v == null) return "";
+        const s = String(v).replace(/"/g, '""');
+        return /[",\n]/.test(s) ? `"${s}"` : s;
+      };
+      const csv = [
+        cols.join(","),
+        ...(data ?? []).map((r) => cols.map((c) => esc((r as Record<string, unknown>)[c])).join(",")),
+      ].join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `quote-requests-${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast({ title: "Exported", description: `${data?.length ?? 0} rows downloaded.` });
+    } catch (err) {
+      toast({
+        title: "Export failed",
+        description: err instanceof Error ? err.message : "Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setExporting(false);
+    }
+  }, [statusFilter, serviceFilter, dateFrom, dateTo, debouncedSearch]);
 
   const loadServiceTypes = useCallback(async () => {
     const { data, error } = await supabase.from("quote_requests").select("service_type");
