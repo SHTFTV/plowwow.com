@@ -80,8 +80,14 @@ describe.runIf(runLive)("RLS regression: anonymous access is locked down", () =>
   });
 
   it("private schema: not reachable via the Data API", async () => {
-    const { error } = await anon
-      // @ts-expect-error - private schema is not typed and must be unreachable
+    const client = anon as unknown as {
+      schema: (name: string) => {
+        from: (t: string) => {
+          select: (c: string) => { limit: (n: number) => Promise<{ error: unknown }> };
+        };
+      };
+    };
+    const { error } = await client
       .schema("private")
       .from("quote_request_submission_log")
       .select("id")
