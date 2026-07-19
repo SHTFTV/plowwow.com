@@ -192,6 +192,9 @@ export type Database = {
           last_triggered_at: string | null
           name: string
           notify_email: string
+          notify_email_enabled: boolean
+          notify_slack_enabled: boolean
+          slack_webhook_url: string | null
           threshold: number
           updated_at: string
           window_minutes: number
@@ -205,6 +208,9 @@ export type Database = {
           last_triggered_at?: string | null
           name: string
           notify_email: string
+          notify_email_enabled?: boolean
+          notify_slack_enabled?: boolean
+          slack_webhook_url?: string | null
           threshold: number
           updated_at?: string
           window_minutes: number
@@ -218,6 +224,9 @@ export type Database = {
           last_triggered_at?: string | null
           name?: string
           notify_email?: string
+          notify_email_enabled?: boolean
+          notify_slack_enabled?: boolean
+          slack_webhook_url?: string | null
           threshold?: number
           updated_at?: string
           window_minutes?: number
@@ -401,6 +410,20 @@ export type Database = {
           last_seen: string
         }[]
       }
+      list_quote_audit_log: {
+        Args: { _actions?: string[]; _limit?: number; _since: string }
+        Returns: {
+          action: string
+          actor_id: string
+          created_at: string
+          email: string
+          id: string
+          ip: string
+          meta: Json
+          reason: string
+          request_code: string
+        }[]
+      }
       list_quote_denylist: {
         Args: never
         Returns: {
@@ -440,6 +463,16 @@ export type Database = {
           meta: Json
           user_agent: string
         }[]
+      }
+      log_quote_denylist_match: {
+        Args: {
+          _email: string
+          _ip: string
+          _meta?: Json
+          _reason: string
+          _request_code: string
+        }
+        Returns: string
       }
       remove_quote_denylist: { Args: { _id: string }; Returns: boolean }
     }

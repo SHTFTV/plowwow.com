@@ -47,28 +47,49 @@ Deno.serve(async (req) => {
       const alreadyRecent =
         cfg.last_triggered_at &&
         new Date(cfg.last_triggered_at).getTime() > Date.now() - cfg.window_minutes * 60_000;
-      if (!alreadyRecent && RESEND_API_KEY) {
-        await fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${RESEND_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from: "PlowWow alerts <alerts@plowwow.com>",
-            to: [cfg.notify_email],
-            subject: `[PlowWow] Quote abuse alert: ${cfg.name} (${count} in ${cfg.window_minutes}m)`,
-            html: `<h2>Alert: ${cfg.name}</h2>
-              <p><strong>${count}</strong> matching events (kinds: ${cfg.kinds.join(", ")}) in the last <strong>${cfg.window_minutes} minutes</strong>, threshold ${cfg.threshold}.</p>
-              <p><a href="https://plowwow.com/admin/quote-metrics">Open metrics dashboard</a></p>`,
-          }),
-        }).catch(() => {});
+      const channels: string[] = [];
+      const emailEnabled = cfg.notify_email_enabled ?? true;
+      const slackEnabled = cfg.notify_slack_enabled ?? false;
+      if (!alreadyRecent) {
+        const summary = `Alert: ${cfg.name} — ${count} matching events (${cfg.kinds.join(", ")}) in the last ${cfg.window_minutes}m (threshold ${cfg.threshold}).`;
+        if (emailEnabled && RESEND_API_KEY && cfg.notify_email) {
+          const emailRes = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${RESEND_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from: "PlowWow alerts <alerts@plowwow.com>",
+              to: [cfg.notify_email],
+              subject: `[PlowWow] Quote abuse alert: ${cfg.name} (${count} in ${cfg.window_minutes}m)`,
+              html: `<h2>Alert: ${cfg.name}</h2>
+                <p><strong>${count}</strong> matching events (kinds: ${cfg.kinds.join(", ")}) in the last <strong>${cfg.window_minutes} minutes</strong>, threshold ${cfg.threshold}.</p>
+                <p><a href="https://plowwow.com/admin/quote-metrics">Open metrics dashboard</a></p>`,
+            }),
+          }).catch(() => null);
+          if (emailRes?.ok) channels.push("email");
+        }
+        if (slackEnabled && cfg.slack_webhook_url) {
+          const slackRes = await fetch(cfg.slack_webhook_url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              text: `:rotating_light: *${cfg.name}* — ${count} in ${cfg.window_minutes}m (threshold ${cfg.threshold})`,
+              blocks: [
+                { type: "section", text: { type: "mrkdwn", text: `:rotating_light: *${cfg.name}*\n${summary}` } },
+                { type: "context", elements: [{ type: "mrkdwn", text: `<https://plowwow.com/admin/quote-metrics|Open metrics dashboard>` }] },
+              ],
+            }),
+          }).catch(() => null);
+          if (slackRes?.ok) channels.push("slack");
+        }
       }
       await admin.from("quote_alert_configs").update({
         last_triggered_at: new Date().toISOString(),
         last_count: count,
       }).eq("id", cfg.id);
-      results.push({ id: cfg.id, name: cfg.name, count, triggered: !alreadyRecent });
+      results.push({ id: cfg.id, name: cfg.name, count, triggered: !alreadyRecent, channels });
     } else {
       results.push({ id: cfg.id, name: cfg.name, count, triggered: false });
     }

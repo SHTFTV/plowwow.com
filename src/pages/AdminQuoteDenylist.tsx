@@ -74,7 +74,10 @@ export default function AdminQuoteDenylist() {
             <h1 className="text-2xl md:text-3xl font-bold">Quote denylist</h1>
             <p className="text-sm text-muted-foreground">Emails and IPs blocked immediately by the submit-quote edge function.</p>
           </div>
-          <Button variant="outline" asChild><Link to="/admin/quote-metrics"><ArrowLeft className="h-4 w-4" /> Metrics</Link></Button>
+          <div className="flex gap-2">
+            <Button variant="outline" asChild><Link to="/admin/quote-audit-log">Audit log</Link></Button>
+            <Button variant="outline" asChild><Link to="/admin/quote-metrics"><ArrowLeft className="h-4 w-4" /> Metrics</Link></Button>
+          </div>
         </div>
 
         <Card>

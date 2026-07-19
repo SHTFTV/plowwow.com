@@ -28,6 +28,7 @@ import AdminNeighborhoods from "./pages/AdminNeighborhoods.tsx";
 import AdminQuoteMetrics from "./pages/AdminQuoteMetrics.tsx";
 import AdminQuoteDenylist from "./pages/AdminQuoteDenylist.tsx";
 import AdminQuoteAlerts from "./pages/AdminQuoteAlerts.tsx";
+import AdminQuoteAuditLog from "./pages/AdminQuoteAuditLog.tsx";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/admin/quote-metrics" element={<AdminQuoteMetrics />} />
           <Route path="/admin/quote-denylist" element={<AdminQuoteDenylist />} />
           <Route path="/admin/quote-alerts" element={<AdminQuoteAlerts />} />
+          <Route path="/admin/quote-audit-log" element={<AdminQuoteAuditLog />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
