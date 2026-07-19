@@ -45,7 +45,7 @@ export function collectRoutes(): RouteMeta[] {
   const staticRoutes: RouteMeta[] = [
     {
       path: "/",
-      title: "PlowWow — Snow Removal & De-Icing in Greater Vancouver",
+      title: "Snow Removal & De-Icing in Greater Vancouver | PlowWow",
       description:
         "PlowWow delivers 24/7 snow plowing, salting, and de-icing for residential, strata, and commercial properties across Greater Vancouver, BC.",
       ogImage: `${BASE_URL}/og-default.jpg`,
