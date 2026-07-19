@@ -49,6 +49,9 @@ export default function Admin() {
   const [allServiceTypes, setAllServiceTypes] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
+  const [dateFrom, setDateFrom] = useState<string>("");
+  const [dateTo, setDateTo] = useState<string>("");
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     applyPageMeta({
