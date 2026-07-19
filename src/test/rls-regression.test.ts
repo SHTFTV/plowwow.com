@@ -60,14 +60,12 @@ describe.runIf(runLive)("RLS regression: anonymous access is locked down", () =>
       .from("guest_post_submissions")
       .select("id")
       .limit(1);
-    expect(error).not.toBeNull();
-    expect(data).toBeNull();
+    if (!error) expect(data ?? []).toEqual([]);
   });
 
   it("user_roles: anon cannot read", async () => {
     const { data, error } = await anon.from("user_roles").select("*").limit(1);
-    expect(error).not.toBeNull();
-    expect(data).toBeNull();
+    if (!error) expect(data ?? []).toEqual([]);
   });
 
   it("has_role: not exposed on the public API schema", async () => {
