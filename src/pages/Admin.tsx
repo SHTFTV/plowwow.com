@@ -4,12 +4,13 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "@/hooks/use-toast";
-import { LogOut, RefreshCw } from "lucide-react";
+import { LogOut, RefreshCw, Download, BarChart3 } from "lucide-react";
 import { applyPageMeta } from "@/lib/pageMeta";
 
 type QuoteRequest = Tables<"quote_requests">;
@@ -49,6 +50,9 @@ export default function Admin() {
   const [allServiceTypes, setAllServiceTypes] = useState<string[]>([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(25);
+  const [dateFrom, setDateFrom] = useState<string>("");
+  const [dateTo, setDateTo] = useState<string>("");
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     applyPageMeta({
@@ -108,6 +112,12 @@ export default function Admin() {
 
     if (statusFilter !== "all") q = q.eq("status", statusFilter);
     if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+    if (dateFrom) q = q.gte("created_at", new Date(dateFrom).toISOString());
+    if (dateTo) {
+      const end = new Date(dateTo);
+      end.setHours(23, 59, 59, 999);
+      q = q.lte("created_at", end.toISOString());
+    }
     const term = debouncedSearch.trim();
     if (term) {
       const safe = term.replace(/[%,()]/g, " ");
@@ -125,7 +135,67 @@ export default function Admin() {
     }
     setRows(data ?? []);
     setTotal(count ?? 0);
-  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch]);
+  }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch, dateFrom, dateTo]);
+
+  const exportCsv = useCallback(async () => {
+    setExporting(true);
+    try {
+      let q = supabase
+        .from("quote_requests")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(5000);
+      if (statusFilter !== "all") q = q.eq("status", statusFilter);
+      if (serviceFilter !== "all") q = q.eq("service_type", serviceFilter);
+      if (dateFrom) q = q.gte("created_at", new Date(dateFrom).toISOString());
+      if (dateTo) {
+        const end = new Date(dateTo);
+        end.setHours(23, 59, 59, 999);
+        q = q.lte("created_at", end.toISOString());
+      }
+      const term = debouncedSearch.trim();
+      if (term) {
+        const safe = term.replace(/[%,()]/g, " ");
+        const pattern = `%${safe}%`;
+        q = q.or(
+          `name.ilike.${pattern},email.ilike.${pattern},phone.ilike.${pattern},address.ilike.${pattern},postal_code.ilike.${pattern}`,
+        );
+      }
+      const { data, error } = await q;
+      if (error) throw error;
+      const cols = [
+        "created_at","name","email","phone","address","postal_code",
+        "service_type","contact_method","status","notes",
+      ] as const;
+      const esc = (v: unknown) => {
+        if (v == null) return "";
+        const s = String(v).replace(/"/g, '""');
+        return /[",\n]/.test(s) ? `"${s}"` : s;
+      };
+      const csv = [
+        cols.join(","),
+        ...(data ?? []).map((r) => cols.map((c) => esc((r as Record<string, unknown>)[c])).join(",")),
+      ].join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `quote-requests-${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast({ title: "Exported", description: `${data?.length ?? 0} rows downloaded.` });
+    } catch (err) {
+      toast({
+        title: "Export failed",
+        description: err instanceof Error ? err.message : "Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setExporting(false);
+    }
+  }, [statusFilter, serviceFilter, dateFrom, dateTo, debouncedSearch]);
 
   const loadServiceTypes = useCallback(async () => {
     const { data, error } = await supabase.from("quote_requests").select("service_type");
@@ -162,7 +232,7 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
-  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize]);
+  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize, dateFrom, dateTo]);
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * pageSize;
@@ -199,9 +269,16 @@ export default function Admin() {
             <h1 className="text-2xl md:text-3xl font-bold">Quote requests</h1>
             <p className="text-sm text-muted-foreground">{total} total</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
+            <Button variant="outline" asChild>
+              <Link to="/admin/quote-metrics"><BarChart3 className="h-4 w-4" /> Metrics</Link>
+            </Button>
             <Button variant="outline" asChild>
               <Link to="/admin/guest-posts">Guest posts</Link>
+            </Button>
+            <Button variant="outline" onClick={exportCsv} disabled={exporting || loading}>
+              <Download className={`h-4 w-4 ${exporting ? "animate-pulse" : ""}`} />
+              {exporting ? "Exporting…" : "Export CSV"}
             </Button>
             <Button variant="outline" onClick={load} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
@@ -234,6 +311,33 @@ export default function Admin() {
                 {allServiceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
+            <div className="flex gap-2 items-center md:col-span-2">
+              <Label htmlFor="date-from" className="text-xs whitespace-nowrap">From</Label>
+              <Input
+                id="date-from"
+                type="date"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+                className="h-9"
+              />
+              <Label htmlFor="date-to" className="text-xs whitespace-nowrap">To</Label>
+              <Input
+                id="date-to"
+                type="date"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+                className="h-9"
+              />
+              {(dateFrom || dateTo) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => { setDateFrom(""); setDateTo(""); }}
+                >
+                  Clear
+                </Button>
+              )}
+            </div>
           </CardContent>
         </Card>
 

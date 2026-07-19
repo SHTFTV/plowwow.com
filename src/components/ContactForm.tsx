@@ -63,20 +63,71 @@ const initial: FormState = {
   notes: "",
 };
 
+type BlockCode =
+  | "honeypot"
+  | "too_fast"
+  | "email_limit"
+  | "ip_limit"
+  | "burst_limit"
+  | "invalid"
+  | "insert_error"
+  | "error";
+
+const BLOCK_COPY: Record<BlockCode, { title: string; description: string }> = {
+  honeypot: {
+    title: "Submission blocked",
+    description: "That request looked automated. Please try again from a real browser.",
+  },
+  too_fast: {
+    title: "Slow down a moment",
+    description:
+      "Your request came in faster than a person could type it — please take a couple of seconds to review, then resubmit.",
+  },
+  email_limit: {
+    title: "Daily limit reached",
+    description:
+      "This email has already submitted several quotes today. Email dispatch@plowwow.com to add more, or try again tomorrow.",
+  },
+  ip_limit: {
+    title: "Too many requests",
+    description:
+      "Too many quote requests from your network in the last hour. Please try again in a little while.",
+  },
+  burst_limit: {
+    title: "Please wait a minute",
+    description: "You're submitting too quickly. Wait about a minute and try once more.",
+  },
+  invalid: {
+    title: "Please review the form",
+    description: "Some fields need attention — see the highlighted errors above.",
+  },
+  insert_error: {
+    title: "Couldn't save your request",
+    description: "Our system hit a temporary snag. Please try again in a moment.",
+  },
+  error: {
+    title: "Something went wrong",
+    description: "Please check your connection and try again.",
+  },
+};
+
 const ContactForm = () => {
   const [data, setData] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [blockMessage, setBlockMessage] = useState<{ title: string; description: string } | null>(null);
   const startedAtRef = useRef<number>(Date.now());
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setData((d) => ({ ...d, [key]: value }));
     setErrors((e) => ({ ...e, [key]: "" }));
+    setBlockMessage(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setBlockMessage(null);
     const result = quoteSchema.safeParse(data);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -94,21 +145,44 @@ const ContactForm = () => {
     }
     setSubmitting(true);
     try {
-      const { data: res, error } = await supabase.functions.invoke("submit-quote", {
+      const { data: res, error } = await supabase.functions.invoke<
+        { success?: boolean; error?: string; code?: BlockCode; details?: Record<string, string[]> }
+      >("submit-quote", {
         body: { ...result.data, hp: honeypot, startedAt: startedAtRef.current },
       });
-      if (error || (res && (res as { error?: string }).error)) {
-        const msg =
-          (res as { error?: string } | null)?.error ||
-          error?.message ||
-          "Something went wrong.";
-        toast({
-          title: "Couldn't send request",
-          description: msg,
-          variant: "destructive",
-        });
+
+      const invokeErr = error as { context?: Response } | null;
+      // supabase.functions.invoke returns non-2xx bodies inside error.context — parse them
+      let payload = res ?? null;
+      if (invokeErr?.context && typeof invokeErr.context.text === "function") {
+        try {
+          const text = await invokeErr.context.text();
+          payload = text ? JSON.parse(text) : payload;
+        } catch { /* ignore */ }
+      }
+
+      const code = payload?.code as string | undefined;
+      if (code && code !== "ok" && code !== "honeypot") {
+        const copy = (BLOCK_COPY as Record<string, { title: string; description: string }>)[code] ?? BLOCK_COPY.error;
+        setBlockMessage(copy);
+        toast({ title: copy.title, description: copy.description, variant: "destructive" });
+        // Surface field-level messages when the server returned validation details
+        if (code === "invalid" && payload?.details) {
+          const fieldErrors: Record<string, string> = {};
+          for (const [k, v] of Object.entries(payload.details)) {
+            if (Array.isArray(v) && v[0]) fieldErrors[k] = v[0];
+          }
+          setErrors((prev) => ({ ...prev, ...fieldErrors }));
+        }
         return;
       }
+      if (payload?.error && !payload.success) {
+        const copy = BLOCK_COPY.error;
+        setBlockMessage({ title: copy.title, description: payload.error });
+        toast({ title: copy.title, description: payload.error, variant: "destructive" });
+        return;
+      }
+
       toast({
         title: "Quote request sent!",
         description: "We'll get back to you within 24 hours.",
@@ -116,12 +190,10 @@ const ContactForm = () => {
       setData(initial);
       setHoneypot("");
       startedAtRef.current = Date.now();
-    } catch (err) {
-      toast({
-        title: "Couldn't send request",
-        description: "Please check your connection and try again.",
-        variant: "destructive",
-      });
+    } catch {
+      const copy = BLOCK_COPY.error;
+      setBlockMessage(copy);
+      toast({ title: copy.title, description: copy.description, variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
@@ -161,6 +233,18 @@ const ContactForm = () => {
               onChange={(e) => setHoneypot(e.target.value)}
             />
           </div>
+          {blockMessage && (
+            <div
+              role="alert"
+              aria-live="polite"
+              className="rounded-lg border border-destructive/40 bg-destructive/5 p-4"
+            >
+              <p className="font-heading font-bold text-destructive text-sm">
+                {blockMessage.title}
+              </p>
+              <p className="text-sm text-destructive/90 mt-1">{blockMessage.description}</p>
+            </div>
+          )}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
