@@ -310,6 +310,33 @@ export default function Admin() {
                 {allServiceTypes.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
               </SelectContent>
             </Select>
+            <div className="flex gap-2 items-center md:col-span-2">
+              <Label htmlFor="date-from" className="text-xs whitespace-nowrap">From</Label>
+              <Input
+                id="date-from"
+                type="date"
+                value={dateFrom}
+                onChange={(e) => setDateFrom(e.target.value)}
+                className="h-9"
+              />
+              <Label htmlFor="date-to" className="text-xs whitespace-nowrap">To</Label>
+              <Input
+                id="date-to"
+                type="date"
+                value={dateTo}
+                onChange={(e) => setDateTo(e.target.value)}
+                className="h-9"
+              />
+              {(dateFrom || dateTo) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => { setDateFrom(""); setDateTo(""); }}
+                >
+                  Clear
+                </Button>
+              )}
+            </div>
           </CardContent>
         </Card>
 
