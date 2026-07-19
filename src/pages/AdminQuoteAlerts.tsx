@@ -12,6 +12,17 @@ import { ArrowLeft, Trash2, Plus, Play } from "lucide-react";
 import { applyPageMeta } from "@/lib/pageMeta";
 
 const KIND_OPTIONS = ["honeypot","too_fast","email_limit","ip_limit","burst_limit","invalid","error","insert_error"];
+const SLACK_WEBHOOK_RE = /^https:\/\/hooks\.slack\.com\/services\/T[A-Z0-9]+\/B[A-Z0-9]+\/[A-Za-z0-9]+$/;
+
+function validateSlackWebhook(url: string): string | null {
+  if (!url) return "Slack webhook URL is required when Slack is enabled.";
+  let parsed: URL;
+  try { parsed = new URL(url); } catch { return "Not a valid URL."; }
+  if (parsed.protocol !== "https:") return "Slack webhook must use https://.";
+  if (parsed.hostname !== "hooks.slack.com") return "Host must be hooks.slack.com.";
+  if (!SLACK_WEBHOOK_RE.test(url)) return "Expected https://hooks.slack.com/services/T…/B…/… format.";
+  return null;
+}
 
 type Cfg = {
   id: string;
@@ -26,6 +37,10 @@ type Cfg = {
   notify_email_enabled: boolean;
   notify_slack_enabled: boolean;
   slack_webhook_url: string | null;
+  last_email_sent_at: string | null;
+  last_slack_sent_at: string | null;
+  last_email_error: string | null;
+  last_slack_error: string | null;
 };
 
 export default function AdminQuoteAlerts() {
