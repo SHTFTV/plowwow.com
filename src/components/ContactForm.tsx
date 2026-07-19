@@ -95,7 +95,7 @@ const ContactForm = () => {
     setSubmitting(true);
     try {
       const { data: res, error } = await supabase.functions.invoke("submit-quote", {
-        body: result.data,
+        body: { ...result.data, hp: honeypot, startedAt: startedAtRef.current },
       });
       if (error || (res && (res as { error?: string }).error)) {
         const msg =
