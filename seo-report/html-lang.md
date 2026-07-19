@@ -1,6 +1,6 @@
 # <html lang> ↔ hreflang consistency
 
-_Generated 2026-07-17T20:45:47.548Z_
+_Generated 2026-07-19T20:37:53.315Z_
 
 - Expected `<html lang="en-CA">`
 - Allowed hreflang: `en-CA, en, x-default`

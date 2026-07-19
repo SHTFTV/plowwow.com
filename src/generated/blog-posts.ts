@@ -763,7 +763,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "can-i-push-snow-onto-the-street",
@@ -781,7 +781,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: Get Professional Commercial Snow Removal in Burnaby",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "commercial-snow-removal-vancouver",
@@ -790,16 +790,16 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: snow removal edmonds burnaby, edmonds snow removal, snow plowing edmonds, burnaby snow removal, salting edmonds, de-icing edmonds, plowwow snow removal, winter services edmonds",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "east-vancouver",
-    "title": "PlowWow Snow Removal and De-Ice Management",
+    "title": "East Vancouver",
     "blurb": "Your Trusted Snow Removal Experts in East Vancouver Efficient, Reliable, and Comprehensive Snow Services Experience seamless snow management with our dedicated team, ensuring your…",
     "image": null,
     "alt": "Image 1: 800x600",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:31.000Z"
   },
   {
     "slug": "happy-new-year-metro-vancouver",
@@ -812,12 +812,12 @@ export const blogPosts = [
   },
   {
     "slug": "heritage-mountain",
-    "title": "PlowWow Snow Removal and De-Ice Management",
+    "title": "Heritage Mountain",
     "blurb": "Reliable Snow Removal Services Expert Snow Management for Burke Mountain Our specialized snow removal services ensure safe and accessible properties throughout the winter season on…",
     "image": null,
     "alt": "Image 1: WOW waving hi plowwow.com (11)",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:31.000Z"
   },
   {
     "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
@@ -844,7 +844,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: _5091779297181544372_121",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "metrotown-strata-snow-removal",
@@ -853,7 +853,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: Strata Snow Removal Metrotown by Plow Wow",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "middlegate-snow-removal-burnaby",
@@ -862,7 +862,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "now-removal-arbutus",
@@ -871,7 +871,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: plowwow.com plow crew",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
@@ -925,7 +925,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: plowwow parking lots",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "sfu-burnaby-snow-removal",
@@ -934,7 +934,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: 800x800",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "shaughnessy-snow-removal",
@@ -943,7 +943,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: plowwow snow removing service image",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "silver-valley-maple-ridge",
@@ -970,7 +970,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: plowwow.com plow crew",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "snow-removal-kensington-prairie",
@@ -979,7 +979,7 @@ export const blogPosts = [
     "image": null,
     "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   },
   {
     "slug": "snow-removal-renfrew-heights",
@@ -1051,6 +1051,6 @@ export const blogPosts = [
     "image": null,
     "alt": "White Christmas 2025 Burnaby? by PlowWow",
     "publishedAt": "2026-05-12T16:01:09.000Z",
-    "updatedAt": "2026-05-12T16:01:09.000Z"
+    "updatedAt": "2026-07-19T20:36:21.000Z"
   }
 ] satisfies BlogPostSummary[];
