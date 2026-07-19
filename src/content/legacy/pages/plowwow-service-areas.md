@@ -1,4 +1,4 @@
-Title: Plowwow Service Areas | PlowWow Snow Removal and De-Ice Management
+Title: Plowwow Service Areas | PlowWow
 
 URL Source: https://plowwow.com/plowwow-service-areas/
 

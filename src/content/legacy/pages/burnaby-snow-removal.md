@@ -1,4 +1,4 @@
-Title: Burnaby Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Burnaby Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/burnaby-snow-removal/
 

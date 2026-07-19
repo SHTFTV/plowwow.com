@@ -1,4 +1,4 @@
-Title: SFU Burnaby snow removal | PlowWow Snow Removal and De-Ice Management
+Title: SFU Burnaby snow removal | PlowWow
 
 URL Source: https://plowwow.com/sfu-burnaby-snow-removal/
 

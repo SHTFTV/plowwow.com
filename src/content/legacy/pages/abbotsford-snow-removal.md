@@ -1,4 +1,4 @@
-Title: Abbotsford Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Abbotsford Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/abbotsford-snow-removal/
 

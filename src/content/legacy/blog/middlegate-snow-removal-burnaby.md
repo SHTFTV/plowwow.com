@@ -1,4 +1,4 @@
-Title: Middlegate Snow Removal Burnaby | PlowWow Snow Removal and De-Ice Management
+Title: Middlegate Snow Removal Burnaby | PlowWow
 
 URL Source: https://plowwow.com/middlegate-snow-removal-burnaby/
 

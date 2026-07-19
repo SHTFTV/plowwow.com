@@ -1,4 +1,4 @@
-Title: Richmond Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Richmond Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/richmond-snow-removal/
 

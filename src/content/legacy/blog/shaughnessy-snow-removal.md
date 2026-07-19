@@ -1,4 +1,4 @@
-Title: Shaughnessy Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Shaughnessy Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/shaughnessy-snow-removal/
 

@@ -1,4 +1,4 @@
-Title: Commercial Snow Removal Burnaby | PlowWow Snow Removal and De-Ice Management
+Title: Commercial Snow Removal Burnaby | PlowWow
 
 URL Source: https://plowwow.com/commercial-snow-removal-burnaby/
 

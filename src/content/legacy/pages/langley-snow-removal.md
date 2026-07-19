@@ -1,4 +1,4 @@
-Title: Langley Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Langley Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/langley-snow-removal/
 

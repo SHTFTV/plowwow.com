@@ -1,4 +1,4 @@
-Title: Delta Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Delta Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/delta-snow-removal/
 

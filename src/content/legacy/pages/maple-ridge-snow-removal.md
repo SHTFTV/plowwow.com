@@ -1,4 +1,4 @@
-Title: Maple Ridge Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Maple Ridge Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/maple-ridge-snow-removal/
 

@@ -1,4 +1,4 @@
-Title: Residential Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Residential Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/residential-snow-removal/
 

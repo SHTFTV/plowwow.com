@@ -1,4 +1,4 @@
-Title: Coquitlam Snow Removal | PlowWow Snow Removal and De-Ice Management
+Title: Coquitlam Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/coquitlam-snow-removal/
 
