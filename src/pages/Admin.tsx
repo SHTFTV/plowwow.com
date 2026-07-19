@@ -139,12 +139,15 @@ export default function Admin() {
 
   const [exportJob, setExportJob] = useState<{
     id: string | null;
-    status: "idle" | "starting" | "running" | "completed" | "failed";
+    status: "idle" | "starting" | "running" | "completed" | "failed" | "cancelled";
     rowCount: number;
+    processedRows: number;
+    attempts: number;
     signedUrl: string | null;
     filename: string | null;
     error: string | null;
-  }>({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null });
+    cancelRequested: boolean;
+  }>({ id: null, status: "idle", rowCount: 0, processedRows: 0, attempts: 0, signedUrl: null, filename: null, error: null, cancelRequested: false });
 
   const buildFilters = useCallback(() => ({
     status: statusFilter !== "all" ? statusFilter : undefined,
