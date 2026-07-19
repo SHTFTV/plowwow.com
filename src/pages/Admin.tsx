@@ -137,44 +137,78 @@ export default function Admin() {
     setTotal(count ?? 0);
   }, [page, pageSize, statusFilter, serviceFilter, debouncedSearch, dateFrom, dateTo]);
 
+  const [exportJob, setExportJob] = useState<{
+    id: string | null;
+    status: "idle" | "starting" | "running" | "completed" | "failed";
+    rowCount: number;
+    signedUrl: string | null;
+    filename: string | null;
+    error: string | null;
+  }>({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null });
+
+  const buildFilters = useCallback(() => ({
+    status: statusFilter !== "all" ? statusFilter : undefined,
+    service_type: serviceFilter !== "all" ? serviceFilter : undefined,
+    date_from: dateFrom ? new Date(dateFrom).toISOString() : undefined,
+    date_to: (() => {
+      if (!dateTo) return undefined;
+      const end = new Date(dateTo);
+      end.setHours(23, 59, 59, 999);
+      return end.toISOString();
+    })(),
+    search: debouncedSearch.trim() || undefined,
+  }), [statusFilter, serviceFilter, dateFrom, dateTo, debouncedSearch]);
+
   const exportCsv = useCallback(async () => {
     setExporting(true);
+    setExportJob({ id: null, status: "starting", rowCount: 0, signedUrl: null, filename: null, error: null });
     try {
-      const filters: Record<string, string | undefined> = {
-        status: statusFilter !== "all" ? statusFilter : undefined,
-        service_type: serviceFilter !== "all" ? serviceFilter : undefined,
-        date_from: dateFrom ? new Date(dateFrom).toISOString() : undefined,
-        date_to: (() => {
-          if (!dateTo) return undefined;
-          const end = new Date(dateTo);
-          end.setHours(23, 59, 59, 999);
-          return end.toISOString();
-        })(),
-        search: debouncedSearch.trim() || undefined,
-      };
-      toast({ title: "Export started", description: "Preparing your CSV — this may take a minute for large ranges." });
+      const filters = buildFilters();
       const { data, error } = await supabase.functions.invoke("export-quotes", { body: filters });
       if (error) throw error;
-      const payload = data as { signed_url?: string; row_count?: number; error?: string };
+      const payload = data as { signed_url?: string; row_count?: number; error?: string; job_id?: string; filename?: string };
       if (!payload?.signed_url) throw new Error(payload?.error ?? "No download URL returned");
-      const a = document.createElement("a");
-      a.href = payload.signed_url;
-      a.download = `quote-requests-${new Date().toISOString().slice(0, 10)}.csv`;
-      a.rel = "noopener";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      toast({ title: "Export ready", description: `${payload.row_count ?? 0} rows downloaded.` });
-    } catch (err) {
-      toast({
-        title: "Export failed",
-        description: err instanceof Error ? err.message : "Please try again.",
-        variant: "destructive",
+      setExportJob({
+        id: payload.job_id ?? null,
+        status: "completed",
+        rowCount: payload.row_count ?? 0,
+        signedUrl: payload.signed_url,
+        filename: payload.filename ?? null,
+        error: null,
       });
+      toast({ title: "Export ready", description: `${payload.row_count ?? 0} rows — click download below.` });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Please try again.";
+      setExportJob((s) => ({ ...s, status: "failed", error: msg }));
+      toast({ title: "Export failed", description: msg, variant: "destructive" });
     } finally {
       setExporting(false);
     }
-  }, [statusFilter, serviceFilter, dateFrom, dateTo, debouncedSearch]);
+  }, [buildFilters]);
+
+  // Poll running job (in case of long-running exports). Currently the function
+  // completes inline, but polling lets us reflect progress if it becomes async.
+  useEffect(() => {
+    if (!exportJob.id || (exportJob.status !== "starting" && exportJob.status !== "running")) return;
+    let cancelled = false;
+    const tick = async () => {
+      const { data } = await supabase
+        .from("quote_export_jobs")
+        .select("status, row_count, signed_url, error")
+        .eq("id", exportJob.id!)
+        .maybeSingle();
+      if (cancelled || !data) return;
+      if (data.status === "completed") {
+        setExportJob((s) => ({ ...s, status: "completed", rowCount: data.row_count ?? 0, signedUrl: data.signed_url ?? s.signedUrl, error: null }));
+      } else if (data.status === "failed") {
+        setExportJob((s) => ({ ...s, status: "failed", error: data.error ?? "Failed" }));
+      } else {
+        setExportJob((s) => ({ ...s, status: "running", rowCount: data.row_count ?? s.rowCount }));
+      }
+    };
+    const iv = setInterval(tick, 1500);
+    return () => { cancelled = true; clearInterval(iv); };
+  }, [exportJob.id, exportJob.status]);
 
   const loadServiceTypes = useCallback(async () => {
     const { data, error } = await supabase.from("quote_requests").select("service_type");
