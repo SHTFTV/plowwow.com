@@ -80,13 +80,16 @@ export default function AdminQuoteAlerts() {
   }, []);
   useEffect(() => { if (isAdmin) load(); }, [isAdmin, load]);
 
+  const slackUrlError = slackEnabled ? validateSlackWebhook(slackUrl) : null;
+
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!emailEnabled && !slackEnabled) {
       toast({ title: "Pick at least one channel", variant: "destructive" }); return;
     }
-    if (slackEnabled && !slackUrl.startsWith("https://hooks.slack.com/")) {
-      toast({ title: "Enter a valid Slack webhook URL", variant: "destructive" }); return;
+    if (slackEnabled) {
+      const err = validateSlackWebhook(slackUrl);
+      if (err) { toast({ title: "Invalid Slack webhook", description: err, variant: "destructive" }); return; }
     }
     setSaving(true);
     const { error } = await supabase.from("quote_alert_configs").insert({
