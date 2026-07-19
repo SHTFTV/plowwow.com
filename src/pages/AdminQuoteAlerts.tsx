@@ -96,7 +96,10 @@ export default function AdminQuoteAlerts() {
   };
 
   const toggleChannel = async (id: string, field: "notify_email_enabled" | "notify_slack_enabled", value: boolean) => {
-    const { error } = await supabase.from("quote_alert_configs").update({ [field]: value }).eq("id", id);
+    const patch = field === "notify_email_enabled"
+      ? { notify_email_enabled: value }
+      : { notify_slack_enabled: value };
+    const { error } = await supabase.from("quote_alert_configs").update(patch).eq("id", id);
     if (error) toast({ title: "Update failed", description: error.message, variant: "destructive" });
     load();
   };
