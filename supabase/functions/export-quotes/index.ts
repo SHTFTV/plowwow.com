@@ -60,7 +60,21 @@ Deno.serve(async (req) => {
     const PAGE = 1000;
     let from = 0;
     let total = 0;
-    const chunks: string[] = [COLS.join(",")];
+
+    // Build a filter slug and human-readable summary for traceability
+    const filterEntries = Object.entries(filters).filter(([, v]) => v != null && v !== "" && v !== "all");
+    const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 32);
+    const filterSlug = filterEntries.length
+      ? filterEntries.map(([k, v]) => `${slugify(k)}-${slugify(String(v))}`).join("_").slice(0, 120)
+      : "all";
+    const generatedAt = new Date().toISOString();
+    const summaryLines = [
+      `# PlowWow quote_requests export`,
+      `# generated_at=${generatedAt}`,
+      `# requested_by=${userId}`,
+      `# filters=${JSON.stringify(filters)}`,
+    ];
+    const chunks: string[] = [...summaryLines, COLS.join(",")];
 
     while (true) {
       let q = admin.from("quote_requests").select("*")
@@ -88,14 +102,17 @@ Deno.serve(async (req) => {
     }
 
     const csv = chunks.join("\n");
-    const path = `${userId}/quote-requests-${Date.now()}.csv`;
+    const datePart = generatedAt.slice(0, 10);
+    const filename = `quote-requests_${datePart}_${filterSlug}_${total}rows.csv`;
+    const path = `${userId}/${Date.now()}_${filename}`;
     const { error: upErr } = await admin.storage.from("quote-exports").upload(path, new Blob([csv], { type: "text/csv" }), {
       contentType: "text/csv",
       upsert: true,
     });
     if (upErr) throw upErr;
 
-    const { data: signed, error: signErr } = await admin.storage.from("quote-exports").createSignedUrl(path, 60 * 60);
+    const { data: signed, error: signErr } = await admin.storage.from("quote-exports")
+      .createSignedUrl(path, 60 * 60, { download: filename });
     if (signErr) throw signErr;
 
     await admin.from("quote_export_jobs").update({
@@ -105,7 +122,7 @@ Deno.serve(async (req) => {
       signed_url: signed.signedUrl,
     }).eq("id", job.id);
 
-    return json(200, { job_id: job.id, row_count: total, signed_url: signed.signedUrl });
+    return json(200, { job_id: job.id, row_count: total, signed_url: signed.signedUrl, filename });
   } catch (err) {
     await admin.from("quote_export_jobs").update({
       status: "failed",
