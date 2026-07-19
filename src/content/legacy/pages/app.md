@@ -1,4 +1,4 @@
-Title: PlowWow Snow Removal and De-Ice Management
+Title: App | PlowWow
 
 URL Source: https://plowwow.com/app/
 
