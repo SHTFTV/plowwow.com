@@ -162,26 +162,24 @@ export default function AdminQuoteMetrics() {
   }, [metrics]);
 
   const chartData = useMemo(() => {
-    // Pivot: one row per bucket, columns per kind
-    const byBucket = new Map<string, Record<string, number | string>>();
+    type Row = { bucket: string; label: string; [k: string]: number | string };
+    const byBucket = new Map<string, Row>();
     for (const m of metrics) {
       const key = m.bucket;
-      const row = byBucket.get(key) ?? { bucket: key };
+      const row = byBucket.get(key) ?? { bucket: key, label: "" };
       row[m.kind] = Number(m.count);
       byBucket.set(key, row);
     }
-    return [...byBucket.values()]
-      .map((r) => ({
-        ...r,
-        label: new Date(r.bucket as string).toLocaleString(undefined, {
-          month: "short",
-          day: "numeric",
-          hour: "2-digit",
-        }),
-      }))
-      .sort((a, b) =>
-        String(a.bucket).localeCompare(String(b.bucket)),
-      );
+    const rows = [...byBucket.values()];
+    rows.forEach((r) => {
+      r.label = new Date(r.bucket).toLocaleString(undefined, {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+      });
+    });
+    rows.sort((a, b) => a.bucket.localeCompare(b.bucket));
+    return rows;
   }, [metrics]);
 
   const kinds = useMemo(() => {
