@@ -114,6 +114,8 @@ const ContactForm = () => {
         description: "We'll get back to you within 24 hours.",
       });
       setData(initial);
+      setHoneypot("");
+      startedAtRef.current = Date.now();
     } catch (err) {
       toast({
         title: "Couldn't send request",
