@@ -67,6 +67,8 @@ const ContactForm = () => {
   const [data, setData] = useState<FormState>(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const startedAtRef = useRef<number>(Date.now());
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setData((d) => ({ ...d, [key]: value }));
