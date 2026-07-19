@@ -231,7 +231,7 @@ export default function Admin() {
     navigate("/auth", { replace: true });
   };
 
-  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize]);
+  useEffect(() => { setPage(1); }, [statusFilter, serviceFilter, debouncedSearch, pageSize, dateFrom, dateTo]);
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(page, totalPages);
   const startIdx = (currentPage - 1) * pageSize;
