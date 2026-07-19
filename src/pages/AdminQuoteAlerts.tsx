@@ -23,6 +23,9 @@ type Cfg = {
   enabled: boolean;
   last_triggered_at: string | null;
   last_count: number | null;
+  notify_email_enabled: boolean;
+  notify_slack_enabled: boolean;
+  slack_webhook_url: string | null;
 };
 
 export default function AdminQuoteAlerts() {
@@ -35,6 +38,9 @@ export default function AdminQuoteAlerts() {
   const [windowMinutes, setWindowMinutes] = useState(15);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [kinds, setKinds] = useState<string[]>(["honeypot","too_fast","email_limit","ip_limit","burst_limit"]);
+  const [emailEnabled, setEmailEnabled] = useState(true);
+  const [slackEnabled, setSlackEnabled] = useState(false);
+  const [slackUrl, setSlackUrl] = useState("");
   const [saving, setSaving] = useState(false);
   const [testing, setTesting] = useState(false);
 
@@ -55,25 +61,42 @@ export default function AdminQuoteAlerts() {
   const load = useCallback(async () => {
     const { data, error } = await supabase.from("quote_alert_configs").select("*").order("created_at", { ascending: false });
     if (error) { toast({ title: "Load failed", description: error.message, variant: "destructive" }); return; }
-    setRows((data ?? []) as Cfg[]);
+    setRows((data ?? []) as unknown as Cfg[]);
   }, []);
   useEffect(() => { if (isAdmin) load(); }, [isAdmin, load]);
 
   const add = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!emailEnabled && !slackEnabled) {
+      toast({ title: "Pick at least one channel", variant: "destructive" }); return;
+    }
+    if (slackEnabled && !slackUrl.startsWith("https://hooks.slack.com/")) {
+      toast({ title: "Enter a valid Slack webhook URL", variant: "destructive" }); return;
+    }
     setSaving(true);
     const { error } = await supabase.from("quote_alert_configs").insert({
-      name, kinds, threshold, window_minutes: windowMinutes, notify_email: notifyEmail, enabled: true,
+      name, kinds, threshold, window_minutes: windowMinutes,
+      notify_email: notifyEmail || "unused@plowwow.com",
+      notify_email_enabled: emailEnabled,
+      notify_slack_enabled: slackEnabled,
+      slack_webhook_url: slackEnabled ? slackUrl : null,
+      enabled: true,
     });
     setSaving(false);
     if (error) { toast({ title: "Add failed", description: error.message, variant: "destructive" }); return; }
-    setName(""); setNotifyEmail("");
+    setName(""); setNotifyEmail(""); setSlackUrl(""); setSlackEnabled(false);
     toast({ title: "Alert created" });
     load();
   };
 
   const toggle = async (id: string, enabled: boolean) => {
     const { error } = await supabase.from("quote_alert_configs").update({ enabled }).eq("id", id);
+    if (error) toast({ title: "Update failed", description: error.message, variant: "destructive" });
+    load();
+  };
+
+  const toggleChannel = async (id: string, field: "notify_email_enabled" | "notify_slack_enabled", value: boolean) => {
+    const { error } = await supabase.from("quote_alert_configs").update({ [field]: value }).eq("id", id);
     if (error) toast({ title: "Update failed", description: error.message, variant: "destructive" });
     load();
   };
