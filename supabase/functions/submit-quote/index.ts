@@ -153,6 +153,18 @@ Deno.serve(async (req) => {
 
     const body = await req.json().catch(() => null);
     const parsed = QuoteSchema.safeParse(body);
+    // Early denylist check on IP only (email not yet known)
+    const dbEarly = getPrivateClient();
+    if (dbEarly) {
+      const { data: denyIp } = await dbEarly.rpc("is_quote_denylisted", {
+        _email: "",
+        _ip: ip,
+      });
+      if (denyIp === true) {
+        await logEvent({ kind: "ip_limit", ip, userAgent, meta: { denylisted: true } });
+        return errorResponse(429, "ip_limit");
+      }
+    }
     if (!parsed.success) {
       await logEvent({
         kind: "invalid",
