@@ -197,6 +197,18 @@ Deno.serve(async (req) => {
       return errorResponse(429, "too_fast");
     }
 
+    // Denylist by email (after parse)
+    if (dbEarly) {
+      const { data: denyEmail } = await dbEarly.rpc("is_quote_denylisted", {
+        _email: data.email,
+        _ip: "",
+      });
+      if (denyEmail === true) {
+        await logEvent({ kind: "email_limit", email: data.email, ip, userAgent, meta: { denylisted: true } });
+        return errorResponse(429, "email_limit");
+      }
+    }
+
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
     const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!SUPABASE_URL || !SERVICE_ROLE_KEY) throw new Error("Backend is not configured");
