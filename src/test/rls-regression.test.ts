@@ -50,8 +50,7 @@ describe.runIf(runLive)("RLS regression: anonymous access is locked down", () =>
       email: `rls-escalation-${Date.now()}@example.com`,
       topic: "Escalation attempt",
       message: "should be rejected",
-      // @ts-expect-error - intentionally sending forbidden status
-      status: "approved",
+      status: "approved" as unknown as "pending",
     });
     expect(escalationErr).not.toBeNull();
   });
