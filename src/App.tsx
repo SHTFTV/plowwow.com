@@ -25,6 +25,7 @@ import AdminGscCoverage from "./pages/AdminGscCoverage.tsx";
 import AdminJsonLdValidator from "./pages/AdminJsonLdValidator.tsx";
 import AdminSeoSettings from "./pages/AdminSeoSettings.tsx";
 import AdminNeighborhoods from "./pages/AdminNeighborhoods.tsx";
+import AdminQuoteMetrics from "./pages/AdminQuoteMetrics.tsx";
 
 const queryClient = new QueryClient();
 
