@@ -45,6 +45,7 @@ const App = () => (
           <Route path="/admin/jsonld-validator" element={<AdminJsonLdValidator />} />
           <Route path="/admin/seo-settings" element={<AdminSeoSettings />} />
           <Route path="/admin/neighborhoods" element={<AdminNeighborhoods />} />
+          <Route path="/admin/quote-metrics" element={<AdminQuoteMetrics />} />
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
