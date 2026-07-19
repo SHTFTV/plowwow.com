@@ -287,6 +287,9 @@ export default function Admin() {
               <Link to="/admin/quote-metrics"><BarChart3 className="h-4 w-4" /> Metrics</Link>
             </Button>
             <Button variant="outline" asChild>
+              <Link to="/admin/quote-audit-log">Audit log</Link>
+            </Button>
+            <Button variant="outline" asChild>
               <Link to="/admin/guest-posts">Guest posts</Link>
             </Button>
             <Button variant="outline" onClick={exportCsv} disabled={exporting || loading}>
@@ -301,6 +304,39 @@ export default function Admin() {
             </Button>
           </div>
         </div>
+
+        {exportJob.status !== "idle" && (
+          <Card>
+            <CardContent className="pt-6 flex items-center justify-between gap-4 flex-wrap">
+              <div className="text-sm">
+                <div className="font-medium">
+                  Export {exportJob.status === "completed" ? "ready" : exportJob.status === "failed" ? "failed" : "in progress"}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {exportJob.status === "starting" && "Queued — running export…"}
+                  {exportJob.status === "running" && `Processing… ${exportJob.rowCount} rows so far`}
+                  {exportJob.status === "completed" && `${exportJob.rowCount} rows • filters embedded in file & filename`}
+                  {exportJob.status === "failed" && (exportJob.error ?? "Unknown error")}
+                </div>
+              </div>
+              <div className="flex gap-2">
+                {exportJob.status === "completed" && exportJob.signedUrl && (
+                  <Button asChild size="sm">
+                    <a href={exportJob.signedUrl} download={exportJob.filename ?? undefined} rel="noopener">
+                      <Download className="h-4 w-4" /> Download{exportJob.filename ? ` (${exportJob.filename})` : ""}
+                    </a>
+                  </Button>
+                )}
+                {(exportJob.status === "completed" || exportJob.status === "failed") && (
+                  <Button variant="ghost" size="sm" onClick={() => setExportJob({ id: null, status: "idle", rowCount: 0, signedUrl: null, filename: null, error: null })}>Dismiss</Button>
+                )}
+                {(exportJob.status === "starting" || exportJob.status === "running") && (
+                  <RefreshCw className="h-4 w-4 animate-spin text-muted-foreground" />
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         <Card>
           <CardContent className="pt-6 grid gap-3 md:grid-cols-4">
