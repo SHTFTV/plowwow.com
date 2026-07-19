@@ -171,7 +171,20 @@ export default function AdminQuoteAlerts() {
               </div>
               <div className="grid md:grid-cols-2 gap-3">
                 <div><Label className="text-xs">Notify email {emailEnabled ? "" : "(disabled)"}</Label><Input type="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} placeholder="alerts@plowwow.com" disabled={!emailEnabled} required={emailEnabled} /></div>
-                <div><Label className="text-xs">Slack webhook URL {slackEnabled ? "" : "(disabled)"}</Label><Input value={slackUrl} onChange={(e) => setSlackUrl(e.target.value)} placeholder="https://hooks.slack.com/services/..." disabled={!slackEnabled} required={slackEnabled} /></div>
+                <div>
+                  <Label className="text-xs">Slack webhook URL {slackEnabled ? "" : "(disabled)"}</Label>
+                  <Input
+                    value={slackUrl}
+                    onChange={(e) => setSlackUrl(e.target.value)}
+                    placeholder="https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+                    disabled={!slackEnabled}
+                    required={slackEnabled}
+                    aria-invalid={!!slackUrlError}
+                    className={slackUrlError ? "border-destructive" : ""}
+                  />
+                  {slackUrlError && <p className="text-xs text-destructive mt-1">{slackUrlError}</p>}
+                  {slackEnabled && !slackUrlError && slackUrl && <p className="text-xs text-muted-foreground mt-1">Looks valid.</p>}
+                </div>
               </div>
               <div>
                 <Label className="text-xs">Event kinds</Label>
