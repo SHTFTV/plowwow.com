@@ -268,9 +268,16 @@ export default function Admin() {
             <h1 className="text-2xl md:text-3xl font-bold">Quote requests</h1>
             <p className="text-sm text-muted-foreground">{total} total</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
+            <Button variant="outline" asChild>
+              <Link to="/admin/quote-metrics"><BarChart3 className="h-4 w-4" /> Metrics</Link>
+            </Button>
             <Button variant="outline" asChild>
               <Link to="/admin/guest-posts">Guest posts</Link>
+            </Button>
+            <Button variant="outline" onClick={exportCsv} disabled={exporting || loading}>
+              <Download className={`h-4 w-4 ${exporting ? "animate-pulse" : ""}`} />
+              {exporting ? "Exporting…" : "Export CSV"}
             </Button>
             <Button variant="outline" onClick={load} disabled={loading}>
               <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} /> Refresh
