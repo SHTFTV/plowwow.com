@@ -155,6 +155,25 @@ Deno.serve(async (req) => {
     const parsed = QuoteSchema.safeParse(body);
     // Early denylist check on IP only (email not yet known)
     const dbEarly = getPrivateClient();
+    const publicDb = (() => {
+      const url = Deno.env.get("SUPABASE_URL");
+      const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+      return url && key ? createClient(url, key) : null;
+    })();
+    const logDenylistMatch = async (
+      matchEmail: string,
+      matchIp: string,
+      code: string,
+    ) => {
+      if (!publicDb) return;
+      await publicDb.rpc("log_quote_denylist_match", {
+        _email: matchEmail,
+        _ip: matchIp,
+        _reason: "denylist",
+        _request_code: code,
+        _meta: { user_agent: userAgent },
+      }).catch(() => {});
+    };
     if (dbEarly) {
       const { data: denyIp } = await dbEarly.rpc("is_quote_denylisted", {
         _email: "",
@@ -162,6 +181,7 @@ Deno.serve(async (req) => {
       });
       if (denyIp === true) {
         await logEvent({ kind: "ip_limit", ip, userAgent, meta: { denylisted: true } });
+        await logDenylistMatch("", ip, "ip_limit");
         return errorResponse(429, "ip_limit");
       }
     }
@@ -205,6 +225,7 @@ Deno.serve(async (req) => {
       });
       if (denyEmail === true) {
         await logEvent({ kind: "email_limit", email: data.email, ip, userAgent, meta: { denylisted: true } });
+        await logDenylistMatch(data.email, ip, "email_limit");
         return errorResponse(429, "email_limit");
       }
     }
