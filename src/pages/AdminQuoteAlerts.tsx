@@ -210,7 +210,7 @@ export default function AdminQuoteAlerts() {
                 <TableHead>Name</TableHead><TableHead>Threshold</TableHead><TableHead>Window</TableHead><TableHead>Kinds</TableHead><TableHead>Channels</TableHead><TableHead>Delivery</TableHead><TableHead>Last triggered</TableHead><TableHead>Enabled</TableHead><TableHead></TableHead>
               </TableRow></TableHeader>
               <TableBody>
-                {rows.length === 0 && <TableRow><TableCell colSpan={8} className="text-center py-8 text-muted-foreground">No alerts configured.</TableCell></TableRow>}
+                {rows.length === 0 && <TableRow><TableCell colSpan={9} className="text-center py-8 text-muted-foreground">No alerts configured.</TableCell></TableRow>}
                 {rows.map((r) => (
                   <TableRow key={r.id}>
                     <TableCell className="text-sm font-medium">{r.name}</TableCell>
