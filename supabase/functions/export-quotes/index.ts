@@ -133,6 +133,7 @@ Deno.serve(async (req) => {
     await admin.from("quote_export_jobs").update({
       status: "completed",
       row_count: total,
+      processed_rows: total,
       file_path: path,
       signed_url: signed.signedUrl,
     }).eq("id", job.id);
