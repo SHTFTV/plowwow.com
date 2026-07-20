@@ -8,3 +8,9 @@ verify_jwt = false
 
 [functions.nightly-link-audit]
 verify_jwt = false
+
+[functions.newsletter-subscribe]
+verify_jwt = false
+
+[functions.newsletter-confirm]
+verify_jwt = false
