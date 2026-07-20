@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
 
