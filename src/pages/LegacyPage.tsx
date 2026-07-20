@@ -180,31 +180,40 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         : "https://plowwow.com";
     const path = `/${slug}/`;
     const absoluteUrl = `${origin}${path}`;
-    // Prefer the post's inline hero image; fall back to a branded hero.
+    // Prefer the post's inline hero image; fall back to a per-slug hero, then a
+    // guaranteed-reachable branded OG default so every share always resolves an image.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const heroCandidate =
       heroFromBody ||
       (kind === "blog" ? `/blog-images/${slug}.jpg` : null) ||
-      "https://plowwow.com/wp-content/uploads/hero.jpg";
+      "/og-default.jpg";
     const absoluteImage = heroCandidate.startsWith("http")
       ? heroCandidate
       : `${origin}${heroCandidate}`;
-    setProp("og:title", title);
-    setProp("og:description", description);
+    // Guarantee non-empty title/description for every share card.
+    const safeTitle = (title && title.trim()) || "PlowWow — Snow Removal in Greater Vancouver";
+    const safeDescription =
+      (description && description.trim()) ||
+      "24/7 snow plowing, salting, and de-icing for homes, strata, and commercial properties across Greater Vancouver, BC.";
+    setMeta("description", safeDescription);
+    setProp("og:title", safeTitle);
+    setProp("og:description", safeDescription);
     setProp("og:url", absoluteUrl);
     setProp("og:type", kind === "blog" ? "article" : "website");
     setProp("og:site_name", "PlowWow");
     setProp("og:locale", "en_CA");
     setProp("og:image", absoluteImage);
+    setProp("og:image:secure_url", absoluteImage);
     setProp("og:image:width", "1200");
     setProp("og:image:height", "630");
-    setProp("og:image:alt", title);
+    setProp("og:image:alt", safeTitle);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:site", "@plowwow");
-    setMeta("twitter:title", title);
-    setMeta("twitter:description", description);
+    setMeta("twitter:creator", "@plowwow");
+    setMeta("twitter:title", safeTitle);
+    setMeta("twitter:description", safeDescription);
     setMeta("twitter:image", absoluteImage);
-    setMeta("twitter:image:alt", title);
+    setMeta("twitter:image:alt", safeTitle);
     setCanonical(absoluteUrl);
 
     // Remove any stale article time meta so non-blog pages don't inherit them.
