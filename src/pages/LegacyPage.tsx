@@ -276,7 +276,11 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
               },
             }
           : { image: absoluteImage }),
-        author: { "@type": "Organization", name: "PlowWow", url: "https://plowwow.com/" },
+        author: {
+          "@type": "Person",
+          name: "PlowWow Team",
+          url: "https://plowwow.com/author/plowwow-team/",
+        },
         publisher: {
           "@type": "Organization",
           name: "PlowWow",
