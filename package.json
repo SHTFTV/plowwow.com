@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
+    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts",
     "dev": "vite",
-    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/audit-internal-links.ts",
+    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts",
     "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts",
     "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts",
     "seo:smoke": "tsx scripts/build-validate.ts",
