@@ -362,7 +362,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       document.getElementById(crumbId)?.remove();
       document.getElementById("legacy-page-service-jsonld")?.remove();
     };
-  }, [title, description, faqs, kind, slug, body]);
+  }, [title, description, faqs, kind, slug, body, readingMinutes]);
 
 
 
