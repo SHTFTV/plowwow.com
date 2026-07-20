@@ -112,7 +112,22 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-footer-foreground/20 mt-10 pt-6 text-center text-sm opacity-60">
+      <div className="mt-10 pt-8 border-t border-footer-foreground/20 grid gap-6 md:grid-cols-2 items-start">
+        <NewsletterSignup source="footer" />
+        <div className="text-sm opacity-80 md:text-right">
+          Prefer a feed reader?{" "}
+          <a
+            href="/rss.xml"
+            className="underline hover:text-primary"
+            aria-label="Subscribe to the PlowWow blog via RSS"
+          >
+            Subscribe via RSS
+          </a>
+          .
+        </div>
+      </div>
+
+      <div className="mt-8 pt-6 border-t border-footer-foreground/20 text-center text-sm opacity-60">
         <div>© {new Date().getFullYear()} PlowWow.com — All rights reserved.</div>
         <div className="mt-1">Powered by Industry Army Marketing</div>
       </div>
