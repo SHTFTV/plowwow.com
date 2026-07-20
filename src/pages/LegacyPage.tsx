@@ -133,6 +133,15 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
   const dates = kind === "blog" ? blogDatesBySlug[slug] : undefined;
   const wasUpdated =
     !!dates && !!dates.updatedAt && dates.updatedAt !== dates.publishedAt;
+  const readingMinutes =
+    kind === "blog"
+      ? Math.max(
+          1,
+          Math.round(
+            body.replace(/[#>*_`\[\]()!]/g, " ").trim().split(/\s+/).filter(Boolean).length / 220,
+          ),
+        )
+      : 0;
 
   useEffect(() => {
     if (typeof document === "undefined") return;

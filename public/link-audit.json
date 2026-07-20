@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-20T02:03:04.402Z",
+  "generatedAt": "2026-07-20T02:08:41.871Z",
   "totals": {
-    "posts": 116,
+    "posts": 120,
     "cities": 18,
     "orphanPosts": 20,
     "citiesWithoutPosts": 1
@@ -122,6 +122,11 @@
       "count": 4
     },
     {
+      "slug": "new-westminster",
+      "name": "New Westminster",
+      "count": 3
+    },
+    {
       "slug": "langley",
       "name": "Langley",
       "count": 3
@@ -137,8 +142,18 @@
       "count": 3
     },
     {
-      "slug": "new-westminster",
-      "name": "New Westminster",
+      "slug": "surrey",
+      "name": "Surrey",
+      "count": 2
+    },
+    {
+      "slug": "north-vancouver",
+      "name": "North Vancouver",
+      "count": 2
+    },
+    {
+      "slug": "delta",
+      "name": "Delta",
       "count": 2
     },
     {
@@ -152,11 +167,6 @@
       "count": 1
     },
     {
-      "slug": "surrey",
-      "name": "Surrey",
-      "count": 1
-    },
-    {
       "slug": "abbotsford",
       "name": "Abbotsford",
       "count": 1
@@ -164,16 +174,6 @@
     {
       "slug": "west-vancouver",
       "name": "West Vancouver",
-      "count": 1
-    },
-    {
-      "slug": "north-vancouver",
-      "name": "North Vancouver",
-      "count": 1
-    },
-    {
-      "slug": "delta",
-      "name": "Delta",
       "count": 1
     },
     {
