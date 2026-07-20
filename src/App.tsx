@@ -29,6 +29,7 @@ import AdminQuoteMetrics from "./pages/AdminQuoteMetrics.tsx";
 import AdminQuoteDenylist from "./pages/AdminQuoteDenylist.tsx";
 import AdminQuoteAlerts from "./pages/AdminQuoteAlerts.tsx";
 import AdminQuoteAuditLog from "./pages/AdminQuoteAuditLog.tsx";
+import AuthorPage from "./pages/AuthorPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,8 @@ const App = () => (
           <Route path="/takeoff" element={<Takeoff />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/locations" element={<Locations />} />
+          <Route path="/author/:slug" element={<AuthorPage />} />
+          <Route path="/author/:slug/" element={<AuthorPage />} />
           {legacyPageSlugs.map((slug) => (
             <Route
               key={`page-${slug}`}

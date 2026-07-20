@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const propertyTypes = [
   { label: "Strata Complexes", href: "/strata-complexes" },
@@ -74,6 +75,7 @@ const Footer = () => (
                 Subscribe (RSS)
               </a>
             </li>
+            <li><Link to="/author/plowwow-team" className="hover:text-primary transition-colors">Authors</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
             <li><Link to="/app-features" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
@@ -110,7 +112,22 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-footer-foreground/20 mt-10 pt-6 text-center text-sm opacity-60">
+      <div className="mt-10 pt-8 border-t border-footer-foreground/20 grid gap-6 md:grid-cols-2 items-start">
+        <NewsletterSignup source="footer" />
+        <div className="text-sm opacity-80 md:text-right">
+          Prefer a feed reader?{" "}
+          <a
+            href="/rss.xml"
+            className="underline hover:text-primary"
+            aria-label="Subscribe to the PlowWow blog via RSS"
+          >
+            Subscribe via RSS
+          </a>
+          .
+        </div>
+      </div>
+
+      <div className="mt-8 pt-6 border-t border-footer-foreground/20 text-center text-sm opacity-60">
         <div>© {new Date().getFullYear()} PlowWow.com — All rights reserved.</div>
         <div className="mt-1">Powered by Industry Army Marketing</div>
       </div>
