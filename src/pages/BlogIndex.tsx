@@ -287,14 +287,17 @@ const BlogIndex = () => {
   const visible = posts.slice(start, start + PAGE_SIZE);
 
   useEffect(() => {
+    const catLabel = activeCat === "All" ? "" : ` — ${activeCat}`;
     const title =
       page === 1
-        ? "PlowWow Blog — Snow Removal Insights & Strata Tips"
-        : `PlowWow Blog — Page ${page} of ${totalPages}`;
+        ? `PlowWow Blog${catLabel} — Snow Removal Insights & Strata Tips`
+        : `PlowWow Blog${catLabel} — Page ${page} of ${totalPages}`;
     document.title = title;
 
     const description =
-      "PlowWow blog: snow removal insights, neighborhood guides, and strata tips for Greater Vancouver, BC.";
+      activeCat === "All"
+        ? "PlowWow blog: snow removal insights, neighborhood guides, and strata tips for Greater Vancouver, BC."
+        : `${activeCat} posts on the PlowWow blog — snow removal, strata, and commercial insights for Greater Vancouver, BC.`;
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
       if (!el) { el = document.createElement("meta"); el.setAttribute("name", name); document.head.appendChild(el); }
@@ -311,7 +314,12 @@ const BlogIndex = () => {
       el.href = href;
     };
     const URL_BASE = "https://plowwow.com/blog";
-    const URL_ABS = page === 1 ? URL_BASE : `${URL_BASE}?page=${page}`;
+    // Self-referencing canonical for tag-listing + paginated variants so
+    // /blog?cat=Strata doesn't consolidate into /blog. Order: cat, then page.
+    const qs: string[] = [];
+    if (activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
+    if (page > 1) qs.push(`page=${page}`);
+    const URL_ABS = qs.length ? `${URL_BASE}?${qs.join("&")}` : URL_BASE;
     const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
@@ -334,21 +342,24 @@ const BlogIndex = () => {
     setMeta("twitter:image:alt", "PlowWow Blog — Snow Removal Insights");
     setCanonical(URL_ABS);
 
-    // rel="prev" / rel="next" for paginated blog index — improves crawler
-    // discovery and index-consolidation across pages.
+    // rel="prev" / rel="next" for paginated blog index — preserves active
+    // category filter across pages so crawlers stay within the same listing.
+    const pagedUrl = (n: number) => {
+      const p: string[] = [];
+      if (activeCat !== "All") p.push(`cat=${encodeURIComponent(activeCat)}`);
+      if (n > 1) p.push(`page=${n}`);
+      return p.length ? `${URL_BASE}?${p.join("&")}` : URL_BASE;
+    };
     const setRel = (rel: "prev" | "next", href: string | null) => {
       const existing = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
-      if (!href) {
-        existing?.remove();
-        return;
-      }
+      if (!href) { existing?.remove(); return; }
       const el = existing ?? document.createElement("link");
       el.rel = rel;
       el.href = href;
       if (!existing) document.head.appendChild(el);
     };
-    setRel("prev", page > 1 ? (page === 2 ? URL_BASE : `${URL_BASE}?page=${page - 1}`) : null);
-    setRel("next", page < totalPages ? `${URL_BASE}?page=${page + 1}` : null);
+    setRel("prev", page > 1 ? pagedUrl(page - 1) : null);
+    setRel("next", page < totalPages ? pagedUrl(page + 1) : null);
 
     const ldId = "blog-index-jsonld";
     document.getElementById(ldId)?.remove();
@@ -358,7 +369,7 @@ const BlogIndex = () => {
     ld.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: "PlowWow Blog",
+      name: title,
       description,
       url: URL_ABS,
     });
@@ -379,28 +390,65 @@ const BlogIndex = () => {
     });
     document.head.appendChild(wp);
 
+    // ItemList JSON-LD — communicates ordering + pagination to search engines
+    // for the current page of the (filtered) blog index.
+    const ilId = "blog-index-itemlist-jsonld";
+    document.getElementById(ilId)?.remove();
+    const il = document.createElement("script");
+    il.type = "application/ld+json";
+    il.id = ilId;
+    il.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: title,
+      url: URL_ABS,
+      numberOfItems: posts.length,
+      itemListOrder:
+        sortBy === "updated"
+          ? "https://schema.org/ItemListOrderDescending"
+          : "https://schema.org/ItemListOrderDescending",
+      itemListElement: visible.map((slug, i) => ({
+        "@type": "ListItem",
+        position: start + i + 1,
+        url: `https://plowwow.com/${slug}/`,
+        name: titleFor(slug),
+      })),
+    });
+    document.head.appendChild(il);
+
     const bcId = "blog-index-breadcrumb-jsonld";
     document.getElementById(bcId)?.remove();
     const bc = document.createElement("script");
     bc.type = "application/ld+json";
     bc.id = bcId;
+    const crumbs: any[] = [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: URL_BASE },
+    ];
+    if (activeCat !== "All") {
+      crumbs.push({
+        "@type": "ListItem",
+        position: 3,
+        name: activeCat,
+        item: `${URL_BASE}?cat=${encodeURIComponent(activeCat)}`,
+      });
+    }
     bc.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-        { "@type": "ListItem", position: 2, name: "Blog", item: URL_ABS },
-      ],
+      itemListElement: crumbs,
     });
     document.head.appendChild(bc);
     return () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(wpId)?.remove();
+      document.getElementById(ilId)?.remove();
       document.getElementById(bcId)?.remove();
       document.querySelector('link[rel="prev"]')?.remove();
       document.querySelector('link[rel="next"]')?.remove();
     };
-  }, [page, totalPages]);
+  }, [page, totalPages, activeCat, posts.length, visible, sortBy, start]);
+
 
   const goTo = (next: number) => {
     const params = new URLSearchParams(searchParams);
