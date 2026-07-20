@@ -27,6 +27,18 @@ const priorityFor = (r: RouteMeta) =>
   r.path === "/" ? "1.0" : r.kind === "city" || r.kind === "static" ? "0.8" : "0.6";
 
 function urlBlock(r: RouteMeta): string {
+  // Query-string routes (e.g. tag listings) must not be slash-normalized or
+  // hreflang-fanned — they're single-locale filter views.
+  if (r.path.includes("?")) {
+    return [
+      "  <url>",
+      `    <loc>${BASE_URL}${r.path}</loc>`,
+      `    <lastmod>${today}</lastmod>`,
+      `    <changefreq>weekly</changefreq>`,
+      `    <priority>0.5</priority>`,
+      "  </url>",
+    ].join("\n");
+  }
   const path = withSlash(r.path);
   const hreflangLinks = [
     ...SUPPORTED_LOCALES.map(
