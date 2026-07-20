@@ -108,7 +108,7 @@ const AuthorPage = () => {
 
   return (
     <>
-      <Header />
+      <Navbar />
       <main className="container py-16 max-w-4xl">
         <nav aria-label="Breadcrumb" className="text-sm opacity-70 mb-4">
           <Link to="/" className="hover:text-primary">Home</Link>
