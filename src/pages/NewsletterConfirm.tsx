@@ -288,34 +288,43 @@ const NewsletterConfirm = () => {
           <>
             <XCircle className="w-10 h-10 mx-auto mb-4 text-destructive" aria-hidden />
             <h1 className="text-2xl font-semibold mb-2">This link has expired</h1>
-            <p className="text-sm opacity-80 mb-6">
-              Confirmation links are valid for 7 days. Enter your email again to
-              get a fresh confirmation email.
+            <p className="text-sm opacity-80 mb-4">
+              Confirmation links are valid for 7 days. Enter your email below
+              and we'll send you a fresh confirmation link.
             </p>
-            <Link
-              to="/"
-              className="inline-block rounded-md bg-primary text-primary-foreground px-4 py-2 text-sm font-medium"
-            >
-              Resubscribe from the home page
-            </Link>
+            <ResendConfirmationForm headline="Email to resend confirmation to" />
+            <div className="mt-4 text-xs opacity-70">
+              Already subscribed on a different device?{" "}
+              <Link to="/" className="underline">
+                Back to home
+              </Link>
+            </div>
           </>
         )}
         {state.kind === "invalid" && (
           <>
             <XCircle className="w-10 h-10 mx-auto mb-4 text-destructive" aria-hidden />
             <h1 className="text-2xl font-semibold mb-2">Invalid confirmation link</h1>
-            <p className="text-sm opacity-80 mb-6">
-              This link doesn't match an active subscription. It may have already
-              been used or was mistyped.
+            <p className="text-sm opacity-80 mb-2">
+              This link doesn't match an active subscription. Common reasons:
             </p>
-            <Link
-              to="/"
-              className="inline-block rounded-md border border-border px-4 py-2 text-sm font-medium"
-            >
-              Back to home
-            </Link>
+            <ul className="text-sm opacity-80 mb-4 text-left list-disc pl-6 space-y-1">
+              <li>It was already used to confirm your subscription.</li>
+              <li>The link was truncated or mistyped when copied.</li>
+              <li>A newer confirmation email replaced this one.</li>
+            </ul>
+            <p className="text-sm opacity-80 mb-4">
+              Enter your email to receive a new confirmation link:
+            </p>
+            <ResendConfirmationForm headline="Email to resend confirmation to" />
+            <div className="mt-4 text-xs opacity-70">
+              <Link to="/" className="underline">
+                Back to home
+              </Link>
+            </div>
           </>
         )}
+
         {state.kind === "error" && (
           <>
             <XCircle className="w-10 h-10 mx-auto mb-4 text-destructive" aria-hidden />
