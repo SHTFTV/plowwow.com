@@ -77,7 +77,7 @@ Deno.serve(async (req) => {
   // Look up existing row (unique on email).
   const { data: existing, error: selErr } = await supabase
     .from("newsletter_signups")
-    .select("id, confirmed_at")
+    .select("id, confirmed_at, confirmation_sent_at")
     .eq("email", email)
     .maybeSingle();
   if (selErr) {
@@ -91,9 +91,21 @@ Deno.serve(async (req) => {
     return json({ status: "already_confirmed" });
   }
 
+  // Server-side resend cooldown: 30s between emails per address. Cheaper and
+  // more robust than trusting the client — a page refresh can't bypass it.
+  const COOLDOWN_MS = 30_000;
+  if (existing?.confirmation_sent_at) {
+    const last = new Date(existing.confirmation_sent_at).getTime();
+    const wait = COOLDOWN_MS - (Date.now() - last);
+    if (wait > 0) {
+      return json({ error: "too_soon", retry_after_ms: wait }, 429);
+    }
+  }
+
   const token = randomToken();
   const now = new Date();
   const expires = new Date(now.getTime() + TOKEN_TTL_MS);
+
 
   if (existing) {
     const { error: updErr } = await supabase
