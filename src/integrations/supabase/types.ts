@@ -184,26 +184,38 @@ export type Database = {
       }
       newsletter_signups: {
         Row: {
+          confirmation_sent_at: string | null
+          confirmation_token: string | null
+          confirmed_at: string | null
           created_at: string
           email: string
           id: string
           source: string | null
+          token_expires_at: string | null
           updated_at: string
           user_agent: string | null
         }
         Insert: {
+          confirmation_sent_at?: string | null
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           created_at?: string
           email: string
           id?: string
           source?: string | null
+          token_expires_at?: string | null
           updated_at?: string
           user_agent?: string | null
         }
         Update: {
+          confirmation_sent_at?: string | null
+          confirmation_token?: string | null
+          confirmed_at?: string | null
           created_at?: string
           email?: string
           id?: string
           source?: string | null
+          token_expires_at?: string | null
           updated_at?: string
           user_agent?: string | null
         }
