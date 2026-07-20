@@ -310,19 +310,45 @@ const BlogIndex = () => {
       if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
       el.href = href;
     };
-    const URL_ABS = "https://plowwow.com/blog";
+    const URL_BASE = "https://plowwow.com/blog";
+    const URL_ABS = page === 1 ? URL_BASE : `${URL_BASE}?page=${page}`;
     const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
     setProp("og:description", description);
     setProp("og:type", "website");
+    setProp("og:site_name", "PlowWow");
+    setProp("og:locale", "en_CA");
     setProp("og:url", URL_ABS);
     setProp("og:image", OG_IMAGE);
+    setProp("og:image:secure_url", OG_IMAGE);
+    setProp("og:image:width", "1200");
+    setProp("og:image:height", "630");
+    setProp("og:image:alt", "PlowWow Blog — Snow Removal Insights");
     setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:site", "@plowwow");
+    setMeta("twitter:creator", "@plowwow");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", OG_IMAGE);
+    setMeta("twitter:image:alt", "PlowWow Blog — Snow Removal Insights");
     setCanonical(URL_ABS);
+
+    // rel="prev" / rel="next" for paginated blog index — improves crawler
+    // discovery and index-consolidation across pages.
+    const setRel = (rel: "prev" | "next", href: string | null) => {
+      const existing = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+      if (!href) {
+        existing?.remove();
+        return;
+      }
+      const el = existing ?? document.createElement("link");
+      el.rel = rel;
+      el.href = href;
+      if (!existing) document.head.appendChild(el);
+    };
+    setRel("prev", page > 1 ? (page === 2 ? URL_BASE : `${URL_BASE}?page=${page - 1}`) : null);
+    setRel("next", page < totalPages ? `${URL_BASE}?page=${page + 1}` : null);
 
     const ldId = "blog-index-jsonld";
     document.getElementById(ldId)?.remove();
