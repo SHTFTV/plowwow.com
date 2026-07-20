@@ -56,6 +56,9 @@ const App = () => (
           <Route path="/burnaby" element={<Burnaby />} />
           <Route path="/seo-report" element={<SeoReport />} />
           <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/tag/:tagSlug" element={<BlogIndex />} />
+          <Route path="/blog/tag/:tagSlug/" element={<BlogIndex />} />
+
           <Route path="/intelligence" element={<Intelligence />} />
           <Route path="/advanced-technology" element={<AppFeatures />} />
           <Route path="/guest-post" element={<GuestPost />} />
