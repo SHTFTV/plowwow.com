@@ -383,13 +383,15 @@ const BlogIndex = () => {
       if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
       el.href = href;
     };
-    const URL_BASE = "https://plowwow.com/blog";
-    // Self-referencing canonical for tag-listing + paginated variants so
-    // /blog?cat=Strata doesn't consolidate into /blog. Order: cat, then page.
+    const URL_ROOT = "https://plowwow.com/blog";
+    // Self-referencing canonical. Path-based tag routes (/blog/tag/<slug>/)
+    // own their own canonical; the /blog root uses ?cat= + ?page= variants.
+    const URL_BASE = tagSlug ? `${URL_ROOT}/tag/${tagSlug}` : URL_ROOT;
     const qs: string[] = [];
-    if (activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
+    if (!tagSlug && activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
     if (page > 1) qs.push(`page=${page}`);
     const URL_ABS = qs.length ? `${URL_BASE}?${qs.join("&")}` : URL_BASE;
+
     const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
