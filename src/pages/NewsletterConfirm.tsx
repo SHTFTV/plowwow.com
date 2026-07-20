@@ -1,8 +1,177 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle2, XCircle, Loader2, Mail } from "lucide-react";
+import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPageMeta } from "@/lib/pageMeta";
+
+// Client-side cooldown between resend attempts. The edge function also enforces
+// a 30s cooldown per email so a single-page abuser can't just refresh.
+const RESEND_COOLDOWN_MS = 60_000;
+
+const emailSchema = z
+  .string()
+  .trim()
+  .email({ message: "Enter a valid email address" })
+  .max(254, { message: "Email is too long" });
+
+type ResendStatus =
+  | { kind: "idle" }
+  | { kind: "loading" }
+  | { kind: "sent" }
+  | { kind: "cooldown"; secondsLeft: number }
+  | { kind: "error"; message: string };
+
+// A small inline "resend confirmation" form shared by the expired/invalid
+// states. It handles its own rate-limit UX so the parent stays declarative.
+const ResendConfirmationForm = ({
+  headline,
+  defaultEmail = "",
+}: {
+  headline: string;
+  defaultEmail?: string;
+}) => {
+  const [email, setEmail] = useState(defaultEmail);
+  const [status, setStatus] = useState<ResendStatus>({ kind: "idle" });
+
+  const startCooldown = () => {
+    let seconds = Math.floor(RESEND_COOLDOWN_MS / 1000);
+    setStatus({ kind: "cooldown", secondsLeft: seconds });
+    const id = setInterval(() => {
+      seconds -= 1;
+      if (seconds <= 0) {
+        clearInterval(id);
+        setStatus({ kind: "idle" });
+      } else {
+        setStatus({ kind: "cooldown", secondsLeft: seconds });
+      }
+    }, 1000);
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status.kind === "loading" || status.kind === "cooldown") return;
+    const parsed = emailSchema.safeParse(email);
+    if (!parsed.success) {
+      setStatus({
+        kind: "error",
+        message: parsed.error.issues[0]?.message ?? "Invalid email",
+      });
+      return;
+    }
+    setStatus({ kind: "loading" });
+    const { data, error } = await supabase.functions.invoke(
+      "newsletter-subscribe",
+      { body: { email: parsed.data.toLowerCase(), source: "confirm-resend" } },
+    );
+    if (error) {
+      // Read the real failure text out of the FunctionsHttpError context.
+      const anyErr = error as { context?: { text?: () => Promise<string> } };
+      let raw = "";
+      try {
+        raw = (await anyErr.context?.text?.()) ?? "";
+      } catch {
+        /* ignore */
+      }
+      let code = "";
+      try {
+        code = JSON.parse(raw)?.error ?? "";
+      } catch {
+        /* ignore */
+      }
+      if (code === "too_soon") {
+        // Server said slow down — mirror it as a cooldown.
+        startCooldown();
+        return;
+      }
+      setStatus({
+        kind: "error",
+        message:
+          code === "invalid_email"
+            ? "That email doesn't look valid."
+            : "Couldn't resend the confirmation. Please try again in a moment.",
+      });
+      return;
+    }
+    // Success (both `confirmation_sent` and `already_confirmed`) → cool down
+    // the button so the user can't hammer it.
+    if ((data as { status?: string })?.status === "already_confirmed") {
+      setStatus({ kind: "sent" });
+      return;
+    }
+    setStatus({ kind: "sent" });
+    startCooldown();
+  };
+
+  const disabled = status.kind === "loading" || status.kind === "cooldown";
+  const buttonLabel =
+    status.kind === "cooldown"
+      ? `Resend in ${status.secondsLeft}s`
+      : status.kind === "loading"
+      ? "Sending…"
+      : status.kind === "sent"
+      ? "Sent — check your inbox"
+      : "Resend confirmation email";
+
+  return (
+    <form onSubmit={onSubmit} className="mt-2 space-y-2 text-left" aria-label={headline}>
+      <label htmlFor="resend-email" className="text-xs font-medium block">
+        {headline}
+      </label>
+      <div className="flex gap-2">
+        <div className="relative flex-1">
+          <Mail
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 opacity-60"
+            aria-hidden
+          />
+          <input
+            id="resend-email"
+            type="email"
+            autoComplete="email"
+            required
+            maxLength={254}
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={status.kind === "loading"}
+            className="w-full rounded-md border border-border bg-background pl-8 pr-3 py-2 text-sm"
+            aria-invalid={status.kind === "error"}
+            aria-describedby="resend-status"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={disabled}
+          className="rounded-md bg-primary text-primary-foreground px-3 py-2 text-sm font-medium disabled:opacity-60 whitespace-nowrap"
+        >
+          {status.kind === "loading" ? (
+            <Loader2 className="w-4 h-4 animate-spin inline mr-1" aria-hidden />
+          ) : null}
+          {buttonLabel}
+        </button>
+      </div>
+      <div
+        id="resend-status"
+        role="status"
+        aria-live="polite"
+        className={`text-xs min-h-[1rem] ${
+          status.kind === "error"
+            ? "text-destructive"
+            : status.kind === "sent"
+            ? "text-primary"
+            : "opacity-70"
+        }`}
+      >
+        {status.kind === "error" && status.message}
+        {status.kind === "sent" &&
+          "Confirmation email sent. Check your inbox (including spam)."}
+        {status.kind === "cooldown" &&
+          `Please wait ${status.secondsLeft}s before requesting another email.`}
+      </div>
+    </form>
+  );
+};
+
 
 type State =
   | { kind: "loading" }
