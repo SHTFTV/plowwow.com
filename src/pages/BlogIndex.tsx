@@ -386,13 +386,27 @@ const BlogIndex = () => {
       el.href = href;
     };
     const URL_ROOT = "https://plowwow.com/blog";
-    // Self-referencing canonical. Path-based tag routes (/blog/tag/<slug>/)
-    // own their own canonical; the /blog root uses ?cat= + ?page= variants.
-    const URL_BASE = tagSlug ? `${URL_ROOT}/tag/${tagSlug}` : URL_ROOT;
+    // Reverse map: category label → path slug. Keeps canonical selection in
+    // sync with TAG_SLUG_TO_LABEL above.
+    const CAT_TO_SLUG: Record<string, string> = {
+      Neighborhoods: "neighborhoods",
+      Strata: "strata",
+      Commercial: "commercial",
+      "Tips & News": "tips-news",
+    };
+    // Canonical policy: any filtered listing resolves to the path-based
+    // `/blog/tag/<slug>/` URL — that's the single indexable variant
+    // regardless of whether the user arrived via `?cat=` or the pretty path.
+    // Pagination is appended as `?page=N`. Root `/blog` stays at `/blog`.
+    const canonicalSlug =
+      tagSlug ?? (activeCat !== "All" ? CAT_TO_SLUG[activeCat] : null);
+    const URL_BASE = canonicalSlug
+      ? `${URL_ROOT}/tag/${canonicalSlug}/`
+      : URL_ROOT;
     const qs: string[] = [];
-    if (!tagSlug && activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
     if (page > 1) qs.push(`page=${page}`);
     const URL_ABS = qs.length ? `${URL_BASE}?${qs.join("&")}` : URL_BASE;
+
 
     const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
