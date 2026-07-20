@@ -133,6 +133,15 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
   const dates = kind === "blog" ? blogDatesBySlug[slug] : undefined;
   const wasUpdated =
     !!dates && !!dates.updatedAt && dates.updatedAt !== dates.publishedAt;
+  const readingMinutes =
+    kind === "blog"
+      ? Math.max(
+          1,
+          Math.round(
+            body.replace(/[#>*_`\[\]()!]/g, " ").trim().split(/\s+/).filter(Boolean).length / 220,
+          ),
+        )
+      : 0;
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -276,6 +285,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             }
           : {}),
         mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl },
+        timeRequired: `PT${readingMinutes}M`,
       });
       document.head.appendChild(art);
 
@@ -352,7 +362,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       document.getElementById(crumbId)?.remove();
       document.getElementById("legacy-page-service-jsonld")?.remove();
     };
-  }, [title, description, faqs, kind, slug, body]);
+  }, [title, description, faqs, kind, slug, body, readingMinutes]);
 
 
 
@@ -386,6 +396,12 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
                     Updated {formatDate(dates.updatedAt)}
                   </time>
                 )}
+                <span
+                  aria-label={`Estimated reading time ${readingMinutes} minutes`}
+                  className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1 font-bold uppercase tracking-wider text-muted-foreground"
+                >
+                  {readingMinutes} min read
+                </span>
               </div>
             )}
           </div>
