@@ -28,6 +28,7 @@
     "seo:html-lang": "tsx scripts/html-lang-validate.ts",
     "seo:og-image": "tsx scripts/og-image-reachable.ts",
     "seo:robots-sitemap": "tsx scripts/robots-sitemap-fetch.ts",
+    "seo:validate-sitemap": "tsx scripts/validate-sitemap.ts",
     "seo:robots-directives": "tsx scripts/robots-directives-validate.ts",
     "seo:legacy-redirects": "tsx scripts/verify-legacy-redirects.ts",
     "seo:validator-summary": "tsx scripts/validator-summary.ts",

@@ -61,6 +61,51 @@ jobs:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || 'https://whrkfrewwstxgqoourwl.supabase.co' }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
+  blog-canonical-regression:
+    name: Blog filter canonical regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('bun.lock', 'bun.lockb') }}
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+      # This test guards the self-referencing canonicals on every blog index
+      # filter combination (cat / page / tag / neighborhood). Fails the build
+      # if any variant regresses to a non-self-referencing canonical.
+      - name: Blog filter canonical test
+        run: bunx vitest run src/test/blog-filter-canonical.test.tsx
+
+  sitemap-live-validate:
+    name: Live sitemap + robots validation
+    runs-on: ubuntu-latest
+    # Only against production — PR builds don't have a public URL yet.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('bun.lock', 'bun.lockb') }}
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+      - name: Validate live sitemap + robots
+        run: bun run seo:validate-sitemap -- --base=https://plowwow.com --sample=10
+
   e2e:
     name: E2E Tests
     runs-on: ubuntu-latest
