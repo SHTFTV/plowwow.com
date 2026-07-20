@@ -397,6 +397,8 @@ const BlogIndex = () => {
       document.getElementById(ldId)?.remove();
       document.getElementById(wpId)?.remove();
       document.getElementById(bcId)?.remove();
+      document.querySelector('link[rel="prev"]')?.remove();
+      document.querySelector('link[rel="next"]')?.remove();
     };
   }, [page, totalPages]);
 
