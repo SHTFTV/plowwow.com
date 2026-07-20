@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const propertyTypes = [
   { label: "Strata Complexes", href: "/strata-complexes" },
