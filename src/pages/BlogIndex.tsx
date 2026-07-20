@@ -496,16 +496,19 @@ const BlogIndex = () => {
     bc.id = bcId;
     const crumbs: any[] = [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: URL_BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: URL_ROOT },
     ];
     if (activeCat !== "All") {
       crumbs.push({
         "@type": "ListItem",
         position: 3,
         name: activeCat,
-        item: `${URL_BASE}?cat=${encodeURIComponent(activeCat)}`,
+        item: tagSlug
+          ? `${URL_ROOT}/tag/${tagSlug}`
+          : `${URL_ROOT}?cat=${encodeURIComponent(activeCat)}`,
       });
     }
+
     bc.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
