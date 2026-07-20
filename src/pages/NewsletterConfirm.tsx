@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { CheckCircle2, XCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { setPageMeta } from "@/lib/pageMeta";
+import { applyPageMeta } from "@/lib/pageMeta";
 
 type State =
   | { kind: "loading" }
