@@ -1297,6 +1297,20 @@ const BlogIndex = () => {
                       to={`/${slug}`}
                       aria-current={isActive ? "true" : undefined}
                       onMouseEnter={() => setActiveIndex(i)}
+                      onClick={() => {
+                        // Only count as a "highlighted result click" when the
+                        // user is actively searching — that's what measures
+                        // fuzzy-match effectiveness.
+                        if (query) {
+                          trackBlogSearchResultClick({
+                            slug,
+                            query,
+                            position: start + i + 1,
+                            total: posts.length,
+                          });
+                        }
+                      }}
+
                       className={`group flex flex-col rounded-2xl border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all ${
                         isActive
                           ? "border-primary ring-2 ring-primary/40 shadow-md"
