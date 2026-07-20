@@ -1,4 +1,6 @@
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { trackBlogSearchQuery, trackBlogSearchResultClick } from "@/lib/analytics";
+
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
