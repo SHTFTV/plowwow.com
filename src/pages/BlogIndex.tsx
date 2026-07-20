@@ -727,7 +727,10 @@ const BlogIndex = () => {
     // Searching always resets pagination back to page 1.
     params.delete("page");
     setSearchParams(params, { replace: true });
+    // Analytics: fires once per settled query (post-debounce).
+    if (trimmed) trackBlogSearchQuery(trimmed, visibleRef.current.length);
   };
+
 
   const onDraftChange = (next: string) => {
     setDraft(next);
