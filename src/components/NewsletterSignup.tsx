@@ -32,26 +32,25 @@ const NewsletterSignup = ({ source = "footer" }: Props) => {
     }
     setStatus("loading");
     setMessage("");
-    const ua =
-      typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null;
-    const { error } = await supabase
-      .from("newsletter_signups")
-      .insert({ email: parsed.data.email.toLowerCase(), source, user_agent: ua });
+    const { data, error } = await supabase.functions.invoke("newsletter-subscribe", {
+      body: { email: parsed.data.email.toLowerCase(), source },
+    });
     if (error) {
-      // Treat unique-constraint violation as success — same email, same list.
-      if ((error as { code?: string }).code === "23505") {
-        setStatus("success");
-        setMessage("You're already on the list — thanks!");
-        return;
-      }
       setStatus("error");
       setMessage("Sign-up failed. Please try again in a moment.");
       return;
     }
+    if ((data as { status?: string })?.status === "already_confirmed") {
+      setStatus("success");
+      setMessage("You're already subscribed — thanks!");
+      setEmail("");
+      return;
+    }
     setStatus("success");
-    setMessage("Thanks — you're subscribed.");
+    setMessage("Check your inbox — click the link to confirm your subscription.");
     setEmail("");
   };
+
 
   return (
     <form onSubmit={onSubmit} className="space-y-2" aria-label="Newsletter signup">
