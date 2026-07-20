@@ -19,6 +19,34 @@ Deno.serve(async (req) => {
   const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
   const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+  const CRON_SECRET = Deno.env.get("CRON_SECRET");
+
+  // Auth: accept a matching x-cron-secret header, or an admin JWT.
+  const providedCronSecret = req.headers.get("x-cron-secret");
+  let authorized = !!(CRON_SECRET && providedCronSecret && providedCronSecret === CRON_SECRET);
+  if (!authorized) {
+    const authHeader = req.headers.get("Authorization") ?? "";
+    if (authHeader.startsWith("Bearer ")) {
+      try {
+        const anon = createClient(SUPABASE_URL, Deno.env.get("SUPABASE_ANON_KEY")!, {
+          global: { headers: { Authorization: authHeader } },
+        });
+        const token = authHeader.slice("Bearer ".length);
+        const { data: claimsRes } = await anon.auth.getClaims(token);
+        const uid = claimsRes?.claims?.sub;
+        if (uid) {
+          const adminCheck = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
+          const { data: isAdmin } = await adminCheck
+            .schema("private")
+            .rpc("has_role", { _user_id: uid, _role: "admin" });
+          if (isAdmin === true) authorized = true;
+        }
+      } catch (_) {
+        // fall through to unauthorized
+      }
+    }
+  }
+  if (!authorized) return json(401, { error: "unauthorized" });
 
   const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
   const privateDb = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, { db: { schema: "private" } });
