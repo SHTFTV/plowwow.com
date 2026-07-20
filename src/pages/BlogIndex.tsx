@@ -111,6 +111,48 @@ const tokenize = (query: string) => {
   return Array.from(new Set(terms));
 };
 
+// --- Fuzzy matching --------------------------------------------------------
+// Small Levenshtein helper: a term matches if the haystack contains it OR any
+// tokenized word is within a small edit distance (1 for 4–5 char terms, 2 for
+// 6+). Cheap, dependency-free, gives basic typo tolerance for the blog search.
+const levenshtein = (a: string, b: string): number => {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  const m = a.length, n = b.length;
+  let prev = new Array<number>(n + 1);
+  let cur = new Array<number>(n + 1);
+  for (let j = 0; j <= n; j++) prev[j] = j;
+  for (let i = 1; i <= m; i++) {
+    cur[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const cost = a.charCodeAt(i - 1) === b.charCodeAt(j - 1) ? 0 : 1;
+      cur[j] = Math.min(cur[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost);
+    }
+    [prev, cur] = [cur, prev];
+  }
+  return prev[n];
+};
+const fuzzyThreshold = (term: string) => (term.length >= 6 ? 2 : term.length >= 4 ? 1 : 0);
+const splitTokens = (h: string) => h.split(/[^a-z0-9]+/).filter(Boolean);
+const matchesTerm = (term: string, haystack: string, tokens: string[]): boolean => {
+  if (haystack.includes(term)) return true;
+  const thr = fuzzyThreshold(term);
+  if (thr === 0) return false;
+  for (const tok of tokens) {
+    if (Math.abs(tok.length - term.length) > thr) continue;
+    if (levenshtein(tok, term) <= thr) return true;
+  }
+  // Also allow fuzzy against sliding windows of the joined haystack for
+  // multi-word queries entered with quotes: "vancouvr strata".
+  if (term.includes(" ")) {
+    for (const tok of tokens) {
+      if (levenshtein(tok, term.replace(/\s+/g, "")) <= thr) return true;
+    }
+  }
+  return false;
+};
+
 const highlight = (text: string, query: string) => {
   const terms = tokenize(query);
   if (terms.length === 0) return text;
