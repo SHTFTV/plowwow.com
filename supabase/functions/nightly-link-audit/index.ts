@@ -11,8 +11,43 @@ import { createClient } from 'npm:@supabase/supabase-js@2';
 const SITE_URL = 'https://plowwow.com';
 const AUDIT_URL = `${SITE_URL}/link-audit.json`;
 
+const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
+const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+
+async function isAuthorized(req: Request): Promise<boolean> {
+  const CRON_SECRET = Deno.env.get('CRON_SECRET');
+  const providedCronSecret = req.headers.get('x-cron-secret');
+  if (CRON_SECRET && providedCronSecret && providedCronSecret === CRON_SECRET) return true;
+
+  const authHeader = req.headers.get('Authorization') ?? '';
+  if (!authHeader.startsWith('Bearer ')) return false;
+  try {
+    const anon = createClient(SUPABASE_URL, Deno.env.get('SUPABASE_ANON_KEY')!, {
+      global: { headers: { Authorization: authHeader } },
+    });
+    const token = authHeader.slice('Bearer '.length);
+    const { data: claimsRes } = await anon.auth.getClaims(token);
+    const uid = claimsRes?.claims?.sub;
+    if (!uid) return false;
+    const admin = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
+    const { data: isAdmin } = await admin
+      .schema('private')
+      .rpc('has_role', { _user_id: uid, _role: 'admin' });
+    return isAdmin === true;
+  } catch {
+    return false;
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
+
+  if (!(await isAuthorized(req))) {
+    return new Response(
+      JSON.stringify({ error: 'unauthorized' }),
+      { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
+    );
+  }
 
   try {
     const resp = await fetch(AUDIT_URL, { cache: 'no-store' });
