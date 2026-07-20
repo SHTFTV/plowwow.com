@@ -64,6 +64,16 @@ const Footer = () => (
             <li><a href="/#services" className="hover:text-primary transition-colors">Services</a></li>
             <li><a href="/#service-areas" className="hover:text-primary transition-colors">Service Areas</a></li>
             <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+            <li>
+              <a
+                href="/rss.xml"
+                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                aria-label="Subscribe to the PlowWow blog RSS feed"
+              >
+                <Rss className="w-3.5 h-3.5" aria-hidden="true" />
+                Subscribe (RSS)
+              </a>
+            </li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
             <li><Link to="/app-features" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
