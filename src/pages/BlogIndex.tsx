@@ -523,7 +523,7 @@ const BlogIndex = () => {
       document.querySelector('link[rel="prev"]')?.remove();
       document.querySelector('link[rel="next"]')?.remove();
     };
-  }, [page, totalPages, activeCat, posts.length, visible, sortBy, start]);
+  }, [page, totalPages, activeCat, posts.length, visible, sortBy, start, tagSlug]);
 
 
   const goTo = (next: number) => {
