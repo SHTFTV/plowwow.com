@@ -18,13 +18,14 @@ const NewsletterConfirm = () => {
   const [state, setState] = useState<State>({ kind: "loading" });
 
   useEffect(() => {
-    setPageMeta({
+    applyPageMeta({
       title: "Confirm your subscription — PlowWow",
       description:
         "Confirming your PlowWow newsletter subscription so you can start receiving snow-season updates.",
-      canonicalPath: "/newsletter/confirm",
+      path: "/newsletter/confirm",
       noindex: true,
     });
+
   }, []);
 
   useEffect(() => {
