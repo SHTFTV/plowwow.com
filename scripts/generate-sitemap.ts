@@ -62,9 +62,39 @@ const cityRoutes = routes.filter((r) => r.kind === "city");
 const blogRoutes = routes.filter((r) => r.kind === "legacy-blog");
 const pageRoutes = routes.filter((r) => r.kind === "legacy-page");
 
+// Neighborhood posts = blog posts whose slug matches a known neighborhood/city
+// token. Kept in sync (by hand) with NEIGHBORHOOD_HINTS in src/pages/BlogIndex.tsx.
+const NEIGHBORHOOD_HINTS = [
+  "burnaby", "vancouver", "richmond", "surrey", "delta", "langley", "coquitlam",
+  "port-coquitlam", "port-moody", "maple-ridge", "pitt-meadows", "new-westminster",
+  "north-vancouver", "west-vancouver", "squamish", "tsawwassen", "abbotsford",
+  "chilliwack", "mission", "white-rock", "anmore", "belcarra", "lynn-valley",
+  "steveston", "fort-langley", "cloverdale", "metrotown", "kerrisdale",
+  "shaughnessy", "killarney", "edmonds", "burquitlam", "champlain", "renfrew",
+  "kensington", "arbutus", "sapperton", "burke-mountain", "heritage-mountain",
+  "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
+  "deep-cove", "lonsdale", "queensborough", "fleetwood", "ladner",
+];
+const neighborhoodRoutes = blogRoutes.filter((r) => {
+  const slug = r.path.replace(/^\/(blog\/)?/, "").replace(/\/$/, "").toLowerCase();
+  return NEIGHBORHOOD_HINTS.some((h) => slug.includes(h));
+});
+
+// Tag / category listing pages served by BlogIndex via ?cat=. Search engines
+// treat these as distinct listing pages worth crawling.
+const BLOG_TAGS = ["Neighborhoods", "Strata", "Commercial", "Tips & News"];
+const tagRoutes: RouteMeta[] = BLOG_TAGS.map((t) => ({
+  path: `/blog?cat=${encodeURIComponent(t)}`,
+  title: `${t} — PlowWow Blog`,
+  description: `${t} posts on the PlowWow blog.`,
+  kind: "static" as const,
+}));
+
 writeUrlset("sitemap-static.xml", staticRoutes);
 writeUrlset("sitemap-cities.xml", cityRoutes);
 writeUrlset("sitemap-blog.xml", blogRoutes);
+if (neighborhoodRoutes.length) writeUrlset("sitemap-neighborhoods.xml", neighborhoodRoutes);
+writeUrlset("sitemap-tags.xml", tagRoutes);
 if (pageRoutes.length) writeUrlset("sitemap-pages.xml", pageRoutes);
 
 // --- Sitemap index -------------------------------------------------------------
@@ -72,6 +102,8 @@ const children = [
   "sitemap-static.xml",
   "sitemap-cities.xml",
   "sitemap-blog.xml",
+  neighborhoodRoutes.length ? "sitemap-neighborhoods.xml" : null,
+  "sitemap-tags.xml",
   pageRoutes.length ? "sitemap-pages.xml" : null,
   existsSync(resolve("public/sitemap-images.xml")) ? "sitemap-images.xml" : null,
 ].filter(Boolean) as string[];
