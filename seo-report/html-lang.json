@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-19T20:37:53.314Z",
+  "generatedAt": "2026-07-20T02:25:25.864Z",
   "expectedLang": "en-CA",
-  "total": 293,
+  "total": 302,
   "failed": 0,
   "results": [
     {
@@ -102,6 +102,18 @@
     },
     {
       "url": "https://plowwow.com/seo-report/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/author/plowwow-team/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -701,6 +713,18 @@
       "issues": []
     },
     {
+      "url": "https://plowwow.com/edgemont-village-north-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
       "url": "https://plowwow.com/edmonds-burnaby-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
@@ -714,6 +738,18 @@
     },
     {
       "url": "https://plowwow.com/false-creek-vancouver-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/fleetwood-surrey-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -882,6 +918,18 @@
     },
     {
       "url": "https://plowwow.com/kitsilano-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/ladner-delta-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -1182,6 +1230,18 @@
     },
     {
       "url": "https://plowwow.com/promontory-chilliwack-strata-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/queensborough-new-westminster-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -1698,6 +1758,54 @@
     },
     {
       "url": "https://plowwow.com/yaletown-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/tag/neighborhoods/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/tag/strata/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/tag/commercial/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/tag/tips-news/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",

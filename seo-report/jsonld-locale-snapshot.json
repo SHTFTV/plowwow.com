@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T20:37:50.792Z",
+  "generatedAt": "2026-07-20T02:25:23.711Z",
   "locales": [
     "en-CA",
     "en"
@@ -198,6 +198,15 @@
         "hasAggregateRating": true
       }
     },
+    "/author/plowwow-team/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
     "/belcarra-snow-removal/": {
       "BreadcrumbList": {
         "length": 2
@@ -208,6 +217,42 @@
       }
     },
     "/blog/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/tag/commercial/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/tag/neighborhoods/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/tag/strata/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/tag/tips-news/": {
       "BreadcrumbList": {
         "length": 2
       },
@@ -1113,6 +1158,33 @@
         "hasAggregateRating": true
       }
     },
+    "/edgemont-village-north-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/edgemont-village-north-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/edmonds-burnaby-strata-commercial-snow-removal/": {
       "BlogPosting": {
         "fields": [
@@ -1163,6 +1235,33 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/false-creek-vancouver-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/fleetwood-surrey-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/fleetwood-surrey-strata-commercial-snow-removal/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }
@@ -1604,6 +1703,33 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/kitsilano-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/ladner-delta-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/ladner-delta-strata-commercial-snow-removal/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }
@@ -2518,6 +2644,33 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/promontory-chilliwack-strata-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/queensborough-new-westminster-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/queensborough-new-westminster-strata-commercial-snow-removal/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }
