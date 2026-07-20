@@ -255,10 +255,23 @@ const BlogIndex = () => {
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
 
-  const rawCat = searchParams.get("cat") ?? "All";
+  // Category comes from either the URL path (`/blog/tag/<slug>/`) or the
+  // `?cat=` query string. Path-based tag routes prerender to their own
+  // directories with self-referencing canonicals.
+  const TAG_SLUG_TO_LABEL: Record<string, Category> = {
+    neighborhoods: "Neighborhoods",
+    strata: "Strata",
+    commercial: "Commercial",
+    "tips-news": "Tips & News",
+  };
+  const tagSlugMatch = location.pathname.match(/^\/blog\/tag\/([^/]+)\/?$/);
+  const tagSlug = tagSlugMatch ? tagSlugMatch[1] : null;
+  const tagFromPath = tagSlug ? TAG_SLUG_TO_LABEL[tagSlug] ?? null : null;
+  const rawCat = tagFromPath ?? searchParams.get("cat") ?? "All";
   const activeCat: Category = (BLOG_CATEGORIES as string[]).includes(rawCat)
     ? (rawCat as Category)
     : "All";
+
 
   // Per-post category, memoized so chip filtering and badge rendering share
   // the same derivation without re-parsing markdown on every render.
@@ -370,13 +383,15 @@ const BlogIndex = () => {
       if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
       el.href = href;
     };
-    const URL_BASE = "https://plowwow.com/blog";
-    // Self-referencing canonical for tag-listing + paginated variants so
-    // /blog?cat=Strata doesn't consolidate into /blog. Order: cat, then page.
+    const URL_ROOT = "https://plowwow.com/blog";
+    // Self-referencing canonical. Path-based tag routes (/blog/tag/<slug>/)
+    // own their own canonical; the /blog root uses ?cat= + ?page= variants.
+    const URL_BASE = tagSlug ? `${URL_ROOT}/tag/${tagSlug}` : URL_ROOT;
     const qs: string[] = [];
-    if (activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
+    if (!tagSlug && activeCat !== "All") qs.push(`cat=${encodeURIComponent(activeCat)}`);
     if (page > 1) qs.push(`page=${page}`);
     const URL_ABS = qs.length ? `${URL_BASE}?${qs.join("&")}` : URL_BASE;
+
     const OG_IMAGE = "https://plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
@@ -403,10 +418,11 @@ const BlogIndex = () => {
     // category filter across pages so crawlers stay within the same listing.
     const pagedUrl = (n: number) => {
       const p: string[] = [];
-      if (activeCat !== "All") p.push(`cat=${encodeURIComponent(activeCat)}`);
+      if (!tagSlug && activeCat !== "All") p.push(`cat=${encodeURIComponent(activeCat)}`);
       if (n > 1) p.push(`page=${n}`);
       return p.length ? `${URL_BASE}?${p.join("&")}` : URL_BASE;
     };
+
     const setRel = (rel: "prev" | "next", href: string | null) => {
       const existing = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
       if (!href) { existing?.remove(); return; }
@@ -480,16 +496,19 @@ const BlogIndex = () => {
     bc.id = bcId;
     const crumbs: any[] = [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: URL_BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: URL_ROOT },
     ];
     if (activeCat !== "All") {
       crumbs.push({
         "@type": "ListItem",
         position: 3,
         name: activeCat,
-        item: `${URL_BASE}?cat=${encodeURIComponent(activeCat)}`,
+        item: tagSlug
+          ? `${URL_ROOT}/tag/${tagSlug}`
+          : `${URL_ROOT}?cat=${encodeURIComponent(activeCat)}`,
       });
     }
+
     bc.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -504,7 +523,7 @@ const BlogIndex = () => {
       document.querySelector('link[rel="prev"]')?.remove();
       document.querySelector('link[rel="next"]')?.remove();
     };
-  }, [page, totalPages, activeCat, posts.length, visible, sortBy, start]);
+  }, [page, totalPages, activeCat, posts.length, visible, sortBy, start, tagSlug]);
 
 
   const goTo = (next: number) => {

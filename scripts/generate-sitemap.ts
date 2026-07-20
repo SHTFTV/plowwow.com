@@ -92,22 +92,18 @@ const neighborhoodRoutes = blogRoutes.filter((r) => {
   return NEIGHBORHOOD_HINTS.some((h) => slug.includes(h));
 });
 
-// Tag / category listing pages served by BlogIndex via ?cat=. Search engines
-// treat these as distinct listing pages worth crawling.
-const BLOG_TAGS = ["Neighborhoods", "Strata", "Commercial", "Tips & News"];
-const tagRoutes: RouteMeta[] = BLOG_TAGS.map((t) => ({
-  path: `/blog?cat=${encodeURIComponent(t)}`,
-  title: `${t} — PlowWow Blog`,
-  description: `${t} posts on the PlowWow blog.`,
-  kind: "static" as const,
-}));
+// Blog tag / category listing pages are now path-based static routes
+// (`/blog/tag/<slug>/`), so they flow through `staticRoutes` above and each
+// has its own prerendered directory with a self-referencing canonical.
+const tagRoutes: RouteMeta[] = staticRoutes.filter((r) => r.path.startsWith("/blog/tag/"));
 
-writeUrlset("sitemap-static.xml", staticRoutes);
+writeUrlset("sitemap-static.xml", staticRoutes.filter((r) => !r.path.startsWith("/blog/tag/")));
 writeUrlset("sitemap-cities.xml", cityRoutes);
 writeUrlset("sitemap-blog.xml", blogRoutes);
 if (neighborhoodRoutes.length) writeUrlset("sitemap-neighborhoods.xml", neighborhoodRoutes);
 writeUrlset("sitemap-tags.xml", tagRoutes);
 if (pageRoutes.length) writeUrlset("sitemap-pages.xml", pageRoutes);
+
 
 // --- Sitemap index -------------------------------------------------------------
 const children = [

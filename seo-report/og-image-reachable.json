@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-19T20:37:54.047Z",
-  "total": 202,
+  "generatedAt": "2026-07-20T02:25:26.566Z",
+  "total": 210,
   "failed": 0,
-  "warnings": 118,
+  "warnings": 126,
   "minDimensions": "600x315",
   "recommendedDimensions": "1200x630",
   "results": [
@@ -18,8 +18,13 @@
         "anmore-snow-removal/index.html",
         "apartment-complexes/index.html",
         "app/index.html",
+        "author/plowwow-team/index.html",
         "belcarra-snow-removal/index.html",
         "blog/index.html",
+        "blog/tag/commercial/index.html",
+        "blog/tag/neighborhoods/index.html",
+        "blog/tag/strata/index.html",
+        "blog/tag/tips-news/index.html",
         "buckingham-heights-burnaby/index.html",
         "burke-mountain-snow/index.html",
         "burnaby-snow-removal/index.html",
@@ -118,8 +123,13 @@
         "anmore-snow-removal/index.html",
         "apartment-complexes/index.html",
         "app/index.html",
+        "author/plowwow-team/index.html",
         "belcarra-snow-removal/index.html",
         "blog/index.html",
+        "blog/tag/commercial/index.html",
+        "blog/tag/neighborhoods/index.html",
+        "blog/tag/strata/index.html",
+        "blog/tag/tips-news/index.html",
         "buckingham-heights-burnaby/index.html",
         "burke-mountain-snow/index.html",
         "burnaby-snow-removal/index.html",
@@ -1321,6 +1331,44 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "edgemont-village-north-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "edgemont-village-north-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -1384,6 +1432,44 @@
         "extFormat": "jpeg",
         "status": 200,
         "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "fleetwood-surrey-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "fleetwood-surrey-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
         "width": 1376,
         "height": 768
       }
@@ -1748,6 +1834,44 @@
         "extFormat": "jpeg",
         "status": 200,
         "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "ladner-delta-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "ladner-delta-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
         "width": 1376,
         "height": 768
       }
@@ -2666,6 +2790,44 @@
         "extFormat": "jpeg",
         "status": 200,
         "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "queensborough-new-westminster-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "queensborough-new-westminster-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/png",
         "width": 1376,
         "height": 768
       }
