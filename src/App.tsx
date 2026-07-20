@@ -63,6 +63,8 @@ const App = () => (
           <Route path="/takeoff" element={<Takeoff />} />
           <Route path="/quote" element={<Quote />} />
           <Route path="/locations" element={<Locations />} />
+          <Route path="/author/:slug" element={<AuthorPage />} />
+          <Route path="/author/:slug/" element={<AuthorPage />} />
           {legacyPageSlugs.map((slug) => (
             <Route
               key={`page-${slug}`}
