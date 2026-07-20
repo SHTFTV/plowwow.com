@@ -124,7 +124,38 @@ export function collectRoutes(): RouteMeta[] {
       kind: "static",
     },
   ];
+
+  // Blog tag / category listing pages served by BlogIndex. Path-based so
+  // each prerenders to its own directory with a self-referencing canonical
+  // (query-string variants can't have distinct static canonicals).
+  const BLOG_TAGS: Array<{ slug: string; label: string }> = [
+    { slug: "neighborhoods", label: "Neighborhoods" },
+    { slug: "strata", label: "Strata" },
+    { slug: "commercial", label: "Commercial" },
+    { slug: "tips-news", label: "Tips & News" },
+  ];
+  for (const t of BLOG_TAGS) {
+    staticRoutes.push({
+      path: `/blog/tag/${t.slug}`,
+      title: `${t.label} Snow Removal Guides | PlowWow Blog`,
+      description: `${t.label} posts on the PlowWow blog — neighborhood-by-neighborhood snow removal, strata liability, and seasonal contract guides for Greater Vancouver.`,
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    });
+  }
+
+  // Author profile pages (Person JSON-LD + ItemList of posts by that author).
+  staticRoutes.push({
+    path: "/author/plowwow-team",
+    title: "PlowWow Team — Snow Ops Writers | PlowWow",
+    description:
+      "PlowWow's editorial team publishes neighborhood snow contract guides, strata liability tips, and winter operations content for Greater Vancouver.",
+    ogImage: `${BASE_URL}/og-default.jpg`,
+    kind: "static",
+  });
+
   routes.push(...staticRoutes);
+
 
   // Cities (from src/data/cities.ts)
   for (const c of cities) {
