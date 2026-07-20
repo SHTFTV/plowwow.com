@@ -255,10 +255,23 @@ const BlogIndex = () => {
   const query = (searchParams.get("q") ?? "").trim();
   const terms = useMemo(() => tokenize(query), [query]);
 
-  const rawCat = searchParams.get("cat") ?? "All";
+  // Category comes from either the URL path (`/blog/tag/<slug>/`) or the
+  // `?cat=` query string. Path-based tag routes prerender to their own
+  // directories with self-referencing canonicals.
+  const TAG_SLUG_TO_LABEL: Record<string, Category> = {
+    neighborhoods: "Neighborhoods",
+    strata: "Strata",
+    commercial: "Commercial",
+    "tips-news": "Tips & News",
+  };
+  const tagSlugMatch = location.pathname.match(/^\/blog\/tag\/([^/]+)\/?$/);
+  const tagSlug = tagSlugMatch ? tagSlugMatch[1] : null;
+  const tagFromPath = tagSlug ? TAG_SLUG_TO_LABEL[tagSlug] ?? null : null;
+  const rawCat = tagFromPath ?? searchParams.get("cat") ?? "All";
   const activeCat: Category = (BLOG_CATEGORIES as string[]).includes(rawCat)
     ? (rawCat as Category)
     : "All";
+
 
   // Per-post category, memoized so chip filtering and badge rendering share
   // the same derivation without re-parsing markdown on every render.
