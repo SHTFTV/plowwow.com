@@ -290,7 +290,8 @@ const BlogIndex = () => {
         " " +
         summaryFor(slug)
       ).toLowerCase();
-      return terms.every((t) => haystack.includes(t));
+      const tokens = splitTokens(haystack);
+      return terms.every((t) => matchesTerm(t, haystack, tokens));
     });
   }, [allPosts, terms, activeCat, postCategories, dateWindow, sortBy]);
 
