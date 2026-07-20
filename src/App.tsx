@@ -30,6 +30,7 @@ import AdminQuoteDenylist from "./pages/AdminQuoteDenylist.tsx";
 import AdminQuoteAlerts from "./pages/AdminQuoteAlerts.tsx";
 import AdminQuoteAuditLog from "./pages/AdminQuoteAuditLog.tsx";
 import AuthorPage from "./pages/AuthorPage.tsx";
+import NewsletterConfirm from "./pages/NewsletterConfirm.tsx";
 
 const queryClient = new QueryClient();
 
