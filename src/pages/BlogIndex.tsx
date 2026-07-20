@@ -418,10 +418,11 @@ const BlogIndex = () => {
     // category filter across pages so crawlers stay within the same listing.
     const pagedUrl = (n: number) => {
       const p: string[] = [];
-      if (activeCat !== "All") p.push(`cat=${encodeURIComponent(activeCat)}`);
+      if (!tagSlug && activeCat !== "All") p.push(`cat=${encodeURIComponent(activeCat)}`);
       if (n > 1) p.push(`page=${n}`);
       return p.length ? `${URL_BASE}?${p.join("&")}` : URL_BASE;
     };
+
     const setRel = (rel: "prev" | "next", href: string | null) => {
       const existing = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
       if (!href) { existing?.remove(); return; }
