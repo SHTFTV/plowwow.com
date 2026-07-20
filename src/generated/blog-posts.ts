@@ -10,6 +10,42 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "edgemont-village-north-vancouver-strata-commercial-snow-removal",
+    "title": "Edgemont Village North Vancouver Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Edgemont Village North Vancouver snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
+    "alt": "Edgemont Village North Vancouver snow removal — PlowWow mascot waving on a plowed Edgemont Boulevard sidewalk with snow-covered shops and the North Shore mountains at blue-hour dawn",
+    "publishedAt": "2026-07-20T02:05:41.000Z",
+    "updatedAt": "2026-07-20T02:05:41.000Z"
+  },
+  {
+    "slug": "fleetwood-surrey-strata-commercial-snow-removal",
+    "title": "Fleetwood Surrey Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Fleetwood Surrey snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
+    "alt": "Fleetwood Surrey snow removal — PlowWow mascot waving beside a plowed Fraser Highway strip-mall parking lot with salted sidewalks and snow-dusted evergreens at blue-hour dawn",
+    "publishedAt": "2026-07-20T02:05:41.000Z",
+    "updatedAt": "2026-07-20T02:05:41.000Z"
+  },
+  {
+    "slug": "ladner-delta-strata-commercial-snow-removal",
+    "title": "Ladner Delta Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Ladner Delta snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+    "alt": "Ladner Delta snow removal — PlowWow mascot waving on a plowed Delta Street heritage-village sidewalk with snow-dusted shopfronts and farmland at blue-hour dawn",
+    "publishedAt": "2026-07-20T02:05:41.000Z",
+    "updatedAt": "2026-07-20T02:05:41.000Z"
+  },
+  {
+    "slug": "queensborough-new-westminster-strata-commercial-snow-removal",
+    "title": "Queensborough New Westminster Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Queensborough New Westminster snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
+    "alt": "Queensborough New Westminster snow removal — PlowWow mascot waving on a plowed Ewen Avenue sidewalk with snow-dusted townhomes and the Queensborough Bridge at blue-hour dawn",
+    "publishedAt": "2026-07-20T02:05:41.000Z",
+    "updatedAt": "2026-07-20T02:05:41.000Z"
+  },
+  {
     "slug": "broadmoor-richmond-strata-commercial-snow-removal",
     "title": "Broadmoor Richmond Strata & Commercial Snow Removal",
     "blurb": "Broadmoor Richmond strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
