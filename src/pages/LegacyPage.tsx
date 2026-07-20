@@ -285,6 +285,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             }
           : {}),
         mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl },
+        timeRequired: `PT${readingMinutes}M`,
       });
       document.head.appendChild(art);
 
