@@ -156,13 +156,27 @@ const matchesTerm = (term: string, haystack: string, tokens: string[]): boolean 
 const highlight = (text: string, query: string) => {
   const terms = tokenize(query);
   if (terms.length === 0) return text;
-  // Single regex with alternation — splits text into [pre, match, pre, match, ...]
-  // Sort longest-first so "snow removal" matches before "snow" alone.
-  const pattern = terms
-    .slice()
+  // Extend the exact-term set with any near-matching tokens from the text so
+  // fuzzy-matched cards still visibly highlight the responsible word.
+  const lower = text.toLowerCase();
+  const textTokens = Array.from(new Set(splitTokens(lower)));
+  const expanded = new Set<string>(terms);
+  for (const t of terms) {
+    if (lower.includes(t)) continue;
+    const thr = fuzzyThreshold(t);
+    if (thr === 0) continue;
+    for (const tok of textTokens) {
+      if (Math.abs(tok.length - t.length) <= thr && levenshtein(tok, t) <= thr) {
+        expanded.add(tok);
+      }
+    }
+  }
+  const pattern = Array.from(expanded)
+    .filter(Boolean)
     .sort((a, b) => b.length - a.length)
     .map(escapeRegex)
     .join("|");
+  if (!pattern) return text;
   const re = new RegExp(`(${pattern})`, "ig");
   const parts = text.split(re);
   return parts.map((part, i) =>
