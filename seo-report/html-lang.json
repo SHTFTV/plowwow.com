@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T22:22:07.673Z",
+  "generatedAt": "2026-07-21T22:36:36.809Z",
   "expectedLang": "en-CA",
-  "total": 310,
+  "total": 314,
   "failed": 0,
   "results": [
     {
@@ -1085,6 +1085,18 @@
       "issues": []
     },
     {
+      "url": "https://plowwow.com/metro-vancouver-winter-weather-pineapple-express-arctic-outflow/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
       "url": "https://plowwow.com/metrotown-burnaby-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
@@ -1206,6 +1218,30 @@
     },
     {
       "url": "https://plowwow.com/oakridge-vancouver-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/occupiers-liability-act-bc-slip-fall-property-manager-guide/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -1650,6 +1686,18 @@
     },
     {
       "url": "https://plowwow.com/steveston-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/strata-seasonal-snow-contracts-bc-cost-breakdown/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",

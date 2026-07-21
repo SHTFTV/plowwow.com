@@ -515,6 +515,32 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
                         </Link>
                       ))}
                     </div>
+                    <div className="mt-6 pt-5 border-t border-border">
+                      <p className="text-xs uppercase tracking-wider font-bold text-muted-foreground mb-3">
+                        Main service pages
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          { to: "/vancouver", label: "Vancouver" },
+                          { to: "/burnaby", label: "Burnaby" },
+                          { to: "/richmond", label: "Richmond" },
+                          { to: "/coquitlam", label: "Coquitlam" },
+                          { to: "/surrey", label: "Surrey" },
+                          { to: "/north-vancouver", label: "North Vancouver" },
+                          { to: "/west-vancouver", label: "West Vancouver" },
+                          { to: "/blog", label: "All blog posts" },
+                          { to: "/quote", label: "Get a quote" },
+                        ].map((c) => (
+                          <Link
+                            key={c.to}
+                            to={c.to}
+                            className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                          >
+                            {c.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </section>
               )}

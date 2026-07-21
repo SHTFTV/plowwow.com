@@ -1,12 +1,20 @@
 {
-  "generatedAt": "2026-07-21T22:21:42.147Z",
+  "generatedAt": "2026-07-21T22:36:11.927Z",
   "totals": {
-    "posts": 128,
+    "posts": 132,
     "cities": 18,
-    "orphanPosts": 20,
+    "orphanPosts": 22,
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
+    {
+      "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
+      "title": "BC Occupiers Liability Act & Slip Claims — Manager Playbook"
+    },
+    {
+      "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
+      "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
+    },
     {
       "slug": "kensington-cedar-cottage-snow-removal",
       "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
@@ -99,7 +107,7 @@
     {
       "slug": "vancouver",
       "name": "Vancouver",
-      "count": 37
+      "count": 39
     },
     {
       "slug": "burnaby",
