@@ -321,6 +321,19 @@ function renderHead(route: RouteMeta): string {
     `    ${hreflang}\n    ${ldBlocks}\n  </head>`,
   );
 
+  // Inject route-specific body content into #root so non-JS crawlers see a
+  // unique H1, description, and link back to the canonical URL. React
+  // replaces this on hydration; crawlers snapshotting initial HTML still see
+  // per-route content that differs from the homepage shell.
+  const bodyHtml = `
+      <main data-prerendered="${esc(route.path)}">
+        <h1>${esc(headline)}</h1>
+        <p>${esc(route.description)}</p>
+        <p><a href="${esc(url)}">${esc(headline)} — PlowWow</a></p>
+        <p><a href="/quote/">Request a quote</a> · <a href="/locations/">Service areas</a> · <a href="/blog/">Blog</a></p>
+      </main>`;
+  html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+
   // Body marker so curl/grep can prove distinct HTML content per route.
   html = html.replace(
     "</body>",
