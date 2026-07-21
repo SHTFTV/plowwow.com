@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T05:20:43.135Z",
+  "generatedAt": "2026-07-21T05:49:57.217Z",
   "totals": {
-    "posts": 120,
+    "posts": 124,
     "cities": 18,
     "orphanPosts": 20,
     "citiesWithoutPosts": 1
@@ -99,12 +99,12 @@
     {
       "slug": "vancouver",
       "name": "Vancouver",
-      "count": 35
+      "count": 36
     },
     {
       "slug": "burnaby",
       "name": "Burnaby",
-      "count": 22
+      "count": 24
     },
     {
       "slug": "coquitlam",
@@ -114,7 +114,7 @@
     {
       "slug": "richmond",
       "name": "Richmond",
-      "count": 6
+      "count": 7
     },
     {
       "slug": "maple-ridge",
