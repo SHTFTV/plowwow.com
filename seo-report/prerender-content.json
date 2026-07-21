@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-21T05:15:06.174Z",
+  "passed": [
+    "/burnaby-snow-removal/",
+    "/burnaby/",
+    "/vancouver/",
+    "/coquitlam/",
+    "/port-coquitlam/",
+    "/port-moody/",
+    "/pitt-meadows/",
+    "/maple-ridge/",
+    "/surrey/",
+    "/langley/",
+    "/abbotsford/",
+    "/west-vancouver/",
+    "/north-vancouver/",
+    "/richmond/",
+    "/delta/",
+    "/white-rock/",
+    "/mission/",
+    "/chilliwack/"
+  ],
+  "failures": [
+    "✗ /new-westminster/\n    - title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow\n    - h1 missing \"New Westminster\": New West Snow Removal &amp; Salting\n    - og:title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow\n    - twitter:title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow"
+  ]
+}
