@@ -56,8 +56,8 @@ async function main() {
       failures.push(`${slug}: missing file`);
       continue;
     }
-    const meta = await sharp(p).metadata();
-    const w = meta.width!, h = meta.height!;
+    const meta = jpegSize(readFileSync(p));
+    const w = meta.width, h = meta.height;
     if (w < 1200 || h < 630) failures.push(`${slug}: below 1200×630 (${w}×${h})`);
     const ratio = w / h;
     if (ratio < 1.6 || ratio > 2.1) failures.push(`${slug}: ratio ${ratio.toFixed(2)} outside 1.6–2.1`);
