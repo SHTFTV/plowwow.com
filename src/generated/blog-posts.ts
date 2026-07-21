@@ -14,36 +14,36 @@ export const blogPosts = [
     "title": "Big Bend Burnaby Snow Removal for Industrial & Commercial",
     "blurb": "Big Bend Burnaby snow removal for greenhouses, food-processing, cold-storage and industrial parks — 24/7 dispatch, pre-shift clears, GPS-logged salt runs, fixed seasonal contracts…",
     "image": "/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot on a plowed Big Bend Burnaby industrial road at dawn with greenhouses and warehouse loading bays under fresh snow",
+    "alt": "Wow mascot standing alone on a plowed Big Bend Burnaby industrial road with tilt-up warehouses, empty loading yards, and the snow-capped North Shore mountains in the background",
     "publishedAt": "2026-07-21T05:48:15.000Z",
-    "updatedAt": "2026-07-21T05:48:15.000Z"
+    "updatedAt": "2026-07-21T06:31:29.000Z"
   },
   {
     "slug": "ironwood-richmond-strata-commercial-snow-removal",
     "title": "Ironwood Richmond Snow Removal for Retail & Strata",
     "blurb": "Ironwood Richmond snow removal for big-box retail, strip malls and townhome stratas — pre-6 a.m. clears, GPS-logged salt runs, pet-safe de-icer, fixed seasonal pricing…",
     "image": "/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot on a plowed Ironwood Richmond retail parkade street at dawn with big-box storefronts and warehouse loading bays under fresh snow",
+    "alt": "Wow mascot standing alone in a freshly plowed Ironwood Richmond big-box retail parking lot with the Ironwood Plaza storefront and empty snow-cleared drive lanes in the background",
     "publishedAt": "2026-07-21T05:48:15.000Z",
-    "updatedAt": "2026-07-21T05:48:15.000Z"
+    "updatedAt": "2026-07-21T06:31:08.000Z"
   },
   {
     "slug": "renfrew-collingwood-vancouver-strata-commercial-snow-removal",
     "title": "Renfrew-Collingwood Vancouver Snow Removal",
     "blurb": "Renfrew-Collingwood snow removal for East Vancouver stratas, mixed-use walk-ups and Kingsway retail — SkyTrain-station sidewalks, laneway access, GPS-logged salt runs, seasonal pri…",
     "image": "/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot on a plowed Renfrew-Collingwood East Vancouver street at blue hour with character homes and Kingsway shopfronts under fresh snow",
+    "alt": "Wow mascot standing alone on a plowed Renfrew-Collingwood East Vancouver residential street with the elevated SkyTrain Millennium Line guideway and snow-dusted character homes in the background",
     "publishedAt": "2026-07-21T05:48:15.000Z",
-    "updatedAt": "2026-07-21T05:48:15.000Z"
+    "updatedAt": "2026-07-21T06:31:17.000Z"
   },
   {
     "slug": "sperling-duthie-burnaby-strata-commercial-snow-removal",
     "title": "Sperling-Duthie Burnaby Snow Removal",
     "blurb": "Sperling-Duthie Burnaby snow removal — Burnaby Mountain elevation, SFU commuter access, strata townhomes and character homes. Seasonal contracts, GPS logs, pet-safe de-icer…",
     "image": "/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot on a plowed Sperling-Duthie Burnaby residential street at dawn with mid-century homes and Burnaby Mountain forest behind under fresh snow",
+    "alt": "Wow mascot standing alone on a plowed Sperling-Duthie Burnaby hillside street with snow-covered mid-century homes and the forested slope of Burnaby Mountain rising in the background",
     "publishedAt": "2026-07-21T05:48:15.000Z",
-    "updatedAt": "2026-07-21T05:48:15.000Z"
+    "updatedAt": "2026-07-21T06:31:38.000Z"
   },
   {
     "slug": "edgemont-village-north-vancouver-strata-commercial-snow-removal",
