@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:36:34.992Z",
+  "generatedAt": "2026-07-21T23:43:23.338Z",
   "crawlBase": null,
   "checks": [
     {
@@ -33,10 +33,16 @@
       "live": null
     },
     {
-      "source": "/blog/:slug",
-      "expected": "/:slug/",
-      "status": "skip",
-      "reason": "no sitemap example matches this redirect pattern"
+      "source": "/blog/neighborhoods",
+      "expected": "/blog/neighborhoods/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/blog/neighborhoods",
+      "expected": "/neighborhoods/",
+      "status": "fail",
+      "reason": "redirect target has no prerendered page at dist/neighborhoods/"
     },
     {
       "source": "/blog/:slug/",

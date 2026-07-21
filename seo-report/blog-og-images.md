@@ -1,6 +1,6 @@
 # Blog Social Share Image Report
 
-_Generated 2026-07-21T23:38:26.743Z_
+_Generated 2026-07-21T23:43:03.228Z_
 
 - Total posts: **132**
 - Custom hero: **98** · Themed mascot fallback: **34** · /og-default.jpg: **0**

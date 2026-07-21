@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:36:34.494Z",
+  "generatedAt": "2026-07-21T23:43:22.874Z",
   "locales": [
     "en-CA",
     "en"
@@ -277,6 +277,15 @@
       }
     },
     "/blog/": {
+      "BreadcrumbList": {
+        "length": 2
+      },
+      "LocalBusiness": {
+        "hasProvider": false,
+        "hasAggregateRating": false
+      }
+    },
+    "/blog/neighborhoods/": {
       "BreadcrumbList": {
         "length": 2
       },
