@@ -1,12 +1,23 @@
 {
-  "generatedAt": "2026-07-21T23:22:10.388Z",
+  "generatedAt": "2026-07-21T23:26:46.033Z",
   "total": 132,
   "failed": 0,
   "warned": 56,
+  "bySource": {
+    "hero": 98,
+    "theme": 0,
+    "default": 34
+  },
+  "thresholds": {
+    "MAX_FAILURES": 0,
+    "MAX_WARNINGS": 8,
+    "MAX_DEFAULT_FALLBACK": 0
+  },
   "rows": [
     {
       "slug": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
       "image": "/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 158734,
       "width": 1600,
@@ -17,6 +28,7 @@
     {
       "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
       "image": "/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 221628,
       "width": 1600,
@@ -27,6 +39,7 @@
     {
       "slug": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
       "image": "/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 170201,
       "width": 1600,
@@ -37,6 +50,7 @@
     {
       "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
       "image": "/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 280080,
       "width": 1600,
@@ -47,6 +61,7 @@
     {
       "slug": "arbutus-ridge-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 260108,
       "width": 1376,
@@ -57,6 +72,7 @@
     {
       "slug": "east-cambie-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 154879,
       "width": 1376,
@@ -67,6 +83,7 @@
     {
       "slug": "government-road-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 227626,
       "width": 1376,
@@ -77,6 +94,7 @@
     {
       "slug": "harbour-chines-coquitlam-strata-commercial-snow-removal",
       "image": "/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 196404,
       "width": 1376,
@@ -87,6 +105,7 @@
     {
       "slug": "big-bend-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1567483,
       "width": 1376,
@@ -97,6 +116,7 @@
     {
       "slug": "ironwood-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1465863,
       "width": 1376,
@@ -107,6 +127,7 @@
     {
       "slug": "renfrew-collingwood-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1893808,
       "width": 1376,
@@ -117,6 +138,7 @@
     {
       "slug": "sperling-duthie-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1585964,
       "width": 1376,
@@ -127,6 +149,7 @@
     {
       "slug": "edgemont-village-north-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 2064957,
       "width": 1376,
@@ -137,6 +160,7 @@
     {
       "slug": "fleetwood-surrey-strata-commercial-snow-removal",
       "image": "/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1894339,
       "width": 1376,
@@ -147,6 +171,7 @@
     {
       "slug": "ladner-delta-strata-commercial-snow-removal",
       "image": "/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1909336,
       "width": 1376,
@@ -157,6 +182,7 @@
     {
       "slug": "queensborough-new-westminster-strata-commercial-snow-removal",
       "image": "/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1903436,
       "width": 1376,
@@ -167,6 +193,7 @@
     {
       "slug": "broadmoor-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1549072,
       "width": 1376,
@@ -177,6 +204,7 @@
     {
       "slug": "cedar-valley-mission-strata-commercial-snow-removal",
       "image": "/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1723798,
       "width": 1376,
@@ -187,6 +215,7 @@
     {
       "slug": "champlain-heights-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 226641,
       "width": 1376,
@@ -197,6 +226,7 @@
     {
       "slug": "seafair-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 206022,
       "width": 1376,
@@ -207,6 +237,7 @@
     {
       "slug": "silverdale-mission-strata-commercial-snow-removal",
       "image": "/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1475377,
       "width": 1376,
@@ -217,6 +248,7 @@
     {
       "slug": "south-cambie-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1859270,
       "width": 1376,
@@ -227,6 +259,7 @@
     {
       "slug": "sunset-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/sunset-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1940211,
       "width": 1376,
@@ -237,6 +270,7 @@
     {
       "slug": "westridge-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1791445,
       "width": 1376,
@@ -247,6 +281,7 @@
     {
       "slug": "riley-park-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/riley-park-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1942563,
       "width": 1376,
@@ -257,6 +292,7 @@
     {
       "slug": "south-slope-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1806250,
       "width": 1376,
@@ -267,6 +303,7 @@
     {
       "slug": "austin-heights-coquitlam-strata-snow-removal",
       "image": "/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1929913,
       "width": 1376,
@@ -277,6 +314,7 @@
     {
       "slug": "garden-city-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1854860,
       "width": 1376,
@@ -287,6 +325,7 @@
     {
       "slug": "hamilton-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1864504,
       "width": 1376,
@@ -297,6 +336,7 @@
     {
       "slug": "terra-nova-richmond-strata-commercial-snow-removal",
       "image": "/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1727602,
       "width": 1376,
@@ -307,6 +347,7 @@
     {
       "slug": "deer-lake-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1693767,
       "width": 1376,
@@ -317,6 +358,7 @@
     {
       "slug": "grandview-woodland-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1958638,
       "width": 1376,
@@ -327,6 +369,7 @@
     {
       "slug": "montecito-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1628442,
       "width": 1376,
@@ -337,6 +380,7 @@
     {
       "slug": "ranch-park-coquitlam-strata-commercial-snow-removal",
       "image": "/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 2012387,
       "width": 1376,
@@ -347,6 +391,7 @@
     {
       "slug": "river-springs-coquitlam-strata-commercial-snow-removal",
       "image": "/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1928418,
       "width": 1376,
@@ -357,6 +402,7 @@
     {
       "slug": "victoria-fraserview-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 1877280,
       "width": 1376,
@@ -367,6 +413,7 @@
     {
       "slug": "albion-maple-ridge-strata-commercial-snow-removal",
       "image": "/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 236546,
       "width": 1376,
@@ -377,6 +424,7 @@
     {
       "slug": "burke-mountain-coquitlam-strata-snow-removal",
       "image": "/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 305501,
       "width": 1376,
@@ -387,6 +435,7 @@
     {
       "slug": "burnaby-heights-strata-commercial-snow-removal",
       "image": "/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 252298,
       "width": 1376,
@@ -397,6 +446,7 @@
     {
       "slug": "cambie-village-vancouver-commercial-snow-removal",
       "image": "/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 196089,
       "width": 1376,
@@ -407,6 +457,7 @@
     {
       "slug": "coquitlam-centre-strata-commercial-snow-removal",
       "image": "/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 245270,
       "width": 1376,
@@ -417,6 +468,7 @@
     {
       "slug": "downtown-vancouver-strata-commercial-snow-removal",
       "image": "/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 265633,
       "width": 1376,
@@ -427,6 +479,7 @@
     {
       "slug": "eagle-ridge-coquitlam-strata-snow-removal",
       "image": "/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 256191,
       "width": 1376,
@@ -437,6 +490,7 @@
     {
       "slug": "edmonds-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 255321,
       "width": 1376,
@@ -447,6 +501,7 @@
     {
       "slug": "false-creek-vancouver-strata-snow-removal",
       "image": "/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 239856,
       "width": 1376,
@@ -457,6 +512,7 @@
     {
       "slug": "gastown-vancouver-commercial-snow-removal",
       "image": "/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 264061,
       "width": 1376,
@@ -467,6 +523,7 @@
     {
       "slug": "maillardville-coquitlam-commercial-snow-removal",
       "image": "/blog-images/maillardville-coquitlam-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 265393,
       "width": 1376,
@@ -477,6 +534,7 @@
     {
       "slug": "metrotown-burnaby-strata-commercial-snow-removal",
       "image": "/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 246277,
       "width": 1376,
@@ -487,6 +545,7 @@
     {
       "slug": "promontory-chilliwack-strata-snow-removal",
       "image": "/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 281403,
       "width": 1376,
@@ -497,6 +556,7 @@
     {
       "slug": "sardis-chilliwack-strata-commercial-snow-removal",
       "image": "/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 241706,
       "width": 1376,
@@ -507,6 +567,7 @@
     {
       "slug": "silver-valley-maple-ridge-strata-snow-removal",
       "image": "/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 326236,
       "width": 1376,
@@ -517,6 +578,7 @@
     {
       "slug": "willingdon-heights-burnaby-commercial-snow-removal",
       "image": "/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 242686,
       "width": 1376,
@@ -527,6 +589,7 @@
     {
       "slug": "does-it-snow-in-vancouver-weather-guide",
       "image": "/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 217677,
       "width": 1376,
@@ -537,6 +600,7 @@
     {
       "slug": "coal-harbour-vancouver-snow-removal",
       "image": "/blog-images/coal-harbour-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 264378,
       "width": 1376,
@@ -547,6 +611,7 @@
     {
       "slug": "commercial-drive-vancouver-snow-removal",
       "image": "/blog-images/commercial-drive-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 290292,
       "width": 1376,
@@ -557,6 +622,7 @@
     {
       "slug": "west-end-vancouver-snow-removal",
       "image": "/blog-images/west-end-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 298249,
       "width": 1376,
@@ -567,6 +633,7 @@
     {
       "slug": "yaletown-vancouver-snow-removal",
       "image": "/blog-images/yaletown-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 308456,
       "width": 1376,
@@ -577,6 +644,7 @@
     {
       "slug": "dunbar-vancouver-snow-removal",
       "image": "/blog-images/dunbar-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 320815,
       "width": 1376,
@@ -587,6 +655,7 @@
     {
       "slug": "point-grey-vancouver-snow-removal",
       "image": "/blog-images/point-grey-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 269892,
       "width": 1376,
@@ -597,6 +666,7 @@
     {
       "slug": "shaughnessy-vancouver-snow-removal",
       "image": "/blog-images/shaughnessy-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 336460,
       "width": 1376,
@@ -607,6 +677,7 @@
     {
       "slug": "fraserview-vancouver-snow-removal",
       "image": "/blog-images/fraserview-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 258913,
       "width": 1376,
@@ -617,6 +688,7 @@
     {
       "slug": "kitsilano-vancouver-snow-removal",
       "image": "/blog-images/kitsilano-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 306077,
       "width": 1376,
@@ -627,6 +699,7 @@
     {
       "slug": "marpole-vancouver-snow-removal",
       "image": "/blog-images/marpole-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 305862,
       "width": 1376,
@@ -637,6 +710,7 @@
     {
       "slug": "oakridge-vancouver-snow-removal",
       "image": "/blog-images/oakridge-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 272340,
       "width": 1376,
@@ -647,6 +721,7 @@
     {
       "slug": "cariboo-heights-burnaby-snow-removal",
       "image": "/blog-images/cariboo-heights-burnaby-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 207805,
       "width": 1024,
@@ -659,6 +734,7 @@
     {
       "slug": "hastings-sunrise-east-vancouver-snow-removal",
       "image": "/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 179531,
       "width": 1024,
@@ -671,6 +747,7 @@
     {
       "slug": "highgate-burnaby-strata-snow-removal",
       "image": "/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 197190,
       "width": 1024,
@@ -683,6 +760,7 @@
     {
       "slug": "kensington-cedar-cottage-snow-removal",
       "image": "/blog-images/kensington-cedar-cottage-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 239190,
       "width": 1024,
@@ -695,6 +773,7 @@
     {
       "slug": "lougheed-town-centre-burnaby-snow-removal",
       "image": "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 170552,
       "width": 1024,
@@ -707,6 +786,7 @@
     {
       "slug": "mount-pleasant-east-vancouver-snow-removal",
       "image": "/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 174994,
       "width": 1024,
@@ -719,6 +799,7 @@
     {
       "slug": "strathcona-east-vancouver-snow-removal",
       "image": "/blog-images/strathcona-east-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 267693,
       "width": 1024,
@@ -731,6 +812,7 @@
     {
       "slug": "suncrest-burnaby-snow-removal",
       "image": "/blog-images/suncrest-burnaby-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 212121,
       "width": 1024,
@@ -743,6 +825,7 @@
     {
       "slug": "austin-heights-coquitlam-strip-mall-snow-removal",
       "image": "/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 311096,
       "width": 1280,
@@ -753,6 +836,7 @@
     {
       "slug": "brentwood-burnaby-strata-snow-removal",
       "image": "/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 196798,
       "width": 1280,
@@ -763,6 +847,7 @@
     {
       "slug": "capitol-hill-burnaby-commercial-snow-removal",
       "image": "/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 163765,
       "width": 1280,
@@ -773,6 +858,7 @@
     {
       "slug": "westwood-plateau-coquitlam-parking-lot-snow-removal",
       "image": "/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 133850,
       "width": 1280,
@@ -783,6 +869,7 @@
     {
       "slug": "chilliwack-strata-commercial-snow-plowing",
       "image": "/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 190597,
       "width": 1024,
@@ -795,6 +882,7 @@
     {
       "slug": "abbotsford-strata-commercial-snow-plowing",
       "image": "/blog-images/abbotsford-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 159165,
       "width": 1024,
@@ -807,6 +895,7 @@
     {
       "slug": "burnaby-strata-commercial-snow-plowing",
       "image": "/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 223246,
       "width": 1024,
@@ -819,6 +908,7 @@
     {
       "slug": "coquitlam-strata-commercial-snow-plowing",
       "image": "/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 187932,
       "width": 1024,
@@ -831,6 +921,7 @@
     {
       "slug": "delta-strata-commercial-snow-plowing",
       "image": "/blog-images/delta-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 165616,
       "width": 1024,
@@ -843,6 +934,7 @@
     {
       "slug": "langley-strata-commercial-snow-plowing",
       "image": "/blog-images/langley-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 166525,
       "width": 1024,
@@ -855,6 +947,7 @@
     {
       "slug": "maple-ridge-strata-commercial-snow-plowing",
       "image": "/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 171513,
       "width": 1024,
@@ -867,6 +960,7 @@
     {
       "slug": "mission-strata-commercial-snow-plowing",
       "image": "/blog-images/mission-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 220649,
       "width": 1024,
@@ -879,6 +973,7 @@
     {
       "slug": "new-westminster-strata-commercial-snow-plowing",
       "image": "/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 242899,
       "width": 1024,
@@ -891,6 +986,7 @@
     {
       "slug": "port-coquitlam-strata-commercial-snow-plowing",
       "image": "/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 154531,
       "width": 1024,
@@ -903,6 +999,7 @@
     {
       "slug": "port-moody-strata-commercial-snow-plowing",
       "image": "/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 248612,
       "width": 1024,
@@ -915,6 +1012,7 @@
     {
       "slug": "richmond-strata-commercial-snow-plowing",
       "image": "/blog-images/richmond-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 207945,
       "width": 1024,
@@ -927,6 +1025,7 @@
     {
       "slug": "surrey-strata-commercial-snow-plowing",
       "image": "/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 177247,
       "width": 1024,
@@ -939,6 +1038,7 @@
     {
       "slug": "white-rock-strata-commercial-snow-plowing",
       "image": "/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 183594,
       "width": 1024,
@@ -951,6 +1051,7 @@
     {
       "slug": "cloverdale-snow-removal",
       "image": "/blog-images/cloverdale-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 125277,
       "width": 1280,
@@ -961,6 +1062,7 @@
     {
       "slug": "fort-langley-snow-removal",
       "image": "/blog-images/fort-langley-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 136239,
       "width": 1280,
@@ -971,6 +1073,7 @@
     {
       "slug": "lynn-valley-snow-removal",
       "image": "/blog-images/lynn-valley-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 236977,
       "width": 1280,
@@ -981,6 +1084,7 @@
     {
       "slug": "steveston-snow-removal",
       "image": "/blog-images/steveston-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 144526,
       "width": 1280,
@@ -991,6 +1095,7 @@
     {
       "slug": "north-vancouver-snow-removal",
       "image": "/blog-images/north-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 181499,
       "width": 1280,
@@ -1001,6 +1106,7 @@
     {
       "slug": "squamish-snow-removal",
       "image": "/blog-images/squamish-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 152476,
       "width": 1280,
@@ -1011,6 +1117,7 @@
     {
       "slug": "tsawwassen-snow-removal",
       "image": "/blog-images/tsawwassen-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 134656,
       "width": 1280,
@@ -1021,6 +1128,7 @@
     {
       "slug": "west-vancouver-snow-removal",
       "image": "/blog-images/west-vancouver-snow-removal.jpg",
+      "source": "hero",
       "exists": true,
       "bytes": 209283,
       "width": 1280,
@@ -1031,78 +1139,84 @@
     {
       "slug": "buckingham-heights-burnaby",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "burke-mountain-snow",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "can-i-push-snow-onto-the-street",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "commercial-snow-removal-burnaby",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "commercial-snow-removal-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "east-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)",
         "alt text missing or too short"
       ]
@@ -1110,52 +1224,56 @@
     {
       "slug": "happy-new-year-metro-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "heritage-mountain",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)",
         "alt text missing or too short"
       ]
@@ -1163,91 +1281,98 @@
     {
       "slug": "metrotown-snow-removal-company",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "metrotown-strata-snow-removal",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "middlegate-snow-removal-burnaby",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "now-removal-arbutus",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)",
         "alt text missing or too short"
       ]
@@ -1255,52 +1380,56 @@
     {
       "slug": "professional-snow-removal-in-middle-gate-burnaby",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "record-snow-falls-in-bc",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "sapperton-new-westminster",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "sfu-burnaby-snow-removal",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)",
         "alt text missing or too short"
       ]
@@ -1308,117 +1437,126 @@
     {
       "slug": "shaughnessy-snow-removal",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "silver-valley-maple-ridge",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "skid-steer-snow-removal-in-langley-bc",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-in-burquitlam",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-kensington-prairie",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-renfrew-heights",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-services-in-killarney-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)",
         "alt text missing or too short"
       ]
@@ -1426,52 +1564,56 @@
     {
       "slug": "snow-removal-west-side-vancouver",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "the-worlds-cutest-snow-removal-brand",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "white-christmas-2025-burnaby",
       "image": "/og-default.jpg",
+      "source": "default",
       "exists": true,
       "bytes": 58265,
       "width": 945,
       "height": 630,
       "ok": true,
       "warnings": [
-        "using /og-default.jpg fallback (no per-post hero)",
+        "using /og-default.jpg fallback (no per-post or themed hero)",
         "smaller than 1200x630 (945x630)"
       ]
     }
