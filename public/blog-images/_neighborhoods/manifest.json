@@ -1,0 +1,715 @@
+{
+  "generatedAt": "2026-07-21T23:35:17.666Z",
+  "count": 118,
+  "fallback": "/blog-images/_neighborhoods/city-all.jpg",
+  "entries": [
+    {
+      "key": "city-all",
+      "file": "/blog-images/_neighborhoods/city-all.jpg",
+      "city": "all",
+      "tag": null
+    },
+    {
+      "key": "city-all__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
+      "city": "all",
+      "tag": "Weather"
+    },
+    {
+      "key": "city-all__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-all__tag-strata.jpg",
+      "city": "all",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-all__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
+      "city": "all",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-all__tag-liability",
+      "file": "/blog-images/_neighborhoods/city-all__tag-liability.jpg",
+      "city": "all",
+      "tag": "Liability"
+    },
+    {
+      "key": "city-all__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
+      "city": "all",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-all__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
+      "city": "all",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-all__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
+      "city": "all",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-all__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-all__tag-residential.jpg",
+      "city": "all",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-burnaby",
+      "file": "/blog-images/_neighborhoods/city-burnaby.jpg",
+      "city": "burnaby",
+      "tag": null
+    },
+    {
+      "key": "city-burnaby__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
+      "city": "burnaby",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-burnaby__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
+      "city": "burnaby",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-burnaby__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
+      "city": "burnaby",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-burnaby__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
+      "city": "burnaby",
+      "tag": "Weather"
+    },
+    {
+      "key": "city-burnaby__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
+      "city": "burnaby",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-burnaby__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
+      "city": "burnaby",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-burnaby__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
+      "city": "burnaby",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-vancouver",
+      "file": "/blog-images/_neighborhoods/city-vancouver.jpg",
+      "city": "vancouver",
+      "tag": null
+    },
+    {
+      "key": "city-vancouver__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
+      "city": "vancouver",
+      "tag": "Weather"
+    },
+    {
+      "key": "city-vancouver__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
+      "city": "vancouver",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-vancouver__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
+      "city": "vancouver",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-vancouver__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
+      "city": "vancouver",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-vancouver__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
+      "city": "vancouver",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-vancouver__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
+      "city": "vancouver",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-vancouver__tag-liability",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
+      "city": "vancouver",
+      "tag": "Liability"
+    },
+    {
+      "key": "city-vancouver__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
+      "city": "vancouver",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-new-westminster",
+      "file": "/blog-images/_neighborhoods/city-new-westminster.jpg",
+      "city": "new-westminster",
+      "tag": null
+    },
+    {
+      "key": "city-new-westminster__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
+      "city": "new-westminster",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-new-westminster__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
+      "city": "new-westminster",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-new-westminster__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
+      "city": "new-westminster",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-new-westminster__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
+      "city": "new-westminster",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-new-westminster__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
+      "city": "new-westminster",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-coquitlam",
+      "file": "/blog-images/_neighborhoods/city-coquitlam.jpg",
+      "city": "coquitlam",
+      "tag": null
+    },
+    {
+      "key": "city-coquitlam__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
+      "city": "coquitlam",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-coquitlam__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
+      "city": "coquitlam",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-coquitlam__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
+      "city": "coquitlam",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-coquitlam__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
+      "city": "coquitlam",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-coquitlam__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
+      "city": "coquitlam",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-coquitlam__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
+      "city": "coquitlam",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-port-coquitlam",
+      "file": "/blog-images/_neighborhoods/city-port-coquitlam.jpg",
+      "city": "port-coquitlam",
+      "tag": null
+    },
+    {
+      "key": "city-port-coquitlam__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
+      "city": "port-coquitlam",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-port-coquitlam__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
+      "city": "port-coquitlam",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-port-coquitlam__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
+      "city": "port-coquitlam",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-port-coquitlam__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
+      "city": "port-coquitlam",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-port-moody",
+      "file": "/blog-images/_neighborhoods/city-port-moody.jpg",
+      "city": "port-moody",
+      "tag": null
+    },
+    {
+      "key": "city-port-moody__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
+      "city": "port-moody",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-port-moody__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
+      "city": "port-moody",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-port-moody__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
+      "city": "port-moody",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-port-moody__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
+      "city": "port-moody",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-maple-ridge",
+      "file": "/blog-images/_neighborhoods/city-maple-ridge.jpg",
+      "city": "maple-ridge",
+      "tag": null
+    },
+    {
+      "key": "city-maple-ridge__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
+      "city": "maple-ridge",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-maple-ridge__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
+      "city": "maple-ridge",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-maple-ridge__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
+      "city": "maple-ridge",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-maple-ridge__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
+      "city": "maple-ridge",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-surrey",
+      "file": "/blog-images/_neighborhoods/city-surrey.jpg",
+      "city": "surrey",
+      "tag": null
+    },
+    {
+      "key": "city-surrey__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
+      "city": "surrey",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-surrey__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
+      "city": "surrey",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-surrey__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
+      "city": "surrey",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-surrey__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
+      "city": "surrey",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-surrey__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
+      "city": "surrey",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-langley",
+      "file": "/blog-images/_neighborhoods/city-langley.jpg",
+      "city": "langley",
+      "tag": null
+    },
+    {
+      "key": "city-langley__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
+      "city": "langley",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-langley__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
+      "city": "langley",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-langley__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
+      "city": "langley",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-langley__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
+      "city": "langley",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-langley__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
+      "city": "langley",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-langley__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
+      "city": "langley",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-abbotsford",
+      "file": "/blog-images/_neighborhoods/city-abbotsford.jpg",
+      "city": "abbotsford",
+      "tag": null
+    },
+    {
+      "key": "city-abbotsford__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
+      "city": "abbotsford",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-abbotsford__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
+      "city": "abbotsford",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-abbotsford__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
+      "city": "abbotsford",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-abbotsford__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
+      "city": "abbotsford",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-west-vancouver",
+      "file": "/blog-images/_neighborhoods/city-west-vancouver.jpg",
+      "city": "west-vancouver",
+      "tag": null
+    },
+    {
+      "key": "city-west-vancouver__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
+      "city": "west-vancouver",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-north-vancouver",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver.jpg",
+      "city": "north-vancouver",
+      "tag": null
+    },
+    {
+      "key": "city-north-vancouver__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
+      "city": "north-vancouver",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-north-vancouver__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
+      "city": "north-vancouver",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-north-vancouver__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
+      "city": "north-vancouver",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-north-vancouver__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
+      "city": "north-vancouver",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-north-vancouver__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
+      "city": "north-vancouver",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-richmond",
+      "file": "/blog-images/_neighborhoods/city-richmond.jpg",
+      "city": "richmond",
+      "tag": null
+    },
+    {
+      "key": "city-richmond__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
+      "city": "richmond",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-richmond__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
+      "city": "richmond",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-richmond__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
+      "city": "richmond",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-richmond__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
+      "city": "richmond",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-richmond__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
+      "city": "richmond",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-richmond__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
+      "city": "richmond",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-delta",
+      "file": "/blog-images/_neighborhoods/city-delta.jpg",
+      "city": "delta",
+      "tag": null
+    },
+    {
+      "key": "city-delta__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
+      "city": "delta",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-delta__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
+      "city": "delta",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-delta__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
+      "city": "delta",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-delta__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
+      "city": "delta",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-delta__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
+      "city": "delta",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-white-rock",
+      "file": "/blog-images/_neighborhoods/city-white-rock.jpg",
+      "city": "white-rock",
+      "tag": null
+    },
+    {
+      "key": "city-white-rock__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
+      "city": "white-rock",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-white-rock__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
+      "city": "white-rock",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-white-rock__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
+      "city": "white-rock",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-white-rock__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
+      "city": "white-rock",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-mission",
+      "file": "/blog-images/_neighborhoods/city-mission.jpg",
+      "city": "mission",
+      "tag": null
+    },
+    {
+      "key": "city-mission__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
+      "city": "mission",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-mission__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
+      "city": "mission",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-mission__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
+      "city": "mission",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-mission__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
+      "city": "mission",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-mission__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
+      "city": "mission",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-chilliwack",
+      "file": "/blog-images/_neighborhoods/city-chilliwack.jpg",
+      "city": "chilliwack",
+      "tag": null
+    },
+    {
+      "key": "city-chilliwack__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
+      "city": "chilliwack",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-chilliwack__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
+      "city": "chilliwack",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-chilliwack__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
+      "city": "chilliwack",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-chilliwack__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
+      "city": "chilliwack",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-citywide",
+      "file": "/blog-images/_neighborhoods/city-citywide.jpg",
+      "city": "citywide",
+      "tag": null
+    },
+    {
+      "key": "city-citywide__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
+      "city": "citywide",
+      "tag": "Strata"
+    },
+    {
+      "key": "city-citywide__tag-commercial",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
+      "city": "citywide",
+      "tag": "Commercial"
+    },
+    {
+      "key": "city-citywide__tag-liability",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
+      "city": "citywide",
+      "tag": "Liability"
+    },
+    {
+      "key": "city-citywide__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
+      "city": "citywide",
+      "tag": "Contracts"
+    },
+    {
+      "key": "city-citywide__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
+      "city": "citywide",
+      "tag": "Residential"
+    },
+    {
+      "key": "city-citywide__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
+      "city": "citywide",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-citywide__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
+      "city": "citywide",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-citywide__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
+      "city": "citywide",
+      "tag": "Weather"
+    }
+  ]
+}

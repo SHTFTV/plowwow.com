@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts",
+    "predev": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-neighborhoods-og.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts",
     "dev": "vite",
-    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts && tsx scripts/content-change-validate.ts && tsx scripts/sitemap-diff.ts && tsx scripts/validate-blog-og-images.ts",
-    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/prerender-content-validate.ts && tsx scripts/jsonld-schema-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts && tsx scripts/generate-html-report.ts",
-    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/prerender-content-validate.ts && tsx scripts/jsonld-schema-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts && tsx scripts/generate-html-report.ts",
+    "prebuild": "tsx scripts/generate-blog-index.ts && tsx scripts/generate-neighborhoods-og.ts && tsx scripts/generate-sitemap.ts && tsx scripts/generate-rss.ts && tsx scripts/audit-internal-links.ts && tsx scripts/content-change-validate.ts && tsx scripts/sitemap-diff.ts && tsx scripts/validate-blog-og-images.ts",
+    "build": "vite build && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/prerender-content-validate.ts && tsx scripts/jsonld-schema-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts && tsx scripts/generate-html-report.ts && tsx scripts/publish-seo-report.ts",
+    "build:dev": "vite build --mode development && tsx scripts/prerender.ts && tsx scripts/generate-404.ts && tsx scripts/build-validate.ts && tsx scripts/prerender-content-validate.ts && tsx scripts/jsonld-schema-validate.ts && tsx scripts/jsonld-preflight.ts && tsx scripts/jsonld-locale-snapshot.ts && tsx scripts/verify-redirects.ts && tsx scripts/og-twitter-validate.ts && tsx scripts/sitemap-lastmod-validate.ts && tsx scripts/html-lang-validate.ts && tsx scripts/og-image-reachable.ts && tsx scripts/robots-directives-validate.ts && tsx scripts/verify-legacy-redirects.ts && tsx scripts/generate-html-report.ts && tsx scripts/publish-seo-report.ts",
     "seo:smoke": "tsx scripts/build-validate.ts && tsx scripts/prerender-content-validate.ts && tsx scripts/jsonld-schema-validate.ts",
     "seo:prerender-content": "tsx scripts/prerender-content-validate.ts",
     "seo:prerender-crawl": "tsx scripts/prerender-crawl.ts",
@@ -46,7 +46,10 @@
     "seo:repro-replay": "tsx scripts/bundle-repro.ts --bundle=seo-report/repro-bundle.zip",
     "seo:html-report": "tsx scripts/generate-html-report.ts",
     "content:validate": "tsx scripts/content-change-validate.ts",
-    "content:validate:full": "tsx scripts/content-change-validate.ts --full"
+    "content:validate:full": "tsx scripts/content-change-validate.ts --full",
+    "a11y:blog-neighborhoods": "tsx scripts/a11y-blog-neighborhoods.ts",
+    "seo:neighborhoods-og": "tsx scripts/generate-neighborhoods-og.ts",
+    "seo:publish-report": "tsx scripts/publish-seo-report.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -108,6 +111,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "^9.32.0",
     "@playwright/test": "^1.57.0",
     "@tailwindcss/typography": "^0.5.16",
@@ -127,6 +131,7 @@
     "globals": "^15.15.0",
     "jsdom": "^20.0.3",
     "postcss": "^8.5.6",
+    "sharp": "^0.35.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
