@@ -15,8 +15,8 @@ export const blogPosts = [
     "blurb": "Metro Vancouver winter weather explained — Pineapple Express, Arctic outflow, freezing rain and convergence-zone snow, and how each triggers Lower Mainland snow emergencies…",
     "image": "/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
     "alt": "Wow mascot standing alone on a plowed suburban Metro Vancouver street with a dramatic North Shore mountain snowscape and broken winter cloud cover in the background under bright daylight",
-    "publishedAt": "2026-07-21T22:29:54.000Z",
-    "updatedAt": "2026-07-21T22:35:47.000Z"
+    "publishedAt": "2026-07-21T22:36:52.000Z",
+    "updatedAt": "2026-07-21T22:36:52.000Z"
   },
   {
     "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
@@ -24,8 +24,8 @@ export const blogPosts = [
     "blurb": "The BC Occupiers Liability Act and winter slip claims — the exact duty, the reasonableness standard and the paper trail that defends a strata or commercial landlord…",
     "image": "/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
     "alt": "Wow mascot standing alone on a plowed and salted commercial storefront sidewalk with a safety cone, brick facade retail window and neat snow banks beside it in bright winter light",
-    "publishedAt": "2026-07-21T22:29:54.000Z",
-    "updatedAt": "2026-07-21T22:35:47.000Z"
+    "publishedAt": "2026-07-21T22:36:52.000Z",
+    "updatedAt": "2026-07-21T22:36:52.000Z"
   },
   {
     "slug": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
@@ -33,8 +33,8 @@ export const blogPosts = [
     "blurb": "Pet-safe de-icer vs rock salt in Metro Vancouver — chemistry, temperature range, concrete damage, paw safety, cost per square metre and what strata councils should actually buy in…",
     "image": "/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
     "alt": "Wow mascot standing alone on a plowed Metro Vancouver residential sidewalk with pet-safe de-icing granules scattered on the concrete and the North Shore mountains visible in the background",
-    "publishedAt": "2026-07-21T22:29:54.000Z",
-    "updatedAt": "2026-07-21T22:29:54.000Z"
+    "publishedAt": "2026-07-21T22:36:52.000Z",
+    "updatedAt": "2026-07-21T22:36:52.000Z"
   },
   {
     "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
@@ -42,8 +42,8 @@ export const blogPosts = [
     "blurb": "BC strata seasonal snow contracts explained — seasonal vs per-push pricing, what actually gets included, insurance duties, budget line items and how to compare Metro Vancouver quot…",
     "image": "/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
     "alt": "Wow mascot standing alone on a freshly plowed Metro Vancouver strata townhouse driveway with tidy salted walkways, mailbox kiosk and evergreens in the background under a bright winter sky",
-    "publishedAt": "2026-07-21T22:29:54.000Z",
-    "updatedAt": "2026-07-21T22:29:54.000Z"
+    "publishedAt": "2026-07-21T22:36:52.000Z",
+    "updatedAt": "2026-07-21T22:36:52.000Z"
   },
   {
     "slug": "arbutus-ridge-vancouver-strata-commercial-snow-removal",

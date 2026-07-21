@@ -68,6 +68,14 @@ export function collectRoutes(): RouteMeta[] {
       kind: "static",
     },
     {
+      path: "/blog/neighborhoods",
+      title: "Snow Removal by Neighborhood | PlowWow Blog",
+      description:
+        "Browse every PlowWow snow-removal guide by Metro Vancouver neighborhood — Burnaby, Vancouver, Richmond, Coquitlam, Surrey and more.",
+      ogImage: `${BASE_URL}/og-default.jpg`,
+      kind: "static",
+    },
+    {
       path: "/intelligence",
       title: "PlowWow Intelligence — Snow Ops Software | PlowWow",
       description:
