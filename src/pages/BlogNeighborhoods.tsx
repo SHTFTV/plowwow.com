@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/generated/blog-posts";
 import { cityForBlogSlug, cityHubs } from "@/lib/internalLinks";
+import { neighborhoodsOgUrl } from "@/generated/neighborhoods-og";
 
 const ALL = "all";
 const CITYWIDE = "citywide";
