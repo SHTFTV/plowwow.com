@@ -386,6 +386,36 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       <main>
         <section className="py-14 md:py-20 bg-gradient-to-b from-muted/40 to-background">
           <div className="container max-w-3xl">
+            {kind === "blog" && (
+              <nav aria-label="Breadcrumb" className="mb-4 text-xs">
+                <ol className="flex flex-wrap items-center gap-1.5 text-muted-foreground">
+                  <li>
+                    <Link to="/" className="hover:text-primary hover:underline">Home</Link>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                  <li>
+                    <Link to="/blog" className="hover:text-primary hover:underline">Blog</Link>
+                  </li>
+                  {(() => {
+                    const hub = cityForBlogSlug(slug);
+                    return hub ? (
+                      <>
+                        <li aria-hidden="true">/</li>
+                        <li>
+                          <Link to={hub.path} className="hover:text-primary hover:underline">
+                            {hub.name}
+                          </Link>
+                        </li>
+                      </>
+                    ) : null;
+                  })()}
+                  <li aria-hidden="true">/</li>
+                  <li aria-current="page" className="text-foreground font-semibold truncate max-w-[60ch]">
+                    {title.replace(/\s*\|\s*PlowWow.*$/i, "")}
+                  </li>
+                </ol>
+              </nav>
+            )}
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">
               {kind === "blog" ? "From the PlowWow Blog" : "PlowWow"}
             </p>
