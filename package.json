@@ -46,7 +46,10 @@
     "seo:repro-replay": "tsx scripts/bundle-repro.ts --bundle=seo-report/repro-bundle.zip",
     "seo:html-report": "tsx scripts/generate-html-report.ts",
     "content:validate": "tsx scripts/content-change-validate.ts",
-    "content:validate:full": "tsx scripts/content-change-validate.ts --full"
+    "content:validate:full": "tsx scripts/content-change-validate.ts --full",
+    "a11y:blog-neighborhoods": "tsx scripts/a11y-blog-neighborhoods.ts",
+    "seo:neighborhoods-og": "tsx scripts/generate-neighborhoods-og.ts",
+    "seo:publish-report": "tsx scripts/publish-seo-report.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
