@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:36:34.992Z",
+  "generatedAt": "2026-07-21T23:44:52.714Z",
   "crawlBase": null,
   "checks": [
     {
@@ -29,6 +29,12 @@
     {
       "source": "/quote",
       "expected": "/quote/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/blog/neighborhoods",
+      "expected": "/blog/neighborhoods/",
       "status": "ok",
       "live": null
     },

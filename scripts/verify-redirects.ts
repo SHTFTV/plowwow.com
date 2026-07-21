@@ -132,11 +132,27 @@ async function main() {
   const crawlBase = process.env.CRAWL_URL?.replace(/\/+$/, "") ?? "";
   const checks: Check[] = [];
 
-  for (const rule of rules) {
+  for (let idx = 0; idx < rules.length; idx++) {
+    const rule = rules[idx];
     // Ignore rules that intentionally serve non-canonical results.
     if (rule.status === 200 || rule.status === 404) continue;
 
-    const ex = expandExample(rule, locs);
+    // Netlify processes redirects in order — first match wins. Sample only
+    // from sitemap locs NOT already claimed by an earlier rule so we don't
+    // false-positive on legacy catch-alls like `/blog/:slug` sampling
+    // `/blog/neighborhoods` (which the specific rule above handles).
+    const earlierPatterns = rules.slice(0, idx).map((r) => {
+      const p = r.from
+        .replace(/[.+^${}()|[\]\\]/g, "\\$&")
+        .replace(/:[a-zA-Z_][a-zA-Z0-9_]*/g, "([^/]+)")
+        .replace(/\*/g, "(.*)");
+      return new RegExp(`^${p}/?$`);
+    });
+    const filteredLocs = locs.filter((loc) => {
+      const path = new URL(loc).pathname.replace(/\/+$/, "");
+      return !earlierPatterns.some((rx) => rx.test(path));
+    });
+    const ex = expandExample(rule, filteredLocs);
     if (!ex) {
       checks.push({
         source: rule.from,

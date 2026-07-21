@@ -41,6 +41,18 @@
 # --- 301: legacy slug normalization ---
 # Older external links used /blog/<slug> before we flattened blog URLs to the
 # root. Keep those working with a permanent redirect to the canonical path.
+# /blog/neighborhoods is a real page (the neighborhood hub) — keep it intact.
+[[redirects]]
+  from = "/blog/neighborhoods"
+  to = "/blog/neighborhoods/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/neighborhoods/"
+  to = "/blog/neighborhoods/"
+  status = 200
+
 [[redirects]]
   from = "/blog/:slug"
   to = "/:slug/"

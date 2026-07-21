@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:36:32.403Z",
+  "generatedAt": "2026-07-21T23:44:50.227Z",
   "locales": [
     "en-CA",
     "en",
@@ -31,6 +31,17 @@
     {
       "url": "https://plowwow.com/blog/",
       "title": "Snow Removal Blog &amp; Neighborhood Guides | PlowWow",
+      "hreflang": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ]
+    },
+    {
+      "url": "https://plowwow.com/blog/neighborhoods/",
+      "title": "Snow Removal by Neighborhood | PlowWow Blog",
       "hreflang": [
         "en-CA",
         "x-default",
