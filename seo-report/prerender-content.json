@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-07-21T05:15:06.174Z",
+  "generatedAt": "2026-07-21T05:15:19.959Z",
   "passed": [
     "/burnaby-snow-removal/",
     "/burnaby/",
     "/vancouver/",
+    "/new-westminster/",
     "/coquitlam/",
     "/port-coquitlam/",
     "/port-moody/",
@@ -20,7 +21,5 @@
     "/mission/",
     "/chilliwack/"
   ],
-  "failures": [
-    "✗ /new-westminster/\n    - title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow\n    - h1 missing \"New Westminster\": New West Snow Removal &amp; Salting\n    - og:title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow\n    - twitter:title missing \"New Westminster\": New West Snow Removal &amp; Salting | PlowWow"
-  ]
+  "failures": []
 }

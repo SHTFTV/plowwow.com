@@ -52,7 +52,7 @@ for (const t of targets) {
   const problems: string[] = [];
 
   const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
-  if (!title.includes(t.name)) problems.push(`title missing "${t.name}": ${title}`);
+  if (!matchesName(title, t)) problems.push(`title missing "${t.name}": ${title}`);
   if (!/PlowWow/i.test(title)) problems.push(`title missing "PlowWow": ${title}`);
 
   const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/)?.[1] ?? "";
@@ -61,7 +61,7 @@ for (const t of targets) {
 
   const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]?.replace(/<[^>]+>/g, "").trim() ?? "";
   if (!h1) problems.push(`missing <h1>`);
-  else if (!h1.toLowerCase().includes(t.name.toLowerCase()))
+  else if (!matchesName(h1, t))
     problems.push(`h1 missing "${t.name}": ${h1}`);
 
   const main =
@@ -75,11 +75,11 @@ for (const t of targets) {
   const ogImg = html.match(/<meta\s+property="og:image"\s+content="([^"]*)"/)?.[1] ?? "";
   const twTitle = html.match(/<meta\s+name="twitter:title"\s+content="([^"]*)"/)?.[1] ?? "";
   const twImg = html.match(/<meta\s+name="twitter:image"\s+content="([^"]*)"/)?.[1] ?? "";
-  if (!ogTitle.includes(t.name)) problems.push(`og:title missing "${t.name}": ${ogTitle}`);
+  if (!matchesName(ogTitle, t)) problems.push(`og:title missing "${t.name}": ${ogTitle}`);
   if (ogUrl.replace(/\/+$/, "") !== url.replace(/\/+$/, ""))
     problems.push(`og:url mismatch: expected ${url}, got ${ogUrl}`);
   if (!/^https:\/\//.test(ogImg)) problems.push(`og:image not absolute https: ${ogImg}`);
-  if (!twTitle.includes(t.name)) problems.push(`twitter:title missing "${t.name}": ${twTitle}`);
+  if (!matchesName(twTitle, t)) problems.push(`twitter:title missing "${t.name}": ${twTitle}`);
   if (!/^https:\/\//.test(twImg)) problems.push(`twitter:image not absolute https: ${twImg}`);
 
   const hasLocalBusiness = /"@type"\s*:\s*(?:"LocalBusiness"|\[[^\]]*"LocalBusiness"[^\]]*\])/.test(
