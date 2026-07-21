@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-21T05:21:06.624Z",
-  "totalUrls": 305,
+  "generatedAt": "2026-07-21T05:50:33.604Z",
+  "totalUrls": 313,
   "expectedCities": 17,
-  "expectedBlogPosts": 120,
+  "expectedBlogPosts": 124,
   "requiredHreflang": [
     "en-CA",
     "en",

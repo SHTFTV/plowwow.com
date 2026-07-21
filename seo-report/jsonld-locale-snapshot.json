@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T05:21:04.911Z",
+  "generatedAt": "2026-07-21T05:50:32.231Z",
   "locales": [
     "en-CA",
     "en"
@@ -214,6 +214,36 @@
       "LocalBusiness": {
         "hasProvider": false,
         "hasAggregateRating": false
+      }
+    },
+    "/big-bend-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/big-bend-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
       }
     },
     "/blog/": {
@@ -1620,6 +1650,36 @@
         "hasAggregateRating": false
       }
     },
+    "/ironwood-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/ironwood-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/kensington-cedar-cottage-snow-removal/": {
       "BlogPosting": {
         "fields": [
@@ -2741,6 +2801,36 @@
         "hasAggregateRating": true
       }
     },
+    "/renfrew-collingwood-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/renfrew-collingwood-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/residential-snow-removal/": {
       "BreadcrumbList": {
         "length": 2
@@ -3449,6 +3539,36 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/south-slope-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/sperling-duthie-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 7
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/sperling-duthie-burnaby-strata-commercial-snow-removal/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }

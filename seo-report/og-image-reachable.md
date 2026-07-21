@@ -1,8 +1,8 @@
 # og:image / twitter:image reachability
 
-_Generated 2026-07-21T05:21:07.774Z_
+_Generated 2026-07-21T05:50:34.637Z_
 
-- Unique URLs: **210**
+- Unique URLs: **218**
 - Failed: **0**
 - Warnings: **126**
 - Minimum dimensions (hard): **600×315**
