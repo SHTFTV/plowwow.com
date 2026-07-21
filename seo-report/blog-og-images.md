@@ -1,47 +1,10 @@
 # Blog Social Share Image Report
 
-_Generated 2026-07-21T23:21:52.300Z_
+_Generated 2026-07-21T23:22:10.388Z_
 
 - Total posts: **132**
-- Missing images: **34**
+- Missing images: **0**
 - Warnings: **56**
-
-## Missing
-
-- `buckingham-heights-burnaby` → missing image field
-- `burke-mountain-snow` → missing image field
-- `can-i-push-snow-onto-the-street` → missing image field
-- `commercial-snow-removal-burnaby` → missing image field
-- `commercial-snow-removal-vancouver` → missing image field
-- `east-vancouver` → missing image field
-- `happy-new-year-metro-vancouver` → missing image field
-- `heritage-mountain` → missing image field
-- `how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors` → missing image field
-- `kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver` → missing image field
-- `metrotown-snow-removal-company` → missing image field
-- `metrotown-strata-snow-removal` → missing image field
-- `middlegate-snow-removal-burnaby` → missing image field
-- `now-removal-arbutus` → missing image field
-- `plow-wow-cutest-snow-removal-brand-marketing-platform` → missing image field
-- `plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist` → missing image field
-- `professional-snow-removal-ice-management-for-vancouver-bc-strata-properties` → missing image field
-- `professional-snow-removal-in-middle-gate-burnaby` → missing image field
-- `record-snow-falls-in-bc` → missing image field
-- `sapperton-new-westminster` → missing image field
-- `sfu-burnaby-snow-removal` → missing image field
-- `shaughnessy-snow-removal` → missing image field
-- `silver-valley-maple-ridge` → missing image field
-- `skid-steer-snow-removal-in-langley-bc` → missing image field
-- `snow-removal-in-burquitlam` → missing image field
-- `snow-removal-kensington-prairie` → missing image field
-- `snow-removal-renfrew-heights` → missing image field
-- `snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand` → missing image field
-- `snow-removal-services-in-killarney-vancouver` → missing image field
-- `snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow` → missing image field
-- `snow-removal-west-side-vancouver` → missing image field
-- `strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service` → missing image field
-- `the-worlds-cutest-snow-removal-brand` → missing image field
-- `white-christmas-2025-burnaby` → missing image field
 
 ## Warnings
 
@@ -67,37 +30,37 @@ _Generated 2026-07-21T23:21:52.300Z_
 - `richmond-strata-commercial-snow-plowing` (1024x1024) → smaller than 1200x630 (1024x1024)
 - `surrey-strata-commercial-snow-plowing` (1024x1024) → smaller than 1200x630 (1024x1024)
 - `white-rock-strata-commercial-snow-plowing` (1024x1024) → smaller than 1200x630 (1024x1024)
-- `buckingham-heights-burnaby` (nullxnull) → missing image field
-- `burke-mountain-snow` (nullxnull) → missing image field
-- `can-i-push-snow-onto-the-street` (nullxnull) → missing image field
-- `commercial-snow-removal-burnaby` (nullxnull) → missing image field
-- `commercial-snow-removal-vancouver` (nullxnull) → missing image field
-- `east-vancouver` (nullxnull) → missing image field
-- `happy-new-year-metro-vancouver` (nullxnull) → missing image field
-- `heritage-mountain` (nullxnull) → missing image field
-- `how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors` (nullxnull) → missing image field
-- `kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver` (nullxnull) → missing image field
-- `metrotown-snow-removal-company` (nullxnull) → missing image field
-- `metrotown-strata-snow-removal` (nullxnull) → missing image field
-- `middlegate-snow-removal-burnaby` (nullxnull) → missing image field
-- `now-removal-arbutus` (nullxnull) → missing image field
-- `plow-wow-cutest-snow-removal-brand-marketing-platform` (nullxnull) → missing image field
-- `plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist` (nullxnull) → missing image field
-- `professional-snow-removal-ice-management-for-vancouver-bc-strata-properties` (nullxnull) → missing image field
-- `professional-snow-removal-in-middle-gate-burnaby` (nullxnull) → missing image field
-- `record-snow-falls-in-bc` (nullxnull) → missing image field
-- `sapperton-new-westminster` (nullxnull) → missing image field
-- `sfu-burnaby-snow-removal` (nullxnull) → missing image field
-- `shaughnessy-snow-removal` (nullxnull) → missing image field
-- `silver-valley-maple-ridge` (nullxnull) → missing image field
-- `skid-steer-snow-removal-in-langley-bc` (nullxnull) → missing image field
-- `snow-removal-in-burquitlam` (nullxnull) → missing image field
-- `snow-removal-kensington-prairie` (nullxnull) → missing image field
-- `snow-removal-renfrew-heights` (nullxnull) → missing image field
-- `snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand` (nullxnull) → missing image field
-- `snow-removal-services-in-killarney-vancouver` (nullxnull) → missing image field
-- `snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow` (nullxnull) → missing image field
-- `snow-removal-west-side-vancouver` (nullxnull) → missing image field
-- `strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service` (nullxnull) → missing image field
-- `the-worlds-cutest-snow-removal-brand` (nullxnull) → missing image field
-- `white-christmas-2025-burnaby` (nullxnull) → missing image field
+- `buckingham-heights-burnaby` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `burke-mountain-snow` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `can-i-push-snow-onto-the-street` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `commercial-snow-removal-burnaby` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `commercial-snow-removal-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `east-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630); alt text missing or too short
+- `happy-new-year-metro-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `heritage-mountain` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630); alt text missing or too short
+- `metrotown-snow-removal-company` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `metrotown-strata-snow-removal` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `middlegate-snow-removal-burnaby` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `now-removal-arbutus` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `plow-wow-cutest-snow-removal-brand-marketing-platform` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `professional-snow-removal-ice-management-for-vancouver-bc-strata-properties` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630); alt text missing or too short
+- `professional-snow-removal-in-middle-gate-burnaby` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `record-snow-falls-in-bc` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `sapperton-new-westminster` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `sfu-burnaby-snow-removal` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630); alt text missing or too short
+- `shaughnessy-snow-removal` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `silver-valley-maple-ridge` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `skid-steer-snow-removal-in-langley-bc` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-in-burquitlam` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-kensington-prairie` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-renfrew-heights` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-services-in-killarney-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630); alt text missing or too short
+- `snow-removal-west-side-vancouver` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `the-worlds-cutest-snow-removal-brand` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)
+- `white-christmas-2025-burnaby` (945x630) → using /og-default.jpg fallback (no per-post hero); smaller than 1200x630 (945x630)

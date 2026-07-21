@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T23:21:52.300Z",
+  "generatedAt": "2026-07-21T23:22:10.388Z",
   "total": 132,
-  "failed": 34,
+  "failed": 0,
   "warned": 56,
   "rows": [
     {
@@ -1030,410 +1030,449 @@
     },
     {
       "slug": "buckingham-heights-burnaby",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "burke-mountain-snow",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "can-i-push-snow-onto-the-street",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "commercial-snow-removal-burnaby",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "commercial-snow-removal-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "east-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)",
+        "alt text missing or too short"
       ]
     },
     {
       "slug": "happy-new-year-metro-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "heritage-mountain",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)",
+        "alt text missing or too short"
       ]
     },
     {
       "slug": "metrotown-snow-removal-company",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "metrotown-strata-snow-removal",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "middlegate-snow-removal-burnaby",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "now-removal-arbutus",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)",
+        "alt text missing or too short"
       ]
     },
     {
       "slug": "professional-snow-removal-in-middle-gate-burnaby",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "record-snow-falls-in-bc",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "sapperton-new-westminster",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "sfu-burnaby-snow-removal",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)",
+        "alt text missing or too short"
       ]
     },
     {
       "slug": "shaughnessy-snow-removal",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "silver-valley-maple-ridge",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "skid-steer-snow-removal-in-langley-bc",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-in-burquitlam",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-kensington-prairie",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-renfrew-heights",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-services-in-killarney-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)",
+        "alt text missing or too short"
       ]
     },
     {
       "slug": "snow-removal-west-side-vancouver",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "the-worlds-cutest-snow-removal-brand",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     },
     {
       "slug": "white-christmas-2025-burnaby",
-      "image": null,
-      "exists": false,
-      "bytes": 0,
-      "width": null,
-      "height": null,
-      "ok": false,
+      "image": "/og-default.jpg",
+      "exists": true,
+      "bytes": 58265,
+      "width": 945,
+      "height": 630,
+      "ok": true,
       "warnings": [
-        "missing image field"
+        "using /og-default.jpg fallback (no per-post hero)",
+        "smaller than 1200x630 (945x630)"
       ]
     }
   ]
