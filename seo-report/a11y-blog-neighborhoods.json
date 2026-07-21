@@ -1,0 +1,264 @@
+{
+  "generatedAt": "2026-07-21T23:37:54.963874Z",
+  "base": "http://localhost:8080",
+  "scenarios": 5,
+  "criticalOrSeriousAxe": 5,
+  "ariaFailures": 0,
+  "findings": [
+    {
+      "scenario": "default",
+      "url": "http://localhost:8080/blog/neighborhoods/",
+      "axeViolations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 46,
+          "help": "Elements must meet minimum color contrast ratio thresholds"
+        }
+      ],
+      "ariaChecks": [
+        {
+          "name": "Pagination has aria-label",
+          "ok": true
+        },
+        {
+          "name": "Pagination has aria-current=page",
+          "ok": true
+        },
+        {
+          "name": "Previous button labelled",
+          "ok": true
+        },
+        {
+          "name": "Next button labelled",
+          "ok": true
+        },
+        {
+          "name": "All pagination buttons \u2265 44\u00d744 px",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "City filter group labelled",
+          "ok": true
+        },
+        {
+          "name": "City filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Topic filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Results heading has aria-live=polite",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "scenario": "city=vancouver",
+      "url": "http://localhost:8080/blog/neighborhoods/?city=vancouver",
+      "axeViolations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 45,
+          "help": "Elements must meet minimum color contrast ratio thresholds"
+        }
+      ],
+      "ariaChecks": [
+        {
+          "name": "Pagination has aria-label",
+          "ok": true
+        },
+        {
+          "name": "Pagination has aria-current=page",
+          "ok": true
+        },
+        {
+          "name": "Previous button labelled",
+          "ok": true
+        },
+        {
+          "name": "Next button labelled",
+          "ok": true
+        },
+        {
+          "name": "All pagination buttons \u2265 44\u00d744 px",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "City filter group labelled",
+          "ok": true
+        },
+        {
+          "name": "City filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Topic filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Results heading has aria-live=polite",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "scenario": "city=vancouver&tag=Strata",
+      "url": "http://localhost:8080/blog/neighborhoods/?city=vancouver&tag=Strata",
+      "axeViolations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 47,
+          "help": "Elements must meet minimum color contrast ratio thresholds"
+        }
+      ],
+      "ariaChecks": [
+        {
+          "name": "Pagination has aria-label",
+          "ok": true
+        },
+        {
+          "name": "Pagination has aria-current=page",
+          "ok": true
+        },
+        {
+          "name": "Previous button labelled",
+          "ok": true
+        },
+        {
+          "name": "Next button labelled",
+          "ok": true
+        },
+        {
+          "name": "All pagination buttons \u2265 44\u00d744 px",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "City filter group labelled",
+          "ok": true
+        },
+        {
+          "name": "City filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Topic filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Results heading has aria-live=polite",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "scenario": "city=citywide",
+      "url": "http://localhost:8080/blog/neighborhoods/?city=citywide",
+      "axeViolations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 31,
+          "help": "Elements must meet minimum color contrast ratio thresholds"
+        }
+      ],
+      "ariaChecks": [
+        {
+          "name": "Pagination has aria-label",
+          "ok": true
+        },
+        {
+          "name": "Pagination has aria-current=page",
+          "ok": true
+        },
+        {
+          "name": "Previous button labelled",
+          "ok": true
+        },
+        {
+          "name": "Next button labelled",
+          "ok": true
+        },
+        {
+          "name": "All pagination buttons \u2265 44\u00d744 px",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "City filter group labelled",
+          "ok": true
+        },
+        {
+          "name": "City filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Topic filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Results heading has aria-live=polite",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "scenario": "page-2 via keyboard",
+      "url": "http://localhost:8080/blog/neighborhoods/?page=2",
+      "axeViolations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 48,
+          "help": "Elements must meet minimum color contrast ratio thresholds"
+        }
+      ],
+      "ariaChecks": [
+        {
+          "name": "Pagination has aria-label",
+          "ok": true
+        },
+        {
+          "name": "Pagination has aria-current=page",
+          "ok": true
+        },
+        {
+          "name": "Previous button labelled",
+          "ok": true
+        },
+        {
+          "name": "Next button labelled",
+          "ok": true
+        },
+        {
+          "name": "All pagination buttons \u2265 44\u00d744 px",
+          "ok": true,
+          "detail": null
+        },
+        {
+          "name": "City filter group labelled",
+          "ok": true
+        },
+        {
+          "name": "City filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Topic filter exposes aria-pressed",
+          "ok": true
+        },
+        {
+          "name": "Results heading has aria-live=polite",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}
