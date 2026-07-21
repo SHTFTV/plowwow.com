@@ -52,17 +52,26 @@ type Row = {
 
 const publicDir = resolve("public");
 const rows: Row[] = [];
+const DEFAULT_OG = "/og-default.jpg";
 
 for (const p of blogPosts) {
-  const image = p.image;
   const warnings: string[] = [];
+  // Prefer explicit p.image, otherwise check for a matching hero at
+  // /blog-images/<slug>.jpg, otherwise fall back to the branded default.
+  let image = p.image ?? null;
   if (!image) {
-    rows.push({ slug: p.slug, image: null, exists: false, bytes: 0, width: null, height: null, ok: false, warnings: ["missing image field"] });
-    continue;
+    const heroCandidate = `/blog-images/${p.slug}.jpg`;
+    if (existsSync(resolve(publicDir, heroCandidate.replace(/^\//, "")))) {
+      image = heroCandidate;
+      warnings.push("using inferred /blog-images/<slug>.jpg (no image field)");
+    } else {
+      image = DEFAULT_OG;
+      warnings.push("using /og-default.jpg fallback (no per-post hero)");
+    }
   }
   const abs = resolve(publicDir, image.replace(/^\//, ""));
   if (!existsSync(abs)) {
-    rows.push({ slug: p.slug, image, exists: false, bytes: 0, width: null, height: null, ok: false, warnings: ["file not found in /public"] });
+    rows.push({ slug: p.slug, image, exists: false, bytes: 0, width: null, height: null, ok: false, warnings: [...warnings, "file not found in /public"] });
     continue;
   }
   const buf = readFileSync(abs);
