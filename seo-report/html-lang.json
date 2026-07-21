@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T22:36:36.809Z",
+  "generatedAt": "2026-07-21T23:44:54.151Z",
   "expectedLang": "en-CA",
-  "total": 314,
+  "total": 315,
   "failed": 0,
   "results": [
     {
@@ -30,6 +30,18 @@
     },
     {
       "url": "https://plowwow.com/blog/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/blog/neighborhoods/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
