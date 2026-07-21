@@ -1,6 +1,6 @@
 # robots.txt directives
 
-_Generated 2026-07-21T05:57:43.863Z_
+_Generated 2026-07-21T06:34:14.463Z_
 
 - Base: `http://localhost:4179`
 - HTTP: **200** · Content-Type: `text/plain`
