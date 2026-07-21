@@ -10,7 +10,7 @@ Markdown Content:
 
 **Ironwood** sits at the southeast corner of Lulu Island where Steveston Highway meets No. 5 Road — a retail-anchored district that goes from empty at 5 a.m. to jammed by 9 a.m. When freezing rain glazes the Ironwood Plaza parking lot or a skim of snow buries the loading lanes at Home Depot, tenants don't call the landlord — they call WorkSafeBC. **PlowWow** is the seasonal-contract snow removal partner Ironwood property managers, big-box operators and townhome strata boards trust for pre-open clears, documented salt runs and a locked-in winter budget.
 
-![PlowWow mascot on a plowed Ironwood Richmond retail parkade street at dawn with big-box storefronts and warehouse loading bays under fresh snow](/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg)
+![Wow mascot standing alone in a freshly plowed Ironwood Richmond big-box retail parking lot with the Ironwood Plaza storefront and empty snow-cleared drive lanes in the background](/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg "Ironwood Richmond retail and strata snow removal — PlowWow")
 
 ## Ironwood's Snow Profile — Why This Corner of Richmond Is Different
 

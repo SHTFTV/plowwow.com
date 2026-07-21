@@ -10,7 +10,7 @@ Markdown Content:
 
 **Renfrew-Collingwood** is one of the densest, most mixed-use neighbourhoods in East Vancouver — Kingsway retail, Joyce-Collingwood SkyTrain tower stratas, character walk-ups on Nanaimo, and a laneway network that no plow truck can bull through blind. When snow lands here, three things go wrong at once: sidewalks buried, SkyTrain foot traffic ballooning, and laneway garbage pickup blocked. **PlowWow** is the seasonal-contract snow removal partner Renfrew-Collingwood strata councils, mixed-use landlords and Kingsway retailers rely on for coordinated, documented winter service.
 
-![PlowWow mascot on a plowed Renfrew-Collingwood East Vancouver street at blue hour with character homes and Kingsway shopfronts under fresh snow](/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg)
+![Wow mascot standing alone on a plowed Renfrew-Collingwood East Vancouver residential street with the elevated SkyTrain Millennium Line guideway and snow-dusted character homes in the background](/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg "Renfrew-Collingwood Vancouver strata and commercial snow removal — PlowWow")
 
 ## Why Renfrew-Collingwood Is Its Own Snow-Removal Problem
 
