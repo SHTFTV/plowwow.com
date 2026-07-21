@@ -12,6 +12,7 @@ import CityPage from "./pages/CityPage.tsx";
 import SeoReport from "./pages/SeoReport.tsx";
 import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage.tsx";
 import BlogIndex from "./pages/BlogIndex.tsx";
+import BlogNeighborhoods from "./pages/BlogNeighborhoods.tsx";
 import Intelligence from "./pages/Intelligence.tsx";
 import AppFeatures from "./pages/AppFeatures.tsx";
 import GuestPost from "./pages/GuestPost.tsx";
