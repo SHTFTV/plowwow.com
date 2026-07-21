@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-21T05:21:07.772Z",
-  "total": 210,
+  "generatedAt": "2026-07-21T05:50:34.636Z",
+  "total": 218,
   "failed": 0,
   "warnings": 126,
   "minDimensions": "600x315",
@@ -399,6 +399,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "big-bend-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "big-bend-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -1767,6 +1801,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "ironwood-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "ironwood-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -2871,6 +2939,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "renfrew-collingwood-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "renfrew-collingwood-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
       "url": "https://plowwow.com/og-richmond.jpg",
       "kind": "og:image",
       "sources": [
@@ -3270,6 +3372,40 @@
         "mime": "image/png",
         "width": 1376,
         "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "sperling-duthie-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "sperling-duthie-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 900
       }
     },
     {
