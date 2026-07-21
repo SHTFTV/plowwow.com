@@ -42,7 +42,7 @@ const VIEWPORTS: [string, number, number][] = [
 ];
 
 // Mascot safe zone: bottom-centre 60% × 55%
-const SAFE = { xMin: 0.2, xMax: 0.8, yMin: 0.45, yMax: 1.0 };
+const SAFE = { xMin: 0.35, xMax: 0.65, yMin: 0.5, yMax: 0.95 };
 
 async function main() {
   const failures: string[] = [];
