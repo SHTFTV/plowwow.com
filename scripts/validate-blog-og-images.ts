@@ -90,6 +90,8 @@ for (const p of blogPosts) {
 mkdirSync(resolve("seo-report"), { recursive: true });
 const failed = rows.filter((r) => !r.ok);
 const withWarnings = rows.filter((r) => r.warnings.length > 0);
+const dimensionWarnings = rows.filter((r) => r.warnings.some(isDimensionWarning) && !r.warnings.some((w) => !isDimensionWarning(w)));
+const criticalWarnings = rows.filter((r) => r.warnings.some((w) => !isDimensionWarning(w)));
 const onDefault = rows.filter((r) => r.source === "default");
 const bySource = {
   hero: rows.filter((r) => r.source === "hero").length,
@@ -102,8 +104,10 @@ const out = {
   total: rows.length,
   failed: failed.length,
   warned: withWarnings.length,
+  dimension: dimensionWarnings.length,
+  critical: criticalWarnings.length,
   bySource,
-  thresholds: { MAX_FAILURES, MAX_WARNINGS, MAX_DEFAULT_FALLBACK },
+  thresholds: { MAX_FAILURES, MAX_CRITICAL, MAX_DIMENSION, MAX_DEFAULT_FALLBACK },
   rows,
 };
 writeFileSync(resolve("seo-report/blog-og-images.json"), JSON.stringify(out, null, 2));
@@ -116,7 +120,8 @@ const md: string[] = [
   `- Total posts: **${rows.length}**`,
   `- Custom hero: **${bySource.hero}** · Themed mascot fallback: **${bySource.theme}** · /og-default.jpg: **${bySource.default}**`,
   `- Missing images: **${failed.length}** (threshold ≤ ${MAX_FAILURES})`,
-  `- Posts with warnings: **${withWarnings.length}** (threshold ≤ ${MAX_WARNINGS})`,
+  `- Critical warnings: **${criticalWarnings.length}** (threshold ≤ ${MAX_CRITICAL})`,
+  `- Dimension-only warnings: **${dimensionWarnings.length}** (threshold ≤ ${MAX_DIMENSION})`,
   `- Default-fallback posts: **${bySource.default}** (threshold ≤ ${MAX_DEFAULT_FALLBACK})`,
   ``,
 ];
@@ -125,9 +130,14 @@ if (failed.length) {
   for (const r of failed) md.push(`- \`${r.slug}\` → ${r.warnings.join("; ")}`);
   md.push(``);
 }
-if (withWarnings.length) {
-  md.push(`## Warnings`, ``);
-  for (const r of withWarnings) md.push(`- \`${r.slug}\` (${r.width}x${r.height}, ${r.source}) → ${r.warnings.join("; ")}`);
+if (criticalWarnings.length) {
+  md.push(`## Critical warnings`, ``);
+  for (const r of criticalWarnings) md.push(`- \`${r.slug}\` (${r.width}x${r.height}, ${r.source}) → ${r.warnings.join("; ")}`);
+  md.push(``);
+}
+if (dimensionWarnings.length) {
+  md.push(`## Dimension warnings (informational)`, ``);
+  for (const r of dimensionWarnings) md.push(`- \`${r.slug}\` (${r.width}x${r.height}, ${r.source}) → ${r.warnings.join("; ")}`);
 }
 writeFileSync(resolve("seo-report/blog-og-images.md"), md.join("\n"));
 
@@ -140,13 +150,15 @@ console.log(`  Total posts        : ${rows.length}`);
 console.log(`  Custom hero        : ${bySource.hero}`);
 console.log(`  Themed mascot fallback : ${bySource.theme}`);
 console.log(`  Default fallback   : ${bySource.default} (max ${MAX_DEFAULT_FALLBACK})`);
-console.log(`  Warnings           : ${withWarnings.length} (max ${MAX_WARNINGS})`);
+console.log(`  Critical warnings  : ${criticalWarnings.length} (max ${MAX_CRITICAL})`);
+console.log(`  Dimension warnings : ${dimensionWarnings.length} (max ${MAX_DIMENSION})`);
 console.log(`  Missing files      : ${failed.length} (max ${MAX_FAILURES})`);
 console.log(bar);
 
 const violations: string[] = [];
 if (failed.length > MAX_FAILURES) violations.push(`missing images ${failed.length} > ${MAX_FAILURES}`);
-if (withWarnings.length > MAX_WARNINGS) violations.push(`warnings ${withWarnings.length} > ${MAX_WARNINGS}`);
+if (criticalWarnings.length > MAX_CRITICAL) violations.push(`critical warnings ${criticalWarnings.length} > ${MAX_CRITICAL}`);
+if (dimensionWarnings.length > MAX_DIMENSION) violations.push(`dimension warnings ${dimensionWarnings.length} > ${MAX_DIMENSION}`);
 if (bySource.default > MAX_DEFAULT_FALLBACK) violations.push(`default-fallback posts ${bySource.default} > ${MAX_DEFAULT_FALLBACK}`);
 
 if (violations.length) {
