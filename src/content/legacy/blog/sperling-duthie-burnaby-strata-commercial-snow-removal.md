@@ -10,7 +10,7 @@ Markdown Content:
 
 **Sperling-Duthie** climbs the northwest shoulder of Burnaby Mountain — a quiet, tree-lined pocket of townhome stratas, character homes and small strip retail wedged between Burnaby Mountain Conservation Area, SFU commuter routes and the Lougheed Highway corridor. Its elevation gain, tree cover and mountain-drainage runoff make it one of the trickiest snow-removal zones in Burnaby. **PlowWow** is the seasonal-contract snow removal partner Sperling-Duthie strata councils, character-home owners and small-retail landlords rely on for early-morning clears, salt-run documentation and a predictable winter budget.
 
-![PlowWow mascot on a plowed Sperling-Duthie Burnaby residential street at dawn with mid-century homes and Burnaby Mountain forest behind under fresh snow](/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg)
+![Wow mascot standing alone on a plowed Sperling-Duthie Burnaby hillside street with snow-covered mid-century homes and the forested slope of Burnaby Mountain rising in the background](/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg "Sperling-Duthie Burnaby strata and residential snow removal — PlowWow")
 
 ## Sperling-Duthie's Snow Reality — Elevation, Trees, Runoff
 
