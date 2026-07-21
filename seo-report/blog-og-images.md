@@ -1,14 +1,15 @@
 # Blog Social Share Image Report
 
-_Generated 2026-07-21T23:27:22.347Z_
+_Generated 2026-07-21T23:28:39.050Z_
 
 - Total posts: **132**
 - Custom hero: **98** · Themed mascot fallback: **34** · /og-default.jpg: **0**
 - Missing images: **0** (threshold ≤ 0)
-- Posts with warnings: **27** (threshold ≤ 8)
+- Critical warnings: **0** (threshold ≤ 0)
+- Dimension-only warnings: **22** (threshold ≤ 30)
 - Default-fallback posts: **0** (threshold ≤ 0)
 
-## Warnings
+## Dimension warnings (informational)
 
 - `cariboo-heights-burnaby-snow-removal` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `hastings-sunrise-east-vancouver-snow-removal` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
@@ -32,8 +33,3 @@ _Generated 2026-07-21T23:27:22.347Z_
 - `richmond-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `surrey-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `white-rock-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
-- `east-vancouver` (1200x630, theme) → alt text missing or too short
-- `kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver` (1200x630, theme) → alt text missing or too short
-- `professional-snow-removal-ice-management-for-vancouver-bc-strata-properties` (1200x630, theme) → alt text missing or too short
-- `sfu-burnaby-snow-removal` (1200x630, theme) → alt text missing or too short
-- `snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow` (1200x630, theme) → alt text missing or too short

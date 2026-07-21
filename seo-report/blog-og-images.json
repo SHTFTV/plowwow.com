@@ -1,8 +1,10 @@
 {
-  "generatedAt": "2026-07-21T23:27:22.347Z",
+  "generatedAt": "2026-07-21T23:28:39.050Z",
   "total": 132,
   "failed": 0,
-  "warned": 27,
+  "warned": 22,
+  "dimension": 22,
+  "critical": 0,
   "bySource": {
     "hero": 98,
     "theme": 34,
@@ -10,7 +12,8 @@
   },
   "thresholds": {
     "MAX_FAILURES": 0,
-    "MAX_WARNINGS": 8,
+    "MAX_CRITICAL": 0,
+    "MAX_DIMENSION": 30,
     "MAX_DEFAULT_FALLBACK": 0
   },
   "rows": [
@@ -1200,9 +1203,7 @@
       "width": 1200,
       "height": 630,
       "ok": true,
-      "warnings": [
-        "alt text missing or too short"
-      ]
+      "warnings": []
     },
     {
       "slug": "happy-new-year-metro-vancouver",
@@ -1246,9 +1247,7 @@
       "width": 1200,
       "height": 630,
       "ok": true,
-      "warnings": [
-        "alt text missing or too short"
-      ]
+      "warnings": []
     },
     {
       "slug": "metrotown-snow-removal-company",
@@ -1325,9 +1324,7 @@
       "width": 1200,
       "height": 630,
       "ok": true,
-      "warnings": [
-        "alt text missing or too short"
-      ]
+      "warnings": []
     },
     {
       "slug": "professional-snow-removal-in-middle-gate-burnaby",
@@ -1371,9 +1368,7 @@
       "width": 1200,
       "height": 630,
       "ok": true,
-      "warnings": [
-        "alt text missing or too short"
-      ]
+      "warnings": []
     },
     {
       "slug": "shaughnessy-snow-removal",
@@ -1472,9 +1467,7 @@
       "width": 1200,
       "height": 630,
       "ok": true,
-      "warnings": [
-        "alt text missing or too short"
-      ]
+      "warnings": []
     },
     {
       "slug": "snow-removal-west-side-vancouver",
