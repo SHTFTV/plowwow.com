@@ -1,10 +1,10 @@
 # og:image / twitter:image reachability
 
-_Generated 2026-07-21T05:50:34.637Z_
+_Generated 2026-07-21T05:54:21.496Z_
 
 - Unique URLs: **218**
 - Failed: **0**
-- Warnings: **126**
+- Warnings: **134**
 - Minimum dimensions (hard): **600×315**
 - Recommended dimensions: **1200×630**
 
@@ -18,6 +18,8 @@ _Generated 2026-07-21T05:50:34.637Z_
 - `twitter:image` https://plowwow.com/blog-images/abbotsford-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg — decoded format=png ≠ ext=jpeg
 - `twitter:image` https://plowwow.com/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg — decoded format=png ≠ ext=jpeg
+- `og:image` https://plowwow.com/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
+- `twitter:image` https://plowwow.com/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
 - `og:image` https://plowwow.com/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
 - `twitter:image` https://plowwow.com/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
 - `og:image` https://plowwow.com/og-burnaby.jpg — dimensions 945×630 below recommended 1200×630
@@ -56,7 +58,5 @@ _Generated 2026-07-21T05:50:34.637Z_
 - `twitter:image` https://plowwow.com/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/highgate-burnaby-strata-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/highgate-burnaby-strata-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `twitter:image` https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/blog-images/ladner-delta-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
-- `twitter:image` https://plowwow.com/blog-images/ladner-delta-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
+- `og:image` https://plowwow.com/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg
+- `twitter:image` https://plowwow.com/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg — decoded format=png ≠ ext=jpeg

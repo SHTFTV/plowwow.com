@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-21T05:50:34.636Z",
+  "generatedAt": "2026-07-21T05:54:21.495Z",
   "total": 218,
   "failed": 0,
-  "warnings": 126,
+  "warnings": 134,
   "minDimensions": "600x315",
   "recommendedDimensions": "1200x630",
   "results": [
@@ -406,13 +406,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -423,13 +425,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -1808,13 +1812,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -1825,13 +1831,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -2946,13 +2954,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -2963,13 +2973,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -3382,13 +3394,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
@@ -3399,13 +3413,15 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [],
+      "warnings": [
+        "decoded format=png ≠ ext=jpeg"
+      ],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/jpeg",
-        "width": 1600,
-        "height": 900
+        "mime": "image/png",
+        "width": 1376,
+        "height": 768
       }
     },
     {
