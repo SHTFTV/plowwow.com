@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-21T22:22:08.395Z",
-  "total": 226,
+  "generatedAt": "2026-07-21T22:36:37.431Z",
+  "total": 234,
   "failed": 0,
   "warnings": 134,
   "minDimensions": "600x315",
@@ -2381,6 +2381,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
+      "kind": "og:image",
+      "sources": [
+        "metro-vancouver-winter-weather-pineapple-express-arctic-outflow/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "metro-vancouver-winter-weather-pineapple-express-arctic-outflow/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -2746,6 +2780,74 @@
         "mime": "image/jpeg",
         "width": 1376,
         "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
+      "kind": "og:image",
+      "sources": [
+        "occupiers-liability-act-bc-slip-fall-property-manager-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "occupiers-liability-act-bc-slip-fall-property-manager-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
+      "kind": "og:image",
+      "sources": [
+        "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
       }
     },
     {
@@ -3626,6 +3728,40 @@
         "mime": "image/jpeg",
         "width": 1280,
         "height": 720
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
+      "kind": "og:image",
+      "sources": [
+        "strata-seasonal-snow-contracts-bc-cost-breakdown/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "strata-seasonal-snow-contracts-bc-cost-breakdown/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1600,
+        "height": 893
       }
     },
     {

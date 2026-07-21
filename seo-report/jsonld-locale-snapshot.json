@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:22:05.376Z",
+  "generatedAt": "2026-07-21T22:36:34.494Z",
   "locales": [
     "en-CA",
     "en"
@@ -2150,6 +2150,33 @@
         "hasAggregateRating": true
       }
     },
+    "/metro-vancouver-winter-weather-pineapple-express-arctic-outflow/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/metro-vancouver-winter-weather-pineapple-express-arctic-outflow/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/metrotown-burnaby-strata-commercial-snow-removal/": {
       "BlogPosting": {
         "fields": [
@@ -2527,6 +2554,60 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/oakridge-vancouver-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/occupiers-liability-act-bc-slip-fall-property-manager-guide/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/occupiers-liability-act-bc-slip-fall-property-manager-guide/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }
@@ -3769,6 +3850,33 @@
       "LocalBusiness": {
         "hasProvider": false,
         "hasAggregateRating": false
+      }
+    },
+    "/strata-seasonal-snow-contracts-bc-cost-breakdown/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/strata-seasonal-snow-contracts-bc-cost-breakdown/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
       }
     },
     "/strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service/": {
