@@ -12,7 +12,21 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import sharp from "sharp";
+
+// Minimal JPEG SOF dimension reader (no deps).
+function jpegSize(buf: Buffer): { width: number; height: number } {
+  let i = 2;
+  while (i < buf.length) {
+    if (buf[i] !== 0xff) throw new Error("bad jpeg");
+    const marker = buf[i + 1];
+    const len = buf.readUInt16BE(i + 2);
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { height: buf.readUInt16BE(i + 5), width: buf.readUInt16BE(i + 7) };
+    }
+    i += 2 + len;
+  }
+  throw new Error("no SOF");
+}
 
 const SLUGS = [
   "ironwood-richmond-strata-commercial-snow-removal",
