@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-07-21T05:18:58.349Z",
+  "checked": 18,
+  "failed": [
+    {
+      "slug": "burnaby",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "vancouver",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "new-westminster",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "coquitlam",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "port-coquitlam",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "port-moody",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "pitt-meadows",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "maple-ridge",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "surrey",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "langley",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "abbotsford",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "west-vancouver",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "north-vancouver",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "richmond",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "delta",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "white-rock",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "mission",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    },
+    {
+      "slug": "chilliwack",
+      "ok": false,
+      "errors": [
+        "/areaServed type must be object"
+      ]
+    }
+  ],
+  "passed": 0
+}
