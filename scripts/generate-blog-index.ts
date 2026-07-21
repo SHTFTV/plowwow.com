@@ -36,7 +36,6 @@ const gitTimestamps = (file: string): { first: number; last: number } => {
   }
 };
 
-const posts = readdirSync(BLOG_DIR)
 // Themed OG fallbacks — mascot-only framing so legacy posts without a bespoke
 // hero still ship a branded 1200x630 share image (no /og-default.jpg fallback).
 // Each theme file lives at public/blog-images/_theme-<name>.jpg.
