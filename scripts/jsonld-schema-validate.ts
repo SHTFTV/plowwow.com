@@ -63,7 +63,7 @@ const localBusinessSchema = {
     logo: { type: "string", format: "uri", pattern: "^https://" },
     priceRange: { type: "string" },
     serviceType: { type: "string" },
-    areaServed: { type: "object" },
+    areaServed: { type: ["object", "string", "array"] },
     address: postalAddressSchema,
     aggregateRating: {
       type: "object",
