@@ -71,7 +71,7 @@ async def scan(page, scenario, url):
 async def main():
     findings = []
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
+        browser = await pw.chromium.launch(headless=True, executable_path=os.environ.get("CHROMIUM_PATH", "/bin/chromium"))
         ctx = await browser.new_context(viewport={"width":1280,"height":1800})
         page = await ctx.new_page()
         for scenario, url in SCENARIOS:
