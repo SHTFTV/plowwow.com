@@ -10,7 +10,7 @@ Markdown Content:
 
 **Big Bend** wraps the south edge of Burnaby along the Fraser River — a working district of greenhouses, cold-storage warehouses, food-processing plants, agricultural operations and heavy industrial tenants where the day begins at 4 a.m. and a blocked yard costs shifts, not commuters. When snow lands here, the risk profile isn't slip-and-fall on a lobby mat — it's a refrigerated truck idling outside a locked dock at 5:30 a.m. with product spoiling by the minute. **PlowWow** is the seasonal-contract snow-and-ice partner Big Bend operators trust for pre-shift clears, defensible documentation and a fixed winter budget.
 
-![PlowWow mascot on a plowed Big Bend Burnaby industrial road at dawn with greenhouses and warehouse loading bays under fresh snow](/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg)
+![Wow mascot standing alone on a plowed Big Bend Burnaby industrial road with tilt-up warehouses, empty loading yards, and the snow-capped North Shore mountains in the background](/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg "Big Bend Burnaby industrial and commercial snow removal — PlowWow")
 
 ## What Makes Big Bend a Different Snow Job
 
