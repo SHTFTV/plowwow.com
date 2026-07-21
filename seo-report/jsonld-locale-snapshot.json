@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T06:34:10.842Z",
+  "generatedAt": "2026-07-21T22:22:05.376Z",
   "locales": [
     "en-CA",
     "en"
@@ -136,6 +136,36 @@
       "LocalBusiness": {
         "hasProvider": false,
         "hasAggregateRating": false
+      }
+    },
+    "/arbutus-ridge-vancouver-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/arbutus-ridge-vancouver-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
       }
     },
     "/austin-heights-coquitlam-strata-snow-removal/": {
@@ -1161,6 +1191,36 @@
         "hasAggregateRating": true
       }
     },
+    "/east-cambie-richmond-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/east-cambie-richmond-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/east-vancouver/": {
       "BlogPosting": {
         "fields": [
@@ -1413,6 +1473,36 @@
         "hasAggregateRating": true
       }
     },
+    "/government-road-burnaby-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/government-road-burnaby-strata-commercial-snow-removal/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
     "/grandview-woodland-vancouver-strata-commercial-snow-removal/": {
       "BlogPosting": {
         "fields": [
@@ -1505,6 +1595,36 @@
       },
       "LocalBusiness": {
         "@id": "https://plowwow.com/happy-new-year-metro-vancouver/#localbusiness",
+        "hasProvider": true,
+        "hasAggregateRating": true
+      }
+    },
+    "/harbour-chines-coquitlam-strata-commercial-snow-removal/": {
+      "BlogPosting": {
+        "fields": [
+          "@context",
+          "@type",
+          "author",
+          "dateModified",
+          "datePublished",
+          "description",
+          "headline",
+          "image",
+          "inLanguage",
+          "mainEntityOfPage",
+          "publisher",
+          "url"
+        ],
+        "inLanguage": "en-CA"
+      },
+      "BreadcrumbList": {
+        "length": 3
+      },
+      "FAQPage": {
+        "questions": 6
+      },
+      "LocalBusiness": {
+        "@id": "https://plowwow.com/harbour-chines-coquitlam-strata-commercial-snow-removal/#localbusiness",
         "hasProvider": true,
         "hasAggregateRating": true
       }

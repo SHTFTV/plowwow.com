@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T22:21:25.535Z",
+  "generatedAt": "2026-07-21T22:21:42.587Z",
   "totals": {
     "cities": 17,
     "neighborhoods": 123,
@@ -10,12 +10,7 @@
     "removed": []
   },
   "neighborhoods": {
-    "added": [
-      "https://plowwow.com/arbutus-ridge-vancouver-strata-commercial-snow-removal/",
-      "https://plowwow.com/east-cambie-richmond-strata-commercial-snow-removal/",
-      "https://plowwow.com/government-road-burnaby-strata-commercial-snow-removal/",
-      "https://plowwow.com/harbour-chines-coquitlam-strata-commercial-snow-removal/"
-    ],
+    "added": [],
     "removed": []
   },
   "robotsSitemapDirectives": {
