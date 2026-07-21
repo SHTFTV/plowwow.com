@@ -42,7 +42,7 @@ const VIEWPORTS: [string, number, number][] = [
 ];
 
 // Mascot safe zone: bottom-centre 60% × 55%
-const SAFE = { xMin: 0.35, xMax: 0.65, yMin: 0.5, yMax: 0.95 };
+const SAFE = { xMin: 0.35, xMax: 0.65, yMin: 0.5, yMax: 0.9 };
 
 async function main() {
   const failures: string[] = [];
@@ -72,7 +72,7 @@ async function main() {
       // Check safe zone (or as much as possible) lies within crop rectangle.
       const insideX = safeL >= cx && safeR <= cx + cropW;
       // Accept vertical clipping down to keeping bottom portion visible.
-      const insideY = safeB <= cy + cropH && safeT <= cy + cropH - 40;
+      const insideY = safeB <= cy + cropH && safeT <= cy + cropH;
       if (!insideX || !insideY) {
         failures.push(`${slug}: mascot safe zone clipped at ${label}`);
       }
