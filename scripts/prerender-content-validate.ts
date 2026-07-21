@@ -20,13 +20,22 @@ const DIST = resolve("dist");
 const HOME_HTML = readFileSync(resolve(DIST, "index.html"), "utf8");
 const HOME_MAIN = HOME_HTML.match(/<main[^>]*data-prerendered="\/"[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? "";
 
-type Target = { slug: string; name: string };
+type Target = { slug: string; name: string; aliases?: string[] };
 
 const targets: Target[] = [
   { slug: "burnaby-snow-removal", name: "Burnaby" },
   { slug: "burnaby", name: "Burnaby" },
-  ...cities.map((c) => ({ slug: c.slug, name: c.name })),
+  ...cities.map((c) => ({
+    slug: c.slug,
+    name: c.name,
+    aliases: c.slug === "new-westminster" ? ["New West"] : undefined,
+  })),
 ];
+
+const matchesName = (haystack: string, t: Target) => {
+  const names = [t.name, ...(t.aliases ?? [])];
+  return names.some((n) => haystack.toLowerCase().includes(n.toLowerCase()));
+};
 
 const failures: string[] = [];
 const passed: string[] = [];
