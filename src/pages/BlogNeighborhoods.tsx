@@ -255,8 +255,9 @@ const BlogNeighborhoods = () => {
       document.getElementById(id)?.remove();
       document.querySelector('link[rel="prev"]')?.remove();
       document.querySelector('link[rel="next"]')?.remove();
+      document.querySelectorAll('link[data-neighborhoods-prefetch]').forEach((n) => n.remove());
     };
-  }, [title, description, canonical, currentPage, totalPages, filtered.length, visible, activeCity, activeTag, cityLabel, tagLabel]);
+  }, [title, description, canonical, currentPage, totalPages, filtered, visible, activeCity, activeTag, cityLabel, tagLabel, tagFilters]);
 
   const setFilter = (key: "city" | "tag", value: string) => {
     const next = new URLSearchParams(params);
