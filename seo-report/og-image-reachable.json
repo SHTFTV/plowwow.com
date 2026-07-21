@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-21T23:44:54.702Z",
+  "generatedAt": "2026-07-21T23:52:26.464Z",
   "total": 234,
   "failed": 0,
-  "warnings": 118,
+  "warnings": 82,
   "minDimensions": "600x315",
   "recommendedDimensions": "1200x630",
   "results": [
@@ -370,13 +370,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -389,13 +387,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -510,13 +506,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -529,13 +523,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -798,13 +790,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -817,13 +807,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1158,13 +1146,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1177,13 +1163,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1646,13 +1630,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1665,13 +1647,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1752,13 +1732,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1771,13 +1749,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1790,13 +1766,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -1809,13 +1783,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -2514,13 +2486,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -2533,13 +2503,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3132,13 +3100,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3151,13 +3117,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3280,13 +3244,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3299,13 +3261,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3318,13 +3278,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3337,13 +3295,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3492,13 +3448,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3511,13 +3465,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3530,13 +3482,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3549,13 +3499,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3568,13 +3516,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3587,13 +3533,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3818,13 +3762,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3837,13 +3779,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3932,13 +3872,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -3951,13 +3889,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -4042,13 +3978,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -4061,13 +3995,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -4186,13 +4118,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
@@ -4205,13 +4135,11 @@
       ],
       "ok": true,
       "issues": [],
-      "warnings": [
-        "decoded format=png ≠ ext=jpeg"
-      ],
+      "warnings": [],
       "info": {
         "extFormat": "jpeg",
         "status": 200,
-        "mime": "image/png",
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }
