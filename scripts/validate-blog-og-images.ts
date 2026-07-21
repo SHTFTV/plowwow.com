@@ -53,8 +53,12 @@ const rows: Row[] = [];
 const DEFAULT_OG = "/og-default.jpg";
 
 const MAX_FAILURES = Number(process.env.BLOG_OG_MAX_FAILURES ?? 0);
-const MAX_WARNINGS = Number(process.env.BLOG_OG_MAX_WARNINGS ?? 8);
+const MAX_CRITICAL = Number(process.env.BLOG_OG_MAX_CRITICAL_WARNINGS ?? 0);
+const MAX_DIMENSION = Number(process.env.BLOG_OG_MAX_DIMENSION_WARNINGS ?? 30);
 const MAX_DEFAULT_FALLBACK = Number(process.env.BLOG_OG_MAX_DEFAULT_FALLBACK ?? 0);
+
+const isDimensionWarning = (w: string) => /smaller than|could not read dimensions/.test(w);
+
 
 for (const p of blogPosts) {
   const warnings: string[] = [];
