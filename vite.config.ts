@@ -32,6 +32,21 @@ export default defineConfig(() => ({
           if (id.includes("@tanstack")) return "vendor-tanstack";
           if (id.includes("@supabase") || id.includes("/supabase-js")) return "vendor-supabase";
           if (id.includes("recharts") || id.includes("/d3-")) return "vendor-charts";
+          // Heavy office/PDF libs — only pulled in by admin export routes.
+          if (id.includes("/xlsx/") || id.includes("node_modules/xlsx")) return "vendor-xlsx";
+          if (id.includes("/exceljs")) return "vendor-exceljs";
+          if (id.includes("/jspdf") || id.includes("html2canvas")) return "vendor-jspdf";
+          if (
+            id.includes("react-markdown") ||
+            id.includes("/remark") ||
+            id.includes("/rehype") ||
+            id.includes("/micromark") ||
+            id.includes("/mdast") ||
+            id.includes("/hast") ||
+            id.includes("/unist") ||
+            id.includes("/unified") ||
+            id.includes("gray-matter")
+          ) return "vendor-markdown";
           if (
             id.includes("react-hook-form") ||
             id.includes("@hookform") ||
