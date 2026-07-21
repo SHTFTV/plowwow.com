@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-07-21T05:20:43.588Z",
+  "totals": {
+    "cities": 17,
+    "neighborhoods": 115,
+    "robotsSitemapDirectives": 8
+  },
+  "cities": {
+    "added": [],
+    "removed": []
+  },
+  "neighborhoods": {
+    "added": [],
+    "removed": []
+  },
+  "robotsSitemapDirectives": {
+    "added": [],
+    "removed": []
+  },
+  "missingSitemaps": []
+}
