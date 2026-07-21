@@ -10,6 +10,42 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "arbutus-ridge-vancouver-strata-commercial-snow-removal",
+    "title": "Arbutus Ridge Vancouver Snow Removal for Strata & Estates",
+    "blurb": "Arbutus Ridge Vancouver snow removal for strata townhomes, luxury estates and neighbourhood retail — pre-6 a.m. clears, pet-safe de-icer, GPS-logged runs, fixed seasonal pricing…",
+    "image": "/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone on a snow-cleared Arbutus Ridge Vancouver tree-lined residential street with heritage character homes, snow-covered lawns and mature evergreens in the background",
+    "publishedAt": "2026-07-21T22:21:07.000Z",
+    "updatedAt": "2026-07-21T22:21:07.000Z"
+  },
+  {
+    "slug": "east-cambie-richmond-strata-commercial-snow-removal",
+    "title": "East Cambie Richmond Snow Removal for Industrial & Strata",
+    "blurb": "East Cambie Richmond snow removal for light-industrial, distribution and townhome strata sites — pre-6 a.m. clears, GPS-logged salt runs, pet-safe de-icer, fixed seasonal pricing…",
+    "image": "/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone on a plowed East Cambie Richmond commercial road with light-industrial warehouses and low-rise townhome complexes and cleared parking lots in the background",
+    "publishedAt": "2026-07-21T22:21:07.000Z",
+    "updatedAt": "2026-07-21T22:21:07.000Z"
+  },
+  {
+    "slug": "government-road-burnaby-strata-commercial-snow-removal",
+    "title": "Government Road Burnaby Snow Removal for Strata & Estates",
+    "blurb": "Government Road Burnaby snow removal for large-lot estates, hillside stratas and Burnaby Lake business park — forecast-driven pre-clears, pet-safe de-icer, GPS-logged runs, fixed s…",
+    "image": "/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone on a plowed Government Road Burnaby forest-lined residential street with tall Douglas fir and cedar trees and snow-covered lots in the background",
+    "publishedAt": "2026-07-21T22:21:07.000Z",
+    "updatedAt": "2026-07-21T22:21:07.000Z"
+  },
+  {
+    "slug": "harbour-chines-coquitlam-strata-commercial-snow-removal",
+    "title": "Harbour Chines Coquitlam Snow Removal for Strata & Estates",
+    "blurb": "Harbour Chines Coquitlam snow removal for hillside strata, mid-century estates and neighbourhood retail — pre-6 a.m. clears, pet-safe de-icer, GPS-logged runs, fixed seasonal prici…",
+    "image": "/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone on a plowed Harbour Chines Coquitlam hillside residential street with mid-century split-level homes and tall evergreens in the background",
+    "publishedAt": "2026-07-21T22:21:07.000Z",
+    "updatedAt": "2026-07-21T22:21:07.000Z"
+  },
+  {
     "slug": "big-bend-burnaby-strata-commercial-snow-removal",
     "title": "Big Bend Burnaby Snow Removal for Industrial & Commercial",
     "blurb": "Big Bend Burnaby snow removal for greenhouses, food-processing, cold-storage and industrial parks — 24/7 dispatch, pre-shift clears, GPS-logged salt runs, fixed seasonal contracts…",

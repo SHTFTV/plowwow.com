@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-21T06:34:13.385Z",
-  "total": 218,
+  "generatedAt": "2026-07-21T22:22:08.395Z",
+  "total": 226,
   "failed": 0,
   "warnings": 134,
   "minDimensions": "600x315",
@@ -327,6 +327,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "arbutus-ridge-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "arbutus-ridge-vancouver-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -1369,6 +1403,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "east-cambie-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "east-cambie-richmond-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -1653,6 +1721,40 @@
       }
     },
     {
+      "url": "https://plowwow.com/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "government-road-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "government-road-burnaby-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
       "url": "https://plowwow.com/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
       "kind": "og:image",
       "sources": [
@@ -1724,6 +1826,40 @@
         "extFormat": "jpeg",
         "status": 200,
         "mime": "image/png",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "og:image",
+      "sources": [
+        "harbour-chines-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
+        "width": 1376,
+        "height": 768
+      }
+    },
+    {
+      "url": "https://plowwow.com/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+      "kind": "twitter:image",
+      "sources": [
+        "harbour-chines-coquitlam-strata-commercial-snow-removal/index.html"
+      ],
+      "ok": true,
+      "issues": [],
+      "warnings": [],
+      "info": {
+        "extFormat": "jpeg",
+        "status": 200,
+        "mime": "image/jpeg",
         "width": 1376,
         "height": 768
       }

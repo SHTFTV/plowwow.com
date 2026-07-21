@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T06:34:12.826Z",
+  "generatedAt": "2026-07-21T22:22:07.673Z",
   "expectedLang": "en-CA",
-  "total": 306,
+  "total": 310,
   "failed": 0,
   "results": [
     {
@@ -342,6 +342,18 @@
     },
     {
       "url": "https://plowwow.com/albion-maple-ridge-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/arbutus-ridge-vancouver-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",
@@ -713,6 +725,18 @@
       "issues": []
     },
     {
+      "url": "https://plowwow.com/east-cambie-richmond-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
       "url": "https://plowwow.com/east-vancouver/",
       "lang": "en-CA",
       "hreflangs": [
@@ -821,6 +845,18 @@
       "issues": []
     },
     {
+      "url": "https://plowwow.com/government-road-burnaby-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
       "url": "https://plowwow.com/grandview-woodland-vancouver-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
@@ -846,6 +882,18 @@
     },
     {
       "url": "https://plowwow.com/happy-new-year-metro-vancouver/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/harbour-chines-coquitlam-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",

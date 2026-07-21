@@ -1,10 +1,10 @@
 # <html lang> ↔ hreflang consistency
 
-_Generated 2026-07-21T06:34:12.827Z_
+_Generated 2026-07-21T22:22:07.676Z_
 
 - Expected `<html lang="en-CA">`
 - Allowed hreflang: `en-CA, en, x-default`
-- URLs checked: **306**
+- URLs checked: **310**
 - Failed: **0**
 
 ✅ Every route sets `<html lang="en-CA">` and it is present in its hreflang set.
