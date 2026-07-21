@@ -141,27 +141,68 @@ const BlogNeighborhoods = () => {
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    // Per-filter OG/Twitter share image — matches active city/tag.
+    const ogImagePath = neighborhoodsOgUrl(activeCity, tagLabel);
+    const ogImageUrl = `${BASE}${ogImagePath}`;
+    setProp("og:image", ogImageUrl);
+    setProp("og:image:secure_url", ogImageUrl);
+    setProp("og:image:width", "1200");
+    setProp("og:image:height", "630");
+    setProp("og:image:alt", `${title} share card`);
+    setMeta("twitter:image", ogImageUrl);
+    setMeta("twitter:image:alt", `${title} share card`);
 
     let canon = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canon) { canon = document.createElement("link"); canon.rel = "canonical"; document.head.appendChild(canon); }
     canon.href = canonical;
 
-    // Pagination rel=prev/next.
+    // Pagination rel=prev/next AND prefetch hints for adjacent variants.
+    // Prefetch keeps navigation fast while preserving focus management + SR
+    // updates (the goToPage handler still returns focus to the results heading
+    // and the aria-live region announces the new page after nav).
+    document.querySelectorAll('link[data-neighborhoods-prefetch]').forEach((n) => n.remove());
     document.querySelector('link[rel="prev"]')?.remove();
     document.querySelector('link[rel="next"]')?.remove();
-    const relLink = (rel: string, pageN: number) => {
+    const filterHref = (city: string, tag: string | null, pageN: number) => {
       const qs = new URLSearchParams();
-      if (activeCity !== ALL) qs.set("city", activeCity);
-      if (activeTag !== ALL) qs.set("tag", activeTag);
+      if (city !== ALL) qs.set("city", city);
+      if (tag) qs.set("tag", tag);
       if (pageN > 1) qs.set("page", String(pageN));
       const q = qs.toString();
+      return `${BASE}/blog/neighborhoods/${q ? `?${q}` : ""}`;
+    };
+    const addLink = (rel: string, href: string, extra: Record<string, string> = {}) => {
       const el = document.createElement("link");
       el.rel = rel;
-      el.href = `${BASE}/blog/neighborhoods/${q ? `?${q}` : ""}`;
+      el.href = href;
+      el.setAttribute("data-neighborhoods-prefetch", rel === "prev" || rel === "next" ? "rel" : "prefetch");
+      for (const [k, v] of Object.entries(extra)) el.setAttribute(k, v);
       document.head.appendChild(el);
     };
-    if (currentPage > 1) relLink("prev", currentPage - 1);
-    if (currentPage < totalPages) relLink("next", currentPage + 1);
+    if (currentPage > 1) {
+      const href = filterHref(activeCity, tagLabel, currentPage - 1);
+      addLink("prev", href);
+      addLink("prefetch", href, { as: "document" });
+    }
+    if (currentPage < totalPages) {
+      const href = filterHref(activeCity, tagLabel, currentPage + 1);
+      addLink("next", href);
+      addLink("prefetch", href, { as: "document" });
+      // Warm the next page's hero images so cards render instantly.
+      const nextStart = currentPage * PAGE_SIZE;
+      for (const p of filtered.slice(nextStart, nextStart + PAGE_SIZE)) {
+        addLink("prefetch", p.image, { as: "image" });
+      }
+    }
+    // Prefetch the top 3 sibling tag variants for the current city — the
+    // most likely next click and cheap to warm.
+    const siblingTags = tagFilters
+      .filter((t) => t.key !== ALL && t.key !== activeTag)
+      .slice(0, 3);
+    for (const t of siblingTags) {
+      addLink("prefetch", filterHref(activeCity, t.key, 1), { as: "document" });
+      addLink("prefetch", `${BASE}${neighborhoodsOgUrl(activeCity, t.key)}`, { as: "image" });
+    }
 
     // Rich JSON-LD graph for the filtered view.
     const id = "blog-neighborhoods-jsonld";
