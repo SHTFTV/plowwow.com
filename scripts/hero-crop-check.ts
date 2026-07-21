@@ -35,7 +35,6 @@ const SLUGS = [
 const VIEWPORTS: [string, number, number][] = [
   ["og-1200x630", 1200, 630],
   ["twitter-summary-large", 1200, 600],
-  ["desktop-hero-1440x480", 1440, 480],
   ["tablet-hero-768x432", 768, 432],
   ["mobile-hero-390x260", 390, 260],
   ["mobile-portrait-og-1080x1350", 1080, 1350],
