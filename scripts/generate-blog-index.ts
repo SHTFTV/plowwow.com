@@ -73,7 +73,12 @@ const posts = readdirSync(BLOG_DIR)
 
     const theme = pickTheme(slug, title);
     const image = hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`;
-    const alt = imageMatch?.[1]?.trim() || (hasHeroImage ? `${title} by PlowWow` : THEME_ALT[theme]);
+    // When we fall back to a themed image, always use the descriptive theme alt
+    // so screen readers get mascot-only framing wording (not the short markdown alt).
+    const markdownAlt = imageMatch?.[1]?.trim() ?? "";
+    const alt = hasHeroImage
+      ? (markdownAlt || `${title} by PlowWow`)
+      : (markdownAlt.length >= 40 ? markdownAlt : THEME_ALT[theme]);
 
     // Topic tags — derived deterministically from slug + title so the neighborhood
     // index can offer topic filters without any per-post metadata.
