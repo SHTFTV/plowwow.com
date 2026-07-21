@@ -52,7 +52,7 @@ async function main() {
       failures.push(`${slug}: missing file`);
       continue;
     }
-    const meta = jpegSize(readFileSync(p));
+    const meta = jpegSize(p);
     const w = meta.width, h = meta.height;
     if (w < 1200 || h < 630) failures.push(`${slug}: below 1200×630 (${w}×${h})`);
     const ratio = w / h;
