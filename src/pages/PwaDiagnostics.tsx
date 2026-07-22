@@ -276,6 +276,57 @@ export default function PwaDiagnostics() {
         </div>
       </section>
 
+      <section className="mt-6 rounded-xl border border-border bg-card p-5" data-testid="compare-reports">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-bold">Compare reports</h2>
+          <label className="cursor-pointer rounded-md border border-border px-3 py-1.5 text-xs font-semibold">
+            Upload previous JSON report
+            <input
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              data-testid="compare-upload"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) onUploadReport(f);
+                e.target.value = "";
+              }}
+            />
+          </label>
+        </div>
+        {uploadError && <p className="mt-2 text-xs text-destructive">{uploadError}</p>}
+        {!uploadedReport && !uploadError && (
+          <p className="mt-2 text-xs text-muted-foreground">
+            Upload a previously downloaded diagnostics report to see field-level diffs against the current state.
+          </p>
+        )}
+        {compareRows && (
+          <div className="mt-3 overflow-x-auto">
+            <table className="w-full text-xs" data-testid="compare-table">
+              <thead className="text-left text-muted-foreground">
+                <tr><th className="py-1 pr-3">Field</th><th className="pr-3">Previous</th><th className="pr-3">Current</th><th className="pr-3">Δ</th></tr>
+              </thead>
+              <tbody>
+                {compareRows.map((r) => (
+                  <tr key={r.field} className={"border-t border-border/60 " + (r.changed ? "bg-destructive/5" : "")} data-changed={r.changed ? "1" : "0"}>
+                    <td className="py-1 pr-3 font-mono">{r.field}</td>
+                    <td className="pr-3 font-mono break-all">{r.previous}</td>
+                    <td className="pr-3 font-mono break-all">{r.current}</td>
+                    <td className={"pr-3 font-semibold " + (r.changed ? "text-destructive" : "text-muted-foreground")}>{r.changed ? "changed" : "same"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-2 text-xs text-muted-foreground">
+              {compareRows.filter((r) => r.changed).length} of {compareRows.length} fields changed.
+              {" "}Live carousel from <code>/blog-index.json</code>: {liveCarousel?.carousel?.length ?? 0} slugs.
+            </p>
+          </div>
+        )}
+      </section>
+
+
+
 
       <section className="mt-6 rounded-xl border border-border bg-card p-5">
         <h2 className="text-lg font-bold">Manifest icons ({icons.length})</h2>
