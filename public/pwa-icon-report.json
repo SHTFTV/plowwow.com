@@ -1,0 +1,258 @@
+{
+  "generatedAt": "2026-07-22T05:01:12.491Z",
+  "total": 23,
+  "failed": 0,
+  "entries": [
+    {
+      "src": "/favicon-16x16.png?v=2",
+      "sizes": "16x16",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 749,
+      "sha1": "59ea3590cc",
+      "actual": "16x16",
+      "mascotScore": "0.756",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-32x32.png?v=2",
+      "sizes": "32x32",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 2061,
+      "sha1": "082873dde4",
+      "actual": "32x32",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-48x48.png?v=2",
+      "sizes": "48x48",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 3881,
+      "sha1": "3e87086738",
+      "actual": "48x48",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-96x96.png?v=2",
+      "sizes": "96x96",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 12042,
+      "sha1": "0666d9722c",
+      "actual": "96x96",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-128x128.png?v=2",
+      "sizes": "128x128",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 19372,
+      "sha1": "3052213f30",
+      "actual": "128x128",
+      "mascotScore": "0.748",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-192-any.png?v=2",
+      "sizes": "192x192",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 37886,
+      "sha1": "679d1b30b0",
+      "actual": "192x192",
+      "mascotScore": "0.749",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-256-any.png?v=2",
+      "sizes": "256x256",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 60379,
+      "sha1": "429d996106",
+      "actual": "256x256",
+      "mascotScore": "0.749",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-384-any.png?v=2",
+      "sizes": "384x384",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 120862,
+      "sha1": "98cd0d3034",
+      "actual": "384x384",
+      "mascotScore": "0.749",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-512-any.png?v=2",
+      "sizes": "512x512",
+      "purpose": "any",
+      "source": "manifest",
+      "bytes": 201615,
+      "sha1": "289836213d",
+      "actual": "512x512",
+      "mascotScore": "0.750",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-192.png?v=2",
+      "sizes": "192x192",
+      "purpose": "maskable",
+      "source": "manifest",
+      "bytes": 26752,
+      "sha1": "2e123666de",
+      "actual": "192x192",
+      "mascotScore": "0.710",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-512.png?v=2",
+      "sizes": "512x512",
+      "purpose": "maskable",
+      "source": "manifest",
+      "bytes": 139118,
+      "sha1": "57a6b69e5a",
+      "actual": "512x512",
+      "mascotScore": "0.710",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-monochrome-512.png?v=2",
+      "sizes": "512x512",
+      "purpose": "monochrome",
+      "source": "manifest",
+      "bytes": 36446,
+      "sha1": "a0a5c18f92",
+      "actual": "512x512",
+      "mascotScore": "0.657",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon.ico?v=2",
+      "sizes": "any",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 13516,
+      "sha1": "8d799c0bcc",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-16x16.png?v=2",
+      "sizes": "16x16",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 749,
+      "sha1": "59ea3590cc",
+      "actual": "16x16",
+      "mascotScore": "0.756",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-32x32.png?v=2",
+      "sizes": "32x32",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 2061,
+      "sha1": "082873dde4",
+      "actual": "32x32",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-48x48.png?v=2",
+      "sizes": "48x48",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 3881,
+      "sha1": "3e87086738",
+      "actual": "48x48",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-96x96.png?v=2",
+      "sizes": "96x96",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 12042,
+      "sha1": "0666d9722c",
+      "actual": "96x96",
+      "mascotScore": "0.747",
+      "status": "OK"
+    },
+    {
+      "src": "/favicon-128x128.png?v=2",
+      "sizes": "128x128",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 19372,
+      "sha1": "3052213f30",
+      "actual": "128x128",
+      "mascotScore": "0.748",
+      "status": "OK"
+    },
+    {
+      "src": "/apple-touch-icon.png?v=2",
+      "sizes": "180x180",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 28216,
+      "sha1": "e998d02503",
+      "actual": "180x180",
+      "mascotScore": "0.749",
+      "status": "OK"
+    },
+    {
+      "src": "/apple-touch-icon-167x167.png?v=2",
+      "sizes": "167x167",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 24678,
+      "sha1": "7c1303058a",
+      "actual": "167x167",
+      "mascotScore": "0.748",
+      "status": "OK"
+    },
+    {
+      "src": "/apple-touch-icon-152x152.png?v=2",
+      "sizes": "152x152",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 21324,
+      "sha1": "066f430139",
+      "actual": "152x152",
+      "mascotScore": "0.749",
+      "status": "OK"
+    },
+    {
+      "src": "/apple-touch-icon-120x120.png?v=2",
+      "sizes": "120x120",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 14501,
+      "sha1": "705b65f56d",
+      "actual": "120x120",
+      "mascotScore": "0.748",
+      "status": "OK"
+    },
+    {
+      "src": "/icon-monochrome-512.png?v=2",
+      "sizes": "",
+      "purpose": "any",
+      "source": "index.html",
+      "bytes": 36446,
+      "sha1": "a0a5c18f92",
+      "actual": "512x512",
+      "mascotScore": "0.657",
+      "status": "OK"
+    }
+  ]
+}
