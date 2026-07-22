@@ -135,6 +135,7 @@ const CityQuote = () => {
   const update = <K extends keyof QuoteInput>(k: K, v: QuoteInput[K]) => {
     setForm((s) => ({ ...s, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
+    if (k === "address") setAddressConfirmed(null);
   };
 
   const onSubmit = async (e: React.FormEvent) => {
