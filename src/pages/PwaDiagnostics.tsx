@@ -1,11 +1,48 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { readPwaEvents, clearPwaEvents, type PwaEvent } from "@/lib/pwaEventLog";
 
 type ManifestIcon = { src: string; sizes: string; type?: string; purpose?: string };
 type IconReport = { total: number; failed: number; entries: Array<Record<string, unknown>> };
+type SwInfo = {
+  scope: string | null;
+  scriptURL: string | null;
+  controller: string | null;
+  updateViaCache: string | null;
+  lastUpdateCheck: string | null;
+  hasWaiting: boolean;
+  hasInstalling: boolean;
+};
 
 const REPORT_URL = "/pwa-icon-report.json";
 const MANIFEST_URL = "/site.webmanifest";
+const POLL_MS = 4000;
+const EMPTY_SW_INFO: SwInfo = { scope: null, scriptURL: null, controller: null, updateViaCache: null, lastUpdateCheck: null, hasWaiting: false, hasInstalling: false };
+
+async function readServiceWorker(): Promise<{ state: string; info: SwInfo; version: string | null }> {
+  if (!("serviceWorker" in navigator)) return { state: "unsupported", info: EMPTY_SW_INFO, version: null };
+  const reg = await navigator.serviceWorker.getRegistration();
+  if (!reg) return { state: "no registration", info: EMPTY_SW_INFO, version: null };
+  const sw = reg.active || reg.waiting || reg.installing;
+  const info: SwInfo = {
+    scope: reg.scope || null,
+    scriptURL: sw?.scriptURL || null,
+    controller: navigator.serviceWorker.controller?.scriptURL || null,
+    updateViaCache: (reg as any).updateViaCache || null,
+    lastUpdateCheck: new Date().toISOString(),
+    hasWaiting: !!reg.waiting,
+    hasInstalling: !!reg.installing,
+  };
+  let version: string | null = null;
+  if (sw) {
+    version = await new Promise<string | null>((resolve) => {
+      const mc = new MessageChannel();
+      const t = setTimeout(() => resolve(null), 300);
+      mc.port1.onmessage = (e) => { clearTimeout(t); resolve(e.data?.version || null); };
+      try { sw.postMessage({ type: "VERSION" }, [mc.port2]); } catch { clearTimeout(t); resolve(null); }
+    });
+  }
+  return { state: sw?.state || "unknown", info, version };
+}
 
 export default function PwaDiagnostics() {
   const [manifest, setManifest] = useState<any>(null);
@@ -13,16 +50,40 @@ export default function PwaDiagnostics() {
   const [reportError, setReportError] = useState<string | null>(null);
   const [swVersion, setSwVersion] = useState<string | null>(null);
   const [swState, setSwState] = useState<string>("unknown");
-  const [swInfo, setSwInfo] = useState<{
-    scope: string | null;
-    scriptURL: string | null;
-    controller: string | null;
-    updateViaCache: string | null;
-    lastUpdateCheck: string | null;
-    hasWaiting: boolean;
-    hasInstalling: boolean;
-  }>({ scope: null, scriptURL: null, controller: null, updateViaCache: null, lastUpdateCheck: null, hasWaiting: false, hasInstalling: false });
+  const [swInfo, setSwInfo] = useState<SwInfo>(EMPTY_SW_INFO);
   const [events, setEvents] = useState<PwaEvent[]>([]);
+  const [liveDiag, setLiveDiag] = useState<any>(null);
+  const [liveCarousel, setLiveCarousel] = useState<any>(null);
+  const [poll, setPoll] = useState<boolean>(true);
+  const [changedAt, setChangedAt] = useState<string | null>(null);
+  const [uploadedReport, setUploadedReport] = useState<any>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const lastSigRef = useRef<string>("");
+
+  const refreshLive = useCallback(async () => {
+    const [{ state, info, version }, diag, carousel] = await Promise.all([
+      readServiceWorker(),
+      fetch("/diagnostics.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null).catch(() => null),
+      fetch("/blog-index.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null).catch(() => null),
+    ]);
+    setSwState(state);
+    setSwInfo(info);
+    if (version) setSwVersion(version);
+    else if (diag?.swVersion) setSwVersion((prev) => prev ?? diag.swVersion);
+    setLiveDiag(diag);
+    setLiveCarousel(carousel);
+    const sig = JSON.stringify({
+      state, scriptURL: info.scriptURL, controller: info.controller,
+      hasWaiting: info.hasWaiting, hasInstalling: info.hasInstalling,
+      swVersion: version ?? diag?.swVersion ?? null,
+      carousel: diag?.carousel, blogIndexAt: diag?.blogIndexAt,
+      liveCarousel: carousel?.carousel,
+    });
+    if (lastSigRef.current && lastSigRef.current !== sig) {
+      setChangedAt(new Date().toISOString());
+    }
+    lastSigRef.current = sig;
+  }, []);
 
   useEffect(() => {
     document.title = "PWA Diagnostics — PlowWow";
@@ -32,33 +93,15 @@ export default function PwaDiagnostics() {
       .then(setReport)
       .catch((e) => setReportError(String(e?.message || e)));
     setEvents(readPwaEvents());
+    void refreshLive();
+  }, [refreshLive]);
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistration().then((reg) => {
-        if (!reg) { setSwState("no registration"); return; }
-        const sw = reg.active || reg.waiting || reg.installing;
-        setSwState(sw?.state || "unknown");
-        setSwInfo({
-          scope: reg.scope || null,
-          scriptURL: sw?.scriptURL || null,
-          controller: navigator.serviceWorker.controller?.scriptURL || null,
-          updateViaCache: (reg as any).updateViaCache || null,
-          lastUpdateCheck: new Date().toISOString(),
-          hasWaiting: !!reg.waiting,
-          hasInstalling: !!reg.installing,
-        });
-        if (sw) {
-          const mc = new MessageChannel();
-          mc.port1.onmessage = (e) => e.data?.version && setSwVersion(e.data.version);
-          try { sw.postMessage({ type: "VERSION" }, [mc.port2]); } catch { /* noop */ }
-        }
-        fetch("/sw.js").then((r) => r.text()).then((t) => {
-          const m = /VERSION\s*=\s*["']([^"']+)["']/.exec(t);
-          if (m && !swVersion) setSwVersion(m[1]);
-        }).catch(() => {});
-      });
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!poll) return;
+    const id = window.setInterval(() => { void refreshLive(); }, POLL_MS);
+    return () => window.clearInterval(id);
+  }, [poll, refreshLive]);
+
 
 
   const refreshEvents = () => setEvents(readPwaEvents());
@@ -118,14 +161,90 @@ export default function PwaDiagnostics() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
+  const onUploadReport = (file: File) => {
+    setUploadError(null);
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result));
+        setUploadedReport(parsed);
+      } catch (e) {
+        setUploadError(`Not a valid JSON report: ${String((e as Error)?.message || e)}`);
+        setUploadedReport(null);
+      }
+    };
+    reader.onerror = () => setUploadError("Failed to read file");
+    reader.readAsText(file);
+  };
+
+  const compareRows = (() => {
+    if (!uploadedReport) return null;
+    const current = {
+      swVersion: swVersion,
+      "diagnostics.generatedAt": liveDiag?.generatedAt ?? null,
+      "diagnostics.blogIndexAt": liveDiag?.blogIndexAt ?? null,
+      "diagnostics.carousel": liveDiag?.carousel ?? null,
+      "diagnostics.totalPosts": liveDiag?.totalPosts ?? null,
+      "sw.scriptURL": swInfo.scriptURL,
+      "sw.controller": swInfo.controller,
+      "sw.scope": swInfo.scope,
+      "sw.state": swState,
+    };
+    const prev = {
+      swVersion: uploadedReport?.serviceWorker?.version ?? uploadedReport?.diagnostics?.swVersion ?? null,
+      "diagnostics.generatedAt": uploadedReport?.diagnostics?.generatedAt ?? null,
+      "diagnostics.blogIndexAt": uploadedReport?.diagnostics?.blogIndexAt ?? null,
+      "diagnostics.carousel": uploadedReport?.diagnostics?.carousel ?? null,
+      "diagnostics.totalPosts": uploadedReport?.diagnostics?.totalPosts ?? null,
+      "sw.scriptURL": uploadedReport?.serviceWorker?.scriptURL ?? null,
+      "sw.controller": uploadedReport?.serviceWorker?.controller ?? null,
+      "sw.scope": uploadedReport?.serviceWorker?.scope ?? null,
+      "sw.state": uploadedReport?.serviceWorker?.state ?? null,
+    };
+    return Object.keys(current).map((k) => {
+      const a = JSON.stringify((current as any)[k]);
+      const b = JSON.stringify((prev as any)[k]);
+      return { field: k, current: a, previous: b, changed: a !== b };
+    });
+  })();
+
   const icons: ManifestIcon[] = manifest?.icons || [];
+  const changedRecent = changedAt && Date.now() - new Date(changedAt).getTime() < POLL_MS * 2;
 
   return (
     <main className="container mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-3xl font-black text-foreground">PWA Diagnostics</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-3xl font-black text-foreground">PWA Diagnostics</h1>
+        <div className="flex items-center gap-2 text-xs" data-testid="live-indicator">
+          <span
+            aria-label={changedRecent ? "values changed" : poll ? "live polling" : "polling paused"}
+            className={
+              "inline-block h-2.5 w-2.5 rounded-full " +
+              (changedRecent ? "bg-destructive animate-pulse" : poll ? "bg-primary animate-pulse" : "bg-muted-foreground")
+            }
+          />
+          <span className="text-muted-foreground">
+            {poll ? `Polling every ${POLL_MS / 1000}s` : "Paused"}
+            {changedAt ? ` · last change ${new Date(changedAt).toLocaleTimeString()}` : ""}
+          </span>
+          <button
+            onClick={() => setPoll((v) => !v)}
+            className="ml-2 rounded-md border border-border px-2 py-0.5 text-xs"
+          >
+            {poll ? "Pause" : "Resume"}
+          </button>
+          <button
+            onClick={() => void refreshLive()}
+            className="rounded-md border border-border px-2 py-0.5 text-xs"
+          >
+            Refresh now
+          </button>
+        </div>
+      </div>
       <p className="mt-2 text-muted-foreground text-sm">
         QA view of installed manifest, service worker, and validated icon set.
       </p>
+
 
       <section className="mt-8 rounded-xl border border-border bg-card p-5">
         <h2 className="text-lg font-bold">Service worker</h2>
@@ -156,6 +275,57 @@ export default function PwaDiagnostics() {
           <button onClick={downloadReport} data-testid="download-diagnostics" className="rounded-md border border-border px-3 py-1.5 text-xs font-semibold">Download diagnostics report</button>
         </div>
       </section>
+
+      <section className="mt-6 rounded-xl border border-border bg-card p-5" data-testid="compare-reports">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-bold">Compare reports</h2>
+          <label className="cursor-pointer rounded-md border border-border px-3 py-1.5 text-xs font-semibold">
+            Upload previous JSON report
+            <input
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              data-testid="compare-upload"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) onUploadReport(f);
+                e.target.value = "";
+              }}
+            />
+          </label>
+        </div>
+        {uploadError && <p className="mt-2 text-xs text-destructive">{uploadError}</p>}
+        {!uploadedReport && !uploadError && (
+          <p className="mt-2 text-xs text-muted-foreground">
+            Upload a previously downloaded diagnostics report to see field-level diffs against the current state.
+          </p>
+        )}
+        {compareRows && (
+          <div className="mt-3 overflow-x-auto">
+            <table className="w-full text-xs" data-testid="compare-table">
+              <thead className="text-left text-muted-foreground">
+                <tr><th className="py-1 pr-3">Field</th><th className="pr-3">Previous</th><th className="pr-3">Current</th><th className="pr-3">Δ</th></tr>
+              </thead>
+              <tbody>
+                {compareRows.map((r) => (
+                  <tr key={r.field} className={"border-t border-border/60 " + (r.changed ? "bg-destructive/5" : "")} data-changed={r.changed ? "1" : "0"}>
+                    <td className="py-1 pr-3 font-mono">{r.field}</td>
+                    <td className="pr-3 font-mono break-all">{r.previous}</td>
+                    <td className="pr-3 font-mono break-all">{r.current}</td>
+                    <td className={"pr-3 font-semibold " + (r.changed ? "text-destructive" : "text-muted-foreground")}>{r.changed ? "changed" : "same"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-2 text-xs text-muted-foreground">
+              {compareRows.filter((r) => r.changed).length} of {compareRows.length} fields changed.
+              {" "}Live carousel from <code>/blog-index.json</code>: {liveCarousel?.carousel?.length ?? 0} slugs.
+            </p>
+          </div>
+        )}
+      </section>
+
+
 
 
       <section className="mt-6 rounded-xl border border-border bg-card p-5">
