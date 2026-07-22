@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
-import { Phone, MapPin, ArrowLeft, Loader2 } from "lucide-react";
+import { Phone, MapPin, ArrowLeft, Loader2, Calculator } from "lucide-react";
 
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -11,6 +11,14 @@ import { getCityBySlug } from "@/data/cities";
 import { getLocationDeep } from "@/data/locations";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import {
+  estimatePrice,
+  formatEstimate,
+  type PropertySize,
+  type Frequency,
+  type PropertyType,
+  type ServiceLevel,
+} from "@/lib/pricingEstimator";
 
 const BURNABY_META = {
   slug: "burnaby",
@@ -26,6 +34,9 @@ const quoteSchema = z.object({
   address: z.string().trim().min(3, "Property address is required").max(200),
   propertyType: z.enum(["strata", "commercial", "residential", "industrial", "medical"]),
   serviceLevel: z.enum(["seasonal", "per-visit", "de-icing-only"]),
+  propertySize: z.enum(["small", "medium", "large", "xlarge"]),
+  frequency: z.enum(["as-needed", "every-2cm", "every-storm", "24-7"]),
+  drivewayMeters: z.coerce.number().min(0).max(10000),
   notes: z.string().trim().max(2000).optional(),
   // honeypot — must remain empty
   website: z.string().max(0).optional(),
