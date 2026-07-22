@@ -48,6 +48,8 @@ const Burnaby = () => {
       <SeasonalPackages />
       <BurnabyFAQ />
 
+      {deep && <CityDeepDive data={deep} />}
+
       <div id="burnaby-quote">
         <ContactForm />
       </div>
@@ -55,6 +57,7 @@ const Burnaby = () => {
     <Footer />
     <StickyCallBar />
   </div>
-);
+  );
+};
 
 export default Burnaby;
