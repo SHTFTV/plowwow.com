@@ -51,7 +51,17 @@ const CityPage = () => {
     : city.faqs;
 
   const pageTitle = `${city.tagline} | PlowWow`;
+  // Base description is the city intro; when we have deep-dive data,
+  // enrich the OG/Twitter description with unique local specifics
+  // (snowfall, freeze-thaw cycles, season window) so social previews
+  // reflect each city page's unique copy rather than a generic blurb.
   const pageDescription = truncateForMeta(city.intro);
+  const socialDescription = locationDeep
+    ? truncateForMeta(
+        `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
+      )
+    : pageDescription;
+  const socialTitle = `${city.name} Snow Removal & De-icing | PlowWow`;
   const origin =
     typeof window !== "undefined"
       ? window.location.origin.replace(/\/+$/, "")
@@ -84,21 +94,23 @@ const CityPage = () => {
       el.setAttribute("content", content);
     };
     setMeta("description", pageDescription);
-    setProperty("og:title", pageTitle);
-    setProperty("og:description", pageDescription);
+    setProperty("og:title", socialTitle);
+    setProperty("og:description", socialDescription);
     setProperty("og:url", url);
     setProperty("og:image", ogImage);
     setProperty("og:image:width", String(ogImageWidth));
     setProperty("og:image:height", String(ogImageHeight));
-    setProperty("og:image:alt", pageTitle);
+    setProperty("og:image:alt", `${city.name} snow removal — ${city.tagline}`);
+    setProperty("og:site_name", "PlowWow");
+    setProperty("og:locale", "en_CA");
     setProperty("og:type", "website");
     setProperty("twitter:card", "summary_large_image");
-    setProperty("twitter:title", pageTitle);
-    setProperty("twitter:description", pageDescription);
+    setProperty("twitter:title", socialTitle);
+    setProperty("twitter:description", socialDescription);
     setProperty("twitter:image", ogImage);
     setProperty("twitter:image:width", String(ogImageWidth));
     setProperty("twitter:image:height", String(ogImageHeight));
-    setProperty("twitter:image:alt", pageTitle);
+    setProperty("twitter:image:alt", `${city.name} snow removal — ${city.tagline}`);
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");

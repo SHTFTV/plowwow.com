@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
-import { Phone, MapPin, ArrowLeft, Loader2 } from "lucide-react";
+import { Phone, MapPin, ArrowLeft, Loader2, Calculator } from "lucide-react";
 
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -11,6 +11,14 @@ import { getCityBySlug } from "@/data/cities";
 import { getLocationDeep } from "@/data/locations";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import {
+  estimatePrice,
+  formatEstimate,
+  type PropertySize,
+  type Frequency,
+  type PropertyType,
+  type ServiceLevel,
+} from "@/lib/pricingEstimator";
 
 const BURNABY_META = {
   slug: "burnaby",
@@ -26,6 +34,9 @@ const quoteSchema = z.object({
   address: z.string().trim().min(3, "Property address is required").max(200),
   propertyType: z.enum(["strata", "commercial", "residential", "industrial", "medical"]),
   serviceLevel: z.enum(["seasonal", "per-visit", "de-icing-only"]),
+  propertySize: z.enum(["small", "medium", "large", "xlarge"]),
+  frequency: z.enum(["as-needed", "every-2cm", "every-storm", "24-7"]),
+  drivewayMeters: z.coerce.number().min(0).max(10000),
   notes: z.string().trim().max(2000).optional(),
   // honeypot — must remain empty
   website: z.string().max(0).optional(),
@@ -62,9 +73,33 @@ const CityQuote = () => {
     address: "",
     propertyType: "strata",
     serviceLevel: "seasonal",
+    propertySize: "medium",
+    frequency: "every-2cm",
+    drivewayMeters: 0,
     notes: "",
     website: "",
   });
+
+  const avgSnowfall = deep?.avg_annual_snowfall_cm;
+  const estimate = useMemo(
+    () =>
+      estimatePrice({
+        propertyType: form.propertyType,
+        serviceLevel: form.serviceLevel,
+        propertySize: form.propertySize,
+        drivewayMeters: Number(form.drivewayMeters) || 0,
+        frequency: form.frequency,
+        avgSnowfallCm: avgSnowfall,
+      }),
+    [
+      form.propertyType,
+      form.serviceLevel,
+      form.propertySize,
+      form.frequency,
+      form.drivewayMeters,
+      avgSnowfall,
+    ],
+  );
 
   useEffect(() => {
     if (!cityMeta) return;
@@ -121,6 +156,14 @@ const CityQuote = () => {
           province: cityMeta.province,
           source: `city-quote/${cityMeta.slug}`,
           formLoadedAt: formStartedAt,
+          estimator: {
+            low: estimate.low,
+            high: estimate.high,
+            unit: estimate.unit,
+            propertySize: parsed.data.propertySize,
+            frequency: parsed.data.frequency,
+            drivewayMeters: parsed.data.drivewayMeters,
+          },
         },
       });
       if (error) throw error;
@@ -133,6 +176,31 @@ const CityQuote = () => {
         });
         return;
       }
+      // Fire-and-forget confirmation email — never block the redirect if
+      // Resend is temporarily unavailable.
+      supabase.functions
+        .invoke("send-quote-confirmation", {
+          body: {
+            name: parsed.data.name,
+            email: parsed.data.email,
+            phone: parsed.data.phone,
+            address: parsed.data.address,
+            city: cityMeta.name,
+            province: cityMeta.province,
+            propertyType: parsed.data.propertyType,
+            serviceLevel: parsed.data.serviceLevel,
+            notes: parsed.data.notes,
+            estimator: {
+              low: estimate.low,
+              high: estimate.high,
+              unit: estimate.unit,
+              propertySize: parsed.data.propertySize,
+              frequency: parsed.data.frequency,
+              drivewayMeters: parsed.data.drivewayMeters,
+            },
+          },
+        })
+        .catch((e) => console.warn("confirmation email failed", e));
       navigate(`/quote/confirmed?city=${encodeURIComponent(cityMeta.slug)}`);
     } catch (err) {
       toast({
@@ -276,6 +344,59 @@ const CityQuote = () => {
                   ]}
                 />
               </div>
+
+              <fieldset className="border border-border rounded-xl p-4 space-y-4">
+                <legend className="text-sm font-heading font-bold px-2 inline-flex items-center gap-1.5">
+                  <Calculator className="w-4 h-4 text-primary" />
+                  Quick estimator
+                </legend>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Select
+                    id="propertySize"
+                    label="Property size"
+                    value={form.propertySize}
+                    onChange={(v) => update("propertySize", v as PropertySize)}
+                    options={[
+                      ["small", "Small — driveway / single unit"],
+                      ["medium", "Medium — small strata / storefront"],
+                      ["large", "Large — mid-size lot"],
+                      ["xlarge", "X-Large — big-box / industrial"],
+                    ]}
+                  />
+                  {form.serviceLevel === "seasonal" && (
+                    <Select
+                      id="frequency"
+                      label="Service frequency"
+                      value={form.frequency}
+                      onChange={(v) => update("frequency", v as Frequency)}
+                      options={[
+                        ["as-needed", "As-needed (light trigger)"],
+                        ["every-2cm", "Every 2 cm (standard)"],
+                        ["every-storm", "Every storm (strict)"],
+                        ["24-7", "24/7 zero-tolerance"],
+                      ]}
+                    />
+                  )}
+                  <Field
+                    id="drivewayMeters"
+                    label="Driveway / lane length (m, optional)"
+                    type="number"
+                    value={String(form.drivewayMeters)}
+                    onChange={(v) => update("drivewayMeters", Number(v) as QuoteInput["drivewayMeters"])}
+                  />
+                </div>
+                <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 text-sm">
+                  <p className="font-heading font-bold text-foreground text-lg">
+                    {formatEstimate(estimate)}
+                  </p>
+                  <p className="text-muted-foreground text-xs mt-0.5">
+                    {estimate.visitsHint}. Live estimate for {cityMeta.name}
+                    {avgSnowfall ? ` (${avgSnowfall} cm avg snowfall)` : ""} —
+                    final quote confirmed by a local route lead.
+                  </p>
+                </div>
+              </fieldset>
+
 
               <div>
                 <label
