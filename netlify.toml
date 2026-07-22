@@ -122,6 +122,95 @@
 
 
 
+# --- 301: legacy /city/<slug> → /<slug>/ for every known city ---
+# Keeps link equity flowing to the canonical city page; unknown /city/<x>
+# still falls through to the /city/* 404 rule below.
+[[redirects]]
+  from = "/city/abbotsford"
+  to = "/abbotsford/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/chilliwack"
+  to = "/chilliwack/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/coquitlam"
+  to = "/coquitlam/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/delta"
+  to = "/delta/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/langley"
+  to = "/langley/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/maple-ridge"
+  to = "/maple-ridge/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/mission"
+  to = "/mission/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/new-westminster"
+  to = "/new-westminster/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/north-vancouver"
+  to = "/north-vancouver/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/pitt-meadows"
+  to = "/pitt-meadows/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/port-coquitlam"
+  to = "/port-coquitlam/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/port-moody"
+  to = "/port-moody/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/richmond"
+  to = "/richmond/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/surrey"
+  to = "/surrey/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/vancouver"
+  to = "/vancouver/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/west-vancouver"
+  to = "/west-vancouver/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/city/white-rock"
+  to = "/white-rock/"
+  status = 301
+  force = true
+
 # --- Real 404 for missing /city/* and /blog/* paths ---
 # Prevents SPA fallback from serving homepage <title>/<meta> for URLs that
 # aren't prerendered. `force = false` lets real files (if any exist under
