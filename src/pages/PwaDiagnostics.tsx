@@ -161,14 +161,90 @@ export default function PwaDiagnostics() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
+  const onUploadReport = (file: File) => {
+    setUploadError(null);
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result));
+        setUploadedReport(parsed);
+      } catch (e) {
+        setUploadError(`Not a valid JSON report: ${String((e as Error)?.message || e)}`);
+        setUploadedReport(null);
+      }
+    };
+    reader.onerror = () => setUploadError("Failed to read file");
+    reader.readAsText(file);
+  };
+
+  const compareRows = (() => {
+    if (!uploadedReport) return null;
+    const current = {
+      swVersion: swVersion,
+      "diagnostics.generatedAt": liveDiag?.generatedAt ?? null,
+      "diagnostics.blogIndexAt": liveDiag?.blogIndexAt ?? null,
+      "diagnostics.carousel": liveDiag?.carousel ?? null,
+      "diagnostics.totalPosts": liveDiag?.totalPosts ?? null,
+      "sw.scriptURL": swInfo.scriptURL,
+      "sw.controller": swInfo.controller,
+      "sw.scope": swInfo.scope,
+      "sw.state": swState,
+    };
+    const prev = {
+      swVersion: uploadedReport?.serviceWorker?.version ?? uploadedReport?.diagnostics?.swVersion ?? null,
+      "diagnostics.generatedAt": uploadedReport?.diagnostics?.generatedAt ?? null,
+      "diagnostics.blogIndexAt": uploadedReport?.diagnostics?.blogIndexAt ?? null,
+      "diagnostics.carousel": uploadedReport?.diagnostics?.carousel ?? null,
+      "diagnostics.totalPosts": uploadedReport?.diagnostics?.totalPosts ?? null,
+      "sw.scriptURL": uploadedReport?.serviceWorker?.scriptURL ?? null,
+      "sw.controller": uploadedReport?.serviceWorker?.controller ?? null,
+      "sw.scope": uploadedReport?.serviceWorker?.scope ?? null,
+      "sw.state": uploadedReport?.serviceWorker?.state ?? null,
+    };
+    return Object.keys(current).map((k) => {
+      const a = JSON.stringify((current as any)[k]);
+      const b = JSON.stringify((prev as any)[k]);
+      return { field: k, current: a, previous: b, changed: a !== b };
+    });
+  })();
+
   const icons: ManifestIcon[] = manifest?.icons || [];
+  const changedRecent = changedAt && Date.now() - new Date(changedAt).getTime() < POLL_MS * 2;
 
   return (
     <main className="container mx-auto max-w-5xl px-4 py-10">
-      <h1 className="text-3xl font-black text-foreground">PWA Diagnostics</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-3xl font-black text-foreground">PWA Diagnostics</h1>
+        <div className="flex items-center gap-2 text-xs" data-testid="live-indicator">
+          <span
+            aria-label={changedRecent ? "values changed" : poll ? "live polling" : "polling paused"}
+            className={
+              "inline-block h-2.5 w-2.5 rounded-full " +
+              (changedRecent ? "bg-destructive animate-pulse" : poll ? "bg-primary animate-pulse" : "bg-muted-foreground")
+            }
+          />
+          <span className="text-muted-foreground">
+            {poll ? `Polling every ${POLL_MS / 1000}s` : "Paused"}
+            {changedAt ? ` · last change ${new Date(changedAt).toLocaleTimeString()}` : ""}
+          </span>
+          <button
+            onClick={() => setPoll((v) => !v)}
+            className="ml-2 rounded-md border border-border px-2 py-0.5 text-xs"
+          >
+            {poll ? "Pause" : "Resume"}
+          </button>
+          <button
+            onClick={() => void refreshLive()}
+            className="rounded-md border border-border px-2 py-0.5 text-xs"
+          >
+            Refresh now
+          </button>
+        </div>
+      </div>
       <p className="mt-2 text-muted-foreground text-sm">
         QA view of installed manifest, service worker, and validated icon set.
       </p>
+
 
       <section className="mt-8 rounded-xl border border-border bg-card p-5">
         <h2 className="text-lg font-bold">Service worker</h2>
