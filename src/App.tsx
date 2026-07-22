@@ -6,7 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import LegacyPage, { legacyPageSlugs, legacyBlogSlugs } from "./pages/LegacyPage.tsx";
+import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
+const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 
 // Route-level code splitting: keep the homepage + NotFound + LegacyPage
 // (used by ~150 prerendered legacy routes and therefore the LCP path for
