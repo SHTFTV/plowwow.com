@@ -20,6 +20,7 @@
 // Run: bun run tsx scripts/verify-share-cards.ts [--update-baseline]
 
 import sharp from "sharp";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, join, relative, resolve } from "node:path";
 import { MASCOT_PLACEMENT } from "./regenerate-blog-og-mascots";
@@ -29,12 +30,21 @@ const REPORT_DIR = resolve("seo-report");
 const FAIL_DIR = join(REPORT_DIR, "share-card-failures");
 const BASELINE = join(REPORT_DIR, "share-cards-baseline.json");
 const MASCOT = resolve("src/assets/wow-mascot.png");
+const CACHE_DIR = resolve(".cache");
+const CACHE_FILE = join(CACHE_DIR, "share-cards.json");
 
 const EXPECTED_W = 1200;
 const EXPECTED_H = 630;
 const NORM = 96;
 const MAE_THRESHOLD = 28;
 const RECT_TOLERANCE_PX = 2;
+
+type CacheEntry = { cardHash: string; mascotHash: string; report: Report };
+type Cache = Record<string, CacheEntry>;
+
+function hashFile(p: string): string {
+  return createHash("sha1").update(readFileSync(p)).digest("hex");
+}
 
 type Baseline = Record<string, { width: number; height: number }>;
 type Report = {
@@ -137,6 +147,7 @@ async function writeFailArtifact(r: Report) {
 
 async function main() {
   const updateBaseline = process.argv.includes("--update-baseline");
+  const force = process.argv.includes("--force") || process.argv.includes("--no-cache");
   if (!existsSync(ROOT)) {
     console.log(`✓ verify-share-cards: no share cards found (${ROOT} missing)`);
     return;
@@ -144,6 +155,7 @@ async function main() {
   try { rmSync(FAIL_DIR, { recursive: true, force: true }); } catch { /* ignore */ }
 
   const ref = await loadRef();
+  const mascotHash = hashFile(MASCOT);
   const files = readdirSync(ROOT)
     .filter((f) => f.toLowerCase().endsWith(".jpg"))
     .map((f) => join(ROOT, f))
@@ -151,8 +163,31 @@ async function main() {
     .sort();
 
   const baseline: Baseline = existsSync(BASELINE) ? JSON.parse(readFileSync(BASELINE, "utf8")) : {};
+  const cache: Cache = !force && existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, "utf8")) : {};
+  const nextCache: Cache = {};
   const reports: Report[] = [];
-  for (const p of files) reports.push(await checkCard(p, ref, baseline));
+  let reused = 0;
+  for (const p of files) {
+    const name = basename(p);
+    const cardHash = hashFile(p);
+    const prev = cache[name];
+    const baselineFingerprint = JSON.stringify(baseline[name] ?? null);
+    const key = `${cardHash}|${mascotHash}|${baselineFingerprint}`;
+    const prevKey = prev ? `${prev.cardHash}|${prev.mascotHash}|${JSON.stringify(baseline[name] ?? null)}` : "";
+    if (prev && prev.report.pass && key === prevKey) {
+      // Source card + mascot reference + baseline row unchanged since a
+      // previously passing run — reuse the cached result and skip the
+      // expensive extract/MAE compute.
+      const cached = { ...prev.report, file: p };
+      reports.push(cached);
+      nextCache[name] = { cardHash, mascotHash, report: cached };
+      reused++;
+      continue;
+    }
+    const r = await checkCard(p, ref, baseline);
+    reports.push(r);
+    if (r.pass) nextCache[name] = { cardHash, mascotHash, report: r };
+  }
 
   const fails = reports.filter((r) => !r.pass);
   for (const r of fails) await writeFailArtifact(r);
@@ -176,14 +211,21 @@ async function main() {
     writeFileSync(BASELINE, JSON.stringify(baseline, null, 2));
   }
 
+  // Persist the change-detection manifest for the next run.
+  mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(CACHE_FILE, JSON.stringify(nextCache, null, 2));
+
+
   mkdirSync(REPORT_DIR, { recursive: true });
   writeFileSync(join(REPORT_DIR, "share-cards-report.json"), JSON.stringify({
     generatedAt: new Date().toISOString(),
     total: reports.length,
     failed: fails.length,
+    reusedFromCache: reused,
     expected: { width: EXPECTED_W, height: EXPECTED_H },
     maeThreshold: MAE_THRESHOLD,
     baselineFile: relative(process.cwd(), BASELINE),
+    cacheFile: relative(process.cwd(), CACHE_FILE),
     debugArtifactsDir: fails.length ? relative(process.cwd(), FAIL_DIR) : null,
     results: reports.map((r) => ({ ...r, file: relative(process.cwd(), r.file) })),
   }, null, 2));
@@ -200,7 +242,7 @@ async function main() {
     console.error(`  - bun run tsx scripts/verify-share-cards.ts --update-baseline   # accept new dimensions`);
     process.exit(1);
   }
-  console.log(`✓ verify-share-cards: ${reports.length} cards @ ${EXPECTED_W}x${EXPECTED_H}, mascot verified, baseline stable`);
+  console.log(`✓ verify-share-cards: ${reports.length} cards @ ${EXPECTED_W}x${EXPECTED_H}, mascot verified, baseline stable${reused ? ` (reused ${reused} from cache)` : ""}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
