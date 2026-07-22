@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-22T00:32:56.424Z",
+  "generatedAt": "2026-07-22T00:33:33.032Z",
   "total": 118,
-  "failed": 0,
+  "failed": 118,
   "reusedFromCache": 0,
   "expected": {
     "width": 1200,
@@ -10,13 +10,13 @@
   "maeThreshold": 28,
   "baselineFile": "seo-report/share-cards-baseline.json",
   "cacheFile": ".cache/share-cards.json",
-  "debugArtifactsDir": null,
+  "debugArtifactsDir": "seo-report/share-card-failures",
   "results": [
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 78.99688667496886,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -24,16 +24,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 78.99723259997232,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -41,16 +43,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1634841566348415,
+      "mae": 78.99723259997232,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -58,16 +62,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2056178220561784,
+      "mae": 79.03431576034316,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -75,16 +81,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -92,16 +100,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204856787048568,
+      "mae": 79.03327798533277,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -109,16 +119,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1641068216410684,
+      "mae": 78.99591808495919,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -126,16 +138,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1645219316452193,
+      "mae": 78.99591808495919,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -143,16 +157,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196969696969697,
+      "mae": 79.03452331534524,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -160,16 +176,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204164937041649,
+      "mae": 79.03445413034454,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -177,16 +195,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953784419537845,
+      "mae": 79.01708869517088,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -194,16 +214,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1969005119690053,
+      "mae": 79.00408191504081,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -211,16 +233,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194963331949633,
+      "mae": 79.01708869517088,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -228,16 +252,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1979382869793826,
+      "mae": 79.034800055348,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -245,16 +271,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.199252801992528,
+      "mae": 79.01349107513491,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -262,16 +290,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163760896637609,
+      "mae": 78.99771689497717,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -279,16 +309,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1638992666389925,
+      "mae": 78.99723259997232,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -296,16 +328,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194686591946866,
+      "mae": 79.03348554033485,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -313,16 +347,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204649232046492,
+      "mae": 79.03424657534246,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -330,16 +366,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19669295696693,
+      "mae": 79.00885568008856,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -347,16 +385,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1975923619759237,
+      "mae": 79.01425211014252,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -364,16 +404,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1957243669572435,
+      "mae": 79.03348554033485,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -381,16 +423,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1612010516120104,
+      "mae": 78.99647156496472,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -398,16 +442,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.160578386605784,
+      "mae": 78.99674830496748,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -415,16 +461,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.159540611595406,
+      "mae": 78.99702504497024,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -432,16 +480,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2078317420783176,
+      "mae": 79.03445413034454,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -449,16 +499,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1971772519717727,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -466,16 +518,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.205825377058254,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -483,16 +537,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1621696416216962,
+      "mae": 78.99667911996679,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -500,16 +556,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1608551266085514,
+      "mae": 78.99647156496472,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -517,16 +575,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 79.03341635533417,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -534,16 +594,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204787602047876,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -551,16 +613,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1962778469627784,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -568,16 +632,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1994603569946034,
+      "mae": 79.00809464508094,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -585,16 +651,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196070291960703,
+      "mae": 79.0152898851529,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -602,16 +670,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1959319219593194,
+      "mae": 79.03369309533693,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -619,16 +689,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1959319219593194,
+      "mae": 79.00311332503114,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -636,16 +708,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 78.99674830496748,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -653,16 +727,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.160024906600249,
+      "mae": 78.99702504497024,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -670,16 +746,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 79.03334717033347,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -687,16 +765,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2045108620451086,
+      "mae": 79.03410820534108,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -704,16 +784,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19669295696693,
+      "mae": 79.0085097550851,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -721,16 +803,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953092569530925,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -738,16 +822,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19932198699322,
+      "mae": 79.00816383008164,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -755,16 +841,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 78.99605645496057,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -772,16 +860,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 78.99633319496333,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -789,16 +879,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 79.03320880033209,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -806,16 +898,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2049951570499515,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -823,16 +917,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948249619482496,
+      "mae": 79.01501314515014,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -840,16 +936,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1612010516120104,
+      "mae": 78.99667911996679,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -857,16 +955,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 78.99667911996679,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -874,16 +974,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161477791614778,
+      "mae": 78.99702504497024,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -891,16 +993,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 79.0339698353397,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -908,16 +1012,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2045108620451086,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -925,16 +1031,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1991144319911444,
+      "mae": 79.00816383008164,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -942,16 +1050,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198284211982842,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -959,16 +1069,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.193787186937872,
+      "mae": 79.00228310502283,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -976,16 +1088,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162792306627923,
+      "mae": 78.99771689497717,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -993,16 +1107,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 78.9966099349661,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1010,16 +1126,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.202642867026429,
+      "mae": 79.03410820534108,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1027,16 +1145,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1970388819703888,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1044,16 +1164,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 79.00816383008164,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1061,16 +1183,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 78.99730178497302,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1078,16 +1202,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 78.99681748996818,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1095,16 +1221,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.195032516950325,
+      "mae": 79.0339698353397,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1112,16 +1240,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2067247820672478,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1129,16 +1259,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1984917669849176,
+      "mae": 79.01508233015082,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1146,16 +1278,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1624463816244637,
+      "mae": 78.99716341497164,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1163,16 +1297,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 78.99771689497717,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1180,16 +1316,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 78.99771689497717,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1197,16 +1335,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1971772519717727,
+      "mae": 79.03500761035008,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1214,16 +1354,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2093538120935383,
+      "mae": 79.03272450532725,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1231,16 +1373,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.193441261934413,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1248,16 +1392,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948249619482496,
+      "mae": 79.03279369032794,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1265,16 +1411,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162861491628615,
+      "mae": 78.99785526497855,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1282,16 +1430,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162723121627231,
+      "mae": 78.99730178497302,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1299,16 +1449,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196969696969697,
+      "mae": 79.0348692403487,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1316,16 +1468,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.201605092016051,
+      "mae": 79.03424657534246,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1333,16 +1487,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953784419537845,
+      "mae": 79.01494396014944,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1350,16 +1506,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194548221945482,
+      "mae": 79.00311332503114,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1367,16 +1525,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163760896637609,
+      "mae": 78.99591808495919,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1384,16 +1544,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.16154697661547,
+      "mae": 78.99591808495919,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1401,16 +1563,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2044416770444166,
+      "mae": 79.03383146533831,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1418,16 +1582,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948941469489416,
+      "mae": 79.01522070015221,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1435,16 +1601,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1957935519579355,
+      "mae": 79.00892486508926,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1452,16 +1620,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1618237166182372,
+      "mae": 78.99626400996264,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1469,16 +1639,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1625847516258476,
+      "mae": 78.99640237996402,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1486,16 +1658,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204718417047184,
+      "mae": 79.03424657534246,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1503,16 +1677,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.191919191919192,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1520,16 +1696,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196554586965546,
+      "mae": 79.0085097550851,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1537,16 +1715,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1640376366403764,
+      "mae": 78.99799363497993,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1554,16 +1734,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 78.99785526497855,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1571,16 +1753,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1952400719524006,
+      "mae": 79.03334717033347,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1588,16 +1772,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2059637470596374,
+      "mae": 79.03445413034454,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1605,16 +1791,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196554586965546,
+      "mae": 79.0085097550851,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1622,16 +1810,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196485401964854,
+      "mae": 79.01501314515014,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1639,16 +1829,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 78.99647156496472,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1656,16 +1848,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162861491628615,
+      "mae": 78.99709422997094,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1673,16 +1867,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163345786633458,
+      "mae": 78.99702504497024,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1690,16 +1886,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 79.03348554033485,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1707,16 +1905,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2051335270513355,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1724,16 +1924,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198699321986993,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1741,16 +1943,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1980766569807666,
+      "mae": 79.00892486508926,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1758,16 +1962,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1629306766293066,
+      "mae": 78.99799363497993,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1775,16 +1981,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 78.99806281998063,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1792,16 +2000,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.195032516950325,
+      "mae": 79.03334717033347,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1809,16 +2019,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.206240487062405,
+      "mae": 79.03403902034039,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1826,16 +2038,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1843,16 +2057,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198837691988377,
+      "mae": 79.00864812508648,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1860,16 +2076,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1962778469627784,
+      "mae": 79.0153590701536,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1877,16 +2095,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948941469489416,
+      "mae": 79.03334717033347,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1894,16 +2114,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 79.03320880033209,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1911,16 +2133,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2034730870347308,
+      "mae": 79.03410820534108,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1928,16 +2152,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953092569530925,
+      "mae": 79.0085097550851,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1945,16 +2171,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1616161616161618,
+      "mae": 78.99647156496472,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1962,16 +2190,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1616161616161618,
+      "mae": 78.99647156496472,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1979,16 +2209,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.207070707070707,
+      "mae": 79.03438494534385,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1996,16 +2228,18 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.192818596928186,
+      "mae": 79.01515151515152,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -2013,10 +2247,12 @@
         "height": 336
       },
       "dimensionsOk": true,
-      "mascotOk": true,
+      "mascotOk": false,
       "baselineOk": true,
-      "pass": true,
-      "reasons": []
+      "pass": false,
+      "reasons": [
+        "mascot MAE 79.0 > 28"
+      ]
     }
   ]
 }
