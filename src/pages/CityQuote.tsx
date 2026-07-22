@@ -7,10 +7,12 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NotFound from "./NotFound";
+import AddressPreview from "@/components/city/AddressPreview";
 import { getCityBySlug } from "@/data/cities";
 import { getLocationDeep } from "@/data/locations";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import type { AddressGeocodeHit } from "@/lib/addressGeocode";
 import {
   estimatePrice,
   formatEstimate,
