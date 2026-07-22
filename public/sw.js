@@ -8,7 +8,7 @@
 // Strategies:
 //   - navigations (HTML)          : network-first, fall back to cache
 //   - hashed built assets         : cache-first (immutable content-hash)
-//   - OG / share-card images      : stale-while-revalidate
+//   - OG / share-card images      : network-first, fall back to cache
 //   - route data (sitemaps, RSS,
 //     link-audit.json, blog-index): network-first
 //   - anything else               : passthrough (no caching)
@@ -22,7 +22,7 @@
 // Kill switch: navigating to any URL with `?sw=off` unregisters this
 // worker and evicts every cache it owns.
 
-const VERSION = "v4";
+const VERSION = "v5";
 const CACHE_HTML = `pw-html-${VERSION}`;
 const CACHE_ASSETS = `pw-assets-${VERSION}`;
 const CACHE_IMAGES = `pw-images-${VERSION}`;
@@ -74,10 +74,12 @@ async function notifyClientsUpdated() {
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
-    // Drop every non-owned pw-* cache (previous versions).
+    // Drop every existing pw-* cache on every worker version bump. Blog hero
+    // images are content-edited in place, so keeping old image caches is worse
+    // than a cold reload.
     await Promise.allSettled(
       names
-        .filter((n) => n.startsWith("pw-") && !OWNED.includes(n))
+        .filter((n) => n.startsWith("pw-"))
         .map((n) => caches.delete(n)),
     );
     // Also purge icon/manifest entries from owned caches so a
@@ -183,7 +185,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (isImage(url)) {
-    event.respondWith(staleWhileRevalidate(req, CACHE_IMAGES));
+    event.respondWith(networkFirst(req, CACHE_IMAGES));
     return;
   }
   if (isDataAsset(url)) {

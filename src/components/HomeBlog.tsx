@@ -16,15 +16,17 @@ const formatDate = (iso: string) =>
 
 const HomeBlog = () => {
   const [carouselSlugs, setCarouselSlugs] = useState<string[]>(fallbackSlugs);
+  const [imageVersion, setImageVersion] = useState<string>(String(Date.now()));
 
   useEffect(() => {
     let cancelled = false;
     fetch(`/blog-index.json?_cb=${Date.now()}`, { cache: "no-store" })
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
-      .then((index: { carousel?: string[] }) => {
+      .then((index: { carousel?: string[]; generatedAt?: string }) => {
         if (cancelled || !Array.isArray(index.carousel)) return;
         const freshSlugs = index.carousel.filter((slug) => postBySlug.has(slug)).slice(0, 4);
         if (freshSlugs.length === 4) setCarouselSlugs(freshSlugs);
+        if (index.generatedAt) setImageVersion(encodeURIComponent(index.generatedAt));
       })
       .catch(() => {
         // Keep build-time fallback. The fallback is regenerated before every build.
@@ -79,7 +81,7 @@ const HomeBlog = () => {
             >
               <div className="aspect-video overflow-hidden bg-muted">
                 <img
-                  src={p.image ?? "/og-default.jpg"}
+                  src={`${p.image ?? "/og-default.jpg"}?v=${imageVersion}`}
                   alt={p.alt}
                   title={p.title}
                   loading="lazy"

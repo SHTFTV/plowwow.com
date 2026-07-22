@@ -2,6 +2,15 @@
   X-Robots-Tag: index, follow
   Cache-Control: public, max-age=3600
 
+/blog-index.json
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/diagnostics.json
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/blog-images/*
+  Cache-Control: no-cache, must-revalidate
+
 /admin/*
   X-Robots-Tag: noindex, nofollow
 
