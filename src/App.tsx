@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
+import RoutePreloader from "./components/RoutePreloader";
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 
 // Route-level code splitting: keep the homepage + NotFound + LegacyPage
@@ -55,6 +56,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RoutePreloader />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />

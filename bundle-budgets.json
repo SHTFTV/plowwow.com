@@ -1,0 +1,23 @@
+{
+  "note": "Gzipped size budgets in kB per chunk. Fails the build if any matching JS chunk exceeds its budget. `totalInitialKb` covers every chunk referenced by dist/index.html (entry + statically-imported vendor chunks via modulepreload). Update deliberately when new deps land and the increase is justified.",
+  "defaultChunkKb": 300,
+  "totalInitialKb": 620,
+  "budgets": {
+    "index":            { "kb": 55 },
+    "vendor-react":     { "kb": 65 },
+    "vendor-radix":     { "kb": 40 },
+    "vendor-tanstack":  { "kb": 15 },
+    "vendor-supabase":  { "kb": 60 },
+    "vendor-charts":    { "kb": 90 },
+    "vendor-xlsx":      { "kb": 110 },
+    "vendor-exceljs":   { "kb": 285 },
+    "vendor-jspdf":     { "kb": 175 },
+    "vendor-markdown":  { "kb": 45 },
+    "vendor-forms":     { "kb": 20 },
+    "vendor-dates":     { "kb": 20 },
+    "vendor-icons":     { "kb": 15 },
+    "vendor-carousel":  { "kb": 15 },
+    "vendor-motion":    { "kb": 60 },
+    "vendor":           { "kb": 175 }
+  }
+}

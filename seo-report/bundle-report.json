@@ -1,0 +1,2009 @@
+{
+  "generatedAt": "2026-07-22T00:17:22.130Z",
+  "totals": {
+    "initialTotalKb": 540.85,
+    "initialBudgetKb": 620,
+    "initialOverBy": -79.15
+  },
+  "chunks": [
+    {
+      "file": "vendor-exceljs-B27a9gnx.js",
+      "rawKb": 917.13,
+      "gzipKb": 263.25,
+      "bucket": "vendor-exceljs",
+      "budgetKb": 285,
+      "overBy": -21.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-jspdf-BndWe7P6.js",
+      "rawKb": 533.84,
+      "gzipKb": 155.72,
+      "bucket": "vendor-jspdf",
+      "budgetKb": 175,
+      "overBy": -19.28,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "vendor-DxXsQzAN.js",
+      "rawKb": 452.76,
+      "gzipKb": 154.07,
+      "bucket": "vendor",
+      "budgetKb": 175,
+      "overBy": -20.93,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "vendor-xlsx-DjuO7_Ju.js",
+      "rawKb": 277.65,
+      "gzipKb": 92.13,
+      "bucket": "vendor-xlsx",
+      "budgetKb": 110,
+      "overBy": -17.87,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-charts-Cph4MRkJ.js",
+      "rawKb": 292.85,
+      "gzipKb": 75.52,
+      "bucket": "vendor-charts",
+      "budgetKb": 90,
+      "overBy": -14.48,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-supabase-DVw5ZID0.js",
+      "rawKb": 196.98,
+      "gzipKb": 50.99,
+      "bucket": "vendor-supabase",
+      "budgetKb": 60,
+      "overBy": -9.01,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "vendor-react-CZOxqIAK.js",
+      "rawKb": 154.13,
+      "gzipKb": 49.86,
+      "bucket": "vendor-react",
+      "budgetKb": 65,
+      "overBy": -15.14,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "index-DiZnjH7H.js",
+      "rawKb": 193.34,
+      "gzipKb": 40.83,
+      "bucket": "index",
+      "budgetKb": 55,
+      "overBy": -14.17,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "vendor-markdown-CXSkmN7N.js",
+      "rawKb": 118.79,
+      "gzipKb": 34.35,
+      "bucket": "vendor-markdown",
+      "budgetKb": 45,
+      "overBy": -10.65,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "CityPage-tJDLkTc2.js",
+      "rawKb": 94.52,
+      "gzipKb": 29.79,
+      "bucket": "CityPage",
+      "budgetKb": 300,
+      "overBy": -270.21,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-radix-CuDagqBe.js",
+      "rawKb": 98.54,
+      "gzipKb": 28.7,
+      "bucket": "vendor-radix",
+      "budgetKb": 40,
+      "overBy": -11.3,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "BlogIndex-CFrymxhV.js",
+      "rawKb": 47.81,
+      "gzipKb": 12.92,
+      "bucket": "BlogIndex",
+      "budgetKb": 300,
+      "overBy": -287.08,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-forms-C9wiu8_K.js",
+      "rawKb": 52.14,
+      "gzipKb": 11.85,
+      "bucket": "vendor-forms",
+      "budgetKb": 20,
+      "overBy": -8.15,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "mission-snow-removal-DRIAKXaN.js",
+      "rawKb": 35.7,
+      "gzipKb": 11.35,
+      "bucket": "mission-snow-removal",
+      "budgetKb": 300,
+      "overBy": -288.65,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "maple-ridge-snow-removal-B6ZpZHbF.js",
+      "rawKb": 33.93,
+      "gzipKb": 10.73,
+      "bucket": "maple-ridge-snow-removal",
+      "budgetKb": 300,
+      "overBy": -289.27,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Burnaby-5JBGJxEp.js",
+      "rawKb": 38.06,
+      "gzipKb": 10.72,
+      "bucket": "Burnaby",
+      "budgetKb": 300,
+      "overBy": -289.28,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "LegacyPage-DlIIdg5d.js",
+      "rawKb": 37.82,
+      "gzipKb": 9.65,
+      "bucket": "LegacyPage",
+      "budgetKb": 300,
+      "overBy": -290.35,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "abbotsford-snow-removal-DZtsyo86.js",
+      "rawKb": 24.97,
+      "gzipKb": 8.03,
+      "bucket": "abbotsford-snow-removal",
+      "budgetKb": 300,
+      "overBy": -291.97,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-tanstack-Beylv4LW.js",
+      "rawKb": 25.93,
+      "gzipKb": 7.95,
+      "bucket": "vendor-tanstack",
+      "budgetKb": 15,
+      "overBy": -7.05,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "chilliwack-strata-commercial-snow-plowing-CN32rVAf.js",
+      "rawKb": 20.98,
+      "gzipKb": 7.58,
+      "bucket": "chilliwack-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -292.42,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "chilliwack-snow-removal-CjDN7owm.js",
+      "rawKb": 23.11,
+      "gzipKb": 7.51,
+      "bucket": "chilliwack-snow-removal",
+      "budgetKb": 300,
+      "overBy": -292.49,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "coquitlam-snow-removal-BqHZULaz.js",
+      "rawKb": 19.65,
+      "gzipKb": 6.58,
+      "bucket": "coquitlam-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.42,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vendor-icons-CHZOgBdR.js",
+      "rawKb": 30.39,
+      "gzipKb": 6.53,
+      "bucket": "vendor-icons",
+      "budgetKb": 15,
+      "overBy": -8.47,
+      "eagerlyLoaded": true
+    },
+    {
+      "file": "delta-strata-commercial-snow-plowing-CoayevaE.js",
+      "rawKb": 16.9,
+      "gzipKb": 6.18,
+      "bucket": "delta-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -293.82,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "westridge-burnaby-strata-commercial-snow-removal-Djw7k5Ju.js",
+      "rawKb": 16.04,
+      "gzipKb": 6.12,
+      "bucket": "westridge-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.88,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "champlain-heights-vancouver-strata-commercial-snow-removal-Bk12i3sk.js",
+      "rawKb": 16.34,
+      "gzipKb": 6.1,
+      "bucket": "champlain-heights-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.9,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "sunset-vancouver-strata-commercial-snow-removal-DYwzPsEZ.js",
+      "rawKb": 15.85,
+      "gzipKb": 6.08,
+      "bucket": "sunset-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.92,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "south-slope-burnaby-strata-commercial-snow-removal-b9ljJFml.js",
+      "rawKb": 15.8,
+      "gzipKb": 6.05,
+      "bucket": "south-slope-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.95,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "south-cambie-vancouver-strata-commercial-snow-removal-B98Sk1U9.js",
+      "rawKb": 16.03,
+      "gzipKb": 6.04,
+      "bucket": "south-cambie-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.96,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "shaughnessy-vancouver-snow-removal-CU395ZWe.js",
+      "rawKb": 14.63,
+      "gzipKb": 6.02,
+      "bucket": "shaughnessy-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.98,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "broadmoor-richmond-strata-commercial-snow-removal-CtSTD_TQ.js",
+      "rawKb": 15.91,
+      "gzipKb": 6.01,
+      "bucket": "broadmoor-richmond-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.99,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "riley-park-vancouver-strata-commercial-snow-removal-Bt5yXrdY.js",
+      "rawKb": 15.58,
+      "gzipKb": 6.01,
+      "bucket": "riley-park-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.99,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "silverdale-mission-strata-commercial-snow-removal-KdRcH_XX.js",
+      "rawKb": 15.7,
+      "gzipKb": 6,
+      "bucket": "silverdale-mission-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "delta-snow-removal-DTDqbNT6.js",
+      "rawKb": 16.88,
+      "gzipKb": 5.91,
+      "bucket": "delta-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.09,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cedar-valley-mission-strata-commercial-snow-removal-BC3mjySY.js",
+      "rawKb": 15.62,
+      "gzipKb": 5.89,
+      "bucket": "cedar-valley-mission-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.11,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "mission-strata-commercial-snow-plowing-C4G3Nf4r.js",
+      "rawKb": 16.38,
+      "gzipKb": 5.89,
+      "bucket": "mission-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.11,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "seafair-richmond-strata-commercial-snow-removal-B2-yJQ3z.js",
+      "rawKb": 15.45,
+      "gzipKb": 5.87,
+      "bucket": "seafair-richmond-strata-commercial-snow-removal-B2-yJQ3z",
+      "budgetKb": 300,
+      "overBy": -294.13,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "vancouver-snow-removal-Bmv13e76.js",
+      "rawKb": 18.08,
+      "gzipKb": 5.87,
+      "bucket": "vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.13,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "port-coquitlam-strata-commercial-snow-plowing-DiijDKdE.js",
+      "rawKb": 16.45,
+      "gzipKb": 5.82,
+      "bucket": "port-coquitlam-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.18,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "surrey-strata-commercial-snow-plowing-wMoQ1QNq.js",
+      "rawKb": 16.01,
+      "gzipKb": 5.82,
+      "bucket": "surrey-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.18,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "new-westminster-strata-commercial-snow-plowing-Br9y-GNT.js",
+      "rawKb": 16.1,
+      "gzipKb": 5.81,
+      "bucket": "new-westminster-strata-commercial-snow-plowing-Br9y-GNT",
+      "budgetKb": 300,
+      "overBy": -294.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "richmond-strata-commercial-snow-plowing-CSH8ZSKY.js",
+      "rawKb": 15.52,
+      "gzipKb": 5.81,
+      "bucket": "richmond-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "river-springs-coquitlam-strata-commercial-snow-removal-CtF92rHK.js",
+      "rawKb": 15.13,
+      "gzipKb": 5.77,
+      "bucket": "river-springs-coquitlam-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.23,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "austin-heights-coquitlam-strata-snow-removal-BK8ydWUT.js",
+      "rawKb": 14.81,
+      "gzipKb": 5.75,
+      "bucket": "austin-heights-coquitlam-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.25,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AppFeatures-DtwdrVZd.js",
+      "rawKb": 17.47,
+      "gzipKb": 5.74,
+      "bucket": "AppFeatures",
+      "budgetKb": 300,
+      "overBy": -294.26,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "ranch-park-coquitlam-strata-commercial-snow-removal-BQGE_jZK.js",
+      "rawKb": 14.97,
+      "gzipKb": 5.74,
+      "bucket": "ranch-park-coquitlam-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.26,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "white-rock-strata-commercial-snow-plowing-BBGyyGjI.js",
+      "rawKb": 14.92,
+      "gzipKb": 5.74,
+      "bucket": "white-rock-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.26,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "montecito-burnaby-strata-commercial-snow-removal-Ra0Fq-aq.js",
+      "rawKb": 14.87,
+      "gzipKb": 5.73,
+      "bucket": "montecito-burnaby-strata-commercial-snow-removal-Ra0Fq-aq",
+      "budgetKb": 300,
+      "overBy": -294.27,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "victoria-fraserview-vancouver-strata-commercial-snow-removal--yC5f3ZE.js",
+      "rawKb": 15.35,
+      "gzipKb": 5.73,
+      "bucket": "victoria-fraserview-vancouver-strata-commercial-snow-removal-",
+      "budgetKb": 300,
+      "overBy": -294.27,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "grandview-woodland-vancouver-strata-commercial-snow-removal-BeIzwbov.js",
+      "rawKb": 15.26,
+      "gzipKb": 5.72,
+      "bucket": "grandview-woodland-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.28,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminJsonLdValidator-B1ml8I0b.js",
+      "rawKb": 16.37,
+      "gzipKb": 5.71,
+      "bucket": "AdminJsonLdValidator",
+      "budgetKb": 300,
+      "overBy": -294.29,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "belcarra-snow-removal-DU1Yr60L.js",
+      "rawKb": 16.65,
+      "gzipKb": 5.71,
+      "bucket": "belcarra-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.29,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "deer-lake-burnaby-strata-commercial-snow-removal-DheMzy2m.js",
+      "rawKb": 14.81,
+      "gzipKb": 5.71,
+      "bucket": "deer-lake-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.29,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "surrey-snow-removal-DrKgFetu.js",
+      "rawKb": 17.49,
+      "gzipKb": 5.7,
+      "bucket": "surrey-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.3,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "garden-city-richmond-strata-commercial-snow-removal-7u8ikVLZ.js",
+      "rawKb": 14.69,
+      "gzipKb": 5.69,
+      "bucket": "garden-city-richmond-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.31,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "hamilton-richmond-strata-commercial-snow-removal-cLtt2IdO.js",
+      "rawKb": 14.5,
+      "gzipKb": 5.67,
+      "bucket": "hamilton-richmond-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "terra-nova-richmond-strata-commercial-snow-removal-CPL-J_a3.js",
+      "rawKb": 14.59,
+      "gzipKb": 5.67,
+      "bucket": "terra-nova-richmond-strata-commercial-snow-removal-CPL-J_a3",
+      "budgetKb": 300,
+      "overBy": -294.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "langley-snow-removal-DNx6iRbA.js",
+      "rawKb": 17.66,
+      "gzipKb": 5.66,
+      "bucket": "langley-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.34,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "port-moody-strata-commercial-snow-plowing-B4yPrhnS.js",
+      "rawKb": 13.57,
+      "gzipKb": 5.66,
+      "bucket": "port-moody-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.34,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "port-coquitlam-snow-removal-YuNjlLUg.js",
+      "rawKb": 17.43,
+      "gzipKb": 5.65,
+      "bucket": "port-coquitlam-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.35,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "tsawwassen-snow-removal-C4-MUDUQ.js",
+      "rawKb": 13.29,
+      "gzipKb": 5.59,
+      "bucket": "tsawwassen-snow-removal-C4-MUDUQ",
+      "budgetKb": 300,
+      "overBy": -294.41,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "north-vancouver-snow-removal-8Ih9Dlig.js",
+      "rawKb": 13.29,
+      "gzipKb": 5.56,
+      "bucket": "north-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.44,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cloverdale-snow-removal-CG2CkcQF.js",
+      "rawKb": 12.95,
+      "gzipKb": 5.54,
+      "bucket": "cloverdale-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.46,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "richmond-snow-removal-DsI3NGVp.js",
+      "rawKb": 17.26,
+      "gzipKb": 5.54,
+      "bucket": "richmond-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.46,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "burnaby-strata-commercial-snow-plowing-5P2tdIlG.js",
+      "rawKb": 15.03,
+      "gzipKb": 5.53,
+      "bucket": "burnaby-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.47,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "langley-strata-commercial-snow-plowing-CfpEdXL4.js",
+      "rawKb": 13.34,
+      "gzipKb": 5.48,
+      "bucket": "langley-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "west-vancouver-snow-removal-C4vQvmvo.js",
+      "rawKb": 13.07,
+      "gzipKb": 5.48,
+      "bucket": "west-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "dunbar-vancouver-snow-removal-HNSgS2hO.js",
+      "rawKb": 13.63,
+      "gzipKb": 5.46,
+      "bucket": "dunbar-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.54,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "abbotsford-strata-commercial-snow-plowing-k4HtGdbk.js",
+      "rawKb": 14.67,
+      "gzipKb": 5.45,
+      "bucket": "abbotsford-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.55,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "point-grey-vancouver-snow-removal-tkRee2xy.js",
+      "rawKb": 13.75,
+      "gzipKb": 5.4,
+      "bucket": "point-grey-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.6,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "coquitlam-strata-commercial-snow-plowing-B5jXHh2A.js",
+      "rawKb": 15.05,
+      "gzipKb": 5.37,
+      "bucket": "coquitlam-strata-commercial-snow-plowing",
+      "budgetKb": 300,
+      "overBy": -294.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "maple-ridge-strata-commercial-snow-plowing-Cm5l-d7-.js",
+      "rawKb": 15.17,
+      "gzipKb": 5.36,
+      "bucket": "maple-ridge-strata-commercial-snow-plowing-Cm5l-d7-",
+      "budgetKb": 300,
+      "overBy": -294.64,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "lynn-valley-snow-removal-CMc1yhoW.js",
+      "rawKb": 12.75,
+      "gzipKb": 5.34,
+      "bucket": "lynn-valley-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.66,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "squamish-snow-removal-DqpBWISH.js",
+      "rawKb": 12.61,
+      "gzipKb": 5.34,
+      "bucket": "squamish-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.66,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "burnaby-heights-strata-commercial-snow-removal-Dlb_x1zc.js",
+      "rawKb": 13.86,
+      "gzipKb": 5.32,
+      "bucket": "burnaby-heights-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.68,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "edgemont-village-north-vancouver-strata-commercial-snow-removal-BG41MdT9.js",
+      "rawKb": 13.82,
+      "gzipKb": 5.32,
+      "bucket": "edgemont-village-north-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.68,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "fort-langley-snow-removal-CH9P9mL8.js",
+      "rawKb": 12.51,
+      "gzipKb": 5.31,
+      "bucket": "fort-langley-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "silver-valley-maple-ridge-strata-snow-removal-rH84lUiN.js",
+      "rawKb": 13.51,
+      "gzipKb": 5.31,
+      "bucket": "silver-valley-maple-ridge-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "burke-mountain-coquitlam-strata-snow-removal-ORM84LLd.js",
+      "rawKb": 13.47,
+      "gzipKb": 5.29,
+      "bucket": "burke-mountain-coquitlam-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cambie-village-vancouver-commercial-snow-removal-CL52aaSS.js",
+      "rawKb": 13.46,
+      "gzipKb": 5.29,
+      "bucket": "cambie-village-vancouver-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "fleetwood-surrey-strata-commercial-snow-removal-B8_WdCT1.js",
+      "rawKb": 13.33,
+      "gzipKb": 5.29,
+      "bucket": "fleetwood-surrey-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "queensborough-new-westminster-strata-commercial-snow-removal-4lnFXD5R.js",
+      "rawKb": 13.62,
+      "gzipKb": 5.29,
+      "bucket": "queensborough-new-westminster-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "willingdon-heights-burnaby-commercial-snow-removal-DZR9Ihp_.js",
+      "rawKb": 13.56,
+      "gzipKb": 5.29,
+      "bucket": "willingdon-heights-burnaby-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "eagle-ridge-coquitlam-strata-snow-removal-HG95SxrE.js",
+      "rawKb": 13.35,
+      "gzipKb": 5.28,
+      "bucket": "eagle-ridge-coquitlam-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.72,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "promontory-chilliwack-strata-snow-removal-DFggPT3A.js",
+      "rawKb": 13.32,
+      "gzipKb": 5.28,
+      "bucket": "promontory-chilliwack-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.72,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "home-BQBpGvdG.js",
+      "rawKb": 16.74,
+      "gzipKb": 5.27,
+      "bucket": "home",
+      "budgetKb": 300,
+      "overBy": -294.73,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "ladner-delta-strata-commercial-snow-removal-3chP4XOZ.js",
+      "rawKb": 13.15,
+      "gzipKb": 5.27,
+      "bucket": "ladner-delta-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.73,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "sardis-chilliwack-strata-commercial-snow-removal-uHtRM4ny.js",
+      "rawKb": 13.19,
+      "gzipKb": 5.27,
+      "bucket": "sardis-chilliwack-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.73,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "albion-maple-ridge-strata-commercial-snow-removal-CA9KypLs.js",
+      "rawKb": 13.17,
+      "gzipKb": 5.26,
+      "bucket": "albion-maple-ridge-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "false-creek-vancouver-strata-snow-removal-CTi0QtCC.js",
+      "rawKb": 13.33,
+      "gzipKb": 5.26,
+      "bucket": "false-creek-vancouver-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "maillardville-coquitlam-commercial-snow-removal-DSKqrSdK.js",
+      "rawKb": 13.43,
+      "gzipKb": 5.26,
+      "bucket": "maillardville-coquitlam-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "metrotown-burnaby-strata-commercial-snow-removal-87-FFbgN.js",
+      "rawKb": 13.25,
+      "gzipKb": 5.26,
+      "bucket": "metrotown-burnaby-strata-commercial-snow-removal-87-FFbgN",
+      "budgetKb": 300,
+      "overBy": -294.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "coquitlam-centre-strata-commercial-snow-removal-DgUHPss5.js",
+      "rawKb": 13.44,
+      "gzipKb": 5.25,
+      "bucket": "coquitlam-centre-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "edmonds-burnaby-strata-commercial-snow-removal-YKFGNoy9.js",
+      "rawKb": 13.12,
+      "gzipKb": 5.25,
+      "bucket": "edmonds-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "gastown-vancouver-commercial-snow-removal-B0Rs3bH2.js",
+      "rawKb": 13.17,
+      "gzipKb": 5.25,
+      "bucket": "gastown-vancouver-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "downtown-vancouver-strata-commercial-snow-removal-BSLbmox4.js",
+      "rawKb": 13.51,
+      "gzipKb": 5.24,
+      "bucket": "downtown-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.76,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "commercial-snow-removal-burnaby-BsgA9vgX.js",
+      "rawKb": 15.49,
+      "gzipKb": 5.18,
+      "bucket": "commercial-snow-removal-burnaby",
+      "budgetKb": 300,
+      "overBy": -294.82,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "steveston-snow-removal-D4Av5bsI.js",
+      "rawKb": 11.66,
+      "gzipKb": 5.18,
+      "bucket": "steveston-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.82,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "BlogNeighborhoods-DkU00p9x.js",
+      "rawKb": 23.26,
+      "gzipKb": 5.15,
+      "bucket": "BlogNeighborhoods",
+      "budgetKb": 300,
+      "overBy": -294.85,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "burnaby-snow-removal-RHmNPc5i.js",
+      "rawKb": 15.8,
+      "gzipKb": 5.13,
+      "bucket": "burnaby-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.87,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "oakridge-vancouver-snow-removal-D7_2p7qv.js",
+      "rawKb": 12.72,
+      "gzipKb": 5.07,
+      "bucket": "oakridge-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.93,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "fraserview-vancouver-snow-removal-Dks5CcoQ.js",
+      "rawKb": 12.79,
+      "gzipKb": 5.05,
+      "bucket": "fraserview-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.95,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "renfrew-collingwood-vancouver-strata-commercial-snow-removal-BWRjZe8O.js",
+      "rawKb": 12.48,
+      "gzipKb": 5.03,
+      "bucket": "renfrew-collingwood-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.97,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "can-i-push-snow-onto-the-street-B6rJZi0Q.js",
+      "rawKb": 14.69,
+      "gzipKb": 5.02,
+      "bucket": "can-i-push-snow-onto-the-street",
+      "budgetKb": 300,
+      "overBy": -294.98,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "kitsilano-vancouver-snow-removal-DfTADfLt.js",
+      "rawKb": 12.5,
+      "gzipKb": 5,
+      "bucket": "kitsilano-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "services-BfgG7fhH.js",
+      "rawKb": 14.61,
+      "gzipKb": 5,
+      "bucket": "services",
+      "budgetKb": 300,
+      "overBy": -295,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide-DKoRvq00.js",
+      "rawKb": 11.38,
+      "gzipKb": 4.97,
+      "bucket": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
+      "budgetKb": 300,
+      "overBy": -295.03,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "ironwood-richmond-strata-commercial-snow-removal-BffPDKP7.js",
+      "rawKb": 12.22,
+      "gzipKb": 4.96,
+      "bucket": "ironwood-richmond-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.04,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "arbutus-ridge-vancouver-strata-commercial-snow-removal-COxwEZt4.js",
+      "rawKb": 12.11,
+      "gzipKb": 4.95,
+      "bucket": "arbutus-ridge-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.05,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "big-bend-burnaby-strata-commercial-snow-removal-Bi4C3mBg.js",
+      "rawKb": 12.25,
+      "gzipKb": 4.95,
+      "bucket": "big-bend-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.05,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "metrotown-snow-removal-CJKQzBGr.js",
+      "rawKb": 13.45,
+      "gzipKb": 4.95,
+      "bucket": "metrotown-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.05,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "marpole-vancouver-snow-removal-eVs37F0x.js",
+      "rawKb": 12.29,
+      "gzipKb": 4.89,
+      "bucket": "marpole-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.11,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "lougheed-town-centre-burnaby-snow-removal-CmtvOm2A.js",
+      "rawKb": 12.13,
+      "gzipKb": 4.81,
+      "bucket": "lougheed-town-centre-burnaby-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strathcona-east-vancouver-snow-removal-CNxA4R14.js",
+      "rawKb": 11.86,
+      "gzipKb": 4.8,
+      "bucket": "strathcona-east-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.2,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "kensington-cedar-cottage-snow-removal-CGRv2A4X.js",
+      "rawKb": 12.35,
+      "gzipKb": 4.79,
+      "bucket": "kensington-cedar-cottage-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.21,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cariboo-heights-burnaby-snow-removal-B3Z3-b55.js",
+      "rawKb": 11.99,
+      "gzipKb": 4.78,
+      "bucket": "cariboo-heights-burnaby-snow-removal-B3Z3-b55",
+      "budgetKb": 300,
+      "overBy": -295.22,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "hastings-sunrise-east-vancouver-snow-removal-XAFt_Kxp.js",
+      "rawKb": 12.11,
+      "gzipKb": 4.78,
+      "bucket": "hastings-sunrise-east-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.22,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "mount-pleasant-east-vancouver-snow-removal-zAM_bz7v.js",
+      "rawKb": 11.97,
+      "gzipKb": 4.78,
+      "bucket": "mount-pleasant-east-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.22,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "highgate-burnaby-strata-snow-removal-iepgAMMI.js",
+      "rawKb": 11.8,
+      "gzipKb": 4.77,
+      "bucket": "highgate-burnaby-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.23,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "sperling-duthie-burnaby-strata-commercial-snow-removal-Nx6wlI_P.js",
+      "rawKb": 12.32,
+      "gzipKb": 4.77,
+      "bucket": "sperling-duthie-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.23,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "suncrest-burnaby-snow-removal-C_E3y20G.js",
+      "rawKb": 11.67,
+      "gzipKb": 4.75,
+      "bucket": "suncrest-burnaby-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.25,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Intelligence-CBf7yeSo.js",
+      "rawKb": 16.26,
+      "gzipKb": 4.73,
+      "bucket": "Intelligence",
+      "budgetKb": 300,
+      "overBy": -295.27,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow-CgITEZlP.js",
+      "rawKb": 11.33,
+      "gzipKb": 4.69,
+      "bucket": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
+      "budgetKb": 300,
+      "overBy": -295.31,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strata-seasonal-snow-contracts-bc-cost-breakdown-LiNdG8-G.js",
+      "rawKb": 10.68,
+      "gzipKb": 4.67,
+      "bucket": "strata-seasonal-snow-contracts-bc-cost-breakdown-LiNdG8-G",
+      "budgetKb": 300,
+      "overBy": -295.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "PublishHelper-BJYWmVR9.js",
+      "rawKb": 14.4,
+      "gzipKb": 4.56,
+      "bucket": "PublishHelper",
+      "budgetKb": 300,
+      "overBy": -295.44,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "occupiers-liability-act-bc-slip-fall-property-manager-guide-Di4tg4AX.js",
+      "rawKb": 10.7,
+      "gzipKb": 4.48,
+      "bucket": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
+      "budgetKb": 300,
+      "overBy": -295.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminGuestPosts-WxAAN8jP.js",
+      "rawKb": 13.36,
+      "gzipKb": 4.46,
+      "bucket": "AdminGuestPosts",
+      "budgetKb": 300,
+      "overBy": -295.54,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "white-rock-snow-removal-D9twqV1B.js",
+      "rawKb": 11.09,
+      "gzipKb": 4.44,
+      "bucket": "white-rock-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.56,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "does-it-snow-in-vancouver-weather-guide-BzFjD_YR.js",
+      "rawKb": 10.19,
+      "gzipKb": 4.42,
+      "bucket": "does-it-snow-in-vancouver-weather-guide",
+      "budgetKb": 300,
+      "overBy": -295.58,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Admin-Y7jkiwcd.js",
+      "rawKb": 13.32,
+      "gzipKb": 4.36,
+      "bucket": "Admin",
+      "budgetKb": 300,
+      "overBy": -295.64,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cities-eWauTa7h.js",
+      "rawKb": 15.44,
+      "gzipKb": 4.28,
+      "bucket": "cities",
+      "budgetKb": 300,
+      "overBy": -295.72,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "new-westminster-snow-removal-D3FHfIrk.js",
+      "rawKb": 10.59,
+      "gzipKb": 4.28,
+      "bucket": "new-westminster-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.72,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "government-road-burnaby-strata-commercial-snow-removal-BrE7rNSJ.js",
+      "rawKb": 10.56,
+      "gzipKb": 4.26,
+      "bucket": "government-road-burnaby-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "anmore-snow-removal-BBJ0aJjs.js",
+      "rawKb": 10.29,
+      "gzipKb": 4.23,
+      "bucket": "anmore-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.77,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "port-moody-snow-removal-C1VEhRLB.js",
+      "rawKb": 10.5,
+      "gzipKb": 4.23,
+      "bucket": "port-moody-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.77,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "pitt-meadows-snow-removal-9kZKlzIp.js",
+      "rawKb": 11.79,
+      "gzipKb": 4.22,
+      "bucket": "pitt-meadows-snow-removal",
+      "budgetKb": 300,
+      "overBy": -295.78,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-management-system-B5ZpM7tO.js",
+      "rawKb": 8.93,
+      "gzipKb": 4.16,
+      "bucket": "snow-removal-management-system",
+      "budgetKb": 300,
+      "overBy": -295.84,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "brentwood-burnaby-strata-snow-removal-4Smygvp9.js",
+      "rawKb": 9.27,
+      "gzipKb": 3.99,
+      "bucket": "brentwood-burnaby-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.01,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Takeoff-Ca3NleLG.js",
+      "rawKb": 12.35,
+      "gzipKb": 3.98,
+      "bucket": "Takeoff",
+      "budgetKb": 300,
+      "overBy": -296.02,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "west-end-vancouver-snow-removal-eC4Pcwzl.js",
+      "rawKb": 9.2,
+      "gzipKb": 3.96,
+      "bucket": "west-end-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.04,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "commercial-drive-vancouver-snow-removal-DgdO2g-z.js",
+      "rawKb": 9.6,
+      "gzipKb": 3.93,
+      "bucket": "commercial-drive-vancouver-snow-removal-DgdO2g-z",
+      "budgetKb": 300,
+      "overBy": -296.07,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "harbour-chines-coquitlam-strata-commercial-snow-removal-RdxMqpDP.js",
+      "rawKb": 9.68,
+      "gzipKb": 3.9,
+      "bucket": "harbour-chines-coquitlam-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.1,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "yaletown-vancouver-snow-removal-C3mm7tVn.js",
+      "rawKb": 9.32,
+      "gzipKb": 3.88,
+      "bucket": "yaletown-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.12,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "SeoReport-DC7DrN8W.js",
+      "rawKb": 9.95,
+      "gzipKb": 3.81,
+      "bucket": "SeoReport",
+      "budgetKb": 300,
+      "overBy": -296.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "east-cambie-richmond-strata-commercial-snow-removal-DjW_7Ufu.js",
+      "rawKb": 9.35,
+      "gzipKb": 3.77,
+      "bucket": "east-cambie-richmond-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.23,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "coal-harbour-vancouver-snow-removal-KsEREGJK.js",
+      "rawKb": 9.28,
+      "gzipKb": 3.75,
+      "bucket": "coal-harbour-vancouver-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.25,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "westwood-plateau-coquitlam-parking-lot-snow-removal-BhZ6cuW3.js",
+      "rawKb": 8.78,
+      "gzipKb": 3.71,
+      "bucket": "westwood-plateau-coquitlam-parking-lot-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.29,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "austin-heights-coquitlam-strip-mall-snow-removal-COaeS_Bw.js",
+      "rawKb": 9.15,
+      "gzipKb": 3.7,
+      "bucket": "austin-heights-coquitlam-strip-mall-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.3,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "capitol-hill-burnaby-commercial-snow-removal-DE6K8Zi6.js",
+      "rawKb": 8.72,
+      "gzipKb": 3.67,
+      "bucket": "capitol-hill-burnaby-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -296.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminQuoteMetrics-4xvUdQVX.js",
+      "rawKb": 10.25,
+      "gzipKb": 3.63,
+      "bucket": "AdminQuoteMetrics",
+      "budgetKb": 300,
+      "overBy": -296.37,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "commercial-CWsdV9uB.js",
+      "rawKb": 10.96,
+      "gzipKb": 3.5,
+      "bucket": "commercial",
+      "budgetKb": 300,
+      "overBy": -296.5,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "burke-mountain-snow-gcT1IdEi.js",
+      "rawKb": 9,
+      "gzipKb": 3.2,
+      "bucket": "burke-mountain-snow",
+      "budgetKb": 300,
+      "overBy": -296.8,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "plowwow-service-areas-B44GZa0n.js",
+      "rawKb": 9.99,
+      "gzipKb": 3.08,
+      "bucket": "plowwow-service-areas",
+      "budgetKb": 300,
+      "overBy": -296.92,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "white-christmas-2025-burnaby-D9ssVVXx.js",
+      "rawKb": 6.44,
+      "gzipKb": 3.03,
+      "bucket": "white-christmas-2025-burnaby",
+      "budgetKb": 300,
+      "overBy": -296.97,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminQuoteAlerts-DcQrAV5e.js",
+      "rawKb": 9.66,
+      "gzipKb": 2.99,
+      "bucket": "AdminQuoteAlerts",
+      "budgetKb": 300,
+      "overBy": -297.01,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "professional-snow-removal-in-middle-gate-burnaby-xiEEK-hl.js",
+      "rawKb": 7.08,
+      "gzipKb": 2.94,
+      "bucket": "professional-snow-removal-in-middle-gate-burnaby-xiEEK-hl",
+      "budgetKb": 300,
+      "overBy": -297.06,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties-BjJ04iQx.js",
+      "rawKb": 7.32,
+      "gzipKb": 2.92,
+      "bucket": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
+      "budgetKb": 300,
+      "overBy": -297.08,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "skid-steer-snow-removal-in-langley-bc-jYoxVbPz.js",
+      "rawKb": 8.38,
+      "gzipKb": 2.87,
+      "bucket": "skid-steer-snow-removal-in-langley-bc",
+      "budgetKb": 300,
+      "overBy": -297.13,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "app-DnqOzmiM.js",
+      "rawKb": 6.42,
+      "gzipKb": 2.8,
+      "bucket": "app",
+      "budgetKb": 300,
+      "overBy": -297.2,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "GuestPost-BXEzcP_A.js",
+      "rawKb": 7.65,
+      "gzipKb": 2.76,
+      "bucket": "GuestPost",
+      "budgetKb": 300,
+      "overBy": -297.24,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "middlegate-snow-removal-burnaby-k7KQLkTA.js",
+      "rawKb": 8.84,
+      "gzipKb": 2.68,
+      "bucket": "middlegate-snow-removal-burnaby",
+      "budgetKb": 300,
+      "overBy": -297.32,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-renfrew-heights-cgCXQ7es.js",
+      "rawKb": 8.66,
+      "gzipKb": 2.67,
+      "bucket": "snow-removal-renfrew-heights",
+      "budgetKb": 300,
+      "overBy": -297.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminQuoteAuditLog-DEUwhRlk.js",
+      "rawKb": 7.26,
+      "gzipKb": 2.66,
+      "bucket": "AdminQuoteAuditLog",
+      "budgetKb": 300,
+      "overBy": -297.34,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "NewsletterConfirm-Dwc1b5hT.js",
+      "rawKb": 7.58,
+      "gzipKb": 2.65,
+      "bucket": "NewsletterConfirm",
+      "budgetKb": 300,
+      "overBy": -297.35,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminLinkAudit-CvC_kufg.js",
+      "rawKb": 6.95,
+      "gzipKb": 2.57,
+      "bucket": "AdminLinkAudit",
+      "budgetKb": 300,
+      "overBy": -297.43,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-west-side-vancouver-CliPQiW7.js",
+      "rawKb": 5.91,
+      "gzipKb": 2.56,
+      "bucket": "snow-removal-west-side-vancouver",
+      "budgetKb": 300,
+      "overBy": -297.44,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors-CKdHFFTz.js",
+      "rawKb": 8.82,
+      "gzipKb": 2.51,
+      "bucket": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
+      "budgetKb": 300,
+      "overBy": -297.49,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminNeighborhoods-NmXcO1sZ.js",
+      "rawKb": 5.59,
+      "gzipKb": 2.49,
+      "bucket": "AdminNeighborhoods",
+      "budgetKb": 300,
+      "overBy": -297.51,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service-DbJBmuME.js",
+      "rawKb": 8.24,
+      "gzipKb": 2.4,
+      "bucket": "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service",
+      "budgetKb": 300,
+      "overBy": -297.6,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "record-snow-falls-in-bc-DHMNMqVK.js",
+      "rawKb": 4.87,
+      "gzipKb": 2.37,
+      "bucket": "record-snow-falls-in-bc",
+      "budgetKb": 300,
+      "overBy": -297.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow-Du2jMn1w.js",
+      "rawKb": 5.11,
+      "gzipKb": 2.27,
+      "bucket": "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow",
+      "budgetKb": 300,
+      "overBy": -297.73,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "happy-new-year-metro-vancouver-DrAHqebV.js",
+      "rawKb": 4.69,
+      "gzipKb": 2.25,
+      "bucket": "happy-new-year-metro-vancouver",
+      "budgetKb": 300,
+      "overBy": -297.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-services-in-killarney-vancouver-5SW6qFEs.js",
+      "rawKb": 5.65,
+      "gzipKb": 2.25,
+      "bucket": "snow-removal-services-in-killarney-vancouver",
+      "budgetKb": 300,
+      "overBy": -297.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "the-worlds-cutest-snow-removal-brand-BKtZVwyE.js",
+      "rawKb": 6.14,
+      "gzipKb": 2.24,
+      "bucket": "the-worlds-cutest-snow-removal-brand",
+      "budgetKb": 300,
+      "overBy": -297.76,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand-BkhBQL6B.js",
+      "rawKb": 5.22,
+      "gzipKb": 2.06,
+      "bucket": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
+      "budgetKb": 300,
+      "overBy": -297.94,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "marketing-BhRabeSp.js",
+      "rawKb": 6.02,
+      "gzipKb": 2.01,
+      "bucket": "marketing",
+      "budgetKb": 300,
+      "overBy": -297.99,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "shaughnessy-snow-removal-Buz48Zy7.js",
+      "rawKb": 4.64,
+      "gzipKb": 2.01,
+      "bucket": "shaughnessy-snow-removal",
+      "budgetKb": 300,
+      "overBy": -297.99,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminGscCoverage-6Z_rSrzf.js",
+      "rawKb": 4.91,
+      "gzipKb": 1.97,
+      "bucket": "AdminGscCoverage",
+      "budgetKb": 300,
+      "overBy": -298.03,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "sapperton-new-westminster-DftSj7in.js",
+      "rawKb": 4.47,
+      "gzipKb": 1.91,
+      "bucket": "sapperton-new-westminster",
+      "budgetKb": 300,
+      "overBy": -298.09,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver-Dw9uTGtY.js",
+      "rawKb": 4.02,
+      "gzipKb": 1.85,
+      "bucket": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
+      "budgetKb": 300,
+      "overBy": -298.15,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "east-vancouver-CPin5ezR.js",
+      "rawKb": 3.65,
+      "gzipKb": 1.81,
+      "bucket": "east-vancouver",
+      "budgetKb": 300,
+      "overBy": -298.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "sfu-burnaby-snow-removal-BcUaOwQe.js",
+      "rawKb": 3.43,
+      "gzipKb": 1.81,
+      "bucket": "sfu-burnaby-snow-removal",
+      "budgetKb": 300,
+      "overBy": -298.19,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "metrotown-snow-removal-company-BIqD4vOg.js",
+      "rawKb": 4.37,
+      "gzipKb": 1.78,
+      "bucket": "metrotown-snow-removal-company",
+      "budgetKb": 300,
+      "overBy": -298.22,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminQuoteDenylist-B4rSHAga.js",
+      "rawKb": 4.54,
+      "gzipKb": 1.68,
+      "bucket": "AdminQuoteDenylist",
+      "budgetKb": 300,
+      "overBy": -298.32,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminSeoSettings-vJkspl_c.js",
+      "rawKb": 3.77,
+      "gzipKb": 1.68,
+      "bucket": "AdminSeoSettings",
+      "budgetKb": 300,
+      "overBy": -298.32,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "how-it-works-DU0is7Eo.js",
+      "rawKb": 3.46,
+      "gzipKb": 1.67,
+      "bucket": "how-it-works",
+      "budgetKb": 300,
+      "overBy": -298.33,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "now-removal-arbutus-BA3Wl9v_.js",
+      "rawKb": 3.97,
+      "gzipKb": 1.63,
+      "bucket": "now-removal-arbutus",
+      "budgetKb": 300,
+      "overBy": -298.37,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AuthorPage-DxfCBX3c.js",
+      "rawKb": 3.31,
+      "gzipKb": 1.55,
+      "bucket": "AuthorPage",
+      "budgetKb": 300,
+      "overBy": -298.45,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Locations-BvMKk2dd.js",
+      "rawKb": 3.81,
+      "gzipKb": 1.55,
+      "bucket": "Locations",
+      "budgetKb": 300,
+      "overBy": -298.45,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "heritage-mountain-DB6jQzbt.js",
+      "rawKb": 3.14,
+      "gzipKb": 1.54,
+      "bucket": "heritage-mountain",
+      "budgetKb": 300,
+      "overBy": -298.46,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist-BpbnlVvv.js",
+      "rawKb": 3.75,
+      "gzipKb": 1.54,
+      "bucket": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
+      "budgetKb": 300,
+      "overBy": -298.46,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "about-Cgc880IA.js",
+      "rawKb": 4.78,
+      "gzipKb": 1.5,
+      "bucket": "about",
+      "budgetKb": 300,
+      "overBy": -298.5,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-kensington-prairie-DSGopYFX.js",
+      "rawKb": 3.52,
+      "gzipKb": 1.49,
+      "bucket": "snow-removal-kensington-prairie",
+      "budgetKb": 300,
+      "overBy": -298.51,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "buckingham-heights-burnaby-h6suL-l9.js",
+      "rawKb": 3.49,
+      "gzipKb": 1.48,
+      "bucket": "buckingham-heights-burnaby-h6suL-l9",
+      "budgetKb": 300,
+      "overBy": -298.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "commercial-snow-removal-vancouver-Dc0AKtQV.js",
+      "rawKb": 3.03,
+      "gzipKb": 1.41,
+      "bucket": "commercial-snow-removal-vancouver",
+      "budgetKb": 300,
+      "overBy": -298.59,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "metrotown-strata-snow-removal-CgblcIJx.js",
+      "rawKb": 3.1,
+      "gzipKb": 1.4,
+      "bucket": "metrotown-strata-snow-removal",
+      "budgetKb": 300,
+      "overBy": -298.6,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "plow-wow-cutest-snow-removal-brand-marketing-platform-DHkRBEz7.js",
+      "rawKb": 3.06,
+      "gzipKb": 1.39,
+      "bucket": "plow-wow-cutest-snow-removal-brand-marketing-platform",
+      "budgetKb": 300,
+      "overBy": -298.61,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "residential-snow-removal-Ckoi7Zy8.js",
+      "rawKb": 4.52,
+      "gzipKb": 1.37,
+      "bucket": "residential-snow-removal",
+      "budgetKb": 300,
+      "overBy": -298.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-removal-in-burquitlam-Cx3mOFDI.js",
+      "rawKb": 3.04,
+      "gzipKb": 1.32,
+      "bucket": "snow-removal-in-burquitlam",
+      "budgetKb": 300,
+      "overBy": -298.68,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "silver-valley-maple-ridge-BH2Kf1VY.js",
+      "rawKb": 3.25,
+      "gzipKb": 1.31,
+      "bucket": "silver-valley-maple-ridge",
+      "budgetKb": 300,
+      "overBy": -298.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Auth-BF72_VFI.js",
+      "rawKb": 3.39,
+      "gzipKb": 1.29,
+      "bucket": "Auth",
+      "budgetKb": 300,
+      "overBy": -298.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "skilled-courteous-team-Ch2f947w.js",
+      "rawKb": 2.49,
+      "gzipKb": 1.24,
+      "bucket": "skilled-courteous-team",
+      "budgetKb": 300,
+      "overBy": -298.76,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Quote-DagtFBtv.js",
+      "rawKb": 2.6,
+      "gzipKb": 1.19,
+      "bucket": "Quote",
+      "budgetKb": 300,
+      "overBy": -298.81,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "advanced-technology-DlApYjW6.js",
+      "rawKb": 2.12,
+      "gzipKb": 1.12,
+      "bucket": "advanced-technology",
+      "budgetKb": 300,
+      "overBy": -298.88,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strata-experts-BAqxm_iO.js",
+      "rawKb": 2.25,
+      "gzipKb": 1.08,
+      "bucket": "strata-experts",
+      "budgetKb": 300,
+      "overBy": -298.92,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "contact-CPE2fVy6.js",
+      "rawKb": 3.59,
+      "gzipKb": 1.03,
+      "bucket": "contact",
+      "budgetKb": 300,
+      "overBy": -298.97,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "24-7-service-DAINq231.js",
+      "rawKb": 2.03,
+      "gzipKb": 1,
+      "bucket": "24-7-service",
+      "budgetKb": 300,
+      "overBy": -299,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "satisfaction-guaranteed-BbIA2xKL.js",
+      "rawKb": 2.01,
+      "gzipKb": 1,
+      "bucket": "satisfaction-guaranteed",
+      "budgetKb": 300,
+      "overBy": -299,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-relocation-CovWS6P2.js",
+      "rawKb": 2.01,
+      "gzipKb": 0.97,
+      "bucket": "snow-relocation",
+      "budgetKb": 300,
+      "overBy": -299.03,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strata-complexes-D491B6bC.js",
+      "rawKb": 1.23,
+      "gzipKb": 0.72,
+      "bucket": "strata-complexes",
+      "budgetKb": 300,
+      "overBy": -299.28,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "snow-blowers-for-sidewalks-CYhkwftv.js",
+      "rawKb": 1.12,
+      "gzipKb": 0.64,
+      "bucket": "snow-blowers-for-sidewalks",
+      "budgetKb": 300,
+      "overBy": -299.36,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "apartment-complexes-Dp8Sm7p-.js",
+      "rawKb": 0.99,
+      "gzipKb": 0.61,
+      "bucket": "apartment-complexes-Dp8Sm7p-",
+      "budgetKb": 300,
+      "overBy": -299.39,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "strip-malls-BtZn515p.js",
+      "rawKb": 0.99,
+      "gzipKb": 0.6,
+      "bucket": "strip-malls",
+      "budgetKb": 300,
+      "overBy": -299.4,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "accordion-Csasuone.js",
+      "rawKb": 1.13,
+      "gzipKb": 0.55,
+      "bucket": "accordion",
+      "budgetKb": 300,
+      "overBy": -299.45,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "table-Bs_YzfxJ.js",
+      "rawKb": 1.49,
+      "gzipKb": 0.53,
+      "bucket": "table",
+      "budgetKb": 300,
+      "overBy": -299.47,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "tabs-BIsT0kPH.js",
+      "rawKb": 1.13,
+      "gzipKb": 0.48,
+      "bucket": "tabs",
+      "budgetKb": 300,
+      "overBy": -299.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "switch-CBdX5gno.js",
+      "rawKb": 0.84,
+      "gzipKb": 0.45,
+      "bucket": "switch",
+      "budgetKb": 300,
+      "overBy": -299.55,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "badge-Ptn3Q6io.js",
+      "rawKb": 0.77,
+      "gzipKb": 0.4,
+      "bucket": "badge",
+      "budgetKb": 300,
+      "overBy": -299.6,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "card-lD-r3MLt.js",
+      "rawKb": 1.01,
+      "gzipKb": 0.39,
+      "bucket": "card-lD-r3MLt",
+      "budgetKb": 300,
+      "overBy": -299.61,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "internalLinks-C_0_fu2x.js",
+      "rawKb": 0.58,
+      "gzipKb": 0.37,
+      "bucket": "internalLinks",
+      "budgetKb": 300,
+      "overBy": -299.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "SnowBackground-UW81Wyus.js",
+      "rawKb": 0.46,
+      "gzipKb": 0.31,
+      "bucket": "SnowBackground",
+      "budgetKb": 300,
+      "overBy": -299.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "seo-Bxb1oqzC.js",
+      "rawKb": 0.22,
+      "gzipKb": 0.19,
+      "bucket": "seo",
+      "budgetKb": 300,
+      "overBy": -299.81,
+      "eagerlyLoaded": false
+    }
+  ],
+  "violations": []
+}
