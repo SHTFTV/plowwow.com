@@ -120,7 +120,7 @@ jobs:
           retention-days: 30
           if-no-files-found: warn
 
-      - name: Upload all SEO report artifacts (JSON + Markdown)
+      - name: Upload all SEO report artifacts (JSON + Markdown + failure diffs + bundle report)
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -128,7 +128,40 @@ jobs:
           path: |
             seo-report/**/*.json
             seo-report/**/*.md
+            seo-report/**/*.html
+            seo-report/mascot-failures/**
+            seo-report/share-card-failures/**
+            seo-report/bundle-report.json
+            seo-report/bundle-report.md
           retention-days: 14
+          if-no-files-found: warn
+
+      # Standalone upload for the mascot + share-card diff PNGs so reviewers
+      # of a failed build can grab them without downloading the full report.
+      - name: Upload mascot + share-card debug artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mascot-diffs
+          path: |
+            seo-report/mascot-failures/**
+            seo-report/share-card-failures/**
+            seo-report/mascot-presence.json
+            seo-report/share-cards-report.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      # Standalone bundle-report upload — small, always useful for size
+      # regression triage even when unrelated validators failed.
+      - name: Upload bundle-size report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-report
+          path: |
+            seo-report/bundle-report.json
+            seo-report/bundle-report.md
+          retention-days: 30
           if-no-files-found: warn
 
       - name: Install Playwright browser (Chromium)
