@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T00:02:34.408Z",
+  "generatedAt": "2026-07-22T00:04:05.090Z",
   "threshold": 28,
   "normalizedSize": 96,
   "total": 221,
@@ -7,1327 +7,1327 @@
   "results": [
     {
       "file": "public/blog-images/cariboo-heights-burnaby-snow-removal.jpg",
-      "mae": 3.673031686730317,
+      "mae": 3.6423135464231353,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/kensington-cedar-cottage-snow-removal.jpg",
-      "mae": 3.5729901757299016,
+      "mae": 3.5366680503666803,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
-      "mae": 3.3720077487200775,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/strathcona-east-vancouver-snow-removal.jpg",
-      "mae": 3.31188598311886,
+      "mae": 3.349107513491075,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/highgate-burnaby-strata-snow-removal.jpg",
-      "mae": 3.3093953230939532,
+      "mae": 3.2959042479590424,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/strathcona-east-vancouver-snow-removal.jpg",
+      "mae": 3.2870485678704857,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
-      "mae": 3.2939670679396706,
+      "mae": 3.276255707762557,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/langley-strata-commercial-snow-plowing.jpg",
-      "mae": 3.2519717725197177,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_theme-residential.jpg",
-      "mae": 3.2286564272865643,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
-      "mae": 3.2232599972326,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
-      "mae": 3.2081776670817765,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta.jpg",
-      "mae": 3.208039297080393,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
-      "mae": 3.207624187076242,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
-      "mae": 3.207624187076242,
+      "mae": 3.2341912273419124,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
-      "mae": 3.20755500207555,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
-      "mae": 3.2073474470734746,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
-      "mae": 3.2073474470734746,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission.jpg",
-      "mae": 3.2072090770720907,
+      "mae": 3.2123979521239794,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
-      "mae": 3.2072090770720907,
+      "mae": 3.2119136571191365,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
+      "mae": 3.211706102117061,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
+      "mae": 3.211636917116369,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
+      "mae": 3.2115677321156775,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
-      "mae": 3.2068631520686317,
+      "mae": 3.2114985471149855,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
-      "mae": 3.2068631520686317,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
-      "mae": 3.206240487062405,
+      "mae": 3.2114985471149855,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
-      "mae": 3.205825377058254,
+      "mae": 3.2113601771136016,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
-      "mae": 3.2044416770444166,
+      "file": "public/blog-images/_neighborhoods/city-delta.jpg",
+      "mae": 3.2110142521101426,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
-      "mae": 3.204372492043725,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
-      "mae": 3.204372492043725,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
-      "mae": 3.204164937041649,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
-      "mae": 3.204164937041649,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
-      "mae": 3.204164937041649,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
-      "mae": 3.2040957520409576,
+      "file": "public/blog-images/_neighborhoods/city-mission.jpg",
+      "mae": 3.2108758821087586,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-white-rock.jpg",
-      "mae": 3.2040957520409576,
+      "mae": 3.207970112079701,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
-      "mae": 3.203888197038882,
+      "file": "public/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+      "mae": 3.2078317420783176,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
-      "mae": 3.2031963470319633,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
-      "mae": 3.2031963470319633,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
-      "mae": 3.202988792029888,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
-      "mae": 3.202919607029196,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
-      "mae": 3.2028504220285043,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
-      "mae": 3.2028504220285043,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
-      "mae": 3.2027812370278124,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
-      "mae": 3.202435312024353,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
-      "mae": 3.202020202020202,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
-      "mae": 3.201605092016051,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
-      "mae": 3.2013283520132836,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
-      "mae": 3.2000830220008303,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
-      "mae": 3.1995987269959874,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
-      "mae": 3.1989760619897605,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
-      "mae": 3.1989760619897605,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
-      "mae": 3.198699321986993,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
-      "mae": 3.1986301369863015,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
-      "mae": 3.1985609519856095,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
-      "mae": 3.198422581984226,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
-      "mae": 3.198353396983534,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
-      "mae": 3.198284211982842,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all.jpg",
-      "mae": 3.19821502698215,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
-      "mae": 3.1976615469766156,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
-      "mae": 3.197384806973848,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
-      "mae": 3.197315621973156,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
-      "mae": 3.1969005119690053,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
-      "mae": 3.19669295696693,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
-      "mae": 3.196554586965546,
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
+      "mae": 3.207624187076242,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
-      "mae": 3.196554586965546,
+      "mae": 3.2073474470734746,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
-      "mae": 3.196485401964854,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
-      "mae": 3.196485401964854,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
-      "mae": 3.1964162169641623,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
-      "mae": 3.196139476961395,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
-      "mae": 3.196001106960011,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
-      "mae": 3.196001106960011,
+      "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
+      "mae": 3.2067939670679397,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
-      "mae": 3.1959319219593194,
+      "mae": 3.2060329320603294,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
-      "mae": 3.1959319219593194,
+      "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
+      "mae": 3.2060329320603294,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
+      "mae": 3.2060329320603294,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
+      "mae": 3.205825377058254,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
+      "mae": 3.2050643420506435,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
+      "mae": 3.2050643420506435,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
+      "mae": 3.2045800470458006,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
+      "mae": 3.2045800470458006,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
+      "mae": 3.2045108620451086,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
-      "mae": 3.1958627369586274,
+      "mae": 3.2045108620451086,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
-      "mae": 3.1936488169364883,
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
+      "mae": 3.2044416770444166,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
+      "mae": 3.204372492043725,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_theme-residential.jpg",
+      "mae": 3.2034730870347308,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
+      "mae": 3.2034730870347308,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
+      "mae": 3.2033347170333473,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
+      "mae": 3.2031963470319633,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
+      "mae": 3.2031963470319633,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
+      "mae": 3.2031963470319633,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
+      "mae": 3.203127162031272,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all.jpg",
+      "mae": 3.2028504220285043,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
+      "mae": 3.2027120520271204,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
+      "mae": 3.202642867026429,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
+      "mae": 3.202504497025045,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
+      "mae": 3.202089387020894,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
+      "mae": 3.2002905770029058,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
+      "mae": 3.2001522070015223,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
+      "mae": 3.1994603569946034,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
+      "mae": 3.199391171993912,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
+      "mae": 3.199252801992528,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
+      "mae": 3.199252801992528,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
+      "mae": 3.199183616991836,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
+      "mae": 3.1991144319911444,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
+      "mae": 3.1990452469904525,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
+      "mae": 3.1985609519856095,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
+      "mae": 3.198353396983534,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
+      "mae": 3.198284211982842,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
+      "mae": 3.1979382869793826,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
+      "mae": 3.1975923619759237,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
+      "mae": 3.197384806973848,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
+      "mae": 3.197315621973156,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
+      "mae": 3.1970388819703888,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
+      "mae": 3.19669295696693,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
+      "mae": 3.1964162169641623,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
+      "mae": 3.196139476961395,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
+      "mae": 3.196001106960011,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
+      "mae": 3.1957935519579355,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
-      "mae": 3.193441261934413,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
-      "mae": 3.193302891933029,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
-      "mae": 3.1930261519302614,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
-      "mae": 3.19295696692957,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
-      "mae": 3.192887781928878,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
-      "mae": 3.1926802269268024,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
-      "mae": 3.1919883769198836,
+      "mae": 3.1948249619482496,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-weather.jpg",
-      "mae": 3.1919883769198836,
+      "mae": 3.194617406946174,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
-      "mae": 3.1919883769198836,
+      "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
+      "mae": 3.19447903694479,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
+      "mae": 3.1944098519440987,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
+      "mae": 3.1943406669434067,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
+      "mae": 3.1943406669434067,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
-      "mae": 3.191919191919192,
+      "mae": 3.1942714819427147,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
-      "mae": 3.1918500069185,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
-      "mae": 3.1918500069185,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
-      "mae": 3.191780821917808,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
-      "mae": 3.1915732669157326,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
-      "mae": 3.191365711913657,
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
+      "mae": 3.19371800193718,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
-      "mae": 3.191296526912965,
+      "mae": 3.19371800193718,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/richmond-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1911581569115817,
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
+      "mae": 3.1935104469351043,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
+      "mae": 3.1935104469351043,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
+      "mae": 3.193372076933721,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
+      "mae": 3.193302891933029,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
-      "mae": 3.1907430469074303,
+      "mae": 3.193302891933029,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/mission-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1809879618098797,
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
+      "mae": 3.1931645219316453,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
+      "mae": 3.1931645219316453,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
+      "mae": 3.1930261519302614,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
+      "mae": 3.192818596928186,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1842396568423967,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
-      "mae": 3.17988100179881,
+      "mae": 3.1774595267745953,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/suncrest-burnaby-snow-removal.jpg",
-      "mae": 3.178912411789124,
+      "mae": 3.1699183616991835,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1742078317420783,
+      "file": "public/blog-images/richmond-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1684654766846547,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/mission-strata-commercial-snow-plowing.jpg",
+      "mae": 3.163830081638301,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
-      "mae": 3.173861906738619,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_theme-citywide.jpg",
-      "mae": 3.1673585166735854,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/surrey-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1650754116507542,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
-      "mae": 3.1579493565794934,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
-      "mae": 3.1576726165767264,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
-      "mae": 3.157395876573959,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
-      "mae": 3.157257506572575,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
-      "mae": 3.157257506572575,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
-      "mae": 3.157257506572575,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
-      "mae": 3.157257506572575,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
-      "mae": 3.157188321571883,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
-      "mae": 3.157188321571883,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
-      "mae": 3.1571191365711915,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
-      "mae": 3.156911581569116,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
-      "mae": 3.156842396568424,
+      "mae": 3.1629306766293066,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-new-westminster.jpg",
-      "mae": 3.156842396568424,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
-      "mae": 3.156773211567732,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
-      "mae": 3.156773211567732,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
-      "mae": 3.15670402656704,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
-      "mae": 3.15670402656704,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
-      "mae": 3.1566348415663485,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
-      "mae": 3.1566348415663485,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
-      "mae": 3.1565656565656566,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
-      "mae": 3.1565656565656566,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
-      "mae": 3.1565656565656566,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
-      "mae": 3.1564964715649646,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
-      "mae": 3.1564964715649646,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
-      "mae": 3.156427286564273,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
-      "mae": 3.156288916562889,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
-      "mae": 3.156288916562889,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
-      "mae": 3.156288916562889,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
-      "mae": 3.1560813615608136,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
       "mae": 3.1560121765601217,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
-      "mae": 3.1555278815552787,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
-      "mae": 3.1553203265532033,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
-      "mae": 3.1551819565518198,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
-      "mae": 3.155112771551128,
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
+      "mae": 3.1548360315483603,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
-      "mae": 3.155112771551128,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
-      "mae": 3.154974401549744,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley.jpg",
       "mae": 3.1547668465476684,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
-      "mae": 3.1547668465476684,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
-      "mae": 3.1546976615469764,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
+      "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
       "mae": 3.154628476546285,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
+      "mae": 3.154490106544901,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
+      "mae": 3.154490106544901,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
       "mae": 3.1544209215442094,
       "opaquePixels": 4818,
       "pass": true
     },
     {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
+      "mae": 3.1544209215442094,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
+      "mae": 3.1542133665421335,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
+      "mae": 3.1542133665421335,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
+      "mae": 3.154144181541442,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
+      "mae": 3.15407499654075,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
+      "mae": 3.154005811540058,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
+      "mae": 3.154005811540058,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
+      "mae": 3.1539366265393665,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
+      "mae": 3.1539366265393665,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
+      "mae": 3.1538674415386745,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
+      "mae": 3.1538674415386745,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
+      "mae": 3.1537290715372905,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
+      "mae": 3.153659886536599,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
+      "mae": 3.153590701535907,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
+      "mae": 3.153590701535907,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
+      "mae": 3.153590701535907,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
+      "mae": 3.153590701535907,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
+      "mae": 3.1533831465338316,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1532447765324476,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
+      "mae": 3.1532447765324476,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
+      "mae": 3.1532447765324476,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
+      "mae": 3.153175591531756,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
+      "mae": 3.153106406531064,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
+      "mae": 3.15296803652968,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley.jpg",
+      "mae": 3.1528988515289886,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
+      "mae": 3.152552926525529,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
+      "mae": 3.1524837415248372,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
+      "mae": 3.1524145565241457,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
+      "mae": 3.1524145565241457,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
+      "mae": 3.1524145565241457,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
+      "mae": 3.1524145565241457,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
+      "mae": 3.1524145565241457,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
+      "mae": 3.1520686315206863,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
+      "mae": 3.1519994465199943,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
+      "mae": 3.151791891517919,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1479867164798674,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_theme-citywide.jpg",
+      "mae": 3.1459111664591117,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
       "file": "public/blog-images/_theme-strata.jpg",
-      "mae": 3.1477791614777915,
+      "mae": 3.1269544762695447,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
-      "mae": 3.1359485263594853,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/_theme-commercial.jpg",
-      "mae": 3.1354642313546424,
+      "mae": 3.123218486232185,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/abbotsford-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1306212813062126,
+      "mae": 3.1161616161616164,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/_theme-commercial.jpg",
+      "mae": 3.1138093261380932,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1085512660855126,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
-      "mae": 3.1043309810433097,
+      "mae": 3.1049536460495366,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/delta-strata-commercial-snow-plowing.jpg",
-      "mae": 3.103293206032932,
+      "mae": 3.096443890964439,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
+      "mae": 3.0895945758959455,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
-      "mae": 3.0994188459941885,
+      "mae": 3.0880033208800333,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
-      "mae": 3.0368756053687562,
+      "mae": 3.0190950601909505,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 3.0270513352705133,
+      "mae": 3.0088556800885566,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 3.0168119551681194,
+      "mae": 2.9979936349799363,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/kitsilano-vancouver-snow-removal.jpg",
-      "mae": 2.970319634703196,
+      "mae": 2.9564134495641343,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.9656150546561504,
+      "mae": 2.9555140445551404,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.9484571744845716,
+      "mae": 2.932060329320603,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/_theme-storm.jpg",
-      "mae": 2.9470734744707348,
+      "mae": 2.931645219316452,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
-      "mae": 2.9454130344541305,
+      "mae": 2.9301923343019234,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/squamish-snow-removal.jpg",
-      "mae": 2.9209215442092153,
+      "mae": 2.9057008440570082,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.9060467690604677,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
-      "mae": 2.8977445689774455,
+      "mae": 2.8893731838937318,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.8950463539504634,
+      "mae": 2.8817628338176284,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
+      "mae": 2.871246713712467,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
-      "mae": 2.865227618652276,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.8563719385637194,
+      "mae": 2.845025598450256,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
-      "mae": 2.8540888335408883,
+      "mae": 2.837761173377612,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
-      "mae": 2.85339698353397,
+      "mae": 2.8359623633596236,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.833056593330566,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/shaughnessy-vancouver-snow-removal.jpg",
-      "mae": 2.850629583506296,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.8484156634841566,
+      "mae": 2.8311194133111943,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.84703196347032,
+      "mae": 2.829251418292514,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/steveston-snow-removal.jpg",
-      "mae": 2.831188598311886,
+      "file": "public/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.8268299432682995,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.8295973432959736,
+      "mae": 2.8161754531617547,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/steveston-snow-removal.jpg",
+      "mae": 2.8156219731562198,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/oakridge-vancouver-snow-removal.jpg",
-      "mae": 2.8276601632766014,
+      "mae": 2.805313408053134,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
-      "mae": 2.814653383146534,
+      "mae": 2.7884322678843225,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.8069046630690466,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/north-vancouver-snow-removal.jpg",
-      "mae": 2.8029611180296112,
+      "mae": 2.788363082883631,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.7990867579908674,
+      "mae": 2.7874636778746367,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/north-vancouver-snow-removal.jpg",
+      "mae": 2.784142797841428,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/fort-langley-snow-removal.jpg",
-      "mae": 2.787671232876712,
+      "mae": 2.7769475577694758,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/marpole-vancouver-snow-removal.jpg",
-      "mae": 2.7801992528019923,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
-      "mae": 2.778538812785388,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
-      "mae": 2.777708592777086,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
-      "mae": 2.7770167427701673,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.774802822748028,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
       "mae": 2.768852912688529,
       "opaquePixels": 4818,
       "pass": true
     },
     {
+      "file": "public/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+      "mae": 2.7631105576311055,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+      "mae": 2.7609658226096583,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+      "mae": 2.758198422581984,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 2.75543102255431,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.7548775425487753,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
       "file": "public/blog-images/maillardville-coquitlam-commercial-snow-removal.jpg",
-      "mae": 2.767261657672617,
+      "mae": 2.752179327521793,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/sunset-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.7669849176698493,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.7644942576449427,
+      "mae": 2.7485125224851252,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.7632489276324894,
+      "mae": 2.745675937456759,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.743946312439463,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/riley-park-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.7577141275771413,
+      "mae": 2.739864397398644,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/lynn-valley-snow-removal.jpg",
-      "mae": 2.7364051473640516,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
-      "mae": 2.7253355472533554,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.7189013421890134,
+      "mae": 2.715580462155805,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/cloverdale-snow-removal.jpg",
-      "mae": 2.7180019371800195,
+      "mae": 2.710737512107375,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.7168949771689497,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/west-vancouver-snow-removal.jpg",
-      "mae": 2.7166182371661822,
+      "file": "public/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
+      "mae": 2.7073474470734746,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/yaletown-vancouver-snow-removal.jpg",
-      "mae": 2.7166182371661822,
+      "mae": 2.7036806420368062,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/west-vancouver-snow-removal.jpg",
+      "mae": 2.702642867026429,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.7023661270236614,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 2.701535907015359,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/fraserview-vancouver-snow-removal.jpg",
-      "mae": 2.6995295419952954,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.690881416908814,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/point-grey-vancouver-snow-removal.jpg",
-      "mae": 2.6882523868825237,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
-      "mae": 2.6877680918776807,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
-      "mae": 2.685969281859693,
+      "mae": 2.6824408468244085,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.684516396845164,
+      "mae": 2.6746921267469213,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 2.671578801715788,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.6787740417877406,
+      "mae": 2.669849176698492,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
-      "mae": 2.6787048567870486,
+      "file": "public/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+      "mae": 2.6683962916839628,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/point-grey-vancouver-snow-removal.jpg",
+      "mae": 2.6683962916839628,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+      "mae": 2.665905631659056,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
-      "mae": 2.678497301784973,
+      "mae": 2.6648678566486788,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.6748996817489967,
+      "mae": 2.664314376643144,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.6728241317282415,
+      "file": "public/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
+      "mae": 2.662723121627231,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/commercial-drive-vancouver-snow-removal.jpg",
-      "mae": 2.668327106683271,
+      "mae": 2.659471426594714,
       "opaquePixels": 4818,
       "pass": true
     },
     {
-      "file": "public/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.663207416632074,
+      "file": "public/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
+      "mae": 2.658226096582261,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
-      "mae": 2.6621004566210047,
+      "mae": 2.6516535215165353,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.6502006365020065,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
-      "mae": 2.6539366265393665,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
-      "mae": 2.6528296665282967,
+      "mae": 2.6441123564411235,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
-      "mae": 2.650408191504082,
+      "mae": 2.642936211429362,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+      "mae": 2.641690881416909,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/tsawwassen-snow-removal.jpg",
-      "mae": 2.6473640514736405,
+      "mae": 2.638992666389927,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/west-end-vancouver-snow-removal.jpg",
-      "mae": 2.645357686453577,
-      "opaquePixels": 4818,
-      "pass": true
-    },
-    {
-      "file": "public/blog-images/dunbar-vancouver-snow-removal.jpg",
-      "mae": 2.628338176283382,
+      "mae": 2.630552096305521,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
-      "mae": 2.628130621281306,
+      "mae": 2.6176836861768367,
+      "opaquePixels": 4818,
+      "pass": true
+    },
+    {
+      "file": "public/blog-images/dunbar-vancouver-snow-removal.jpg",
+      "mae": 2.6165767261657673,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/coal-harbour-vancouver-snow-removal.jpg",
-      "mae": 2.6016327660163276,
+      "mae": 2.5925695309256955,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
-      "mae": 2.6004566210045663,
+      "mae": 2.579701120797011,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.5838522208385224,
+      "mae": 2.5756883907568837,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
-      "mae": 2.582053410820534,
+      "mae": 2.5740971357409714,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
-      "mae": 2.5385360453853605,
+      "mae": 2.526221115262211,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
-      "mae": 2.4887228448872283,
+      "mae": 2.4831880448318806,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
-      "mae": 2.45848899958489,
+      "mae": 2.4457589594575895,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
-      "mae": 2.4577279645772796,
+      "mae": 2.441331119413311,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.4420921544209215,
+      "mae": 2.4373875743738758,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
-      "mae": 2.416493704164937,
+      "mae": 2.4052165490521653,
       "opaquePixels": 4818,
       "pass": true
     },
     {
       "file": "public/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.3515981735159817,
+      "mae": 2.3419122734191227,
       "opaquePixels": 4818,
       "pass": true
     }
