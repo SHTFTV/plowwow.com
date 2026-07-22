@@ -117,4 +117,23 @@ writeFileSync(
   `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string;\n  alt: string;\n  theme: "strata" | "commercial" | "residential" | "storm" | "citywide";\n  tags: string[];\n  hasCustomHero: boolean;\n  publishedAt: string;\n  updatedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,
 );
 
-console.log(`✓ blog-posts.ts written (${posts.length} posts)`);
+// Machine-readable index used by the live-carousel verifier and by the
+// on-page diagnostics view. Includes a build timestamp + the exact top-4
+// slugs rendered in the homepage carousel (matches HomeBlog.tsx filter).
+const carousel = posts.filter((p) => p.hasCustomHero).slice(0, 4).map((p) => p.slug);
+const generatedAt = new Date().toISOString();
+writeFileSync(
+  JSON_OUT,
+  JSON.stringify(
+    {
+      generatedAt,
+      count: posts.length,
+      carousel,
+      posts: posts.map((p) => ({ slug: p.slug, publishedAt: p.publishedAt, updatedAt: p.updatedAt })),
+    },
+    null,
+    2,
+  ),
+);
+
+console.log(`✓ blog-posts.ts written (${posts.length} posts) + blog-index.json (carousel=${carousel.length})`);
