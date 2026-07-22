@@ -493,6 +493,7 @@ const CityPage = () => {
         </div>
       </main>
       <Footer />
+      <CityDevBadge cityName={city.name} />
     </div>
   );
 };
