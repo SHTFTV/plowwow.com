@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 const BLOG_DIR = resolve(process.cwd(), "src/content/legacy/blog");
 const IMAGE_DIR = resolve(process.cwd(), "public/blog-images");
 const OUT_FILE = resolve(process.cwd(), "src/generated/blog-posts.ts");
+const JSON_OUT = resolve(process.cwd(), "public/blog-index.json");
 
 const cleanTitle = (title: string, slug: string) =>
   (title || slug)
