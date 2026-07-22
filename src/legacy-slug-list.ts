@@ -3,8 +3,8 @@
 // time — the ~2 MB of markdown itself stays out of this chunk. App.tsx uses
 // these lists to register routes without pulling in LegacyPage (which
 // remains route-lazy).
-const pageGlob = import.meta.glob("/src/content/legacy/pages/*.md", { eager: false });
-const blogGlob = import.meta.glob("/src/content/legacy/blog/*.md", { eager: false });
+const pageGlob = import.meta.glob("/src/content/legacy/pages/*.md", { query: "?raw", eager: false });
+const blogGlob = import.meta.glob("/src/content/legacy/blog/*.md", { query: "?raw", eager: false });
 
 const slugFromPath = (p: string) => p.split("/").pop()!.replace(/\.md$/, "");
 
