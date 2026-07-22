@@ -10,7 +10,7 @@
 // If a user has data-saver enabled or is on a slow connection we skip
 // preloading entirely to respect their preference.
 
-type Importer = () => Promise<unknown>;
+
 
 type PreloadEntry = {
   name: string;
