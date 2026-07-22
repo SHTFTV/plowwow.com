@@ -1,7 +1,7 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-22T05:32:02.190Z",
-  "blogIndexAt": "2026-07-22T05:32:01.770Z",
+  "generatedAt": "2026-07-22T05:44:39.466Z",
+  "blogIndexAt": "2026-07-22T05:44:39.071Z",
   "carousel": [
     "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
     "occupiers-liability-act-bc-slip-fall-property-manager-guide",
@@ -9,10 +9,10 @@
     "strata-seasonal-snow-contracts-bc-cost-breakdown"
   ],
   "totalPosts": 132,
-  "swVersion": "v4",
+  "swVersion": "v5",
   "serviceWorker": {
     "scriptPath": "/sw.js",
     "expectedScope": "/",
-    "version": "v4"
+    "version": "v5"
   }
 }
