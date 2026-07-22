@@ -24,7 +24,18 @@ const payload = {
   carousel: blogIndex.carousel,
   totalPosts: blogIndex.count,
   swVersion: swMatch ? swMatch[1] : null,
+  // Static SW metadata mirrored from public/sw.js so external monitors can
+  // sanity-check the deployed worker without a live client. Runtime fields
+  // (scope, active scriptURL, controller presence) can only be observed by
+  // a browser; PwaDiagnostics.tsx surfaces those live and includes them in
+  // the "Download diagnostics report" export.
+  serviceWorker: {
+    scriptPath: "/sw.js",
+    expectedScope: "/",
+    version: swMatch ? swMatch[1] : null,
+  },
 };
 
 writeFileSync(resolve(root, "public/diagnostics.json"), JSON.stringify(payload, null, 2));
 console.log(`✓ diagnostics.json written (sw=${payload.swVersion}, carousel=${payload.carousel.length})`);
+
