@@ -44,6 +44,16 @@ const Burnaby = () => {
         </div>
       </section>
 
+      <section className="py-12" id="directions">
+        <div className="container">
+          <DirectionsCard
+            cityName="Burnaby"
+            province="BC"
+            cityHall={{ lat: 49.2488, lon: -122.9805, address: "4949 Canada Way" }}
+          />
+        </div>
+      </section>
+
       <UtilityDashboard />
       <NeighborhoodFocus />
       <ServiceTabs />
@@ -51,6 +61,8 @@ const Burnaby = () => {
       <BurnabyFAQ />
 
       {deep && <CityDeepDive data={deep} />}
+
+      <RelatedCities citySlug="burnaby" cityName="Burnaby" count={4} />
 
       <div id="burnaby-quote">
         <ContactForm />
