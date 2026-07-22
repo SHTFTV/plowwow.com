@@ -345,6 +345,59 @@ const CityQuote = () => {
                 />
               </div>
 
+              <fieldset className="border border-border rounded-xl p-4 space-y-4">
+                <legend className="text-sm font-heading font-bold px-2 inline-flex items-center gap-1.5">
+                  <Calculator className="w-4 h-4 text-primary" />
+                  Quick estimator
+                </legend>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Select
+                    id="propertySize"
+                    label="Property size"
+                    value={form.propertySize}
+                    onChange={(v) => update("propertySize", v as PropertySize)}
+                    options={[
+                      ["small", "Small — driveway / single unit"],
+                      ["medium", "Medium — small strata / storefront"],
+                      ["large", "Large — mid-size lot"],
+                      ["xlarge", "X-Large — big-box / industrial"],
+                    ]}
+                  />
+                  {form.serviceLevel === "seasonal" && (
+                    <Select
+                      id="frequency"
+                      label="Service frequency"
+                      value={form.frequency}
+                      onChange={(v) => update("frequency", v as Frequency)}
+                      options={[
+                        ["as-needed", "As-needed (light trigger)"],
+                        ["every-2cm", "Every 2 cm (standard)"],
+                        ["every-storm", "Every storm (strict)"],
+                        ["24-7", "24/7 zero-tolerance"],
+                      ]}
+                    />
+                  )}
+                  <Field
+                    id="drivewayMeters"
+                    label="Driveway / lane length (m, optional)"
+                    type="number"
+                    value={String(form.drivewayMeters)}
+                    onChange={(v) => update("drivewayMeters", Number(v) as QuoteInput["drivewayMeters"])}
+                  />
+                </div>
+                <div className="rounded-lg bg-primary/5 border border-primary/20 p-3 text-sm">
+                  <p className="font-heading font-bold text-foreground text-lg">
+                    {formatEstimate(estimate)}
+                  </p>
+                  <p className="text-muted-foreground text-xs mt-0.5">
+                    {estimate.visitsHint}. Live estimate for {cityMeta.name}
+                    {avgSnowfall ? ` (${avgSnowfall} cm avg snowfall)` : ""} —
+                    final quote confirmed by a local route lead.
+                  </p>
+                </div>
+              </fieldset>
+
+
               <div>
                 <label
                   htmlFor="notes"
