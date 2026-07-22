@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-22T00:35:16.195Z",
+  "generatedAt": "2026-07-22T00:35:22.687Z",
   "total": 118,
   "failed": 0,
-  "reusedFromCache": 0,
+  "reusedFromCache": 118,
   "expected": {
     "width": 1200,
     "height": 630
