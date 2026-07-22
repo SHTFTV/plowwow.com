@@ -392,6 +392,8 @@ const CityPage = () => {
           </div>
         </section>
 
+        {locationDeep && <CityDeepDive data={locationDeep} />}
+
         {/* FAQ */}
         <section className="py-20 bg-muted/30">
           <div className="container max-w-3xl">
@@ -402,7 +404,7 @@ const CityPage = () => {
               <p className="text-muted-foreground">Answers to the questions we hear most.</p>
             </div>
             <Accordion type="single" collapsible className="space-y-3">
-              {city.faqs.map((f, i) => (
+              {mergedFaqs.map((f, i) => (
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
