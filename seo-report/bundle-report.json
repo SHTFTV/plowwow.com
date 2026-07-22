@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-22T00:17:22.130Z",
+  "generatedAt": "2026-07-22T00:27:17.667Z",
   "totals": {
-    "initialTotalKb": 540.85,
+    "initialTotalKb": 541.03,
     "initialBudgetKb": 620,
-    "initialOverBy": -79.15
+    "initialOverBy": -78.97
   },
   "chunks": [
     {
@@ -70,12 +70,12 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "index-DiZnjH7H.js",
-      "rawKb": 193.34,
-      "gzipKb": 40.83,
+      "file": "index-C8MOfMw5.js",
+      "rawKb": 193.67,
+      "gzipKb": 41.01,
       "bucket": "index",
       "budgetKb": 55,
-      "overBy": -14.17,
+      "overBy": -13.99,
       "eagerlyLoaded": true
     },
     {
@@ -88,7 +88,7 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "CityPage-tJDLkTc2.js",
+      "file": "CityPage-CCvrMXW1.js",
       "rawKb": 94.52,
       "gzipKb": 29.79,
       "bucket": "CityPage",
@@ -106,7 +106,7 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "BlogIndex-CFrymxhV.js",
+      "file": "BlogIndex-Bb0KYhfF.js",
       "rawKb": 47.81,
       "gzipKb": 12.92,
       "bucket": "BlogIndex",
@@ -142,7 +142,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Burnaby-5JBGJxEp.js",
+      "file": "Burnaby-Bkug1Fil.js",
       "rawKb": 38.06,
       "gzipKb": 10.72,
       "bucket": "Burnaby",
@@ -151,7 +151,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "LegacyPage-DlIIdg5d.js",
+      "file": "LegacyPage-BzQVhvc7.js",
       "rawKb": 37.82,
       "gzipKb": 9.65,
       "bucket": "LegacyPage",
@@ -394,21 +394,21 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "AppFeatures-DxB-2X3m.js",
+      "rawKb": 17.47,
+      "gzipKb": 5.75,
+      "bucket": "AppFeatures-DxB-2X3m",
+      "budgetKb": 300,
+      "overBy": -294.25,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "austin-heights-coquitlam-strata-snow-removal-BK8ydWUT.js",
       "rawKb": 14.81,
       "gzipKb": 5.75,
       "bucket": "austin-heights-coquitlam-strata-snow-removal",
       "budgetKb": 300,
       "overBy": -294.25,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AppFeatures-DtwdrVZd.js",
-      "rawKb": 17.47,
-      "gzipKb": 5.74,
-      "bucket": "AppFeatures",
-      "budgetKb": 300,
-      "overBy": -294.26,
       "eagerlyLoaded": false
     },
     {
@@ -457,7 +457,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminJsonLdValidator-B1ml8I0b.js",
+      "file": "AdminJsonLdValidator-C_bXUkET.js",
       "rawKb": 16.37,
       "gzipKb": 5.71,
       "bucket": "AdminJsonLdValidator",
@@ -889,7 +889,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "BlogNeighborhoods-DkU00p9x.js",
+      "file": "BlogNeighborhoods-DUzXuIEL.js",
       "rawKb": 23.26,
       "gzipKb": 5.15,
       "bucket": "BlogNeighborhoods",
@@ -1096,7 +1096,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Intelligence-CBf7yeSo.js",
+      "file": "Intelligence-9vjP7Wl4.js",
       "rawKb": 16.26,
       "gzipKb": 4.73,
       "bucket": "Intelligence",
@@ -1123,7 +1123,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PublishHelper-BJYWmVR9.js",
+      "file": "PublishHelper-D060EoIZ.js",
       "rawKb": 14.4,
       "gzipKb": 4.56,
       "bucket": "PublishHelper",
@@ -1141,7 +1141,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGuestPosts-WxAAN8jP.js",
+      "file": "AdminGuestPosts-CTqo83jK.js",
       "rawKb": 13.36,
       "gzipKb": 4.46,
       "bucket": "AdminGuestPosts",
@@ -1168,7 +1168,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Admin-Y7jkiwcd.js",
+      "file": "Admin-BbgVZMiD.js",
       "rawKb": 13.32,
       "gzipKb": 4.36,
       "bucket": "Admin",
@@ -1249,7 +1249,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Takeoff-Ca3NleLG.js",
+      "file": "Takeoff-C6r8aReS.js",
       "rawKb": 12.35,
       "gzipKb": 3.98,
       "bucket": "Takeoff",
@@ -1294,7 +1294,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "SeoReport-DC7DrN8W.js",
+      "file": "SeoReport-BDtY_BnC.js",
       "rawKb": 9.95,
       "gzipKb": 3.81,
       "bucket": "SeoReport",
@@ -1348,12 +1348,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteMetrics-4xvUdQVX.js",
+      "file": "AdminQuoteMetrics-DyOEwsBw.js",
       "rawKb": 10.25,
-      "gzipKb": 3.63,
+      "gzipKb": 3.64,
       "bucket": "AdminQuoteMetrics",
       "budgetKb": 300,
-      "overBy": -296.37,
+      "overBy": -296.36,
       "eagerlyLoaded": false
     },
     {
@@ -1393,7 +1393,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAlerts-DcQrAV5e.js",
+      "file": "AdminQuoteAlerts-B4v9IY5B.js",
       "rawKb": 9.66,
       "gzipKb": 2.99,
       "bucket": "AdminQuoteAlerts",
@@ -1438,7 +1438,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "GuestPost-BXEzcP_A.js",
+      "file": "GuestPost-xusMHhYF.js",
       "rawKb": 7.65,
       "gzipKb": 2.76,
       "bucket": "GuestPost",
@@ -1465,7 +1465,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAuditLog-DEUwhRlk.js",
+      "file": "AdminQuoteAuditLog-DqQ92cJv.js",
       "rawKb": 7.26,
       "gzipKb": 2.66,
       "bucket": "AdminQuoteAuditLog",
@@ -1474,7 +1474,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "NewsletterConfirm-Dwc1b5hT.js",
+      "file": "NewsletterConfirm-BjQ7LJPx.js",
       "rawKb": 7.58,
       "gzipKb": 2.65,
       "bucket": "NewsletterConfirm",
@@ -1483,7 +1483,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminLinkAudit-CvC_kufg.js",
+      "file": "AdminLinkAudit-h3tFOkJa.js",
       "rawKb": 6.95,
       "gzipKb": 2.57,
       "bucket": "AdminLinkAudit",
@@ -1510,10 +1510,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminNeighborhoods-NmXcO1sZ.js",
+      "file": "AdminNeighborhoods--fUUR-rX.js",
       "rawKb": 5.59,
       "gzipKb": 2.49,
-      "bucket": "AdminNeighborhoods",
+      "bucket": "AdminNeighborhoods--fUUR-rX",
       "budgetKb": 300,
       "overBy": -297.51,
       "eagerlyLoaded": false
@@ -1600,7 +1600,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGscCoverage-6Z_rSrzf.js",
+      "file": "AdminGscCoverage-DthP_Lc3.js",
       "rawKb": 4.91,
       "gzipKb": 1.97,
       "bucket": "AdminGscCoverage",
@@ -1654,21 +1654,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteDenylist-B4rSHAga.js",
-      "rawKb": 4.54,
+      "file": "AdminSeoSettings-gKAdAB-M.js",
+      "rawKb": 3.77,
       "gzipKb": 1.68,
-      "bucket": "AdminQuoteDenylist",
+      "bucket": "AdminSeoSettings-gKAdAB-M",
       "budgetKb": 300,
       "overBy": -298.32,
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminSeoSettings-vJkspl_c.js",
-      "rawKb": 3.77,
-      "gzipKb": 1.68,
-      "bucket": "AdminSeoSettings",
+      "file": "AdminQuoteDenylist-CjRTG6VX.js",
+      "rawKb": 4.54,
+      "gzipKb": 1.67,
+      "bucket": "AdminQuoteDenylist",
       "budgetKb": 300,
-      "overBy": -298.32,
+      "overBy": -298.33,
       "eagerlyLoaded": false
     },
     {
@@ -1690,7 +1690,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AuthorPage-DxfCBX3c.js",
+      "file": "AuthorPage-D3__lawY.js",
       "rawKb": 3.31,
       "gzipKb": 1.55,
       "bucket": "AuthorPage",
@@ -1699,7 +1699,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Locations-BvMKk2dd.js",
+      "file": "Locations-C0FZuLN5.js",
       "rawKb": 3.81,
       "gzipKb": 1.55,
       "bucket": "Locations",
@@ -1807,12 +1807,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Auth-BF72_VFI.js",
+      "file": "Auth-CPNxQ-14.js",
       "rawKb": 3.39,
-      "gzipKb": 1.29,
-      "bucket": "Auth",
+      "gzipKb": 1.3,
+      "bucket": "Auth-CPNxQ-14",
       "budgetKb": 300,
-      "overBy": -298.71,
+      "overBy": -298.7,
       "eagerlyLoaded": false
     },
     {
@@ -1825,7 +1825,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Quote-DagtFBtv.js",
+      "file": "Quote-z4ct84ln.js",
       "rawKb": 2.6,
       "gzipKb": 1.19,
       "bucket": "Quote",
@@ -1924,7 +1924,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "accordion-Csasuone.js",
+      "file": "accordion-DkjR_Yji.js",
       "rawKb": 1.13,
       "gzipKb": 0.55,
       "bucket": "accordion",
@@ -1933,7 +1933,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "table-Bs_YzfxJ.js",
+      "file": "table-zTotX7UA.js",
       "rawKb": 1.49,
       "gzipKb": 0.53,
       "bucket": "table",
@@ -1942,7 +1942,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "tabs-BIsT0kPH.js",
+      "file": "tabs-D1vTJj48.js",
       "rawKb": 1.13,
       "gzipKb": 0.48,
       "bucket": "tabs",
@@ -1951,7 +1951,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "switch-CBdX5gno.js",
+      "file": "switch-b9YP7p93.js",
       "rawKb": 0.84,
       "gzipKb": 0.45,
       "bucket": "switch",
@@ -1960,7 +1960,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "badge-Ptn3Q6io.js",
+      "file": "badge-U7LDNTPc.js",
       "rawKb": 0.77,
       "gzipKb": 0.4,
       "bucket": "badge",
@@ -1969,16 +1969,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "card-lD-r3MLt.js",
+      "file": "card-DzfTktju.js",
       "rawKb": 1.01,
-      "gzipKb": 0.39,
-      "bucket": "card-lD-r3MLt",
+      "gzipKb": 0.4,
+      "bucket": "card",
       "budgetKb": 300,
-      "overBy": -299.61,
+      "overBy": -299.6,
       "eagerlyLoaded": false
     },
     {
-      "file": "internalLinks-C_0_fu2x.js",
+      "file": "internalLinks-DV25Kfa6.js",
       "rawKb": 0.58,
       "gzipKb": 0.37,
       "bucket": "internalLinks",
