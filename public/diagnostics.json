@@ -1,6 +1,6 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-22T05:20:33.402Z",
+  "generatedAt": "2026-07-22T05:23:09.278Z",
   "blogIndexAt": "2026-07-22T05:20:01.986Z",
   "carousel": [
     "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
@@ -9,5 +9,10 @@
     "strata-seasonal-snow-contracts-bc-cost-breakdown"
   ],
   "totalPosts": 132,
-  "swVersion": "v3"
+  "swVersion": "v3",
+  "serviceWorker": {
+    "scriptPath": "/sw.js",
+    "expectedScope": "/",
+    "version": "v3"
+  }
 }
