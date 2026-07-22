@@ -374,7 +374,17 @@ const CityQuote = () => {
                 />
               </div>
 
+              <AddressPreview
+                address={form.address}
+                city={cityMeta.name}
+                province={cityMeta.province}
+                confirmed={addressConfirmed}
+                onConfirm={setAddressConfirmed}
+                onEdit={() => setAddressConfirmed(null)}
+              />
+
               <div className="grid md:grid-cols-2 gap-4">
+
                 <Select
                   id="propertyType"
                   label="Property type"
