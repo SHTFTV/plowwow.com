@@ -16,7 +16,7 @@
 // Kill switch: navigating to any URL with `?sw=off` unregisters this
 // worker and evicts every cache it owns.
 
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE_HTML = `pw-html-${VERSION}`;
 const CACHE_ASSETS = `pw-assets-${VERSION}`;
 const CACHE_IMAGES = `pw-images-${VERSION}`;
