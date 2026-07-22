@@ -231,13 +231,14 @@ Deno.serve(async (req) => {
       return jsonResponse(200, { success: true, code: "honeypot" });
     }
 
-    if (data.startedAt && Date.now() - data.startedAt < MIN_FORM_FILL_MS) {
+    const startTs = data.startedAt ?? data.formLoadedAt;
+    if (startTs && Date.now() - startTs < MIN_FORM_FILL_MS) {
       await logEvent({
         kind: "too_fast",
         email: data.email,
         ip,
         userAgent,
-        meta: { elapsed_ms: Date.now() - data.startedAt },
+        meta: { elapsed_ms: Date.now() - startTs },
       });
       return errorResponse(429, "too_fast");
     }
