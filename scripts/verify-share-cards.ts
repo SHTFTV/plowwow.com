@@ -20,6 +20,7 @@
 // Run: bun run tsx scripts/verify-share-cards.ts [--update-baseline]
 
 import sharp from "sharp";
+import { createHash } from "node:crypto";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { basename, join, relative, resolve } from "node:path";
 import { MASCOT_PLACEMENT } from "./regenerate-blog-og-mascots";
@@ -29,12 +30,21 @@ const REPORT_DIR = resolve("seo-report");
 const FAIL_DIR = join(REPORT_DIR, "share-card-failures");
 const BASELINE = join(REPORT_DIR, "share-cards-baseline.json");
 const MASCOT = resolve("src/assets/wow-mascot.png");
+const CACHE_DIR = resolve(".cache");
+const CACHE_FILE = join(CACHE_DIR, "share-cards.json");
 
 const EXPECTED_W = 1200;
 const EXPECTED_H = 630;
 const NORM = 96;
 const MAE_THRESHOLD = 28;
 const RECT_TOLERANCE_PX = 2;
+
+type CacheEntry = { cardHash: string; mascotHash: string; report: Report };
+type Cache = Record<string, CacheEntry>;
+
+function hashFile(p: string): string {
+  return createHash("sha1").update(readFileSync(p)).digest("hex");
+}
 
 type Baseline = Record<string, { width: number; height: number }>;
 type Report = {
