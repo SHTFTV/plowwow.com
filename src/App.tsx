@@ -39,6 +39,7 @@ const AdminQuoteMetrics = lazy(() => import("./pages/AdminQuoteMetrics.tsx"));
 const AdminQuoteDenylist = lazy(() => import("./pages/AdminQuoteDenylist.tsx"));
 const AdminQuoteAlerts = lazy(() => import("./pages/AdminQuoteAlerts.tsx"));
 const AdminQuoteAuditLog = lazy(() => import("./pages/AdminQuoteAuditLog.tsx"));
+const AdminQuoteRecent = lazy(() => import("./pages/AdminQuoteRecent.tsx"));
 const AuthorPage = lazy(() => import("./pages/AuthorPage.tsx"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm.tsx"));
 const CityQuote = lazy(() => import("./pages/CityQuote.tsx"));
