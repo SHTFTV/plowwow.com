@@ -2,18 +2,13 @@ import { useState } from "react";
 import { z } from "zod";
 import { Navigation, MapPin, ExternalLink, Loader2 } from "lucide-react";
 import { haversineKm, estimateDrivingKm } from "@/lib/cityDistance";
+import { cachedGeocode, cachedDistance, type GeocodeHit } from "@/lib/geocodeCache";
 
 type Props = {
   cityName: string;
   province: string;
   cityHall: { lat: number; lon: number; address?: string };
 };
-
-type GeocodeResult = {
-  lat: number;
-  lon: number;
-  label: string;
-} | null;
 
 const addressSchema = z
   .string()
@@ -22,8 +17,9 @@ const addressSchema = z
   .max(200, "Address too long");
 
 // Free geocoding via Open-Meteo — no API key required, matches existing
-// weather integrations on the city pages.
-async function geocode(query: string): Promise<GeocodeResult> {
+// weather integrations on the city pages. Results are cached client-side
+// so repeated quote attempts don't re-run the lookup.
+async function geocodeRaw(query: string): Promise<GeocodeHit | null> {
   const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
   url.searchParams.set("name", query);
   url.searchParams.set("count", "1");
@@ -40,6 +36,7 @@ async function geocode(query: string): Promise<GeocodeResult> {
     label: [hit.name, hit.admin1, hit.country_code].filter(Boolean).join(", "),
   };
 }
+
 
 const DirectionsCard = ({ cityName, province, cityHall }: Props) => {
   const [input, setInput] = useState("");
