@@ -13,10 +13,16 @@
 //     link-audit.json, blog-index): stale-while-revalidate
 //   - anything else               : passthrough (no caching)
 //
+// On activate: purge every non-owned `pw-*` cache AND any cached
+// entries pointing at icon or manifest URLs, so an icon rev never
+// serves the previous mascot after a deploy. The worker also
+// broadcasts an "sw-updated" message so open tabs can prompt users
+// to reload.
+//
 // Kill switch: navigating to any URL with `?sw=off` unregisters this
 // worker and evicts every cache it owns.
 
-const VERSION = "v2";
+const VERSION = "v3";
 const CACHE_HTML = `pw-html-${VERSION}`;
 const CACHE_ASSETS = `pw-assets-${VERSION}`;
 const CACHE_IMAGES = `pw-images-${VERSION}`;
@@ -32,10 +38,13 @@ const DATA_PATHS = [
   "/robots.txt",
 ];
 
+// URL patterns whose cached responses must be evicted on every
+// activate, regardless of cache name — icons and manifest change
+// between deploys and must never be served stale.
+const ICON_URL_RE = /\/(?:favicon|apple-touch-icon|icon-|site\.webmanifest|manifest\.(?:webmanifest|json))/i;
+
 self.addEventListener("install", (event) => {
   self.skipWaiting();
-  // Warm the data cache with the small JSON/XML files the preloader
-  // fetches so the very first navigation after install is instant too.
   event.waitUntil(
     caches.open(CACHE_DATA).then((cache) =>
       Promise.allSettled(DATA_PATHS.map((p) => cache.add(p).catch(() => null))),
@@ -43,16 +52,43 @@ self.addEventListener("install", (event) => {
   );
 });
 
+async function purgeIconAndManifestEntries() {
+  const names = await caches.keys();
+  await Promise.allSettled(
+    names.map(async (name) => {
+      const cache = await caches.open(name);
+      const reqs = await cache.keys();
+      await Promise.allSettled(
+        reqs.map((r) => (ICON_URL_RE.test(new URL(r.url).pathname) ? cache.delete(r) : null)),
+      );
+    }),
+  );
+}
+
+async function notifyClientsUpdated() {
+  const clients = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+  for (const c of clients) c.postMessage({ type: "sw-updated", version: VERSION });
+}
+
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
+    // Drop every non-owned pw-* cache (previous versions).
     await Promise.allSettled(
       names
         .filter((n) => n.startsWith("pw-") && !OWNED.includes(n))
         .map((n) => caches.delete(n)),
     );
+    // Also purge icon/manifest entries from owned caches so a
+    // returning tab never serves last release's icon bytes.
+    await purgeIconAndManifestEntries();
     await self.clients.claim();
+    await notifyClientsUpdated();
   })());
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 function isSameOrigin(url) {
@@ -60,8 +96,6 @@ function isSameOrigin(url) {
 }
 
 function isHashedAsset(url) {
-  // Vite emits `/assets/<name>-<hash>.<ext>` — those are content-hashed
-  // and safe to cache-first forever within this SW version.
   return /^\/assets\/.+-[A-Za-z0-9_-]{6,}\.(?:js|mjs|css|woff2?|ttf|otf|png|jpg|jpeg|webp|avif|svg)$/i.test(url.pathname);
 }
 
@@ -116,7 +150,6 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(req.url);
   if (!isSameOrigin(url)) return;
 
-  // Kill switch: any request with ?sw=off tears down.
   if (url.searchParams.get("sw") === "off") {
     event.respondWith((async () => {
       try {
@@ -126,6 +159,13 @@ self.addEventListener("fetch", (event) => {
       } catch { /* noop */ }
       return fetch(req);
     })());
+    return;
+  }
+
+  // Icons + manifest: always network, never cached — keeps home-screen
+  // icons in sync on every deploy.
+  if (ICON_URL_RE.test(url.pathname)) {
+    event.respondWith(fetch(req).catch(() => caches.match(req)));
     return;
   }
 
