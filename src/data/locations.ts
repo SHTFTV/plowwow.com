@@ -273,5 +273,12 @@ export const LOCATIONS: Record<string, LocationDeepData> = {
   },
 };
 
+import { LOCATIONS_EXTRA } from "./locations-extra";
+
+const ALL_LOCATIONS: Record<string, LocationDeepData> = {
+  ...LOCATIONS,
+  ...LOCATIONS_EXTRA,
+};
+
 export const getLocationDeep = (slug: string): LocationDeepData | undefined =>
-  LOCATIONS[slug];
+  ALL_LOCATIONS[slug];
