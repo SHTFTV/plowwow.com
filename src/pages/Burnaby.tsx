@@ -12,6 +12,8 @@ import ServiceTabs from "@/components/burnaby/ServiceTabs";
 import SeasonalPackages from "@/components/burnaby/SeasonalPackages";
 import BurnabyFAQ from "@/components/burnaby/BurnabyFAQ";
 import StickyCallBar from "@/components/burnaby/StickyCallBar";
+import CityDeepDive from "@/components/CityDeepDive";
+import { getLocationDeep } from "@/data/locations";
 
 const Burnaby = () => (
   <div className="min-h-screen">
