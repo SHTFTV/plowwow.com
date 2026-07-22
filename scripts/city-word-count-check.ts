@@ -15,6 +15,9 @@
  *     renders.
  */
 
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+
 import { cities } from "../src/data/cities";
 import { buildCityCopy } from "../src/data/cityContent";
 import { getLocationDeep } from "../src/data/locations";
