@@ -36,8 +36,7 @@ function connectionOk(): boolean {
 
 function idle(cb: () => void, timeout = 2500) {
   if (typeof window === "undefined") return;
-  // @ts-expect-error requestIdleCallback is not in the DOM lib yet.
-  const ric = window.requestIdleCallback as ((cb: () => void, opts?: { timeout: number }) => number) | undefined;
+  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback;
   if (ric) ric(cb, { timeout });
   else window.setTimeout(cb, timeout);
 }
