@@ -34,6 +34,7 @@ import { truncateForMeta } from "@/lib/seo";
 import { postsForCity } from "@/lib/internalLinks";
 import { getLocationDeep } from "@/data/locations";
 import CityDeepDive from "@/components/CityDeepDive";
+import CityDevBadge from "@/components/dev/CityDevBadge";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
