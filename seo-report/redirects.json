@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T00:27:22.066Z",
+  "generatedAt": "2026-07-22T05:45:42.857Z",
   "crawlBase": null,
   "checks": [
     {
@@ -97,6 +97,108 @@
       "expected": "/metrotown-snow-removal/",
       "status": "skip",
       "reason": "no sitemap example matches this redirect pattern"
+    },
+    {
+      "source": "/city/abbotsford",
+      "expected": "/abbotsford/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/chilliwack",
+      "expected": "/chilliwack/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/coquitlam",
+      "expected": "/coquitlam/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/delta",
+      "expected": "/delta/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/langley",
+      "expected": "/langley/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/maple-ridge",
+      "expected": "/maple-ridge/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/mission",
+      "expected": "/mission/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/new-westminster",
+      "expected": "/new-westminster/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/north-vancouver",
+      "expected": "/north-vancouver/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/pitt-meadows",
+      "expected": "/pitt-meadows/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/port-coquitlam",
+      "expected": "/port-coquitlam/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/port-moody",
+      "expected": "/port-moody/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/richmond",
+      "expected": "/richmond/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/surrey",
+      "expected": "/surrey/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/vancouver",
+      "expected": "/vancouver/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/west-vancouver",
+      "expected": "/west-vancouver/",
+      "status": "ok",
+      "live": null
+    },
+    {
+      "source": "/city/white-rock",
+      "expected": "/white-rock/",
+      "status": "ok",
+      "live": null
     }
   ]
 }

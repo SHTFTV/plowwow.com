@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-22T00:35:22.687Z",
+  "generatedAt": "2026-07-22T05:45:17.604Z",
   "total": 118,
   "failed": 0,
-  "reusedFromCache": 118,
+  "reusedFromCache": 0,
   "expected": {
     "width": 1200,
     "height": 630
@@ -16,7 +16,7 @@
       "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 3.1781513767815137,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -33,7 +33,7 @@
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 3.177597896775979,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -50,7 +50,7 @@
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1634841566348415,
+      "mae": 3.177597896775979,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -67,7 +67,7 @@
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2056178220561784,
+      "mae": 3.234883077348831,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -84,7 +84,7 @@
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 3.244015497440155,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -101,7 +101,7 @@
       "file": "public/blog-images/_neighborhoods/city-all.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204856787048568,
+      "mae": 3.2362667773626677,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -118,7 +118,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1641068216410684,
+      "mae": 3.180849591808496,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -135,7 +135,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1645219316452193,
+      "mae": 3.180849591808496,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -152,7 +152,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196969696969697,
+      "mae": 3.2530095475300955,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -169,7 +169,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204164937041649,
+      "mae": 3.2357824823578247,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -186,7 +186,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953784419537845,
+      "mae": 3.248996817489968,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -203,7 +203,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1969005119690053,
+      "mae": 3.26290300262903,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -220,7 +220,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194963331949633,
+      "mae": 3.2479590424795903,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -237,7 +237,7 @@
       "file": "public/blog-images/_neighborhoods/city-all__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1979382869793826,
+      "mae": 3.249965407499654,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -254,7 +254,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.199252801992528,
+      "mae": 3.2454683824546837,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -271,7 +271,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163760896637609,
+      "mae": 3.1781513767815137,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -288,7 +288,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1638992666389925,
+      "mae": 3.1791199667911996,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -305,7 +305,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194686591946866,
+      "mae": 3.254600802546008,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -322,7 +322,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204649232046492,
+      "mae": 3.233914487339145,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -339,7 +339,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19669295696693,
+      "mae": 3.263871592638716,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -356,7 +356,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1975923619759237,
+      "mae": 3.2451224574512247,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -373,7 +373,7 @@
       "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1957243669572435,
+      "mae": 3.254324062543241,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -390,7 +390,7 @@
       "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1612010516120104,
+      "mae": 3.178912411789124,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -407,7 +407,7 @@
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.160578386605784,
+      "mae": 3.1777362667773628,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -424,7 +424,7 @@
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.159540611595406,
+      "mae": 3.1778746367787463,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -441,7 +441,7 @@
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2078317420783176,
+      "mae": 3.232738342327383,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -458,7 +458,7 @@
       "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1971772519717727,
+      "mae": 3.24456897744569,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -475,7 +475,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.205825377058254,
+      "mae": 3.2345371523453714,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -492,7 +492,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1621696416216962,
+      "mae": 3.179327521793275,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -509,7 +509,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1608551266085514,
+      "mae": 3.179327521793275,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -526,7 +526,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 3.2543932475439323,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -543,7 +543,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204787602047876,
+      "mae": 3.23446796734468,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -560,7 +560,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1962778469627784,
+      "mae": 3.244984087449841,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -577,7 +577,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1994603569946034,
+      "mae": 3.2626954476269545,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -594,7 +594,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196070291960703,
+      "mae": 3.245399197453992,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -611,7 +611,7 @@
       "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1959319219593194,
+      "mae": 3.2546699875467,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -628,7 +628,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1959319219593194,
+      "mae": 3.263318112633181,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -645,7 +645,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 3.1782897467828977,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -662,7 +662,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.160024906600249,
+      "mae": 3.1785664867856647,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -679,7 +679,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 3.2548775425487753,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -696,7 +696,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2045108620451086,
+      "mae": 3.2346063373460634,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -713,7 +713,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19669295696693,
+      "mae": 3.2631105576311055,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -730,7 +730,7 @@
       "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953092569530925,
+      "mae": 3.2451916424519163,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -747,7 +747,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.19932198699322,
+      "mae": 3.261519302615193,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -764,7 +764,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 3.1777362667773628,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -781,7 +781,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 3.1773903417739033,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -798,7 +798,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196001106960011,
+      "mae": 3.2535630275356304,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -815,7 +815,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2049951570499515,
+      "mae": 3.2346063373460634,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -832,7 +832,7 @@
       "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948249619482496,
+      "mae": 3.246852082468521,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -849,7 +849,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1612010516120104,
+      "mae": 3.1782205617822057,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -866,7 +866,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 3.1758682717586826,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -883,7 +883,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161477791614778,
+      "mae": 3.1768368617683684,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -900,7 +900,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 3.254185692541857,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -917,7 +917,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2045108620451086,
+      "mae": 3.2332226373322266,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -934,7 +934,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1991144319911444,
+      "mae": 3.2616576726165767,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -951,7 +951,7 @@
       "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198284211982842,
+      "mae": 3.2433236474332365,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -968,7 +968,7 @@
       "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.193787186937872,
+      "mae": 3.2636640376366404,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -985,7 +985,7 @@
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162792306627923,
+      "mae": 3.179465891794659,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1002,7 +1002,7 @@
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 3.178912411789124,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1019,7 +1019,7 @@
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.202642867026429,
+      "mae": 3.2346755223467554,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1036,7 +1036,7 @@
       "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1970388819703888,
+      "mae": 3.244015497440155,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1053,7 +1053,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 3.263456482634565,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1070,7 +1070,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 3.1769060467690604,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1087,7 +1087,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 3.1780821917808217,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1104,7 +1104,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.195032516950325,
+      "mae": 3.2548775425487753,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1121,7 +1121,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2067247820672478,
+      "mae": 3.2336377473363775,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1138,7 +1138,7 @@
       "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1984917669849176,
+      "mae": 3.246229417462294,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1155,7 +1155,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1624463816244637,
+      "mae": 3.179327521793275,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1172,7 +1172,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 3.178428116784281,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1189,7 +1189,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1620312716203127,
+      "mae": 3.177667081776671,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1206,7 +1206,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1971772519717727,
+      "mae": 3.2493427424934276,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1223,7 +1223,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2093538120935383,
+      "mae": 3.2354365573543657,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1240,7 +1240,7 @@
       "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.193441261934413,
+      "mae": 3.244084682440847,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1257,7 +1257,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948249619482496,
+      "mae": 3.253632212536322,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1274,7 +1274,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162861491628615,
+      "mae": 3.178428116784281,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1291,7 +1291,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162723121627231,
+      "mae": 3.178358931783589,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1308,7 +1308,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196969696969697,
+      "mae": 3.2544624325446243,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1325,7 +1325,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.201605092016051,
+      "mae": 3.23446796734468,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1342,7 +1342,7 @@
       "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953784419537845,
+      "mae": 3.2471288224712884,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1359,7 +1359,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.194548221945482,
+      "mae": 3.266569807665698,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1376,7 +1376,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163760896637609,
+      "mae": 3.178497301784973,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1393,7 +1393,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.16154697661547,
+      "mae": 3.178497301784973,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1410,7 +1410,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2044416770444166,
+      "mae": 3.234329597343296,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1427,7 +1427,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948941469489416,
+      "mae": 3.2491351874913517,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1444,7 +1444,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1957935519579355,
+      "mae": 3.26027397260274,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1461,7 +1461,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1618237166182372,
+      "mae": 3.176075826760758,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1478,7 +1478,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1625847516258476,
+      "mae": 3.176075826760758,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1495,7 +1495,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.204718417047184,
+      "mae": 3.2345371523453714,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1512,7 +1512,7 @@
       "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.191919191919192,
+      "mae": 3.2487200774872007,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1529,7 +1529,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196554586965546,
+      "mae": 3.263802407638024,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1546,7 +1546,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1640376366403764,
+      "mae": 3.1782205617822057,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1563,7 +1563,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1619620866196207,
+      "mae": 3.17801300678013,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1580,7 +1580,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1952400719524006,
+      "mae": 3.254324062543241,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1597,7 +1597,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2059637470596374,
+      "mae": 3.23336100733361,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1614,7 +1614,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196554586965546,
+      "mae": 3.2626954476269545,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1631,7 +1631,7 @@
       "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196485401964854,
+      "mae": 3.247336377473364,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1648,7 +1648,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.161892901618929,
+      "mae": 3.178843226788432,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1665,7 +1665,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.162861491628615,
+      "mae": 3.17801300678013,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1682,7 +1682,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163345786633458,
+      "mae": 3.1778746367787463,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1699,7 +1699,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 3.2539089525390894,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1716,7 +1716,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2051335270513355,
+      "mae": 3.2350214473502144,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1733,7 +1733,7 @@
       "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198699321986993,
+      "mae": 3.2474747474747474,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1750,7 +1750,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1980766569807666,
+      "mae": 3.263456482634565,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1767,7 +1767,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1629306766293066,
+      "mae": 3.1782205617822057,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1784,7 +1784,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.163691711636917,
+      "mae": 3.1782205617822057,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1801,7 +1801,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.195032516950325,
+      "mae": 3.2534938425349385,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1818,7 +1818,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.206240487062405,
+      "mae": 3.234744707347447,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1835,7 +1835,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.196139476961395,
+      "mae": 3.2447765324477653,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1852,7 +1852,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.198837691988377,
+      "mae": 3.263318112633181,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1869,7 +1869,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1962778469627784,
+      "mae": 3.244015497440155,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1886,7 +1886,7 @@
       "file": "public/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1948941469489416,
+      "mae": 3.253770582537706,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1903,7 +1903,7 @@
       "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1947557769475576,
+      "mae": 3.2546699875467,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1920,7 +1920,7 @@
       "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.2034730870347308,
+      "mae": 3.233845302338453,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1937,7 +1937,7 @@
       "file": "public/blog-images/_neighborhoods/city-white-rock.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1953092569530925,
+      "mae": 3.263318112633181,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1954,7 +1954,7 @@
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1616161616161618,
+      "mae": 3.1781513767815137,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1971,7 +1971,7 @@
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.1616161616161618,
+      "mae": 3.177667081776671,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -1988,7 +1988,7 @@
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.207070707070707,
+      "mae": 3.2346755223467554,
       "expectedRect": {
         "left": 816,
         "top": 263,
@@ -2005,7 +2005,7 @@
       "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
       "width": 1200,
       "height": 630,
-      "mae": 3.192818596928186,
+      "mae": 3.248166597481666,
       "expectedRect": {
         "left": 816,
         "top": 263,
