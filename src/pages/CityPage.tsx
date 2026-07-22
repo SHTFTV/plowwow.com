@@ -156,7 +156,17 @@ const CityPage = () => {
   const mergedFaqs = locationDeep
     ? [...locationDeep.faq.map((f) => ({ q: f.q, a: f.a })), ...city.faqs]
     : city.faqs;
+
+  return (
     <div className="min-h-screen">
+      {locationDeep && (
+        <>
+          <meta name="geo.region" content="CA-BC" />
+          <meta name="geo.placename" content={`${locationDeep.city}, British Columbia`} />
+          <meta name="geo.position" content={`${locationDeep.lat};${locationDeep.lng}`} />
+          <meta name="ICBM" content={`${locationDeep.lat}, ${locationDeep.lng}`} />
+        </>
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
