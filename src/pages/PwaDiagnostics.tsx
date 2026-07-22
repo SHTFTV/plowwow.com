@@ -93,6 +93,7 @@ export default function PwaDiagnostics() {
         <div className="mt-4 flex flex-wrap gap-2">
           <button onClick={forceCheck} className="rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground">Check for update</button>
           <button onClick={killSw} className="rounded-md border border-border px-3 py-1.5 text-xs font-semibold">Kill switch (?sw=off)</button>
+          <button onClick={hardReset} className="rounded-md bg-destructive px-3 py-1.5 text-xs font-semibold text-destructive-foreground">Reset caches & reload</button>
         </div>
       </section>
 
