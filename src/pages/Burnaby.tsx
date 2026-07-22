@@ -15,7 +15,9 @@ import StickyCallBar from "@/components/burnaby/StickyCallBar";
 import CityDeepDive from "@/components/CityDeepDive";
 import { getLocationDeep } from "@/data/locations";
 
-const Burnaby = () => (
+const Burnaby = () => {
+  const deep = getLocationDeep("burnaby");
+  return (
   <div className="min-h-screen">
     <BurnabySchema />
     <TopBar />
