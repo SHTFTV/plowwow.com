@@ -484,15 +484,17 @@ const CityQuote = () => {
 
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !addressConfirmed}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3 hover:opacity-90 disabled:opacity-60"
               >
                 {submitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                   </>
-                ) : (
+                ) : addressConfirmed ? (
                   <>Request my {cityMeta.name} quote</>
+                ) : (
+                  <>Confirm your address to continue</>
                 )}
               </button>
               <p className="text-xs text-muted-foreground text-center">
