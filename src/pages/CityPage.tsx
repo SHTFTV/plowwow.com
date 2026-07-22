@@ -35,6 +35,8 @@ import { postsForCity } from "@/lib/internalLinks";
 import { getLocationDeep } from "@/data/locations";
 import CityDeepDive from "@/components/CityDeepDive";
 import CityDevBadge from "@/components/dev/CityDevBadge";
+import DirectionsCard from "@/components/city/DirectionsCard";
+import RelatedCities from "@/components/city/RelatedCities";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -204,7 +206,7 @@ const CityPage = () => {
                   size="lg"
                   className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8 shadow-xl"
                 >
-                  <a href={`#${city.slug}-quote`}>Get a Free Quote</a>
+                  <Link to={`/${city.slug}/quote`}>Get a Free Quote</Link>
                 </Button>
                 <Button
                   asChild
@@ -247,7 +249,10 @@ const CityPage = () => {
                 City Hall pinned for orientation, plus a quick link to live {city.name} weather.
               </p>
             </div>
-            <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
+            <div className="grid lg:grid-cols-2 gap-8">
+              <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
+              <DirectionsCard cityName={city.name} province={city.province} cityHall={city.cityHall} />
+            </div>
           </div>
         </section>
 
@@ -456,13 +461,16 @@ const CityPage = () => {
           );
         })()}
 
-        {/* Other cities */}
-        <section className="py-14 border-t border-border">
+        {/* Nearby cities — distance-ranked */}
+        <RelatedCities citySlug={city.slug} cityName={city.name} count={4} />
+
+        {/* Full service-area list */}
+        <section className="py-10 border-t border-border">
           <div className="container">
-            <h2 className="text-2xl font-black text-foreground mb-1">
-              Other cities we plow
+            <h2 className="text-xl font-black text-foreground mb-1">
+              Every city we plow
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4 text-sm">
               From Vancouver to Abbotsford — same crews, same response standards.
             </p>
             <div className="flex flex-wrap gap-2">

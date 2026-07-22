@@ -1,0 +1,457 @@
+import { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { z } from "zod";
+import { Phone, MapPin, ArrowLeft, Loader2 } from "lucide-react";
+
+import TopBar from "@/components/TopBar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import NotFound from "./NotFound";
+import { getCityBySlug } from "@/data/cities";
+import { getLocationDeep } from "@/data/locations";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
+
+const BURNABY_META = {
+  slug: "burnaby",
+  name: "Burnaby",
+  province: "BC",
+  tagline: "Burnaby Snow Removal & De-icing",
+};
+
+const quoteSchema = z.object({
+  name: z.string().trim().min(2, "Name is required").max(100),
+  email: z.string().trim().email("Enter a valid email").max(255),
+  phone: z.string().trim().min(7, "Phone is required").max(30),
+  address: z.string().trim().min(3, "Property address is required").max(200),
+  propertyType: z.enum(["strata", "commercial", "residential", "industrial", "medical"]),
+  serviceLevel: z.enum(["seasonal", "per-visit", "de-icing-only"]),
+  notes: z.string().trim().max(2000).optional(),
+  // honeypot — must remain empty
+  website: z.string().max(0).optional(),
+});
+
+type QuoteInput = z.infer<typeof quoteSchema>;
+
+const CityQuote = () => {
+  const { citySlug } = useParams<{ citySlug: string }>();
+  const navigate = useNavigate();
+  const slug = citySlug?.replace(/\/+$/, "") ?? "";
+  const city = slug === "burnaby" ? null : getCityBySlug(slug);
+  const deep = getLocationDeep(slug);
+
+  const cityMeta = useMemo(() => {
+    if (slug === "burnaby") return BURNABY_META;
+    if (city)
+      return {
+        slug: city.slug,
+        name: city.name,
+        province: city.province,
+        tagline: city.tagline,
+      };
+    return null;
+  }, [slug, city]);
+
+  const [formStartedAt] = useState(() => Date.now());
+  const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Partial<Record<keyof QuoteInput, string>>>({});
+  const [form, setForm] = useState<QuoteInput>({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    propertyType: "strata",
+    serviceLevel: "seasonal",
+    notes: "",
+    website: "",
+  });
+
+  useEffect(() => {
+    if (!cityMeta) return;
+    const title = `${cityMeta.name} Snow Removal Quote | PlowWow`;
+    const desc = `Request a snow removal quote for your ${cityMeta.name} property — strata, commercial, or residential. 24/7 dispatch across ${cityMeta.name}, ${cityMeta.province}.`;
+    document.title = title;
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    setMeta("description", desc);
+    setMeta("robots", "noindex,follow");
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `https://plowwow.com/${cityMeta.slug}/quote`);
+  }, [cityMeta]);
+
+  if (!cityMeta) return <NotFound />;
+
+  const update = <K extends keyof QuoteInput>(k: K, v: QuoteInput[K]) => {
+    setForm((s) => ({ ...s, [k]: v }));
+    setErrors((e) => ({ ...e, [k]: undefined }));
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
+    const parsed = quoteSchema.safeParse(form);
+    if (!parsed.success) {
+      const next: Partial<Record<keyof QuoteInput, string>> = {};
+      for (const issue of parsed.error.issues) {
+        const k = issue.path[0] as keyof QuoteInput;
+        if (!next[k]) next[k] = issue.message;
+      }
+      setErrors(next);
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("submit-quote", {
+        body: {
+          ...parsed.data,
+          city: cityMeta.name,
+          citySlug: cityMeta.slug,
+          province: cityMeta.province,
+          source: `city-quote/${cityMeta.slug}`,
+          formLoadedAt: formStartedAt,
+        },
+      });
+      if (error) throw error;
+      const denied = (data as { blocked?: boolean } | null)?.blocked;
+      if (denied) {
+        toast({
+          title: "Submission blocked",
+          description: "Please contact us by phone at 604-761-1518.",
+          variant: "destructive",
+        });
+        return;
+      }
+      navigate(`/quote/confirmed?city=${encodeURIComponent(cityMeta.slug)}`);
+    } catch (err) {
+      toast({
+        title: "Something went wrong",
+        description:
+          "We couldn't submit your request. Call 604-761-1518 or try again in a moment.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const priceHint = deep?.pricing;
+
+  return (
+    <div className="min-h-screen">
+      <TopBar />
+      <Navbar />
+      <main>
+        <section className="bg-[#0d2a4a] text-white">
+          <div className="container py-12">
+            <Link
+              to={`/${cityMeta.slug}`}
+              className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white mb-4"
+            >
+              <ArrowLeft className="w-4 h-4" /> Back to {cityMeta.name}
+            </Link>
+            <h1 className="text-3xl md:text-5xl font-black mb-3">
+              {cityMeta.name} Snow Removal Quote
+            </h1>
+            <p className="text-white/90 max-w-2xl">
+              Tell us about your {cityMeta.name} property. We'll match you to the
+              nearest seasonal-contract crew and reply within one business day.
+              Storm-day inquiries — call{" "}
+              <a href="tel:6047611518" className="underline font-semibold">
+                604-761-1518
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+
+        <section className="py-12">
+          <div className="container grid lg:grid-cols-3 gap-8">
+            <form
+              onSubmit={onSubmit}
+              className="lg:col-span-2 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-5"
+              noValidate
+            >
+              <div className="bg-muted/40 border border-border rounded-lg p-4 flex items-center gap-3 text-sm">
+                <MapPin className="w-5 h-5 text-primary shrink-0" />
+                <div>
+                  <p className="font-semibold text-foreground">
+                    Service area: {cityMeta.name}, {cityMeta.province}
+                  </p>
+                  <p className="text-muted-foreground">
+                    Auto-filled from this page. Change the property address below
+                    if the site is in a different municipality.
+                  </p>
+                </div>
+              </div>
+
+              {/* honeypot */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Leave this field empty</label>
+                <input
+                  id="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website ?? ""}
+                  onChange={(e) => update("website", e.target.value)}
+                />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <Field
+                  id="name"
+                  label="Your name"
+                  value={form.name}
+                  onChange={(v) => update("name", v)}
+                  error={errors.name}
+                  autoComplete="name"
+                  required
+                />
+                <Field
+                  id="email"
+                  label="Email"
+                  type="email"
+                  value={form.email}
+                  onChange={(v) => update("email", v)}
+                  error={errors.email}
+                  autoComplete="email"
+                  required
+                />
+                <Field
+                  id="phone"
+                  label="Phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(v) => update("phone", v)}
+                  error={errors.phone}
+                  autoComplete="tel"
+                  required
+                />
+                <Field
+                  id="address"
+                  label={`Property address in ${cityMeta.name}`}
+                  value={form.address}
+                  onChange={(v) => update("address", v)}
+                  error={errors.address}
+                  autoComplete="street-address"
+                  required
+                />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <Select
+                  id="propertyType"
+                  label="Property type"
+                  value={form.propertyType}
+                  onChange={(v) => update("propertyType", v as QuoteInput["propertyType"])}
+                  options={[
+                    ["strata", "Strata / townhome complex"],
+                    ["commercial", "Commercial / retail"],
+                    ["residential", "Residential / driveway"],
+                    ["industrial", "Industrial / logistics"],
+                    ["medical", "Medical / hospital-adjacent"],
+                  ]}
+                />
+                <Select
+                  id="serviceLevel"
+                  label="Service level"
+                  value={form.serviceLevel}
+                  onChange={(v) => update("serviceLevel", v as QuoteInput["serviceLevel"])}
+                  options={[
+                    ["seasonal", "Seasonal contract (Nov–Mar)"],
+                    ["per-visit", "Per-visit / on-demand"],
+                    ["de-icing-only", "De-icing / salting only"],
+                  ]}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="notes"
+                  className="block text-sm font-semibold text-foreground mb-1"
+                >
+                  Site notes (optional)
+                </label>
+                <textarea
+                  id="notes"
+                  value={form.notes}
+                  onChange={(e) => update("notes", e.target.value)}
+                  maxLength={2000}
+                  rows={4}
+                  placeholder="Access hours, drive-aisle geometry, parkade ramps, accessibility ramps, dock schedule…"
+                  className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3 hover:opacity-90 disabled:opacity-60"
+              >
+                {submitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> Sending…
+                  </>
+                ) : (
+                  <>Request my {cityMeta.name} quote</>
+                )}
+              </button>
+              <p className="text-xs text-muted-foreground text-center">
+                We reply within one business day. Storm-day inquiries — call
+                604-761-1518.
+              </p>
+            </form>
+
+            <aside className="space-y-4">
+              <div className="bg-card border border-border rounded-2xl p-5">
+                <h2 className="font-heading font-bold text-lg mb-2">
+                  {cityMeta.name} at a glance
+                </h2>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  {deep && (
+                    <>
+                      <li>
+                        <strong className="text-foreground">Avg snowfall:</strong>{" "}
+                        {deep.avg_annual_snowfall_cm} cm/yr
+                      </li>
+                      <li>
+                        <strong className="text-foreground">Season:</strong>{" "}
+                        {deep.snow_season_start} – {deep.snow_season_end}
+                      </li>
+                      <li>
+                        <strong className="text-foreground">Freeze-thaw:</strong>{" "}
+                        {deep.freeze_thaw_cycles} cycles / winter
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
+              {priceHint && (
+                <div className="bg-card border border-border rounded-2xl p-5">
+                  <h2 className="font-heading font-bold text-lg mb-2">
+                    Typical {cityMeta.name} pricing
+                  </h2>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>Residential seasonal: {priceHint.residential_seasonal}</li>
+                    <li>Strata seasonal: {priceHint.strata_seasonal}</li>
+                    <li>Commercial seasonal: {priceHint.commercial_seasonal}</li>
+                    <li>Per-visit: {priceHint.per_visit}</li>
+                    <li>De-icing pass: {priceHint.de_ice_treatment}</li>
+                  </ul>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Ranges only — final pricing depends on lot geometry, access,
+                    and service level.
+                  </p>
+                </div>
+              )}
+              <a
+                href="tel:6047611518"
+                className="flex items-center gap-3 rounded-2xl bg-secondary text-secondary-foreground font-heading font-bold p-5 hover:opacity-90"
+              >
+                <Phone className="w-5 h-5" />
+                <span>
+                  Call 604-761-1518
+                  <span className="block text-xs font-normal opacity-90">
+                    Storm-day priority dispatch
+                  </span>
+                </span>
+              </a>
+            </aside>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+type FieldProps = {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  error?: string;
+  type?: string;
+  autoComplete?: string;
+  required?: boolean;
+};
+const Field = ({
+  id,
+  label,
+  value,
+  onChange,
+  error,
+  type = "text",
+  autoComplete,
+  required,
+}: FieldProps) => (
+  <div>
+    <label
+      htmlFor={id}
+      className="block text-sm font-semibold text-foreground mb-1"
+    >
+      {label}
+      {required && <span className="text-destructive"> *</span>}
+    </label>
+    <input
+      id={id}
+      type={type}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      autoComplete={autoComplete}
+      maxLength={255}
+      aria-invalid={error ? "true" : "false"}
+      aria-describedby={error ? `${id}-err` : undefined}
+      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+    {error && (
+      <p id={`${id}-err`} role="alert" className="text-xs text-destructive mt-1">
+        {error}
+      </p>
+    )}
+  </div>
+);
+
+type SelectProps = {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: Array<[string, string]>;
+};
+const Select = ({ id, label, value, onChange, options }: SelectProps) => (
+  <div>
+    <label
+      htmlFor={id}
+      className="block text-sm font-semibold text-foreground mb-1"
+    >
+      {label}
+    </label>
+    <select
+      id={id}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+    >
+      {options.map(([v, l]) => (
+        <option key={v} value={v}>
+          {l}
+        </option>
+      ))}
+    </select>
+  </div>
+);
+
+export default CityQuote;

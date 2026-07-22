@@ -13,6 +13,8 @@ import SeasonalPackages from "@/components/burnaby/SeasonalPackages";
 import BurnabyFAQ from "@/components/burnaby/BurnabyFAQ";
 import StickyCallBar from "@/components/burnaby/StickyCallBar";
 import CityDeepDive from "@/components/CityDeepDive";
+import DirectionsCard from "@/components/city/DirectionsCard";
+import RelatedCities from "@/components/city/RelatedCities";
 import { getLocationDeep } from "@/data/locations";
 
 const Burnaby = () => {
@@ -42,6 +44,16 @@ const Burnaby = () => {
         </div>
       </section>
 
+      <section className="py-12" id="directions">
+        <div className="container">
+          <DirectionsCard
+            cityName="Burnaby"
+            province="BC"
+            cityHall={{ lat: 49.2488, lon: -122.9805, address: "4949 Canada Way" }}
+          />
+        </div>
+      </section>
+
       <UtilityDashboard />
       <NeighborhoodFocus />
       <ServiceTabs />
@@ -49,6 +61,8 @@ const Burnaby = () => {
       <BurnabyFAQ />
 
       {deep && <CityDeepDive data={deep} />}
+
+      <RelatedCities citySlug="burnaby" cityName="Burnaby" count={4} />
 
       <div id="burnaby-quote">
         <ContactForm />

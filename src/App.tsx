@@ -41,6 +41,8 @@ const AdminQuoteAlerts = lazy(() => import("./pages/AdminQuoteAlerts.tsx"));
 const AdminQuoteAuditLog = lazy(() => import("./pages/AdminQuoteAuditLog.tsx"));
 const AuthorPage = lazy(() => import("./pages/AuthorPage.tsx"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm.tsx"));
+const CityQuote = lazy(() => import("./pages/CityQuote.tsx"));
+const QuoteConfirmed = lazy(() => import("./pages/QuoteConfirmed.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -91,6 +93,9 @@ const App = () => (
             <Route path="/author/:slug/" element={<AuthorPage />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/newsletter/confirm/" element={<NewsletterConfirm />} />
+            <Route path="/quote/confirmed" element={<QuoteConfirmed />} />
+            <Route path="/:citySlug/quote" element={<CityQuote />} />
+            <Route path="/:citySlug/quote/" element={<CityQuote />} />
 
             {legacyPageSlugs.map((slug) => (
               <Route
