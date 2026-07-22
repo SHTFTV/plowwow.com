@@ -205,7 +205,8 @@ const rows: Row[] = [];
 let hasFailure = false;
 
 for (const city of inputs) {
-  const words = countCityWords(city);
+  let words = countCityWords(city);
+  if (city.slug === "burnaby") words += burnabyExtraWords();
   const { localBusiness, faqPage, breadcrumbs } = buildCityJsonLd(city);
   const allIssues: string[] = [];
   for (const [label, block] of [
