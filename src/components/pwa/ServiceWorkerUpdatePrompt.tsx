@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { logPwaEvent } from "@/lib/pwaEventLog";
 
 /**
  * Listens for two update signals from the service worker:
