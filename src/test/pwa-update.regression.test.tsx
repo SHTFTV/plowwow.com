@@ -71,7 +71,11 @@ beforeEach(() => {
 
 describe("PWA update regression", () => {
   it("shows the prompt, posts SKIP_WAITING, logs events, and clears stale caches", async () => {
-    const reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => {});
+    const reloadFn = vi.fn();
+    Object.defineProperty(window, "location", {
+      value: { ...window.location, reload: reloadFn, assign: vi.fn() },
+      configurable: true,
+    });
     const waiting = makeWorker();
     const sw = installSwMock(waiting);
     const deleted = installCachesMock(["pw-html-v2", "pw-assets-v2", "pw-images-v2", "pw-data-v2"]);
