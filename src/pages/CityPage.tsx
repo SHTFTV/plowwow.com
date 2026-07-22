@@ -51,7 +51,17 @@ const CityPage = () => {
     : city.faqs;
 
   const pageTitle = `${city.tagline} | PlowWow`;
+  // Base description is the city intro; when we have deep-dive data,
+  // enrich the OG/Twitter description with unique local specifics
+  // (snowfall, freeze-thaw cycles, season window) so social previews
+  // reflect each city page's unique copy rather than a generic blurb.
   const pageDescription = truncateForMeta(city.intro);
+  const socialDescription = locationDeep
+    ? truncateForMeta(
+        `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
+      )
+    : pageDescription;
+  const socialTitle = `${city.name} Snow Removal & De-icing | PlowWow`;
   const origin =
     typeof window !== "undefined"
       ? window.location.origin.replace(/\/+$/, "")
