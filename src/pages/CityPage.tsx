@@ -35,6 +35,8 @@ import { postsForCity } from "@/lib/internalLinks";
 import { getLocationDeep } from "@/data/locations";
 import CityDeepDive from "@/components/CityDeepDive";
 import CityDevBadge from "@/components/dev/CityDevBadge";
+import DirectionsCard from "@/components/city/DirectionsCard";
+import RelatedCities from "@/components/city/RelatedCities";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();

@@ -93,6 +93,9 @@ const App = () => (
             <Route path="/author/:slug/" element={<AuthorPage />} />
             <Route path="/newsletter/confirm" element={<NewsletterConfirm />} />
             <Route path="/newsletter/confirm/" element={<NewsletterConfirm />} />
+            <Route path="/quote/confirmed" element={<QuoteConfirmed />} />
+            <Route path="/:citySlug/quote" element={<CityQuote />} />
+            <Route path="/:citySlug/quote/" element={<CityQuote />} />
 
             {legacyPageSlugs.map((slug) => (
               <Route
