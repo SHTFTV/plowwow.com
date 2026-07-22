@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { blogPosts } from "@/generated/blog-posts";
+import HomeBlogDiagnostics from "@/components/HomeBlogDiagnostics";
 
 const latestPosts = blogPosts.filter((post) => post.image).slice(0, 4);
+const renderedSlugs = latestPosts.map((p) => p.slug);
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", {
     year: "numeric",
