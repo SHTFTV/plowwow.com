@@ -211,6 +211,11 @@ async function main() {
     writeFileSync(BASELINE, JSON.stringify(baseline, null, 2));
   }
 
+  // Persist the change-detection manifest for the next run.
+  mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(CACHE_FILE, JSON.stringify(nextCache, null, 2));
+
+
   mkdirSync(REPORT_DIR, { recursive: true });
   writeFileSync(join(REPORT_DIR, "share-cards-report.json"), JSON.stringify({
     generatedAt: new Date().toISOString(),
