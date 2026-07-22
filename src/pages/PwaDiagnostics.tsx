@@ -13,6 +13,15 @@ export default function PwaDiagnostics() {
   const [reportError, setReportError] = useState<string | null>(null);
   const [swVersion, setSwVersion] = useState<string | null>(null);
   const [swState, setSwState] = useState<string>("unknown");
+  const [swInfo, setSwInfo] = useState<{
+    scope: string | null;
+    scriptURL: string | null;
+    controller: string | null;
+    updateViaCache: string | null;
+    lastUpdateCheck: string | null;
+    hasWaiting: boolean;
+    hasInstalling: boolean;
+  }>({ scope: null, scriptURL: null, controller: null, updateViaCache: null, lastUpdateCheck: null, hasWaiting: false, hasInstalling: false });
   const [events, setEvents] = useState<PwaEvent[]>([]);
 
   useEffect(() => {
@@ -29,9 +38,16 @@ export default function PwaDiagnostics() {
         if (!reg) { setSwState("no registration"); return; }
         const sw = reg.active || reg.waiting || reg.installing;
         setSwState(sw?.state || "unknown");
+        setSwInfo({
+          scope: reg.scope || null,
+          scriptURL: sw?.scriptURL || null,
+          controller: navigator.serviceWorker.controller?.scriptURL || null,
+          updateViaCache: (reg as any).updateViaCache || null,
+          lastUpdateCheck: new Date().toISOString(),
+          hasWaiting: !!reg.waiting,
+          hasInstalling: !!reg.installing,
+        });
         if (sw) {
-          // Ask the SW its version — falls back to fetching /sw.js and
-          // grepping the VERSION constant if it doesn't respond.
           const mc = new MessageChannel();
           mc.port1.onmessage = (e) => e.data?.version && setSwVersion(e.data.version);
           try { sw.postMessage({ type: "VERSION" }, [mc.port2]); } catch { /* noop */ }
@@ -43,6 +59,7 @@ export default function PwaDiagnostics() {
       });
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   const refreshEvents = () => setEvents(readPwaEvents());
   const resetEvents = () => { clearPwaEvents(); setEvents([]); };
