@@ -206,7 +206,7 @@ const CityPage = () => {
                   size="lg"
                   className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8 shadow-xl"
                 >
-                  <a href={`#${city.slug}-quote`}>Get a Free Quote</a>
+                  <Link to={`/${city.slug}/quote`}>Get a Free Quote</Link>
                 </Button>
                 <Button
                   asChild
@@ -249,7 +249,10 @@ const CityPage = () => {
                 City Hall pinned for orientation, plus a quick link to live {city.name} weather.
               </p>
             </div>
-            <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
+            <div className="grid lg:grid-cols-2 gap-8">
+              <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
+              <DirectionsCard cityName={city.name} province={city.province} cityHall={city.cityHall} />
+            </div>
           </div>
         </section>
 
