@@ -1,11 +1,48 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { readPwaEvents, clearPwaEvents, type PwaEvent } from "@/lib/pwaEventLog";
 
 type ManifestIcon = { src: string; sizes: string; type?: string; purpose?: string };
 type IconReport = { total: number; failed: number; entries: Array<Record<string, unknown>> };
+type SwInfo = {
+  scope: string | null;
+  scriptURL: string | null;
+  controller: string | null;
+  updateViaCache: string | null;
+  lastUpdateCheck: string | null;
+  hasWaiting: boolean;
+  hasInstalling: boolean;
+};
 
 const REPORT_URL = "/pwa-icon-report.json";
 const MANIFEST_URL = "/site.webmanifest";
+const POLL_MS = 4000;
+const EMPTY_SW_INFO: SwInfo = { scope: null, scriptURL: null, controller: null, updateViaCache: null, lastUpdateCheck: null, hasWaiting: false, hasInstalling: false };
+
+async function readServiceWorker(): Promise<{ state: string; info: SwInfo; version: string | null }> {
+  if (!("serviceWorker" in navigator)) return { state: "unsupported", info: EMPTY_SW_INFO, version: null };
+  const reg = await navigator.serviceWorker.getRegistration();
+  if (!reg) return { state: "no registration", info: EMPTY_SW_INFO, version: null };
+  const sw = reg.active || reg.waiting || reg.installing;
+  const info: SwInfo = {
+    scope: reg.scope || null,
+    scriptURL: sw?.scriptURL || null,
+    controller: navigator.serviceWorker.controller?.scriptURL || null,
+    updateViaCache: (reg as any).updateViaCache || null,
+    lastUpdateCheck: new Date().toISOString(),
+    hasWaiting: !!reg.waiting,
+    hasInstalling: !!reg.installing,
+  };
+  let version: string | null = null;
+  if (sw) {
+    version = await new Promise<string | null>((resolve) => {
+      const mc = new MessageChannel();
+      const t = setTimeout(() => resolve(null), 300);
+      mc.port1.onmessage = (e) => { clearTimeout(t); resolve(e.data?.version || null); };
+      try { sw.postMessage({ type: "VERSION" }, [mc.port2]); } catch { clearTimeout(t); resolve(null); }
+    });
+  }
+  return { state: sw?.state || "unknown", info, version };
+}
 
 export default function PwaDiagnostics() {
   const [manifest, setManifest] = useState<any>(null);
@@ -13,16 +50,40 @@ export default function PwaDiagnostics() {
   const [reportError, setReportError] = useState<string | null>(null);
   const [swVersion, setSwVersion] = useState<string | null>(null);
   const [swState, setSwState] = useState<string>("unknown");
-  const [swInfo, setSwInfo] = useState<{
-    scope: string | null;
-    scriptURL: string | null;
-    controller: string | null;
-    updateViaCache: string | null;
-    lastUpdateCheck: string | null;
-    hasWaiting: boolean;
-    hasInstalling: boolean;
-  }>({ scope: null, scriptURL: null, controller: null, updateViaCache: null, lastUpdateCheck: null, hasWaiting: false, hasInstalling: false });
+  const [swInfo, setSwInfo] = useState<SwInfo>(EMPTY_SW_INFO);
   const [events, setEvents] = useState<PwaEvent[]>([]);
+  const [liveDiag, setLiveDiag] = useState<any>(null);
+  const [liveCarousel, setLiveCarousel] = useState<any>(null);
+  const [poll, setPoll] = useState<boolean>(true);
+  const [changedAt, setChangedAt] = useState<string | null>(null);
+  const [uploadedReport, setUploadedReport] = useState<any>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const lastSigRef = useRef<string>("");
+
+  const refreshLive = useCallback(async () => {
+    const [{ state, info, version }, diag, carousel] = await Promise.all([
+      readServiceWorker(),
+      fetch("/diagnostics.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null).catch(() => null),
+      fetch("/blog-index.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : null).catch(() => null),
+    ]);
+    setSwState(state);
+    setSwInfo(info);
+    if (version) setSwVersion(version);
+    else if (diag?.swVersion) setSwVersion((prev) => prev ?? diag.swVersion);
+    setLiveDiag(diag);
+    setLiveCarousel(carousel);
+    const sig = JSON.stringify({
+      state, scriptURL: info.scriptURL, controller: info.controller,
+      hasWaiting: info.hasWaiting, hasInstalling: info.hasInstalling,
+      swVersion: version ?? diag?.swVersion ?? null,
+      carousel: diag?.carousel, blogIndexAt: diag?.blogIndexAt,
+      liveCarousel: carousel?.carousel,
+    });
+    if (lastSigRef.current && lastSigRef.current !== sig) {
+      setChangedAt(new Date().toISOString());
+    }
+    lastSigRef.current = sig;
+  }, []);
 
   useEffect(() => {
     document.title = "PWA Diagnostics — PlowWow";
@@ -32,33 +93,15 @@ export default function PwaDiagnostics() {
       .then(setReport)
       .catch((e) => setReportError(String(e?.message || e)));
     setEvents(readPwaEvents());
+    void refreshLive();
+  }, [refreshLive]);
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistration().then((reg) => {
-        if (!reg) { setSwState("no registration"); return; }
-        const sw = reg.active || reg.waiting || reg.installing;
-        setSwState(sw?.state || "unknown");
-        setSwInfo({
-          scope: reg.scope || null,
-          scriptURL: sw?.scriptURL || null,
-          controller: navigator.serviceWorker.controller?.scriptURL || null,
-          updateViaCache: (reg as any).updateViaCache || null,
-          lastUpdateCheck: new Date().toISOString(),
-          hasWaiting: !!reg.waiting,
-          hasInstalling: !!reg.installing,
-        });
-        if (sw) {
-          const mc = new MessageChannel();
-          mc.port1.onmessage = (e) => e.data?.version && setSwVersion(e.data.version);
-          try { sw.postMessage({ type: "VERSION" }, [mc.port2]); } catch { /* noop */ }
-        }
-        fetch("/sw.js").then((r) => r.text()).then((t) => {
-          const m = /VERSION\s*=\s*["']([^"']+)["']/.exec(t);
-          if (m && !swVersion) setSwVersion(m[1]);
-        }).catch(() => {});
-      });
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!poll) return;
+    const id = window.setInterval(() => { void refreshLive(); }, POLL_MS);
+    return () => window.clearInterval(id);
+  }, [poll, refreshLive]);
+
 
 
   const refreshEvents = () => setEvents(readPwaEvents());
