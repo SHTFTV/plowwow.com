@@ -73,20 +73,26 @@ const DirectionsCard = ({ cityName, province, cityHall }: Props) => {
     }
     setLoading(true);
     try {
-      const g = await geocode(parsed.data);
+      const g = await cachedGeocode(parsed.data, geocodeRaw);
       if (!g) {
         setError("We couldn't find that address. Try a city or postal code.");
         setResult(null);
       } else {
-        const km = haversineKm(
+        const { km, drivingKm } = cachedDistance(
           { lat: g.lat, lon: g.lon },
           { lat: cityHall.lat, lon: cityHall.lon },
+          () => {
+            const raw = haversineKm(
+              { lat: g.lat, lon: g.lon },
+              { lat: cityHall.lat, lon: cityHall.lon },
+            );
+            return {
+              km: Math.round(raw * 10) / 10,
+              drivingKm: estimateDrivingKm(raw),
+            };
+          },
         );
-        setResult({
-          origin: g,
-          km: Math.round(km * 10) / 10,
-          drivingKm: estimateDrivingKm(km),
-        });
+        setResult({ origin: g, km, drivingKm });
       }
     } catch (err) {
       setError("Geocoding is temporarily unavailable. Try again in a moment.");
