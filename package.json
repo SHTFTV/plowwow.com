@@ -17,6 +17,7 @@
     "seo:sitemap-diff": "tsx scripts/sitemap-diff.ts",
     "seo:sitemap-baseline": "tsx scripts/sitemap-diff.ts --update",
     "pwa:icons": "tsx scripts/validate-pwa-icons.ts",
+    "verify:live-carousel": "tsx scripts/verify-live-carousel.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
