@@ -10,7 +10,7 @@
 //   - hashed built assets         : cache-first (immutable content-hash)
 //   - OG / share-card images      : stale-while-revalidate
 //   - route data (sitemaps, RSS,
-//     link-audit.json, blog-index): stale-while-revalidate
+//     link-audit.json, blog-index): network-first
 //   - anything else               : passthrough (no caching)
 //
 // On activate: purge every non-owned `pw-*` cache AND any cached
@@ -22,7 +22,7 @@
 // Kill switch: navigating to any URL with `?sw=off` unregisters this
 // worker and evicts every cache it owns.
 
-const VERSION = "v3";
+const VERSION = "v4";
 const CACHE_HTML = `pw-html-${VERSION}`;
 const CACHE_ASSETS = `pw-assets-${VERSION}`;
 const CACHE_IMAGES = `pw-images-${VERSION}`;
@@ -35,6 +35,7 @@ const DATA_PATHS = [
   "/rss.xml",
   "/link-audit.json",
   "/blog-index.json",
+  "/diagnostics.json",
   "/robots.txt",
 ];
 
@@ -88,6 +89,10 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "VERSION") {
+    event.ports?.[0]?.postMessage({ version: VERSION });
+    return;
+  }
   if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
@@ -182,7 +187,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (isDataAsset(url)) {
-    event.respondWith(staleWhileRevalidate(req, CACHE_DATA));
+    event.respondWith(networkFirst(req, CACHE_DATA));
     return;
   }
 });
