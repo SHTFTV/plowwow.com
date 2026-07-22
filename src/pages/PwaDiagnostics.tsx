@@ -88,6 +88,36 @@ export default function PwaDiagnostics() {
     }
   };
 
+  const downloadReport = async () => {
+    const [diag, liveCarousel] = await Promise.all([
+      fetch("/diagnostics.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : { error: r.status }).catch((e) => ({ error: String(e?.message || e) })),
+      fetch("/blog-index.json", { cache: "no-store" }).then((r) => r.ok ? r.json() : { error: r.status }).catch((e) => ({ error: String(e?.message || e) })),
+    ]);
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      href: window.location.href,
+      userAgent: navigator.userAgent,
+      diagnostics: diag,
+      liveCarousel,
+      serviceWorker: {
+        state: swState,
+        version: swVersion,
+        controllerPresent: !!navigator.serviceWorker?.controller,
+        ...swInfo,
+      },
+      pwaEvents: readPwaEvents(),
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `pwa-diagnostics-${new Date().toISOString().replace(/[:.]/g, "-")}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
   const icons: ManifestIcon[] = manifest?.icons || [];
 
   return (
@@ -105,14 +135,28 @@ export default function PwaDiagnostics() {
           <dt className="text-muted-foreground">State</dt>
           <dd className="font-mono">{swState}</dd>
           <dt className="text-muted-foreground">Controller</dt>
-          <dd className="font-mono">{typeof navigator !== "undefined" && navigator.serviceWorker?.controller ? "controlled" : "no controller"}</dd>
+          <dd className="font-mono" data-testid="sw-controller">{navigator.serviceWorker?.controller ? "controlled" : "no controller"}</dd>
+          <dt className="text-muted-foreground">Registration scope</dt>
+          <dd className="font-mono break-all">{swInfo.scope ?? "-"}</dd>
+          <dt className="text-muted-foreground">Active script URL</dt>
+          <dd className="font-mono break-all">{swInfo.scriptURL ?? "-"}</dd>
+          <dt className="text-muted-foreground">Controller script URL</dt>
+          <dd className="font-mono break-all">{swInfo.controller ?? "-"}</dd>
+          <dt className="text-muted-foreground">updateViaCache</dt>
+          <dd className="font-mono">{swInfo.updateViaCache ?? "-"}</dd>
+          <dt className="text-muted-foreground">Waiting / Installing</dt>
+          <dd className="font-mono">{String(swInfo.hasWaiting)} / {String(swInfo.hasInstalling)}</dd>
+          <dt className="text-muted-foreground">Last update check</dt>
+          <dd className="font-mono">{swInfo.lastUpdateCheck ?? "-"}</dd>
         </dl>
         <div className="mt-4 flex flex-wrap gap-2">
           <button onClick={forceCheck} className="rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground">Check for update</button>
           <button onClick={killSw} className="rounded-md border border-border px-3 py-1.5 text-xs font-semibold">Kill switch (?sw=off)</button>
           <button onClick={hardReset} className="rounded-md bg-destructive px-3 py-1.5 text-xs font-semibold text-destructive-foreground">Reset caches & reload</button>
+          <button onClick={downloadReport} data-testid="download-diagnostics" className="rounded-md border border-border px-3 py-1.5 text-xs font-semibold">Download diagnostics report</button>
         </div>
       </section>
+
 
       <section className="mt-6 rounded-xl border border-border bg-card p-5">
         <h2 className="text-lg font-bold">Manifest icons ({icons.length})</h2>
