@@ -22,7 +22,7 @@ export default defineConfig(() => ({
     // Silence the default 500 kB warning and split heavy vendor code so no
     // single JS chunk dominates initial load. Route-level code splitting is
     // handled by React.lazy in src/App.tsx; this handles vendor deps.
-    chunkSizeWarningLimit: 900,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks(id) {
