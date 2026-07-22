@@ -36,6 +36,7 @@ export function ServiceWorkerUpdatePrompt() {
         if (!sw) return;
         setWaiting(sw);
         setVisible(true);
+        logPwaEvent({ type: "prompt-shown" });
       };
 
       trackWaiting(reg.waiting);
@@ -52,7 +53,10 @@ export function ServiceWorkerUpdatePrompt() {
     });
 
     const onMessage = (evt: MessageEvent) => {
-      if (evt.data && evt.data.type === "sw-updated") setVisible(true);
+      if (evt.data && evt.data.type === "sw-updated") {
+        setVisible(true);
+        logPwaEvent({ type: "sw-updated", version: evt.data.version });
+      }
     };
     navigator.serviceWorker.addEventListener("message", onMessage);
 
@@ -60,6 +64,7 @@ export function ServiceWorkerUpdatePrompt() {
     const onController = () => {
       if (reloaded) return;
       reloaded = true;
+      logPwaEvent({ type: "controller-changed" });
       window.location.reload();
     };
     navigator.serviceWorker.addEventListener("controllerchange", onController);
@@ -74,8 +79,14 @@ export function ServiceWorkerUpdatePrompt() {
   if (!visible) return null;
 
   const reload = () => {
+    logPwaEvent({ type: "reload-clicked" });
     if (waiting) waiting.postMessage({ type: "SKIP_WAITING" });
     else window.location.reload();
+  };
+
+  const dismiss = () => {
+    logPwaEvent({ type: "prompt-dismissed" });
+    setVisible(false);
   };
 
   return (
