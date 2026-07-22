@@ -338,43 +338,94 @@ export type Database = {
       quote_requests: {
         Row: {
           address: string
+          city: string | null
+          city_slug: string | null
           contact_method: string
           created_at: string
+          distance_from_address: string | null
+          distance_km: number | null
+          driveway_meters: number | null
           email: string
+          estimate_high: number | null
+          estimate_low: number | null
+          estimate_unit: string | null
+          frequency: string | null
+          geocode_formatted: string | null
+          geocode_lat: number | null
+          geocode_lon: number | null
           id: string
           name: string
           notes: string | null
           phone: string
           postal_code: string
+          property_size: string | null
+          property_type: string | null
+          province: string | null
+          service_level: string | null
           service_type: string
+          source: string | null
           status: string
           updated_at: string
         }
         Insert: {
           address: string
+          city?: string | null
+          city_slug?: string | null
           contact_method: string
           created_at?: string
+          distance_from_address?: string | null
+          distance_km?: number | null
+          driveway_meters?: number | null
           email: string
+          estimate_high?: number | null
+          estimate_low?: number | null
+          estimate_unit?: string | null
+          frequency?: string | null
+          geocode_formatted?: string | null
+          geocode_lat?: number | null
+          geocode_lon?: number | null
           id?: string
           name: string
           notes?: string | null
           phone: string
           postal_code: string
+          property_size?: string | null
+          property_type?: string | null
+          province?: string | null
+          service_level?: string | null
           service_type: string
+          source?: string | null
           status?: string
           updated_at?: string
         }
         Update: {
           address?: string
+          city?: string | null
+          city_slug?: string | null
           contact_method?: string
           created_at?: string
+          distance_from_address?: string | null
+          distance_km?: number | null
+          driveway_meters?: number | null
           email?: string
+          estimate_high?: number | null
+          estimate_low?: number | null
+          estimate_unit?: string | null
+          frequency?: string | null
+          geocode_formatted?: string | null
+          geocode_lat?: number | null
+          geocode_lon?: number | null
           id?: string
           name?: string
           notes?: string | null
           phone?: string
           postal_code?: string
+          property_size?: string | null
+          property_type?: string | null
+          province?: string | null
+          service_level?: string | null
           service_type?: string
+          source?: string | null
           status?: string
           updated_at?: string
         }
