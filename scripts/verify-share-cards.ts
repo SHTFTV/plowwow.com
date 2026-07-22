@@ -147,6 +147,7 @@ async function writeFailArtifact(r: Report) {
 
 async function main() {
   const updateBaseline = process.argv.includes("--update-baseline");
+  const force = process.argv.includes("--force") || process.argv.includes("--no-cache");
   if (!existsSync(ROOT)) {
     console.log(`✓ verify-share-cards: no share cards found (${ROOT} missing)`);
     return;
@@ -154,6 +155,7 @@ async function main() {
   try { rmSync(FAIL_DIR, { recursive: true, force: true }); } catch { /* ignore */ }
 
   const ref = await loadRef();
+  const mascotHash = hashFile(MASCOT);
   const files = readdirSync(ROOT)
     .filter((f) => f.toLowerCase().endsWith(".jpg"))
     .map((f) => join(ROOT, f))
@@ -161,8 +163,31 @@ async function main() {
     .sort();
 
   const baseline: Baseline = existsSync(BASELINE) ? JSON.parse(readFileSync(BASELINE, "utf8")) : {};
+  const cache: Cache = !force && existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, "utf8")) : {};
+  const nextCache: Cache = {};
   const reports: Report[] = [];
-  for (const p of files) reports.push(await checkCard(p, ref, baseline));
+  let reused = 0;
+  for (const p of files) {
+    const name = basename(p);
+    const cardHash = hashFile(p);
+    const prev = cache[name];
+    const baselineFingerprint = JSON.stringify(baseline[name] ?? null);
+    const key = `${cardHash}|${mascotHash}|${baselineFingerprint}`;
+    const prevKey = prev ? `${prev.cardHash}|${prev.mascotHash}|${JSON.stringify(baseline[name] ?? null)}` : "";
+    if (prev && prev.report.pass && key === prevKey) {
+      // Source card + mascot reference + baseline row unchanged since a
+      // previously passing run — reuse the cached result and skip the
+      // expensive extract/MAE compute.
+      const cached = { ...prev.report, file: p };
+      reports.push(cached);
+      nextCache[name] = { cardHash, mascotHash, report: cached };
+      reused++;
+      continue;
+    }
+    const r = await checkCard(p, ref, baseline);
+    reports.push(r);
+    if (r.pass) nextCache[name] = { cardHash, mascotHash, report: r };
+  }
 
   const fails = reports.filter((r) => !r.pass);
   for (const r of fails) await writeFailArtifact(r);
