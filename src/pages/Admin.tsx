@@ -320,6 +320,9 @@ export default function Admin() {
               <Link to="/admin/quote-metrics"><BarChart3 className="h-4 w-4" /> Metrics</Link>
             </Button>
             <Button variant="outline" asChild>
+              <Link to="/admin/quote-recent">Recent by city</Link>
+            </Button>
+            <Button variant="outline" asChild>
               <Link to="/admin/quote-audit-log">Audit log</Link>
             </Button>
             <Button variant="outline" asChild>

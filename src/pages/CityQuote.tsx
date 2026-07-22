@@ -7,10 +7,12 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NotFound from "./NotFound";
+import AddressPreview from "@/components/city/AddressPreview";
 import { getCityBySlug } from "@/data/cities";
 import { getLocationDeep } from "@/data/locations";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import type { AddressGeocodeHit } from "@/lib/addressGeocode";
 import {
   estimatePrice,
   formatEstimate,
@@ -65,6 +67,8 @@ const CityQuote = () => {
 
   const [formStartedAt] = useState(() => Date.now());
   const [submitting, setSubmitting] = useState(false);
+  const [addressConfirmed, setAddressConfirmed] =
+    useState<AddressGeocodeHit | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteInput, string>>>({});
   const [form, setForm] = useState<QuoteInput>({
     name: "",
@@ -131,6 +135,7 @@ const CityQuote = () => {
   const update = <K extends keyof QuoteInput>(k: K, v: QuoteInput[K]) => {
     setForm((s) => ({ ...s, [k]: v }));
     setErrors((e) => ({ ...e, [k]: undefined }));
+    if (k === "address") setAddressConfirmed(null);
   };
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -148,6 +153,13 @@ const CityQuote = () => {
     }
     setSubmitting(true);
     try {
+      const geocodePayload = addressConfirmed
+        ? {
+            lat: addressConfirmed.lat,
+            lon: addressConfirmed.lon,
+            formatted: addressConfirmed.formatted,
+          }
+        : undefined;
       const { data, error } = await supabase.functions.invoke("submit-quote", {
         body: {
           ...parsed.data,
@@ -164,6 +176,7 @@ const CityQuote = () => {
             frequency: parsed.data.frequency,
             drivewayMeters: parsed.data.drivewayMeters,
           },
+          geocode: geocodePayload,
         },
       });
       if (error) throw error;
@@ -201,6 +214,49 @@ const CityQuote = () => {
           },
         })
         .catch((e) => console.warn("confirmation email failed", e));
+
+      // Persist a summary of the submission so /quote/confirmed can render
+      // a downloadable PDF without re-fetching anything from the server.
+      try {
+        const summary = {
+          quoteId: (data as { id?: string } | null)?.id ?? null,
+          submittedAt: new Date().toISOString(),
+          city: cityMeta.name,
+          citySlug: cityMeta.slug,
+          province: cityMeta.province,
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone,
+          address: parsed.data.address,
+          propertyType: parsed.data.propertyType,
+          serviceLevel: parsed.data.serviceLevel,
+          propertySize: parsed.data.propertySize,
+          frequency: parsed.data.frequency,
+          drivewayMeters: parsed.data.drivewayMeters,
+          notes: parsed.data.notes ?? "",
+          estimate: {
+            low: estimate.low,
+            high: estimate.high,
+            unit: estimate.unit,
+            visitsHint: estimate.visitsHint,
+          },
+          geocode: addressConfirmed
+            ? {
+                lat: addressConfirmed.lat,
+                lon: addressConfirmed.lon,
+                formatted: addressConfirmed.formatted,
+              }
+            : null,
+          avgSnowfallCm: avgSnowfall ?? null,
+        };
+        sessionStorage.setItem(
+          "plowwow.lastQuote",
+          JSON.stringify(summary),
+        );
+      } catch {
+        /* sessionStorage unavailable — PDF will render generic copy */
+      }
+
       navigate(`/quote/confirmed?city=${encodeURIComponent(cityMeta.slug)}`);
     } catch (err) {
       toast({
@@ -318,7 +374,17 @@ const CityQuote = () => {
                 />
               </div>
 
+              <AddressPreview
+                address={form.address}
+                city={cityMeta.name}
+                province={cityMeta.province}
+                confirmed={addressConfirmed}
+                onConfirm={setAddressConfirmed}
+                onEdit={() => setAddressConfirmed(null)}
+              />
+
               <div className="grid md:grid-cols-2 gap-4">
+
                 <Select
                   id="propertyType"
                   label="Property type"
@@ -418,15 +484,17 @@ const CityQuote = () => {
 
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !addressConfirmed}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-heading font-bold px-6 py-3 hover:opacity-90 disabled:opacity-60"
               >
                 {submitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" /> Sending…
                   </>
-                ) : (
+                ) : addressConfirmed ? (
                   <>Request my {cityMeta.name} quote</>
+                ) : (
+                  <>Confirm your address to continue</>
                 )}
               </button>
               <p className="text-xs text-muted-foreground text-center">

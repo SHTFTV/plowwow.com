@@ -8,26 +8,51 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
+const EstimatorSchema = z.object({
+  low: z.number().nonnegative(),
+  high: z.number().nonnegative(),
+  unit: z.string().max(40).optional(),
+  propertySize: z.string().max(40).optional(),
+  frequency: z.string().max(40).optional(),
+  drivewayMeters: z.number().nonnegative().optional(),
+}).partial().optional();
+
+const GeocodeSchema = z.object({
+  lat: z.number(),
+  lon: z.number(),
+  formatted: z.string().max(400).optional(),
+  distanceKm: z.number().nonnegative().optional(),
+  fromAddress: z.string().max(400).optional(),
+}).partial().optional();
+
 const QuoteSchema = z.object({
   name: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(255),
-  phone: z.string().trim().min(7).max(20).regex(/^[0-9+\-()\s]+$/),
+  phone: z.string().trim().min(7).max(30).regex(/^[0-9+\-()\s]+$/),
   address: z.string().trim().min(5).max(200),
   postalCode: z
     .string()
     .trim()
-    .regex(/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/),
-  serviceType: z.enum([
-    "residential-plowing",
-    "commercial-plowing",
-    "salting",
-    "snow-relocation",
-    "seasonal-contract",
-  ]),
-  contactMethod: z.enum(["phone", "email", "text"]),
-  notes: z.string().trim().max(1000).optional().or(z.literal("")),
+    .regex(/^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/)
+    .optional(),
+  serviceType: z.string().trim().min(2).max(60).optional(),
+  serviceLevel: z.string().trim().max(40).optional(),
+  propertyType: z.string().trim().max(40).optional(),
+  propertySize: z.string().trim().max(40).optional(),
+  frequency: z.string().trim().max(40).optional(),
+  drivewayMeters: z.coerce.number().nonnegative().optional(),
+  city: z.string().trim().max(80).optional(),
+  citySlug: z.string().trim().max(80).optional(),
+  province: z.string().trim().max(40).optional(),
+  source: z.string().trim().max(120).optional(),
+  estimator: EstimatorSchema,
+  geocode: GeocodeSchema,
+  contactMethod: z.enum(["phone", "email", "text"]).optional(),
+  notes: z.string().trim().max(2000).optional().or(z.literal("")),
   hp: z.string().max(0).optional(),
+  website: z.string().max(0).optional(),
   startedAt: z.number().int().positive().optional(),
+  formLoadedAt: z.number().int().positive().optional(),
 });
 
 const burstBucket = new Map<string, { count: number; resetAt: number }>();
@@ -206,13 +231,14 @@ Deno.serve(async (req) => {
       return jsonResponse(200, { success: true, code: "honeypot" });
     }
 
-    if (data.startedAt && Date.now() - data.startedAt < MIN_FORM_FILL_MS) {
+    const startTs = data.startedAt ?? data.formLoadedAt;
+    if (startTs && Date.now() - startTs < MIN_FORM_FILL_MS) {
       await logEvent({
         kind: "too_fast",
         email: data.email,
         ip,
         userAgent,
-        meta: { elapsed_ms: Date.now() - data.startedAt },
+        meta: { elapsed_ms: Date.now() - startTs },
       });
       return errorResponse(429, "too_fast");
     }
@@ -279,10 +305,27 @@ Deno.serve(async (req) => {
         email: data.email,
         phone: data.phone,
         address: data.address,
-        postal_code: data.postalCode.toUpperCase(),
-        service_type: data.serviceType,
-        contact_method: data.contactMethod,
+        postal_code: data.postalCode ? data.postalCode.toUpperCase() : null,
+        service_type: data.serviceType ?? data.serviceLevel ?? null,
+        service_level: data.serviceLevel ?? null,
+        contact_method: data.contactMethod ?? null,
         notes: data.notes || null,
+        city: data.city ?? null,
+        city_slug: data.citySlug ?? null,
+        province: data.province ?? null,
+        property_type: data.propertyType ?? null,
+        property_size: data.propertySize ?? data.estimator?.propertySize ?? null,
+        frequency: data.frequency ?? data.estimator?.frequency ?? null,
+        driveway_meters: data.drivewayMeters ?? data.estimator?.drivewayMeters ?? null,
+        estimate_low: data.estimator?.low ?? null,
+        estimate_high: data.estimator?.high ?? null,
+        estimate_unit: data.estimator?.unit ?? null,
+        geocode_lat: data.geocode?.lat ?? null,
+        geocode_lon: data.geocode?.lon ?? null,
+        geocode_formatted: data.geocode?.formatted ?? null,
+        distance_km: data.geocode?.distanceKm ?? null,
+        distance_from_address: data.geocode?.fromAddress ?? null,
+        source: data.source ?? null,
       })
       .select("id")
       .single();
