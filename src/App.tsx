@@ -78,6 +78,7 @@ const App = () => (
             <Route path="/admin/quote-denylist" element={<AdminQuoteDenylist />} />
             <Route path="/admin/quote-alerts" element={<AdminQuoteAlerts />} />
             <Route path="/admin/quote-audit-log" element={<AdminQuoteAuditLog />} />
+            <Route path="/admin/pwa-diagnostics" element={<PwaDiagnostics />} />
             <Route path="/admin/quote-recent" element={<AdminQuoteRecent />} />
             <Route path="/burnaby" element={<Burnaby />} />
             <Route path="/seo-report" element={<SeoReport />} />
