@@ -221,9 +221,11 @@ async function main() {
     generatedAt: new Date().toISOString(),
     total: reports.length,
     failed: fails.length,
+    reusedFromCache: reused,
     expected: { width: EXPECTED_W, height: EXPECTED_H },
     maeThreshold: MAE_THRESHOLD,
     baselineFile: relative(process.cwd(), BASELINE),
+    cacheFile: relative(process.cwd(), CACHE_FILE),
     debugArtifactsDir: fails.length ? relative(process.cwd(), FAIL_DIR) : null,
     results: reports.map((r) => ({ ...r, file: relative(process.cwd(), r.file) })),
   }, null, 2));
