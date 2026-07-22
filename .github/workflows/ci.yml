@@ -38,6 +38,17 @@ jobs:
       - name: Run tests
         run: bun run test
 
+      - name: Validate PWA manifest icons
+        run: bun run pwa:icons
+
+      - name: Upload PWA icon report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pwa-icon-report
+          path: /mnt/documents/pwa-icon-report.json
+          if-no-files-found: ignore
+
   rls-regression:
     name: RLS Regression (live)
     runs-on: ubuntu-latest
