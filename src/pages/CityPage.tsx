@@ -150,8 +150,12 @@ const CityPage = () => {
 
   const otherCities = cities.filter((c) => c.slug !== city.slug);
   const { sections: copySections } = buildCityCopy(city);
+  const locationDeep = getLocationDeep(city.slug);
 
-  return (
+  // Merge FAQs from deep data if present
+  const mergedFaqs = locationDeep
+    ? [...locationDeep.faq.map((f) => ({ q: f.q, a: f.a })), ...city.faqs]
+    : city.faqs;
     <div className="min-h-screen">
       <script
         type="application/ld+json"
