@@ -32,6 +32,8 @@ import {
 import { getCityBySlug, cities } from "@/data/cities";
 import { truncateForMeta } from "@/lib/seo";
 import { postsForCity } from "@/lib/internalLinks";
+import { getLocationDeep } from "@/data/locations";
+import CityDeepDive from "@/components/CityDeepDive";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
