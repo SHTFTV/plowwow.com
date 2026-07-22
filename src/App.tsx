@@ -45,6 +45,7 @@ const AuthorPage = lazy(() => import("./pages/AuthorPage.tsx"));
 const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm.tsx"));
 const CityQuote = lazy(() => import("./pages/CityQuote.tsx"));
 const QuoteConfirmed = lazy(() => import("./pages/QuoteConfirmed.tsx"));
+const PwaDiagnostics = lazy(() => import("./pages/PwaDiagnostics.tsx"));
 
 const queryClient = new QueryClient();
 
