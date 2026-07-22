@@ -1,0 +1,22 @@
+{
+  "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
+  "expected": {
+    "width": 1200,
+    "height": 630
+  },
+  "actual": {
+    "width": 1200,
+    "height": 630
+  },
+  "mae": 78.99,
+  "maeThreshold": 28,
+  "expectedMascotRect": {
+    "left": 816,
+    "top": 263,
+    "width": 336,
+    "height": 336
+  },
+  "reasons": [
+    "mascot MAE 79.0 > 28"
+  ]
+}
