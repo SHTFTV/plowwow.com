@@ -64,8 +64,24 @@ export function preloadTopRoutes() {
   // without contending with any late main-thread work on the homepage.
   const kick = (i: number) => {
     if (i >= PRELOAD_QUEUE.length) return;
-    idle(() => {
-      PRELOAD_QUEUE[i].load().catch(() => { /* silent — real nav will surface real errors */ });
+    idle(async () => {
+      const entry = PRELOAD_QUEUE[i];
+      try {
+        const mod = await entry.load();
+        // Optional per-page prefetch hook: a lazy page can export
+        //   export async function prefetch() { ... }
+        // to warm its own data (React Query prefetchQuery, static JSON,
+        // etc.) so the first render after navigation is instant.
+        const p = (mod as { prefetch?: () => Promise<unknown> | unknown }).prefetch;
+        if (typeof p === "function") { try { await p(); } catch { /* silent */ } }
+      } catch { /* real nav will surface real errors */ }
+      // Warm the HTTP cache for static assets the route paints first.
+      // `no-cors` keeps this safe cross-origin and avoids CORS preflights;
+      // `keepalive` lets it survive page-unload during rapid clicks.
+      for (const url of entry.assets ?? []) {
+        try { void fetch(url, { credentials: "omit", mode: "no-cors", keepalive: true, cache: "force-cache" }); }
+        catch { /* silent */ }
+      }
       kick(i + 1);
     }, 1500);
   };
