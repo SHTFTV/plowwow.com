@@ -101,7 +101,7 @@ export function ServiceWorkerUpdatePrompt() {
       </p>
       <div className="mt-3 flex gap-2">
         <Button size="sm" onClick={reload}>Reload</Button>
-        <Button size="sm" variant="ghost" onClick={() => setVisible(false)}>Later</Button>
+        <Button size="sm" variant="ghost" onClick={dismiss}>Later</Button>
       </div>
     </div>
   );
