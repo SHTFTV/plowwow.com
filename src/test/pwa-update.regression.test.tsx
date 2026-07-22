@@ -95,7 +95,7 @@ describe("PWA update regression", () => {
     // 3. Simulate controllerchange after new SW activates
     await act(async () => { (sw as any)._emit("controllerchange", {}); });
     expect(readPwaEvents().some((e) => e.type === "controller-changed")).toBe(true);
-    expect(reloadSpy).toHaveBeenCalled();
+    expect(reloadFn).toHaveBeenCalled();
 
     // 4. Simulate the SW `activate` step running its cache purge on the
     //    same environment — every prior pw-* cache is deleted.
