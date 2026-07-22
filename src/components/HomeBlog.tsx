@@ -36,14 +36,17 @@ const HomeBlog = () => (
         </Link>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        aria-label="Latest blog posts"
+      >
         {latestPosts.map((p) => (
           <Link
             key={p.slug}
             to={`/${p.slug}`}
-            className="group flex flex-col rounded-2xl overflow-hidden border border-border bg-card hover:border-primary/50 hover:shadow-lg transition"
+            className="group flex min-w-[82%] snap-start flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-primary/50 hover:shadow-lg sm:min-w-[calc(50%-0.75rem)] lg:min-w-[calc(25%-1.125rem)]"
           >
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
+            <div className="aspect-video overflow-hidden bg-muted">
               <img
                 src={p.image ?? "/og-default.jpg"}
                 alt={p.alt}
@@ -51,7 +54,7 @@ const HomeBlog = () => (
                 loading="lazy"
                 width={1280}
                 height={720}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                className="h-full w-full object-cover object-right-bottom transition duration-500 group-hover:scale-105"
               />
             </div>
             <div className="p-5 flex flex-col flex-1">
