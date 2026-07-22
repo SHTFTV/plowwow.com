@@ -94,6 +94,7 @@ const HomeBlog = () => (
           </Link>
         ))}
       </div>
+      <HomeBlogDiagnostics renderedSlugs={renderedSlugs} />
     </div>
   </section>
 );
