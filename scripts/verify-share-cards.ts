@@ -242,7 +242,7 @@ async function main() {
     console.error(`  - bun run tsx scripts/verify-share-cards.ts --update-baseline   # accept new dimensions`);
     process.exit(1);
   }
-  console.log(`✓ verify-share-cards: ${reports.length} cards @ ${EXPECTED_W}x${EXPECTED_H}, mascot verified, baseline stable`);
+  console.log(`✓ verify-share-cards: ${reports.length} cards @ ${EXPECTED_W}x${EXPECTED_H}, mascot verified, baseline stable${reused ? ` (reused ${reused} from cache)` : ""}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
