@@ -153,6 +153,13 @@ const CityQuote = () => {
     }
     setSubmitting(true);
     try {
+      const geocodePayload = addressConfirmed
+        ? {
+            lat: addressConfirmed.lat,
+            lon: addressConfirmed.lon,
+            formatted: addressConfirmed.formatted,
+          }
+        : undefined;
       const { data, error } = await supabase.functions.invoke("submit-quote", {
         body: {
           ...parsed.data,
@@ -169,6 +176,7 @@ const CityQuote = () => {
             frequency: parsed.data.frequency,
             drivewayMeters: parsed.data.drivewayMeters,
           },
+          geocode: geocodePayload,
         },
       });
       if (error) throw error;
