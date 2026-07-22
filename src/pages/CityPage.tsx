@@ -40,8 +40,12 @@ const CityPage = () => {
   // Normalize: strip any trailing slashes from the route param before lookup
   const normalizedSlug = citySlug?.replace(/\/+$/, "");
   const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
+  const locationDeep = normalizedSlug ? getLocationDeep(normalizedSlug) : undefined;
 
   if (!city) return <NotFound />;
+  const mergedFaqs = locationDeep
+    ? [...locationDeep.faq, ...city.faqs]
+    : city.faqs;
 
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = truncateForMeta(city.intro);
