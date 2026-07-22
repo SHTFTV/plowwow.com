@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
 import RoutePreloader from "./components/RoutePreloader";
+import { ServiceWorkerUpdatePrompt } from "./components/pwa/ServiceWorkerUpdatePrompt";
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 
 // Route-level code splitting: keep the homepage + NotFound + LegacyPage
@@ -60,6 +61,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RoutePreloader />
+        <ServiceWorkerUpdatePrompt />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />

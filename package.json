@@ -16,6 +16,7 @@
     "seo:jsonld-schema": "tsx scripts/jsonld-schema-validate.ts",
     "seo:sitemap-diff": "tsx scripts/sitemap-diff.ts",
     "seo:sitemap-baseline": "tsx scripts/sitemap-diff.ts --update",
+    "pwa:icons": "tsx scripts/validate-pwa-icons.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
