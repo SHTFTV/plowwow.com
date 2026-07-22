@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { logPwaEvent } from "@/lib/pwaEventLog";
 
 /**
  * Listens for two update signals from the service worker:
@@ -35,6 +36,7 @@ export function ServiceWorkerUpdatePrompt() {
         if (!sw) return;
         setWaiting(sw);
         setVisible(true);
+        logPwaEvent({ type: "prompt-shown" });
       };
 
       trackWaiting(reg.waiting);
@@ -51,7 +53,10 @@ export function ServiceWorkerUpdatePrompt() {
     });
 
     const onMessage = (evt: MessageEvent) => {
-      if (evt.data && evt.data.type === "sw-updated") setVisible(true);
+      if (evt.data && evt.data.type === "sw-updated") {
+        setVisible(true);
+        logPwaEvent({ type: "sw-updated", version: evt.data.version });
+      }
     };
     navigator.serviceWorker.addEventListener("message", onMessage);
 
@@ -59,6 +64,7 @@ export function ServiceWorkerUpdatePrompt() {
     const onController = () => {
       if (reloaded) return;
       reloaded = true;
+      logPwaEvent({ type: "controller-changed" });
       window.location.reload();
     };
     navigator.serviceWorker.addEventListener("controllerchange", onController);
@@ -73,8 +79,14 @@ export function ServiceWorkerUpdatePrompt() {
   if (!visible) return null;
 
   const reload = () => {
+    logPwaEvent({ type: "reload-clicked" });
     if (waiting) waiting.postMessage({ type: "SKIP_WAITING" });
     else window.location.reload();
+  };
+
+  const dismiss = () => {
+    logPwaEvent({ type: "prompt-dismissed" });
+    setVisible(false);
   };
 
   return (
@@ -89,7 +101,7 @@ export function ServiceWorkerUpdatePrompt() {
       </p>
       <div className="mt-3 flex gap-2">
         <Button size="sm" onClick={reload}>Reload</Button>
-        <Button size="sm" variant="ghost" onClick={() => setVisible(false)}>Later</Button>
+        <Button size="sm" variant="ghost" onClick={dismiss}>Later</Button>
       </div>
     </div>
   );
