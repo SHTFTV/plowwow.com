@@ -52,6 +52,24 @@ export default function PwaDiagnostics() {
     refreshEvents();
   };
   const killSw = () => { window.location.assign("/?sw=off"); };
+  const hardReset = async () => {
+    try {
+      if ("serviceWorker" in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.allSettled(regs.map((r) => r.unregister()));
+      }
+      if ("caches" in window) {
+        const names = await caches.keys();
+        await Promise.allSettled(names.map((n) => caches.delete(n)));
+      }
+      try { localStorage.removeItem("pwa-event-log"); } catch { /* noop */ }
+    } finally {
+      // Force a network fetch of the freshest HTML; bypass HTTP cache.
+      const url = new URL(window.location.href);
+      url.searchParams.set("_cb", String(Date.now()));
+      window.location.replace(url.toString());
+    }
+  };
 
   const icons: ManifestIcon[] = manifest?.icons || [];
 
@@ -75,6 +93,7 @@ export default function PwaDiagnostics() {
         <div className="mt-4 flex flex-wrap gap-2">
           <button onClick={forceCheck} className="rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground">Check for update</button>
           <button onClick={killSw} className="rounded-md border border-border px-3 py-1.5 text-xs font-semibold">Kill switch (?sw=off)</button>
+          <button onClick={hardReset} className="rounded-md bg-destructive px-3 py-1.5 text-xs font-semibold text-destructive-foreground">Reset caches & reload</button>
         </div>
       </section>
 
