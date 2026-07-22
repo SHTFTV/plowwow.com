@@ -73,9 +73,33 @@ const CityQuote = () => {
     address: "",
     propertyType: "strata",
     serviceLevel: "seasonal",
+    propertySize: "medium",
+    frequency: "every-2cm",
+    drivewayMeters: 0,
     notes: "",
     website: "",
   });
+
+  const avgSnowfall = deep?.avg_annual_snowfall_cm;
+  const estimate = useMemo(
+    () =>
+      estimatePrice({
+        propertyType: form.propertyType,
+        serviceLevel: form.serviceLevel,
+        propertySize: form.propertySize,
+        drivewayMeters: Number(form.drivewayMeters) || 0,
+        frequency: form.frequency,
+        avgSnowfallCm: avgSnowfall,
+      }),
+    [
+      form.propertyType,
+      form.serviceLevel,
+      form.propertySize,
+      form.frequency,
+      form.drivewayMeters,
+      avgSnowfall,
+    ],
+  );
 
   useEffect(() => {
     if (!cityMeta) return;
