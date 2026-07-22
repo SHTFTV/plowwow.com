@@ -1,0 +1,54 @@
+name: Verify live carousel
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # 08:00 UTC nightly
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      # Regenerate the local expected state from src/content so drift is
+      # measured against what SHOULD be live.
+      - run: bunx tsx scripts/generate-blog-index.ts
+      - name: Verify against production
+        id: verify
+        run: |
+          mkdir -p seo-report
+          set +e
+          PLOWWOW_LIVE_URL=https://plowwow.com bunx tsx scripts/verify-live-carousel.ts | tee seo-report/live-carousel.log
+          echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Summarize
+        if: always()
+        run: |
+          {
+            echo "## Live carousel verification"
+            echo ""
+            echo '```'
+            cat seo-report/live-carousel.log || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-carousel-report
+          path: |
+            seo-report/live-carousel.log
+            public/blog-index.json
+      - name: Fail if stale
+        if: always()
+        run: |
+          if [ "${{ steps.verify.outputs.exit }}" != "exit=0" ] && [ "${{ steps.verify.outputs.exit }}" != "0" ]; then
+            # exit output line is "exit=<code>"
+            code="${{ steps.verify.outputs.exit }}"
+            code="${code#exit=}"
+            if [ "$code" != "0" ]; then
+              echo "verify-live-carousel exited with code $code"
+              exit "$code"
+            fi
+          fi
