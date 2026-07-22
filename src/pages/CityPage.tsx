@@ -32,14 +32,20 @@ import {
 import { getCityBySlug, cities } from "@/data/cities";
 import { truncateForMeta } from "@/lib/seo";
 import { postsForCity } from "@/lib/internalLinks";
+import { getLocationDeep } from "@/data/locations";
+import CityDeepDive from "@/components/CityDeepDive";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
   // Normalize: strip any trailing slashes from the route param before lookup
   const normalizedSlug = citySlug?.replace(/\/+$/, "");
   const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
+  const locationDeep = normalizedSlug ? getLocationDeep(normalizedSlug) : undefined;
 
   if (!city) return <NotFound />;
+  const mergedFaqs = locationDeep
+    ? [...locationDeep.faq, ...city.faqs]
+    : city.faqs;
 
   const pageTitle = `${city.tagline} | PlowWow`;
   const pageDescription = truncateForMeta(city.intro);
@@ -129,7 +135,7 @@ const CityPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: city.faqs.map((f) => ({
+    mainEntity: mergedFaqs.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -151,6 +157,14 @@ const CityPage = () => {
 
   return (
     <div className="min-h-screen">
+      {locationDeep && (
+        <>
+          <meta name="geo.region" content="CA-BC" />
+          <meta name="geo.placename" content={`${locationDeep.city}, British Columbia`} />
+          <meta name="geo.position" content={`${locationDeep.lat};${locationDeep.lng}`} />
+          <meta name="ICBM" content={`${locationDeep.lat}, ${locationDeep.lng}`} />
+        </>
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -378,6 +392,8 @@ const CityPage = () => {
           </div>
         </section>
 
+        {locationDeep && <CityDeepDive data={locationDeep} />}
+
         {/* FAQ */}
         <section className="py-20 bg-muted/30">
           <div className="container max-w-3xl">
@@ -388,7 +404,7 @@ const CityPage = () => {
               <p className="text-muted-foreground">Answers to the questions we hear most.</p>
             </div>
             <Accordion type="single" collapsible className="space-y-3">
-              {city.faqs.map((f, i) => (
+              {mergedFaqs.map((f, i) => (
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
