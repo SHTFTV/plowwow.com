@@ -1,13 +1,15 @@
 {
-  "generatedAt": "2026-07-22T00:26:51.465Z",
+  "generatedAt": "2026-07-22T00:32:56.424Z",
   "total": 118,
   "failed": 0,
+  "reusedFromCache": 0,
   "expected": {
     "width": 1200,
     "height": 630
   },
   "maeThreshold": 28,
   "baselineFile": "seo-report/share-cards-baseline.json",
+  "cacheFile": ".cache/share-cards.json",
   "debugArtifactsDir": null,
   "results": [
     {
