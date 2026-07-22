@@ -67,6 +67,8 @@ const CityQuote = () => {
 
   const [formStartedAt] = useState(() => Date.now());
   const [submitting, setSubmitting] = useState(false);
+  const [addressConfirmed, setAddressConfirmed] =
+    useState<AddressGeocodeHit | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteInput, string>>>({});
   const [form, setForm] = useState<QuoteInput>({
     name: "",
