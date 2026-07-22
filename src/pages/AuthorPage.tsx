@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { legacyBlogSlugs } from "./LegacyPage";
+import { legacyBlogSlugs } from "@/legacy-slug-list";
 import NotFound from "./NotFound";
 
 // Currently a single team author. Adding another author is as easy as

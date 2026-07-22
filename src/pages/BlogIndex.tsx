@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { legacyBlogSlugs } from "./LegacyPage";
+import { legacyBlogSlugs } from "@/legacy-slug-list";
 import { blogPosts } from "@/generated/blog-posts";
 
 const blogPostBySlug = new Map(blogPosts.map((p) => [p.slug, p]));
