@@ -1,0 +1,24 @@
+{
+  "$schema": "./bundle-budgets.schema.json",
+  "note": "Gzipped size budgets in kB per chunk. Fails the build if any matching JS chunk exceeds its budget. Update deliberately when a real dep landed and gzip size is justified.",
+  "defaultChunkKb": 250,
+  "totalInitialKb": 260,
+  "budgets": {
+    "index":            { "kb": 60 },
+    "vendor-react":     { "kb": 60 },
+    "vendor-radix":     { "kb": 90 },
+    "vendor-tanstack":  { "kb": 20 },
+    "vendor-supabase":  { "kb": 45 },
+    "vendor-charts":    { "kb": 120 },
+    "vendor-xlsx":      { "kb": 180 },
+    "vendor-exceljs":   { "kb": 260 },
+    "vendor-jspdf":     { "kb": 220 },
+    "vendor-markdown":  { "kb": 100 },
+    "vendor-forms":     { "kb": 45 },
+    "vendor-dates":     { "kb": 30 },
+    "vendor-icons":     { "kb": 25 },
+    "vendor-carousel":  { "kb": 20 },
+    "vendor-motion":    { "kb": 60 },
+    "vendor":           { "kb": 100 }
+  }
+}

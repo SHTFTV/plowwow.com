@@ -1,27 +1,58 @@
 // Deterministically composites the REAL Wow mascot (src/assets/wow-mascot.png)
 // onto every blog hero, theme background, and pre-existing neighborhoods OG
-// image. Idempotent: re-running overlays the mascot again at the same
-// canonical position (bottom-right, 28% width, 4% right / 5% bottom margin).
-// This ensures every share card and hero uses the real mascot even if a
-// previous generation had an AI-drawn mascot elsewhere in the frame.
+// image at the canonical position (bottom-right, 28% width, 4% right / 5%
+// bottom margin).
 //
-// Run: bun run tsx scripts/regenerate-blog-og-mascots.ts
+// Incremental: keeps a manifest at .cache/mascot-og.json mapping each output
+// path to a fingerprint (mascot mtime + placement + image content hash). On
+// re-runs, only images whose fingerprint changed are recomposed. Pass
+// `--force` to rebuild all.
+//
+// Run: bun run tsx scripts/regenerate-blog-og-mascots.ts [--force]
 
 import sharp from "sharp";
-import { readdirSync, readFileSync, renameSync, statSync } from "node:fs";
-import { resolve, join } from "node:path";
+import { createHash } from "node:crypto";
+import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
 
 const MASCOT = resolve("src/assets/wow-mascot.png");
 const ROOT = resolve("public/blog-images");
 const NEIGHBORHOODS = join(ROOT, "_neighborhoods");
+const CACHE_DIR = resolve(".cache");
+const CACHE_FILE = join(CACHE_DIR, "mascot-og.json");
 
-// Canonical placement — kept in sync with scripts/apply-real-mascot.ts and
-// exported so the verifier uses the exact same rule.
 export const MASCOT_PLACEMENT = {
   widthRatio: 0.28,
   rightMarginRatio: 0.04,
   bottomMarginRatio: 0.05,
 };
+
+const PLACEMENT_KEY = `w${MASCOT_PLACEMENT.widthRatio}-r${MASCOT_PLACEMENT.rightMarginRatio}-b${MASCOT_PLACEMENT.bottomMarginRatio}`;
+
+type Manifest = Record<string, string>;
+
+function loadManifest(): Manifest {
+  try { return JSON.parse(readFileSync(CACHE_FILE, "utf8")) as Manifest; } catch { return {}; }
+}
+function saveManifest(m: Manifest) {
+  mkdirSync(CACHE_DIR, { recursive: true });
+  writeFileSync(CACHE_FILE, JSON.stringify(m, null, 2));
+}
+
+function hashFile(p: string): string {
+  const buf = readFileSync(p);
+  return createHash("sha1").update(buf).digest("hex").slice(0, 16);
+}
+
+// Fingerprint = mascot file hash + placement + current image bytes hash.
+// A recompose changes the image bytes, so we hash BEFORE composing and store
+// that key; next run re-hashes the (already-composited) file. Together with
+// the mascot hash + placement key this reliably detects (a) new heroes, (b)
+// mascot swap, (c) placement change, (d) an image that was overwritten
+// outside this script.
+function fingerprint(imgPath: string, mascotHash: string): string {
+  return `${mascotHash}|${PLACEMENT_KEY}|${hashFile(imgPath)}`;
+}
 
 export async function composeMascot(imgPath: string) {
   const buf = readFileSync(imgPath);
@@ -34,6 +65,7 @@ export async function composeMascot(imgPath: string) {
   const mH = mMeta.height ?? targetW;
   const left = Math.round(W - targetW - W * MASCOT_PLACEMENT.rightMarginRatio);
   const top = Math.round(H - mH - H * MASCOT_PLACEMENT.bottomMarginRatio);
+  mkdirSync(dirname(imgPath), { recursive: true });
   await sharp(buf)
     .composite([{ input: mascot, left, top }])
     .jpeg({ quality: 84, progressive: true, mozjpeg: true })
@@ -50,20 +82,35 @@ function listJpgs(dir: string): string[] {
 }
 
 async function main() {
-  const heroes = listJpgs(ROOT);
-  let neighborhoods: string[] = [];
-  try { neighborhoods = listJpgs(NEIGHBORHOODS); } catch { /* dir may not exist yet */ }
-
+  const force = process.argv.includes("--force");
+  const heroes = existsSync(ROOT) ? listJpgs(ROOT) : [];
+  const neighborhoods = existsSync(NEIGHBORHOODS) ? listJpgs(NEIGHBORHOODS) : [];
   const targets = [...heroes, ...neighborhoods];
-  let ok = 0;
+
+  const mascotHash = hashFile(MASCOT);
+  const manifest = force ? {} : loadManifest();
+  const next: Manifest = {};
+
+  let changed = 0;
+  let skipped = 0;
   for (const p of targets) {
+    const fp = fingerprint(p, mascotHash);
+    if (!force && manifest[p] === fp) {
+      // Already contains the mascot with the current placement; leave alone.
+      next[p] = fp;
+      skipped++;
+      continue;
+    }
     await composeMascot(p);
-    ok++;
+    // Recompute fingerprint over the newly-composited bytes so subsequent
+    // runs recognize this file as up-to-date.
+    next[p] = fingerprint(p, mascotHash);
+    changed++;
   }
-  console.log(`✓ real mascot composited on ${ok} images (${heroes.length} heroes/themes + ${neighborhoods.length} neighborhoods OG)`);
+  saveManifest(next);
+  console.log(`✓ mascot composited: ${changed} regenerated, ${skipped} cached (${targets.length} total)${force ? " [--force]" : ""}`);
 }
 
-// Only run when invoked directly, not when imported by the verifier.
 const invokedDirectly = import.meta.url === `file://${process.argv[1]}`;
 if (invokedDirectly) {
   main().catch((e) => { console.error(e); process.exit(1); });
