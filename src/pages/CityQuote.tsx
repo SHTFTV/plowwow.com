@@ -214,6 +214,49 @@ const CityQuote = () => {
           },
         })
         .catch((e) => console.warn("confirmation email failed", e));
+
+      // Persist a summary of the submission so /quote/confirmed can render
+      // a downloadable PDF without re-fetching anything from the server.
+      try {
+        const summary = {
+          quoteId: (data as { id?: string } | null)?.id ?? null,
+          submittedAt: new Date().toISOString(),
+          city: cityMeta.name,
+          citySlug: cityMeta.slug,
+          province: cityMeta.province,
+          name: parsed.data.name,
+          email: parsed.data.email,
+          phone: parsed.data.phone,
+          address: parsed.data.address,
+          propertyType: parsed.data.propertyType,
+          serviceLevel: parsed.data.serviceLevel,
+          propertySize: parsed.data.propertySize,
+          frequency: parsed.data.frequency,
+          drivewayMeters: parsed.data.drivewayMeters,
+          notes: parsed.data.notes ?? "",
+          estimate: {
+            low: estimate.low,
+            high: estimate.high,
+            unit: estimate.unit,
+            visitsHint: estimate.visitsHint,
+          },
+          geocode: addressConfirmed
+            ? {
+                lat: addressConfirmed.lat,
+                lon: addressConfirmed.lon,
+                formatted: addressConfirmed.formatted,
+              }
+            : null,
+          avgSnowfallCm: avgSnowfall ?? null,
+        };
+        sessionStorage.setItem(
+          "plowwow.lastQuote",
+          JSON.stringify(summary),
+        );
+      } catch {
+        /* sessionStorage unavailable — PDF will render generic copy */
+      }
+
       navigate(`/quote/confirmed?city=${encodeURIComponent(cityMeta.slug)}`);
     } catch (err) {
       toast({
