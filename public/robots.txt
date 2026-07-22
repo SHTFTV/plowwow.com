@@ -3,6 +3,7 @@ Allow: /
 Disallow: /admin
 Disallow: /auth
 Disallow: /api/
+Disallow: /publish-helper
 
 User-agent: Googlebot
 Allow: /
