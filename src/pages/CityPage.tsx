@@ -461,13 +461,16 @@ const CityPage = () => {
           );
         })()}
 
-        {/* Other cities */}
-        <section className="py-14 border-t border-border">
+        {/* Nearby cities — distance-ranked */}
+        <RelatedCities citySlug={city.slug} cityName={city.name} count={4} />
+
+        {/* Full service-area list */}
+        <section className="py-10 border-t border-border">
           <div className="container">
-            <h2 className="text-2xl font-black text-foreground mb-1">
-              Other cities we plow
+            <h2 className="text-xl font-black text-foreground mb-1">
+              Every city we plow
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-4 text-sm">
               From Vancouver to Abbotsford — same crews, same response standards.
             </p>
             <div className="flex flex-wrap gap-2">
