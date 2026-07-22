@@ -50,6 +50,55 @@ type CityTextInput = {
   faqs: { q: string; a: string }[];
 };
 
+// Burnaby is rendered by src/pages/Burnaby.tsx with a set of bespoke
+// components rather than buildCityCopy. Approximate the rendered word
+// count by extracting visible strings (JSX text nodes and string/template
+// literals) from those component files.
+function extractTsxWords(paths: string[]): number {
+  let words = 0;
+  for (const path of paths) {
+    let source: string;
+    try {
+      source = readFileSync(path, "utf8");
+    } catch {
+      continue;
+    }
+    // strip imports and comments
+    source = source
+      .replace(/^\s*import[^;]+;?$/gm, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "")
+      .replace(/^\s*\/\/.*$/gm, "");
+
+    // JSX text between tags: > ... <
+    for (const m of source.matchAll(/>([^<>{}]{4,})</g)) {
+      const t = m[1].trim();
+      if (t) words += wc(t);
+    }
+    // string literals ("...", '...', `...`)
+    for (const m of source.matchAll(
+      /(["'`])((?:\\.|(?!\1)[\s\S]){6,}?)\1/g,
+    )) {
+      const t = m[2]
+        .replace(/\\n|\\r|\\t/g, " ")
+        .replace(/\$\{[^}]+\}/g, " ")
+        .trim();
+      // ignore obvious classnames/paths
+      if (/^[\w-\s:./]+$/.test(t) && !/\s/.test(t)) continue;
+      if (t.length < 8) continue;
+      words += wc(t);
+    }
+  }
+  return words;
+}
+
+function burnabyExtraWords(): number {
+  const dir = "src/components/burnaby";
+  const files = readdirSync(dir)
+    .filter((f) => f.endsWith(".tsx"))
+    .map((f) => join(dir, f));
+  return extractTsxWords(files);
+}
+
 function countCityWords(city: CityTextInput): number {
   const deep = getLocationDeep(city.slug);
   const parts: string[] = [];
