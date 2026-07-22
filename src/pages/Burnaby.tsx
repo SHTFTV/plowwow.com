@@ -13,6 +13,8 @@ import SeasonalPackages from "@/components/burnaby/SeasonalPackages";
 import BurnabyFAQ from "@/components/burnaby/BurnabyFAQ";
 import StickyCallBar from "@/components/burnaby/StickyCallBar";
 import CityDeepDive from "@/components/CityDeepDive";
+import DirectionsCard from "@/components/city/DirectionsCard";
+import RelatedCities from "@/components/city/RelatedCities";
 import { getLocationDeep } from "@/data/locations";
 
 const Burnaby = () => {
