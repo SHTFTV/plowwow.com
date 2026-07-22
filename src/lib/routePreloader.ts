@@ -12,16 +12,27 @@
 
 type Importer = () => Promise<unknown>;
 
+type PreloadEntry = {
+  name: string;
+  // Dynamic import specifier — MUST match the one used in App.tsx's
+  // React.lazy so the browser hits the module cache on real navigation.
+  load: () => Promise<Record<string, unknown>>;
+  // Static assets rendered on first paint of that route. Prefetching them
+  // through the HTTP cache means the route's first render can hit disk
+  // cache instead of network. No parsing cost, no main-thread cost.
+  assets?: string[];
+};
+
 // Ordered by observed traffic (analytics + prerendered route weight): city
 // pages are the top crawler + user destination, /blog and /quote convert,
 // and BlogNeighborhoods is heavily internally linked from the homepage.
-const PRELOAD_QUEUE: Array<{ name: string; load: Importer }> = [
-  { name: "CityPage", load: () => import("@/pages/CityPage.tsx") },
-  { name: "LegacyPage", load: () => import("@/pages/LegacyPage.tsx") },
-  { name: "BlogIndex", load: () => import("@/pages/BlogIndex.tsx") },
+const PRELOAD_QUEUE: PreloadEntry[] = [
+  { name: "CityPage", load: () => import("@/pages/CityPage.tsx"), assets: ["/og-default.jpg"] },
+  { name: "LegacyPage", load: () => import("@/pages/LegacyPage.tsx"), assets: ["/og-default.jpg"] },
+  { name: "BlogIndex", load: () => import("@/pages/BlogIndex.tsx"), assets: ["/rss.xml"] },
   { name: "Quote", load: () => import("@/pages/Quote.tsx") },
-  { name: "BlogNeighborhoods", load: () => import("@/pages/BlogNeighborhoods.tsx") },
-  { name: "Locations", load: () => import("@/pages/Locations.tsx") },
+  { name: "BlogNeighborhoods", load: () => import("@/pages/BlogNeighborhoods.tsx"), assets: ["/sitemap-neighborhoods.xml"] },
+  { name: "Locations", load: () => import("@/pages/Locations.tsx"), assets: ["/link-audit.json"] },
 ];
 
 function connectionOk(): boolean {
