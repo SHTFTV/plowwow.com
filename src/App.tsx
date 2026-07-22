@@ -61,6 +61,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RoutePreloader />
+        <ServiceWorkerUpdatePrompt />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
