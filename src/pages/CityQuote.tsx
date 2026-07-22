@@ -156,6 +156,14 @@ const CityQuote = () => {
           province: cityMeta.province,
           source: `city-quote/${cityMeta.slug}`,
           formLoadedAt: formStartedAt,
+          estimator: {
+            low: estimate.low,
+            high: estimate.high,
+            unit: estimate.unit,
+            propertySize: parsed.data.propertySize,
+            frequency: parsed.data.frequency,
+            drivewayMeters: parsed.data.drivewayMeters,
+          },
         },
       });
       if (error) throw error;
@@ -168,6 +176,31 @@ const CityQuote = () => {
         });
         return;
       }
+      // Fire-and-forget confirmation email — never block the redirect if
+      // Resend is temporarily unavailable.
+      supabase.functions
+        .invoke("send-quote-confirmation", {
+          body: {
+            name: parsed.data.name,
+            email: parsed.data.email,
+            phone: parsed.data.phone,
+            address: parsed.data.address,
+            city: cityMeta.name,
+            province: cityMeta.province,
+            propertyType: parsed.data.propertyType,
+            serviceLevel: parsed.data.serviceLevel,
+            notes: parsed.data.notes,
+            estimator: {
+              low: estimate.low,
+              high: estimate.high,
+              unit: estimate.unit,
+              propertySize: parsed.data.propertySize,
+              frequency: parsed.data.frequency,
+              drivewayMeters: parsed.data.drivewayMeters,
+            },
+          },
+        })
+        .catch((e) => console.warn("confirmation email failed", e));
       navigate(`/quote/confirmed?city=${encodeURIComponent(cityMeta.slug)}`);
     } catch (err) {
       toast({
