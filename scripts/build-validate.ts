@@ -17,6 +17,7 @@ const HOME_HTML = readFileSync(resolve(DIST, "index.html"), "utf8");
 // homepage carousel or crawler-side sitemap discovery.
 const REQUIRED_ASSETS = [
   "blog-index.json",
+  "asset-manifest.json",
   "sitemap.xml",
   "sitemap-blog.xml",
   "robots.txt",
