@@ -1,12 +1,12 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-23T01:00:07.720Z",
-  "blogIndexAt": "2026-07-23T01:00:07.191Z",
+  "generatedAt": "2026-07-23T01:01:10.184Z",
+  "blogIndexAt": "2026-07-23T01:01:10.132Z",
   "carousel": [
-    "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
-    "occupiers-liability-act-bc-slip-fall-property-manager-guide",
-    "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
-    "strata-seasonal-snow-contracts-bc-cost-breakdown"
+    "tsawwassen-snow-removal",
+    "victoria-fraserview-vancouver-strata-commercial-snow-removal",
+    "west-end-vancouver-snow-removal",
+    "west-vancouver-snow-removal"
   ],
   "totalPosts": 132,
   "swVersion": "v5",
