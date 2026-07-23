@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T04:19:26.479Z",
+  "generatedAt": "2026-07-23T16:11:27.140Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -7,10 +7,6 @@
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
-    {
-      "slug": "tsawwassen-snow-removal",
-      "title": "Tsawwassen Snow Removal | South Delta Ice Control"
-    },
     {
       "slug": "squamish-snow-removal",
       "title": "Squamish Snow Removal | Sea-to-Sky Plowing"
@@ -28,8 +24,8 @@
       "title": "The World’s Cutest Snow Removal Brand"
     },
     {
-      "slug": "shaughnessy-snow-removal",
-      "title": "Shaughnessy Snow Removal"
+      "slug": "tsawwassen-snow-removal",
+      "title": "Tsawwassen Snow Removal | South Delta Ice Control"
     },
     {
       "slug": "snow-removal-in-burquitlam",
@@ -44,16 +40,24 @@
       "title": "Serving Renfrew Heights & East Vancouver"
     },
     {
+      "slug": "record-snow-falls-in-bc",
+      "title": "Record Snow Falls In BC"
+    },
+    {
+      "slug": "shaughnessy-snow-removal",
+      "title": "Shaughnessy Snow Removal"
+    },
+    {
+      "slug": "now-removal-arbutus",
+      "title": "Snow Removal in Arbutus,"
+    },
+    {
       "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
       "title": "BC Occupiers Liability Act & Slip Claims — Manager Playbook"
     },
     {
       "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
-    },
-    {
-      "slug": "record-snow-falls-in-bc",
-      "title": "Record Snow Falls In BC"
     },
     {
       "slug": "lynn-valley-snow-removal",
@@ -66,10 +70,6 @@
     {
       "slug": "metrotown-strata-snow-removal",
       "title": "Metrotown Strata Snow Removal"
-    },
-    {
-      "slug": "now-removal-arbutus",
-      "title": "Snow Removal in Arbutus,"
     },
     {
       "slug": "heritage-mountain",
