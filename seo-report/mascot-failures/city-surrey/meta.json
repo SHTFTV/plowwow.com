@@ -1,0 +1,18 @@
+{
+  "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
+  "mae": 88.82,
+  "threshold": 28,
+  "opaquePixels": 4818,
+  "normalizedSize": 96,
+  "extractedRect": {
+    "left": 816,
+    "top": 263,
+    "width": 336,
+    "height": 336
+  },
+  "placement": {
+    "widthRatio": 0.28,
+    "rightMarginRatio": 0.04,
+    "bottomMarginRatio": 0.05
+  }
+}

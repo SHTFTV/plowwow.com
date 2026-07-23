@@ -1,11 +1,1427 @@
 {
-  "generatedAt": "2026-07-22T05:45:15.692Z",
+  "generatedAt": "2026-07-23T01:08:17.971Z",
   "threshold": 28,
   "normalizedSize": 96,
   "total": 221,
-  "failed": 0,
-  "debugArtifactsDir": null,
+  "failed": 118,
+  "debugArtifactsDir": "seo-report/mascot-failures",
   "results": [
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
+      "mae": 91.00740279507403,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
+      "mae": 91.00698768506987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
+      "mae": 91.00698768506987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
+      "mae": 91.00698768506987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
+      "mae": 91.00698768506987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
+      "mae": 91.00698768506987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
+      "mae": 91.0068493150685,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
+      "mae": 91.00671094506711,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
+      "mae": 91.00664176006642,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta.jpg",
+      "mae": 91.00664176006642,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission.jpg",
+      "mae": 91.00664176006642,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
+      "mae": 91.00664176006642,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
+      "mae": 91.00650339006503,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
+      "mae": 91.00636502006365,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock.jpg",
+      "mae": 91.00636502006365,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
+      "mae": 91.00449702504497,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
+      "mae": 90.92306627923067,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
+      "mae": 90.92285872422859,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
+      "mae": 90.92265116922651,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
+      "mae": 90.92258198422581,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
+      "mae": 90.92251279922513,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
+      "mae": 90.92251279922513,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
+      "mae": 90.92237442922375,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-weather.jpg",
+      "mae": 90.92237442922375,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
+      "mae": 90.92237442922375,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
+      "mae": 90.92223605922236,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
+      "mae": 90.92202850422028,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
+      "mae": 90.92182094921822,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
+      "mae": 90.92154420921544,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
+      "mae": 90.92126746921268,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
+      "mae": 90.9210599142106,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
+      "mae": 90.92092154420922,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
+      "mae": 90.92092154420922,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
+      "mae": 90.92029887920299,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
+      "mae": 90.00096859000969,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
+      "mae": 90.00096859000969,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
+      "mae": 90.000899405009,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
+      "mae": 90.0008302200083,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
+      "mae": 90.00076103500761,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
+      "mae": 90.00069185000692,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
+      "mae": 90.00069185000692,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
+      "mae": 90.00069185000692,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
+      "mae": 90.00048429500484,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
+      "mae": 89.99986162999862,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
+      "mae": 89.99965407499654,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
+      "mae": 89.99965407499654,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
+      "mae": 89.99965407499654,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
+      "mae": 89.99965407499654,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
+      "mae": 89.99944651999446,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
+      "mae": 89.99930814999308,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
+      "mae": 89.33554725335547,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
+      "mae": 89.33554725335547,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
+      "mae": 89.33554725335547,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
+      "mae": 89.33520132835201,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
+      "mae": 89.33513214335132,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
+      "mae": 89.33506295835063,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
+      "mae": 89.33506295835063,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
+      "mae": 89.33506295835063,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all.jpg",
+      "mae": 89.33492458834925,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
+      "mae": 89.33492458834925,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
+      "mae": 89.33485540334856,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
+      "mae": 89.33471703334718,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
+      "mae": 89.33471703334718,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
+      "mae": 89.33471703334718,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
+      "mae": 89.3345094783451,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
+      "mae": 89.33437110834372,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley.jpg",
+      "mae": 88.82219454822194,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
+      "mae": 88.82212536322125,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
+      "mae": 88.82212536322125,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
+      "mae": 88.82205617822056,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
+      "mae": 88.82198699321987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
+      "mae": 88.82198699321987,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
+      "mae": 88.82184862321849,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
+      "mae": 88.82177943821779,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
+      "mae": 88.82177943821779,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
+      "mae": 88.82177943821779,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
+      "mae": 88.8217102532171,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
+      "mae": 88.8217102532171,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
+      "mae": 88.82164106821641,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
+      "mae": 88.82157188321573,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
+      "mae": 88.82157188321573,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
+      "mae": 88.82150269821503,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
+      "mae": 88.82150269821503,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
+      "mae": 88.82143351321433,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
+      "mae": 88.82136432821365,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
+      "mae": 88.82136432821365,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
+      "mae": 88.82122595821225,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
+      "mae": 88.82115677321157,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
+      "mae": 88.82115677321157,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
+      "mae": 88.82108758821087,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
+      "mae": 88.82108758821087,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
+      "mae": 88.82101840321019,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
+      "mae": 88.82094921820949,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
+      "mae": 88.8208800332088,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-new-westminster.jpg",
+      "mae": 88.82081084820811,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
+      "mae": 88.82081084820811,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
+      "mae": 88.82067247820673,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
+      "mae": 88.82025736820258,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
+      "mae": 88.82025736820258,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
+      "mae": 88.82025736820258,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
+      "mae": 88.8201189982012,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
+      "mae": 88.8201189982012,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
+      "mae": 88.8199806281998,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
+      "mae": 88.81984225819842,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
+      "mae": 88.81970388819704,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
+      "mae": 88.81970388819704,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
+    {
+      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
+      "mae": 88.81956551819566,
+      "opaquePixels": 4818,
+      "pass": false,
+      "rect": {
+        "left": 816,
+        "top": 263,
+        "width": 336,
+        "height": 336
+      }
+    },
     {
       "file": "public/blog-images/_theme-strata.jpg",
       "mae": 3.707900927079009,
@@ -139,390 +1555,6 @@
       }
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam.jpg",
-      "mae": 3.266569807665698,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-residential.jpg",
-      "mae": 3.263871592638716,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond.jpg",
-      "mae": 3.263802407638024,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge.jpg",
-      "mae": 3.2636640376366404,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission.jpg",
-      "mae": 3.263456482634565,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver.jpg",
-      "mae": 3.263456482634565,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam.jpg",
-      "mae": 3.263318112633181,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-residential.jpg",
-      "mae": 3.263318112633181,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock.jpg",
-      "mae": 3.263318112633181,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-residential.jpg",
-      "mae": 3.2631105576311055,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-residential.jpg",
-      "mae": 3.26290300262903,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
-      "mae": 3.2626954476269545,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-residential.jpg",
-      "mae": 3.2626954476269545,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-residential.jpg",
-      "mae": 3.2616576726165767,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta.jpg",
-      "mae": 3.261519302615193,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody.jpg",
-      "mae": 3.26027397260274,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-de-icing.jpg",
-      "mae": 3.2548775425487753,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-de-icing.jpg",
-      "mae": 3.2548775425487753,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
-      "mae": 3.2546699875467,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-west-vancouver.jpg",
-      "mae": 3.2546699875467,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
-      "mae": 3.254600802546008,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-de-icing.jpg",
-      "mae": 3.2544624325446243,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-de-icing.jpg",
-      "mae": 3.2543932475439323,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-weather.jpg",
-      "mae": 3.254324062543241,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-de-icing.jpg",
-      "mae": 3.254324062543241,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-de-icing.jpg",
-      "mae": 3.254185692541857,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-de-icing.jpg",
-      "mae": 3.2539089525390894,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-weather.jpg",
-      "mae": 3.253770582537706,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver.jpg",
-      "mae": 3.253632212536322,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-de-icing.jpg",
-      "mae": 3.2535630275356304,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-de-icing.jpg",
-      "mae": 3.2534938425349385,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
-      "mae": 3.2530095475300955,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
       "file": "public/blog-images/highgate-burnaby-strata-snow-removal.jpg",
       "mae": 3.2507264425072644,
       "opaquePixels": 4818,
@@ -532,234 +1564,6 @@
         "top": 686,
         "width": 287,
         "height": 287
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-weather.jpg",
-      "mae": 3.249965407499654,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-de-icing.jpg",
-      "mae": 3.2493427424934276,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-strata.jpg",
-      "mae": 3.2491351874913517,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-liability.jpg",
-      "mae": 3.248996817489968,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-strata.jpg",
-      "mae": 3.2487200774872007,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-strata.jpg",
-      "mae": 3.248166597481666,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-strata.jpg",
-      "mae": 3.2479590424795903,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-strata.jpg",
-      "mae": 3.2474747474747474,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-strata.jpg",
-      "mae": 3.247336377473364,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-strata.jpg",
-      "mae": 3.2471288224712884,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-strata.jpg",
-      "mae": 3.246852082468521,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-strata.jpg",
-      "mae": 3.246229417462294,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby.jpg",
-      "mae": 3.2454683824546837,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-strata.jpg",
-      "mae": 3.245399197453992,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-strata.jpg",
-      "mae": 3.2451916424519163,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-strata.jpg",
-      "mae": 3.2451224574512247,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-liability.jpg",
-      "mae": 3.244984087449841,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-liability.jpg",
-      "mae": 3.2447765324477653,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-strata.jpg",
-      "mae": 3.24456897744569,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
       }
     },
     {
@@ -775,126 +1579,6 @@
       }
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-strata.jpg",
-      "mae": 3.244084682440847,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
-      "mae": 3.244015497440155,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-strata.jpg",
-      "mae": 3.244015497440155,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-strata.jpg",
-      "mae": 3.244015497440155,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-strata.jpg",
-      "mae": 3.2433236474332365,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all.jpg",
-      "mae": 3.2362667773626677,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
-      "mae": 3.2357824823578247,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-equipment.jpg",
-      "mae": 3.2354365573543657,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-equipment.jpg",
-      "mae": 3.2350214473502144,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-equipment.jpg",
-      "mae": 3.234883077348831,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
       "file": "public/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
       "mae": 3.234744707347447,
       "opaquePixels": 4818,
@@ -907,198 +1591,6 @@
       }
     },
     {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-equipment.jpg",
-      "mae": 3.234744707347447,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-equipment.jpg",
-      "mae": 3.2346755223467554,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-equipment.jpg",
-      "mae": 3.2346755223467554,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-equipment.jpg",
-      "mae": 3.2346063373460634,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-equipment.jpg",
-      "mae": 3.2346063373460634,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide.jpg",
-      "mae": 3.2345371523453714,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-equipment.jpg",
-      "mae": 3.2345371523453714,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
-      "mae": 3.23446796734468,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-equipment.jpg",
-      "mae": 3.23446796734468,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-equipment.jpg",
-      "mae": 3.234329597343296,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-equipment.jpg",
-      "mae": 3.233914487339145,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-west-vancouver__tag-equipment.jpg",
-      "mae": 3.233845302338453,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-equipment.jpg",
-      "mae": 3.2336377473363775,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-equipment.jpg",
-      "mae": 3.23336100733361,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-equipment.jpg",
-      "mae": 3.2332226373322266,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-equipment.jpg",
-      "mae": 3.232738342327383,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
       "file": "public/blog-images/langley-strata-commercial-snow-plowing.jpg",
       "mae": 3.1876297218762972,
       "opaquePixels": 4818,
@@ -1108,498 +1600,6 @@
         "top": 686,
         "width": 287,
         "height": 287
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
-      "mae": 3.180849591808496,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
-      "mae": 3.180849591808496,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-commercial.jpg",
-      "mae": 3.179465891794659,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-commercial.jpg",
-      "mae": 3.179327521793275,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-citywide__tag-contracts.jpg",
-      "mae": 3.179327521793275,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster.jpg",
-      "mae": 3.179327521793275,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
-      "mae": 3.1791199667911996,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack.jpg",
-      "mae": 3.178912411789124,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-maple-ridge__tag-contracts.jpg",
-      "mae": 3.178912411789124,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey.jpg",
-      "mae": 3.178843226788432,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-contracts.jpg",
-      "mae": 3.1785664867856647,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-commercial.jpg",
-      "mae": 3.178497301784973,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-coquitlam__tag-contracts.jpg",
-      "mae": 3.178497301784973,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-commercial.jpg",
-      "mae": 3.178428116784281,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-commercial.jpg",
-      "mae": 3.178428116784281,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-north-vancouver__tag-contracts.jpg",
-      "mae": 3.178358931783589,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-coquitlam__tag-commercial.jpg",
-      "mae": 3.1782897467828977,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley.jpg",
-      "mae": 3.1782205617822057,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-commercial.jpg",
-      "mae": 3.1782205617822057,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-commercial.jpg",
-      "mae": 3.1782205617822057,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-vancouver__tag-contracts.jpg",
-      "mae": 3.1782205617822057,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford.jpg",
-      "mae": 3.1781513767815137,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-burnaby__tag-commercial.jpg",
-      "mae": 3.1781513767815137,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-commercial.jpg",
-      "mae": 3.1781513767815137,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-contracts.jpg",
-      "mae": 3.1780821917808217,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-richmond__tag-contracts.jpg",
-      "mae": 3.17801300678013,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-commercial.jpg",
-      "mae": 3.17801300678013,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-contracts.jpg",
-      "mae": 3.1778746367787463,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-surrey__tag-contracts.jpg",
-      "mae": 3.1778746367787463,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-chilliwack__tag-commercial.jpg",
-      "mae": 3.1777362667773628,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-commercial.jpg",
-      "mae": 3.1777362667773628,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-new-westminster__tag-contracts.jpg",
-      "mae": 3.177667081776671,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-white-rock__tag-contracts.jpg",
-      "mae": 3.177667081776671,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-commercial.jpg",
-      "mae": 3.177597896775979,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-contracts.jpg",
-      "mae": 3.177597896775979,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-delta__tag-contracts.jpg",
-      "mae": 3.1773903417739033,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-mission__tag-commercial.jpg",
-      "mae": 3.1769060467690604,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-contracts.jpg",
-      "mae": 3.1768368617683684,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-commercial.jpg",
-      "mae": 3.176075826760758,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-port-moody__tag-contracts.jpg",
-      "mae": 3.176075826760758,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
-      }
-    },
-    {
-      "file": "public/blog-images/_neighborhoods/city-langley__tag-commercial.jpg",
-      "mae": 3.1758682717586826,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 816,
-        "top": 263,
-        "width": 336,
-        "height": 336
       }
     },
     {
