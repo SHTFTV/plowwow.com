@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-22T05:45:38.564Z",
+  "generatedAt": "2026-07-23T01:37:05.688Z",
   "totals": {
-    "initialTotalKb": 544.59,
+    "initialTotalKb": 544.75,
     "initialBudgetKb": 620,
-    "initialOverBy": -75.41
+    "initialOverBy": -75.25
   },
   "chunks": [
     {
@@ -70,12 +70,12 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "index-DPHr_CFa.js",
-      "rawKb": 200.92,
-      "gzipKb": 43.79,
+      "file": "index-CvpkebJZ.js",
+      "rawKb": 201.11,
+      "gzipKb": 43.95,
       "bucket": "index",
       "budgetKb": 55,
-      "overBy": -11.21,
+      "overBy": -11.05,
       "eagerlyLoaded": true
     },
     {
@@ -97,7 +97,7 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "CityPage-vfTdeOY5.js",
+      "file": "CityPage-CNB7zfg4.js",
       "rawKb": 98.63,
       "gzipKb": 31.14,
       "bucket": "CityPage",
@@ -115,7 +115,7 @@
       "eagerlyLoaded": true
     },
     {
-      "file": "BlogIndex-BbqTUuMO.js",
+      "file": "BlogIndex-CG71NL8j.js",
       "rawKb": 47.81,
       "gzipKb": 12.92,
       "bucket": "BlogIndex",
@@ -142,7 +142,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Burnaby-BVRFus73.js",
+      "file": "Burnaby-JBXTAnrs.js",
       "rawKb": 38.55,
       "gzipKb": 10.92,
       "bucket": "Burnaby",
@@ -160,12 +160,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "LegacyPage-D0V8MWjV.js",
-      "rawKb": 37.82,
-      "gzipKb": 9.65,
+      "file": "LegacyPage-DYV_FFVh.js",
+      "rawKb": 37.9,
+      "gzipKb": 9.68,
       "bucket": "LegacyPage",
       "budgetKb": 300,
-      "overBy": -290.35,
+      "overBy": -290.32,
       "eagerlyLoaded": false
     },
     {
@@ -322,10 +322,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "CityQuote-AoWaqCC6.js",
+      "file": "CityQuote-D4KT-2fz.js",
       "rawKb": 18.27,
       "gzipKb": 5.98,
-      "bucket": "CityQuote",
+      "bucket": "CityQuote-D4KT-2fz",
       "budgetKb": 300,
       "overBy": -294.02,
       "eagerlyLoaded": false
@@ -430,7 +430,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AppFeatures-BRO5j_8n.js",
+      "file": "AppFeatures-fynxL9PI.js",
       "rawKb": 17.47,
       "gzipKb": 5.74,
       "bucket": "AppFeatures",
@@ -484,7 +484,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminJsonLdValidator-BPouExYJ.js",
+      "file": "AdminJsonLdValidator-BNXa4Od7.js",
       "rawKb": 16.37,
       "gzipKb": 5.71,
       "bucket": "AdminJsonLdValidator",
@@ -916,7 +916,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "BlogNeighborhoods-Dwj1gyaV.js",
+      "file": "BlogNeighborhoods-xE1yYTof.js",
       "rawKb": 23.26,
       "gzipKb": 5.15,
       "bucket": "BlogNeighborhoods",
@@ -1123,12 +1123,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Intelligence-DLUBXkIH.js",
+      "file": "Intelligence-CPrVZa2E.js",
       "rawKb": 16.26,
-      "gzipKb": 4.74,
+      "gzipKb": 4.73,
       "bucket": "Intelligence",
       "budgetKb": 300,
-      "overBy": -295.26,
+      "overBy": -295.27,
       "eagerlyLoaded": false
     },
     {
@@ -1150,7 +1150,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PublishHelper-Dz1s0bBy.js",
+      "file": "PublishHelper-UH1KinKr.js",
       "rawKb": 14.4,
       "gzipKb": 4.56,
       "bucket": "PublishHelper",
@@ -1168,7 +1168,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGuestPosts-F1E9NZpO.js",
+      "file": "AdminGuestPosts-qkPOEeLX.js",
       "rawKb": 13.36,
       "gzipKb": 4.46,
       "bucket": "AdminGuestPosts",
@@ -1195,10 +1195,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Admin-C3FnNPUP.js",
+      "file": "Admin-Cpajc-ME.js",
       "rawKb": 13.43,
       "gzipKb": 4.37,
-      "bucket": "Admin",
+      "bucket": "Admin-Cpajc-ME",
       "budgetKb": 300,
       "overBy": -295.63,
       "eagerlyLoaded": false
@@ -1249,7 +1249,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PwaDiagnostics-BlWub_1Y.js",
+      "file": "PwaDiagnostics-iNoDezM6.js",
       "rawKb": 14.91,
       "gzipKb": 4.22,
       "bucket": "PwaDiagnostics",
@@ -1285,7 +1285,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Takeoff-CNEKcn3S.js",
+      "file": "Takeoff-CgDdW6yi.js",
       "rawKb": 12.35,
       "gzipKb": 3.97,
       "bucket": "Takeoff",
@@ -1330,7 +1330,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "SeoReport-DC2DFq6w.js",
+      "file": "SeoReport-FBig6y0e.js",
       "rawKb": 9.95,
       "gzipKb": 3.81,
       "bucket": "SeoReport",
@@ -1339,10 +1339,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "QuoteConfirmed-XGecd8Qz.js",
+      "file": "QuoteConfirmed-Dc-oaoz-.js",
       "rawKb": 10.97,
       "gzipKb": 3.78,
-      "bucket": "QuoteConfirmed",
+      "bucket": "QuoteConfirmed-Dc-oaoz-",
       "budgetKb": 300,
       "overBy": -296.22,
       "eagerlyLoaded": false
@@ -1393,7 +1393,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteMetrics-CTvNRdgP.js",
+      "file": "AdminQuoteMetrics-BXv3slyX.js",
       "rawKb": 10.25,
       "gzipKb": 3.64,
       "bucket": "AdminQuoteMetrics",
@@ -1438,10 +1438,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAlerts-B-mx35UY.js",
+      "file": "AdminQuoteAlerts-ChviQdJT.js",
       "rawKb": 9.66,
       "gzipKb": 2.99,
-      "bucket": "AdminQuoteAlerts-B",
+      "bucket": "AdminQuoteAlerts",
       "budgetKb": 300,
       "overBy": -297.01,
       "eagerlyLoaded": false
@@ -1483,7 +1483,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "GuestPost-mv01w7_U.js",
+      "file": "GuestPost-CjOvvUIu.js",
       "rawKb": 7.65,
       "gzipKb": 2.76,
       "bucket": "GuestPost",
@@ -1510,7 +1510,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAuditLog-BwNXoVE0.js",
+      "file": "AdminQuoteAuditLog-BnkOLMnR.js",
       "rawKb": 7.26,
       "gzipKb": 2.66,
       "bucket": "AdminQuoteAuditLog",
@@ -1519,7 +1519,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "NewsletterConfirm-DQ12X9Rd.js",
+      "file": "NewsletterConfirm-DIfQkB47.js",
       "rawKb": 7.58,
       "gzipKb": 2.65,
       "bucket": "NewsletterConfirm",
@@ -1528,7 +1528,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminLinkAudit-ymnM6rNv.js",
+      "file": "AdminLinkAudit-B2gv9Vx_.js",
       "rawKb": 6.95,
       "gzipKb": 2.57,
       "bucket": "AdminLinkAudit",
@@ -1555,7 +1555,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminNeighborhoods-DoUOQB8n.js",
+      "file": "AdminNeighborhoods-BQrz1T_f.js",
       "rawKb": 5.59,
       "gzipKb": 2.49,
       "bucket": "AdminNeighborhoods",
@@ -1618,10 +1618,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteRecent-ChC_-Uew.js",
+      "file": "AdminQuoteRecent-Zilk6B4U.js",
       "rawKb": 6.56,
       "gzipKb": 2.21,
-      "bucket": "AdminQuoteRecent-ChC_-Uew",
+      "bucket": "AdminQuoteRecent",
       "budgetKb": 300,
       "overBy": -297.79,
       "eagerlyLoaded": false
@@ -1654,7 +1654,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGscCoverage-BNS1h89D.js",
+      "file": "AdminGscCoverage-D0Uk3yVo.js",
       "rawKb": 4.91,
       "gzipKb": 1.97,
       "bucket": "AdminGscCoverage",
@@ -1708,7 +1708,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteDenylist-CKp2jT7S.js",
+      "file": "AdminQuoteDenylist-BMxPo0_X.js",
       "rawKb": 4.54,
       "gzipKb": 1.68,
       "bucket": "AdminQuoteDenylist",
@@ -1717,12 +1717,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminSeoSettings-C4cazm9H.js",
+      "file": "AdminSeoSettings-NibMP9xD.js",
       "rawKb": 3.77,
-      "gzipKb": 1.68,
+      "gzipKb": 1.67,
       "bucket": "AdminSeoSettings",
       "budgetKb": 300,
-      "overBy": -298.32,
+      "overBy": -298.33,
       "eagerlyLoaded": false
     },
     {
@@ -1744,16 +1744,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AuthorPage-B9bGB71e.js",
+      "file": "AuthorPage-B8Ciwp8G.js",
       "rawKb": 3.31,
-      "gzipKb": 1.56,
+      "gzipKb": 1.55,
       "bucket": "AuthorPage",
       "budgetKb": 300,
-      "overBy": -298.44,
+      "overBy": -298.45,
       "eagerlyLoaded": false
     },
     {
-      "file": "Locations-BP9Iiqn2.js",
+      "file": "Locations-Cl8hbyXN.js",
       "rawKb": 3.81,
       "gzipKb": 1.55,
       "bucket": "Locations",
@@ -1861,12 +1861,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Auth-DxggfsS3.js",
+      "file": "Auth-CTKRnCI6.js",
       "rawKb": 3.39,
-      "gzipKb": 1.3,
+      "gzipKb": 1.29,
       "bucket": "Auth",
       "budgetKb": 300,
-      "overBy": -298.7,
+      "overBy": -298.71,
       "eagerlyLoaded": false
     },
     {
@@ -1879,7 +1879,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Quote-BZAhnGgp.js",
+      "file": "Quote-CRSfeuYb.js",
       "rawKb": 2.6,
       "gzipKb": 1.19,
       "bucket": "Quote",
@@ -1987,7 +1987,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "accordion-CH3qnsYA.js",
+      "file": "accordion-YxbvSoVA.js",
       "rawKb": 1.13,
       "gzipKb": 0.55,
       "bucket": "accordion",
@@ -1996,7 +1996,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "table-BguZU9au.js",
+      "file": "table-CpxpPCaU.js",
       "rawKb": 1.49,
       "gzipKb": 0.53,
       "bucket": "table",
@@ -2014,16 +2014,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "tabs-kwUwN2R2.js",
+      "file": "tabs-Ch972Lro.js",
       "rawKb": 1.13,
-      "gzipKb": 0.48,
+      "gzipKb": 0.47,
       "bucket": "tabs",
       "budgetKb": 300,
-      "overBy": -299.52,
+      "overBy": -299.53,
       "eagerlyLoaded": false
     },
     {
-      "file": "switch-D7e1wmMk.js",
+      "file": "switch-DgIO47ws.js",
       "rawKb": 0.84,
       "gzipKb": 0.45,
       "bucket": "switch",
@@ -2032,7 +2032,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "badge-LQsQSNsS.js",
+      "file": "badge-uO9IyS5Z.js",
       "rawKb": 0.77,
       "gzipKb": 0.4,
       "bucket": "badge",
@@ -2041,16 +2041,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "card-BzjWNHTu.js",
+      "file": "card-CgxF-49x.js",
       "rawKb": 1.01,
       "gzipKb": 0.4,
-      "bucket": "card",
+      "bucket": "card-CgxF-49x",
       "budgetKb": 300,
       "overBy": -299.6,
       "eagerlyLoaded": false
     },
     {
-      "file": "internalLinks-DCvd11cY.js",
+      "file": "internalLinks-1aZTeNZR.js",
       "rawKb": 0.58,
       "gzipKb": 0.37,
       "bucket": "internalLinks",

@@ -1,6 +1,6 @@
 # Bundle size report
 
-Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
+Initial JS (gzip): **544.75 kB** / budget **620 kB**  ✅
 
 | Chunk | gzip kB | budget | over | initial |
 | --- | ---: | ---: | ---: | :---: |
@@ -11,7 +11,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | vendor-charts | 75.52 | 90 | — |  |
 | vendor-supabase | 50.99 | 60 | — | • |
 | vendor-react | 49.86 | 65 | — | • |
-| index | 43.79 | 55 | — | • |
+| index | 43.95 | 55 | — | • |
 | locations | 37.46 | 300 | — |  |
 | vendor-markdown | 34.35 | 45 | — | • |
 | CityPage | 31.14 | 300 | — |  |
@@ -21,7 +21,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | mission-snow-removal | 11.35 | 300 | — |  |
 | Burnaby | 10.92 | 300 | — |  |
 | maple-ridge-snow-removal | 10.73 | 300 | — |  |
-| LegacyPage | 9.65 | 300 | — |  |
+| LegacyPage | 9.68 | 300 | — |  |
 | abbotsford-snow-removal | 8.03 | 300 | — |  |
 | vendor-tanstack | 7.95 | 15 | — | • |
 | RelatedCities | 7.67 | 300 | — |  |
@@ -39,7 +39,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | broadmoor-richmond-strata-commercial-snow-removal | 6.01 | 300 | — |  |
 | riley-park-vancouver-strata-commercial-snow-removal | 6.01 | 300 | — |  |
 | silverdale-mission-strata-commercial-snow-removal | 6 | 300 | — |  |
-| CityQuote | 5.98 | 300 | — |  |
+| CityQuote-D4KT-2fz | 5.98 | 300 | — |  |
 | delta-snow-removal | 5.91 | 300 | — |  |
 | cedar-valley-mission-strata-commercial-snow-removal | 5.89 | 300 | — |  |
 | mission-strata-commercial-snow-plowing | 5.89 | 300 | — |  |
@@ -128,7 +128,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | highgate-burnaby-strata-snow-removal | 4.77 | 300 | — |  |
 | sperling-duthie-burnaby-strata-commercial-snow-removal | 4.77 | 300 | — |  |
 | suncrest-burnaby-snow-removal | 4.75 | 300 | — |  |
-| Intelligence | 4.74 | 300 | — |  |
+| Intelligence | 4.73 | 300 | — |  |
 | metro-vancouver-winter-weather-pineapple-express-arctic-outflow | 4.69 | 300 | — |  |
 | strata-seasonal-snow-contracts-bc-cost-breakdown-LiNdG8-G | 4.67 | 300 | — |  |
 | PublishHelper | 4.56 | 300 | — |  |
@@ -136,7 +136,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | AdminGuestPosts | 4.46 | 300 | — |  |
 | white-rock-snow-removal | 4.44 | 300 | — |  |
 | does-it-snow-in-vancouver-weather-guide | 4.42 | 300 | — |  |
-| Admin | 4.37 | 300 | — |  |
+| Admin-Cpajc-ME | 4.37 | 300 | — |  |
 | cities | 4.28 | 300 | — |  |
 | new-westminster-snow-removal | 4.28 | 300 | — |  |
 | government-road-burnaby-strata-commercial-snow-removal | 4.26 | 300 | — |  |
@@ -152,7 +152,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | harbour-chines-coquitlam-strata-commercial-snow-removal | 3.9 | 300 | — |  |
 | yaletown-vancouver-snow-removal | 3.88 | 300 | — |  |
 | SeoReport | 3.81 | 300 | — |  |
-| QuoteConfirmed | 3.78 | 300 | — |  |
+| QuoteConfirmed-Dc-oaoz- | 3.78 | 300 | — |  |
 | east-cambie-richmond-strata-commercial-snow-removal | 3.77 | 300 | — |  |
 | coal-harbour-vancouver-snow-removal | 3.75 | 300 | — |  |
 | westwood-plateau-coquitlam-parking-lot-snow-removal | 3.71 | 300 | — |  |
@@ -163,7 +163,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | burke-mountain-snow | 3.2 | 300 | — |  |
 | plowwow-service-areas | 3.08 | 300 | — |  |
 | white-christmas-2025-burnaby | 3.03 | 300 | — |  |
-| AdminQuoteAlerts-B | 2.99 | 300 | — |  |
+| AdminQuoteAlerts | 2.99 | 300 | — |  |
 | professional-snow-removal-in-middle-gate-burnaby-xiEEK-hl | 2.94 | 300 | — |  |
 | professional-snow-removal-ice-management-for-vancouver-bc-strata-properties | 2.92 | 300 | — |  |
 | skid-steer-snow-removal-in-langley-bc | 2.87 | 300 | — |  |
@@ -183,7 +183,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | happy-new-year-metro-vancouver | 2.25 | 300 | — |  |
 | snow-removal-services-in-killarney-vancouver | 2.25 | 300 | — |  |
 | the-worlds-cutest-snow-removal-brand | 2.24 | 300 | — |  |
-| AdminQuoteRecent-ChC_-Uew | 2.21 | 300 | — |  |
+| AdminQuoteRecent | 2.21 | 300 | — |  |
 | snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand | 2.06 | 300 | — |  |
 | marketing | 2.01 | 300 | — |  |
 | shaughnessy-snow-removal | 2.01 | 300 | — |  |
@@ -194,10 +194,10 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | sfu-burnaby-snow-removal | 1.81 | 300 | — |  |
 | metrotown-snow-removal-company | 1.78 | 300 | — |  |
 | AdminQuoteDenylist | 1.68 | 300 | — |  |
-| AdminSeoSettings | 1.68 | 300 | — |  |
+| AdminSeoSettings | 1.67 | 300 | — |  |
 | how-it-works | 1.67 | 300 | — |  |
 | now-removal-arbutus | 1.63 | 300 | — |  |
-| AuthorPage | 1.56 | 300 | — |  |
+| AuthorPage | 1.55 | 300 | — |  |
 | Locations | 1.55 | 300 | — |  |
 | heritage-mountain | 1.54 | 300 | — |  |
 | plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist | 1.54 | 300 | — |  |
@@ -210,7 +210,7 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | residential-snow-removal | 1.37 | 300 | — |  |
 | snow-removal-in-burquitlam | 1.32 | 300 | — |  |
 | silver-valley-maple-ridge | 1.31 | 300 | — |  |
-| Auth | 1.3 | 300 | — |  |
+| Auth | 1.29 | 300 | — |  |
 | skilled-courteous-team | 1.24 | 300 | — |  |
 | Quote | 1.19 | 300 | — |  |
 | advanced-technology | 1.12 | 300 | — |  |
@@ -227,10 +227,10 @@ Initial JS (gzip): **544.59 kB** / budget **620 kB**  ✅
 | accordion | 0.55 | 300 | — |  |
 | table | 0.53 | 300 | — |  |
 | geocodeCache | 0.51 | 300 | — |  |
-| tabs | 0.48 | 300 | — |  |
+| tabs | 0.47 | 300 | — |  |
 | switch | 0.45 | 300 | — |  |
 | badge | 0.4 | 300 | — |  |
-| card | 0.4 | 300 | — |  |
+| card-CgxF-49x | 0.4 | 300 | — |  |
 | internalLinks | 0.37 | 300 | — |  |
 | SnowBackground | 0.31 | 300 | — |  |
 | seo | 0.19 | 300 | — |  |
