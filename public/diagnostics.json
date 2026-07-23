@@ -1,18 +1,18 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-23T03:11:34.323Z",
-  "blogIndexAt": "2026-07-23T03:11:33.880Z",
+  "generatedAt": "2026-07-23T04:19:00.087Z",
+  "blogIndexAt": "2026-07-23T04:18:59.554Z",
   "carousel": [
-    "white-rock-strata-commercial-snow-plowing",
-    "willingdon-heights-burnaby-commercial-snow-removal",
-    "yaletown-vancouver-snow-removal",
-    "strata-seasonal-snow-contracts-bc-cost-breakdown"
+    "tsawwassen-snow-removal",
+    "victoria-fraserview-vancouver-strata-commercial-snow-removal",
+    "west-end-vancouver-snow-removal",
+    "west-vancouver-snow-removal"
   ],
   "totalPosts": 132,
-  "swVersion": "v5",
+  "swVersion": "v6",
   "serviceWorker": {
     "scriptPath": "/sw.js",
     "expectedScope": "/",
-    "version": "v5"
+    "version": "v6"
   }
 }
