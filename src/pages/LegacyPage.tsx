@@ -116,7 +116,11 @@ type LegacyPageProps = { kind: "page" | "blog" };
 
 const LegacyPage = ({ kind }: LegacyPageProps) => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\/+/, "").replace(/\/+$/, "");
+  const pathSlug = location.pathname.replace(/^\/+/, "").replace(/\/+$/, "");
+  const slug =
+    kind === "blog" && pathSlug.startsWith("blog/")
+      ? pathSlug.split("/").filter(Boolean).pop() ?? pathSlug
+      : pathSlug;
   const map = kind === "blog" ? blogBySlug : pageBySlug;
   const raw = map[slug];
 
