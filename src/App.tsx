@@ -81,6 +81,7 @@ const App = () => (
             <Route path="/admin/quote-audit-log" element={<AdminQuoteAuditLog />} />
             <Route path="/admin/pwa-diagnostics" element={<PwaDiagnostics />} />
             <Route path="/admin/quote-recent" element={<AdminQuoteRecent />} />
+            <Route path="/admin/monitor" element={<AdminMonitor />} />
             <Route path="/burnaby" element={<Burnaby />} />
             <Route path="/seo-report" element={<SeoReport />} />
             <Route path="/blog" element={<BlogIndex />} />
