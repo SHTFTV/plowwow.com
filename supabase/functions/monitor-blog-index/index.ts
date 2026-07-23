@@ -9,6 +9,8 @@ const CRITICAL = [
   '/asset-manifest.json',
 ];
 const SLACK = Deno.env.get('SLACK_WEBHOOK_URL');
+const RESEND_KEY = Deno.env.get('RESEND_API_KEY');
+const NOTIFY_EMAIL = Deno.env.get('AUDIT_NOTIFY_EMAIL');
 
 async function head(path: string) {
   try {
@@ -19,18 +21,35 @@ async function head(path: string) {
   }
 }
 
-async function alert(text: string) {
-  if (!SLACK) return { alerted: false, reason: 'no SLACK_WEBHOOK_URL' };
-  try {
-    const r = await fetch(SLACK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
-    });
-    return { alerted: r.ok, reason: `slack HTTP ${r.status}` };
-  } catch (err) {
-    return { alerted: false, reason: String(err) };
+async function alert(subject: string, body: string) {
+  const channels: Record<string, unknown> = {};
+  if (SLACK) {
+    try {
+      const r = await fetch(SLACK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: `${subject}\n${body}` }),
+      });
+      channels.slack = { ok: r.ok, status: r.status };
+    } catch (err) { channels.slack = { ok: false, error: String(err) }; }
   }
+  if (RESEND_KEY && NOTIFY_EMAIL) {
+    try {
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'PlowWow Monitor <alerts@plowwow.com>',
+          to: [NOTIFY_EMAIL],
+          subject,
+          text: body,
+        }),
+      });
+      channels.email = { ok: r.ok, status: r.status };
+    } catch (err) { channels.email = { ok: false, error: String(err) }; }
+  }
+  if (!SLACK && !(RESEND_KEY && NOTIFY_EMAIL)) channels.none = 'no alert transport configured';
+  return channels;
 }
 
 Deno.serve(async (req) => {
