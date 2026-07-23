@@ -1,6 +1,6 @@
 # Blog Social Share Image Report
 
-_Generated 2026-07-23T16:14:52.036Z_
+_Generated 2026-07-23T17:31:20.814Z_
 
 - Total posts: **132**
 - Custom hero: **98** · Themed mascot fallback: **34** · /og-default.jpg: **0**
@@ -27,9 +27,9 @@ _Generated 2026-07-23T16:14:52.036Z_
 - `highgate-burnaby-strata-snow-removal` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `kensington-cedar-cottage-snow-removal` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `langley-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
-- `chilliwack-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `coquitlam-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `delta-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `burnaby-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `cariboo-heights-burnaby-snow-removal` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
+- `chilliwack-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)
 - `abbotsford-strata-commercial-snow-plowing` (1024x1024, hero) → smaller than 1200x630 (1024x1024)

@@ -1,7 +1,7 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-23T17:14:14.110Z",
-  "blogIndexAt": "2026-07-23T17:14:13.570Z",
+  "generatedAt": "2026-07-23T17:29:49.881Z",
+  "blogIndexAt": "2026-07-23T17:29:49.344Z",
   "carousel": [
     "west-end-vancouver-snow-removal",
     "west-vancouver-snow-removal",
@@ -9,10 +9,10 @@
     "westwood-plateau-coquitlam-parking-lot-snow-removal"
   ],
   "totalPosts": 132,
-  "swVersion": "v6",
+  "swVersion": "v7",
   "serviceWorker": {
     "scriptPath": "/sw.js",
     "expectedScope": "/",
-    "version": "v6"
+    "version": "v7"
   }
 }

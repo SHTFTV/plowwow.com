@@ -1,82 +1,82 @@
 {
-  "generatedAt": "2026-07-23T16:15:21.293Z",
+  "generatedAt": "2026-07-23T17:31:46.247Z",
   "totals": {
-    "initialTotalKb": 545.71,
+    "initialTotalKb": 226.92,
     "initialBudgetKb": 620,
-    "initialOverBy": -74.29
+    "initialOverBy": -393.08
   },
   "chunks": [
     {
-      "file": "vendor-exceljs-B27a9gnx.js",
+      "file": "exceljs.min-DpDz-bTi.js",
       "rawKb": 917.13,
       "gzipKb": 263.25,
-      "bucket": "vendor-exceljs",
-      "budgetKb": 285,
-      "overBy": -21.75,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "vendor-jspdf-CFQokCJA.js",
-      "rawKb": 534.25,
-      "gzipKb": 155.9,
-      "bucket": "vendor-jspdf",
-      "budgetKb": 175,
-      "overBy": -19.1,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "vendor-DxXsQzAN.js",
-      "rawKb": 452.76,
-      "gzipKb": 154.07,
-      "bucket": "vendor",
-      "budgetKb": 175,
-      "overBy": -20.93,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "vendor-xlsx-DjuO7_Ju.js",
-      "rawKb": 277.65,
-      "gzipKb": 92.13,
-      "bucket": "vendor-xlsx",
-      "budgetKb": 110,
-      "overBy": -17.87,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "vendor-charts-Cph4MRkJ.js",
-      "rawKb": 292.85,
-      "gzipKb": 75.52,
-      "bucket": "vendor-charts",
-      "budgetKb": 90,
-      "overBy": -14.48,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "vendor-supabase-DVw5ZID0.js",
-      "rawKb": 196.98,
-      "gzipKb": 50.99,
-      "bucket": "vendor-supabase",
-      "budgetKb": 60,
-      "overBy": -9.01,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "vendor-react-CZOxqIAK.js",
-      "rawKb": 154.13,
-      "gzipKb": 49.86,
-      "bucket": "vendor-react",
-      "budgetKb": 65,
-      "overBy": -15.14,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "index-DK8-br19.js",
-      "rawKb": 203.63,
-      "gzipKb": 44.91,
-      "bucket": "index-DK8-br19",
+      "bucket": "exceljs.min-DpDz-bTi",
       "budgetKb": 300,
-      "overBy": -255.09,
+      "overBy": -36.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "index-D0pGf2N3.js",
+      "rawKb": 826.28,
+      "gzipKb": 226.92,
+      "bucket": "index",
+      "budgetKb": 55,
+      "overBy": 171.92,
       "eagerlyLoaded": true
+    },
+    {
+      "file": "jspdf.es.min-Cf16PLm_.js",
+      "rawKb": 406.39,
+      "gzipKb": 131.65,
+      "bucket": "jspdf.es.min",
+      "budgetKb": 300,
+      "overBy": -168.35,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "BarChart-cZvZY_1f.js",
+      "rawKb": 362.87,
+      "gzipKb": 99.96,
+      "bucket": "BarChart",
+      "budgetKb": 300,
+      "overBy": -200.04,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "SeoReport-BpOqoiMJ.js",
+      "rawKb": 287.3,
+      "gzipKb": 95.72,
+      "bucket": "SeoReport",
+      "budgetKb": 300,
+      "overBy": -204.28,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "LegacyPage-Dr41TxAQ.js",
+      "rawKb": 190.53,
+      "gzipKb": 56.4,
+      "bucket": "LegacyPage",
+      "budgetKb": 300,
+      "overBy": -243.6,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "index.es-D1pUz4gL.js",
+      "rawKb": 147.55,
+      "gzipKb": 50.25,
+      "bucket": "index.es",
+      "budgetKb": 300,
+      "overBy": -249.75,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "html2canvas.esm-CBrSDip1.js",
+      "rawKb": 197.56,
+      "gzipKb": 46.58,
+      "bucket": "html2canvas.esm",
+      "budgetKb": 300,
+      "overBy": -253.42,
+      "eagerlyLoaded": false
     },
     {
       "file": "locations-DUeVkGHE.js",
@@ -88,49 +88,31 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "vendor-markdown-CXSkmN7N.js",
-      "rawKb": 118.79,
-      "gzipKb": 34.35,
-      "bucket": "vendor-markdown",
-      "budgetKb": 45,
-      "overBy": -10.65,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "CityPage-BIrMLWmM.js",
-      "rawKb": 98.63,
-      "gzipKb": 31.14,
+      "file": "CityPage-CoGfkl9w.js",
+      "rawKb": 98.87,
+      "gzipKb": 31.33,
       "bucket": "CityPage",
       "budgetKb": 300,
-      "overBy": -268.86,
+      "overBy": -268.67,
       "eagerlyLoaded": false
     },
     {
-      "file": "vendor-radix-CuDagqBe.js",
-      "rawKb": 98.54,
-      "gzipKb": 28.7,
-      "bucket": "vendor-radix",
-      "budgetKb": 40,
-      "overBy": -11.3,
-      "eagerlyLoaded": true
+      "file": "Burnaby-CswQhYAs.js",
+      "rawKb": 46.75,
+      "gzipKb": 13.46,
+      "bucket": "Burnaby",
+      "budgetKb": 300,
+      "overBy": -286.54,
+      "eagerlyLoaded": false
     },
     {
-      "file": "BlogIndex-C2BBA7W5.js",
-      "rawKb": 47.81,
-      "gzipKb": 12.92,
+      "file": "BlogIndex-DBlL_pR8.js",
+      "rawKb": 47.73,
+      "gzipKb": 12.95,
       "bucket": "BlogIndex",
       "budgetKb": 300,
-      "overBy": -287.08,
+      "overBy": -287.05,
       "eagerlyLoaded": false
-    },
-    {
-      "file": "vendor-forms-jnUNNjTe.js",
-      "rawKb": 52.37,
-      "gzipKb": 11.93,
-      "bucket": "vendor-forms",
-      "budgetKb": 20,
-      "overBy": -8.07,
-      "eagerlyLoaded": true
     },
     {
       "file": "mission-snow-removal-DRIAKXaN.js",
@@ -139,15 +121,6 @@
       "bucket": "mission-snow-removal",
       "budgetKb": 300,
       "overBy": -288.65,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "Burnaby-DtdWjg_e.js",
-      "rawKb": 38.55,
-      "gzipKb": 10.92,
-      "bucket": "Burnaby",
-      "budgetKb": 300,
-      "overBy": -289.08,
       "eagerlyLoaded": false
     },
     {
@@ -160,12 +133,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "LegacyPage-QVx-j7oc.js",
-      "rawKb": 37.9,
-      "gzipKb": 9.68,
-      "bucket": "LegacyPage-QVx-j7oc",
+      "file": "purify.es-Csrj9YNg.js",
+      "rawKb": 27.48,
+      "gzipKb": 10.41,
+      "bucket": "purify.es",
       "budgetKb": 300,
-      "overBy": -290.32,
+      "overBy": -289.59,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "RelatedCities-wjmmoTqr.js",
+      "rawKb": 28.36,
+      "gzipKb": 8.27,
+      "bucket": "RelatedCities",
+      "budgetKb": 300,
+      "overBy": -291.73,
       "eagerlyLoaded": false
     },
     {
@@ -175,24 +157,6 @@
       "bucket": "abbotsford-snow-removal",
       "budgetKb": 300,
       "overBy": -291.97,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "vendor-tanstack-Beylv4LW.js",
-      "rawKb": 25.93,
-      "gzipKb": 7.95,
-      "bucket": "vendor-tanstack",
-      "budgetKb": 15,
-      "overBy": -7.05,
-      "eagerlyLoaded": true
-    },
-    {
-      "file": "RelatedCities-4SjIX7aI.js",
-      "rawKb": 26.43,
-      "gzipKb": 7.67,
-      "bucket": "RelatedCities",
-      "budgetKb": 300,
-      "overBy": -292.33,
       "eagerlyLoaded": false
     },
     {
@@ -214,21 +178,30 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "vendor-icons-mrD6n1xM.js",
-      "rawKb": 33.32,
-      "gzipKb": 7.05,
-      "bucket": "vendor-icons",
-      "budgetKb": 15,
-      "overBy": -7.95,
-      "eagerlyLoaded": true
-    },
-    {
       "file": "coquitlam-snow-removal-BqHZULaz.js",
       "rawKb": 19.65,
       "gzipKb": 6.58,
       "bucket": "coquitlam-snow-removal",
       "budgetKb": 300,
       "overBy": -293.42,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AppFeatures-DaNRFeFb.js",
+      "rawKb": 19.06,
+      "gzipKb": 6.23,
+      "bucket": "AppFeatures",
+      "budgetKb": 300,
+      "overBy": -293.77,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "CityQuote-xw0k-Zvv.js",
+      "rawKb": 18.91,
+      "gzipKb": 6.23,
+      "bucket": "CityQuote-xw0k-Zvv",
+      "budgetKb": 300,
+      "overBy": -293.77,
       "eagerlyLoaded": false
     },
     {
@@ -265,6 +238,15 @@
       "bucket": "sunset-vancouver-strata-commercial-snow-removal",
       "budgetKb": 300,
       "overBy": -293.92,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminGuestPosts--VwQQbok.js",
+      "rawKb": 18.17,
+      "gzipKb": 6.07,
+      "bucket": "AdminGuestPosts-",
+      "budgetKb": 300,
+      "overBy": -293.93,
       "eagerlyLoaded": false
     },
     {
@@ -319,15 +301,6 @@
       "bucket": "silverdale-mission-strata-commercial-snow-removal",
       "budgetKb": 300,
       "overBy": -294,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "CityQuote-CGwGdE4Y.js",
-      "rawKb": 18.27,
-      "gzipKb": 5.98,
-      "bucket": "CityQuote",
-      "budgetKb": 300,
-      "overBy": -294.02,
       "eagerlyLoaded": false
     },
     {
@@ -430,15 +403,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AppFeatures-BXI7XMUd.js",
-      "rawKb": 17.47,
-      "gzipKb": 5.74,
-      "bucket": "AppFeatures",
-      "budgetKb": 300,
-      "overBy": -294.26,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "ranch-park-coquitlam-strata-commercial-snow-removal-BQGE_jZK.js",
       "rawKb": 14.97,
       "gzipKb": 5.74,
@@ -481,15 +445,6 @@
       "bucket": "grandview-woodland-vancouver-strata-commercial-snow-removal",
       "budgetKb": 300,
       "overBy": -294.28,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminJsonLdValidator-BuM6QxWl.js",
-      "rawKb": 16.37,
-      "gzipKb": 5.71,
-      "bucket": "AdminJsonLdValidator",
-      "budgetKb": 300,
-      "overBy": -294.29,
       "eagerlyLoaded": false
     },
     {
@@ -571,6 +526,15 @@
       "bucket": "port-coquitlam-snow-removal",
       "budgetKb": 300,
       "overBy": -294.35,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminJsonLdValidator-Dna0WdsF.js",
+      "rawKb": 16.06,
+      "gzipKb": 5.59,
+      "bucket": "AdminJsonLdValidator",
+      "budgetKb": 300,
+      "overBy": -294.41,
       "eagerlyLoaded": false
     },
     {
@@ -916,15 +880,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "BlogNeighborhoods-mlCzITID.js",
-      "rawKb": 23.26,
-      "gzipKb": 5.15,
-      "bucket": "BlogNeighborhoods",
-      "budgetKb": 300,
-      "overBy": -294.85,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "burnaby-snow-removal-RHmNPc5i.js",
       "rawKb": 15.8,
       "gzipKb": 5.13,
@@ -967,6 +922,15 @@
       "bucket": "can-i-push-snow-onto-the-street",
       "budgetKb": 300,
       "overBy": -294.98,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "BlogNeighborhoods-Cu7q_Qpv.js",
+      "rawKb": 22.95,
+      "gzipKb": 5.01,
+      "bucket": "BlogNeighborhoods",
+      "budgetKb": 300,
+      "overBy": -294.99,
       "eagerlyLoaded": false
     },
     {
@@ -1039,6 +1003,15 @@
       "bucket": "marpole-vancouver-snow-removal",
       "budgetKb": 300,
       "overBy": -295.11,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "PublishHelper-9cWL9VBo.js",
+      "rawKb": 14.87,
+      "gzipKb": 4.88,
+      "bucket": "PublishHelper",
+      "budgetKb": 300,
+      "overBy": -295.12,
       "eagerlyLoaded": false
     },
     {
@@ -1123,15 +1096,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Intelligence-DhagT-lC.js",
-      "rawKb": 16.26,
-      "gzipKb": 4.74,
-      "bucket": "Intelligence-DhagT-lC",
-      "budgetKb": 300,
-      "overBy": -295.26,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow-CgITEZlP.js",
       "rawKb": 11.33,
       "gzipKb": 4.69,
@@ -1150,12 +1114,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PublishHelper-IX3qpolg.js",
-      "rawKb": 14.4,
-      "gzipKb": 4.56,
-      "bucket": "PublishHelper",
+      "file": "Intelligence-CY8zhhG7.js",
+      "rawKb": 16,
+      "gzipKb": 4.63,
+      "bucket": "Intelligence",
       "budgetKb": 300,
-      "overBy": -295.44,
+      "overBy": -295.37,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Admin-Dqw1EWCj.js",
+      "rawKb": 13.57,
+      "gzipKb": 4.49,
+      "bucket": "Admin",
+      "budgetKb": 300,
+      "overBy": -295.51,
       "eagerlyLoaded": false
     },
     {
@@ -1165,15 +1138,6 @@
       "bucket": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
       "budgetKb": 300,
       "overBy": -295.52,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminGuestPosts-BLP6h-sQ.js",
-      "rawKb": 13.36,
-      "gzipKb": 4.46,
-      "bucket": "AdminGuestPosts-BLP6h-sQ",
-      "budgetKb": 300,
-      "overBy": -295.54,
       "eagerlyLoaded": false
     },
     {
@@ -1192,15 +1156,6 @@
       "bucket": "does-it-snow-in-vancouver-weather-guide",
       "budgetKb": 300,
       "overBy": -295.58,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "Admin-CEW0z1jL.js",
-      "rawKb": 13.43,
-      "gzipKb": 4.37,
-      "bucket": "Admin",
-      "budgetKb": 300,
-      "overBy": -295.63,
       "eagerlyLoaded": false
     },
     {
@@ -1249,15 +1204,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PwaDiagnostics-DXLFGYdY.js",
-      "rawKb": 14.91,
-      "gzipKb": 4.22,
-      "bucket": "PwaDiagnostics",
-      "budgetKb": 300,
-      "overBy": -295.78,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "pitt-meadows-snow-removal-9kZKlzIp.js",
       "rawKb": 11.79,
       "gzipKb": 4.22,
@@ -1276,21 +1222,30 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "Takeoff-DR5YSssC.js",
+      "rawKb": 12.59,
+      "gzipKb": 4.13,
+      "bucket": "Takeoff",
+      "budgetKb": 300,
+      "overBy": -295.87,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "PwaDiagnostics-6ca_ufsj.js",
+      "rawKb": 14.59,
+      "gzipKb": 4.09,
+      "bucket": "PwaDiagnostics",
+      "budgetKb": 300,
+      "overBy": -295.91,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "brentwood-burnaby-strata-snow-removal-4Smygvp9.js",
       "rawKb": 9.27,
       "gzipKb": 3.99,
       "bucket": "brentwood-burnaby-strata-snow-removal",
       "budgetKb": 300,
       "overBy": -296.01,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "Takeoff-BQHJoYpk.js",
-      "rawKb": 12.35,
-      "gzipKb": 3.97,
-      "bucket": "Takeoff",
-      "budgetKb": 300,
-      "overBy": -296.03,
       "eagerlyLoaded": false
     },
     {
@@ -1312,6 +1267,15 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "AdminQuoteMetrics-DnpKdkB2.js",
+      "rawKb": 10.8,
+      "gzipKb": 3.91,
+      "bucket": "AdminQuoteMetrics",
+      "budgetKb": 300,
+      "overBy": -296.09,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "harbour-chines-coquitlam-strata-commercial-snow-removal-RdxMqpDP.js",
       "rawKb": 9.68,
       "gzipKb": 3.9,
@@ -1327,24 +1291,6 @@
       "bucket": "yaletown-vancouver-snow-removal",
       "budgetKb": 300,
       "overBy": -296.12,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "SeoReport-DRiRQBDd.js",
-      "rawKb": 9.95,
-      "gzipKb": 3.81,
-      "bucket": "SeoReport",
-      "budgetKb": 300,
-      "overBy": -296.19,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "QuoteConfirmed-3a2-WlAy.js",
-      "rawKb": 10.97,
-      "gzipKb": 3.78,
-      "bucket": "QuoteConfirmed-3a2-WlAy",
-      "budgetKb": 300,
-      "overBy": -296.22,
       "eagerlyLoaded": false
     },
     {
@@ -1384,21 +1330,21 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "QuoteConfirmed-uddezrlu.js",
+      "rawKb": 10.63,
+      "gzipKb": 3.67,
+      "bucket": "QuoteConfirmed",
+      "budgetKb": 300,
+      "overBy": -296.33,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "capitol-hill-burnaby-commercial-snow-removal-DE6K8Zi6.js",
       "rawKb": 8.72,
       "gzipKb": 3.67,
       "bucket": "capitol-hill-burnaby-commercial-snow-removal",
       "budgetKb": 300,
       "overBy": -296.33,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminQuoteMetrics-DR-ULnJa.js",
-      "rawKb": 10.25,
-      "gzipKb": 3.64,
-      "bucket": "AdminQuoteMetrics-DR-ULnJa",
-      "budgetKb": 300,
-      "overBy": -296.36,
       "eagerlyLoaded": false
     },
     {
@@ -1429,21 +1375,21 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "AdminQuoteAlerts-DYRO6aXn.js",
+      "rawKb": 9.68,
+      "gzipKb": 3.07,
+      "bucket": "AdminQuoteAlerts",
+      "budgetKb": 300,
+      "overBy": -296.93,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "white-christmas-2025-burnaby-D9ssVVXx.js",
       "rawKb": 6.44,
       "gzipKb": 3.03,
       "bucket": "white-christmas-2025-burnaby",
       "budgetKb": 300,
       "overBy": -296.97,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminQuoteAlerts-byun4IDt.js",
-      "rawKb": 9.66,
-      "gzipKb": 2.99,
-      "bucket": "AdminQuoteAlerts",
-      "budgetKb": 300,
-      "overBy": -297.01,
       "eagerlyLoaded": false
     },
     {
@@ -1474,21 +1420,21 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "GuestPost-Du3v_ur_.js",
+      "rawKb": 7.61,
+      "gzipKb": 2.81,
+      "bucket": "GuestPost",
+      "budgetKb": 300,
+      "overBy": -297.19,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "app-DnqOzmiM.js",
       "rawKb": 6.42,
       "gzipKb": 2.8,
       "bucket": "app",
       "budgetKb": 300,
       "overBy": -297.2,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "GuestPost-BFS_3w_w.js",
-      "rawKb": 7.65,
-      "gzipKb": 2.76,
-      "bucket": "GuestPost",
-      "budgetKb": 300,
-      "overBy": -297.24,
       "eagerlyLoaded": false
     },
     {
@@ -1510,30 +1456,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAuditLog-BJ5Ah0BZ.js",
-      "rawKb": 7.26,
-      "gzipKb": 2.66,
+      "file": "accordion-nNbLPsPd.js",
+      "rawKb": 6.86,
+      "gzipKb": 2.63,
+      "bucket": "accordion",
+      "budgetKb": 300,
+      "overBy": -297.37,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminQuoteAuditLog-Bp9vTxry.js",
+      "rawKb": 7.05,
+      "gzipKb": 2.58,
       "bucket": "AdminQuoteAuditLog",
       "budgetKb": 300,
-      "overBy": -297.34,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "NewsletterConfirm-B9-wMw43.js",
-      "rawKb": 7.58,
-      "gzipKb": 2.65,
-      "bucket": "NewsletterConfirm-B9-wMw43",
-      "budgetKb": 300,
-      "overBy": -297.35,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminLinkAudit-BeOYremF.js",
-      "rawKb": 6.95,
-      "gzipKb": 2.57,
-      "bucket": "AdminLinkAudit",
-      "budgetKb": 300,
-      "overBy": -297.43,
+      "overBy": -297.42,
       "eagerlyLoaded": false
     },
     {
@@ -1546,6 +1483,15 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "NewsletterConfirm-DiKrFS6O.js",
+      "rawKb": 7.3,
+      "gzipKb": 2.53,
+      "bucket": "NewsletterConfirm",
+      "budgetKb": 300,
+      "overBy": -297.47,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors-CKdHFFTz.js",
       "rawKb": 8.82,
       "gzipKb": 2.51,
@@ -1555,12 +1501,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminNeighborhoods-08DXfYm4.js",
-      "rawKb": 5.59,
-      "gzipKb": 2.49,
-      "bucket": "AdminNeighborhoods",
+      "file": "AdminLinkAudit-CAKEyxBo.js",
+      "rawKb": 6.78,
+      "gzipKb": 2.5,
+      "bucket": "AdminLinkAudit",
       "budgetKb": 300,
-      "overBy": -297.51,
+      "overBy": -297.5,
       "eagerlyLoaded": false
     },
     {
@@ -1579,6 +1525,15 @@
       "bucket": "record-snow-falls-in-bc",
       "budgetKb": 300,
       "overBy": -297.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminNeighborhoods-2PjYez-3.js",
+      "rawKb": 5.28,
+      "gzipKb": 2.35,
+      "bucket": "AdminNeighborhoods-2PjYez-3",
+      "budgetKb": 300,
+      "overBy": -297.65,
       "eagerlyLoaded": false
     },
     {
@@ -1618,12 +1573,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteRecent-CS1d3foN.js",
-      "rawKb": 6.56,
-      "gzipKb": 2.21,
-      "bucket": "AdminQuoteRecent",
+      "file": "AdminQuoteRecent-CN8oPbw-.js",
+      "rawKb": 6.31,
+      "gzipKb": 2.12,
+      "bucket": "AdminQuoteRecent-CN8oPbw-",
       "budgetKb": 300,
-      "overBy": -297.79,
+      "overBy": -297.88,
       "eagerlyLoaded": false
     },
     {
@@ -1633,15 +1588,6 @@
       "bucket": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
       "budgetKb": 300,
       "overBy": -297.94,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminMonitor-Ca88AwgU.js",
-      "rawKb": 5.79,
-      "gzipKb": 2.03,
-      "bucket": "AdminMonitor",
-      "budgetKb": 300,
-      "overBy": -297.97,
       "eagerlyLoaded": false
     },
     {
@@ -1663,12 +1609,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGscCoverage-BNJcf5HO.js",
-      "rawKb": 4.91,
-      "gzipKb": 1.97,
-      "bucket": "AdminGscCoverage",
+      "file": "AdminMonitor-AcNo8Du6.js",
+      "rawKb": 5.5,
+      "gzipKb": 1.91,
+      "bucket": "AdminMonitor",
       "budgetKb": 300,
-      "overBy": -298.03,
+      "overBy": -298.09,
       "eagerlyLoaded": false
     },
     {
@@ -1678,6 +1624,15 @@
       "bucket": "sapperton-new-westminster",
       "budgetKb": 300,
       "overBy": -298.09,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AdminGscCoverage-BDlJhzoz.js",
+      "rawKb": 4.62,
+      "gzipKb": 1.85,
+      "bucket": "AdminGscCoverage",
+      "budgetKb": 300,
+      "overBy": -298.15,
       "eagerlyLoaded": false
     },
     {
@@ -1717,24 +1672,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteDenylist-DOfSMihO.js",
-      "rawKb": 4.54,
-      "gzipKb": 1.68,
-      "bucket": "AdminQuoteDenylist",
-      "budgetKb": 300,
-      "overBy": -298.32,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "AdminSeoSettings-vfvsgJhY.js",
-      "rawKb": 3.77,
-      "gzipKb": 1.68,
-      "bucket": "AdminSeoSettings",
-      "budgetKb": 300,
-      "overBy": -298.32,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "how-it-works-DU0is7Eo.js",
       "rawKb": 3.46,
       "gzipKb": 1.67,
@@ -1753,21 +1690,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AuthorPage-DEa7HI__.js",
-      "rawKb": 3.31,
-      "gzipKb": 1.55,
-      "bucket": "AuthorPage",
+      "file": "AdminQuoteDenylist-Czbugu6h.js",
+      "rawKb": 4.32,
+      "gzipKb": 1.59,
+      "bucket": "AdminQuoteDenylist",
       "budgetKb": 300,
-      "overBy": -298.45,
+      "overBy": -298.41,
       "eagerlyLoaded": false
     },
     {
-      "file": "Locations-CHLLNeON.js",
-      "rawKb": 3.81,
-      "gzipKb": 1.55,
-      "bucket": "Locations",
+      "file": "AdminSeoSettings-DO6mvEaC.js",
+      "rawKb": 3.46,
+      "gzipKb": 1.54,
+      "bucket": "AdminSeoSettings",
       "budgetKb": 300,
-      "overBy": -298.45,
+      "overBy": -298.46,
       "eagerlyLoaded": false
     },
     {
@@ -1813,6 +1750,24 @@
       "bucket": "buckingham-heights-burnaby-h6suL-l9",
       "budgetKb": 300,
       "overBy": -298.52,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "AuthorPage-YsWe04Tr.js",
+      "rawKb": 3,
+      "gzipKb": 1.42,
+      "bucket": "AuthorPage",
+      "budgetKb": 300,
+      "overBy": -298.58,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Locations-CKSHa5zd.js",
+      "rawKb": 3.5,
+      "gzipKb": 1.42,
+      "bucket": "Locations",
+      "budgetKb": 300,
+      "overBy": -298.58,
       "eagerlyLoaded": false
     },
     {
@@ -1870,12 +1825,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Auth-lpTIuhDc.js",
-      "rawKb": 3.39,
-      "gzipKb": 1.3,
-      "bucket": "Auth",
+      "file": "tabs-CnDFzLK9.js",
+      "rawKb": 3.12,
+      "gzipKb": 1.31,
+      "bucket": "tabs",
       "budgetKb": 300,
-      "overBy": -298.7,
+      "overBy": -298.69,
       "eagerlyLoaded": false
     },
     {
@@ -1888,12 +1843,21 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Quote-fWstk3jE.js",
-      "rawKb": 2.6,
-      "gzipKb": 1.19,
-      "bucket": "Quote",
+      "file": "switch-K0OMHqbO.js",
+      "rawKb": 2.39,
+      "gzipKb": 1.2,
+      "bucket": "switch",
       "budgetKb": 300,
-      "overBy": -298.81,
+      "overBy": -298.8,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "Auth-B_jbtVva.js",
+      "rawKb": 3.07,
+      "gzipKb": 1.17,
+      "bucket": "Auth",
+      "budgetKb": 300,
+      "overBy": -298.83,
       "eagerlyLoaded": false
     },
     {
@@ -1915,6 +1879,15 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "Quote-DO_LFZtX.js",
+      "rawKb": 2.29,
+      "gzipKb": 1.05,
+      "bucket": "Quote",
+      "budgetKb": 300,
+      "overBy": -298.95,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "contact-CPE2fVy6.js",
       "rawKb": 3.59,
       "gzipKb": 1.03,
@@ -1928,6 +1901,15 @@
       "rawKb": 2.03,
       "gzipKb": 1,
       "bucket": "24-7-service",
+      "budgetKb": 300,
+      "overBy": -299,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "SnowBackground-Cm7FmofS.js",
+      "rawKb": 2.61,
+      "gzipKb": 1,
+      "bucket": "SnowBackground",
       "budgetKb": 300,
       "overBy": -299,
       "eagerlyLoaded": false
@@ -1996,24 +1978,6 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "accordion-CFOmm6gB.js",
-      "rawKb": 1.13,
-      "gzipKb": 0.55,
-      "bucket": "accordion",
-      "budgetKb": 300,
-      "overBy": -299.45,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "table-CZvE16wI.js",
-      "rawKb": 1.49,
-      "gzipKb": 0.53,
-      "bucket": "table",
-      "budgetKb": 300,
-      "overBy": -299.47,
-      "eagerlyLoaded": false
-    },
-    {
       "file": "geocodeCache-Ct1323Vo.js",
       "rawKb": 0.91,
       "gzipKb": 0.51,
@@ -2023,43 +1987,25 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "tabs-D7F3B_Pl.js",
-      "rawKb": 1.13,
-      "gzipKb": 0.48,
-      "bucket": "tabs",
+      "file": "table-DELgU_mZ.js",
+      "rawKb": 1.45,
+      "gzipKb": 0.51,
+      "bucket": "table",
       "budgetKb": 300,
-      "overBy": -299.52,
+      "overBy": -299.49,
       "eagerlyLoaded": false
     },
     {
-      "file": "switch-BiebwjiD.js",
-      "rawKb": 0.84,
-      "gzipKb": 0.45,
-      "bucket": "switch",
-      "budgetKb": 300,
-      "overBy": -299.55,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "badge-BRlmmoIZ.js",
-      "rawKb": 0.77,
-      "gzipKb": 0.4,
-      "bucket": "badge",
-      "budgetKb": 300,
-      "overBy": -299.6,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "card-9Z5d9aej.js",
-      "rawKb": 1.01,
-      "gzipKb": 0.4,
+      "file": "card-CwJAeVHU.js",
+      "rawKb": 0.97,
+      "gzipKb": 0.37,
       "bucket": "card",
       "budgetKb": 300,
-      "overBy": -299.6,
+      "overBy": -299.63,
       "eagerlyLoaded": false
     },
     {
-      "file": "internalLinks-DXvkhJoJ.js",
+      "file": "internalLinks-DG3VHebp.js",
       "rawKb": 0.58,
       "gzipKb": 0.37,
       "bucket": "internalLinks",
@@ -2068,12 +2014,138 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "SnowBackground-UW81Wyus.js",
-      "rawKb": 0.46,
+      "file": "map-DShggbJg.js",
+      "rawKb": 0.58,
+      "gzipKb": 0.37,
+      "bucket": "map",
+      "budgetKb": 300,
+      "overBy": -299.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "badge-lr-YPDaC.js",
+      "rawKb": 0.69,
+      "gzipKb": 0.36,
+      "bucket": "badge-lr-YPDaC",
+      "budgetKb": 300,
+      "overBy": -299.64,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "cloud-snow-CPO8vWdO.js",
+      "rawKb": 0.56,
+      "gzipKb": 0.34,
+      "bucket": "cloud-snow",
+      "budgetKb": 300,
+      "overBy": -299.66,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "trash-2-D_cZKqEV.js",
+      "rawKb": 0.51,
+      "gzipKb": 0.33,
+      "bucket": "trash-2",
+      "budgetKb": 300,
+      "overBy": -299.67,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "refresh-cw-D1tnrT0v.js",
+      "rawKb": 0.48,
+      "gzipKb": 0.32,
+      "bucket": "refresh-cw",
+      "budgetKb": 300,
+      "overBy": -299.68,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "save-aZhAecDN.js",
+      "rawKb": 0.48,
+      "gzipKb": 0.32,
+      "bucket": "save",
+      "budgetKb": 300,
+      "overBy": -299.68,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "download-S3ph3AOJ.js",
+      "rawKb": 0.42,
       "gzipKb": 0.31,
-      "bucket": "SnowBackground",
+      "bucket": "download",
       "budgetKb": 300,
       "overBy": -299.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "log-out-bMWDtJGw.js",
+      "rawKb": 0.42,
+      "gzipKb": 0.31,
+      "bucket": "log-out",
+      "budgetKb": 300,
+      "overBy": -299.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "triangle-alert-CaK9vu4p.js",
+      "rawKb": 0.42,
+      "gzipKb": 0.3,
+      "bucket": "triangle-alert",
+      "budgetKb": 300,
+      "overBy": -299.7,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "copy-bkPM59mW.js",
+      "rawKb": 0.39,
+      "gzipKb": 0.29,
+      "bucket": "copy",
+      "budgetKb": 300,
+      "overBy": -299.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "external-link-DzsQCRPx.js",
+      "rawKb": 0.41,
+      "gzipKb": 0.29,
+      "bucket": "external-link",
+      "budgetKb": 300,
+      "overBy": -299.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "eye-TJp0Igwe.js",
+      "rawKb": 0.41,
+      "gzipKb": 0.29,
+      "bucket": "eye",
+      "budgetKb": 300,
+      "overBy": -299.71,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "circle-x-CSt5cVqJ.js",
+      "rawKb": 0.36,
+      "gzipKb": 0.27,
+      "bucket": "circle-x",
+      "budgetKb": 300,
+      "overBy": -299.73,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "arrow-left-B1ZJwnNI.js",
+      "rawKb": 0.33,
+      "gzipKb": 0.26,
+      "bucket": "arrow-left",
+      "budgetKb": 300,
+      "overBy": -299.74,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "plus-HDURmOLw.js",
+      "rawKb": 0.31,
+      "gzipKb": 0.25,
+      "bucket": "plus",
+      "budgetKb": 300,
+      "overBy": -299.75,
       "eagerlyLoaded": false
     },
     {
@@ -2086,5 +2158,15 @@
       "eagerlyLoaded": false
     }
   ],
-  "violations": []
+  "violations": [
+    {
+      "file": "index-D0pGf2N3.js",
+      "rawKb": 826.28,
+      "gzipKb": 226.92,
+      "bucket": "index",
+      "budgetKb": 55,
+      "overBy": 171.92,
+      "eagerlyLoaded": true
+    }
+  ]
 }
