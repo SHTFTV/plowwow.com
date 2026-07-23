@@ -87,6 +87,20 @@ const App = () => (
             <Route path="/blog/neighborhoods/" element={<BlogNeighborhoods />} />
             <Route path="/blog/tag/:tagSlug" element={<BlogIndex />} />
             <Route path="/blog/tag/:tagSlug/" element={<BlogIndex />} />
+            {legacyBlogSlugs.map((slug) => (
+              <Route
+                key={`blog-prefixed-${slug}`}
+                path={`/blog/${slug}`}
+                element={<LegacyPage kind="blog" />}
+              />
+            ))}
+            {legacyBlogSlugs.map((slug) => (
+              <Route
+                key={`blog-prefixed-slash-${slug}`}
+                path={`/blog/${slug}/`}
+                element={<LegacyPage kind="blog" />}
+              />
+            ))}
 
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/advanced-technology" element={<AppFeatures />} />
