@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:03:38.665Z",
+  "generatedAt": "2026-07-23T17:08:49.109Z",
   "count": 118,
   "fallback": "/blog-images/_neighborhoods/city-all.jpg",
   "entries": [
@@ -8,24 +8,6 @@
       "file": "/blog-images/_neighborhoods/city-all.jpg",
       "city": "all",
       "tag": null
-    },
-    {
-      "key": "city-all__tag-de-icing",
-      "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
-      "city": "all",
-      "tag": "De-Icing"
-    },
-    {
-      "key": "city-all__tag-weather",
-      "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
-      "city": "all",
-      "tag": "Weather"
-    },
-    {
-      "key": "city-all__tag-equipment",
-      "file": "/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
-      "city": "all",
-      "tag": "Equipment"
     },
     {
       "key": "city-all__tag-strata",
@@ -44,6 +26,24 @@
       "file": "/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
       "city": "all",
       "tag": "Contracts"
+    },
+    {
+      "key": "city-all__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
+      "city": "all",
+      "tag": "De-Icing"
+    },
+    {
+      "key": "city-all__tag-equipment",
+      "file": "/blog-images/_neighborhoods/city-all__tag-equipment.jpg",
+      "city": "all",
+      "tag": "Equipment"
+    },
+    {
+      "key": "city-all__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
+      "city": "all",
+      "tag": "Weather"
     },
     {
       "key": "city-all__tag-residential",
@@ -76,16 +76,16 @@
       "tag": "Commercial"
     },
     {
-      "key": "city-burnaby__tag-de-icing",
-      "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
-      "city": "burnaby",
-      "tag": "De-Icing"
-    },
-    {
       "key": "city-burnaby__tag-contracts",
       "file": "/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
       "city": "burnaby",
       "tag": "Contracts"
+    },
+    {
+      "key": "city-burnaby__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
+      "city": "burnaby",
+      "tag": "De-Icing"
     },
     {
       "key": "city-burnaby__tag-equipment",

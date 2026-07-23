@@ -13,6 +13,86 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "willingdon-heights-burnaby-commercial-snow-removal",
+    "title": "Willingdon Heights Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Willingdon Heights Burnaby snow removal for Hastings-to-Brentwood strata, mixed-use commercial and BCIT commuter routes — 24/7 dispatch, seasonal packages…",
+    "image": "/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+    "alt": "Willingdon Heights snow removal — PlowWow mascot waving on a Willingdon Avenue at blue dawn with plowed lanes, snow-dusted mid-rise strata and BCIT campus lights in the distance",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.976Z",
+    "updatedAt": "2026-07-23T17:08:10.976Z"
+  },
+  {
+    "slug": "yaletown-vancouver-snow-removal",
+    "title": "Yaletown Vancouver Snow Removal & Commercial Strata De-Icing",
+    "blurb": "Yaletown snow removal for heritage-brick loft strata, Mainland Street patios, restaurant frontages, and False Creek commercial. 24/7 dispatch, seasonal packages, pet-safe de-icer…",
+    "image": "/blog-images/yaletown-vancouver-snow-removal.jpg",
+    "alt": "Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.976Z",
+    "updatedAt": "2026-07-23T17:08:10.976Z"
+  },
+  {
+    "slug": "surrey-strata-commercial-snow-plowing",
+    "title": "Surrey Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Surrey, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Surrey strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
+  },
+  {
+    "slug": "terra-nova-richmond-strata-commercial-snow-removal",
+    "title": "Terra Nova Richmond Strata Snow Removal",
+    "blurb": "Terra Nova Richmond snow removal for waterfront strata and townhome complexes — wind-exposed dispatch, seasonal contracts and GPS-logged pet-safe de-icing…",
+    "image": "/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
+    "alt": "PlowWow mascot standing on a plowed Terra Nova Richmond waterfront pathway at blue dawn with snow-dusted dyke trail, salt marsh grasses and the Gulf of Georgia horizon behind",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
+  },
+  {
+    "slug": "the-worlds-cutest-snow-removal-brand",
+    "title": "The World’s Cutest Snow Removal Brand",
+    "blurb": "Video Player 00:00 00:00 00:00 Elevate Your Snow Removal Business Join the PlowWow Revolution At PlowWow , we’re not a franchise — we believe in quality, not nonsense. We partner e…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
+  },
+  {
     "slug": "tsawwassen-snow-removal",
     "title": "Tsawwassen Snow Removal | South Delta Ice Control",
     "blurb": "Reliable snow removal and de-icing in Tsawwassen and South Delta — Beach Grove, English Bluff, Boundary Bay. 24/7 emergency response by PlowWow…",
@@ -25,8 +105,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "victoria-fraserview-vancouver-strata-commercial-snow-removal",
@@ -43,8 +123,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "west-end-vancouver-snow-removal",
@@ -61,8 +141,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "west-vancouver-snow-removal",
@@ -75,8 +155,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "westridge-burnaby-strata-commercial-snow-removal",
@@ -93,8 +173,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "westwood-plateau-coquitlam-parking-lot-snow-removal",
@@ -109,8 +189,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "white-christmas-2025-burnaby",
@@ -121,8 +201,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "white-rock-strata-commercial-snow-plowing",
@@ -138,41 +218,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
-  },
-  {
-    "slug": "willingdon-heights-burnaby-commercial-snow-removal",
-    "title": "Willingdon Heights Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Willingdon Heights Burnaby snow removal for Hastings-to-Brentwood strata, mixed-use commercial and BCIT commuter routes — 24/7 dispatch, seasonal packages…",
-    "image": "/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
-    "alt": "Willingdon Heights snow removal — PlowWow mascot waving on a Willingdon Avenue at blue dawn with plowed lanes, snow-dusted mid-rise strata and BCIT campus lights in the distance",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
-  },
-  {
-    "slug": "yaletown-vancouver-snow-removal",
-    "title": "Yaletown Vancouver Snow Removal & Commercial Strata De-Icing",
-    "blurb": "Yaletown snow removal for heritage-brick loft strata, Mainland Street patios, restaurant frontages, and False Creek commercial. 24/7 dispatch, seasonal packages, pet-safe de-icer…",
-    "image": "/blog-images/yaletown-vancouver-snow-removal.jpg",
-    "alt": "Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.734Z",
-    "updatedAt": "2026-07-23T16:26:00.734Z"
+    "publishedAt": "2026-07-23T17:08:10.975Z",
+    "updatedAt": "2026-07-23T17:08:10.975Z"
   },
   {
     "slug": "south-slope-burnaby-strata-commercial-snow-removal",
@@ -189,8 +236,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "sperling-duthie-burnaby-strata-commercial-snow-removal",
@@ -207,8 +254,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "squamish-snow-removal",
@@ -222,8 +269,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "steveston-snow-removal",
@@ -241,8 +288,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
@@ -257,8 +304,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "strata-snow-removal-vancouver-apartment-buildings-condos-24-7-service",
@@ -271,8 +318,8 @@ export const blogPosts = [
       "Strata"
     ],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "strathcona-east-vancouver-snow-removal",
@@ -287,8 +334,8 @@ export const blogPosts = [
       "De-Icing"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "suncrest-burnaby-snow-removal",
@@ -303,8 +350,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "sunset-vancouver-strata-commercial-snow-removal",
@@ -321,129 +368,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
-  },
-  {
-    "slug": "surrey-strata-commercial-snow-plowing",
-    "title": "Surrey Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Surrey, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/surrey-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Surrey strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
-  },
-  {
-    "slug": "terra-nova-richmond-strata-commercial-snow-removal",
-    "title": "Terra Nova Richmond Strata Snow Removal",
-    "blurb": "Terra Nova Richmond snow removal for waterfront strata and townhome complexes — wind-exposed dispatch, seasonal contracts and GPS-logged pet-safe de-icing…",
-    "image": "/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot standing on a plowed Terra Nova Richmond waterfront pathway at blue dawn with snow-dusted dyke trail, salt marsh grasses and the Gulf of Georgia horizon behind",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
-  },
-  {
-    "slug": "the-worlds-cutest-snow-removal-brand",
-    "title": "The World’s Cutest Snow Removal Brand",
-    "blurb": "Video Player 00:00 00:00 00:00 Elevate Your Snow Removal Business Join the PlowWow Revolution At PlowWow , we’re not a franchise — we believe in quality, not nonsense. We partner e…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.733Z",
-    "updatedAt": "2026-07-23T16:26:00.733Z"
-  },
-  {
-    "slug": "sardis-chilliwack-strata-commercial-snow-removal",
-    "title": "Sardis Chilliwack Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Sardis Chilliwack snow removal for Vedder Road retail, Garrison Crossing strata and Cottonwood commercial — 24/7 dispatch, seasonal contracts, freezing-rain response…",
-    "image": "/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
-    "alt": "Sardis Chilliwack snow removal — PlowWow mascot waving on a Sardis Vedder Road at blue dawn with plowed lanes, snow-dusted Garrison Crossing townhomes and Mount Cheam behind",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "seafair-richmond-strata-commercial-snow-removal",
-    "title": "Seafair Richmond Strata & Commercial Snow Removal",
-    "blurb": "Seafair Richmond strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
-    "image": "/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot waving on a snowy Seafair Richmond residential street at blue dawn with local strata townhomes and Railway Avenue and Francis Road in the distance",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "sfu-burnaby-snow-removal",
-    "title": "SFU Burnaby snow removal",
-    "blurb": "Comprehensive Snow Management Solutions Your Strata's Winter Care Experts Ensure your property remains safe and accessible all winter long with our dedicated snow removal services…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "shaughnessy-snow-removal",
-    "title": "Shaughnessy Snow Removal",
-    "blurb": "Shaughnessy's Premier Snow Management Solutions Experience unparalleled snow removal services tailored for the prestigious estates of Shaughnessy. Our expertise ensures your proper…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "Image 1: plowwow snow removing service image",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "shaughnessy-vancouver-snow-removal",
-    "title": "Shaughnessy Vancouver Snow Removal",
-    "blurb": "Shaughnessy snow removal & de-icing for heritage estates, long tree-lined driveways, and luxury strata. 60-minute response, salt-safe for stone, 24/7 monitoring…",
-    "image": "/blog-images/shaughnessy-vancouver-snow-removal.jpg",
-    "alt": "PlowWow husky mascot waving on a freshly plowed tree-lined Shaughnessy boulevard at blue dawn with snow-dusted heritage mansions and mature chestnut trees",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Residential",
-      "De-Icing"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.974Z",
+    "updatedAt": "2026-07-23T17:08:10.974Z"
   },
   {
     "slug": "silver-valley-maple-ridge",
@@ -454,24 +380,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "silver-valley-maple-ridge-strata-snow-removal",
-    "title": "Silver Valley Maple Ridge Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Silver Valley Maple Ridge snow removal for hillside strata, Foreman Drive townhomes and 232nd Street commercial — 24/7 dispatch, elevation-aware seasonal contracts…",
-    "image": "/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
-    "alt": "Silver Valley Maple Ridge snow removal — PlowWow mascot waving on a Silver Valley hillside townhome complex at blue dawn with plowed steep driveway, snow-covered cedars and Golden Ears mountains behind",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "silverdale-mission-strata-commercial-snow-removal",
@@ -488,8 +398,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "skid-steer-snow-removal-in-langley-bc",
@@ -502,8 +412,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-in-burquitlam",
@@ -514,8 +424,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-kensington-prairie",
@@ -526,8 +436,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-renfrew-heights",
@@ -538,8 +448,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
@@ -550,8 +460,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-services-in-killarney-vancouver",
@@ -562,8 +472,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-vancouver-bc-reliable-residential-commercial-service-plow-wow",
@@ -578,8 +488,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "snow-removal-west-side-vancouver",
@@ -590,8 +500,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "south-cambie-vancouver-strata-commercial-snow-removal",
@@ -608,135 +518,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.732Z",
-    "updatedAt": "2026-07-23T16:26:00.732Z"
-  },
-  {
-    "slug": "port-coquitlam-strata-commercial-snow-plowing",
-    "title": "Port Coquitlam Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Port Coquitlam, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Port Coquitlam strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "port-moody-strata-commercial-snow-plowing",
-    "title": "Port Moody Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Port Moody, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Port Moody strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
-    "title": "Professional Snow Removal & Ice Management for Vancouver BC Strata Properties",
-    "blurb": "Transparent Seasonal Pricing You Can Trust When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice management services they can co…",
-    "image": "/blog-images/_theme-strata.jpg",
-    "alt": "PlowWow Wow mascot alone in front of a Metro Vancouver strata condominium building on a bright plowed sidewalk with snow-dusted evergreens",
-    "theme": "strata",
-    "tags": [
-      "Strata"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "professional-snow-removal-in-middle-gate-burnaby",
-    "title": "Professional Snow Removal in Middle Gate, Burnaby",
-    "blurb": "Reliable Snow Removal Services in Middle Gate Professional Snow Removal in Middle Gate, Burnaby Middle Gate residents and business owners know that winter weather can strike quickl…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "promontory-chilliwack-strata-snow-removal",
-    "title": "Promontory Chilliwack Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Promontory Chilliwack snow removal for hillside strata, Thom Creek Ranch townhomes and Teskey Way commercial — 24/7 dispatch, elevation-aware seasonal packages…",
-    "image": "/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
-    "alt": "Promontory Chilliwack snow removal — PlowWow mascot waving on a Promontory Chilliwack hillside strata cul-de-sac at blue dawn with plowed steep driveway and snow-covered Cheam Range valley view",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "queensborough-new-westminster-strata-commercial-snow-removal",
-    "title": "Queensborough New Westminster Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Queensborough New Westminster snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
-    "image": "/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
-    "alt": "Queensborough New Westminster snow removal — PlowWow mascot waving on a plowed Ewen Avenue sidewalk with snow-dusted townhomes and the Queensborough Bridge at blue-hour dawn",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "ranch-park-coquitlam-strata-commercial-snow-removal",
-    "title": "Ranch Park Coquitlam Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Ranch Park Coquitlam snow removal for strata and townhome properties — 24/7 dispatch, seasonal contracts, GPS-logged salt runs and pet-safe de-icer…",
-    "image": "/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot waving beside a plowed Ranch Park Coquitlam street at blue dawn, snow-dusted trees and Coquitlam landmarks in the background — Ranch Park Coquitlam snow removal",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
-  },
-  {
-    "slug": "record-snow-falls-in-bc",
-    "title": "Record Snow Falls In BC",
-    "blurb": "❄️ Brace for Winter, Greater Vancouver — Plow Wow Keeps You Ready! Metro Vancouver residents, winter 2026 is shaping up to be more active than recent years! After a relatively mild…",
-    "image": "/blog-images/_theme-storm.jpg",
-    "alt": "PlowWow Wow mascot alone on a freshly cleared Metro Vancouver road during a light Pineapple Express snowfall with plow tracks and evergreens",
-    "theme": "storm",
-    "tags": [
-      "Liability",
-      "Weather"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.973Z",
+    "updatedAt": "2026-07-23T17:08:10.973Z"
   },
   {
     "slug": "renfrew-collingwood-vancouver-strata-commercial-snow-removal",
@@ -753,8 +536,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
   },
   {
     "slug": "richmond-strata-commercial-snow-plowing",
@@ -770,8 +553,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
   },
   {
     "slug": "riley-park-vancouver-strata-commercial-snow-removal",
@@ -788,8 +571,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
   },
   {
     "slug": "river-springs-coquitlam-strata-commercial-snow-removal",
@@ -806,8 +589,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
   },
   {
     "slug": "sapperton-new-westminster",
@@ -818,8 +601,432 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.731Z",
-    "updatedAt": "2026-07-23T16:26:00.731Z"
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "sardis-chilliwack-strata-commercial-snow-removal",
+    "title": "Sardis Chilliwack Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Sardis Chilliwack snow removal for Vedder Road retail, Garrison Crossing strata and Cottonwood commercial — 24/7 dispatch, seasonal contracts, freezing-rain response…",
+    "image": "/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
+    "alt": "Sardis Chilliwack snow removal — PlowWow mascot waving on a Sardis Vedder Road at blue dawn with plowed lanes, snow-dusted Garrison Crossing townhomes and Mount Cheam behind",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "seafair-richmond-strata-commercial-snow-removal",
+    "title": "Seafair Richmond Strata & Commercial Snow Removal",
+    "blurb": "Seafair Richmond strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
+    "image": "/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
+    "alt": "PlowWow mascot waving on a snowy Seafair Richmond residential street at blue dawn with local strata townhomes and Railway Avenue and Francis Road in the distance",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "sfu-burnaby-snow-removal",
+    "title": "SFU Burnaby snow removal",
+    "blurb": "Comprehensive Snow Management Solutions Your Strata's Winter Care Experts Ensure your property remains safe and accessible all winter long with our dedicated snow removal services…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "shaughnessy-snow-removal",
+    "title": "Shaughnessy Snow Removal",
+    "blurb": "Shaughnessy's Premier Snow Management Solutions Experience unparalleled snow removal services tailored for the prestigious estates of Shaughnessy. Our expertise ensures your proper…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "Image 1: plowwow snow removing service image",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "shaughnessy-vancouver-snow-removal",
+    "title": "Shaughnessy Vancouver Snow Removal",
+    "blurb": "Shaughnessy snow removal & de-icing for heritage estates, long tree-lined driveways, and luxury strata. 60-minute response, salt-safe for stone, 24/7 monitoring…",
+    "image": "/blog-images/shaughnessy-vancouver-snow-removal.jpg",
+    "alt": "PlowWow husky mascot waving on a freshly plowed tree-lined Shaughnessy boulevard at blue dawn with snow-dusted heritage mansions and mature chestnut trees",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Residential",
+      "De-Icing"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "silver-valley-maple-ridge-strata-snow-removal",
+    "title": "Silver Valley Maple Ridge Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Silver Valley Maple Ridge snow removal for hillside strata, Foreman Drive townhomes and 232nd Street commercial — 24/7 dispatch, elevation-aware seasonal contracts…",
+    "image": "/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
+    "alt": "Silver Valley Maple Ridge snow removal — PlowWow mascot waving on a Silver Valley hillside townhome complex at blue dawn with plowed steep driveway, snow-covered cedars and Golden Ears mountains behind",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.972Z",
+    "updatedAt": "2026-07-23T17:08:10.972Z"
+  },
+  {
+    "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
+    "title": "BC Occupiers Liability Act & Slip Claims — Manager Playbook",
+    "blurb": "The BC Occupiers Liability Act and winter slip claims — the exact duty, the reasonableness standard and the paper trail that defends a strata or commercial landlord…",
+    "image": "/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
+    "alt": "Wow mascot standing alone on a plowed and salted commercial storefront sidewalk with a safety cone, brick facade retail window and neat snow banks beside it in bright winter light",
+    "theme": "residential",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Liability"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
+    "title": "Pet-Safe De-Icer vs Rock Salt: Metro Vancouver 2026 Guide",
+    "blurb": "Pet-safe de-icer vs rock salt in Metro Vancouver — chemistry, temperature range, concrete damage, paw safety, cost per square metre and what strata councils should actually buy in…",
+    "image": "/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
+    "alt": "Wow mascot standing alone on a plowed Metro Vancouver residential sidewalk with pet-safe de-icing granules scattered on the concrete and the North Shore mountains visible in the background",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
+    "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever",
+    "blurb": "Challenge for the Cutest Snow Removal Brand Join the revolution that’s reshaping the snow removal industry with unmatched brand identity and strategic market positioning. Revolutio…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
+    "title": "Plow Wow Snow Removal Kerrisdale Vancouver | Luxury Homes & Strata Specialist",
+    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Luxury Snow Removal Ser…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "point-grey-vancouver-snow-removal",
+    "title": "Point Grey Vancouver Snow Removal",
+    "blurb": "Point Grey snow removal & de-icing for cliff-edge estates, NW Marine Drive, UBC-adjacent strata, and West 10th retail. 60-minute response, salt-safe for stone…",
+    "image": "/blog-images/point-grey-vancouver-snow-removal.jpg",
+    "alt": "PlowWow husky mascot waving on a freshly plowed Point Grey Vancouver street with English Bay and the North Shore mountains in the distance and modernist cliff-edge homes nearby",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "port-coquitlam-strata-commercial-snow-plowing",
+    "title": "Port Coquitlam Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Port Coquitlam, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Port Coquitlam strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "port-moody-strata-commercial-snow-plowing",
+    "title": "Port Moody Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Port Moody, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Port Moody strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
+    "title": "Professional Snow Removal & Ice Management for Vancouver BC Strata Properties",
+    "blurb": "Transparent Seasonal Pricing You Can Trust When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice management services they can co…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "PlowWow Wow mascot alone in front of a Metro Vancouver strata condominium building on a bright plowed sidewalk with snow-dusted evergreens",
+    "theme": "strata",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "professional-snow-removal-in-middle-gate-burnaby",
+    "title": "Professional Snow Removal in Middle Gate, Burnaby",
+    "blurb": "Reliable Snow Removal Services in Middle Gate Professional Snow Removal in Middle Gate, Burnaby Middle Gate residents and business owners know that winter weather can strike quickl…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "promontory-chilliwack-strata-snow-removal",
+    "title": "Promontory Chilliwack Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Promontory Chilliwack snow removal for hillside strata, Thom Creek Ranch townhomes and Teskey Way commercial — 24/7 dispatch, elevation-aware seasonal packages…",
+    "image": "/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
+    "alt": "Promontory Chilliwack snow removal — PlowWow mascot waving on a Promontory Chilliwack hillside strata cul-de-sac at blue dawn with plowed steep driveway and snow-covered Cheam Range valley view",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "queensborough-new-westminster-strata-commercial-snow-removal",
+    "title": "Queensborough New Westminster Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Queensborough New Westminster snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
+    "alt": "Queensborough New Westminster snow removal — PlowWow mascot waving on a plowed Ewen Avenue sidewalk with snow-dusted townhomes and the Queensborough Bridge at blue-hour dawn",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "ranch-park-coquitlam-strata-commercial-snow-removal",
+    "title": "Ranch Park Coquitlam Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Ranch Park Coquitlam snow removal for strata and townhome properties — 24/7 dispatch, seasonal contracts, GPS-logged salt runs and pet-safe de-icer…",
+    "image": "/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
+    "alt": "PlowWow mascot waving beside a plowed Ranch Park Coquitlam street at blue dawn, snow-dusted trees and Coquitlam landmarks in the background — Ranch Park Coquitlam snow removal",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "record-snow-falls-in-bc",
+    "title": "Record Snow Falls In BC",
+    "blurb": "❄️ Brace for Winter, Greater Vancouver — Plow Wow Keeps You Ready! Metro Vancouver residents, winter 2026 is shaping up to be more active than recent years! After a relatively mild…",
+    "image": "/blog-images/_theme-storm.jpg",
+    "alt": "PlowWow Wow mascot alone on a freshly cleared Metro Vancouver road during a light Pineapple Express snowfall with plow tracks and evergreens",
+    "theme": "storm",
+    "tags": [
+      "Liability",
+      "Weather"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.971Z",
+    "updatedAt": "2026-07-23T17:08:10.971Z"
+  },
+  {
+    "slug": "new-westminster-strata-commercial-snow-plowing",
+    "title": "New Westminster Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in New Westminster, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a New Westminster strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.970Z",
+    "updatedAt": "2026-07-23T17:08:10.970Z"
+  },
+  {
+    "slug": "north-vancouver-snow-removal",
+    "title": "North Vancouver Snow Removal & De-Icing",
+    "blurb": "PlowWow delivers 24/7 snow plowing, salting, and de-icing across North Vancouver — Lynn Valley, Edgemont, Deep Cove, Lonsdale, and Capilano…",
+    "image": "/blog-images/north-vancouver-snow-removal.jpg",
+    "alt": "PlowWow plow truck clearing a snowy North Vancouver residential street at dawn with snow-covered cedars",
+    "theme": "citywide",
+    "tags": [
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.970Z",
+    "updatedAt": "2026-07-23T17:08:10.970Z"
+  },
+  {
+    "slug": "now-removal-arbutus",
+    "title": "Snow Removal in Arbutus,",
+    "blurb": "Keeping Arbutus Accessible All Winter Professional Snow Removal Services Ensure your property remains safe and accessible with our expert snow removal solutions tailored for Arbutu…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.970Z",
+    "updatedAt": "2026-07-23T17:08:10.970Z"
+  },
+  {
+    "slug": "oakridge-vancouver-snow-removal",
+    "title": "Oakridge Vancouver Snow Removal",
+    "blurb": "Oakridge snow removal for strata towers, low-rise condos, Oakridge Centre retail and Cambie corridor commercial. Guaranteed 60-minute response, GPS logs, pet-safe de-icer…",
+    "image": "/blog-images/oakridge-vancouver-snow-removal.jpg",
+    "alt": "Oakridge Vancouver snow removal — PlowWow mascot waving in front of a freshly plowed low-rise strata complex driveway at blue-hour, snow-dusted evergreens and warm street lamps along the Cambie corridor",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.970Z",
+    "updatedAt": "2026-07-23T17:08:10.970Z"
+  },
+  {
+    "slug": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
+    "title": "Metro Vancouver Winter Weather — Snow Emergency Patterns 2026",
+    "blurb": "Metro Vancouver winter weather explained — Pineapple Express, Arctic outflow, freezing rain and convergence-zone snow, and how each triggers Lower Mainland snow emergencies…",
+    "image": "/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
+    "alt": "Wow mascot standing alone on a plowed suburban Metro Vancouver street with a dramatic North Shore mountain snowscape and broken winter cloud cover in the background under bright daylight",
+    "theme": "storm",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
+  },
+  {
+    "slug": "metrotown-burnaby-strata-commercial-snow-removal",
+    "title": "Metrotown Burnaby Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Metrotown Burnaby snow removal for strata towers, Kingsway retail and Metropolis at Metrotown perimeter — 24/7 dispatch, seasonal contracts, pet-safe de-icer…",
+    "image": "/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
+    "alt": "Metrotown Burnaby snow removal — PlowWow mascot waving on a Metropolis at Metrotown transit plaza at blue dawn with snow-dusted Sovereign and Metroplace towers behind a plowed Kingsway",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
+  },
+  {
+    "slug": "metrotown-snow-removal-company",
+    "title": "Metrotown Snow Removal Company",
+    "blurb": "Why Metrotown Property Managers Trust PlowWow At PlowWow, we specialize in providing tailored snow removal solutions for Metrotown’s unique high-rise and multi-level structures. Ou…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
+  },
+  {
+    "slug": "metrotown-strata-snow-removal",
+    "title": "Metrotown Strata Snow Removal",
+    "blurb": "Strata Snow Removal Metrotown | 24/7 Snow & Ice Control | Plow Wow ❄️ Plow Wow Strata Snow Removal in Metrotown, Burnaby 24/7 professional snow plowing, salting, and ice control fo…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "Image 1: Strata Snow Removal Metrotown by Plow Wow",
+    "theme": "strata",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
+  },
+  {
+    "slug": "middlegate-snow-removal-burnaby",
+    "title": "Middlegate Snow Removal Burnaby",
+    "blurb": "Middlegate Snow Removal Burnaby | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Instagram RSS Home About Residential Commercial Ser…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
   },
   {
     "slug": "mission-strata-commercial-snow-plowing",
@@ -835,8 +1042,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
   },
   {
     "slug": "montecito-burnaby-strata-commercial-snow-removal",
@@ -853,8 +1060,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
   },
   {
     "slug": "mount-pleasant-east-vancouver-snow-removal",
@@ -870,263 +1077,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "new-westminster-strata-commercial-snow-plowing",
-    "title": "New Westminster Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in New Westminster, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a New Westminster strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "north-vancouver-snow-removal",
-    "title": "North Vancouver Snow Removal & De-Icing",
-    "blurb": "PlowWow delivers 24/7 snow plowing, salting, and de-icing across North Vancouver — Lynn Valley, Edgemont, Deep Cove, Lonsdale, and Capilano…",
-    "image": "/blog-images/north-vancouver-snow-removal.jpg",
-    "alt": "PlowWow plow truck clearing a snowy North Vancouver residential street at dawn with snow-covered cedars",
-    "theme": "citywide",
-    "tags": [
-      "De-Icing",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "now-removal-arbutus",
-    "title": "Snow Removal in Arbutus,",
-    "blurb": "Keeping Arbutus Accessible All Winter Professional Snow Removal Services Ensure your property remains safe and accessible with our expert snow removal solutions tailored for Arbutu…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "oakridge-vancouver-snow-removal",
-    "title": "Oakridge Vancouver Snow Removal",
-    "blurb": "Oakridge snow removal for strata towers, low-rise condos, Oakridge Centre retail and Cambie corridor commercial. Guaranteed 60-minute response, GPS logs, pet-safe de-icer…",
-    "image": "/blog-images/oakridge-vancouver-snow-removal.jpg",
-    "alt": "Oakridge Vancouver snow removal — PlowWow mascot waving in front of a freshly plowed low-rise strata complex driveway at blue-hour, snow-dusted evergreens and warm street lamps along the Cambie corridor",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
-    "title": "BC Occupiers Liability Act & Slip Claims — Manager Playbook",
-    "blurb": "The BC Occupiers Liability Act and winter slip claims — the exact duty, the reasonableness standard and the paper trail that defends a strata or commercial landlord…",
-    "image": "/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
-    "alt": "Wow mascot standing alone on a plowed and salted commercial storefront sidewalk with a safety cone, brick facade retail window and neat snow banks beside it in bright winter light",
-    "theme": "residential",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Liability"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide",
-    "title": "Pet-Safe De-Icer vs Rock Salt: Metro Vancouver 2026 Guide",
-    "blurb": "Pet-safe de-icer vs rock salt in Metro Vancouver — chemistry, temperature range, concrete damage, paw safety, cost per square metre and what strata councils should actually buy in…",
-    "image": "/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
-    "alt": "Wow mascot standing alone on a plowed Metro Vancouver residential sidewalk with pet-safe de-icing granules scattered on the concrete and the North Shore mountains visible in the background",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "De-Icing",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
-    "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever",
-    "blurb": "Challenge for the Cutest Snow Removal Brand Join the revolution that’s reshaping the snow removal industry with unmatched brand identity and strategic market positioning. Revolutio…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [
-      "Equipment"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "plow-wow-snow-removal-kerrisdale-vancouver-luxury-homes-strata-specialist",
-    "title": "Plow Wow Snow Removal Kerrisdale Vancouver | Luxury Homes & Strata Specialist",
-    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Luxury Snow Removal Ser…",
-    "image": "/blog-images/_theme-strata.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Equipment"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "point-grey-vancouver-snow-removal",
-    "title": "Point Grey Vancouver Snow Removal",
-    "blurb": "Point Grey snow removal & de-icing for cliff-edge estates, NW Marine Drive, UBC-adjacent strata, and West 10th retail. 60-minute response, salt-safe for stone…",
-    "image": "/blog-images/point-grey-vancouver-snow-removal.jpg",
-    "alt": "PlowWow husky mascot waving on a freshly plowed Point Grey Vancouver street with English Bay and the North Shore mountains in the distance and modernist cliff-edge homes nearby",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.730Z",
-    "updatedAt": "2026-07-23T16:26:00.730Z"
-  },
-  {
-    "slug": "kensington-cedar-cottage-snow-removal",
-    "title": "Kensington-Cedar Cottage East Vancouver Snow Removal",
-    "blurb": "Single-family driveways, character-home walkways, and small strata along Kingsway and Victoria Drive. Per-visit, monthly, and seasonal plans — all sidewalks bylaw-compliant…",
-    "image": "/blog-images/kensington-cedar-cottage-snow-removal.jpg",
-    "alt": "Kensington-Cedar Cottage East Vancouver snow removal — PlowWow operator clearing a snow-covered driveway and front walk of a Vancouver character home on a quiet tree-lined residential street",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Residential",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
-    "title": "Snow Removal in Kerrisdale Vancouver – PlowWow Keeps You Clear",
-    "blurb": "Kerrisdale's Trusted Snow Management Experts Professional Strata Snow Removal & De-Icing Services Ensure the safety and accessibility of your property with PlowWow’s expert snow re…",
-    "image": "/blog-images/_theme-strata.jpg",
-    "alt": "PlowWow Wow mascot alone in front of a Metro Vancouver strata condominium building on a bright plowed sidewalk with snow-dusted evergreens",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "De-Icing",
-      "Equipment"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "kitsilano-vancouver-snow-removal",
-    "title": "Kitsilano Vancouver Snow Removal",
-    "blurb": "Kitsilano snow removal for character-home driveways, West 4th and West Broadway retail, low-rise strata, and beach-area commercial. 60-minute response, GPS logs, pet-safe de-icer…",
-    "image": "/blog-images/kitsilano-vancouver-snow-removal.jpg",
-    "alt": "Kitsilano Vancouver snow removal — PlowWow mascot waving on a snow-covered Kitsilano street with character homes, a skid steer plowing in the background and English Bay visible in the distance",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Residential",
-      "De-Icing",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "ladner-delta-strata-commercial-snow-removal",
-    "title": "Ladner Delta Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Ladner Delta snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
-    "image": "/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
-    "alt": "Ladner Delta snow removal — PlowWow mascot waving on a plowed Delta Street heritage-village sidewalk with snow-dusted shopfronts and farmland at blue-hour dawn",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "langley-strata-commercial-snow-plowing",
-    "title": "Langley Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Langley, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/langley-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Langley strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "lougheed-town-centre-burnaby-snow-removal",
-    "title": "Lougheed Town Centre Burnaby Snow Removal",
-    "blurb": "Pre-open mall lot clearing, SkyTrain-adjacent strata towers, mixed-use podium decks, and 24/7 dispatch when North Road ices over…",
-    "image": "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
-    "alt": "Lougheed Town Centre snow removal — PlowWow plow truck clearing a snowy commercial parking lot at the corner of Lougheed Highway and North Road in north Burnaby at dawn",
-    "theme": "citywide",
-    "tags": [
-      "Strata"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "lynn-valley-snow-removal",
-    "title": "Lynn Valley Snow Removal",
-    "blurb": "Reliable 24/7 Lynn Valley snow removal by PlowWow. We offer strata, commercial, and residential snow plowing and de-icing across the North Shore snow belt…",
-    "image": "/blog-images/lynn-valley-snow-removal.jpg",
-    "alt": "PlowWow plow truck clearing a snowy Lynn Valley residential street with cedar trees and North Shore mountains behind",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Residential",
-      "De-Icing",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.969Z",
+    "updatedAt": "2026-07-23T17:08:10.969Z"
   },
   {
     "slug": "maillardville-coquitlam-commercial-snow-removal",
@@ -1141,8 +1093,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.968Z",
+    "updatedAt": "2026-07-23T17:08:10.968Z"
   },
   {
     "slug": "maple-ridge-strata-commercial-snow-plowing",
@@ -1158,8 +1110,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.968Z",
+    "updatedAt": "2026-07-23T17:08:10.968Z"
   },
   {
     "slug": "marpole-vancouver-snow-removal",
@@ -1176,29 +1128,257 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.968Z",
+    "updatedAt": "2026-07-23T17:08:10.968Z"
   },
   {
-    "slug": "metro-vancouver-winter-weather-pineapple-express-arctic-outflow",
-    "title": "Metro Vancouver Winter Weather — Snow Emergency Patterns 2026",
-    "blurb": "Metro Vancouver winter weather explained — Pineapple Express, Arctic outflow, freezing rain and convergence-zone snow, and how each triggers Lower Mainland snow emergencies…",
-    "image": "/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
-    "alt": "Wow mascot standing alone on a plowed suburban Metro Vancouver street with a dramatic North Shore mountain snowscape and broken winter cloud cover in the background under bright daylight",
-    "theme": "storm",
+    "slug": "kitsilano-vancouver-snow-removal",
+    "title": "Kitsilano Vancouver Snow Removal",
+    "blurb": "Kitsilano snow removal for character-home driveways, West 4th and West Broadway retail, low-rise strata, and beach-area commercial. 60-minute response, GPS logs, pet-safe de-icer…",
+    "image": "/blog-images/kitsilano-vancouver-snow-removal.jpg",
+    "alt": "Kitsilano Vancouver snow removal — PlowWow mascot waving on a snow-covered Kitsilano street with character homes, a skid steer plowing in the background and English Bay visible in the distance",
+    "theme": "citywide",
     "tags": [
+      "Strata",
+      "Commercial",
+      "Residential",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.967Z",
+    "updatedAt": "2026-07-23T17:08:10.967Z"
+  },
+  {
+    "slug": "ladner-delta-strata-commercial-snow-removal",
+    "title": "Ladner Delta Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Ladner Delta snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+    "alt": "Ladner Delta snow removal — PlowWow mascot waving on a plowed Delta Street heritage-village sidewalk with snow-dusted shopfronts and farmland at blue-hour dawn",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.967Z",
+    "updatedAt": "2026-07-23T17:08:10.967Z"
+  },
+  {
+    "slug": "langley-strata-commercial-snow-plowing",
+    "title": "Langley Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Langley, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/langley-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Langley strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.967Z",
+    "updatedAt": "2026-07-23T17:08:10.967Z"
+  },
+  {
+    "slug": "lougheed-town-centre-burnaby-snow-removal",
+    "title": "Lougheed Town Centre Burnaby Snow Removal",
+    "blurb": "Pre-open mall lot clearing, SkyTrain-adjacent strata towers, mixed-use podium decks, and 24/7 dispatch when North Road ices over…",
+    "image": "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
+    "alt": "Lougheed Town Centre snow removal — PlowWow plow truck clearing a snowy commercial parking lot at the corner of Lougheed Highway and North Road in north Burnaby at dawn",
+    "theme": "citywide",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.967Z",
+    "updatedAt": "2026-07-23T17:08:10.967Z"
+  },
+  {
+    "slug": "lynn-valley-snow-removal",
+    "title": "Lynn Valley Snow Removal",
+    "blurb": "Reliable 24/7 Lynn Valley snow removal by PlowWow. We offer strata, commercial, and residential snow plowing and de-icing across the North Shore snow belt…",
+    "image": "/blog-images/lynn-valley-snow-removal.jpg",
+    "alt": "PlowWow plow truck clearing a snowy Lynn Valley residential street with cedar trees and North Shore mountains behind",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Residential",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.967Z",
+    "updatedAt": "2026-07-23T17:08:10.967Z"
+  },
+  {
+    "slug": "happy-new-year-metro-vancouver",
+    "title": "Happy New Year Metro Vancouver",
+    "blurb": "❄️ Vancouver Winter Alert — Snow Expected Around Jan 1–2, 2026 & Beyond Metro Vancouver residents — winter is officially on the horizon! After a mild Christmas season with possible…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "harbour-chines-coquitlam-strata-commercial-snow-removal",
+    "title": "Harbour Chines Coquitlam Snow Removal for Strata & Estates",
+    "blurb": "Harbour Chines Coquitlam snow removal for hillside strata, mid-century estates and neighbourhood retail — pre-6 a.m. clears, pet-safe de-icer, GPS-logged runs, fixed seasonal prici…",
+    "image": "/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone on a plowed Harbour Chines Coquitlam hillside residential street with mid-century split-level homes and tall evergreens in the background",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "hastings-sunrise-east-vancouver-snow-removal",
+    "title": "Hastings-Sunrise East Vancouver Snow Removal",
+    "blurb": "Residential driveways, character-home walkways, retail storefronts along Hastings Street, and PNE-area commercial lots — fast dispatch tied to live Vancouver forecasts…",
+    "image": "/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
+    "alt": "Hastings-Sunrise East Vancouver snow removal — PlowWow worker shoveling and salting a snow-covered character home sidewalk on a tree-lined East Hastings residential street at dawn",
+    "theme": "citywide",
+    "tags": [
+      "Commercial",
+      "Residential",
       "Weather"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
   },
   {
-    "slug": "metrotown-burnaby-strata-commercial-snow-removal",
-    "title": "Metrotown Burnaby Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Metrotown Burnaby snow removal for strata towers, Kingsway retail and Metropolis at Metrotown perimeter — 24/7 dispatch, seasonal contracts, pet-safe de-icer…",
-    "image": "/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
-    "alt": "Metrotown Burnaby snow removal — PlowWow mascot waving on a Metropolis at Metrotown transit plaza at blue dawn with snow-dusted Sovereign and Metroplace towers behind a plowed Kingsway",
+    "slug": "heritage-mountain",
+    "title": "Heritage Mountain",
+    "blurb": "Reliable Snow Removal Services Expert Snow Management for Burke Mountain Our specialized snow removal services ensure safe and accessible properties throughout the winter season on…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "highgate-burnaby-strata-snow-removal",
+    "title": "Highgate Burnaby Strata Snow Removal",
+    "blurb": "High-rise and townhome strata, underground parkade ramps, and retail-podium sidewalks cleared and salted before 7 a.m. — fixed seasonal pricing, full photo + GPS logs…",
+    "image": "/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+    "alt": "Highgate Burnaby strata snow removal — PlowWow crew salting a snow-covered high-rise strata entrance and sidewalk along Kingsway in south Burnaby at sunrise",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
+    "title": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors",
+    "blurb": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Ins…",
+    "image": "/blog-images/_theme-commercial.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "ironwood-richmond-strata-commercial-snow-removal",
+    "title": "Ironwood Richmond Snow Removal for Retail & Strata",
+    "blurb": "Ironwood Richmond snow removal for big-box retail, strip malls and townhome stratas — pre-6 a.m. clears, GPS-logged salt runs, pet-safe de-icer, fixed seasonal pricing…",
+    "image": "/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
+    "alt": "Wow mascot standing alone in a freshly plowed Ironwood Richmond big-box retail parking lot with the Ironwood Plaza storefront and empty snow-cleared drive lanes in the background",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "kensington-cedar-cottage-snow-removal",
+    "title": "Kensington-Cedar Cottage East Vancouver Snow Removal",
+    "blurb": "Single-family driveways, character-home walkways, and small strata along Kingsway and Victoria Drive. Per-visit, monthly, and seasonal plans — all sidewalks bylaw-compliant…",
+    "image": "/blog-images/kensington-cedar-cottage-snow-removal.jpg",
+    "alt": "Kensington-Cedar Cottage East Vancouver snow removal — PlowWow operator clearing a snow-covered driveway and front walk of a Vancouver character home on a quiet tree-lined residential street",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Residential",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "kerrisdale-strata-snow-removal-de-icing-services-plowwow-vancouver",
+    "title": "Snow Removal in Kerrisdale Vancouver – PlowWow Keeps You Clear",
+    "blurb": "Kerrisdale's Trusted Snow Management Experts Professional Strata Snow Removal & De-Icing Services Ensure the safety and accessibility of your property with PlowWow’s expert snow re…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "PlowWow Wow mascot alone in front of a Metro Vancouver strata condominium building on a bright plowed sidewalk with snow-dusted evergreens",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.966Z",
+    "updatedAt": "2026-07-23T17:08:10.966Z"
+  },
+  {
+    "slug": "edmonds-burnaby-strata-commercial-snow-removal",
+    "title": "Edmonds Burnaby Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Edmonds Burnaby snow removal for Highgate and Edmonds Town Centre strata, Kingsway retail, seniors housing — 24/7 dispatch, seasonal contracts…",
+    "image": "/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
+    "alt": "Edmonds Burnaby snow removal — PlowWow mascot waving on a Edmonds SkyTrain plaza at blue dawn with snow-dusted mid-rise strata towers and a plowed Kingsway corridor",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
+  },
+  {
+    "slug": "false-creek-vancouver-strata-snow-removal",
+    "title": "False Creek Vancouver Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "False Creek Vancouver snow removal for Olympic Village, seawall strata towers and Cambie retail — 24/7 dispatch, seasonal packages, seawall-safe salt…",
+    "image": "/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+    "alt": "False Creek Vancouver snow removal — PlowWow mascot waving on a Olympic Village plaza at blue dawn with plowed seawall, snow-dusted glass strata towers and Science World geodesic dome",
     "theme": "strata",
     "tags": [
       "Strata",
@@ -1207,46 +1387,26 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
-    "slug": "metrotown-snow-removal-company",
-    "title": "Metrotown Snow Removal Company",
-    "blurb": "Why Metrotown Property Managers Trust PlowWow At PlowWow, we specialize in providing tailored snow removal solutions for Metrotown’s unique high-rise and multi-level structures. Ou…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "metrotown-strata-snow-removal",
-    "title": "Metrotown Strata Snow Removal",
-    "blurb": "Strata Snow Removal Metrotown | 24/7 Snow & Ice Control | Plow Wow ❄️ Plow Wow Strata Snow Removal in Metrotown, Burnaby 24/7 professional snow plowing, salting, and ice control fo…",
-    "image": "/blog-images/_theme-strata.jpg",
-    "alt": "Image 1: Strata Snow Removal Metrotown by Plow Wow",
+    "slug": "fleetwood-surrey-strata-commercial-snow-removal",
+    "title": "Fleetwood Surrey Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Fleetwood Surrey snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
+    "image": "/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
+    "alt": "Fleetwood Surrey snow removal — PlowWow mascot waving beside a plowed Fraser Highway strip-mall parking lot with salted sidewalks and snow-dusted evergreens at blue-hour dawn",
     "theme": "strata",
     "tags": [
-      "Strata"
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
     ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
-  },
-  {
-    "slug": "middlegate-snow-removal-burnaby",
-    "title": "Middlegate Snow Removal Burnaby",
-    "blurb": "Middlegate Snow Removal Burnaby | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Instagram RSS Home About Residential Commercial Ser…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.729Z",
-    "updatedAt": "2026-07-23T16:26:00.729Z"
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "fort-langley-snow-removal",
@@ -1263,8 +1423,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "fraserview-vancouver-snow-removal",
@@ -1281,8 +1441,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "garden-city-richmond-strata-commercial-snow-removal",
@@ -1299,8 +1459,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "gastown-vancouver-commercial-snow-removal",
@@ -1315,8 +1475,8 @@ export const blogPosts = [
       "De-Icing"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "government-road-burnaby-strata-commercial-snow-removal",
@@ -1334,8 +1494,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "grandview-woodland-vancouver-strata-commercial-snow-removal",
@@ -1352,8 +1512,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "hamilton-richmond-strata-commercial-snow-removal",
@@ -1371,235 +1531,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "happy-new-year-metro-vancouver",
-    "title": "Happy New Year Metro Vancouver",
-    "blurb": "❄️ Vancouver Winter Alert — Snow Expected Around Jan 1–2, 2026 & Beyond Metro Vancouver residents — winter is officially on the horizon! After a mild Christmas season with possible…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "harbour-chines-coquitlam-strata-commercial-snow-removal",
-    "title": "Harbour Chines Coquitlam Snow Removal for Strata & Estates",
-    "blurb": "Harbour Chines Coquitlam snow removal for hillside strata, mid-century estates and neighbourhood retail — pre-6 a.m. clears, pet-safe de-icer, GPS-logged runs, fixed seasonal prici…",
-    "image": "/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
-    "alt": "Wow mascot standing alone on a plowed Harbour Chines Coquitlam hillside residential street with mid-century split-level homes and tall evergreens in the background",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "hastings-sunrise-east-vancouver-snow-removal",
-    "title": "Hastings-Sunrise East Vancouver Snow Removal",
-    "blurb": "Residential driveways, character-home walkways, retail storefronts along Hastings Street, and PNE-area commercial lots — fast dispatch tied to live Vancouver forecasts…",
-    "image": "/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
-    "alt": "Hastings-Sunrise East Vancouver snow removal — PlowWow worker shoveling and salting a snow-covered character home sidewalk on a tree-lined East Hastings residential street at dawn",
-    "theme": "citywide",
-    "tags": [
-      "Commercial",
-      "Residential",
-      "Weather"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "heritage-mountain",
-    "title": "Heritage Mountain",
-    "blurb": "Reliable Snow Removal Services Expert Snow Management for Burke Mountain Our specialized snow removal services ensure safe and accessible properties throughout the winter season on…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "highgate-burnaby-strata-snow-removal",
-    "title": "Highgate Burnaby Strata Snow Removal",
-    "blurb": "High-rise and townhome strata, underground parkade ramps, and retail-podium sidewalks cleared and salted before 7 a.m. — fixed seasonal pricing, full photo + GPS logs…",
-    "image": "/blog-images/highgate-burnaby-strata-snow-removal.jpg",
-    "alt": "Highgate Burnaby strata snow removal — PlowWow crew salting a snow-covered high-rise strata entrance and sidewalk along Kingsway in south Burnaby at sunrise",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
-    "title": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors",
-    "blurb": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Ins…",
-    "image": "/blog-images/_theme-commercial.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "commercial",
-    "tags": [
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "ironwood-richmond-strata-commercial-snow-removal",
-    "title": "Ironwood Richmond Snow Removal for Retail & Strata",
-    "blurb": "Ironwood Richmond snow removal for big-box retail, strip malls and townhome stratas — pre-6 a.m. clears, GPS-logged salt runs, pet-safe de-icer, fixed seasonal pricing…",
-    "image": "/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
-    "alt": "Wow mascot standing alone in a freshly plowed Ironwood Richmond big-box retail parking lot with the Ironwood Plaza storefront and empty snow-cleared drive lanes in the background",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.728Z",
-    "updatedAt": "2026-07-23T16:26:00.728Z"
-  },
-  {
-    "slug": "coquitlam-centre-strata-commercial-snow-removal",
-    "title": "Coquitlam Centre Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Coquitlam Centre snow removal for high-rise strata towers, Lincoln retail and Lougheed Highway commercial — 24/7 dispatch, seasonal contracts…",
-    "image": "/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
-    "alt": "Coquitlam Centre snow removal — PlowWow mascot waving on a Coquitlam Centre plaza at blue dawn with plowed Pinetree Way, snow-covered Lafarge Lake and glass strata towers",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "coquitlam-strata-commercial-snow-plowing",
-    "title": "Coquitlam Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Coquitlam, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Coquitlam strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "deer-lake-burnaby-strata-commercial-snow-removal",
-    "title": "Deer Lake Burnaby Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Deer Lake Burnaby snow removal for strata, institutional and commercial properties — 24/7 dispatch, seasonal contracts, GPS-logged salt runs and pet-safe d…",
-    "image": "/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot waving beside a plowed Deer Lake Burnaby street at blue dawn, snow-dusted trees and Burnaby landmarks in the background — Deer Lake Burnaby snow removal",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "delta-strata-commercial-snow-plowing",
-    "title": "Delta Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Delta, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/delta-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Delta strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "does-it-snow-in-vancouver-weather-guide",
-    "title": "Does It Snow in Vancouver? A Property Owner's Winter Weather Guide",
-    "blurb": "Yes, Vancouver gets snow. Historical snowfall averages, worst-case winters, freezing-rain risk, and exactly how strata and commercial property owners should prepare…",
-    "image": "/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
-    "alt": "Snowy Vancouver skyline with the PlowWow mascot waving at blue dawn, English Bay in mid-ground and snow-capped North Shore mountains behind",
-    "theme": "residential",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Liability",
-      "Weather"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "downtown-vancouver-strata-commercial-snow-removal",
-    "title": "Downtown Vancouver Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Downtown Vancouver snow removal for office towers, Robson retail and downtown strata — 24/7 dispatch, seasonal contracts, GPS-logged salt runs…",
-    "image": "/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
-    "alt": "Downtown Vancouver snow removal — PlowWow mascot waving on a Robson Square at blue dawn with plowed sidewalks, snow-dusted downtown towers and Vancouver Art Gallery columns",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "dunbar-vancouver-snow-removal",
-    "title": "Dunbar Vancouver Snow Removal",
-    "blurb": "Dunbar snow removal & de-icing for character homes, West 41st storefronts, and Southlands-adjacent strata. 60-minute response, pet-safe salt, 24/7 dispatch…",
-    "image": "/blog-images/dunbar-vancouver-snow-removal.jpg",
-    "alt": "PlowWow husky mascot waving on a salted Dunbar Vancouver residential street at blue dawn with character craftsman homes and West 41st Avenue storefronts in the distance",
-    "theme": "citywide",
-    "tags": [
-      "Strata",
-      "De-Icing"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
+    "publishedAt": "2026-07-23T17:08:10.965Z",
+    "updatedAt": "2026-07-23T17:08:10.965Z"
   },
   {
     "slug": "eagle-ridge-coquitlam-strata-snow-removal",
@@ -1614,8 +1547,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
+    "publishedAt": "2026-07-23T17:08:10.964Z",
+    "updatedAt": "2026-07-23T17:08:10.964Z"
   },
   {
     "slug": "east-cambie-richmond-strata-commercial-snow-removal",
@@ -1632,8 +1565,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
+    "publishedAt": "2026-07-23T17:08:10.964Z",
+    "updatedAt": "2026-07-23T17:08:10.964Z"
   },
   {
     "slug": "east-vancouver",
@@ -1644,8 +1577,8 @@ export const blogPosts = [
     "theme": "citywide",
     "tags": [],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
+    "publishedAt": "2026-07-23T17:08:10.964Z",
+    "updatedAt": "2026-07-23T17:08:10.964Z"
   },
   {
     "slug": "edgemont-village-north-vancouver-strata-commercial-snow-removal",
@@ -1662,87 +1595,140 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
+    "publishedAt": "2026-07-23T17:08:10.964Z",
+    "updatedAt": "2026-07-23T17:08:10.964Z"
   },
   {
-    "slug": "edmonds-burnaby-strata-commercial-snow-removal",
-    "title": "Edmonds Burnaby Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Edmonds Burnaby snow removal for Highgate and Edmonds Town Centre strata, Kingsway retail, seniors housing — 24/7 dispatch, seasonal contracts…",
-    "image": "/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
-    "alt": "Edmonds Burnaby snow removal — PlowWow mascot waving on a Edmonds SkyTrain plaza at blue dawn with snow-dusted mid-rise strata towers and a plowed Kingsway corridor",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "false-creek-vancouver-strata-snow-removal",
-    "title": "False Creek Vancouver Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "False Creek Vancouver snow removal for Olympic Village, seawall strata towers and Cambie retail — 24/7 dispatch, seasonal packages, seawall-safe salt…",
-    "image": "/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
-    "alt": "False Creek Vancouver snow removal — PlowWow mascot waving on a Olympic Village plaza at blue dawn with plowed seawall, snow-dusted glass strata towers and Science World geodesic dome",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "fleetwood-surrey-strata-commercial-snow-removal",
-    "title": "Fleetwood Surrey Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Fleetwood Surrey snow removal for strata, retail and commercial — 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer, fixed seasonal contracts…",
-    "image": "/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
-    "alt": "Fleetwood Surrey snow removal — PlowWow mascot waving beside a plowed Fraser Highway strip-mall parking lot with salted sidewalks and snow-dusted evergreens at blue-hour dawn",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.727Z",
-    "updatedAt": "2026-07-23T16:26:00.727Z"
-  },
-  {
-    "slug": "can-i-push-snow-onto-the-street",
-    "title": "Can I push snow onto the street?",
-    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Step into a magical win…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
-  },
-  {
-    "slug": "capitol-hill-burnaby-commercial-snow-removal",
-    "title": "Capitol Hill Burnaby Commercial Snow Removal — PlowWow",
-    "blurb": "Commercial lot snow removal for Capitol Hill, Burnaby. Pre-open clearing, fixed seasonal pricing, 24/7 dispatch, photo + GPS logs. Reserve 2025–26 now…",
-    "image": "/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
-    "alt": "PlowWow skid-steer clearing a Capitol Hill Burnaby commercial parking lot before opening",
+    "slug": "commercial-snow-removal-vancouver",
+    "title": "Commercial Snow Removal Vancouver",
+    "blurb": "Comprehensive Snow Management Solutions Efficient Snow Removal for Your Business Ensure your business remains accessible and safe during winter with our expert snow removal service…",
+    "image": "/blog-images/_theme-commercial.jpg",
+    "alt": "Image 1: snow removal edmonds burnaby, edmonds snow removal, snow plowing edmonds, burnaby snow removal, salting edmonds, de-icing edmonds, plowwow snow removal, winter services edmonds",
     "theme": "commercial",
     "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "coquitlam-centre-strata-commercial-snow-removal",
+    "title": "Coquitlam Centre Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Coquitlam Centre snow removal for high-rise strata towers, Lincoln retail and Lougheed Highway commercial — 24/7 dispatch, seasonal contracts…",
+    "image": "/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+    "alt": "Coquitlam Centre snow removal — PlowWow mascot waving on a Coquitlam Centre plaza at blue dawn with plowed Pinetree Way, snow-covered Lafarge Lake and glass strata towers",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "coquitlam-strata-commercial-snow-plowing",
+    "title": "Coquitlam Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Coquitlam, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Coquitlam strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
       "Commercial",
       "Contracts",
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "deer-lake-burnaby-strata-commercial-snow-removal",
+    "title": "Deer Lake Burnaby Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Deer Lake Burnaby snow removal for strata, institutional and commercial properties — 24/7 dispatch, seasonal contracts, GPS-logged salt runs and pet-safe d…",
+    "image": "/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
+    "alt": "PlowWow mascot waving beside a plowed Deer Lake Burnaby street at blue dawn, snow-dusted trees and Burnaby landmarks in the background — Deer Lake Burnaby snow removal",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "delta-strata-commercial-snow-plowing",
+    "title": "Delta Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Delta, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/delta-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Delta strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "does-it-snow-in-vancouver-weather-guide",
+    "title": "Does It Snow in Vancouver? A Property Owner's Winter Weather Guide",
+    "blurb": "Yes, Vancouver gets snow. Historical snowfall averages, worst-case winters, freezing-rain risk, and exactly how strata and commercial property owners should prepare…",
+    "image": "/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
+    "alt": "Snowy Vancouver skyline with the PlowWow mascot waving at blue dawn, English Bay in mid-ground and snow-capped North Shore mountains behind",
+    "theme": "residential",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Liability",
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "downtown-vancouver-strata-commercial-snow-removal",
+    "title": "Downtown Vancouver Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Downtown Vancouver snow removal for office towers, Robson retail and downtown strata — 24/7 dispatch, seasonal contracts, GPS-logged salt runs…",
+    "image": "/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
+    "alt": "Downtown Vancouver snow removal — PlowWow mascot waving on a Robson Square at blue dawn with plowed sidewalks, snow-dusted downtown towers and Vancouver Art Gallery columns",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
+  },
+  {
+    "slug": "dunbar-vancouver-snow-removal",
+    "title": "Dunbar Vancouver Snow Removal",
+    "blurb": "Dunbar snow removal & de-icing for character homes, West 41st storefronts, and Southlands-adjacent strata. 60-minute response, pet-safe salt, 24/7 dispatch…",
+    "image": "/blog-images/dunbar-vancouver-snow-removal.jpg",
+    "alt": "PlowWow husky mascot waving on a salted Dunbar Vancouver residential street at blue dawn with character craftsman homes and West 41st Avenue storefronts in the distance",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "De-Icing"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.963Z",
+    "updatedAt": "2026-07-23T17:08:10.963Z"
   },
   {
     "slug": "cariboo-heights-burnaby-snow-removal",
@@ -1757,8 +1743,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "cedar-valley-mission-strata-commercial-snow-removal",
@@ -1775,8 +1761,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "champlain-heights-vancouver-strata-commercial-snow-removal",
@@ -1793,8 +1779,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "chilliwack-strata-commercial-snow-plowing",
@@ -1810,8 +1796,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "cloverdale-snow-removal",
@@ -1828,8 +1814,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "coal-harbour-vancouver-snow-removal",
@@ -1845,8 +1831,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "commercial-drive-vancouver-snow-removal",
@@ -1862,8 +1848,8 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
     "slug": "commercial-snow-removal-burnaby",
@@ -1876,22 +1862,128 @@ export const blogPosts = [
       "Commercial"
     ],
     "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "publishedAt": "2026-07-23T17:08:10.962Z",
+    "updatedAt": "2026-07-23T17:08:10.962Z"
   },
   {
-    "slug": "commercial-snow-removal-vancouver",
-    "title": "Commercial Snow Removal Vancouver",
-    "blurb": "Comprehensive Snow Management Solutions Efficient Snow Removal for Your Business Ensure your business remains accessible and safe during winter with our expert snow removal service…",
-    "image": "/blog-images/_theme-commercial.jpg",
-    "alt": "Image 1: snow removal edmonds burnaby, edmonds snow removal, snow plowing edmonds, burnaby snow removal, salting edmonds, de-icing edmonds, plowwow snow removal, winter services edmonds",
+    "slug": "buckingham-heights-burnaby",
+    "title": "Buckingham Heights Snow Removal Burnaby",
+    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Plow Wow – Professional…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "burke-mountain-coquitlam-strata-snow-removal",
+    "title": "Burke Mountain Coquitlam Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Burke Mountain Coquitlam snow removal for hillside strata, steep driveways and Coast Meridian retail — 24/7 dispatch, elevation-aware seasonal contracts…",
+    "image": "/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
+    "alt": "Burke Mountain Coquitlam snow removal — PlowWow mascot waving on a Burke Mountain hillside cul-de-sac at blue dawn with plowed steep driveway, snow-covered pines and Fraser Valley view",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Residential",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "burke-mountain-snow",
+    "title": "Burke Mountain Snow",
+    "blurb": "Burke Mountain Snow | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Instagram RSS Home About Residential Commercial Service Areas S…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "burnaby-heights-strata-commercial-snow-removal",
+    "title": "Burnaby Heights Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Burnaby Heights snow removal for Hastings Street retail, strata condos and North Burnaby commercial — 24/7 dispatch, seasonal packages, pet-safe salt…",
+    "image": "/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
+    "alt": "Burnaby Heights snow removal — PlowWow mascot waving on a Hastings Street Heights strip at blue dawn with plowed sidewalks, snow-dusted Italian delis and Burrard Inlet visible north",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "burnaby-strata-commercial-snow-plowing",
+    "title": "Burnaby Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Burnaby, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Burnaby strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "cambie-village-vancouver-commercial-snow-removal",
+    "title": "Cambie Village Snow Removal & 24/7 Strata/Commercial",
+    "blurb": "Cambie Village snow removal for Cambie Street retail, Mount Pleasant strata and City Hall corridor — 24/7 dispatch, seasonal contracts, pet-safe salt…",
+    "image": "/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+    "alt": "Cambie Village snow removal — PlowWow mascot waving on a Cambie Village at blue dawn with plowed sidewalks, snow-dusted low-rise retail and Vancouver City Hall dome behind",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "can-i-push-snow-onto-the-street",
+    "title": "Can I push snow onto the street?",
+    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Step into a magical win…",
+    "image": "/blog-images/_theme-citywide.jpg",
+    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
+  },
+  {
+    "slug": "capitol-hill-burnaby-commercial-snow-removal",
+    "title": "Capitol Hill Burnaby Commercial Snow Removal — PlowWow",
+    "blurb": "Commercial lot snow removal for Capitol Hill, Burnaby. Pre-open clearing, fixed seasonal pricing, 24/7 dispatch, photo + GPS logs. Reserve 2025–26 now…",
+    "image": "/blog-images/capitol-hill-burnaby-commercial-snow-removal.jpg",
+    "alt": "PlowWow skid-steer clearing a Capitol Hill Burnaby commercial parking lot before opening",
     "theme": "commercial",
     "tags": [
-      "Commercial"
+      "Commercial",
+      "Contracts",
+      "Equipment"
     ],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.726Z",
-    "updatedAt": "2026-07-23T16:26:00.726Z"
+    "hasCustomHero": true,
+    "publishedAt": "2026-07-23T17:08:10.961Z",
+    "updatedAt": "2026-07-23T17:08:10.961Z"
   },
   {
     "slug": "arbutus-ridge-vancouver-strata-commercial-snow-removal",
@@ -1908,8 +2000,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "austin-heights-coquitlam-strata-snow-removal",
@@ -1925,8 +2017,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "austin-heights-coquitlam-strip-mall-snow-removal",
@@ -1942,8 +2034,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "big-bend-burnaby-strata-commercial-snow-removal",
@@ -1960,8 +2052,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "brentwood-burnaby-strata-snow-removal",
@@ -1976,8 +2068,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "broadmoor-richmond-strata-commercial-snow-removal",
@@ -1994,100 +2086,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "buckingham-heights-burnaby",
-    "title": "Buckingham Heights Snow Removal Burnaby",
-    "blurb": "Facebook X Instagram RSS Home About Residential Commercial Service Areas Services Marketing Contact Get Quote Snow Removal Management System App Select Page Plow Wow – Professional…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "burke-mountain-coquitlam-strata-snow-removal",
-    "title": "Burke Mountain Coquitlam Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Burke Mountain Coquitlam snow removal for hillside strata, steep driveways and Coast Meridian retail — 24/7 dispatch, elevation-aware seasonal contracts…",
-    "image": "/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
-    "alt": "Burke Mountain Coquitlam snow removal — PlowWow mascot waving on a Burke Mountain hillside cul-de-sac at blue dawn with plowed steep driveway, snow-covered pines and Fraser Valley view",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Residential",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "burke-mountain-snow",
-    "title": "Burke Mountain Snow",
-    "blurb": "Burke Mountain Snow | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com Facebook X Instagram RSS Facebook X Instagram RSS Home About Residential Commercial Service Areas S…",
-    "image": "/blog-images/_theme-citywide.jpg",
-    "alt": "Image 1: PlowWow Snow Removal and De-Ice Management",
-    "theme": "citywide",
-    "tags": [],
-    "hasCustomHero": false,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "burnaby-heights-strata-commercial-snow-removal",
-    "title": "Burnaby Heights Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Burnaby Heights snow removal for Hastings Street retail, strata condos and North Burnaby commercial — 24/7 dispatch, seasonal packages, pet-safe salt…",
-    "image": "/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
-    "alt": "Burnaby Heights snow removal — PlowWow mascot waving on a Hastings Street Heights strip at blue dawn with plowed sidewalks, snow-dusted Italian delis and Burrard Inlet visible north",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "burnaby-strata-commercial-snow-plowing",
-    "title": "Burnaby Strata Snow Plowing",
-    "blurb": "PlowWow seasonal strata & commercial snow plowing in Burnaby, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
-    "image": "/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
-    "alt": "A PlowWow commercial plow truck clearing a Burnaby strata complex during a heavy winter snowfall event",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "Contracts",
-      "Equipment"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
-  },
-  {
-    "slug": "cambie-village-vancouver-commercial-snow-removal",
-    "title": "Cambie Village Snow Removal & 24/7 Strata/Commercial",
-    "blurb": "Cambie Village snow removal for Cambie Street retail, Mount Pleasant strata and City Hall corridor — 24/7 dispatch, seasonal contracts, pet-safe salt…",
-    "image": "/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
-    "alt": "Cambie Village snow removal — PlowWow mascot waving on a Cambie Village at blue dawn with plowed sidewalks, snow-dusted low-rise retail and Vancouver City Hall dome behind",
-    "theme": "strata",
-    "tags": [
-      "Strata",
-      "Commercial",
-      "De-Icing",
-      "Contracts"
-    ],
-    "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.725Z",
-    "updatedAt": "2026-07-23T16:26:00.725Z"
+    "publishedAt": "2026-07-23T17:08:10.960Z",
+    "updatedAt": "2026-07-23T17:08:10.960Z"
   },
   {
     "slug": "abbotsford-strata-commercial-snow-plowing",
@@ -2103,8 +2103,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.724Z",
-    "updatedAt": "2026-07-23T16:26:00.724Z"
+    "publishedAt": "2026-07-23T17:08:10.959Z",
+    "updatedAt": "2026-07-23T17:08:10.959Z"
   },
   {
     "slug": "albion-maple-ridge-strata-commercial-snow-removal",
@@ -2119,7 +2119,7 @@ export const blogPosts = [
       "Contracts"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-23T16:26:00.724Z",
-    "updatedAt": "2026-07-23T16:26:00.724Z"
+    "publishedAt": "2026-07-23T17:08:10.959Z",
+    "updatedAt": "2026-07-23T17:08:10.959Z"
   }
 ] satisfies BlogPostSummary[];

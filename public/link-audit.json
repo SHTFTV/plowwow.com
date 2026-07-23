@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:03:42.939Z",
+  "generatedAt": "2026-07-23T17:08:54.437Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -7,6 +7,10 @@
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
+    {
+      "slug": "the-worlds-cutest-snow-removal-brand",
+      "title": "The World’s Cutest Snow Removal Brand"
+    },
     {
       "slug": "tsawwassen-snow-removal",
       "title": "Tsawwassen Snow Removal | South Delta Ice Control"
@@ -24,14 +28,6 @@
       "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
     },
     {
-      "slug": "the-worlds-cutest-snow-removal-brand",
-      "title": "The World’s Cutest Snow Removal Brand"
-    },
-    {
-      "slug": "shaughnessy-snow-removal",
-      "title": "Shaughnessy Snow Removal"
-    },
-    {
       "slug": "snow-removal-in-burquitlam",
       "title": "Snow Removal in Burquitlam"
     },
@@ -44,12 +40,8 @@
       "title": "Serving Renfrew Heights & East Vancouver"
     },
     {
-      "slug": "record-snow-falls-in-bc",
-      "title": "Record Snow Falls In BC"
-    },
-    {
-      "slug": "now-removal-arbutus",
-      "title": "Snow Removal in Arbutus,"
+      "slug": "shaughnessy-snow-removal",
+      "title": "Shaughnessy Snow Removal"
     },
     {
       "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
@@ -60,12 +52,12 @@
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
     },
     {
-      "slug": "kensington-cedar-cottage-snow-removal",
-      "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
+      "slug": "record-snow-falls-in-bc",
+      "title": "Record Snow Falls In BC"
     },
     {
-      "slug": "lynn-valley-snow-removal",
-      "title": "Lynn Valley Snow Removal"
+      "slug": "now-removal-arbutus",
+      "title": "Snow Removal in Arbutus,"
     },
     {
       "slug": "metrotown-snow-removal-company",
@@ -76,6 +68,10 @@
       "title": "Metrotown Strata Snow Removal"
     },
     {
+      "slug": "lynn-valley-snow-removal",
+      "title": "Lynn Valley Snow Removal"
+    },
+    {
       "slug": "heritage-mountain",
       "title": "Heritage Mountain"
     },
@@ -84,8 +80,8 @@
       "title": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors"
     },
     {
-      "slug": "can-i-push-snow-onto-the-street",
-      "title": "Can I push snow onto the street?"
+      "slug": "kensington-cedar-cottage-snow-removal",
+      "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
     },
     {
       "slug": "cloverdale-snow-removal",
@@ -94,6 +90,10 @@
     {
       "slug": "burke-mountain-snow",
       "title": "Burke Mountain Snow"
+    },
+    {
+      "slug": "can-i-push-snow-onto-the-street",
+      "title": "Can I push snow onto the street?"
     }
   ],
   "citiesWithoutPosts": [
