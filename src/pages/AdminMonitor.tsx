@@ -32,19 +32,18 @@ export default function AdminMonitor() {
     applyPageMeta({
       title: "Live Monitor · PlowWow Admin",
       description: "Blog index sync health, live-asset alerts, and deploy-check results.",
-      canonical: "https://plowwow.com/admin/monitor",
+      path: "/admin/monitor",
       noindex: true,
     });
   }, []);
 
   useEffect(() => {
     (async () => {
-      const { data: session } = await supabase.auth.getSession();
-      if (!session.session) { navigate("/auth"); return; }
-      const { data: role } = await supabase.rpc("has_role", {
-        _user_id: session.session.user.id, _role: "admin",
-      });
-      setIsAdmin(role === true);
+      const { data: sess } = await supabase.auth.getSession();
+      if (!sess.session) { navigate("/auth", { replace: true }); return; }
+      const { data: role } = await supabase.from("user_roles")
+        .select("role").eq("user_id", sess.session.user.id).eq("role", "admin").maybeSingle();
+      setIsAdmin(!!role);
       setChecking(false);
     })();
   }, [navigate]);
