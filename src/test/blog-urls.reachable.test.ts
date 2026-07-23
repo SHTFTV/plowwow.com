@@ -52,11 +52,25 @@ describe("blog URL reachability (prerendered dist/)", () => {
     expect(existsSync(resolve(DIST_DIR, "blog", "index.html"))).toBe(true);
   });
 
+  it.runIf(distBuilt)("blog-index.json ships in dist/ (homepage carousel data)", () => {
+    expect(existsSync(resolve(DIST_DIR, "blog-index.json"))).toBe(true);
+  });
+
   it.runIf(distBuilt)(
     "every blog slug prerenders to /<slug>/index.html (would return 200)",
     () => {
       const missing = legacyBlogSlugs.filter(
         (slug) => !existsSync(resolve(DIST_DIR, slug, "index.html")),
+      );
+      expect(missing).toEqual([]);
+    },
+  );
+
+  it.runIf(distBuilt)(
+    "every blog slug also has a /blog/<slug>/ alias file (no SPA fallback needed)",
+    () => {
+      const missing = legacyBlogSlugs.filter(
+        (slug) => !existsSync(resolve(DIST_DIR, "blog", slug, "index.html")),
       );
       expect(missing).toEqual([]);
     },
