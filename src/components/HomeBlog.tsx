@@ -200,6 +200,14 @@ const HomeBlog = () => {
                   loading="lazy"
                   width={1280}
                   height={720}
+                  onError={(e) => {
+                    // Build-time fallback: any stale/missing hero URL swaps to
+                    // the mascot-composited default so the carousel never
+                    // shows a non-mascot placeholder.
+                    const img = e.currentTarget;
+                    const fallback = `/og-default.jpg?v=${imageVersion}`;
+                    if (!img.src.includes("/og-default.jpg")) img.src = fallback;
+                  }}
                   className="h-full w-full object-cover object-right-bottom transition duration-500 group-hover:scale-105"
                 />
               </div>
