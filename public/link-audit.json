@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T01:43:11.739Z",
+  "generatedAt": "2026-07-23T02:50:10.734Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -7,6 +7,14 @@
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
+    {
+      "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
+      "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
+    },
+    {
+      "slug": "the-worlds-cutest-snow-removal-brand",
+      "title": "The World’s Cutest Snow Removal Brand"
+    },
     {
       "slug": "tsawwassen-snow-removal",
       "title": "Tsawwassen Snow Removal | South Delta Ice Control"
@@ -18,14 +26,6 @@
     {
       "slug": "steveston-snow-removal",
       "title": "Steveston Snow Removal"
-    },
-    {
-      "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
-      "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
-    },
-    {
-      "slug": "the-worlds-cutest-snow-removal-brand",
-      "title": "The World’s Cutest Snow Removal Brand"
     },
     {
       "slug": "shaughnessy-snow-removal",
@@ -60,10 +60,6 @@
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
     },
     {
-      "slug": "lynn-valley-snow-removal",
-      "title": "Lynn Valley Snow Removal"
-    },
-    {
       "slug": "metrotown-snow-removal-company",
       "title": "Metrotown Snow Removal Company"
     },
@@ -72,8 +68,8 @@
       "title": "Metrotown Strata Snow Removal"
     },
     {
-      "slug": "heritage-mountain",
-      "title": "Heritage Mountain"
+      "slug": "lynn-valley-snow-removal",
+      "title": "Lynn Valley Snow Removal"
     },
     {
       "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
@@ -82,6 +78,10 @@
     {
       "slug": "kensington-cedar-cottage-snow-removal",
       "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
+    },
+    {
+      "slug": "heritage-mountain",
+      "title": "Heritage Mountain"
     },
     {
       "slug": "cloverdale-snow-removal",
