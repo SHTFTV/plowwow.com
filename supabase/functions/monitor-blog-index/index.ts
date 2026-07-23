@@ -57,12 +57,12 @@ Deno.serve(async (req) => {
 
   const results = await Promise.all(CRITICAL.map(head));
   const failed = results.filter((r) => !r.ok);
-  let alertResult: { alerted: boolean; reason: string } | null = null;
+  let alertResult: Record<string, unknown> | null = null;
   if (failed.length) {
     const summary = failed
-      .map((f) => `• \`${f.path}\` → HTTP ${f.status}${'error' in f ? ` (${f.error})` : ''}`)
+      .map((f) => `- ${f.path} -> HTTP ${f.status}${'error' in f ? ` (${(f as {error?:string}).error})` : ''}`)
       .join('\n');
-    alertResult = await alert(`🚨 *PlowWow live asset check failed*\n${summary}\nHost: ${SITE}`);
+    alertResult = await alert('PlowWow live asset check failed', `${summary}\nHost: ${SITE}`);
   }
 
   return new Response(
