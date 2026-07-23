@@ -14,23 +14,71 @@ const formatDate = (iso: string) =>
     day: "numeric",
   });
 
+type SyncStatus = {
+  source: "blog-index" | "sitemap" | "build-fallback";
+  generatedAt?: string;
+  error?: string;
+};
+
 const HomeBlog = () => {
   const [carouselSlugs, setCarouselSlugs] = useState<string[]>(fallbackSlugs);
   const [imageVersion, setImageVersion] = useState<string>(String(Date.now()));
+  const [syncStatus, setSyncStatus] = useState<SyncStatus>({ source: "build-fallback" });
 
   useEffect(() => {
     let cancelled = false;
+
+    const apply = (
+      slugs: string[],
+      source: SyncStatus["source"],
+      generatedAt?: string,
+      error?: string,
+    ) => {
+      if (cancelled) return;
+      const fresh = slugs.filter((slug) => postBySlug.has(slug)).slice(0, 4);
+      if (fresh.length === 4) setCarouselSlugs(fresh);
+      if (generatedAt) setImageVersion(encodeURIComponent(generatedAt));
+      setSyncStatus({ source, generatedAt, error });
+    };
+
+    const loadFromSitemap = async (rootError: string) => {
+      try {
+        const res = await fetch(`/sitemap-blog.xml?_cb=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`sitemap HTTP ${res.status}`);
+        const xml = await res.text();
+        const urlBlocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)];
+        const parsed = urlBlocks
+          .map((m) => {
+            const loc = m[1].match(/<loc>([^<]+)<\/loc>/)?.[1] ?? "";
+            const lastmod = m[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+            const slug = loc.replace(/^https?:\/\/[^/]+\//, "").replace(/\/$/, "");
+            return { slug, lastmod };
+          })
+          .filter((p) => postBySlug.has(p.slug));
+        apply(parsed.map((p) => p.slug), "sitemap", parsed[0]?.lastmod, rootError);
+      } catch (err) {
+        if (!cancelled) {
+          setSyncStatus({ source: "build-fallback", error: `${rootError}; sitemap: ${String(err)}` });
+        }
+      }
+    };
+
     fetch(`/blog-index.json?_cb=${Date.now()}`, { cache: "no-store" })
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(String(response.status)))))
-      .then((index: { carousel?: string[]; generatedAt?: string }) => {
-        if (cancelled || !Array.isArray(index.carousel)) return;
-        const freshSlugs = index.carousel.filter((slug) => postBySlug.has(slug)).slice(0, 4);
-        if (freshSlugs.length === 4) setCarouselSlugs(freshSlugs);
-        if (index.generatedAt) setImageVersion(encodeURIComponent(index.generatedAt));
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
       })
-      .catch(() => {
-        // Keep build-time fallback. The fallback is regenerated before every build.
+      .then((index: { carousel?: string[]; generatedAt?: string }) => {
+        if (cancelled) return;
+        if (!Array.isArray(index.carousel)) {
+          return loadFromSitemap("blog-index.json missing carousel");
+        }
+        apply(index.carousel, "blog-index", index.generatedAt);
+      })
+      .catch((err) => {
+        void loadFromSitemap(`blog-index.json: ${String(err?.message ?? err)}`);
       });
+
     return () => {
       cancelled = true;
     };
@@ -67,6 +115,43 @@ const HomeBlog = () => {
           >
             View all posts →
           </Link>
+        </div>
+
+        <div
+          data-testid="blog-sync-status"
+          className="mb-4 flex flex-wrap items-center gap-2 text-[11px] font-semibold"
+          aria-live="polite"
+        >
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 ${
+              syncStatus.source === "blog-index"
+                ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                : syncStatus.source === "sitemap"
+                  ? "bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                  : "bg-destructive/10 text-destructive"
+            }`}
+          >
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+            {syncStatus.source === "blog-index" && "Blog index synced"}
+            {syncStatus.source === "sitemap" && "Sitemap fallback"}
+            {syncStatus.source === "build-fallback" && "Using build snapshot"}
+          </span>
+          {syncStatus.generatedAt && (
+            <span className="text-muted-foreground">
+              Last blog index sync:{" "}
+              <time dateTime={syncStatus.generatedAt}>
+                {new Date(syncStatus.generatedAt).toLocaleString("en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                })}
+              </time>
+            </span>
+          )}
+          {syncStatus.error && (
+            <span className="text-muted-foreground" title={syncStatus.error}>
+              ({syncStatus.error.slice(0, 60)})
+            </span>
+          )}
         </div>
 
         <div
