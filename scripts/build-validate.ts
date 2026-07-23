@@ -13,6 +13,20 @@ const DIST = resolve("dist");
 const SITEMAP = resolve(DIST, "sitemap.xml");
 const HOME_HTML = readFileSync(resolve(DIST, "index.html"), "utf8");
 
+// Assets that must ship on every deploy — a 404 on any of these breaks the
+// homepage carousel or crawler-side sitemap discovery.
+const REQUIRED_ASSETS = [
+  "blog-index.json",
+  "sitemap.xml",
+  "sitemap-blog.xml",
+  "robots.txt",
+];
+const missingAssets = REQUIRED_ASSETS.filter((a) => !existsSync(resolve(DIST, a)));
+if (missingAssets.length) {
+  console.error(`✗ dist/ is missing required deploy assets: ${missingAssets.join(", ")}`);
+  process.exit(1);
+}
+
 const homeTitle = HOME_HTML.match(/<title>([^<]*)<\/title>/)?.[1] ?? "";
 const homeDesc = HOME_HTML.match(/<meta\s+name="description"\s+content="([^"]*)"/)?.[1] ?? "";
 
