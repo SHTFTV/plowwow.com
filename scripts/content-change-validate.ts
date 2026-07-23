@@ -152,7 +152,7 @@ if (full) {
 // Downgrade errors on legacy files (outside the strict scope) to warnings so
 // this validator only fails the build on newly-authored or edited content.
 // Pass --strict or --all to enforce strict mode across everything in scope.
-if (!strictAll && !all && strictFiles.size > 0) {
+if (!strictAll && !all) {
   for (const i of issues) {
     if (i.level === "error" && !strictFiles.has(i.file)) i.level = "warn";
   }
