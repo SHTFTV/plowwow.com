@@ -69,8 +69,15 @@ const posts = readdirSync(BLOG_DIR)
     const imageMatch = body.match(/!\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]+")?\)/);
     const heroPath = resolve(IMAGE_DIR, `${slug}.jpg`);
     const hasHeroImage = existsSync(heroPath);
-    const publishedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).first || statSync(filePath).mtimeMs;
-    const updatedAtMs = gitTimestamps(`src/content/legacy/blog/${file}`).last || statSync(filePath).mtimeMs;
+    // Prefer file mtime so newly added posts always sort to the top of the
+    // carousel. Git timestamps are unreliable here because bulk commits give
+    // every post the same second, which collapses the sort to alphabetical
+    // slug order and freezes the homepage carousel. Fall back to git only
+    // when mtime is missing.
+    const mtimeMs = statSync(filePath).mtimeMs;
+    const git = gitTimestamps(`src/content/legacy/blog/${file}`);
+    const publishedAtMs = mtimeMs || git.first;
+    const updatedAtMs = Math.max(mtimeMs, git.last || 0) || mtimeMs;
 
     const theme = pickTheme(slug, title);
     const image = hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`;
