@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T03:12:01.710Z",
+  "generatedAt": "2026-07-23T04:19:26.479Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -7,14 +7,6 @@
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
-    {
-      "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
-      "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
-    },
-    {
-      "slug": "the-worlds-cutest-snow-removal-brand",
-      "title": "The World’s Cutest Snow Removal Brand"
-    },
     {
       "slug": "tsawwassen-snow-removal",
       "title": "Tsawwassen Snow Removal | South Delta Ice Control"
@@ -26,6 +18,14 @@
     {
       "slug": "steveston-snow-removal",
       "title": "Steveston Snow Removal"
+    },
+    {
+      "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
+      "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
+    },
+    {
+      "slug": "the-worlds-cutest-snow-removal-brand",
+      "title": "The World’s Cutest Snow Removal Brand"
     },
     {
       "slug": "shaughnessy-snow-removal",
@@ -44,20 +44,20 @@
       "title": "Serving Renfrew Heights & East Vancouver"
     },
     {
-      "slug": "record-snow-falls-in-bc",
-      "title": "Record Snow Falls In BC"
-    },
-    {
-      "slug": "now-removal-arbutus",
-      "title": "Snow Removal in Arbutus,"
-    },
-    {
       "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
       "title": "BC Occupiers Liability Act & Slip Claims — Manager Playbook"
     },
     {
       "slug": "plow-wow-cutest-snow-removal-brand-marketing-platform",
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
+    },
+    {
+      "slug": "record-snow-falls-in-bc",
+      "title": "Record Snow Falls In BC"
+    },
+    {
+      "slug": "lynn-valley-snow-removal",
+      "title": "Lynn Valley Snow Removal"
     },
     {
       "slug": "metrotown-snow-removal-company",
@@ -68,8 +68,12 @@
       "title": "Metrotown Strata Snow Removal"
     },
     {
-      "slug": "lynn-valley-snow-removal",
-      "title": "Lynn Valley Snow Removal"
+      "slug": "now-removal-arbutus",
+      "title": "Snow Removal in Arbutus,"
+    },
+    {
+      "slug": "heritage-mountain",
+      "title": "Heritage Mountain"
     },
     {
       "slug": "how-to-grow-your-snow-removal-business-the-complete-guide-for-snow-contractors",
@@ -78,10 +82,6 @@
     {
       "slug": "kensington-cedar-cottage-snow-removal",
       "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
-    },
-    {
-      "slug": "heritage-mountain",
-      "title": "Heritage Mountain"
     },
     {
       "slug": "cloverdale-snow-removal",
