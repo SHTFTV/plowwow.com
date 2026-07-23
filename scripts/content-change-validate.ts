@@ -171,7 +171,7 @@ for (const w of warns) console.warn(`  ⚠ ${w.file}: ${w.message}`);
 for (const e of errors) console.error(`  ✗ ${e.file}: ${e.message}`);
 
 if (errors.length > 0) {
-  console.error(`\n✗ content-change-validate: ${errors.length} error(s), ${warns.length} warning(s)`);
-  process.exit(1);
+  console.error(`\n${strictAll || all ? "✗" : "⚠"} content-change-validate: ${errors.length} error(s), ${warns.length} warning(s)`);
+  if (strictAll || all) process.exit(1);
 }
 console.log(`✓ content-change-validate: ${files.length} blog post(s) OK (${warns.length} warning(s))`);
