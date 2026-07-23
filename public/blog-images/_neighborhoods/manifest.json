@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:08:49.109Z",
+  "generatedAt": "2026-07-23T17:30:17.683Z",
   "count": 118,
   "fallback": "/blog-images/_neighborhoods/city-all.jpg",
   "entries": [
@@ -22,16 +22,16 @@
       "tag": "Commercial"
     },
     {
-      "key": "city-all__tag-contracts",
-      "file": "/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
-      "city": "all",
-      "tag": "Contracts"
-    },
-    {
       "key": "city-all__tag-de-icing",
       "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
       "city": "all",
       "tag": "De-Icing"
+    },
+    {
+      "key": "city-all__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-all__tag-contracts.jpg",
+      "city": "all",
+      "tag": "Contracts"
     },
     {
       "key": "city-all__tag-equipment",
@@ -40,16 +40,16 @@
       "tag": "Equipment"
     },
     {
-      "key": "city-all__tag-weather",
-      "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
-      "city": "all",
-      "tag": "Weather"
-    },
-    {
       "key": "city-all__tag-residential",
       "file": "/blog-images/_neighborhoods/city-all__tag-residential.jpg",
       "city": "all",
       "tag": "Residential"
+    },
+    {
+      "key": "city-all__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
+      "city": "all",
+      "tag": "Weather"
     },
     {
       "key": "city-all__tag-liability",
@@ -76,16 +76,16 @@
       "tag": "Commercial"
     },
     {
-      "key": "city-burnaby__tag-contracts",
-      "file": "/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
-      "city": "burnaby",
-      "tag": "Contracts"
-    },
-    {
       "key": "city-burnaby__tag-de-icing",
       "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
       "city": "burnaby",
       "tag": "De-Icing"
+    },
+    {
+      "key": "city-burnaby__tag-contracts",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
+      "city": "burnaby",
+      "tag": "Contracts"
     },
     {
       "key": "city-burnaby__tag-equipment",
@@ -670,12 +670,6 @@
       "tag": "De-Icing"
     },
     {
-      "key": "city-citywide__tag-weather",
-      "file": "/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
-      "city": "citywide",
-      "tag": "Weather"
-    },
-    {
       "key": "city-citywide__tag-equipment",
       "file": "/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
       "city": "citywide",
@@ -698,6 +692,12 @@
       "file": "/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
       "city": "citywide",
       "tag": "Residential"
+    },
+    {
+      "key": "city-citywide__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
+      "city": "citywide",
+      "tag": "Weather"
     },
     {
       "key": "city-citywide__tag-liability",

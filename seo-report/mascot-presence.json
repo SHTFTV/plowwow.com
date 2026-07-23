@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T16:14:39.094Z",
+  "generatedAt": "2026-07-23T17:31:10.233Z",
   "threshold": 28,
   "normalizedSize": 96,
   "total": 221,
@@ -8,7 +8,7 @@
   "results": [
     {
       "file": "public/blog-images/cariboo-heights-burnaby-snow-removal.jpg",
-      "mae": 3.5385360453853605,
+      "mae": 3.5337622803376227,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -20,7 +20,7 @@
     },
     {
       "file": "public/blog-images/kensington-cedar-cottage-snow-removal.jpg",
-      "mae": 3.4311609243116092,
+      "mae": 3.4250034592500347,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -31,20 +31,8 @@
       }
     },
     {
-      "file": "public/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 3.298879202988792,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
       "file": "public/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
-      "mae": 3.2820672478206725,
+      "mae": 3.272658087726581,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -907,18 +895,6 @@
       }
     },
     {
-      "file": "public/blog-images/highgate-burnaby-strata-snow-removal.jpg",
-      "mae": 3.23446796734468,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 696,
-        "top": 686,
-        "width": 287,
-        "height": 287
-      }
-    },
-    {
       "file": "public/blog-images/_neighborhoods/city-abbotsford__tag-strata.jpg",
       "mae": 3.234398782343988,
       "opaquePixels": 4818,
@@ -979,8 +955,8 @@
       }
     },
     {
-      "file": "public/blog-images/strathcona-east-vancouver-snow-removal.jpg",
-      "mae": 3.233291822332918,
+      "file": "public/blog-images/highgate-burnaby-strata-snow-removal.jpg",
+      "mae": 3.2336377473363775,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1003,8 +979,20 @@
       }
     },
     {
+      "file": "public/blog-images/strathcona-east-vancouver-snow-removal.jpg",
+      "mae": 3.2271343572713436,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 696,
+        "top": 686,
+        "width": 287,
+        "height": 287
+      }
+    },
+    {
       "file": "public/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg",
-      "mae": 3.2201466722014667,
+      "mae": 3.2168257921682577,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1507,20 +1495,8 @@
       }
     },
     {
-      "file": "public/blog-images/langley-strata-commercial-snow-plowing.jpg",
-      "mae": 3.171924726719247,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 696,
-        "top": 686,
-        "width": 287,
-        "height": 287
-      }
-    },
-    {
-      "file": "public/blog-images/_theme-strata.jpg",
-      "mae": 3.157880171578802,
+      "file": "public/blog-images/victoria-fraserview-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 3.1684654766846547,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1531,8 +1507,8 @@
       }
     },
     {
-      "file": "public/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
-      "mae": 3.141621696416217,
+      "file": "public/blog-images/langley-strata-commercial-snow-plowing.jpg",
+      "mae": 3.16604400166044,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1543,8 +1519,8 @@
       }
     },
     {
-      "file": "public/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
-      "mae": 3.136432821364328,
+      "file": "public/blog-images/chilliwack-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1381624463816244,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1556,7 +1532,7 @@
     },
     {
       "file": "public/blog-images/port-moody-strata-commercial-snow-plowing.jpg",
-      "mae": 3.135256676352567,
+      "mae": 3.1362944513629447,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1567,8 +1543,8 @@
       }
     },
     {
-      "file": "public/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
-      "mae": 3.129168396291684,
+      "file": "public/blog-images/burnaby-strata-commercial-snow-plowing.jpg",
+      "mae": 3.136086896360869,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1580,7 +1556,7 @@
     },
     {
       "file": "public/blog-images/suncrest-burnaby-snow-removal.jpg",
-      "mae": 3.1279230662792306,
+      "mae": 3.1302061713020617,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1591,20 +1567,20 @@
       }
     },
     {
-      "file": "public/blog-images/_theme-citywide.jpg",
-      "mae": 3.1204510862045107,
+      "file": "public/blog-images/new-westminster-strata-commercial-snow-plowing.jpg",
+      "mae": 3.124948111249481,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
+        "left": 696,
+        "top": 686,
+        "width": 287,
+        "height": 287
       }
     },
     {
       "file": "public/blog-images/richmond-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1198976061989763,
+      "mae": 3.1156081361560815,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1615,8 +1591,20 @@
       }
     },
     {
-      "file": "public/blog-images/_theme-residential.jpg",
-      "mae": 3.1133250311332503,
+      "file": "public/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
+      "mae": 3.1104192611041928,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 696,
+        "top": 686,
+        "width": 287,
+        "height": 287
+      }
+    },
+    {
+      "file": "public/blog-images/_theme-strata.jpg",
+      "mae": 3.1073059360730593,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1627,8 +1615,8 @@
       }
     },
     {
-      "file": "public/blog-images/white-rock-strata-commercial-snow-plowing.jpg",
-      "mae": 3.1102117061021173,
+      "file": "public/blog-images/surrey-strata-commercial-snow-plowing.jpg",
+      "mae": 3.106683271066833,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1640,19 +1628,7 @@
     },
     {
       "file": "public/blog-images/mission-strata-commercial-snow-plowing.jpg",
-      "mae": 3.109381486093815,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 696,
-        "top": 686,
-        "width": 287,
-        "height": 287
-      }
-    },
-    {
-      "file": "public/blog-images/surrey-strata-commercial-snow-plowing.jpg",
-      "mae": 3.109381486093815,
+      "mae": 3.1004566210045663,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1664,7 +1640,7 @@
     },
     {
       "file": "public/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg",
-      "mae": 3.0925695309256955,
+      "mae": 3.0945067109450672,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1675,8 +1651,8 @@
       }
     },
     {
-      "file": "public/blog-images/_theme-commercial.jpg",
-      "mae": 3.088556800885568,
+      "file": "public/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
+      "mae": 3.0880033208800333,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1688,7 +1664,7 @@
     },
     {
       "file": "public/blog-images/abbotsford-strata-commercial-snow-plowing.jpg",
-      "mae": 3.0709146257091464,
+      "mae": 3.073266915732669,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1699,8 +1675,44 @@
       }
     },
     {
+      "file": "public/blog-images/_theme-residential.jpg",
+      "mae": 3.070084405700844,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
       "file": "public/blog-images/delta-strata-commercial-snow-plowing.jpg",
-      "mae": 3.070153590701536,
+      "mae": 3.069530925695309,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 696,
+        "top": 686,
+        "width": 287,
+        "height": 287
+      }
+    },
+    {
+      "file": "public/blog-images/_theme-citywide.jpg",
+      "mae": 3.0692541856925417,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
+      "mae": 3.063996125639961,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1712,19 +1724,7 @@
     },
     {
       "file": "public/blog-images/coquitlam-strata-commercial-snow-plowing.jpg",
-      "mae": 3.0638577556385775,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 696,
-        "top": 686,
-        "width": 287,
-        "height": 287
-      }
-    },
-    {
-      "file": "public/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg",
-      "mae": 3.0616438356164384,
+      "mae": 3.061782205617822,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1736,7 +1736,7 @@
     },
     {
       "file": "public/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg",
-      "mae": 3.0557631105576313,
+      "mae": 3.052165490521655,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1747,8 +1747,20 @@
       }
     },
     {
+      "file": "public/blog-images/_theme-commercial.jpg",
+      "mae": 3.051681195516812,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
       "file": "public/blog-images/burke-mountain-coquitlam-strata-snow-removal.jpg",
-      "mae": 3.0011761450117613,
+      "mae": 2.962155804621558,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1760,7 +1772,7 @@
     },
     {
       "file": "public/blog-images/big-bend-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.9375259443752593,
+      "mae": 2.9309533693095338,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1772,7 +1784,7 @@
     },
     {
       "file": "public/blog-images/fleetwood-surrey-strata-commercial-snow-removal.jpg",
-      "mae": 2.936972464369725,
+      "mae": 2.930469074304691,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1783,8 +1795,8 @@
       }
     },
     {
-      "file": "public/blog-images/_theme-storm.jpg",
-      "mae": 2.9034177390341775,
+      "file": "public/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
+      "mae": 2.9215442092154422,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1796,7 +1808,7 @@
     },
     {
       "file": "public/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.8801715788017157,
+      "mae": 2.874913518749135,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1808,7 +1820,19 @@
     },
     {
       "file": "public/blog-images/kitsilano-vancouver-snow-removal.jpg",
-      "mae": 2.8700705687007058,
+      "mae": 2.8650892486508925,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/_theme-storm.jpg",
+      "mae": 2.8633596236335963,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1820,7 +1844,7 @@
     },
     {
       "file": "public/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg",
-      "mae": 2.8580323785803237,
+      "mae": 2.8512522485125227,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1832,19 +1856,7 @@
     },
     {
       "file": "public/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.8442645634426458,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.8354088833540887,
+      "mae": 2.8411512384115123,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1856,7 +1868,7 @@
     },
     {
       "file": "public/blog-images/squamish-snow-removal.jpg",
-      "mae": 2.832987408329874,
+      "mae": 2.8255154282551542,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1867,20 +1879,8 @@
       }
     },
     {
-      "file": "public/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
-      "mae": 2.827037498270375,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
       "file": "public/blog-images/deer-lake-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.817905078179051,
+      "mae": 2.8129237581292377,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1892,7 +1892,7 @@
     },
     {
       "file": "public/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.80552096305521,
+      "mae": 2.8010239380102395,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1903,8 +1903,20 @@
       }
     },
     {
+      "file": "public/blog-images/broadmoor-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.7928601079286013,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
       "file": "public/blog-images/eagle-ridge-coquitlam-strata-snow-removal.jpg",
-      "mae": 2.7999169779991697,
+      "mae": 2.7900235229002353,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1916,7 +1928,7 @@
     },
     {
       "file": "public/blog-images/brentwood-burnaby-strata-snow-removal.jpg",
-      "mae": 2.7912688529126886,
+      "mae": 2.7879479728794796,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1927,8 +1939,20 @@
       }
     },
     {
+      "file": "public/blog-images/cambie-village-vancouver-commercial-snow-removal.jpg",
+      "mae": 2.7839352428393522,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
       "file": "public/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg",
-      "mae": 2.7759789677597895,
+      "mae": 2.77487200774872,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1940,7 +1964,7 @@
     },
     {
       "file": "public/blog-images/promontory-chilliwack-strata-snow-removal.jpg",
-      "mae": 2.775287117752871,
+      "mae": 2.7691988376919885,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1952,7 +1976,7 @@
     },
     {
       "file": "public/blog-images/steveston-snow-removal.jpg",
-      "mae": 2.773488307734883,
+      "mae": 2.7687145426871456,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1963,20 +1987,8 @@
       }
     },
     {
-      "file": "public/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.7608966376089663,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
       "file": "public/blog-images/renfrew-collingwood-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.760135602601356,
+      "mae": 2.7603431576034314,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -1987,8 +1999,20 @@
       }
     },
     {
+      "file": "public/blog-images/westridge-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.7594437525944375,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
       "file": "public/blog-images/grandview-woodland-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.7548775425487753,
+      "mae": 2.7516258475162583,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2000,31 +2024,7 @@
     },
     {
       "file": "public/blog-images/seafair-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.7523868825238686,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/west-end-vancouver-snow-removal.jpg",
-      "mae": 2.752317697523177,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.746229417462294,
+      "mae": 2.7475439324754394,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2036,7 +2036,7 @@
     },
     {
       "file": "public/blog-images/oakridge-vancouver-snow-removal.jpg",
-      "mae": 2.74346201743462,
+      "mae": 2.7373737373737375,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2048,7 +2048,7 @@
     },
     {
       "file": "public/blog-images/fort-langley-snow-removal.jpg",
-      "mae": 2.730662792306628,
+      "mae": 2.7303860523038606,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2060,7 +2060,7 @@
     },
     {
       "file": "public/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.72886398228864,
+      "mae": 2.7229140722291407,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2072,7 +2072,7 @@
     },
     {
       "file": "public/blog-images/north-vancouver-snow-removal.jpg",
-      "mae": 2.7287256122872563,
+      "mae": 2.722291407222914,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2083,20 +2083,8 @@
       }
     },
     {
-      "file": "public/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.723675107236751,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 1088,
-        "top": 407,
-        "width": 448,
-        "height": 448
-      }
-    },
-    {
       "file": "public/blog-images/maillardville-coquitlam-commercial-snow-removal.jpg",
-      "mae": 2.707001522070015,
+      "mae": 2.7221530372215303,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2107,32 +2095,8 @@
       }
     },
     {
-      "file": "public/blog-images/marpole-vancouver-snow-removal.jpg",
-      "mae": 2.704649232046492,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/commercial-drive-vancouver-snow-removal.jpg",
-      "mae": 2.70381901203819,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.7013283520132836,
+      "file": "public/blog-images/east-cambie-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.7205617822056176,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2143,20 +2107,8 @@
       }
     },
     {
-      "file": "public/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
-      "mae": 2.7007748720077487,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 1088,
-        "top": 407,
-        "width": 448,
-        "height": 448
-      }
-    },
-    {
-      "file": "public/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
-      "mae": 2.699806281998063,
+      "file": "public/blog-images/champlain-heights-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 2.7173792721737926,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2168,7 +2120,55 @@
     },
     {
       "file": "public/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.698837691988377,
+      "mae": 2.7133665421336652,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/harbour-chines-coquitlam-strata-commercial-snow-removal.jpg",
+      "mae": 2.700982427009824,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 1088,
+        "top": 407,
+        "width": 448,
+        "height": 448
+      }
+    },
+    {
+      "file": "public/blog-images/marpole-vancouver-snow-removal.jpg",
+      "mae": 2.6989760619897605,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/ladner-delta-strata-commercial-snow-removal.jpg",
+      "mae": 2.697315621973156,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 1088,
+        "top": 407,
+        "width": 448,
+        "height": 448
+      }
+    },
+    {
+      "file": "public/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+      "mae": 2.693372076933721,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2180,7 +2180,19 @@
     },
     {
       "file": "public/blog-images/sunset-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.681679811816798,
+      "mae": 2.6787048567870486,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/commercial-drive-vancouver-snow-removal.jpg",
+      "mae": 2.6777362667773628,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2192,7 +2204,31 @@
     },
     {
       "file": "public/blog-images/riley-park-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.6796042617960425,
+      "mae": 2.6777362667773628,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/cloverdale-snow-removal.jpg",
+      "mae": 2.675660716756607,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 871,
+        "top": 326,
+        "width": 358,
+        "height": 358
+      }
+    },
+    {
+      "file": "public/blog-images/west-end-vancouver-snow-removal.jpg",
+      "mae": 2.675176421751764,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2204,7 +2240,7 @@
     },
     {
       "file": "public/blog-images/lynn-valley-snow-removal.jpg",
-      "mae": 2.6774595267745953,
+      "mae": 2.673446796734468,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2212,47 +2248,11 @@
         "top": 326,
         "width": 358,
         "height": 358
-      }
-    },
-    {
-      "file": "public/blog-images/cloverdale-snow-removal.jpg",
-      "mae": 2.6760066417600665,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 871,
-        "top": 326,
-        "width": 358,
-        "height": 358
-      }
-    },
-    {
-      "file": "public/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
-      "mae": 2.6705410267054104,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/yaletown-vancouver-snow-removal.jpg",
-      "mae": 2.6589179465891797,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
       }
     },
     {
       "file": "public/blog-images/west-vancouver-snow-removal.jpg",
-      "mae": 2.6587795765877957,
+      "mae": 2.6576726165767264,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2263,8 +2263,8 @@
       }
     },
     {
-      "file": "public/blog-images/coal-harbour-vancouver-snow-removal.jpg",
-      "mae": 2.658295281582953,
+      "file": "public/blog-images/yaletown-vancouver-snow-removal.jpg",
+      "mae": 2.6552511415525113,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2276,7 +2276,19 @@
     },
     {
       "file": "public/blog-images/fraserview-vancouver-snow-removal.jpg",
-      "mae": 2.6479867164798674,
+      "mae": 2.6468105714681056,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/coquitlam-centre-strata-commercial-snow-removal.jpg",
+      "mae": 2.6445966514459665,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2288,31 +2300,7 @@
     },
     {
       "file": "public/blog-images/metrotown-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.646118721461187,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.6344956413449565,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.6302061713020617,
+      "mae": 2.6441123564411235,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2324,7 +2312,7 @@
     },
     {
       "file": "public/blog-images/silverdale-mission-strata-commercial-snow-removal.jpg",
-      "mae": 2.62716203127162,
+      "mae": 2.642175176421752,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2335,8 +2323,8 @@
       }
     },
     {
-      "file": "public/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.619067386190674,
+      "file": "public/blog-images/coal-harbour-vancouver-snow-removal.jpg",
+      "mae": 2.634218901342189,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2347,8 +2335,8 @@
       }
     },
     {
-      "file": "public/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.615400581154006,
+      "file": "public/blog-images/terra-nova-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.6329735713297358,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2359,20 +2347,8 @@
       }
     },
     {
-      "file": "public/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
-      "mae": 2.6136709561367097,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 936,
-        "top": 345,
-        "width": 385,
-        "height": 385
-      }
-    },
-    {
-      "file": "public/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
-      "mae": 2.6133250311332503,
+      "file": "public/blog-images/hamilton-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.6267469212674692,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2384,7 +2360,7 @@
     },
     {
       "file": "public/blog-images/sardis-chilliwack-strata-commercial-snow-removal.jpg",
-      "mae": 2.6117337761173376,
+      "mae": 2.619551681195517,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2395,8 +2371,8 @@
       }
     },
     {
-      "file": "public/blog-images/false-creek-vancouver-strata-snow-removal.jpg",
-      "mae": 2.6112494811124947,
+      "file": "public/blog-images/south-slope-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.615262211152622,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2407,8 +2383,8 @@
       }
     },
     {
-      "file": "public/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
-      "mae": 2.611111111111111,
+      "file": "public/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg",
+      "mae": 2.6113878511138786,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2419,20 +2395,8 @@
       }
     },
     {
-      "file": "public/blog-images/tsawwassen-snow-removal.jpg",
-      "mae": 2.609450671094507,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 871,
-        "top": 326,
-        "width": 358,
-        "height": 358
-      }
-    },
-    {
-      "file": "public/blog-images/gastown-vancouver-commercial-snow-removal.jpg",
-      "mae": 2.6090355610903555,
+      "file": "public/blog-images/south-cambie-vancouver-strata-commercial-snow-removal.jpg",
+      "mae": 2.6107651861076517,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2444,7 +2408,7 @@
     },
     {
       "file": "public/blog-images/austin-heights-coquitlam-strata-snow-removal.jpg",
-      "mae": 2.6081361560813616,
+      "mae": 2.6095198560951984,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2455,20 +2419,44 @@
       }
     },
     {
-      "file": "public/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
-      "mae": 2.6043309810433097,
+      "file": "public/blog-images/cedar-valley-mission-strata-commercial-snow-removal.jpg",
+      "mae": 2.6077210460772107,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
-        "left": 1088,
-        "top": 407,
-        "width": 448,
-        "height": 448
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
       }
     },
     {
-      "file": "public/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
-      "mae": 2.5803929708039295,
+      "file": "public/blog-images/garden-city-richmond-strata-commercial-snow-removal.jpg",
+      "mae": 2.60619897606199,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 936,
+        "top": 345,
+        "width": 385,
+        "height": 385
+      }
+    },
+    {
+      "file": "public/blog-images/tsawwassen-snow-removal.jpg",
+      "mae": 2.606060606060606,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 871,
+        "top": 326,
+        "width": 358,
+        "height": 358
+      }
+    },
+    {
+      "file": "public/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
+      "mae": 2.5823301508233016,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2480,7 +2468,7 @@
     },
     {
       "file": "public/blog-images/dunbar-vancouver-snow-removal.jpg",
-      "mae": 2.579701120797011,
+      "mae": 2.5799778607997785,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2492,7 +2480,7 @@
     },
     {
       "file": "public/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
-      "mae": 2.5746506157465063,
+      "mae": 2.5689082606890827,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2503,8 +2491,20 @@
       }
     },
     {
+      "file": "public/blog-images/does-it-snow-in-vancouver-weather-guide.jpg",
+      "mae": 2.5552096305520964,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 1088,
+        "top": 407,
+        "width": 448,
+        "height": 448
+      }
+    },
+    {
       "file": "public/blog-images/edmonds-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.552096305520963,
+      "mae": 2.5509893455098935,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2528,7 +2528,7 @@
     },
     {
       "file": "public/blog-images/occupiers-liability-act-bc-slip-fall-property-manager-guide.jpg",
-      "mae": 2.528019925280199,
+      "mae": 2.516050920160509,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2540,7 +2540,7 @@
     },
     {
       "file": "public/blog-images/silver-valley-maple-ridge-strata-snow-removal.jpg",
-      "mae": 2.5062958350629585,
+      "mae": 2.505396430053964,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2551,20 +2551,8 @@
       }
     },
     {
-      "file": "public/blog-images/point-grey-vancouver-snow-removal.jpg",
-      "mae": 2.4847101148471014,
-      "opaquePixels": 4818,
-      "pass": true,
-      "rect": {
-        "left": 1088,
-        "top": 407,
-        "width": 448,
-        "height": 448
-      }
-    },
-    {
       "file": "public/blog-images/albion-maple-ridge-strata-commercial-snow-removal.jpg",
-      "mae": 2.482772934827729,
+      "mae": 2.466030164660302,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2575,8 +2563,8 @@
       }
     },
     {
-      "file": "public/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.479728794797288,
+      "file": "public/blog-images/point-grey-vancouver-snow-removal.jpg",
+      "mae": 2.463539504635395,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2588,7 +2576,19 @@
     },
     {
       "file": "public/blog-images/queensborough-new-westminster-strata-commercial-snow-removal.jpg",
-      "mae": 2.4596651445966513,
+      "mae": 2.458419814584198,
+      "opaquePixels": 4818,
+      "pass": true,
+      "rect": {
+        "left": 1088,
+        "top": 407,
+        "width": 448,
+        "height": 448
+      }
+    },
+    {
+      "file": "public/blog-images/montecito-burnaby-strata-commercial-snow-removal.jpg",
+      "mae": 2.456275079562751,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2600,7 +2600,7 @@
     },
     {
       "file": "public/blog-images/metro-vancouver-winter-weather-pineapple-express-arctic-outflow.jpg",
-      "mae": 2.433720769337208,
+      "mae": 2.418361699183617,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2612,7 +2612,7 @@
     },
     {
       "file": "public/blog-images/shaughnessy-vancouver-snow-removal.jpg",
-      "mae": 2.4301231493012314,
+      "mae": 2.4061851390618516,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2624,7 +2624,7 @@
     },
     {
       "file": "public/blog-images/edgemont-village-north-vancouver-strata-commercial-snow-removal.jpg",
-      "mae": 2.403625294036253,
+      "mae": 2.399889303998893,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2636,7 +2636,7 @@
     },
     {
       "file": "public/blog-images/pet-safe-de-icer-vs-rock-salt-metro-vancouver-guide.jpg",
-      "mae": 2.371246713712467,
+      "mae": 2.3568562335685623,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
@@ -2648,7 +2648,7 @@
     },
     {
       "file": "public/blog-images/government-road-burnaby-strata-commercial-snow-removal.jpg",
-      "mae": 2.3214335132143353,
+      "mae": 2.322886398228864,
       "opaquePixels": 4818,
       "pass": true,
       "rect": {
