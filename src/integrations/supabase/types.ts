@@ -182,6 +182,36 @@ export type Database = {
         }
         Relationships: []
       }
+      monitor_events: {
+        Row: {
+          created_at: string
+          details: Json
+          http_status: number | null
+          id: string
+          kind: string
+          ok: boolean
+          path: string | null
+        }
+        Insert: {
+          created_at?: string
+          details?: Json
+          http_status?: number | null
+          id?: string
+          kind: string
+          ok: boolean
+          path?: string | null
+        }
+        Update: {
+          created_at?: string
+          details?: Json
+          http_status?: number | null
+          id?: string
+          kind?: string
+          ok?: boolean
+          path?: string | null
+        }
+        Relationships: []
+      }
       newsletter_signups: {
         Row: {
           confirmation_sent_at: string | null
