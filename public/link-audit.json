@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:08:54.437Z",
+  "generatedAt": "2026-07-23T17:14:47.573Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -7,14 +7,6 @@
     "citiesWithoutPosts": 1
   },
   "orphanPosts": [
-    {
-      "slug": "the-worlds-cutest-snow-removal-brand",
-      "title": "The World’s Cutest Snow Removal Brand"
-    },
-    {
-      "slug": "tsawwassen-snow-removal",
-      "title": "Tsawwassen Snow Removal | South Delta Ice Control"
-    },
     {
       "slug": "squamish-snow-removal",
       "title": "Squamish Snow Removal | Sea-to-Sky Plowing"
@@ -26,6 +18,18 @@
     {
       "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
       "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026"
+    },
+    {
+      "slug": "the-worlds-cutest-snow-removal-brand",
+      "title": "The World’s Cutest Snow Removal Brand"
+    },
+    {
+      "slug": "tsawwassen-snow-removal",
+      "title": "Tsawwassen Snow Removal | South Delta Ice Control"
+    },
+    {
+      "slug": "shaughnessy-snow-removal",
+      "title": "Shaughnessy Snow Removal"
     },
     {
       "slug": "snow-removal-in-burquitlam",
@@ -40,8 +44,12 @@
       "title": "Serving Renfrew Heights & East Vancouver"
     },
     {
-      "slug": "shaughnessy-snow-removal",
-      "title": "Shaughnessy Snow Removal"
+      "slug": "record-snow-falls-in-bc",
+      "title": "Record Snow Falls In BC"
+    },
+    {
+      "slug": "now-removal-arbutus",
+      "title": "Snow Removal in Arbutus,"
     },
     {
       "slug": "occupiers-liability-act-bc-slip-fall-property-manager-guide",
@@ -52,12 +60,8 @@
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
     },
     {
-      "slug": "record-snow-falls-in-bc",
-      "title": "Record Snow Falls In BC"
-    },
-    {
-      "slug": "now-removal-arbutus",
-      "title": "Snow Removal in Arbutus,"
+      "slug": "lynn-valley-snow-removal",
+      "title": "Lynn Valley Snow Removal"
     },
     {
       "slug": "metrotown-snow-removal-company",
@@ -66,10 +70,6 @@
     {
       "slug": "metrotown-strata-snow-removal",
       "title": "Metrotown Strata Snow Removal"
-    },
-    {
-      "slug": "lynn-valley-snow-removal",
-      "title": "Lynn Valley Snow Removal"
     },
     {
       "slug": "heritage-mountain",
