@@ -41,7 +41,32 @@ const HomeBlog = () => {
       setSyncStatus({ source, generatedAt, error });
     };
 
+    // Cached, parsed sitemap fallback. sessionStorage keeps it across route
+    // navigations without re-fetching or re-parsing XML. TTL = 10 minutes.
+    const SITEMAP_CACHE_KEY = "plowwow.homeblog.sitemap.v1";
+    const SITEMAP_CACHE_TTL_MS = 10 * 60 * 1000;
+
+    type SitemapCache = { slugs: string[]; lastmod?: string; cachedAt: number };
+
+    const readSitemapCache = (): SitemapCache | null => {
+      try {
+        const raw = sessionStorage.getItem(SITEMAP_CACHE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw) as SitemapCache;
+        if (Date.now() - parsed.cachedAt > SITEMAP_CACHE_TTL_MS) return null;
+        return parsed;
+      } catch { return null; }
+    };
+    const writeSitemapCache = (cache: SitemapCache) => {
+      try { sessionStorage.setItem(SITEMAP_CACHE_KEY, JSON.stringify(cache)); } catch { /* quota */ }
+    };
+
     const loadFromSitemap = async (rootError: string) => {
+      const cached = readSitemapCache();
+      if (cached) {
+        apply(cached.slugs, "sitemap", cached.lastmod, `${rootError} (cached)`);
+        return;
+      }
       try {
         const res = await fetch(`/sitemap-blog.xml?_cb=${Date.now()}`, { cache: "no-store" });
         if (!res.ok) throw new Error(`sitemap HTTP ${res.status}`);
@@ -55,7 +80,10 @@ const HomeBlog = () => {
             return { slug, lastmod };
           })
           .filter((p) => postBySlug.has(p.slug));
-        apply(parsed.map((p) => p.slug), "sitemap", parsed[0]?.lastmod, rootError);
+        const slugs = parsed.map((p) => p.slug);
+        const lastmod = parsed[0]?.lastmod;
+        writeSitemapCache({ slugs, lastmod, cachedAt: Date.now() });
+        apply(slugs, "sitemap", lastmod, rootError);
       } catch (err) {
         if (!cancelled) {
           setSyncStatus({ source: "build-fallback", error: `${rootError}; sitemap: ${String(err)}` });

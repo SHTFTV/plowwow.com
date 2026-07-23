@@ -46,6 +46,7 @@ const NewsletterConfirm = lazy(() => import("./pages/NewsletterConfirm.tsx"));
 const CityQuote = lazy(() => import("./pages/CityQuote.tsx"));
 const QuoteConfirmed = lazy(() => import("./pages/QuoteConfirmed.tsx"));
 const PwaDiagnostics = lazy(() => import("./pages/PwaDiagnostics.tsx"));
+const AdminMonitor = lazy(() => import("./pages/AdminMonitor.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -80,6 +81,7 @@ const App = () => (
             <Route path="/admin/quote-audit-log" element={<AdminQuoteAuditLog />} />
             <Route path="/admin/pwa-diagnostics" element={<PwaDiagnostics />} />
             <Route path="/admin/quote-recent" element={<AdminQuoteRecent />} />
+            <Route path="/admin/monitor" element={<AdminMonitor />} />
             <Route path="/burnaby" element={<Burnaby />} />
             <Route path="/seo-report" element={<SeoReport />} />
             <Route path="/blog" element={<BlogIndex />} />
