@@ -47,15 +47,18 @@ describe("blog URL canonicalization in sitemaps", () => {
 
 const distBuilt = existsSync(resolve(DIST_DIR, "index.html"));
 
-describe.skipIf(!distBuilt)("blog URL reachability (prerendered dist/)", () => {
-  it("/blog/ index is prerendered (not 404)", () => {
+describe("blog URL reachability (prerendered dist/)", () => {
+  it.runIf(distBuilt)("/blog/ index is prerendered (not 404)", () => {
     expect(existsSync(resolve(DIST_DIR, "blog", "index.html"))).toBe(true);
   });
 
-  it("every blog slug prerenders to /<slug>/index.html (would return 200)", () => {
-    const missing = legacyBlogSlugs.filter(
-      (slug) => !existsSync(resolve(DIST_DIR, slug, "index.html")),
-    );
-    expect(missing).toEqual([]);
-  });
+  it.runIf(distBuilt)(
+    "every blog slug prerenders to /<slug>/index.html (would return 200)",
+    () => {
+      const missing = legacyBlogSlugs.filter(
+        (slug) => !existsSync(resolve(DIST_DIR, slug, "index.html")),
+      );
+      expect(missing).toEqual([]);
+    },
+  );
 });
