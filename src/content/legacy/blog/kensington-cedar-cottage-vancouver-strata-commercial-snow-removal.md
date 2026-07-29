@@ -12,7 +12,7 @@ When winter hits **Kensington-Cedar Cottage**, Vancouver, strata councils, prope
 
 **[Get a free Kensington-Cedar Cottage snow removal quote →](/quote)**
 
-![PlowWow mascot waving on a plowed Kensington-Cedar Cottage street in Vancouver at blue dawn with character homes, snow-covered Trout Lake trees and Kingsway storefronts behind](/blog-images/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal.jpg)
+![PlowWow mascot waving on a plowed Kensington-Cedar Cottage street in Vancouver at blue dawn with character homes, snow-covered Trout Lake trees and Kingsway storefronts behind](/blog-images/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal.jpg "Kensington-Cedar Cottage Vancouver strata and commercial snow removal by PlowWow")
 
 ## Why Kensington-Cedar Cottage Snow Removal Is Different
 

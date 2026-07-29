@@ -12,7 +12,7 @@ When winter hits **Fairview**, Vancouver, strata councils, property managers and
 
 **[Get a free Fairview Vancouver snow removal quote →](/quote)**
 
-![PlowWow mascot waving beside a freshly plowed Fairview Vancouver street at blue dawn with Broadway mid-rise stratas, snow-dusted street trees and the False Creek skyline behind](/blog-images/fairview-vancouver-strata-commercial-snow-removal.jpg)
+![PlowWow mascot waving beside a freshly plowed Fairview Vancouver street at blue dawn with Broadway mid-rise stratas, snow-dusted street trees and the False Creek skyline behind](/blog-images/fairview-vancouver-strata-commercial-snow-removal.jpg "Fairview Vancouver strata and commercial snow removal by PlowWow")
 
 ## Why Fairview Snow Removal Is Different
 
