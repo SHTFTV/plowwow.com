@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T02:11:30.406Z",
+  "generatedAt": "2026-07-29T02:14:23.020Z",
   "totals": {
-    "posts": 132,
+    "posts": 134,
     "cities": 18,
     "orphanPosts": 22,
     "citiesWithoutPosts": 1
@@ -107,7 +107,7 @@
     {
       "slug": "vancouver",
       "name": "Vancouver",
-      "count": 39
+      "count": 41
     },
     {
       "slug": "burnaby",

@@ -6,12 +6,26 @@
     <atom:link href="https://plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Tue, 21 Jul 2026 22:36:52 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 02:13:48 GMT</lastBuildDate>
     <image>
       <url>https://plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>Fairview Vancouver Strata &amp; Commercial Snow Removal</title>
+      <link>https://plowwow.com/fairview-vancouver-strata-commercial-snow-removal/</link>
+      <guid isPermaLink="true">https://plowwow.com/fairview-vancouver-strata-commercial-snow-removal/</guid>
+      <pubDate>Wed, 29 Jul 2026 02:13:48 GMT</pubDate>
+      <description>Fairview Vancouver strata &amp; commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…</description>
+    </item>
+    <item>
+      <title>Kensington-Cedar Cottage Snow Removal Vancouver</title>
+      <link>https://plowwow.com/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal/</link>
+      <guid isPermaLink="true">https://plowwow.com/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal/</guid>
+      <pubDate>Wed, 29 Jul 2026 02:13:48 GMT</pubDate>
+      <description>Kensington-Cedar Cottage strata &amp; commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…</description>
+    </item>
     <item>
       <title>Metro Vancouver Winter Weather — Snow Emergency Patterns 2026</title>
       <link>https://plowwow.com/metro-vancouver-winter-weather-pineapple-express-arctic-outflow/</link>

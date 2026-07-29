@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-29T02:11:02.741Z",
-  "count": 132,
+  "generatedAt": "2026-07-29T02:13:52.777Z",
+  "count": 134,
   "carousel": [
     "west-end-vancouver-snow-removal",
     "west-vancouver-snow-removal",
@@ -8,6 +8,16 @@
     "westwood-plateau-coquitlam-parking-lot-snow-removal"
   ],
   "posts": [
+    {
+      "slug": "fairview-vancouver-strata-commercial-snow-removal",
+      "publishedAt": "2026-07-29T02:13:48.761Z",
+      "updatedAt": "2026-07-29T02:13:48.761Z"
+    },
+    {
+      "slug": "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal",
+      "publishedAt": "2026-07-29T02:13:48.761Z",
+      "updatedAt": "2026-07-29T02:13:48.761Z"
+    },
     {
       "slug": "west-end-vancouver-snow-removal",
       "publishedAt": "2026-07-29T02:10:55.239Z",
