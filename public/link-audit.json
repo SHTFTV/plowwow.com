@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:31:18.903Z",
+  "generatedAt": "2026-07-29T02:11:30.406Z",
   "totals": {
     "posts": 132,
     "cities": 18,
@@ -60,6 +60,10 @@
       "title": "The Cutest Snow Removal Brand in the World is Changing Snow Removal Marketing Forever"
     },
     {
+      "slug": "kensington-cedar-cottage-snow-removal",
+      "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
+    },
+    {
       "slug": "lynn-valley-snow-removal",
       "title": "Lynn Valley Snow Removal"
     },
@@ -80,8 +84,8 @@
       "title": "How to Grow Your Snow Removal Business: The Complete Guide for Snow Contractors"
     },
     {
-      "slug": "kensington-cedar-cottage-snow-removal",
-      "title": "Kensington-Cedar Cottage East Vancouver Snow Removal"
+      "slug": "can-i-push-snow-onto-the-street",
+      "title": "Can I push snow onto the street?"
     },
     {
       "slug": "cloverdale-snow-removal",
@@ -90,10 +94,6 @@
     {
       "slug": "burke-mountain-snow",
       "title": "Burke Mountain Snow"
-    },
-    {
-      "slug": "can-i-push-snow-onto-the-street",
-      "title": "Can I push snow onto the street?"
     }
   ],
   "citiesWithoutPosts": [
