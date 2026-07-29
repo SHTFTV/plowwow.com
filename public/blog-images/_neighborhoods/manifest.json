@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T02:19:20.419Z",
+  "generatedAt": "2026-07-29T03:38:48.184Z",
   "count": 118,
   "fallback": "/blog-images/_neighborhoods/city-all.jpg",
   "entries": [
@@ -10,22 +10,10 @@
       "tag": null
     },
     {
-      "key": "city-all__tag-strata",
-      "file": "/blog-images/_neighborhoods/city-all__tag-strata.jpg",
-      "city": "all",
-      "tag": "Strata"
-    },
-    {
       "key": "city-all__tag-commercial",
       "file": "/blog-images/_neighborhoods/city-all__tag-commercial.jpg",
       "city": "all",
       "tag": "Commercial"
-    },
-    {
-      "key": "city-all__tag-de-icing",
-      "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
-      "city": "all",
-      "tag": "De-Icing"
     },
     {
       "key": "city-all__tag-contracts",
@@ -40,16 +28,28 @@
       "tag": "Equipment"
     },
     {
-      "key": "city-all__tag-residential",
-      "file": "/blog-images/_neighborhoods/city-all__tag-residential.jpg",
+      "key": "city-all__tag-strata",
+      "file": "/blog-images/_neighborhoods/city-all__tag-strata.jpg",
       "city": "all",
-      "tag": "Residential"
+      "tag": "Strata"
+    },
+    {
+      "key": "city-all__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-all__tag-de-icing.jpg",
+      "city": "all",
+      "tag": "De-Icing"
     },
     {
       "key": "city-all__tag-weather",
       "file": "/blog-images/_neighborhoods/city-all__tag-weather.jpg",
       "city": "all",
       "tag": "Weather"
+    },
+    {
+      "key": "city-all__tag-residential",
+      "file": "/blog-images/_neighborhoods/city-all__tag-residential.jpg",
+      "city": "all",
+      "tag": "Residential"
     },
     {
       "key": "city-all__tag-liability",
@@ -76,16 +76,16 @@
       "tag": "Commercial"
     },
     {
-      "key": "city-burnaby__tag-de-icing",
-      "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
-      "city": "burnaby",
-      "tag": "De-Icing"
-    },
-    {
       "key": "city-burnaby__tag-contracts",
       "file": "/blog-images/_neighborhoods/city-burnaby__tag-contracts.jpg",
       "city": "burnaby",
       "tag": "Contracts"
+    },
+    {
+      "key": "city-burnaby__tag-de-icing",
+      "file": "/blog-images/_neighborhoods/city-burnaby__tag-de-icing.jpg",
+      "city": "burnaby",
+      "tag": "De-Icing"
     },
     {
       "key": "city-burnaby__tag-equipment",
@@ -670,6 +670,12 @@
       "tag": "De-Icing"
     },
     {
+      "key": "city-citywide__tag-weather",
+      "file": "/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
+      "city": "citywide",
+      "tag": "Weather"
+    },
+    {
       "key": "city-citywide__tag-equipment",
       "file": "/blog-images/_neighborhoods/city-citywide__tag-equipment.jpg",
       "city": "citywide",
@@ -692,12 +698,6 @@
       "file": "/blog-images/_neighborhoods/city-citywide__tag-residential.jpg",
       "city": "citywide",
       "tag": "Residential"
-    },
-    {
-      "key": "city-citywide__tag-weather",
-      "file": "/blog-images/_neighborhoods/city-citywide__tag-weather.jpg",
-      "city": "citywide",
-      "tag": "Weather"
     },
     {
       "key": "city-citywide__tag-liability",
