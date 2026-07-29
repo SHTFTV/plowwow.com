@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-23T17:31:20.118Z",
+  "generatedAt": "2026-07-29T02:17:14.271Z",
   "totals": {
     "cities": 17,
-    "neighborhoods": 125,
+    "neighborhoods": 127,
     "robotsSitemapDirectives": 8
   },
   "cities": {
@@ -10,7 +10,10 @@
     "removed": []
   },
   "neighborhoods": {
-    "added": [],
+    "added": [
+      "https://plowwow.com/fairview-vancouver-strata-commercial-snow-removal/",
+      "https://plowwow.com/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal/"
+    ],
     "removed": []
   },
   "robotsSitemapDirectives": {
