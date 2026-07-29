@@ -1,8 +1,8 @@
 # og:image / twitter:image reachability
 
-_Generated 2026-07-23T01:37:13.262Z_
+_Generated 2026-07-29T02:20:28.706Z_
 
-- Unique URLs: **234**
+- Unique URLs: **238**
 - Failed: **0**
 - Warnings: **82**
 - Minimum dimensions (hard): **600×315**
@@ -16,22 +16,14 @@ _Generated 2026-07-23T01:37:13.262Z_
 - `twitter:image` https://plowwow.com/og-abbotsford.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/abbotsford-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/abbotsford-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-burnaby.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-burnaby.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/burnaby-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/burnaby-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/cariboo-heights-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/cariboo-heights-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-chilliwack.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-chilliwack.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/chilliwack-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/chilliwack-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-coquitlam.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-coquitlam.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/coquitlam-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/coquitlam-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-delta.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-delta.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/delta-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/delta-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/hastings-sunrise-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
@@ -40,23 +32,31 @@ _Generated 2026-07-23T01:37:13.262Z_
 - `twitter:image` https://plowwow.com/blog-images/highgate-burnaby-strata-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/kensington-cedar-cottage-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-langley.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-langley.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/langley-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/langley-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-maple-ridge.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-maple-ridge.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/maple-ridge-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-mission.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-mission.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/mission-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/mission-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/mount-pleasant-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
-- `og:image` https://plowwow.com/og-new-westminster.jpg — dimensions 945×630 below recommended 1200×630
-- `twitter:image` https://plowwow.com/og-new-westminster.jpg — dimensions 945×630 below recommended 1200×630
 - `og:image` https://plowwow.com/blog-images/new-westminster-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
 - `twitter:image` https://plowwow.com/blog-images/new-westminster-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/port-coquitlam-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/port-moody-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/port-moody-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/richmond-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/richmond-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/strathcona-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/strathcona-east-vancouver-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/suncrest-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/suncrest-burnaby-snow-removal.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/surrey-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/surrey-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/blog-images/white-rock-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `twitter:image` https://plowwow.com/blog-images/white-rock-strata-commercial-snow-plowing.jpg — dimensions 1024×1024 below recommended 1200×630
+- `og:image` https://plowwow.com/og-burnaby.jpg — dimensions 945×630 below recommended 1200×630
+- `twitter:image` https://plowwow.com/og-burnaby.jpg — dimensions 945×630 below recommended 1200×630

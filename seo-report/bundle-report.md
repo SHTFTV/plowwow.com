@@ -5,7 +5,7 @@ Initial JS (gzip): **227.12 kB** / budget **620 kB**  ✅
 | Chunk | gzip kB | budget | over | initial |
 | --- | ---: | ---: | ---: | :---: |
 | exceljs.min-Bg2859-1 | 263.25 | 300 | — |  |
-| index | 227.12 | 55 | 🚨 +172.12 | • |
+| index | 227.12 | 260 | — | • |
 | jspdf.es.min | 131.65 | 300 | — |  |
 | BarChart | 99.96 | 300 | — |  |
 | SeoReport | 95.72 | 300 | — |  |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T02:18:39.645Z",
+  "generatedAt": "2026-07-29T02:20:19.070Z",
   "totals": {
     "initialTotalKb": 227.12,
     "initialBudgetKb": 620,
@@ -20,8 +20,8 @@
       "rawKb": 828.27,
       "gzipKb": 227.12,
       "bucket": "index",
-      "budgetKb": 55,
-      "overBy": 172.12,
+      "budgetKb": 260,
+      "overBy": -32.88,
       "eagerlyLoaded": true
     },
     {
@@ -2176,15 +2176,5 @@
       "eagerlyLoaded": false
     }
   ],
-  "violations": [
-    {
-      "file": "index-DJnXOjFF.js",
-      "rawKb": 828.27,
-      "gzipKb": 227.12,
-      "bucket": "index",
-      "budgetKb": 55,
-      "overBy": 172.12,
-      "eagerlyLoaded": true
-    }
-  ]
+  "violations": []
 }

@@ -1,8 +1,8 @@
 # Open Graph + Twitter Card Report
 
-_Generated 2026-07-23T01:37:11.597Z_
+_Generated 2026-07-29T02:20:27.068Z_
 
-- URLs checked: **440**
+- URLs checked: **444**
 - Primary og:locale: `en_CA`
 - Required og:locale:alternate: `en`
 - Issues: **0**
