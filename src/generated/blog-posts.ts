@@ -27,8 +27,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-29T02:13:48.761Z",
-    "updatedAt": "2026-07-29T02:13:48.761Z"
+    "publishedAt": "2026-07-29T02:17:20.939Z",
+    "updatedAt": "2026-07-29T02:17:21.000Z"
   },
   {
     "slug": "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal",
@@ -45,8 +45,8 @@ export const blogPosts = [
       "Equipment"
     ],
     "hasCustomHero": true,
-    "publishedAt": "2026-07-29T02:13:48.761Z",
-    "updatedAt": "2026-07-29T02:13:48.761Z"
+    "publishedAt": "2026-07-29T02:17:20.939Z",
+    "updatedAt": "2026-07-29T02:17:21.000Z"
   },
   {
     "slug": "west-end-vancouver-snow-removal",
