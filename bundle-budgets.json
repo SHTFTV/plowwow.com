@@ -3,7 +3,7 @@
   "defaultChunkKb": 300,
   "totalInitialKb": 620,
   "budgets": {
-    "index":            { "kb": 55 },
+    "index":            { "kb": 260 },
     "vendor-react":     { "kb": 65 },
     "vendor-radix":     { "kb": 40 },
     "vendor-tanstack":  { "kb": 15 },

@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-23T17:31:46.247Z",
+  "generatedAt": "2026-07-29T02:20:19.070Z",
   "totals": {
-    "initialTotalKb": 226.92,
+    "initialTotalKb": 227.12,
     "initialBudgetKb": 620,
-    "initialOverBy": -393.08
+    "initialOverBy": -392.88
   },
   "chunks": [
     {
-      "file": "exceljs.min-DpDz-bTi.js",
+      "file": "exceljs.min-Bg2859-1.js",
       "rawKb": 917.13,
       "gzipKb": 263.25,
-      "bucket": "exceljs.min-DpDz-bTi",
+      "bucket": "exceljs.min-Bg2859-1",
       "budgetKb": 300,
       "overBy": -36.75,
       "eagerlyLoaded": false
     },
     {
-      "file": "index-D0pGf2N3.js",
-      "rawKb": 826.28,
-      "gzipKb": 226.92,
+      "file": "index-DJnXOjFF.js",
+      "rawKb": 828.27,
+      "gzipKb": 227.12,
       "bucket": "index",
-      "budgetKb": 55,
-      "overBy": 171.92,
+      "budgetKb": 260,
+      "overBy": -32.88,
       "eagerlyLoaded": true
     },
     {
-      "file": "jspdf.es.min-Cf16PLm_.js",
+      "file": "jspdf.es.min-Clx9dmpS.js",
       "rawKb": 406.39,
       "gzipKb": 131.65,
       "bucket": "jspdf.es.min",
@@ -34,7 +34,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "BarChart-cZvZY_1f.js",
+      "file": "BarChart-Bu9TeCB5.js",
       "rawKb": 362.87,
       "gzipKb": 99.96,
       "bucket": "BarChart",
@@ -43,7 +43,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "SeoReport-BpOqoiMJ.js",
+      "file": "SeoReport-DNY9vKqX.js",
       "rawKb": 287.3,
       "gzipKb": 95.72,
       "bucket": "SeoReport",
@@ -52,16 +52,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "LegacyPage-Dr41TxAQ.js",
-      "rawKb": 190.53,
-      "gzipKb": 56.4,
-      "bucket": "LegacyPage",
+      "file": "LegacyPage-BdR-r7Ko.js",
+      "rawKb": 190.88,
+      "gzipKb": 56.45,
+      "bucket": "LegacyPage-BdR-r7Ko",
       "budgetKb": 300,
-      "overBy": -243.6,
+      "overBy": -243.55,
       "eagerlyLoaded": false
     },
     {
-      "file": "index.es-D1pUz4gL.js",
+      "file": "index.es-CdYld1gr.js",
       "rawKb": 147.55,
       "gzipKb": 50.25,
       "bucket": "index.es",
@@ -88,7 +88,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "CityPage-CoGfkl9w.js",
+      "file": "CityPage-YxZexUeR.js",
       "rawKb": 98.87,
       "gzipKb": 31.33,
       "bucket": "CityPage",
@@ -97,7 +97,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Burnaby-CswQhYAs.js",
+      "file": "Burnaby-B6rgE3mF.js",
       "rawKb": 46.75,
       "gzipKb": 13.46,
       "bucket": "Burnaby",
@@ -106,12 +106,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "BlogIndex-DBlL_pR8.js",
-      "rawKb": 47.73,
-      "gzipKb": 12.95,
+      "file": "BlogIndex-CvmePffL.js",
+      "rawKb": 48.08,
+      "gzipKb": 13,
       "bucket": "BlogIndex",
       "budgetKb": 300,
-      "overBy": -287.05,
+      "overBy": -287,
       "eagerlyLoaded": false
     },
     {
@@ -142,7 +142,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "RelatedCities-wjmmoTqr.js",
+      "file": "RelatedCities-D2KNMHFk.js",
       "rawKb": 28.36,
       "gzipKb": 8.27,
       "bucket": "RelatedCities",
@@ -187,7 +187,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AppFeatures-DaNRFeFb.js",
+      "file": "AppFeatures-BXumLzz6.js",
       "rawKb": 19.06,
       "gzipKb": 6.23,
       "bucket": "AppFeatures",
@@ -196,10 +196,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "CityQuote-xw0k-Zvv.js",
+      "file": "CityQuote-SzBSYk4v.js",
       "rawKb": 18.91,
       "gzipKb": 6.23,
-      "bucket": "CityQuote-xw0k-Zvv",
+      "bucket": "CityQuote",
       "budgetKb": 300,
       "overBy": -293.77,
       "eagerlyLoaded": false
@@ -232,6 +232,15 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "fairview-vancouver-strata-commercial-snow-removal-B3XAlIRi.js",
+      "rawKb": 15.57,
+      "gzipKb": 6.09,
+      "bucket": "fairview-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -293.91,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "sunset-vancouver-strata-commercial-snow-removal-DYwzPsEZ.js",
       "rawKb": 15.85,
       "gzipKb": 6.08,
@@ -241,10 +250,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGuestPosts--VwQQbok.js",
+      "file": "AdminGuestPosts-B3fsJV9F.js",
       "rawKb": 18.17,
       "gzipKb": 6.07,
-      "bucket": "AdminGuestPosts-",
+      "bucket": "AdminGuestPosts",
       "budgetKb": 300,
       "overBy": -293.93,
       "eagerlyLoaded": false
@@ -520,6 +529,15 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal-B4RaF3fe.js",
+      "rawKb": 14.57,
+      "gzipKb": 5.65,
+      "bucket": "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal",
+      "budgetKb": 300,
+      "overBy": -294.35,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "port-coquitlam-snow-removal-YuNjlLUg.js",
       "rawKb": 17.43,
       "gzipKb": 5.65,
@@ -529,12 +547,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminJsonLdValidator-Dna0WdsF.js",
-      "rawKb": 16.06,
-      "gzipKb": 5.59,
+      "file": "AdminJsonLdValidator-DumoMNRI.js",
+      "rawKb": 16.22,
+      "gzipKb": 5.62,
       "bucket": "AdminJsonLdValidator",
       "budgetKb": 300,
-      "overBy": -294.41,
+      "overBy": -294.38,
       "eagerlyLoaded": false
     },
     {
@@ -916,21 +934,21 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "BlogNeighborhoods-DV5GYIIC.js",
+      "rawKb": 22.95,
+      "gzipKb": 5.02,
+      "bucket": "BlogNeighborhoods",
+      "budgetKb": 300,
+      "overBy": -294.98,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "can-i-push-snow-onto-the-street-B6rJZi0Q.js",
       "rawKb": 14.69,
       "gzipKb": 5.02,
       "bucket": "can-i-push-snow-onto-the-street",
       "budgetKb": 300,
       "overBy": -294.98,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "BlogNeighborhoods-Cu7q_Qpv.js",
-      "rawKb": 22.95,
-      "gzipKb": 5.01,
-      "bucket": "BlogNeighborhoods",
-      "budgetKb": 300,
-      "overBy": -294.99,
       "eagerlyLoaded": false
     },
     {
@@ -1006,12 +1024,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PublishHelper-9cWL9VBo.js",
+      "file": "PublishHelper-DdKVXIE6.js",
       "rawKb": 14.87,
-      "gzipKb": 4.88,
+      "gzipKb": 4.87,
       "bucket": "PublishHelper",
       "budgetKb": 300,
-      "overBy": -295.12,
+      "overBy": -295.13,
       "eagerlyLoaded": false
     },
     {
@@ -1114,7 +1132,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Intelligence-CY8zhhG7.js",
+      "file": "Intelligence-N8eYUnUi.js",
       "rawKb": 16,
       "gzipKb": 4.63,
       "bucket": "Intelligence",
@@ -1123,7 +1141,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Admin-Dqw1EWCj.js",
+      "file": "Admin-BFQU8cb4.js",
       "rawKb": 13.57,
       "gzipKb": 4.49,
       "bucket": "Admin",
@@ -1222,7 +1240,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Takeoff-DR5YSssC.js",
+      "file": "Takeoff-z5r8Da3Y.js",
       "rawKb": 12.59,
       "gzipKb": 4.13,
       "bucket": "Takeoff",
@@ -1231,7 +1249,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "PwaDiagnostics-6ca_ufsj.js",
+      "file": "PwaDiagnostics-D4Pi0J5g.js",
       "rawKb": 14.59,
       "gzipKb": 4.09,
       "bucket": "PwaDiagnostics",
@@ -1267,7 +1285,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteMetrics-DnpKdkB2.js",
+      "file": "AdminQuoteMetrics-BrJFnS0R.js",
       "rawKb": 10.8,
       "gzipKb": 3.91,
       "bucket": "AdminQuoteMetrics",
@@ -1330,12 +1348,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "QuoteConfirmed-uddezrlu.js",
+      "file": "QuoteConfirmed-CFYks6ZN.js",
       "rawKb": 10.63,
-      "gzipKb": 3.67,
+      "gzipKb": 3.68,
       "bucket": "QuoteConfirmed",
       "budgetKb": 300,
-      "overBy": -296.33,
+      "overBy": -296.32,
       "eagerlyLoaded": false
     },
     {
@@ -1375,7 +1393,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAlerts-DYRO6aXn.js",
+      "file": "AdminQuoteAlerts-B6VkQNol.js",
       "rawKb": 9.68,
       "gzipKb": 3.07,
       "bucket": "AdminQuoteAlerts",
@@ -1420,7 +1438,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "GuestPost-Du3v_ur_.js",
+      "file": "GuestPost-BCFNobIi.js",
       "rawKb": 7.61,
       "gzipKb": 2.81,
       "bucket": "GuestPost",
@@ -1456,7 +1474,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "accordion-nNbLPsPd.js",
+      "file": "accordion-D_tzp6DI.js",
       "rawKb": 6.86,
       "gzipKb": 2.63,
       "bucket": "accordion",
@@ -1465,12 +1483,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteAuditLog-Bp9vTxry.js",
+      "file": "AdminQuoteAuditLog-C3wWVOs_.js",
       "rawKb": 7.05,
-      "gzipKb": 2.58,
+      "gzipKb": 2.57,
       "bucket": "AdminQuoteAuditLog",
       "budgetKb": 300,
-      "overBy": -297.42,
+      "overBy": -297.43,
       "eagerlyLoaded": false
     },
     {
@@ -1483,10 +1501,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "NewsletterConfirm-DiKrFS6O.js",
+      "file": "NewsletterConfirm-hzjEE-It.js",
       "rawKb": 7.3,
       "gzipKb": 2.53,
-      "bucket": "NewsletterConfirm",
+      "bucket": "NewsletterConfirm-hzjEE-It",
       "budgetKb": 300,
       "overBy": -297.47,
       "eagerlyLoaded": false
@@ -1501,7 +1519,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminLinkAudit-CAKEyxBo.js",
+      "file": "AdminLinkAudit-BLMNKL0e.js",
       "rawKb": 6.78,
       "gzipKb": 2.5,
       "bucket": "AdminLinkAudit",
@@ -1528,10 +1546,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminNeighborhoods-2PjYez-3.js",
+      "file": "AdminNeighborhoods-Db7j3RwT.js",
       "rawKb": 5.28,
       "gzipKb": 2.35,
-      "bucket": "AdminNeighborhoods-2PjYez-3",
+      "bucket": "AdminNeighborhoods",
       "budgetKb": 300,
       "overBy": -297.65,
       "eagerlyLoaded": false
@@ -1573,10 +1591,10 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteRecent-CN8oPbw-.js",
+      "file": "AdminQuoteRecent-CHFerD7h.js",
       "rawKb": 6.31,
       "gzipKb": 2.12,
-      "bucket": "AdminQuoteRecent-CN8oPbw-",
+      "bucket": "AdminQuoteRecent",
       "budgetKb": 300,
       "overBy": -297.88,
       "eagerlyLoaded": false
@@ -1609,7 +1627,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminMonitor-AcNo8Du6.js",
+      "file": "AdminMonitor-Buxcllg2.js",
       "rawKb": 5.5,
       "gzipKb": 1.91,
       "bucket": "AdminMonitor",
@@ -1627,7 +1645,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminGscCoverage-BDlJhzoz.js",
+      "file": "AdminGscCoverage-BK9GUQC2.js",
       "rawKb": 4.62,
       "gzipKb": 1.85,
       "bucket": "AdminGscCoverage",
@@ -1690,7 +1708,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminQuoteDenylist-Czbugu6h.js",
+      "file": "AdminQuoteDenylist-B0bU0Ym1.js",
       "rawKb": 4.32,
       "gzipKb": 1.59,
       "bucket": "AdminQuoteDenylist",
@@ -1699,7 +1717,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AdminSeoSettings-DO6mvEaC.js",
+      "file": "AdminSeoSettings-DgTLyHZO.js",
       "rawKb": 3.46,
       "gzipKb": 1.54,
       "bucket": "AdminSeoSettings",
@@ -1753,19 +1771,19 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "AuthorPage-YsWe04Tr.js",
-      "rawKb": 3,
-      "gzipKb": 1.42,
-      "bucket": "AuthorPage",
+      "file": "Locations-C4pddc66.js",
+      "rawKb": 3.5,
+      "gzipKb": 1.43,
+      "bucket": "Locations",
       "budgetKb": 300,
-      "overBy": -298.58,
+      "overBy": -298.57,
       "eagerlyLoaded": false
     },
     {
-      "file": "Locations-CKSHa5zd.js",
-      "rawKb": 3.5,
+      "file": "AuthorPage-hiV5kC5T.js",
+      "rawKb": 3,
       "gzipKb": 1.42,
-      "bucket": "Locations",
+      "bucket": "AuthorPage",
       "budgetKb": 300,
       "overBy": -298.58,
       "eagerlyLoaded": false
@@ -1816,19 +1834,19 @@
       "eagerlyLoaded": false
     },
     {
+      "file": "tabs-DqA7EtMH.js",
+      "rawKb": 3.12,
+      "gzipKb": 1.32,
+      "bucket": "tabs",
+      "budgetKb": 300,
+      "overBy": -298.68,
+      "eagerlyLoaded": false
+    },
+    {
       "file": "silver-valley-maple-ridge-BH2Kf1VY.js",
       "rawKb": 3.25,
       "gzipKb": 1.31,
       "bucket": "silver-valley-maple-ridge",
-      "budgetKb": 300,
-      "overBy": -298.69,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "tabs-CnDFzLK9.js",
-      "rawKb": 3.12,
-      "gzipKb": 1.31,
-      "bucket": "tabs",
       "budgetKb": 300,
       "overBy": -298.69,
       "eagerlyLoaded": false
@@ -1843,7 +1861,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "switch-K0OMHqbO.js",
+      "file": "switch-Bs2nYCKf.js",
       "rawKb": 2.39,
       "gzipKb": 1.2,
       "bucket": "switch",
@@ -1852,12 +1870,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Auth-B_jbtVva.js",
+      "file": "Auth-BeZDD7vp.js",
       "rawKb": 3.07,
-      "gzipKb": 1.17,
+      "gzipKb": 1.16,
       "bucket": "Auth",
       "budgetKb": 300,
-      "overBy": -298.83,
+      "overBy": -298.84,
       "eagerlyLoaded": false
     },
     {
@@ -1879,12 +1897,12 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "Quote-DO_LFZtX.js",
+      "file": "Quote-Bz3pqVUP.js",
       "rawKb": 2.29,
-      "gzipKb": 1.05,
+      "gzipKb": 1.06,
       "bucket": "Quote",
       "budgetKb": 300,
-      "overBy": -298.95,
+      "overBy": -298.94,
       "eagerlyLoaded": false
     },
     {
@@ -1906,7 +1924,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "SnowBackground-Cm7FmofS.js",
+      "file": "SnowBackground-DXzIjC04.js",
       "rawKb": 2.61,
       "gzipKb": 1,
       "bucket": "SnowBackground",
@@ -1987,7 +2005,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "table-DELgU_mZ.js",
+      "file": "table-C_BRcLV1.js",
       "rawKb": 1.45,
       "gzipKb": 0.51,
       "bucket": "table",
@@ -1996,7 +2014,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "card-CwJAeVHU.js",
+      "file": "badge-BpLw5IDX.js",
+      "rawKb": 0.69,
+      "gzipKb": 0.37,
+      "bucket": "badge",
+      "budgetKb": 300,
+      "overBy": -299.63,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "card-CB3x1rLw.js",
       "rawKb": 0.97,
       "gzipKb": 0.37,
       "bucket": "card",
@@ -2005,7 +2032,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "internalLinks-DG3VHebp.js",
+      "file": "internalLinks-B1z5fzc_.js",
       "rawKb": 0.58,
       "gzipKb": 0.37,
       "bucket": "internalLinks",
@@ -2014,25 +2041,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "map-DShggbJg.js",
+      "file": "map-do5iM-eK.js",
       "rawKb": 0.58,
       "gzipKb": 0.37,
-      "bucket": "map",
+      "bucket": "map-do5iM-eK",
       "budgetKb": 300,
       "overBy": -299.63,
       "eagerlyLoaded": false
     },
     {
-      "file": "badge-lr-YPDaC.js",
-      "rawKb": 0.69,
-      "gzipKb": 0.36,
-      "bucket": "badge-lr-YPDaC",
-      "budgetKb": 300,
-      "overBy": -299.64,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "cloud-snow-CPO8vWdO.js",
+      "file": "cloud-snow-BkCgwYxB.js",
       "rawKb": 0.56,
       "gzipKb": 0.34,
       "bucket": "cloud-snow",
@@ -2041,25 +2059,25 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "trash-2-D_cZKqEV.js",
+      "file": "trash-2-mLiLZnq2.js",
       "rawKb": 0.51,
-      "gzipKb": 0.33,
+      "gzipKb": 0.34,
       "bucket": "trash-2",
       "budgetKb": 300,
-      "overBy": -299.67,
+      "overBy": -299.66,
       "eagerlyLoaded": false
     },
     {
-      "file": "refresh-cw-D1tnrT0v.js",
+      "file": "refresh-cw-DPc-DpLX.js",
       "rawKb": 0.48,
       "gzipKb": 0.32,
-      "bucket": "refresh-cw",
+      "bucket": "refresh-cw-DPc-DpLX",
       "budgetKb": 300,
       "overBy": -299.68,
       "eagerlyLoaded": false
     },
     {
-      "file": "save-aZhAecDN.js",
+      "file": "save-BehZjGRc.js",
       "rawKb": 0.48,
       "gzipKb": 0.32,
       "bucket": "save",
@@ -2068,7 +2086,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "download-S3ph3AOJ.js",
+      "file": "download-CQenCnLd.js",
       "rawKb": 0.42,
       "gzipKb": 0.31,
       "bucket": "download",
@@ -2077,7 +2095,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "log-out-bMWDtJGw.js",
+      "file": "log-out-CZ8sShc2.js",
       "rawKb": 0.42,
       "gzipKb": 0.31,
       "bucket": "log-out",
@@ -2086,25 +2104,34 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "triangle-alert-CaK9vu4p.js",
+      "file": "triangle-alert-6IsZx8zs.js",
       "rawKb": 0.42,
-      "gzipKb": 0.3,
+      "gzipKb": 0.31,
       "bucket": "triangle-alert",
+      "budgetKb": 300,
+      "overBy": -299.69,
+      "eagerlyLoaded": false
+    },
+    {
+      "file": "copy-BKaNf-sI.js",
+      "rawKb": 0.39,
+      "gzipKb": 0.3,
+      "bucket": "copy-BKaNf-sI",
       "budgetKb": 300,
       "overBy": -299.7,
       "eagerlyLoaded": false
     },
     {
-      "file": "copy-bkPM59mW.js",
-      "rawKb": 0.39,
-      "gzipKb": 0.29,
-      "bucket": "copy",
+      "file": "eye-DKB9qqNy.js",
+      "rawKb": 0.41,
+      "gzipKb": 0.3,
+      "bucket": "eye",
       "budgetKb": 300,
-      "overBy": -299.71,
+      "overBy": -299.7,
       "eagerlyLoaded": false
     },
     {
-      "file": "external-link-DzsQCRPx.js",
+      "file": "external-link-B_bj74ci.js",
       "rawKb": 0.41,
       "gzipKb": 0.29,
       "bucket": "external-link",
@@ -2113,16 +2140,7 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "eye-TJp0Igwe.js",
-      "rawKb": 0.41,
-      "gzipKb": 0.29,
-      "bucket": "eye",
-      "budgetKb": 300,
-      "overBy": -299.71,
-      "eagerlyLoaded": false
-    },
-    {
-      "file": "circle-x-CSt5cVqJ.js",
+      "file": "circle-x-Qr1RXHY7.js",
       "rawKb": 0.36,
       "gzipKb": 0.27,
       "bucket": "circle-x",
@@ -2131,16 +2149,16 @@
       "eagerlyLoaded": false
     },
     {
-      "file": "arrow-left-B1ZJwnNI.js",
+      "file": "arrow-left--dWkhIei.js",
       "rawKb": 0.33,
       "gzipKb": 0.26,
-      "bucket": "arrow-left",
+      "bucket": "arrow-left-",
       "budgetKb": 300,
       "overBy": -299.74,
       "eagerlyLoaded": false
     },
     {
-      "file": "plus-HDURmOLw.js",
+      "file": "plus-C5hMg81o.js",
       "rawKb": 0.31,
       "gzipKb": 0.25,
       "bucket": "plus",
@@ -2158,15 +2176,5 @@
       "eagerlyLoaded": false
     }
   ],
-  "violations": [
-    {
-      "file": "index-D0pGf2N3.js",
-      "rawKb": 826.28,
-      "gzipKb": 226.92,
-      "bucket": "index",
-      "budgetKb": 55,
-      "overBy": 171.92,
-      "eagerlyLoaded": true
-    }
-  ]
+  "violations": []
 }

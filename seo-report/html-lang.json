@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-23T01:37:12.670Z",
+  "generatedAt": "2026-07-29T02:20:28.131Z",
   "expectedLang": "en-CA",
-  "total": 315,
+  "total": 317,
   "failed": 0,
   "results": [
     {
@@ -785,6 +785,18 @@
       "issues": []
     },
     {
+      "url": "https://plowwow.com/fairview-vancouver-strata-commercial-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
       "url": "https://plowwow.com/false-creek-vancouver-strata-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
@@ -978,6 +990,18 @@
     },
     {
       "url": "https://plowwow.com/kensington-cedar-cottage-snow-removal/",
+      "lang": "en-CA",
+      "hreflangs": [
+        "en-CA",
+        "x-default",
+        "en-CA",
+        "en",
+        "x-default"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://plowwow.com/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal/",
       "lang": "en-CA",
       "hreflangs": [
         "en-CA",

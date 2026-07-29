@@ -1,14 +1,14 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-23T17:29:49.881Z",
-  "blogIndexAt": "2026-07-23T17:29:49.344Z",
+  "generatedAt": "2026-07-29T02:18:56.118Z",
+  "blogIndexAt": "2026-07-29T02:18:55.607Z",
   "carousel": [
+    "fairview-vancouver-strata-commercial-snow-removal",
+    "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal",
     "west-end-vancouver-snow-removal",
-    "west-vancouver-snow-removal",
-    "westridge-burnaby-strata-commercial-snow-removal",
-    "westwood-plateau-coquitlam-parking-lot-snow-removal"
+    "west-vancouver-snow-removal"
   ],
-  "totalPosts": 132,
+  "totalPosts": 134,
   "swVersion": "v7",
   "serviceWorker": {
     "scriptPath": "/sw.js",

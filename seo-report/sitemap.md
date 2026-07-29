@@ -1,9 +1,9 @@
 # Sitemap Validation Report
 
-_Generated 2026-07-23T01:37:12.166Z_
+_Generated 2026-07-29T02:20:27.621Z_
 
-- URLs in sitemap: **328**
-- Expected cities: **17** · Expected blog posts: **132**
+- URLs in sitemap: **332**
+- Expected cities: **17** · Expected blog posts: **134**
 - Required hreflang: `en-CA, en, x-default`
 - Total issues: **0**
 
