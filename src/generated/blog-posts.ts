@@ -16,7 +16,7 @@ export const blogPosts = [
     "slug": "fairview-vancouver-strata-commercial-snow-removal",
     "title": "Fairview Vancouver Strata & Commercial Snow Removal",
     "blurb": "Fairview Vancouver strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
-    "image": "/blog-images/_theme-strata.jpg",
+    "image": "/blog-images/fairview-vancouver-strata-commercial-snow-removal.jpg",
     "alt": "PlowWow mascot waving beside a freshly plowed Fairview Vancouver street at blue dawn with Broadway mid-rise stratas, snow-dusted street trees and the False Creek skyline behind",
     "theme": "strata",
     "tags": [
@@ -26,7 +26,7 @@ export const blogPosts = [
       "Contracts",
       "Equipment"
     ],
-    "hasCustomHero": false,
+    "hasCustomHero": true,
     "publishedAt": "2026-07-29T02:13:48.761Z",
     "updatedAt": "2026-07-29T02:13:48.761Z"
   },
@@ -34,7 +34,7 @@ export const blogPosts = [
     "slug": "kensington-cedar-cottage-vancouver-strata-commercial-snow-removal",
     "title": "Kensington-Cedar Cottage Snow Removal Vancouver",
     "blurb": "Kensington-Cedar Cottage strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
-    "image": "/blog-images/_theme-strata.jpg",
+    "image": "/blog-images/kensington-cedar-cottage-vancouver-strata-commercial-snow-removal.jpg",
     "alt": "PlowWow mascot waving on a plowed Kensington-Cedar Cottage street in Vancouver at blue dawn with character homes, snow-covered Trout Lake trees and Kingsway storefronts behind",
     "theme": "strata",
     "tags": [
@@ -44,7 +44,7 @@ export const blogPosts = [
       "Contracts",
       "Equipment"
     ],
-    "hasCustomHero": false,
+    "hasCustomHero": true,
     "publishedAt": "2026-07-29T02:13:48.761Z",
     "updatedAt": "2026-07-29T02:13:48.761Z"
   },
