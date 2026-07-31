@@ -9,6 +9,19 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /config/
 
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Twitterbot
+Allow: /
+
 Sitemap: https://plowwow.com/sitemap.xml
 Sitemap: https://plowwow.com/sitemap-cities.xml
 Sitemap: https://plowwow.com/sitemap-neighbourhoods.xml
