@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Own Your City | PlowWow Operator Program | Apply Now</title>
+<meta name="description" content="Join the PlowWow operator network. Exclusive snow removal territories across Canada and the US. Your city, your leads, your seasonal contracts. 5-star contractors only. Apply now.">
+<link rel="canonical" href="https://plowwow.com/join">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "PlowWow Operator Program — Own Your City",
+  "description": "Exclusive snow removal territory program for 5-star contractors across Canada and the United States.",
+  "url": "https://plowwow.com/join",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PlowWow",
+    "url": "https://plowwow.com",
+    "telephone": "+16047611518"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I become a PlowWow operator?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Submit an application at plowwow.com/join. We review every application manually. We accept only 5-star rated contractors with verified equipment, insurance, and a proven track record. If approved, you receive exclusive rights to your city territory."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is the territory exclusive?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. One operator per city. When your city is claimed, it's yours. No competing PlowWow operators in your territory."}
+    },
+    {
+      "@type": "Question",
+      "name": "What cities are available?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Hundreds of cities across Canada and the United States where it snows are available. Apply and tell us your city — if it's open, it's yours to claim."}
+    },
+    {
+      "@type": "Question",
+      "name": "What does a PlowWow operator get?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Your own branded city page on plowwow.com, inbound seasonal contract leads and direct calls to your number, access to the PlowWow dispatch app, EyeSpyR photo verification system, PlowWow mascot and branding rights, and full marketing support."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to use the PlowWow brand?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It's your choice. Use our brand, mascot, and marketing power — or run your own brand through our platform. Most operators love the mascot and go all in. But the choice is yours."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --navy: #0a2540;
+  --navy2: #1e3a5f;
+  --orange: #f0a500;
+  --orange2: #d4920a;
+  --white: #ffffff;
+  --offwhite: #f7f9fc;
+  --text: #1a1a2e;
+  --muted: #5a6a7a;
+  --border: #d8e4f0;
+  --green: #1a9e5c;
+  --red: #e53e3e;
+  --ice: #e8f4fd;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--white); color: var(--text); line-height: 1.7; }
+
+/* NAV */
+.nav { background: var(--navy); padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { height: 44px; }
+.nav-logo span { color: #fff; font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+.nav-logo span em { color: var(--orange); font-style: normal; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-link { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; }
+.nav-cta { background: var(--orange); color: #000; padding: 10px 22px; border-radius: 6px; font-weight: 800; text-decoration: none; font-size: 14px; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #0d3060 100%);
+  min-height: 580px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 80px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(240,165,0,0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(33,150,243,0.08) 0%, transparent 50%);
+}
+.hero-left { position: relative; z-index: 1; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(240,165,0,0.15); border: 1px solid rgba(240,165,0,0.4); color: var(--orange); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; }
+.hero h1 { font-size: clamp(36px, 4.5vw, 62px); font-weight: 900; line-height: 1.05; color: #fff; letter-spacing: -2px; margin-bottom: 20px; }
+.hero h1 em { color: var(--orange); font-style: normal; display: block; }
+.hero-sub { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 520px; margin-bottom: 36px; line-height: 1.6; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn-orange { background: var(--orange); color: #000; padding: 18px 36px; border-radius: 8px; font-weight: 900; font-size: 17px; text-decoration: none; display: inline-block; transition: all 0.2s; box-shadow: 0 4px 20px rgba(240,165,0,0.4); }
+.btn-orange:hover { background: var(--orange2); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.35); padding: 16px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.2s; }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.7); }
+.hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+.h-stat { }
+.h-stat-num { font-size: 28px; font-weight: 900; color: var(--orange); line-height: 1; }
+.h-stat-label { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+/* HERO RIGHT — mascot area */
+.hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.mascot-container { position: relative; text-align: center; }
+.mascot-img { width: 100%; max-width: 480px; height: auto; object-fit: contain; filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5)); }
+.territory-badge { position: absolute; top: 20px; right: -10px; background: var(--orange); color: #000; padding: 10px 16px; border-radius: 10px; font-weight: 900; font-size: 13px; text-align: center; box-shadow: 0 4px 20px rgba(240,165,0,0.5); transform: rotate(3deg); }
+.territory-badge span { display: block; font-size: 10px; font-weight: 700; opacity: 0.8; }
+.available-badge { position: absolute; bottom: 40px; left: -10px; background: var(--green); color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 800; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.pulse { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding: 50px 24px; text-align: center; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-right { display: none; }
+}
+
+/* URGENCY BAR */
+.urgency-bar { background: var(--red); color: #fff; padding: 12px 24px; text-align: center; font-size: 14px; font-weight: 800; letter-spacing: 0.3px; }
+.urgency-bar span { opacity: 0.85; font-weight: 400; }
+
+/* SECTIONS */
+.section { padding: 80px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); margin-bottom: 12px; }
+.section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 900; color: var(--navy); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+.section-sub { font-size: 17px; color: var(--muted); max-width: 640px; line-height: 1.7; margin-bottom: 50px; }
+.section-sub.center { text-align: center; margin: 0 auto 50px; }
+.title-center { text-align: center; }
+
+/* WHAT YOU GET */
+.bg-offwhite { background: var(--offwhite); }
+.get-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.get-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 30px; border-top: 5px solid var(--orange); transition: transform 0.2s, box-shadow 0.2s; }
+.get-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.get-icon { font-size: 36px; margin-bottom: 16px; }
+.get-card h3 { font-size: 18px; font-weight: 900; color: var(--navy); margin-bottom: 10px; }
+.get-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.get-tag { display: inline-block; margin-top: 14px; background: var(--ice); color: var(--navy); padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* YOUR PAGE PREVIEW */
+.page-preview { background: var(--navy); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); margin-bottom: 20px; }
+.preview-bar { background: #1a1a1a; padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
+.preview-dot { width: 12px; height: 12px; border-radius: 50%; }
+.preview-url { flex: 1; background: rgba(255,255,255,0.1); border-radius: 4px; padding: 4px 12px; font-size: 12px; color: rgba(255,255,255,0.6); margin: 0 10px; font-family: monospace; }
+.preview-body { padding: 0; }
+.preview-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); padding: 30px; color: #fff; }
+.preview-hero-badge { display: inline-block; background: var(--orange); color: #000; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 800; margin-bottom: 12px; }
+.preview-hero h3 { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+.preview-hero p { font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+.preview-btns { display: flex; gap: 10px; }
+.preview-btn-o { background: var(--orange); color: #000; padding: 8px 16px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+.preview-btn-g { border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.preview-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; background: #fff; }
+.preview-card { padding: 14px; border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
+.preview-card:last-child { border-right: none; }
+.preview-card-img { height: 50px; background: var(--ice); border-radius: 6px; margin-bottom: 8px; }
+.preview-card h4 { font-size: 11px; font-weight: 800; color: var(--navy); }
+.preview-card p { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* OPERATOR NAME BADGE */
+.your-name-badge { background: var(--orange); color: #000; border-radius: 10px; padding: 16px 24px; display: inline-flex; align-items: center; gap: 12px; font-weight: 900; font-size: 16px; margin-top: 16px; }
+.your-name-badge span { font-size: 12px; font-weight: 700; opacity: 0.7; display: block; }
+
+/* HOW IT WORKS */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; position: relative; }
+.steps::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px; background: var(--border); z-index: 0; }
+.step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.step-num { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; margin: 0 auto 20px; border: 4px solid var(--white); box-shadow: 0 4px 20px rgba(10,37,64,0.2); }
+.step.active .step-num { background: var(--orange); color: #000; }
+.step h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* PICKY SECTION */
+.picky { background: var(--navy); color: #fff; padding: 80px 24px; }
+.picky-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+@media(max-width:768px){ .picky-inner { grid-template-columns: 1fr; } }
+.picky-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); margin-bottom: 12px; }
+.picky h2 { font-size: clamp(28px,3.5vw,44px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+.picky h2 em { color: var(--orange); font-style: normal; }
+.picky p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 16px; }
+.criteria-list { display: flex; flex-direction: column; gap: 12px; }
+.criteria-item { display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px 20px; }
+.criteria-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.criteria-text h4 { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 3px; }
+.criteria-text p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+/* CITIES GRID */
+.cities-section { background: var(--offwhite); padding: 80px 24px; }
+.cities-inner { max-width: 1100px; margin: 0 auto; }
+.cities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 40px; }
+.city-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+.city-card:hover { border-color: var(--orange); box-shadow: 0 4px 16px rgba(240,165,0,0.15); transform: translateY(-2px); }
+.city-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.city-province { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.city-status { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; }
+.status-open { background: #e6f9f0; color: var(--green); }
+.status-hot { background: #fff3cd; color: #856404; }
+.cities-cta { text-align: center; margin-top: 40px; }
+.cities-note { font-size: 14px; color: var(--muted); margin-top: 16px; }
+
+/* MASCOT SECTION */
+.mascot-section { background: #fff; padding: 80px 24px; }
+.mascot-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+@media(max-width:768px){ .mascot-inner { grid-template-columns: 1fr; } }
+.mascot-img-wrap { position: relative; text-align: center; }
+.mascot-big { max-width: 400px; width: 100%; height: auto; }
+.mascot-label { display: inline-block; background: var(--navy); color: #fff; padding: 8px 20px; border-radius: 8px; font-size: 13px; font-weight: 800; margin-top: 16px; }
+.mascot-content .section-label { }
+.mascot-content h2 { font-size: clamp(28px,3.5vw,42px); font-weight: 900; color: var(--navy); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.1; }
+.mascot-content h2 em { color: var(--orange); font-style: normal; }
+.mascot-content p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+.brand-items { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+.brand-item { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--navy); }
+.brand-check { width: 24px; height: 24px; background: var(--green); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+
+/* APP SECTION */
+.app-section { background: var(--offwhite); padding: 80px 24px; }
+.app-inner { max-width: 1100px; margin: 0 auto; }
+.app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px; margin-top: 40px; }
+.app-card { background: #fff; border-radius: 12px; padding: 28px; border: 1px solid var(--border); }
+.app-card-icon { font-size: 32px; margin-bottom: 16px; }
+.app-card h3 { font-size: 16px; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+.app-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* TESTIMONIALS */
+.testimonials { background: #fff; padding: 80px 24px; }
+.test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-top: 40px; }
+.test-card { background: var(--offwhite); border-radius: 12px; padding: 28px; border-left: 4px solid var(--orange); }
+.test-stars { color: var(--orange); font-size: 18px; margin-bottom: 12px; }
+.test-text { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+.test-author { font-size: 13px; font-weight: 800; color: var(--navy); }
+.test-city { font-size: 12px; color: var(--muted); }
+
+/* FAQ */
+.faq-section { background: var(--offwhite); padding: 80px 24px; }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-item { background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+.faq-q { padding: 20px 24px; font-weight: 800; font-size: 16px; color: var(--navy); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+/* APPLICATION FORM */
+.apply-section { background: var(--navy); padding: 100px 24px; }
+.apply-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.apply-inner .section-label { color: var(--orange); }
+.apply-inner h2 { font-size: clamp(32px,4vw,52px); font-weight: 900; color: #fff; letter-spacing: -1.5px; margin-bottom: 12px; line-height: 1.1; }
+.apply-inner h2 em { color: var(--orange); font-style: normal; }
+.apply-inner > p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 50px; }
+.apply-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 40px; text-align: left; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+@media(max-width:600px){ .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 13px 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.35); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); }
+.form-group select option { background: var(--navy); color: #fff; }
+.form-group textarea { height: 100px; resize: none; }
+.apply-submit { width: 100%; padding: 18px; background: var(--orange); color: #000; border: none; border-radius: 10px; font-weight: 900; font-size: 18px; cursor: pointer; margin-top: 8px; letter-spacing: 0.3px; transition: all 0.2s; }
+.apply-submit:hover { background: var(--orange2); transform: translateY(-2px); }
+.form-note { font-size: 12px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 16px; line-height: 1.6; }
+
+/* STICKY CTA BAR */
+.sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--orange); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 200; box-shadow: 0 -4px 20px rgba(0,0,0,0.2); }
+.sticky-text { font-size: 15px; font-weight: 800; color: #000; }
+.sticky-text span { font-weight: 400; font-size: 13px; opacity: 0.7; }
+.sticky-btn { background: #000; color: #fff; padding: 10px 28px; border-radius: 6px; font-weight: 900; font-size: 14px; text-decoration: none; white-space: nowrap; }
+@media(max-width:600px){ .sticky-text span { display: none; } }
+
+/* FOOTER */
+.footer { background: #060f1e; color: rgba(255,255,255,0.5); padding: 50px 24px 80px; text-align: center; }
+.footer-logo { color: #fff; font-size: 24px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; }
+.footer-logo em { color: var(--orange); font-style: normal; }
+.footer p { font-size: 13px; margin-bottom: 6px; }
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; }
+.footer-links a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://plowwow.com" class="nav-logo">
+    <span>Plow<em>Wow</em></span>
+  </a>
+  <div class="nav-right">
+    <a href="https://plowwow.com" class="nav-link">Home</a>
+    <a href="https://plowwow.com/areas" class="nav-link">Service Areas</a>
+    <a href="#apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  🚜 THE WOW IN PLOW REVOLUTION IS HERE — <span>Exclusive territories across Canada & the US. One operator per city. Apply before yours is gone.</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">⭐ 5-Star Contractors Only • Canada & USA</div>
+    <h1>Own Your Territory.<br>Own Your Marketing.<br><em>Own Snow Removal.</em></h1>
+    <p class="hero-sub">This is not a lead platform. This is not a directory listing. This is your exclusive city marketing page — SEO, AEO, and GEO built to rank, convert, and dominate. High-quality backlinks. Editorial articles. Apps that streamline your entire operation. More than marketing. This is the <strong style="color:var(--orange)">Wow in Plow Revolution.</strong></p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-orange">🚜 Apply for Your Territory</a>
+      <a href="#what-you-get" class="btn-ghost">See What You Get →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat">
+        <div class="h-stat-num">1</div>
+        <div class="h-stat-label">Operator per city</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">100s</div>
+        <div class="h-stat-label">Cities available</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">24/7</div>
+        <div class="h-stat-label">Lead generation</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">🇨🇦🇺🇸</div>
+        <div class="h-stat-label">Canada + US</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="mascot-container">
+      <img src="/images/hero-mascot.png" alt="PlowWow mascot on plow truck" class="mascot-img" onerror="this.style.display='none'">
+      <div class="territory-badge">
+        YOUR CITY<br>
+        <span>Exclusively Yours</span>
+      </div>
+      <div class="available-badge">
+        <span class="pulse"></span> Territories Available Now
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section bg-offwhite" id="what-you-get">
+  <div class="section-inner">
+    <div class="section-label">The PlowWow Operator Package</div>
+    <h2 class="section-title">Your Territory. Your Page.<br>Your Content. Your Revolution.</h2>
+    <p class="section-sub">One city. One operator. A full-stack marketing machine built to rank on Google, answer AI engines, dominate local search, and convert seasonal contracts on autopilot — while you focus on the plow.</p>
+
+    <div class="get-grid">
+      <div class="get-card" style="border-top-color:var(--navy);background:var(--navy);color:#fff;">
+        <div class="get-icon">🔥</div>
+        <h3 style="color:var(--orange)">SEO + AEO + GEO — Triple Engine Dominance</h3>
+        <p style="color:rgba(255,255,255,0.75)">Your city page is built for all three engines simultaneously. <strong style="color:#fff">SEO</strong> — ranked on Google for "[city] snow removal". <strong style="color:#fff">AEO</strong> — your FAQ answers appear in AI Overviews, Siri, and voice search. <strong style="color:#fff">GEO</strong> — your content is structured to be cited by ChatGPT, Claude, and Perplexity when someone asks about snow removal in your city. One page. Three search engines. Zero competition.</p>
+        <span class="get-tag" style="background:var(--orange);color:#000;">Triple Engine Built</span>
+      </div>
+      <div class="get-card" style="border-top-color:#1a9e5c;">
+        <div class="get-icon">🔗</div>
+        <h3>High-Quality Backlinks Sent to Your Territory</h3>
+        <p>We don't just build your page and leave it. PlowWow sends authoritative backlinks — editorial articles, industry citations, local business references — directly to your city page. Your domain authority grows every month. Your competitors can't buy this.</p>
+        <span class="get-tag">Authority Building</span>
+      </div>
+      <div class="get-card" style="border-top-color:#8b5cf6;">
+        <div class="get-icon">📰</div>
+        <h3>Editorial Articles Written for Your Market</h3>
+        <p>Your territory gets custom editorial content — snow removal guides, strata advice, weather prep articles — published under your city and linked to your page. Real content that ranks, educates customers, and establishes you as the authority in your market before they even call.</p>
+        <span class="get-tag">Content Authority</span>
+      </div>
+      <div class="get-card" style="border-top-color:var(--orange);">
+        <div class="get-icon">📱</div>
+        <h3>Apps That Streamline Your Entire Business</h3>
+        <p>Dispatch. Routing. Photo verification. Invoicing. Customer notifications. Seasonal contracts. Weather monitoring. All in one operator app — built specifically for snow removal, not adapted from some generic field service platform. This is where the Wow in Plow lives.</p>
+        <span class="get-tag">Full Business Stack</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">🌐</div>
+        <h3>Your Own City Page on PlowWow.com</h3>
+        <p>A fully built, SEO-optimized landing page at plowwow.com/[province]/[your-city] — with your name, your number, your photo. Ranks for "[city] snow removal" searches so customers find YOU.</p>
+        <span class="get-tag">Exclusive Territory</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">📞</div>
+        <h3>Direct Calls & Emails to You</h3>
+        <p>Every lead from your city page goes straight to your phone and inbox. No middleman, no lead sharing, no auction. You're the only PlowWow operator in your city — every call is yours.</p>
+        <span class="get-tag">100% Your Leads</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">📋</div>
+        <h3>Seasonal Contract Conversions</h3>
+        <p>The page is built to convert seasonal contracts — not just one-off calls. Strata councils, commercial property managers, and residential customers can book directly through your page.</p>
+        <span class="get-tag">High-Value Contracts</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">📱</div>
+        <h3>PlowWow Dispatch App</h3>
+        <p>Access the PlowWow operator app — weather monitoring, auto-dispatch alerts, route management, customer notifications, and EyeSpyR photo verification. The same system that runs our network.</p>
+        <span class="get-tag">Pro Tech Stack</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">📸</div>
+        <h3>EyeSpyR Photo Verification</h3>
+        <p>Geo-tagged, time-stamped photo proof delivered to your customers after every service. Protects you from liability claims. Gives property managers the documentation they need. Builds trust fast.</p>
+        <span class="get-tag">Liability Shield</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">🎭</div>
+        <h3>PlowWow Brand & Mascot Rights</h3>
+        <p>Use it or don't — that's your call. But most operators go all in on the mascot. Truck wraps, uniforms, social media, yard signs. The PlowWow brand gets you noticed. Wow is hard to forget.</p>
+        <span class="get-tag">Optional Branding</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">📊</div>
+        <h3>Marketing Support from Industry Army</h3>
+        <p>Your page is built and maintained by Industry Army Marketing — the team behind PlowWow's SEO, AEO, and GEO strategy. You plow. We market. That's the deal.</p>
+        <span class="get-tag">Done-For-You Marketing</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">🗺️</div>
+        <h3>Google Maps & Local Visibility</h3>
+        <p>Your city page includes Google Maps integration, local landmark pins, neighbourhood coverage tables, and schema markup — all the signals Google needs to rank you above generic directories.</p>
+        <span class="get-tag">Local SEO Domination</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon">🌊</div>
+        <h3>Storm Surge Backup Network</h3>
+        <p>When a massive storm hits and you need backup, tap into the PlowWow operator network. Never miss a service window. Never lose a contract because of capacity. The network has your back.</p>
+        <span class="get-tag">Network Backup</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUR PAGE PREVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">What Your Page Looks Like</div>
+    <h2 class="section-title">A Full City Page. Your Name.<br>Your Number. Your Contracts.</h2>
+    <p class="section-sub">This is what customers see when they search "[your city] snow removal." It's built, SEO-optimized, and ready to convert — the moment you're approved.</p>
+
+    <div class="page-preview">
+      <div class="preview-bar">
+        <div class="preview-dot" style="background:#ff5f57"></div>
+        <div class="preview-dot" style="background:#febc2e"></div>
+        <div class="preview-dot" style="background:#28c840"></div>
+        <div class="preview-url">plowwow.com/bc/your-city</div>
+      </div>
+      <div class="preview-body">
+        <div class="preview-hero">
+          <div class="preview-hero-badge">📍 Your City, BC • 24/7 Service</div>
+          <h3>[Your City] Snow Removal & De-Icing</h3>
+          <p>Your name • Your number • Your seasonal contracts • EyeSpyR verified</p>
+          <div class="preview-btns">
+            <div class="preview-btn-o">📞 Call [Your Number]</div>
+            <div class="preview-btn-g">Get Free Quote</div>
+          </div>
+        </div>
+        <div class="preview-cards">
+          <div class="preview-card">
+            <div class="preview-card-img"></div>
+            <h4>Snow Clearing</h4>
+            <p>Priority service</p>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-img"></div>
+            <h4>Snow Plowing</h4>
+            <p>24/7 dispatch</p>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-img"></div>
+            <h4>Salting & Sanding</h4>
+            <p>Slip-free surfaces</p>
+          </div>
+          <div class="preview-card">
+            <div class="preview-card-img"></div>
+            <h4>Multi-Family & HOA Contracts</h4>
+            <p>Seasonal pricing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <div class="your-name-badge">
+        🚜 [Your Name] Snow Removal
+        <div>
+          <span>Powered by PlowWow • Your City Exclusively</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section bg-offwhite">
+  <div class="section-inner">
+    <div class="section-label title-center">The Process</div>
+    <h2 class="section-title title-center">From Application to<br>Owning Your Territory</h2>
+    <p class="section-sub center">Four steps. We're fast. Snow season doesn't wait.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Apply</h3>
+        <p>Fill out the application below. Tell us your city, your equipment, your experience. We read every one.</p>
+      </div>
+      <div class="step active">
+        <div class="step-num">2</div>
+        <h3>We Vet You</h3>
+        <p>We check your reviews, your insurance, your track record. We're picky. That's why the brand means something.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Territory Approved</h3>
+        <p>Your city is locked. Your page goes live. Your number is on it. Nobody else gets that city while you're with us.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Leads Come In</h3>
+        <p>Calls, emails, seasonal contract requests — all routed to you. You plow, we market, everyone wins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PICKY SECTION -->
+<section class="picky">
+  <div class="picky-inner">
+    <div>
+      <div class="picky-label">Our Standards</div>
+      <h2>We Said We're <em>Picky.</em><br>Here's What That Means.</h2>
+      <p>The Wow in Plow Revolution only works if the operators in it are exceptional. Every homeowner, strata council, and commercial property manager who finds you through PlowWow is trusting the network. We built the SEO. We built the AEO. We built the GEO. We send the backlinks and write the articles. We do all of that so you can convert customers — and we only do it for operators who deserve to convert them.</p>
+      <p>We don't approve everyone. We approve the ones who've earned it. The ones who show up, document everything, and make customers renew every single year.</p>
+      <a href="#apply" class="btn-orange" style="display:inline-block;margin-top:24px;">Apply — Show Us What You've Got</a>
+    </div>
+    <div class="criteria-list">
+      <div class="criteria-item">
+        <div class="criteria-icon">⭐</div>
+        <div class="criteria-text">
+          <h4>4.8+ Star Rating</h4>
+          <p>Google, HomeStars, or verifiable reviews. Your reputation is our reputation.</p>
+        </div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-icon">🛡️</div>
+        <div class="criteria-text">
+          <h4>Fully Insured</h4>
+          <p>Commercial general liability minimum $2M. Workers' comp current. No exceptions.</p>
+        </div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-icon">🚜</div>
+        <div class="criteria-text">
+          <h4>Professional Equipment</h4>
+          <p>Plow trucks, skid steers, salt spreaders — right equipment for your market. No pickups with hand shovels.</p>
+        </div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-icon">📅</div>
+        <div class="criteria-text">
+          <h4>Proven Track Record</h4>
+          <p>At least one full winter season of commercial or strata snow removal. You know what you're doing.</p>
+        </div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-icon">📱</div>
+        <div class="criteria-text">
+          <h4>Responsive & Professional</h4>
+          <p>Customers reach you. You show up. You document. You communicate. Basic — but not everyone does it.</p>
+        </div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-icon">🤝</div>
+        <div class="criteria-text">
+          <h4>Committed to the Season</h4>
+          <p>We need operators who are all-in for the winter. Seasonal contracts need seasonal commitment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABLE CITIES -->
+<section class="cities-section">
+  <div class="cities-inner">
+    <div class="section-label">Open Territories</div>
+    <h2 class="section-title">Your City Might Still Be Available</h2>
+    <p class="section-sub">Hundreds of cities across Canada and the US where it snows are open. Here's a sample — if yours isn't listed, apply anyway. If it snows there, we want a PlowWow operator there.</p>
+
+    <div class="cities-grid">
+      <!-- BC -->
+      <a href="#apply" class="city-card"><div><div class="city-name">Vancouver</div><div class="city-province">BC, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Burnaby</div><div class="city-province">BC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Surrey</div><div class="city-province">BC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Kelowna</div><div class="city-province">BC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Kamloops</div><div class="city-province">BC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Prince George</div><div class="city-province">BC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <!-- Alberta -->
+      <a href="#apply" class="city-card"><div><div class="city-name">Calgary</div><div class="city-province">AB, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Edmonton</div><div class="city-province">AB, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Red Deer</div><div class="city-province">AB, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Lethbridge</div><div class="city-province">AB, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <!-- Ontario -->
+      <a href="#apply" class="city-card"><div><div class="city-name">Toronto</div><div class="city-province">ON, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Ottawa</div><div class="city-province">ON, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Hamilton</div><div class="city-province">ON, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">London</div><div class="city-province">ON, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Kingston</div><div class="city-province">ON, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <!-- Quebec -->
+      <a href="#apply" class="city-card"><div><div class="city-name">Montreal</div><div class="city-province">QC, Canada</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Quebec City</div><div class="city-province">QC, Canada</div></div><span class="city-status status-open">Open</span></a>
+      <!-- US -->
+      <a href="#apply" class="city-card"><div><div class="city-name">Denver</div><div class="city-province">CO, USA</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Minneapolis</div><div class="city-province">MN, USA</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Chicago</div><div class="city-province">IL, USA</div></div><span class="city-status status-hot">🔥 Hot</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Boston</div><div class="city-province">MA, USA</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Buffalo</div><div class="city-province">NY, USA</div></div><span class="city-status status-open">Open</span></a>
+      <a href="#apply" class="city-card"><div><div class="city-name">Milwaukee</div><div class="city-province">WI, USA</div></div><span class="city-status status-open">Open</span></a>
+    </div>
+    <div class="cities-cta">
+      <a href="#apply" class="btn-orange">Apply for Your City →</a>
+      <p class="cities-note">Don't see your city? Apply anyway. If it snows there and you're 5-star, we want you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MASCOT / BRAND SECTION -->
+<section class="mascot-section">
+  <div class="mascot-inner">
+    <div class="mascot-img-wrap">
+      <img src="/images/mascot-salting.png" alt="PlowWow mascot with salt spreader" class="mascot-big" onerror="this.style.fontSize='120px';this.outerHTML='<div style=\'font-size:120px;text-align:center\'>🚜</div>'">
+      <div class="mascot-label">Meet Wow — The Face of Your Territory</div>
+    </div>
+    <div class="mascot-content">
+      <div class="section-label">The Brand</div>
+      <h2>Use It or Don't.<br>But We Think You'll <em>Love It.</em></h2>
+      <p>Wow the mascot is PlowWow. He's on the trucks, the signs, the app, the page. He's what makes customers remember you when the next storm hits — and call YOU instead of searching again.</p>
+      <p>Most of our operators go all in on the brand. Truck wraps. Uniforms. Social media. The mascot becomes their identity in their city. Customers love it. Kids wave at the truck. Properties renew every year.</p>
+      <p>But if you want to run your own brand through our platform and just use the leads and the app — that works too. Your territory, your rules.</p>
+      <div class="brand-items">
+        <div class="brand-item"><span class="brand-check">✓</span> Mascot & logo rights for your territory</div>
+        <div class="brand-item"><span class="brand-check">✓</span> Truck wrap design templates</div>
+        <div class="brand-item"><span class="brand-check">✓</span> Social media assets & templates</div>
+        <div class="brand-item"><span class="brand-check">✓</span> Yard sign & door hanger designs</div>
+        <div class="brand-item"><span class="brand-check">✓</span> Uniform & apparel graphics</div>
+        <div class="brand-item"><span class="brand-check">✓</span> Or skip it all — your call</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP FEATURES -->
+<section class="app-section">
+  <div class="app-inner">
+    <div class="section-label title-center">The PlowWow App</div>
+    <h2 class="section-title title-center">The Tech Stack That Runs<br>Your Operation</h2>
+    <p class="section-sub center">Built for snow removal operators. Not generic field service software with a snow module bolted on.</p>
+    <div class="app-grid">
+      <div class="app-card">
+        <div class="app-card-icon">🌡️</div>
+        <h3>Hyper-Local Weather Monitoring</h3>
+        <p>Real-time snowfall tracking at your property locations — not just the regional Environment Canada or NOAA forecast. Know before your customers do.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">⚡</div>
+        <h3>Auto-Dispatch at Trigger Depth</h3>
+        <p>Set your trigger threshold (2", 3", custom). When snow hits it, you're notified and customers are automatically alerted their service is active. No manual calls.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">📸</div>
+        <h3>EyeSpyR Photo Verification</h3>
+        <p>Geo-tagged, time-stamped before and after photos sent to your customers on completion. Protects you legally. Builds trust. Property managers love it.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">🗺️</div>
+        <h3>Route Management</h3>
+        <p>Pre-map all your properties before season. Optimized routing means more properties served per shift. Less fuel. Less time. More profit.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">💳</div>
+        <h3>Contract & Invoicing</h3>
+        <p>Seasonal contracts, per-visit billing, automatic invoicing. Customers pay online. You get paid faster. No more chasing invoices in February.</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">📊</div>
+        <h3>Season Analytics</h3>
+        <p>Properties served, revenue per storm, response times, customer renewal rates. Know your numbers. Grow your operation with data, not guesswork.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="section-label title-center">Operator Stories</div>
+    <h2 class="section-title title-center">What Our Operators Say</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"I had the equipment and the experience but I was losing to bigger companies on Google. PlowWow put me on the first page for my city in two months. I turned away contracts this winter."</p>
+        <div class="test-author">Mike R.</div>
+        <div class="test-city">PlowWow Operator — Kelowna, BC</div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"The strata contracts changed everything. One building is worth more than 20 residential driveways. The page converts them because it has everything the property manager needs to see — photos, schema, the works."</p>
+        <div class="test-author">Sarah L.</div>
+        <div class="test-city">PlowWow Operator — Coquitlam, BC</div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">"I thought the mascot was cheesy. My wife put it on our truck anyway. Kids wave at us now. A daycare called us specifically because of the mascot. Renewed for a 3-year contract. Wow literally works."</p>
+        <div class="test-author">Dave T.</div>
+        <div class="test-city">PlowWow Operator — Red Deer, AB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-label title-center">Questions</div>
+    <h2 class="section-title title-center" style="margin-bottom:40px;">Everything You Want to Know</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Is the territory really exclusive? <span>▼</span></div>
+      <div class="faq-a">Yes. One operator per city. Period. When you claim your city, no other PlowWow operator is approved for it while you're with us. Your leads are your leads.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I have to use the PlowWow brand? <span>▼</span></div>
+      <div class="faq-a">No. You can run your own name and brand through our platform — use the app, the leads, the page, the tech, without putting the mascot on your truck. Most operators choose to use the brand because it converts, but it's your choice.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What cities are available in the US? <span>▼</span></div>
+      <div class="faq-a">Any city in the US where it snows is available. Denver, Minneapolis, Chicago, Boston, Buffalo, Milwaukee, Detroit, Cleveland, Pittsburgh, Salt Lake City, and hundreds more. Apply with your city and we'll confirm availability.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How quickly can I be live? <span>▼</span></div>
+      <div class="faq-a">Applications are reviewed within 3–5 business days. Once approved, your city page goes live within 48 hours. With snow season approaching, we move fast.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I already have a website? <span>▼</span></div>
+      <div class="faq-a">Keep it. Your PlowWow city page is additional lead generation on top of what you already have. Many operators run both — their own site for their brand, and PlowWow for the territory ranking and leads.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What makes PlowWow different from other lead platforms? <span>▼</span></div>
+      <div class="faq-a">Lead platforms sell the same lead to 5 operators. We don't. Your city page is yours exclusively. Leads go to one number — yours. We're also not a directory listing — we build full SEO-optimized city pages that rank, convert, and document every service visit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I'm a small operator — is PlowWow right for me? <span>▼</span></div>
+      <div class="faq-a">If you're 5-star, insured, and serious about growing — yes. Many of our best operators started with one truck and two properties. The PlowWow page generates the contracts that let you grow. That's the point.</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="apply-section" id="apply">
+  <div class="apply-inner">
+    <div class="section-label">Join the Revolution</div>
+    <h2>Own [City] Snow Removal Marketing.<br><em>Apply for Your Territory.</em></h2>
+    <p>Your page. Your content. Your leads. Your seasonal contracts. SEO + AEO + GEO built to perform. Backlinks sent. Articles written. Apps ready. One city. One operator. We're picky — and if you're 5-star, we want you in the Wow in Plow Revolution.</p>
+
+    <div class="apply-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" placeholder="Smith Snow Removal Ltd.">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+1 (555) 000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@yourcompany.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>City You Want to Own</label>
+          <input type="text" placeholder="e.g. Kelowna">
+        </div>
+        <div class="form-group">
+          <label>Province / State</label>
+          <input type="text" placeholder="e.g. BC or CO">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Years in Snow Removal</label>
+          <select>
+            <option value="">Select</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Number of Plow Trucks</label>
+          <select>
+            <option value="">Select</option>
+            <option>1 truck</option>
+            <option>2–3 trucks</option>
+            <option>4–6 trucks</option>
+            <option>7+ trucks</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Google Rating</label>
+          <select>
+            <option value="">Select</option>
+            <option>5.0 ★★★★★</option>
+            <option>4.9 ★★★★★</option>
+            <option>4.8 ★★★★★</option>
+            <option>4.7 ★★★★★</option>
+            <option>4.5–4.6 ★★★★½</option>
+            <option>No reviews yet — new business</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Types of Properties You Service</label>
+          <select>
+            <option value="">Select main focus</option>
+            <option>Residential only</option>
+            <option>Commercial only</option>
+            <option>Strata / Condo Corp / HOA only</option>
+            <option>Mix of all three</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tell Us About Your Operation</label>
+        <textarea placeholder="Equipment, team size, current customers, what makes you 5-star, why you want your city..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Google Business Profile URL (if you have one)</label>
+        <input type="url" placeholder="https://g.page/your-business">
+      </div>
+      <button class="apply-submit">🚜 Submit My Application — Own My City</button>
+      <p class="form-note">We review every application within 3–5 business days. We'll call you directly. No automated rejection emails — if we say no, we'll tell you why and what it would take to get there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Plow<em>Wow</em></div>
+  <p>The Snow Removal Operator Network • Canada & United States</p>
+  <p>📞 604-761-1518 • ✉️ wow@plowwow.com</p>
+  <div class="footer-links">
+    <a href="https://plowwow.com">Home</a>
+    <a href="https://plowwow.com/areas">Service Areas</a>
+    <a href="https://plowwow.com/contact">Contact</a>
+    <a href="https://plowwow.com/blog">Blog</a>
+    <a href="#apply">Apply Now</a>
+  </div>
+  <p style="margin-top:24px;font-size:11px;opacity:0.3;">© 2026 PlowWow Network Operations. Exclusive territory program. One operator per city.</p>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <div class="sticky-text">
+    🚜 The Wow in Plow Revolution
+    <span> — own your city's snow removal marketing exclusively</span>
+  </div>
+  <a href="#apply" class="sticky-btn">Apply Now</a>
+</div>
+
+</body>
+</html>

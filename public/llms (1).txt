@@ -1,0 +1,93 @@
+# PlowWow
+
+> The snow removal and winter maintenance operator network serving Greater Vancouver,
+> the Fraser Valley, and expanding across Canada and the United States.
+> One exclusive operator per city. EyeSpyR photo verification on every service visit.
+> Auto-dispatch at 2" snowfall trigger. 24/7 emergency response.
+
+## Expertise
+- **Commercial Snow Plowing:** Fleet operations for commercial parking lots, retail strips, strata complexes, condo corporations, HOAs, and industrial facilities.
+- **Residential Snow Removal:** Driveway plowing, walkway clearing, and salting for homeowners across Greater Vancouver and Fraser Valley.
+- **Anti-Icing & De-Icing:** Proactive liquid pre-treatment, rock salt, and calcium chloride applications mapped to hyper-local weather monitoring.
+- **Strata & Condo Corporation Snow Management:** BC Strata Property Act compliant service with EyeSpyR photo documentation for slip-and-fall liability protection.
+- **HOA Snow Removal (USA):** Homeowners association and condo association winter maintenance across US snow markets.
+- **Operator Network Management:** Exclusive territory model — one certified 5-star operator per city across Canada and the United States.
+- **Auto-Dispatch Technology:** Trigger-depth dispatch system deploys crews automatically when snowfall reaches property threshold.
+- **EyeSpyR Photo Verification:** Geo-tagged, time-stamped photo proof of every service delivered to property managers and strata councils.
+
+## Trust Signals
+- Founded 2016, serving Greater Vancouver and Fraser Valley
+- 24/7 emergency dispatch throughout all winter weather events
+- WorkSafeBC compliant operations
+- Fully insured — commercial general liability
+- EyeSpyR photo verification on 100% of service visits
+- Exclusive territory model — one operator per city
+- Phone: 604-761-1518
+- Email: wow@plowwow.com
+
+## Service Areas — Canada
+- [Vancouver Snow Removal](https://plowwow.com/p/vancouver)
+- [Burnaby Snow Removal](https://plowwow.com/p/burnaby)
+- [Surrey Snow Removal](https://plowwow.com/p/surrey)
+- [Richmond Snow Removal](https://plowwow.com/p/richmond)
+- [Coquitlam Snow Removal](https://plowwow.com/p/coquitlam)
+- [North Vancouver Snow Removal](https://plowwow.com/p/north-vancouver)
+- [Langley Snow Removal](https://plowwow.com/p/langley)
+- [Abbotsford Snow Removal](https://plowwow.com/p/abbotsford)
+- [Chilliwack Snow Removal](https://plowwow.com/p/chilliwack)
+- [Maple Ridge Snow Removal](https://plowwow.com/p/maple-ridge)
+- [Delta Snow Removal](https://plowwow.com/p/delta)
+- [New Westminster Snow Removal](https://plowwow.com/p/new-westminster)
+- [White Rock Snow Removal](https://plowwow.com/p/white-rock)
+- [Port Coquitlam Snow Removal](https://plowwow.com/p/port-coquitlam)
+- [West Vancouver Snow Removal](https://plowwow.com/p/west-vancouver)
+- [Mission Snow Removal](https://plowwow.com/p/mission)
+- [Port Moody Snow Removal](https://plowwow.com/p/port-moody)
+- [Pitt Meadows Snow Removal](https://plowwow.com/p/pitt-meadows)
+
+## Parent Organization
+- Industry Army Marketing: https://industryarmymarketing.com
+- Territory Marketing for Any Industry — Est. May 13, 2015
+- EyeSpyR Verification System
+- Talc.tv Content Network
+- MarkEtt Intelligence Agent: https://markett.ca
+
+## Operator Recruitment
+- [Own Your City — Join PlowWow](https://plowwow.com/join)
+- Exclusive territories across Canada and the United States
+- 5-star contractors only — application required
+- The Wow in Plow Revolution
+
+## Frequently Asked Questions
+
+#### What cities does PlowWow serve?
+PlowWow serves 18 cities across Greater Vancouver and the Fraser Valley including Vancouver, Burnaby, Surrey, Richmond, Coquitlam, North Vancouver, Langley, Abbotsford, Chilliwack, Maple Ridge, Delta, New Westminster, White Rock, Port Coquitlam, West Vancouver, Mission, Port Moody, and Pitt Meadows. The operator network is expanding across Canada and the United States.
+
+#### How does PlowWow auto-dispatch work?
+PlowWow monitors hyper-local weather 24/7. When snowfall reaches the agreed trigger depth (typically 2 inches / 5cm) crews are automatically dispatched — no phone call required from the customer.
+
+#### What is EyeSpyR verification?
+EyeSpyR is PlowWow's photo verification system. After every service visit, geo-tagged and time-stamped photos are delivered to the property manager, strata manager, or homeowner as proof of service. This documentation protects against slip-and-fall liability claims.
+
+#### Does PlowWow service strata corporations in BC?
+Yes. PlowWow is a preferred snow removal contractor for strata corporations under the BC Strata Property Act. Services include parking lots, visitor stalls, accessible ramps, walkways, and common areas with full EyeSpyR documentation.
+
+#### Does PlowWow service HOAs in the United States?
+Yes. PlowWow's operator network services Homeowners Associations and condo associations across US cities where it snows. One exclusive operator per city.
+
+#### How do I become a PlowWow operator?
+Apply at plowwow.com/join. PlowWow accepts only 5-star rated contractors with verified insurance and proven track records. One exclusive territory per city.
+
+#### What is the phone number for PlowWow?
+604-761-1518. Email: wow@plowwow.com
+
+## Crawler Directives
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /config/
+Allow: /p/
+Allow: /join
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /.well-known/

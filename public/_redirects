@@ -1,2 +1,448 @@
-/snow-removal-champlain-heights   /champlain-heights-vancouver-strata-commercial-snow-removal   301
-/*    /index.html   200
+# PlowWow Master Redirects — All Cities + All Neighbourhoods
+# 301 Permanent — Old URLs → New /p/ city pages
+# Generated from IAM 853 Cities List + Vancouver BC full hood list
+
+# ============================================================
+# CITY PAGES
+# ============================================================
+
+/vancouver-snow-removal  /p/vancouver  301
+/vancouver-snow-removal/  /p/vancouver  301
+/burnaby-snow-removal  /p/burnaby  301
+/burnaby-snow-removal/  /p/burnaby  301
+/surrey-snow-removal  /p/surrey  301
+/surrey-snow-removal/  /p/surrey  301
+/richmond-snow-removal  /p/richmond  301
+/richmond-snow-removal/  /p/richmond  301
+/coquitlam-snow-removal  /p/coquitlam  301
+/coquitlam-snow-removal/  /p/coquitlam  301
+/north-vancouver-snow-removal  /p/north-vancouver  301
+/north-vancouver-snow-removal/  /p/north-vancouver  301
+/langley-snow-removal  /p/langley  301
+/langley-snow-removal/  /p/langley  301
+/abbotsford-snow-removal  /p/abbotsford  301
+/abbotsford-snow-removal/  /p/abbotsford  301
+/chilliwack-snow-removal  /p/chilliwack  301
+/chilliwack-snow-removal/  /p/chilliwack  301
+/maple-ridge-snow-removal  /p/maple-ridge  301
+/maple-ridge-snow-removal/  /p/maple-ridge  301
+/delta-snow-removal  /p/delta  301
+/delta-snow-removal/  /p/delta  301
+/new-westminster-snow-removal  /p/new-westminster  301
+/new-westminster-snow-removal/  /p/new-westminster  301
+/white-rock-snow-removal  /p/white-rock  301
+/white-rock-snow-removal/  /p/white-rock  301
+/port-coquitlam-snow-removal  /p/port-coquitlam  301
+/port-coquitlam-snow-removal/  /p/port-coquitlam  301
+/west-vancouver-snow-removal  /p/west-vancouver  301
+/west-vancouver-snow-removal/  /p/west-vancouver  301
+/mission-snow-removal  /p/mission  301
+/mission-snow-removal/  /p/mission  301
+/port-moody-snow-removal  /p/port-moody  301
+/port-moody-snow-removal/  /p/port-moody  301
+/pitt-meadows-snow-removal  /p/pitt-meadows  301
+/pitt-meadows-snow-removal/  /p/pitt-meadows  301
+
+# ============================================================
+# LEGACY WORDPRESS PAGES
+# ============================================================
+
+/services  /  301
+/services/  /  301
+/commercial  /  301
+/commercial/  /  301
+/residential  /  301
+/residential/  /  301
+/blog  /  301
+/blog/  /  301
+/blog/uncategorized  /  301
+/now-removal-arbutus  /p/vancouver  301
+/now-removal-arbutus/  /p/vancouver  301
+/operator  /join  301
+/operator/  /join  301
+/operators  /join  301
+/operators/  /join  301
+/franchise  /join  301
+/franchise/  /join  301
+/apply  /join  301
+/apply/  /join  301
+
+# ============================================================
+# VANCOUVER BC NEIGHBOURHOODS → /p/vancouver
+# ============================================================
+
+/snow-removal-downtown  /p/vancouver  301
+/snow-removal-downtown/  /p/vancouver  301
+/snow-removal-kitsilano  /p/vancouver  301
+/snow-removal-kitsilano/  /p/vancouver  301
+/snow-removal-west-end  /p/vancouver  301
+/snow-removal-west-end/  /p/vancouver  301
+/snow-removal-gastown  /p/vancouver  301
+/snow-removal-gastown/  /p/vancouver  301
+/snow-removal-chinatown  /p/vancouver  301
+/snow-removal-chinatown/  /p/vancouver  301
+/snow-removal-yaletown  /p/vancouver  301
+/snow-removal-yaletown/  /p/vancouver  301
+/snow-removal-coal-harbour  /p/vancouver  301
+/snow-removal-coal-harbour/  /p/vancouver  301
+/snow-removal-mount-pleasant  /p/vancouver  301
+/snow-removal-mount-pleasant/  /p/vancouver  301
+/snow-removal-fairview  /p/vancouver  301
+/snow-removal-fairview/  /p/vancouver  301
+/snow-removal-commercial-drive  /p/vancouver  301
+/snow-removal-commercial-drive/  /p/vancouver  301
+/snow-removal-grandview-woodland  /p/vancouver  301
+/snow-removal-grandview-woodland/  /p/vancouver  301
+/snow-removal-strathcona  /p/vancouver  301
+/snow-removal-strathcona/  /p/vancouver  301
+/snow-removal-hastings-sunrise  /p/vancouver  301
+/snow-removal-hastings-sunrise/  /p/vancouver  301
+/snow-removal-renfrew-collingwood  /p/vancouver  301
+/snow-removal-renfrew-collingwood/  /p/vancouver  301
+/snow-removal-kensington-cedar-cottage  /p/vancouver  301
+/snow-removal-kensington-cedar-cottage/  /p/vancouver  301
+/snow-removal-riley-park  /p/vancouver  301
+/snow-removal-riley-park/  /p/vancouver  301
+/snow-removal-sunset  /p/vancouver  301
+/snow-removal-sunset/  /p/vancouver  301
+/snow-removal-victoria-fraserview  /p/vancouver  301
+/snow-removal-victoria-fraserview/  /p/vancouver  301
+/snow-removal-killarney  /p/vancouver  301
+/snow-removal-killarney/  /p/vancouver  301
+/snow-removal-marpole  /p/vancouver  301
+/snow-removal-marpole/  /p/vancouver  301
+/snow-removal-kerrisdale  /p/vancouver  301
+/snow-removal-kerrisdale/  /p/vancouver  301
+/snow-removal-dunbar  /p/vancouver  301
+/snow-removal-dunbar/  /p/vancouver  301
+/snow-removal-arbutus-ridge  /p/vancouver  301
+/snow-removal-arbutus-ridge/  /p/vancouver  301
+/snow-removal-shaughnessy  /p/vancouver  301
+/snow-removal-shaughnessy/  /p/vancouver  301
+/snow-removal-south-cambie  /p/vancouver  301
+/snow-removal-south-cambie/  /p/vancouver  301
+/snow-removal-oakridge  /p/vancouver  301
+/snow-removal-oakridge/  /p/vancouver  301
+/snow-removal-west-point-grey  /p/vancouver  301
+/snow-removal-west-point-grey/  /p/vancouver  301
+/snow-removal-ubc  /p/vancouver  301
+/snow-removal-ubc/  /p/vancouver  301
+/snow-removal-collingwood  /p/vancouver  301
+/snow-removal-collingwood/  /p/vancouver  301
+/snow-removal-fraserview  /p/vancouver  301
+/snow-removal-fraserview/  /p/vancouver  301
+
+# ============================================================
+# BURNABY NEIGHBOURHOODS → /p/burnaby
+# ============================================================
+
+/snow-removal-metrotown  /p/burnaby  301
+/snow-removal-metrotown/  /p/burnaby  301
+/snow-removal-brentwood  /p/burnaby  301
+/snow-removal-brentwood/  /p/burnaby  301
+/snow-removal-lougheed  /p/burnaby  301
+/snow-removal-lougheed/  /p/burnaby  301
+/snow-removal-edmonds  /p/burnaby  301
+/snow-removal-edmonds/  /p/burnaby  301
+/snow-removal-highgate  /p/burnaby  301
+/snow-removal-highgate/  /p/burnaby  301
+/snow-removal-burnaby-heights  /p/burnaby  301
+/snow-removal-burnaby-heights/  /p/burnaby  301
+/snow-removal-capitol-hill  /p/burnaby  301
+/snow-removal-capitol-hill/  /p/burnaby  301
+/snow-removal-deer-lake  /p/burnaby  301
+/snow-removal-deer-lake/  /p/burnaby  301
+/snow-removal-forest-grove  /p/burnaby  301
+/snow-removal-forest-grove/  /p/burnaby  301
+/snow-removal-buckingham-heights  /p/burnaby  301
+/snow-removal-buckingham-heights/  /p/burnaby  301
+/snow-removal-willingdon-heights  /p/burnaby  301
+/snow-removal-willingdon-heights/  /p/burnaby  301
+
+# ============================================================
+# SURREY NEIGHBOURHOODS → /p/surrey
+# ============================================================
+
+/snow-removal-whalley  /p/surrey  301
+/snow-removal-whalley/  /p/surrey  301
+/snow-removal-guildford  /p/surrey  301
+/snow-removal-guildford/  /p/surrey  301
+/snow-removal-fleetwood  /p/surrey  301
+/snow-removal-fleetwood/  /p/surrey  301
+/snow-removal-newton  /p/surrey  301
+/snow-removal-newton/  /p/surrey  301
+/snow-removal-cloverdale  /p/surrey  301
+/snow-removal-cloverdale/  /p/surrey  301
+/snow-removal-south-surrey  /p/surrey  301
+/snow-removal-south-surrey/  /p/surrey  301
+/snow-removal-panorama-ridge  /p/surrey  301
+/snow-removal-panorama-ridge/  /p/surrey  301
+/snow-removal-sullivan  /p/surrey  301
+/snow-removal-sullivan/  /p/surrey  301
+/snow-removal-fraser-heights  /p/surrey  301
+/snow-removal-fraser-heights/  /p/surrey  301
+/snow-removal-port-kells  /p/surrey  301
+/snow-removal-port-kells/  /p/surrey  301
+/snow-removal-bridgeview  /p/surrey  301
+/snow-removal-bridgeview/  /p/surrey  301
+/snow-removal-city-centre  /p/surrey  301
+/snow-removal-city-centre/  /p/surrey  301
+
+# ============================================================
+# RICHMOND NEIGHBOURHOODS → /p/richmond
+# ============================================================
+
+/snow-removal-downtown  /p/richmond  301
+/snow-removal-downtown/  /p/richmond  301
+/snow-removal-eastern-kentucky  /p/richmond  301
+/snow-removal-eastern-kentucky/  /p/richmond  301
+
+# ============================================================
+# COQUITLAM NEIGHBOURHOODS → /p/coquitlam
+# ============================================================
+
+/snow-removal-town-centre  /p/coquitlam  301
+/snow-removal-town-centre/  /p/coquitlam  301
+/snow-removal-maillardville  /p/coquitlam  301
+/snow-removal-maillardville/  /p/coquitlam  301
+/snow-removal-austin-heights  /p/coquitlam  301
+/snow-removal-austin-heights/  /p/coquitlam  301
+/snow-removal-burquitlam  /p/coquitlam  301
+/snow-removal-burquitlam/  /p/coquitlam  301
+/snow-removal-ranch-park  /p/coquitlam  301
+/snow-removal-ranch-park/  /p/coquitlam  301
+/snow-removal-westwood-plateau  /p/coquitlam  301
+/snow-removal-westwood-plateau/  /p/coquitlam  301
+/snow-removal-burke-mountain  /p/coquitlam  301
+/snow-removal-burke-mountain/  /p/coquitlam  301
+/snow-removal-eagle-ridge  /p/coquitlam  301
+/snow-removal-eagle-ridge/  /p/coquitlam  301
+
+# ============================================================
+# NEW WESTMINSTER NEIGHBOURHOODS → /p/new-westminster
+# ============================================================
+
+/snow-removal-downtown  /p/new-westminster  301
+/snow-removal-downtown/  /p/new-westminster  301
+/snow-removal-uptown  /p/new-westminster  301
+/snow-removal-uptown/  /p/new-westminster  301
+/snow-removal-queensborough  /p/new-westminster  301
+/snow-removal-queensborough/  /p/new-westminster  301
+/snow-removal-sapperton  /p/new-westminster  301
+/snow-removal-sapperton/  /p/new-westminster  301
+/snow-removal-west-end  /p/new-westminster  301
+/snow-removal-west-end/  /p/new-westminster  301
+/snow-removal-quayside  /p/new-westminster  301
+/snow-removal-quayside/  /p/new-westminster  301
+/snow-removal-queens-park  /p/new-westminster  301
+/snow-removal-queens-park/  /p/new-westminster  301
+
+# ============================================================
+# NORTH VANCOUVER NEIGHBOURHOODS → /p/north-vancouver
+# ============================================================
+
+/snow-removal-lower-lonsdale  /p/north-vancouver  301
+/snow-removal-lower-lonsdale/  /p/north-vancouver  301
+/snow-removal-central-lonsdale  /p/north-vancouver  301
+/snow-removal-central-lonsdale/  /p/north-vancouver  301
+/snow-removal-upper-lonsdale  /p/north-vancouver  301
+/snow-removal-upper-lonsdale/  /p/north-vancouver  301
+/snow-removal-lynn-valley  /p/north-vancouver  301
+/snow-removal-lynn-valley/  /p/north-vancouver  301
+/snow-removal-deep-cove  /p/north-vancouver  301
+/snow-removal-deep-cove/  /p/north-vancouver  301
+/snow-removal-edgemont  /p/north-vancouver  301
+/snow-removal-edgemont/  /p/north-vancouver  301
+/snow-removal-capilano  /p/north-vancouver  301
+/snow-removal-capilano/  /p/north-vancouver  301
+
+# ============================================================
+# WEST VANCOUVER NEIGHBOURHOODS → /p/west-vancouver
+# ============================================================
+
+/snow-removal-ambleside  /p/west-vancouver  301
+/snow-removal-ambleside/  /p/west-vancouver  301
+/snow-removal-dundarave  /p/west-vancouver  301
+/snow-removal-dundarave/  /p/west-vancouver  301
+/snow-removal-park-royal  /p/west-vancouver  301
+/snow-removal-park-royal/  /p/west-vancouver  301
+/snow-removal-caulfeild  /p/west-vancouver  301
+/snow-removal-caulfeild/  /p/west-vancouver  301
+/snow-removal-horseshoe-bay  /p/west-vancouver  301
+/snow-removal-horseshoe-bay/  /p/west-vancouver  301
+/snow-removal-british-properties  /p/west-vancouver  301
+/snow-removal-british-properties/  /p/west-vancouver  301
+
+# ============================================================
+# PORT COQUITLAM NEIGHBOURHOODS → /p/port-coquitlam
+# ============================================================
+
+/snow-removal-downtown  /p/port-coquitlam  301
+/snow-removal-downtown/  /p/port-coquitlam  301
+/snow-removal-citadel  /p/port-coquitlam  301
+/snow-removal-citadel/  /p/port-coquitlam  301
+/snow-removal-lincoln  /p/port-coquitlam  301
+/snow-removal-lincoln/  /p/port-coquitlam  301
+/snow-removal-oxford-heights  /p/port-coquitlam  301
+/snow-removal-oxford-heights/  /p/port-coquitlam  301
+/snow-removal-mary-hill  /p/port-coquitlam  301
+/snow-removal-mary-hill/  /p/port-coquitlam  301
+/snow-removal-shaughnessy  /p/port-coquitlam  301
+/snow-removal-shaughnessy/  /p/port-coquitlam  301
+
+# ============================================================
+# PORT MOODY NEIGHBOURHOODS → /p/port-moody
+# ============================================================
+
+/snow-removal-inlet-centre  /p/port-moody  301
+/snow-removal-inlet-centre/  /p/port-moody  301
+/snow-removal-glenayre  /p/port-moody  301
+/snow-removal-glenayre/  /p/port-moody  301
+/snow-removal-college-park  /p/port-moody  301
+/snow-removal-college-park/  /p/port-moody  301
+/snow-removal-heritage-mountain  /p/port-moody  301
+/snow-removal-heritage-mountain/  /p/port-moody  301
+/snow-removal-moody-centre  /p/port-moody  301
+/snow-removal-moody-centre/  /p/port-moody  301
+/snow-removal-suter-brook  /p/port-moody  301
+/snow-removal-suter-brook/  /p/port-moody  301
+
+# ============================================================
+# LANGLEY NEIGHBOURHOODS → /p/langley
+# ============================================================
+
+/snow-removal-willowbrook  /p/langley  301
+/snow-removal-willowbrook/  /p/langley  301
+/snow-removal-walnut-grove  /p/langley  301
+/snow-removal-walnut-grove/  /p/langley  301
+/snow-removal-langley-city  /p/langley  301
+/snow-removal-langley-city/  /p/langley  301
+/snow-removal-murrayville  /p/langley  301
+/snow-removal-murrayville/  /p/langley  301
+/snow-removal-brookswood  /p/langley  301
+/snow-removal-brookswood/  /p/langley  301
+/snow-removal-fort-langley  /p/langley  301
+/snow-removal-fort-langley/  /p/langley  301
+/snow-removal-aldergrove  /p/langley  301
+/snow-removal-aldergrove/  /p/langley  301
+/snow-removal-willoughby  /p/langley  301
+/snow-removal-willoughby/  /p/langley  301
+
+# ============================================================
+# DELTA NEIGHBOURHOODS → /p/delta
+# ============================================================
+
+/snow-removal-ladner  /p/delta  301
+/snow-removal-ladner/  /p/delta  301
+/snow-removal-tsawwassen  /p/delta  301
+/snow-removal-tsawwassen/  /p/delta  301
+/snow-removal-north-delta  /p/delta  301
+/snow-removal-north-delta/  /p/delta  301
+/snow-removal-sunbury  /p/delta  301
+/snow-removal-sunbury/  /p/delta  301
+/snow-removal-annieville  /p/delta  301
+/snow-removal-annieville/  /p/delta  301
+/snow-removal-scottsdale  /p/delta  301
+/snow-removal-scottsdale/  /p/delta  301
+/snow-removal-sunshine-hills  /p/delta  301
+/snow-removal-sunshine-hills/  /p/delta  301
+
+# ============================================================
+# MAPLE RIDGE NEIGHBOURHOODS → /p/maple-ridge
+# ============================================================
+
+/snow-removal-town-centre  /p/maple-ridge  301
+/snow-removal-town-centre/  /p/maple-ridge  301
+/snow-removal-hammond  /p/maple-ridge  301
+/snow-removal-hammond/  /p/maple-ridge  301
+/snow-removal-haney  /p/maple-ridge  301
+/snow-removal-haney/  /p/maple-ridge  301
+/snow-removal-websters-corners  /p/maple-ridge  301
+/snow-removal-websters-corners/  /p/maple-ridge  301
+/snow-removal-whonnock  /p/maple-ridge  301
+/snow-removal-whonnock/  /p/maple-ridge  301
+/snow-removal-albion  /p/maple-ridge  301
+/snow-removal-albion/  /p/maple-ridge  301
+/snow-removal-silver-valley  /p/maple-ridge  301
+/snow-removal-silver-valley/  /p/maple-ridge  301
+
+# ============================================================
+# PITT MEADOWS NEIGHBOURHOODS → /p/pitt-meadows
+# ============================================================
+
+/snow-removal-south-pitt-meadows  /p/pitt-meadows  301
+/snow-removal-south-pitt-meadows/  /p/pitt-meadows  301
+/snow-removal-central-pitt-meadows  /p/pitt-meadows  301
+/snow-removal-central-pitt-meadows/  /p/pitt-meadows  301
+/snow-removal-north-pitt-meadows  /p/pitt-meadows  301
+/snow-removal-north-pitt-meadows/  /p/pitt-meadows  301
+
+# ============================================================
+# WHITE ROCK NEIGHBOURHOODS → /p/white-rock
+# ============================================================
+
+/snow-removal-beach  /p/white-rock  301
+/snow-removal-beach/  /p/white-rock  301
+/snow-removal-hillside  /p/white-rock  301
+/snow-removal-hillside/  /p/white-rock  301
+/snow-removal-town-centre  /p/white-rock  301
+/snow-removal-town-centre/  /p/white-rock  301
+/snow-removal-east-beach  /p/white-rock  301
+/snow-removal-east-beach/  /p/white-rock  301
+/snow-removal-west-beach  /p/white-rock  301
+/snow-removal-west-beach/  /p/white-rock  301
+
+# ============================================================
+# ABBOTSFORD NEIGHBOURHOODS → /p/abbotsford
+# ============================================================
+
+/snow-removal-downtown  /p/abbotsford  301
+/snow-removal-downtown/  /p/abbotsford  301
+/snow-removal-clearbrook  /p/abbotsford  301
+/snow-removal-clearbrook/  /p/abbotsford  301
+/snow-removal-east-abbotsford  /p/abbotsford  301
+/snow-removal-east-abbotsford/  /p/abbotsford  301
+/snow-removal-west-abbotsford  /p/abbotsford  301
+/snow-removal-west-abbotsford/  /p/abbotsford  301
+/snow-removal-aldergrove  /p/abbotsford  301
+/snow-removal-aldergrove/  /p/abbotsford  301
+/snow-removal-matsqui  /p/abbotsford  301
+/snow-removal-matsqui/  /p/abbotsford  301
+/snow-removal-bradner  /p/abbotsford  301
+/snow-removal-bradner/  /p/abbotsford  301
+
+# ============================================================
+# CHILLIWACK NEIGHBOURHOODS → /p/chilliwack
+# ============================================================
+
+/snow-removal-downtown  /p/chilliwack  301
+/snow-removal-downtown/  /p/chilliwack  301
+/snow-removal-sardis  /p/chilliwack  301
+/snow-removal-sardis/  /p/chilliwack  301
+/snow-removal-promontory  /p/chilliwack  301
+/snow-removal-promontory/  /p/chilliwack  301
+/snow-removal-vedder-crossing  /p/chilliwack  301
+/snow-removal-vedder-crossing/  /p/chilliwack  301
+/snow-removal-rosedale  /p/chilliwack  301
+/snow-removal-rosedale/  /p/chilliwack  301
+/snow-removal-yarrow  /p/chilliwack  301
+/snow-removal-yarrow/  /p/chilliwack  301
+/snow-removal-cultus-lake  /p/chilliwack  301
+/snow-removal-cultus-lake/  /p/chilliwack  301
+
+# ============================================================
+# MISSION NEIGHBOURHOODS → /p/mission
+# ============================================================
+
+/snow-removal-mission-city  /p/mission  301
+/snow-removal-mission-city/  /p/mission  301
+/snow-removal-west-mission  /p/mission  301
+/snow-removal-west-mission/  /p/mission  301
+/snow-removal-mission-heights  /p/mission  301
+/snow-removal-mission-heights/  /p/mission  301
+/snow-removal-silverdale  /p/mission  301
+/snow-removal-silverdale/  /p/mission  301
+/snow-removal-hatzic  /p/mission  301
+/snow-removal-hatzic/  /p/mission  301
+/snow-removal-stave-falls  /p/mission  301
+/snow-removal-stave-falls/  /p/mission  301

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /p/
+Allow: /join
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /.well-known/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /config/
+
+Sitemap: https://plowwow.com/sitemap.xml
+Sitemap: https://plowwow.com/sitemap-cities.xml
+Sitemap: https://plowwow.com/sitemap-neighbourhoods.xml
