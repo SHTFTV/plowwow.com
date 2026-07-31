@@ -6,8 +6,8 @@ Allow: /sitemap.xml
 Allow: /llms.txt
 Allow: /.well-known/
 Disallow: /api/
-Disallow: /admin/
-Disallow: /auth/
+Disallow: /admin
+Disallow: /auth
 Disallow: /config/
 
 User-agent: Googlebot
