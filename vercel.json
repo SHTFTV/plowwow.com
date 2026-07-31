@@ -1,0 +1,1745 @@
+{
+  "redirects": [
+    {
+      "source": "/vancouver-snow-removal",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/vancouver-snow-removal/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/burnaby-snow-removal",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/burnaby-snow-removal/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/surrey-snow-removal",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/surrey-snow-removal/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/richmond-snow-removal",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/richmond-snow-removal/",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/coquitlam-snow-removal",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/coquitlam-snow-removal/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/new-westminster-snow-removal",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/new-westminster-snow-removal/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/north-vancouver-snow-removal",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/north-vancouver-snow-removal/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/west-vancouver-snow-removal",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/west-vancouver-snow-removal/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/port-coquitlam-snow-removal",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/port-coquitlam-snow-removal/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/port-moody-snow-removal",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/port-moody-snow-removal/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/langley-snow-removal",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/langley-snow-removal/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/delta-snow-removal",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/delta-snow-removal/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/maple-ridge-snow-removal",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/maple-ridge-snow-removal/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/pitt-meadows-snow-removal",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/pitt-meadows-snow-removal/",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/white-rock-snow-removal",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/white-rock-snow-removal/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/abbotsford-snow-removal",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/abbotsford-snow-removal/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/chilliwack-snow-removal",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/chilliwack-snow-removal/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/mission-snow-removal",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/mission-snow-removal/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/now-removal-arbutus",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/now-removal-arbutus/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/commercial",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/commercial/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/residential",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/residential/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/operator",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/operator/",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/operators",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/operators/",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/franchise",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/franchise/",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/apply",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/apply/",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kitsilano",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kitsilano/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-end",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-end/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-gastown",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-gastown/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-chinatown",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-chinatown/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-yaletown",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-yaletown/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-coal-harbour",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-coal-harbour/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mount-pleasant",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mount-pleasant/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fairview",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fairview/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-commercial-drive",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-commercial-drive/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-grandview-woodland",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-grandview-woodland/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-strathcona",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-strathcona/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hastings-sunrise",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hastings-sunrise/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-renfrew-collingwood",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-renfrew-collingwood/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kensington-cedar-cottage",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kensington-cedar-cottage/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-riley-park",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-riley-park/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunset",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunset/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-victoria-fraserview",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-victoria-fraserview/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-killarney",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-killarney/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-marpole",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-marpole/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kerrisdale",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-kerrisdale/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-dunbar",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-dunbar/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-arbutus-ridge",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-arbutus-ridge/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-shaughnessy",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-shaughnessy/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-cambie",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-cambie/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-oakridge",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-oakridge/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-point-grey",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-point-grey/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ubc",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ubc/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-collingwood",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-collingwood/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fraserview",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fraserview/",
+      "destination": "/p/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-metrotown",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-metrotown/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-brentwood",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-brentwood/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lougheed",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lougheed/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-edmonds",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-edmonds/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-highgate",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-highgate/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burnaby-heights",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burnaby-heights/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-capitol-hill",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-capitol-hill/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-deer-lake",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-deer-lake/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-forest-grove",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-forest-grove/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-buckingham-heights",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-buckingham-heights/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willingdon-heights",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willingdon-heights/",
+      "destination": "/p/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-whalley",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-whalley/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-guildford",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-guildford/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fleetwood",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fleetwood/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-newton",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-newton/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-cloverdale",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-cloverdale/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-surrey",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-surrey/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-panorama-ridge",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-panorama-ridge/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sullivan",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sullivan/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fraser-heights",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fraser-heights/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-port-kells",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-port-kells/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-bridgeview",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-bridgeview/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-city-centre",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-city-centre/",
+      "destination": "/p/surrey",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-eastern-kentucky",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-eastern-kentucky/",
+      "destination": "/p/richmond",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-maillardville",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-maillardville/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-austin-heights",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-austin-heights/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burquitlam",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burquitlam/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ranch-park",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ranch-park/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-westwood-plateau",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-westwood-plateau/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burke-mountain",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-burke-mountain/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-eagle-ridge",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-eagle-ridge/",
+      "destination": "/p/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-uptown",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-uptown/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-queensborough",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-queensborough/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sapperton",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sapperton/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-end",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-end/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-quayside",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-quayside/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-queens-park",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-queens-park/",
+      "destination": "/p/new-westminster",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lower-lonsdale",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lower-lonsdale/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-central-lonsdale",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-central-lonsdale/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-upper-lonsdale",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-upper-lonsdale/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lynn-valley",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lynn-valley/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-deep-cove",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-deep-cove/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-edgemont",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-edgemont/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-capilano",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-capilano/",
+      "destination": "/p/north-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ambleside",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ambleside/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-dundarave",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-dundarave/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-park-royal",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-park-royal/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-caulfeild",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-caulfeild/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-horseshoe-bay",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-horseshoe-bay/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-british-properties",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-british-properties/",
+      "destination": "/p/west-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-citadel",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-citadel/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lincoln",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-lincoln/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-oxford-heights",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-oxford-heights/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mary-hill",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mary-hill/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-shaughnessy",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-shaughnessy/",
+      "destination": "/p/port-coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-inlet-centre",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-inlet-centre/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-glenayre",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-glenayre/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-college-park",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-college-park/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-heritage-mountain",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-heritage-mountain/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-moody-centre",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-moody-centre/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-suter-brook",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-suter-brook/",
+      "destination": "/p/port-moody",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willowbrook",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willowbrook/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-walnut-grove",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-walnut-grove/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-langley-city",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-langley-city/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-murrayville",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-murrayville/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-brookswood",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-brookswood/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fort-langley",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-fort-langley/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-aldergrove",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-aldergrove/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willoughby",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-willoughby/",
+      "destination": "/p/langley",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ladner",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-ladner/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-tsawwassen",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-tsawwassen/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-north-delta",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-north-delta/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunbury",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunbury/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-annieville",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-annieville/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-scottsdale",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-scottsdale/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunshine-hills",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sunshine-hills/",
+      "destination": "/p/delta",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hammond",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hammond/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-haney",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-haney/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-websters-corners",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-websters-corners/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-whonnock",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-whonnock/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-albion",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-albion/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-silver-valley",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-silver-valley/",
+      "destination": "/p/maple-ridge",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-pitt-meadows",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-south-pitt-meadows/",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-central-pitt-meadows",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-central-pitt-meadows/",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-north-pitt-meadows",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-north-pitt-meadows/",
+      "destination": "/p/pitt-meadows",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-beach",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-beach/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hillside",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hillside/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-town-centre/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-east-beach",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-east-beach/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-beach",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-beach/",
+      "destination": "/p/white-rock",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-clearbrook",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-clearbrook/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-east-abbotsford",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-east-abbotsford/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-abbotsford",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-abbotsford/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-aldergrove",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-aldergrove/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-matsqui",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-matsqui/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-bradner",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-bradner/",
+      "destination": "/p/abbotsford",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-downtown/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sardis",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-sardis/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-promontory",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-promontory/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-vedder-crossing",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-vedder-crossing/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-rosedale",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-rosedale/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-yarrow",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-yarrow/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-cultus-lake",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-cultus-lake/",
+      "destination": "/p/chilliwack",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mission-city",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mission-city/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-mission",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-west-mission/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mission-heights",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-mission-heights/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-silverdale",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-silverdale/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hatzic",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-hatzic/",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-stave-falls",
+      "destination": "/p/mission",
+      "permanent": true
+    },
+    {
+      "source": "/snow-removal-stave-falls/",
+      "destination": "/p/mission",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
