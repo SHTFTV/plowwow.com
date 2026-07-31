@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "PlowWow Snow Removal",
+  "name_for_model": "plowwow",
+  "description_for_human": "Get snow removal quotes and service information for Greater Vancouver properties.",
+  "description_for_model": "Provides information about PlowWow snow removal services across 18+ cities in Greater Vancouver and the Fraser Valley BC Canada, plus expanding US territories. Covers strata corporation snow management, HOA snow removal, condo corporation winter maintenance, commercial parking lot plowing, residential driveways, auto-dispatch systems, EyeSpyR photo verification, and exclusive operator territory availability. Primary contact: 604-761-1518, wow@plowwow.com",
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://plowwow.com/logo.png",
+  "contact_email": "wow@plowwow.com",
+  "legal_info_url": "https://plowwow.com/terms"
+}
