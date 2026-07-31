@@ -7,6 +7,7 @@ Allow: /llms.txt
 Allow: /.well-known/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /auth/
 Disallow: /config/
 
 User-agent: Googlebot
@@ -20,6 +21,15 @@ Disallow: /api/
 Disallow: /admin/
 
 User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
 Allow: /
 
 Sitemap: https://plowwow.com/sitemap.xml
