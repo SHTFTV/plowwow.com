@@ -63,7 +63,7 @@
     }
     </script>
 
-    <!-- Schema: LocalBusiness (enhanced) -->
+    <!-- Schema: LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -72,10 +72,17 @@
       "description": "24/7 snow plowing, salting, and de-icing for residential, strata, and commercial properties across Greater Vancouver, BC.",
       "url": "https://plowwow.com/",
       "telephone": "+1-604-761-1518",
-      "email": "info@plowwow.com",
+      "email": "wow@plowwow.com",
       "image": "https://plowwow.com/og-default.jpg",
       "logo": "https://plowwow.com/icon-192.png",
       "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "24",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "19906 32 Ave",
@@ -113,10 +120,11 @@
         "@type": "OfferCatalog",
         "name": "Snow Removal Services",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Snow Removal", "description": "Driveway and walkway snow plowing and salting for homeowners across Greater Vancouver."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Strata Snow Removal", "description": "Full-property snow and ice management for strata corporations and property managers."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Snow Removal", "description": "Parking lot plowing, salting, and de-icing for commercial properties and retail centres."}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "De-Icing & Salting", "description": "Professional liquid and granular de-icing treatments for walkways, loading docks, and high-traffic areas."}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Snow Removal"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Strata Snow Removal"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Snow Removal"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "De-Icing & Salting"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "24/7 Emergency Snow Response"}}
         ]
       },
       "openingHoursSpecification": {
@@ -133,32 +141,7 @@
     }
     </script>
 
-    <!-- Schema: Service -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Snow Removal",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "PlowWow Snow Removal & De-Ice Management",
-        "url": "https://plowwow.com/"
-      },
-      "areaServed": {
-        "@type": "State",
-        "name": "British Columbia",
-        "containsPlace": {"@type": "City", "name": "Greater Vancouver"}
-      },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": "https://plowwow.com/contact",
-        "servicePhone": "+1-604-761-1518",
-        "availableLanguage": "English"
-      }
-    }
-    </script>
-
-    <!-- Schema: Organization + WebSite graph -->
+    <!-- Schema: Organization graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -168,14 +151,35 @@
           "@id": "https://plowwow.com/#organization",
           "name": "PlowWow",
           "url": "https://plowwow.com",
-          "logo": "https://plowwow.com/wp-content/uploads/logo.png",
-          "image": "https://plowwow.com/wp-content/uploads/hero.jpg",
+          "logo": "https://plowwow.com/icon-192.png",
+          "image": "https://plowwow.com/og-default.jpg",
           "telephone": "+1-604-761-1518",
+          "email": "wow@plowwow.com",
           "priceRange": "$$",
-          "description": "The premier international snow removal network and marketing cooperative connecting local owner-operators with commercial and residential clients across North America.",
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "Industry Army Marketing",
+            "url": "https://industryarmymarketing.com",
+            "foundingDate": "2015-05-13"
+          },
+          "knowsAbout": [
+            "Snow removal in Greater Vancouver",
+            "Commercial snow plowing British Columbia",
+            "Strata corporation snow management BC",
+            "HOA snow removal Canada and USA",
+            "Condo corporation winter maintenance",
+            "Parking lot de-icing and salting",
+            "EyeSpyR photo verification for snow removal",
+            "Auto-dispatch snow removal systems",
+            "BC Strata Property Act winter maintenance",
+            "WorkSafeBC snow removal compliance",
+            "Seasonal snow removal contracts",
+            "24/7 emergency snow response Greater Vancouver"
+          ],
+          "description": "The premier snow removal network connecting local owner-operators with commercial and residential clients across North America.",
           "areaServed": [
-            { "@type": "Country", "name": "CA", "description": "Canada nationwide network" },
-            { "@type": "Country", "name": "US", "description": "United States nationwide network" }
+            {"@type": "Country", "name": "CA"},
+            {"@type": "Country", "name": "US"}
           ]
         },
         {
@@ -183,23 +187,26 @@
           "@id": "https://plowwow.com/#website",
           "url": "https://plowwow.com",
           "name": "PlowWow",
-          "publisher": { "@id": "https://plowwow.com/#organization" }
+          "publisher": {"@id": "https://plowwow.com/#organization"}
         }
       ]
     }
     </script>
 
-
-
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://talc-tv.replit.app" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- SEO fallback content for non-JS crawlers -->
+
+    <!-- Wow Bot — PlowWow Snow Assistant powered by MarkEtt / TALC AI -->
+    <script src="https://talc-tv.replit.app/bot.js" data-skin="wow"></script>
+
+    <!-- SEO fallback for non-JS crawlers -->
     <noscript>
       <style>
         #seo-fallback { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem; }
@@ -220,24 +227,26 @@
         </ul>
         <h2>Service Areas</h2>
         <ul>
-          <li><a href="/vancouver-snow-removal">Vancouver Snow Removal</a></li>
-          <li><a href="/burnaby-snow-removal">Burnaby Snow Removal</a></li>
-          <li><a href="/surrey-snow-removal">Surrey Snow Removal</a></li>
-          <li><a href="/richmond-snow-removal">Richmond Snow Removal</a></li>
-          <li><a href="/coquitlam-snow-removal">Coquitlam Snow Removal</a></li>
-          <li><a href="/north-vancouver-snow-removal">North Vancouver Snow Removal</a></li>
-          <li><a href="/langley-snow-removal">Langley Snow Removal</a></li>
-          <li><a href="/abbotsford-snow-removal">Abbotsford Snow Removal</a></li>
-          <li><a href="/chilliwack-snow-removal">Chilliwack Snow Removal</a></li>
-          <li><a href="/maple-ridge-snow-removal">Maple Ridge Snow Removal</a></li>
-          <li><a href="/delta-snow-removal">Delta Snow Removal</a></li>
-          <li><a href="/new-westminster-snow-removal">New Westminster Snow Removal</a></li>
-          <li><a href="/white-rock-snow-removal">White Rock Snow Removal</a></li>
-          <li><a href="/port-coquitlam-snow-removal">Port Coquitlam Snow Removal</a></li>
-          <li><a href="/west-vancouver-snow-removal">West Vancouver Snow Removal</a></li>
-          <li><a href="/mission-snow-removal">Mission Snow Removal</a></li>
+          <li><a href="/p/vancouver">Vancouver Snow Removal</a></li>
+          <li><a href="/p/burnaby">Burnaby Snow Removal</a></li>
+          <li><a href="/p/surrey">Surrey Snow Removal</a></li>
+          <li><a href="/p/richmond">Richmond Snow Removal</a></li>
+          <li><a href="/p/coquitlam">Coquitlam Snow Removal</a></li>
+          <li><a href="/p/north-vancouver">North Vancouver Snow Removal</a></li>
+          <li><a href="/p/langley">Langley Snow Removal</a></li>
+          <li><a href="/p/abbotsford">Abbotsford Snow Removal</a></li>
+          <li><a href="/p/chilliwack">Chilliwack Snow Removal</a></li>
+          <li><a href="/p/maple-ridge">Maple Ridge Snow Removal</a></li>
+          <li><a href="/p/delta">Delta Snow Removal</a></li>
+          <li><a href="/p/new-westminster">New Westminster Snow Removal</a></li>
+          <li><a href="/p/white-rock">White Rock Snow Removal</a></li>
+          <li><a href="/p/port-coquitlam">Port Coquitlam Snow Removal</a></li>
+          <li><a href="/p/west-vancouver">West Vancouver Snow Removal</a></li>
+          <li><a href="/p/mission">Mission Snow Removal</a></li>
+          <li><a href="/p/port-moody">Port Moody Snow Removal</a></li>
+          <li><a href="/p/pitt-meadows">Pitt Meadows Snow Removal</a></li>
         </ul>
-        <p><a href="/contact">Get a Free Quote</a> | <a href="/blog">Snow Removal Blog</a> | <a href="/how-it-works">How It Works</a></p>
+        <p><a href="/join">Join PlowWow — Own Your Territory</a> | <a href="/blog">Snow Removal Blog</a></p>
       </div>
     </noscript>
   </body>
