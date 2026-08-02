@@ -136,9 +136,10 @@ const App = () => (
             <Route path="/:citySlug/*" element={<CityPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
-          </Routes>
+           </Routes>
         </Suspense>
-      <PlowWowBot />
+        <PlowWowBot />
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
