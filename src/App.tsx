@@ -10,7 +10,7 @@ import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
 import RoutePreloader from "./components/RoutePreloader";
 import { ServiceWorkerUpdatePrompt } from "./components/pwa/ServiceWorkerUpdatePrompt";
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
-
+import PlowWowBot from "./components/PlowWowBot";
 // Route-level code splitting: keep the homepage + NotFound + LegacyPage
 // (used by ~150 prerendered legacy routes and therefore the LCP path for
 // most crawler entries) eagerly bundled, and lazy-load everything else.
@@ -138,7 +138,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      <PlowWowBot />
     </TooltipProvider>
   </QueryClientProvider>
 );
