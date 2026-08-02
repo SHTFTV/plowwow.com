@@ -11,11 +11,6 @@ import RoutePreloader from "./components/RoutePreloader";
 import { ServiceWorkerUpdatePrompt } from "./components/pwa/ServiceWorkerUpdatePrompt";
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 import PlowWowBot from "./components/PlowWowBot";
-// Route-level code splitting: keep the homepage + NotFound + LegacyPage
-// (used by ~150 prerendered legacy routes and therefore the LCP path for
-// most crawler entries) eagerly bundled, and lazy-load everything else.
-// This keeps the main chunk small while preserving fast first paint on the
-// prerendered routes crawlers hit.
 const Auth = lazy(() => import("./pages/Auth.tsx"));
 const Admin = lazy(() => import("./pages/Admin.tsx"));
 const Burnaby = lazy(() => import("./pages/Burnaby.tsx"));
@@ -103,7 +98,6 @@ const App = () => (
                 element={<LegacyPage kind="blog" />}
               />
             ))}
-
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/advanced-technology" element={<AppFeatures />} />
             <Route path="/guest-post" element={<GuestPost />} />
@@ -118,7 +112,6 @@ const App = () => (
             <Route path="/quote/confirmed" element={<QuoteConfirmed />} />
             <Route path="/:citySlug/quote" element={<CityQuote />} />
             <Route path="/:citySlug/quote/" element={<CityQuote />} />
-
             {legacyPageSlugs.map((slug) => (
               <Route
                 key={`page-${slug}`}
@@ -134,9 +127,8 @@ const App = () => (
               />
             ))}
             <Route path="/:citySlug/*" element={<CityPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
-           </Routes>
+          </Routes>
         </Suspense>
         <PlowWowBot />
       </BrowserRouter>
