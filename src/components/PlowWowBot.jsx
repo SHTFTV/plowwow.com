@@ -1,0 +1,233 @@
+import { useState, useRef, useEffect } from "react";
+
+const MASCOT_SVG = (
+  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <ellipse cx="40" cy="52" rx="22" ry="20" fill="#FF9900"/>
+    <text x="40" y="55" textAnchor="middle" fontSize="6" fontWeight="bold" fill="white" fontFamily="Arial">PlowWow</text>
+    <text x="40" y="62" textAnchor="middle" fontSize="5" fill="white" fontFamily="Arial">.com</text>
+    <circle cx="40" cy="30" r="18" fill="#87CEEB"/>
+    <ellipse cx="40" cy="14" rx="18" ry="6" fill="#0072CE"/>
+    <rect x="22" y="10" width="36" height="8" rx="3" fill="#0072CE"/>
+    <circle cx="40" cy="7" r="5" fill="#0072CE"/>
+    <circle cx="33" cy="28" r="4" fill="white"/>
+    <circle cx="47" cy="28" r="4" fill="white"/>
+    <circle cx="34" cy="29" r="2.5" fill="#1a1a1a"/>
+    <circle cx="48" cy="29" r="2.5" fill="#1a1a1a"/>
+    <circle cx="35" cy="28" r="1" fill="white"/>
+    <circle cx="49" cy="28" r="1" fill="white"/>
+    <circle cx="28" cy="33" r="4" fill="#FF9999" opacity="0.6"/>
+    <circle cx="52" cy="33" r="4" fill="#FF9999" opacity="0.6"/>
+    <path d="M33 36 Q40 42 47 36" stroke="#1a1a1a" strokeWidth="2" fill="none" strokeLinecap="round"/>
+    <ellipse cx="16" cy="50" rx="6" ry="10" fill="#FF9900" transform="rotate(-30 16 50)"/>
+    <ellipse cx="64" cy="50" rx="6" ry="10" fill="#FF9900" transform="rotate(30 64 50)"/>
+  </svg>
+);
+
+const SYSTEM_PROMPT = `You are PlowWow Bot, the friendly AI snow removal assistant for PlowWow.com.
+You help homeowners and businesses with snow removal quotes, scheduling, services info, and general questions.
+Keep responses short, warm, and helpful. Use occasional snow/winter emojis ❄️🌨️⛄.
+Always encourage users to get a free quote when relevant.
+PlowWow offers: residential driveway plowing from $49/visit, commercial lot clearing, sidewalk salting, roof snow removal, and seasonal contracts.
+Respond in 2-3 sentences max unless more detail is needed.`;
+
+export default function PlowWowBot() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    {
+      role: "assistant",
+      content: "Hey there! 👋\nI'm PlowWow Bot! I can help you with quotes, scheduling, services, and more.\n\nHow can I help you today?",
+      first: true,
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [hasNew, setHasNew] = useState(true);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    if (open) {
+      setHasNew(false);
+      setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: "smooth" }), 50);
+    }
+  }, [open, messages]);
+
+  const sendMessage = async (text) => {
+    const userText = text || input.trim();
+    if (!userText || loading) return;
+    setInput("");
+    const newMessages = [...messages, { role: "user", content: userText }];
+    setMessages(newMessages);
+    setLoading(true);
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-6",
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
+        }),
+      });
+      const data = await res.json();
+      const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response. Please try again!";
+      setMessages([...newMessages, { role: "assistant", content: reply }]);
+    } catch {
+      setMessages([...newMessages, { role: "assistant", content: "Sorry, something went wrong! Try again or call us directly. ❄️" }]);
+    }
+    setLoading(false);
+  };
+
+  const quickActions = [
+    { label: "❄️ Services", msg: "What snow removal services do you offer?" },
+    { label: "🏷️ Pricing", msg: "How much does snow removal cost?" },
+    { label: "ℹ️ How It Works", msg: "How does PlowWow work?" },
+  ];
+
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        .pwb * { box-sizing: border-box; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        .pwb-launcher { position: fixed; bottom: 24px; right: 24px; z-index: 9999; width: 64px; height: 64px; border-radius: 50%; border: none; cursor: pointer; padding: 4px; background: white; box-shadow: 0 4px 20px rgba(0,114,206,0.25), 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; }
+        .pwb-launcher:hover { transform: scale(1.08); box-shadow: 0 8px 28px rgba(0,114,206,0.35), 0 4px 12px rgba(0,0,0,0.2); }
+        .pwb-badge { position: absolute; top: 0; right: 0; background: #e53e3e; color: white; font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+        .pwb-window { position: fixed; bottom: 100px; right: 24px; z-index: 9998; width: 360px; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.15); display: flex; flex-direction: column; background: white; animation: pwb-up 0.25s ease; max-height: 580px; }
+        @keyframes pwb-up { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .pwb-header { background: linear-gradient(135deg, #1a4fbd 0%, #0d3a96 50%, #1a2f7a 100%); padding: 14px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid #F5A623; position: relative; overflow: hidden; flex-shrink: 0; }
+        .pwb-header::before { content: '❄'; position: absolute; right: -8px; bottom: -12px; font-size: 72px; opacity: 0.07; color: white; pointer-events: none; }
+        .pwb-av-wrap { position: relative; flex-shrink: 0; }
+        .pwb-av { width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 3px; overflow: hidden; }
+        .pwb-ping { position: absolute; top: -3px; right: -3px; width: 13px; height: 13px; }
+        .pwb-ping-ring { position: absolute; inset: 0; background: #22c55e; border-radius: 50%; opacity: 0.6; animation: pwb-ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
+        .pwb-ping-dot { position: absolute; inset: 2px; background: #22c55e; border-radius: 50%; border: 2px solid #1a4fbd; }
+        @keyframes pwb-ping { 75%,100% { transform: scale(2); opacity: 0; } }
+        .pwb-hname { color: white; font-size: 15px; font-weight: 700; }
+        .pwb-hsub { color: rgba(255,255,255,0.75); font-size: 10.5px; margin-top: 2px; }
+        .pwb-hbtns { margin-left: auto; display: flex; gap: 2px; }
+        .pwb-hbtn { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; padding: 5px; border-radius: 8px; font-size: 15px; }
+        .pwb-hbtn:hover { background: rgba(255,255,255,0.12); }
+        .pwb-msgs { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: #f8fafc; min-height: 0; }
+        .pwb-msgs::-webkit-scrollbar { width: 3px; }
+        .pwb-msgs::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 3px; }
+        .pwb-row { display: flex; align-items: flex-end; gap: 7px; }
+        .pwb-row.user { flex-direction: row-reverse; }
+        .pwb-mav { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: white; border: 1.5px solid #bfdbfe; padding: 2px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .pwb-bubble { max-width: 80%; padding: 9px 13px; border-radius: 18px; font-size: 13px; line-height: 1.55; white-space: pre-wrap; }
+        .pwb-bubble.bot { background: white; color: #1e293b; border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+        .pwb-bubble.ice { background: #EFF8FF; color: #1e293b; border-bottom-left-radius: 4px; border: 1px solid #BAE6FD; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+        .pwb-bubble.user { background: #1a4fbd; color: white; border-bottom-right-radius: 4px; box-shadow: 0 2px 8px rgba(26,79,189,0.3); }
+        .pwb-cta { margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 14px; background: #F5A623; color: #1a1a1a; border: none; border-radius: 12px; font-size: 12.5px; font-weight: 700; cursor: pointer; width: 100%; transition: background 0.15s, transform 0.1s; box-shadow: 0 3px 10px rgba(245,166,35,0.4); }
+        .pwb-cta:hover { background: #e8971a; transform: translateY(-1px); }
+        .pwb-cta:active { transform: scale(0.97); }
+        .pwb-typing { display: flex; gap: 4px; padding: 10px 13px; background: white; border-radius: 18px; border-bottom-left-radius: 4px; border: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,0.06); width: fit-content; }
+        .pwb-dot { width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; animation: pwb-bounce 1.2s infinite; }
+        .pwb-dot:nth-child(2){animation-delay:.15s} .pwb-dot:nth-child(3){animation-delay:.3s}
+        @keyframes pwb-bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+        .pwb-pills { padding: 8px 12px; background: white; border-top: 1px solid #f1f5f9; display: flex; gap: 6px; overflow-x: auto; flex-shrink: 0; }
+        .pwb-pills::-webkit-scrollbar { display: none; }
+        .pwb-pill { padding: 5px 11px; border-radius: 20px; background: #EFF6FF; color: #1d4ed8; border: 1.5px solid #bfdbfe; font-size: 11.5px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: all 0.15s; }
+        .pwb-pill:hover { background: #1d4ed8; color: white; border-color: #1d4ed8; transform: translateY(-1px); box-shadow: 0 3px 8px rgba(29,78,216,0.25); }
+        .pwb-inp-row { padding: 10px 12px; background: white; border-top: 1px solid #f1f5f9; display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+        .pwb-inp { flex: 1; background: #f1f5f9; border: 1.5px solid transparent; border-radius: 22px; padding: 8px 14px; font-size: 13px; outline: none; color: #1e293b; transition: all 0.15s; }
+        .pwb-inp:focus { border-color: #3b82f6; background: white; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+        .pwb-inp::placeholder { color: #94a3b8; }
+        .pwb-send { width: 36px; height: 36px; border-radius: 50%; background: #F5A623; border: none; cursor: pointer; color: white; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; box-shadow: 0 2px 8px rgba(245,166,35,0.4); }
+        .pwb-send:hover { background: #e8971a; transform: scale(1.08); }
+        .pwb-send:disabled { background: #e2e8f0; color: #94a3b8; box-shadow: none; transform: none; }
+        .pwb-footer { padding: 5px 12px 8px; background: white; display: flex; justify-content: center; gap: 12px; flex-shrink: 0; }
+        .pwb-footer span { font-size: 10px; color: #94a3b8; }
+        @media (max-width: 420px) { .pwb-window { width: calc(100vw - 16px); right: 8px; bottom: 88px; } }
+      `}</style>
+
+      <div className="pwb">
+        <button className="pwb-launcher" onClick={() => setOpen(!open)} aria-label="Open PlowWow Bot">
+          {MASCOT_SVG}
+          {hasNew && !open && <span className="pwb-badge">1</span>}
+        </button>
+
+        {open && (
+          <div className="pwb-window">
+            <div className="pwb-header">
+              <div className="pwb-av-wrap">
+                <div className="pwb-av">{MASCOT_SVG}</div>
+                <div className="pwb-ping">
+                  <div className="pwb-ping-ring" />
+                  <div className="pwb-ping-dot" />
+                </div>
+              </div>
+              <div>
+                <div className="pwb-hname">PlowWow Bot</div>
+                <div className="pwb-hsub">❄️ Your AI snow removal assistant · 24/7</div>
+              </div>
+              <div className="pwb-hbtns">
+                <button className="pwb-hbtn" title="Mute">🔈</button>
+                <button className="pwb-hbtn" title="More">⋮</button>
+                <button className="pwb-hbtn" onClick={() => setOpen(false)} title="Close">—</button>
+              </div>
+            </div>
+
+            <div className="pwb-msgs">
+              {messages.map((m, i) => {
+                const isBot = m.role === "assistant";
+                const bubbleCls = isBot ? (m.first ? "bot" : "ice") : "user";
+                return (
+                  <div key={i} className={`pwb-row ${isBot ? "" : "user"}`}>
+                    {isBot && <div className="pwb-mav">{MASCOT_SVG}</div>}
+                    <div>
+                      <div className={`pwb-bubble ${bubbleCls}`}>
+                        {m.content}
+                        {m.first && (
+                          <button className="pwb-cta" onClick={() => sendMessage("I'd like a free quote")}>
+                            📝 Get a Free Quote →
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              {loading && (
+                <div className="pwb-row">
+                  <div className="pwb-mav">{MASCOT_SVG}</div>
+                  <div className="pwb-typing">
+                    <div className="pwb-dot" /><div className="pwb-dot" /><div className="pwb-dot" />
+                  </div>
+                </div>
+              )}
+              <div ref={bottomRef} />
+            </div>
+
+            <div className="pwb-pills">
+              {quickActions.map((a) => (
+                <button key={a.label} className="pwb-pill" onClick={() => sendMessage(a.msg)}>
+                  {a.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="pwb-inp-row">
+              <input
+                className="pwb-inp"
+                placeholder="Type your address or message..."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                disabled={loading}
+              />
+              <button className="pwb-send" onClick={() => sendMessage()} disabled={loading || !input.trim()}>
+                ➤
+              </button>
+            </div>
+
+            <div className="pwb-footer">
+              <span>⚡ Fast responses</span>
+              <span>🔒 Info is secure</span>
+              <span>💙 Always here</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
