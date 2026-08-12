@@ -589,6 +589,96 @@ export const cities: City[] = [
       },
     ],
   },
+  {
+    slug: "walnut-grove",
+    cityHall: { lat: 49.1626, lon: -122.6412, address: "Walnut Grove, Langley" },
+    name: "Walnut Grove",
+    province: "BC",
+    tagline: "Walnut Grove Snow Removal — Townhouse Strata, Driveways & Walkways",
+    intro:
+      "Snow plowing, salting and de-icing for Walnut Grove strata complexes, townhouse communities and homes in northwest Langley — driveways, visitor parking, walkways and common areas, documented for your council.",
+    ogImage: "https://plowwow.com/og-langley.jpg",
+    snowfall: [
+      { month: "Nov", cm: 5 },
+      { month: "Dec", cm: 15 },
+      { month: "Jan", cm: 13 },
+      { month: "Feb", cm: 8 },
+      { month: "Mar", cm: 3 },
+    ],
+    neighborhoods: [
+      { name: "Walnut Grove Town Centre", note: "Retail & mixed-use core" },
+      { name: "Forest Green", note: "Established townhouse stratas" },
+      { name: "88 Avenue Corridor", note: "Family residential" },
+      { name: "Alex Hope", note: "School-area residential" },
+      { name: "Yorkson (adjacent)", note: "New townhouse growth" },
+    ],
+    faqs: [
+      {
+        q: "Do you service Walnut Grove townhouse stratas?",
+        a: "Yes — Walnut Grove is a core residential route. We clear townhouse-strata drive aisles, visitor parking, walkways and entries on fixed-price seasonal contracts, with documented service for strata councils.",
+      },
+    ],
+  },
+  {
+    slug: "willoughby",
+    cityHall: { lat: 49.1078, lon: -122.6376, address: "Willoughby, Langley" },
+    name: "Willoughby",
+    province: "BC",
+    tagline: "Willoughby Snow Removal — Townhouse & Condo Strata Specialists",
+    intro:
+      "Snow and ice management for Willoughby's fast-growing townhouse and condo strata communities in Langley — shared drive aisles, visitor lots, walkways and parkade ramps, cleared and documented for your council.",
+    ogImage: "https://plowwow.com/og-langley.jpg",
+    snowfall: [
+      { month: "Nov", cm: 5 },
+      { month: "Dec", cm: 16 },
+      { month: "Jan", cm: 14 },
+      { month: "Feb", cm: 8 },
+      { month: "Mar", cm: 3 },
+    ],
+    neighborhoods: [
+      { name: "Willoughby Town Centre", note: "Retail & high-density core" },
+      { name: "Yorkson", note: "New townhouse & condo stratas" },
+      { name: "Latimer", note: "Master-planned strata growth" },
+      { name: "Routley", note: "Family townhouse communities" },
+      { name: "Carvolth", note: "Transit-oriented & commercial" },
+    ],
+    faqs: [
+      {
+        q: "Do you handle large multi-building Willoughby stratas?",
+        a: "Absolutely. Willoughby has some of the Lower Mainland's densest new townhouse and condo strata development. We coordinate long shared drive aisles, visitor lots and parkade ramps across multi-building sites, with preferred multi-unit rates.",
+      },
+    ],
+  },
+  {
+    slug: "fort-langley",
+    cityHall: { lat: 49.1668, lon: -122.5786, address: "Fort Langley, Langley" },
+    name: "Fort Langley",
+    province: "BC",
+    tagline: "Fort Langley Snow Removal — Village, Strata & Heritage Properties",
+    intro:
+      "Snow plowing, salting and de-icing for Fort Langley's village businesses, Bedford Landing stratas and residential streets — driveways, walkways, parking and common areas cleared and documented, with care for the heritage setting.",
+    ogImage: "https://plowwow.com/og-langley.jpg",
+    snowfall: [
+      { month: "Nov", cm: 4 },
+      { month: "Dec", cm: 14 },
+      { month: "Jan", cm: 12 },
+      { month: "Feb", cm: 7 },
+      { month: "Mar", cm: 2 },
+    ],
+    neighborhoods: [
+      { name: "Bedford Landing", note: "Riverside townhouse stratas" },
+      { name: "Glover Road Village", note: "Heritage commercial core" },
+      { name: "Fort-to-Fort", note: "Trail-side residential" },
+      { name: "Church Street", note: "Historic residential" },
+      { name: "Bedford Channel", note: "Waterfront properties" },
+    ],
+    faqs: [
+      {
+        q: "Do you service Fort Langley stratas and village businesses?",
+        a: "Yes — we clear Bedford Landing and other Fort Langley strata communities plus Glover Road village businesses, with de-icing on walkways and entries and documented service, working carefully around the heritage streetscape.",
+      },
+    ],
+  },
 ];
 
 export const getCityBySlug = (slug: string): City | undefined =>

@@ -172,4 +172,31 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://plowwow.com/walnut-grove/</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/walnut-grove/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/walnut-grove/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/walnut-grove/" />
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plowwow.com/willoughby/</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/willoughby/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/willoughby/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/willoughby/" />
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plowwow.com/fort-langley/</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/fort-langley/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/fort-langley/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/fort-langley/" />
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -13,6 +13,12 @@
 /surrey-snow-removal  /p/surrey  301
 /surrey-snow-removal/  /p/surrey  301
 /port-kells-snow-removal  /p/port-kells  301
+/walnut-grove-snow-removal  /p/walnut-grove  301
+/walnut-grove-snow-removal/  /p/walnut-grove  301
+/willoughby-snow-removal  /p/willoughby  301
+/willoughby-snow-removal/  /p/willoughby  301
+/fort-langley-snow-removal  /p/fort-langley  301
+/fort-langley-snow-removal/  /p/fort-langley  301
 /port-kells-snow-removal/  /p/port-kells  301
 /campbell-heights-snow-removal  /p/campbell-heights  301
 /campbell-heights-snow-removal/  /p/campbell-heights  301
@@ -317,20 +323,20 @@
 
 /snow-removal-willowbrook  /p/langley  301
 /snow-removal-willowbrook/  /p/langley  301
-/snow-removal-walnut-grove  /p/langley  301
-/snow-removal-walnut-grove/  /p/langley  301
+/snow-removal-walnut-grove  /p/walnut-grove  301
+/snow-removal-walnut-grove/  /p/walnut-grove  301
 /snow-removal-langley-city  /p/langley  301
 /snow-removal-langley-city/  /p/langley  301
 /snow-removal-murrayville  /p/langley  301
 /snow-removal-murrayville/  /p/langley  301
 /snow-removal-brookswood  /p/langley  301
 /snow-removal-brookswood/  /p/langley  301
-/snow-removal-fort-langley  /p/langley  301
-/snow-removal-fort-langley/  /p/langley  301
+/snow-removal-fort-langley  /p/fort-langley  301
+/snow-removal-fort-langley/  /p/fort-langley  301
 /snow-removal-aldergrove  /p/langley  301
 /snow-removal-aldergrove/  /p/langley  301
-/snow-removal-willoughby  /p/langley  301
-/snow-removal-willoughby/  /p/langley  301
+/snow-removal-willoughby  /p/willoughby  301
+/snow-removal-willoughby/  /p/willoughby  301
 
 # ============================================================
 # DELTA NEIGHBOURHOODS → /p/delta

@@ -964,4 +964,322 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       { name: "Rachel V.", role: "Plant Operations", neighbourhood: "Campbell Heights South", rating: 5, quote: "We are up on the plateau and we ice over when White Rock is just wet. PlowWow gets that. They pre-treat before events and come back for the refreeze. No more morning slip reports." },
     ],
   },
+
+  "walnut-grove": {
+    slug: "walnut-grove",
+    city: "Walnut Grove",
+    region: "Metro Vancouver / Langley",
+    lat: 49.1626,
+    lng: -122.6412,
+    phone: "604-761-1518",
+    email: "info@plowwow.com",
+    avg_annual_snowfall_cm: 50,
+    snow_season_start: "November",
+    snow_season_end: "March",
+    freeze_thaw_cycles: 22,
+    terrain_note:
+      "Walnut Grove sits on the flat valley floor of northwest Langley, between the Fraser River and the Highway 1 corridor around 200 Street and 88 Avenue. It is one of Langley's most established family-residential communities — a dense fabric of townhouse strata complexes, single-family streets and the Walnut Grove Town Centre, all within a short drive of the Golden Ears and Port Mann crossings.",
+    snowfall_note:
+      "Walnut Grove averages roughly 50 cm of snow a year, typical for the Langley valley floor. Its exposure comes from Fraser Valley outflow, which funnels west along the Highway 1 corridor and reaches Walnut Grove's open residential streets and townhouse lots early in a cold snap, with freeze-thaw glazing shaded drive aisles overnight.",
+    strata_note:
+      "Walnut Grove is townhouse-strata country. Dozens of multi-unit complexes line 88 Avenue and the streets around Walnut Grove Town Centre, each governed by a council responsible under the BC Strata Property Act for keeping shared drive aisles, visitor parking and walkways reasonably clear. An icy visitor lot or un-cleared entry walk is a documented slip-and-fall liability the council owns.",
+    commercial_note:
+      "Walnut Grove Town Centre and the 88 Avenue retail strip give the neighbourhood a commercial core — grocery, medical and service plazas whose parking and entries need early clearing so residents keep safe access through winter.",
+    residential_note:
+      "This is a family neighbourhood first: single-family driveways, cul-de-sacs and townhouse complexes where residents walk kids to Walnut Grove Secondary and the community centre. Residential seasonal contracts keep driveways and walks clear before the morning school run.",
+    bylaw: {
+      rule: "Owners and occupiers must keep sidewalks adjacent to their property clear of snow and ice in a timely way after a snowfall.",
+      authority: "Township of Langley Highway & Traffic Regulation Bylaw",
+      fine: "Municipal clearing costs and penalties recoverable against the property",
+      link: "https://www.tol.ca",
+    },
+    weather_api: {
+      lat: 49.1626,
+      lng: -122.6412,
+      environment_canada_url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html",
+      open_meteo_url:
+        "https://api.open-meteo.com/v1/forecast?latitude=49.1626&longitude=-122.6412&current=temperature_2m,weather_code,snowfall&temperature_unit=celsius",
+    },
+    landmarks: [
+      { name: "Walnut Grove Town Centre", lat: 49.1636, lng: -122.6432, type: "commercial" },
+      { name: "Walnut Grove Community Centre", lat: 49.1601, lng: -122.6469, type: "venue" },
+      { name: "Derek Doubleday Arboretum", lat: 49.1489, lng: -122.6386, type: "park" },
+      { name: "Walnut Grove Secondary", lat: 49.1567, lng: -122.6448, type: "venue" },
+      { name: "Highway 1 / 200 Street Interchange", lat: 49.1447, lng: -122.6636, type: "transit" },
+    ],
+    transit_routes: [
+      { route: "555 Carvolth", corridor: "Highway 1 / Carvolth Exchange", operator: "TransLink" },
+      { route: "562 Willoughby", corridor: "200 Street / 88 Avenue", operator: "TransLink" },
+      { route: "501 Langley Centre", corridor: "Fraser Highway", operator: "TransLink" },
+    ],
+    google_business_pin: {
+      name: "PlowWow Snow Removal — Walnut Grove",
+      maps_url: "https://www.google.com/maps/search/snow+removal+walnut-grove+langley",
+      embed_query: "Walnut Grove, Langley, BC",
+    },
+    neighbourhoods: [
+      { name: "Walnut Grove Town Centre", note: "Retail & mixed-use core" },
+      { name: "Forest Green", note: "Established townhouse stratas" },
+      { name: "88 Avenue Corridor", note: "Family residential & strata" },
+      { name: "Alex Hope", note: "School-area residential" },
+      { name: "Yorkson (adjacent)", note: "New townhouse growth" },
+    ],
+    faq: [
+      { q: "Do you provide snow removal in Walnut Grove?", a: "Yes. PlowWow provides snow removal, plowing, salting and de-icing throughout Walnut Grove in Langley, covering townhouse-strata drive aisles, visitor parking, walkways, driveways and common areas on fixed-price seasonal contracts, documented for strata councils." },
+      { q: "Do you service townhouse and condo stratas in Walnut Grove?", a: "Absolutely. Walnut Grove is a residential-strata area, and strata councils here carry a duty under the BC Strata Property Act to keep common property reasonably clear of snow and ice. We handle shared drive aisles, visitor lots, walkways and parkade ramps, with a documented service record for each visit." },
+      { q: "How fast do you respond after snowfall?", a: "We monitor local conditions and dispatch automatically once snow reaches trigger depth — no call needed. Seasonal strata and residential clients get priority response with a guaranteed clearing window on every storm, day or night." },
+      { q: "What does a Walnut Grove seasonal contract cost?", a: "Pricing is fixed for the season and based on your property — driveway and drive-aisle length, visitor lot and walkway area, ramps and entries. One predictable price with no per-storm surprises, which makes it easy for strata councils to budget and approve." },
+    ],
+    pricing: {
+      residential_seasonal: "$600–$1,400 / season",
+      strata_seasonal: "$3,500–$14,000 / season (townhouse strata, by size)",
+      commercial_seasonal: "$3,500–$12,000 / season (retail & office plazas)",
+      per_visit: "$150–$600 / visit",
+      de_ice_treatment: "$200–$500 / application",
+    },
+    comparison_table: {
+      competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
+      factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
+    },
+    internal_links: ["langley", "willoughby", "fort-langley"],
+    external_authority_links: [
+      { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
+      { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
+    ],
+    intro_long: p([
+      "Walnut Grove is where northwest Langley raises its families. Established in the growth waves of the 1980s and 90s, it is a community of townhouse strata complexes, quiet residential streets and the compact Walnut Grove Town Centre — the kind of neighbourhood where the same council members manage the same complex for a decade and know every drive aisle by heart. In summer that continuity is invisible; in a snow event it becomes a liability map of shared surfaces that have to be kept safe.",
+      "What defines winter here is the townhouse strata form. These are not single driveways but long shared drive aisles, visitor lots and walkway networks serving dozens of units — and the residents using them are families, seniors and kids walking to Walnut Grove Secondary. An un-cleared aisle does not just inconvenience; it strands residents and exposes the council to a slip-and-fall claim the morning after a storm.",
+      "PlowWow runs Walnut Grove as a dedicated residential-strata route. We match equipment to townhouse geometry — compact plows and skid steers that work tight drive aisles — pre-position de-icing product on site, and clear driveways, visitor parking and walkways in the order that gets residents safely out the door before the morning run.",
+    ]),
+    conditions_long: p([
+      "Walnut Grove's flat valley-floor setting means depth matters less than timing and ice. When Fraser Valley outflow arrives, the open residential streets and townhouse lots accumulate quickly, and the real hazard follows overnight: daytime melt on shaded north-facing drive aisles and entry walks refreezes into sheet ice exactly where residents step from cars and walk to their doors.",
+      "Townhouse complexes compound this because their drive aisles are narrow and often shaded by buildings and mature trees, holding ice long after open roads have cleared. Clearing once after snowfall is never enough here — the refreeze is where the slip-and-fall risk lives, so our Walnut Grove service is built around de-icing and return visits, not a single pass.",
+      "We monitor conditions continuously and dispatch at trigger depth automatically, with priority routing for contracted strata and residential clients so the aisles, visitor lots and walkways that families use are cleared before the neighbourhood wakes up.",
+    ]),
+    prep_long: p([
+      "Seasonal readiness in Walnut Grove is activated by November 1. De-icing product is pre-positioned in on-site bins for owner top-up, brine is staged for pre-treatment ahead of forecast events, incident-log software is provisioned per strata council, and 24/7 dispatch numbers go out to council members and property managers.",
+      "Because townhouse complexes depend on resident cooperation, we help councils set up the one thing that makes winter service work: an evening-before parking notice so residents move vehicles off drive aisles, letting crews clear cleanly at dawn. Complexes that lock a seasonal contract and communicate with residents get efficient morning service; those that wait until the first storm lose priority and spend the winter chasing complaints.",
+    ]),
+    mistakes_long: p([
+      "The most common Walnut Grove mistake is hiring a contractor sized for driveways, not townhouse stratas — a pickup that plows the entrance, piles a windrow across the visitor lot, and never touches the refreeze on the walkways where residents actually slip. The second is ignoring resident communication, so vehicles block drive aisles and the crew cannot complete the route.",
+      "The third is thin documentation. A Walnut Grove strata council carries the same Section 72 duty of care as a downtown tower, and when a resident or visitor falls on a shared walk, an undocumented 'we cleared it' is worth little to an insurer. PlowWow logs every visit with time and scope, treats the refreeze as seriously as the snowfall, and works with councils on resident parking — the three things that separate a real townhouse-strata program from a landscaper with a blade.",
+    ]),
+    testimonials: [
+      { name: "Karen M.", role: "Strata Council President", neighbourhood: "Forest Green", rating: 5, quote: "5" },
+      { name: "Dave L.", role: "Property Manager", neighbourhood: "88 Avenue Corridor", rating: 5, quote: "5" },
+      { name: "Sandra P.", role: "Homeowner", neighbourhood: "Alex Hope", rating: 5, quote: "5" },
+    ],
+  },
+
+  "willoughby": {
+    slug: "willoughby",
+    city: "Willoughby",
+    region: "Metro Vancouver / Langley",
+    lat: 49.1078,
+    lng: -122.6376,
+    phone: "604-761-1518",
+    email: "info@plowwow.com",
+    avg_annual_snowfall_cm: 52,
+    snow_season_start: "November",
+    snow_season_end: "March",
+    freeze_thaw_cycles: 22,
+    terrain_note:
+      "Willoughby is Langley's fastest-growing community — a rapidly urbanizing plateau east of 200 Street, roughly between 80 and 88 Avenue, that has filled in the last two decades with townhouse and condo strata developments, the Willoughby Town Centre, and master-planned neighbourhoods like Yorkson, Latimer and Routley. It sits slightly higher than the Langley valley floor, so it catches and holds snow a touch longer.",
+    snowfall_note:
+      "Willoughby averages around 52 cm of snow a year, marginally more than the valley floor because of its gentle elevation. The defining feature for winter is density: this is one of the Lower Mainland's largest concentrations of new multi-unit strata, so a single snowfall lands on an enormous run of shared drive aisles, visitor lots and parkade ramps that all need clearing before the morning commute.",
+    strata_note:
+      "Willoughby is strata-first — possibly the densest new townhouse-and-condo strata build in the Fraser Valley. Councils here manage long shared drive aisles, large visitor lots and parkade ramps across multi-building sites, all common property under the BC Strata Property Act. The scale means an un-cleared ramp or aisle affects hundreds of residents and is a documented liability the moment someone slips.",
+    commercial_note:
+      "Willoughby Town Centre and the Carvolth commercial node give the area a busy retail and transit-oriented core — shopping, medical and office parking that needs early, coordinated clearing alongside the surrounding stratas.",
+    residential_note:
+      "Behind the strata density are thousands of families in townhomes and condos who need shared walkways and visitor parking clear to get to work, school and the Carvolth park-and-ride. Residential and strata seasonal contracts keep those shared surfaces safe through the morning rush.",
+    bylaw: {
+      rule: "Owners and occupiers must keep sidewalks adjacent to their property clear of snow and ice in a timely way after a snowfall.",
+      authority: "Township of Langley Highway & Traffic Regulation Bylaw",
+      fine: "Municipal clearing costs and penalties recoverable against the property",
+      link: "https://www.tol.ca",
+    },
+    weather_api: {
+      lat: 49.1078,
+      lng: -122.6376,
+      environment_canada_url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html",
+      open_meteo_url:
+        "https://api.open-meteo.com/v1/forecast?latitude=49.1078&longitude=-122.6376&current=temperature_2m,weather_code,snowfall&temperature_unit=celsius",
+    },
+    landmarks: [
+      { name: "Willoughby Town Centre", lat: 49.1156, lng: -122.6446, type: "commercial" },
+      { name: "Yorkson Community Park", lat: 49.1231, lng: -122.6489, type: "park" },
+      { name: "R.E. Mountain Secondary", lat: 49.1189, lng: -122.6331, type: "venue" },
+      { name: "Carvolth Exchange", lat: 49.1381, lng: -122.6636, type: "transit" },
+      { name: "Willoughby Community Park", lat: 49.1069, lng: -122.6394, type: "park" },
+    ],
+    transit_routes: [
+      { route: "564 Willoughby", corridor: "208 Street / Willoughby", operator: "TransLink" },
+      { route: "555 Carvolth", corridor: "Highway 1 / Carvolth Exchange", operator: "TransLink" },
+      { route: "501 Langley Centre", corridor: "Fraser Highway", operator: "TransLink" },
+    ],
+    google_business_pin: {
+      name: "PlowWow Snow Removal — Willoughby",
+      maps_url: "https://www.google.com/maps/search/snow+removal+willoughby+langley",
+      embed_query: "Willoughby, Langley, BC",
+    },
+    neighbourhoods: [
+      { name: "Willoughby Town Centre", note: "Retail & high-density core" },
+      { name: "Yorkson", note: "New townhouse & condo stratas" },
+      { name: "Latimer", note: "Master-planned strata growth" },
+      { name: "Routley", note: "Family townhouse communities" },
+      { name: "Carvolth", note: "Transit-oriented & commercial" },
+    ],
+    faq: [
+      { q: "Do you provide snow removal in Willoughby?", a: "Yes. PlowWow provides snow removal, plowing, salting and de-icing throughout Willoughby in Langley, covering townhouse-strata drive aisles, visitor parking, walkways, driveways and common areas on fixed-price seasonal contracts, documented for strata councils." },
+      { q: "Do you service townhouse and condo stratas in Willoughby?", a: "Absolutely. Willoughby is a residential-strata area, and strata councils here carry a duty under the BC Strata Property Act to keep common property reasonably clear of snow and ice. We handle shared drive aisles, visitor lots, walkways and parkade ramps, with a documented service record for each visit." },
+      { q: "How fast do you respond after snowfall?", a: "We monitor local conditions and dispatch automatically once snow reaches trigger depth — no call needed. Seasonal strata and residential clients get priority response with a guaranteed clearing window on every storm, day or night." },
+      { q: "What does a Willoughby seasonal contract cost?", a: "Pricing is fixed for the season and based on your property — driveway and drive-aisle length, visitor lot and walkway area, ramps and entries. One predictable price with no per-storm surprises, which makes it easy for strata councils to budget and approve." },
+    ],
+    pricing: {
+      residential_seasonal: "$600–$1,500 / season",
+      strata_seasonal: "$4,000–$16,000 / season (multi-building strata, by size)",
+      commercial_seasonal: "$4,000–$14,000 / season (town-centre retail & office)",
+      per_visit: "$150–$700 / visit",
+      de_ice_treatment: "$200–$550 / application",
+    },
+    comparison_table: {
+      competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
+      factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
+    },
+    internal_links: ["langley", "walnut-grove", "fort-langley"],
+    external_authority_links: [
+      { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
+      { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
+    ],
+    intro_long: p([
+      "Willoughby is the story of Langley's growth in one neighbourhood. Two decades ago it was farmland and scattered acreage; today it is a plateau of master-planned strata communities — Yorkson, Latimer, Routley — anchored by the Willoughby Town Centre and the Carvolth transit exchange. That growth created something unusual for the Fraser Valley: an enormous, continuous run of townhouse and condo strata common property, all of which has to be kept safe every winter.",
+      "The defining winter challenge in Willoughby is scale and density. These are multi-building sites with long shared drive aisles, big visitor lots and parkade ramps serving hundreds of units each. A single snowfall covers an immense footprint of shared surface, and because Willoughby sits slightly higher than the valley floor, it catches snow a little earlier and holds ice a little longer on its shaded new-build aisles.",
+      "PlowWow runs Willoughby as a large-format residential-strata account. We stage compact and mid-size equipment locally to work tight drive aisles and ramps at volume, pre-position de-icing product across sites, and sequence clearing so parkade ramps, visitor lots and walkways open before the morning commute to Carvolth and beyond.",
+    ]),
+    conditions_long: p([
+      "Willoughby's gentle elevation and dense new-build form combine to make ice, not depth, the real problem. Snow arrives slightly earlier here than on the valley floor, and the narrow drive aisles between closely-spaced townhouse blocks stay shaded, so daytime melt refreezes overnight into sheet ice across the exact aisles and ramps residents use at 6 AM.",
+      "Parkade ramps are the signature Willoughby hazard. The area's condo and stacked-townhouse stratas have below-grade parking whose ramps ice fast during freeze-thaw — a genuine vehicle and liability risk if not pre-treated and cleared as a priority. Our Willoughby service treats ramps and shaded aisles as first-priority zones with proactive de-icing and return visits.",
+      "We dispatch automatically at trigger depth and route contracted sites first, so the ramps, aisles and walkways that hundreds of Willoughby residents depend on are cleared and treated before the neighbourhood heads out.",
+    ]),
+    prep_long: p([
+      "Willoughby seasonal readiness is activated by early November. De-icing product and brine are pre-positioned across contracted sites, parkade-ramp treatment plans are set, incident-log software is provisioned per council, and 24/7 dispatch numbers are distributed to strata councils and property managers.",
+      "Because Willoughby's sites are large and resident-dense, we map each complex in advance — which ramps ice first, where visitor parking clusters, how the drive aisles connect — and set up the evening-before resident parking notice that lets crews clear cleanly at dawn. In a neighbourhood this dense, a site without a seasonal contract locked by early November may not secure priority large-equipment coverage before the first event.",
+    ]),
+    mistakes_long: p([
+      "The classic Willoughby mistake is underestimating scale — hiring a single pickup for a multi-building strata that needs coordinated, large-format clearing, then watching ramps and visitor lots go untouched while the entrance gets a token pass. The second is ignoring parkade ramps, leaving overnight ice on the below-grade ramps where cars and residents are most exposed.",
+      "The third is thin documentation and poor resident coordination. Willoughby councils manage hundreds of residents and the same Section 72 duty of care as any strata, so a slip-and-fall without a service log is a real exposure, and un-notified residents blocking drive aisles can stall an entire route. Matching equipment to the site's scale, prioritizing ramps and the refreeze, and documenting every visit are what a real Willoughby strata program requires.",
+    ]),
+    testimonials: [
+      { name: "Amrit S.", role: "Strata Council", neighbourhood: "Yorkson", rating: 5, quote: "5" },
+      { name: "Jennifer T.", role: "Property Manager", neighbourhood: "Latimer", rating: 5, quote: "5" },
+      { name: "Mike R.", role: "Homeowner", neighbourhood: "Routley", rating: 5, quote: "5" },
+    ],
+  },
+
+  "fort-langley": {
+    slug: "fort-langley",
+    city: "Fort Langley",
+    region: "Metro Vancouver / Langley",
+    lat: 49.1668,
+    lng: -122.5786,
+    phone: "604-761-1518",
+    email: "info@plowwow.com",
+    avg_annual_snowfall_cm: 45,
+    snow_season_start: "November",
+    snow_season_end: "March",
+    freeze_thaw_cycles: 20,
+    terrain_note:
+      "Fort Langley is Langley's historic heart — the riverside village built around the Fort Langley National Historic Site, where Glover Road's heritage storefronts meet the Bedford Landing townhouse stratas along the Fraser. It is lower-density and steeped in character, but its village businesses, waterfront stratas and residential streets all need winter clearing done with care for the heritage setting.",
+    snowfall_note:
+      "Fort Langley averages around 45 cm of snow a year, a little less than the Langley uplands thanks to its low riverside elevation, though the Fraser's proximity brings its own freeze-thaw and damp-cold ice. The bigger consideration here is character: clearing has to keep the village walkable and businesses accessible without damaging heritage streetscape and landscaping.",
+    strata_note:
+      "Fort Langley's strata base is anchored by Bedford Landing — the riverside master-planned community of townhouse and low-rise strata whose councils manage shared lanes, visitor parking and waterfront walkways as common property under the BC Strata Property Act. Keeping those shared surfaces safe is both a liability duty and a matter of preserving the community's walkable, riverside character.",
+    commercial_note:
+      "Glover Road village is a tourism and small-business destination — boutiques, cafes and restaurants whose sidewalks and entries must stay clear and safe for the steady foot traffic the village draws, even in winter. Village-business clearing keeps Fort Langley open and welcoming through the season.",
+    residential_note:
+      "Beyond the village and Bedford Landing, Fort Langley's residential streets and heritage homes need driveways and walks kept clear on family schedules. Residential seasonal contracts handle the driveways and public walks so residents and visitors move safely through the historic streets.",
+    bylaw: {
+      rule: "Owners and occupiers must keep sidewalks adjacent to their property clear of snow and ice in a timely way after a snowfall.",
+      authority: "Township of Langley Highway & Traffic Regulation Bylaw",
+      fine: "Municipal clearing costs and penalties recoverable against the property",
+      link: "https://www.tol.ca",
+    },
+    weather_api: {
+      lat: 49.1668,
+      lng: -122.5786,
+      environment_canada_url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html",
+      open_meteo_url:
+        "https://api.open-meteo.com/v1/forecast?latitude=49.1668&longitude=-122.5786&current=temperature_2m,weather_code,snowfall&temperature_unit=celsius",
+    },
+    landmarks: [
+      { name: "Fort Langley National Historic Site", lat: 49.1686, lng: -122.5789, type: "landmark" },
+      { name: "Bedford Landing", lat: 49.1636, lng: -122.5808, type: "commercial" },
+      { name: "Glover Road Village", lat: 49.1667, lng: -122.5806, type: "commercial" },
+      { name: "Fort-to-Fort Trail", lat: 49.1608, lng: -122.5836, type: "park" },
+      { name: "Jacob Haldi Bridge", lat: 49.1719, lng: -122.5794, type: "transit" },
+    ],
+    transit_routes: [
+      { route: "561 Langley Centre", corridor: "Glover Road / Fort Langley", operator: "TransLink" },
+      { route: "C62 Community Shuttle", corridor: "Fort Langley village", operator: "TransLink" },
+      { route: "555 Carvolth", corridor: "Highway 1 connection", operator: "TransLink" },
+    ],
+    google_business_pin: {
+      name: "PlowWow Snow Removal — Fort Langley",
+      maps_url: "https://www.google.com/maps/search/snow+removal+fort-langley+langley",
+      embed_query: "Fort Langley, Langley, BC",
+    },
+    neighbourhoods: [
+      { name: "Bedford Landing", note: "Riverside townhouse stratas" },
+      { name: "Glover Road Village", note: "Heritage commercial core" },
+      { name: "Fort-to-Fort", note: "Trail-side residential" },
+      { name: "Church Street", note: "Historic residential" },
+      { name: "Bedford Channel", note: "Waterfront properties" },
+    ],
+    faq: [
+      { q: "Do you provide snow removal in Fort Langley?", a: "Yes. PlowWow provides snow removal, plowing, salting and de-icing throughout Fort Langley in Langley, covering townhouse-strata drive aisles, visitor parking, walkways, driveways and common areas on fixed-price seasonal contracts, documented for strata councils." },
+      { q: "Do you service townhouse and condo stratas in Fort Langley?", a: "Absolutely. Fort Langley is a residential-strata area, and strata councils here carry a duty under the BC Strata Property Act to keep common property reasonably clear of snow and ice. We handle shared drive aisles, visitor lots, walkways and parkade ramps, with a documented service record for each visit." },
+      { q: "How fast do you respond after snowfall?", a: "We monitor local conditions and dispatch automatically once snow reaches trigger depth — no call needed. Seasonal strata and residential clients get priority response with a guaranteed clearing window on every storm, day or night." },
+      { q: "What does a Fort Langley seasonal contract cost?", a: "Pricing is fixed for the season and based on your property — driveway and drive-aisle length, visitor lot and walkway area, ramps and entries. One predictable price with no per-storm surprises, which makes it easy for strata councils to budget and approve." },
+    ],
+    pricing: {
+      residential_seasonal: "$600–$1,400 / season",
+      strata_seasonal: "$3,500–$12,000 / season (Bedford Landing & village strata)",
+      commercial_seasonal: "$3,000–$10,000 / season (village businesses)",
+      per_visit: "$150–$550 / visit",
+      de_ice_treatment: "$200–$500 / application",
+    },
+    comparison_table: {
+      competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
+      factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
+    },
+    internal_links: ["langley", "walnut-grove", "willoughby"],
+    external_authority_links: [
+      { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
+      { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
+    ],
+    intro_long: p([
+      "Fort Langley is unlike anywhere else PlowWow serves. It is a National Historic Site with a working village — heritage storefronts along Glover Road, the riverside Bedford Landing strata community, and quiet residential streets that draw visitors year-round. That character is the whole point of Fort Langley, and winter service here has to protect it: keep the village walkable and the stratas safe without tearing up heritage landscaping or piling snow where it does not belong.",
+      "The winter fabric of Fort Langley is a mix the rest of Langley does not have: a compact commercial core with heavy pedestrian traffic, riverside townhouse stratas with shared lanes and waterfront walks, and character homes on narrow historic streets. Each needs a different touch — sidewalk safety for the village, drive-aisle and walkway clearing for Bedford Landing, driveway service for residents.",
+      "PlowWow runs Fort Langley as a careful, mixed-use route. We keep Glover Road's sidewalks and business entries safe for foot traffic, clear Bedford Landing's shared lanes and riverside walkways, and service residential driveways — all with an eye on the heritage streetscape and the community's walkable character.",
+    ]),
+    conditions_long: p([
+      "Fort Langley's riverside position gives it a damp, freeze-thaw cold that glazes sidewalks and walkways even when accumulation is modest. The Fraser keeps humidity high, so the village's heavily-walked Glover Road sidewalks and Bedford Landing's waterfront paths ice readily — a real hazard given the pedestrian traffic the village attracts.",
+      "The heritage setting adds a constraint most neighbourhoods do not have: snow has to be cleared and de-iced without damaging historic landscaping, brick walks and streetscape features, and without blocking the storefronts and access the village depends on. This is precision clearing, not brute-force plowing.",
+      "We monitor conditions and dispatch at trigger depth, prioritizing the village's walked sidewalks and Bedford Landing's shared surfaces, with de-icing timed to the freeze-thaw so Fort Langley stays safe and open through winter.",
+    ]),
+    prep_long: p([
+      "Fort Langley seasonal readiness is set by early November. De-icing product suited to walkways and heritage surfaces is pre-positioned, brine is staged for pre-treatment ahead of events, incident-log software is provisioned for the Bedford Landing councils and village businesses, and 24/7 dispatch numbers are distributed to managers and owners.",
+      "Because Fort Langley mixes pedestrian-heavy village blocks with riverside stratas, we plan each property's critical paths in advance — which sidewalks carry the most foot traffic, where Bedford Landing's shared lanes and walks run — so crews clear in the order that keeps the village safe and welcoming. Village businesses and stratas that lock a seasonal contract by early November secure priority response before the first event.",
+    ]),
+    mistakes_long: p([
+      "The most common Fort Langley mistake is treating it like any other suburb — sending a plow to shove snow around without regard for the heritage streetscape, blocking storefronts, and skipping the sidewalk de-icing that a pedestrian village actually needs. The second is ignoring the riverside freeze-thaw, clearing once and leaving the damp-cold ice that forms on the village's walked sidewalks and waterfront paths.",
+      "The third is thin documentation. Bedford Landing councils and village businesses carry the same duty of care as anyone — and with the foot traffic Fort Langley draws, a slip on an un-cleared, undocumented sidewalk is a real exposure. Precision walkway clearing, freeze-thaw de-icing, and documented service, all with respect for the heritage setting, are what Fort Langley genuinely requires.",
+    ]),
+    testimonials: [
+      { name: "Robert H.", role: "Village Business Owner", neighbourhood: "Glover Road Village", rating: 5, quote: "5" },
+      { name: "Patricia W.", role: "Strata Council", neighbourhood: "Bedford Landing", rating: 5, quote: "5" },
+      { name: "Tom G.", role: "Homeowner", neighbourhood: "Church Street", rating: 5, quote: "5" },
+    ],
+  },
 };
