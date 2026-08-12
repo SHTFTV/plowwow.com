@@ -829,7 +829,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Large-lot loaders", "24/7 auto-dispatch", "Dock & trailer-lane priority", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["/p/surrey", "/p/langley", "/p/campbell-heights"],
+    internal_links: ["surrey", "langley", "campbell-heights"],
     external_authority_links: [
       { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
       { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
@@ -935,7 +935,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Large-lot loaders", "24/7 auto-dispatch", "Shift-change timing", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["/p/surrey", "/p/white-rock", "/p/port-kells"],
+    internal_links: ["surrey", "white-rock", "port-kells"],
     external_authority_links: [
       { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
       { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
