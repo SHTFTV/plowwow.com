@@ -529,6 +529,66 @@ export const cities: City[] = [
       },
     ],
   },
+  {
+    slug: "port-kells",
+    cityHall: { lat: 49.1471, lon: -122.7106, address: "Port Kells, Surrey" },
+    name: "Port Kells",
+    province: "BC",
+    tagline: "Port Kells Commercial & Industrial Snow Removal",
+    intro:
+      "24/7 snow plowing, salting and de-icing for Port Kells' warehouse, distribution and trucking properties — the 176 Street and Highway 1 logistics belt in northeast Surrey. Large-lot equipment and priority dispatch for industrial and strata sites.",
+    ogImage: "https://plowwow.com/og-surrey.jpg",
+    snowfall: [
+      { month: "Nov", cm: 5 },
+      { month: "Dec", cm: 16 },
+      { month: "Jan", cm: 14 },
+      { month: "Feb", cm: 8 },
+      { month: "Mar", cm: 3 },
+    ],
+    neighborhoods: [
+      { name: "176 Street Corridor", note: "Warehouse & distribution frontage" },
+      { name: "88 Avenue Business Park", note: "Truck yards & flex units" },
+      { name: "Anniedale", note: "Emerging logistics blocks" },
+      { name: "Tynehead", note: "Highway 1 industrial edge" },
+      { name: "Highway 15 / 17 belt", note: "Cross-border freight & logistics" },
+    ],
+    faqs: [
+      {
+        q: "Do you clear large industrial lots and truck yards in Port Kells?",
+        a: "Yes — Port Kells is a core industrial zone for us. We run loaders and large plows for distribution lots, loading docks and trailer lanes, keeping 24/7 freight access open.",
+      },
+    ],
+  },
+  {
+    slug: "campbell-heights",
+    cityHall: { lat: 49.0492, lon: -122.7486, address: "Campbell Heights, South Surrey" },
+    name: "Campbell Heights",
+    province: "BC",
+    tagline: "Campbell Heights Business Park Snow Removal",
+    intro:
+      "24/7 snow and ice management for Campbell Heights — one of Metro Vancouver's largest business parks, spanning South Surrey around 192 Street between 24th and 40th Avenue. Large-lot plowing, loading-dock clearing and de-icing for logistics, manufacturing and strata sites.",
+    ogImage: "https://plowwow.com/og-surrey.jpg",
+    snowfall: [
+      { month: "Nov", cm: 4 },
+      { month: "Dec", cm: 14 },
+      { month: "Jan", cm: 13 },
+      { month: "Feb", cm: 7 },
+      { month: "Mar", cm: 2 },
+    ],
+    neighborhoods: [
+      { name: "Campbell Heights North", note: "Logistics & distribution" },
+      { name: "Campbell Heights South", note: "Manufacturing & flex" },
+      { name: "192 Street Corridor", note: "Primary access & truck route" },
+      { name: "32 Avenue", note: "Business-park frontage" },
+      { name: "Grandview Heights (adjacent)", note: "Mixed commercial & strata" },
+    ],
+    faqs: [
+      {
+        q: "Can you handle a business park the size of Campbell Heights?",
+        a: "Yes. Campbell Heights has expansive lots, long internal roads and heavy truck traffic. We stage large equipment locally and clear big sites fast to keep fleet and shift-change access open.",
+      },
+    ],
+  },
 ];
 
 export const getCityBySlug = (slug: string): City | undefined =>

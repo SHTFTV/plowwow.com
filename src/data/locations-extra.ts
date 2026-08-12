@@ -752,4 +752,216 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       { name: "Karen R.", role: "Homeowner", neighbourhood: "Upper Delbrook", rating: 5, quote: "Long private lane, mature cedars, elderly parents at home. Every previous contractor treated us like a Lower Lonsdale property — and every previous contractor missed us during outflow. PlowWow shows up chained, clears the lane, salts the walk. That is the North Shore standard." },
     ],
   },
+
+  "port-kells": {
+    slug: "port-kells",
+    city: "Port Kells",
+    region: "Metro Vancouver / Fraser Valley",
+    lat: 49.1471,
+    lng: -122.7106,
+    phone: "604-761-1518",
+    email: "info@plowwow.com",
+    avg_annual_snowfall_cm: 50,
+    snow_season_start: "November",
+    snow_season_end: "March",
+    freeze_thaw_cycles: 24,
+    terrain_note:
+      "Port Kells occupies the northeast shoulder of Surrey, a low plateau between the Fraser River flats and the Highway 1 / 176 Street interchange. It is an industrial district first and foremost — warehouses, distribution centres, trucking yards and business-park stratas laid out on large exposed parcels with little tree cover. That openness matters in winter: wind-driven snow drifts across acres of asphalt, and the same Fraser Valley outflow that funnels west through Langley reaches Port Kells early and hard.",
+    snowfall_note:
+      "Port Kells averages roughly 50 cm of snowfall a year, a touch above the Surrey citywide figure because of its inland position and exposure to outflow off the Fraser. The bigger operational risk here is not depth but freeze-thaw: broad flat lots melt in daytime sun and refreeze into sheet ice across loading zones and drive aisles overnight, exactly where forklifts, trucks and pedestrians converge.",
+    strata_note:
+      "Port Kells strata is overwhelmingly bare-land and industrial-strata — multi-unit warehouse and flex complexes governed by councils whose common property is measured in truck courts and shared drive aisles rather than lawns. The BC Strata Property Act Section 72 duty to maintain common property applies just as it does to a residential tower, and an un-cleared shared loading lane is a documented liability the moment a tenant's staff or a delivery driver slips.",
+    commercial_note:
+      "This is one of Surrey's densest logistics belts. Distribution centres, cold storage, cross-dock facilities and trucking yards line 176 Street and 88 Avenue, feeding Highway 1 and the Golden Ears crossing. These operations run around the clock, so snow that closes a dock apron or a trailer lane does not just inconvenience a business — it stops freight. PlowWow stages large-lot equipment for exactly this: loaders, large plows and bulk de-icing sized to industrial parcels.",
+    residential_note:
+      "Port Kells has very little residential fabric — a scattering of older acreage and rural-edge homes on the Tynehead and Anniedale margins. Winter demand here is almost entirely commercial and industrial, which is why our Port Kells routing prioritizes equipment throughput over the light residential passes typical elsewhere in Surrey.",
+    bylaw: {
+      rule: "Property owners must clear snow and ice from adjacent public sidewalks by 10:00 AM the day following a snowfall.",
+      authority: "City of Surrey Traffic Bylaw, 1997, No. 13007",
+      fine: "Up to $500 per offence; municipal clearing costs recoverable against the property",
+      link: "https://www.surrey.ca",
+    },
+    weather_api: {
+      lat: 49.1471,
+      lng: -122.7106,
+      environment_canada_url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html",
+      open_meteo_url:
+        "https://api.open-meteo.com/v1/forecast?latitude=49.1471&longitude=-122.7106&current=temperature_2m,weather_code,snowfall&temperature_unit=celsius",
+    },
+    landmarks: [
+      { name: "Highway 1 / 176 Street Interchange", lat: 49.1533, lng: -122.7098, type: "transit" },
+      { name: "Tynehead Regional Park", lat: 49.1447, lng: -122.7386, type: "park" },
+      { name: "Surrey Bend Regional Park", lat: 49.1794, lng: -122.7405, type: "park" },
+      { name: "Port Kells Industrial (176 St)", lat: 49.1471, lng: -122.7106, type: "commercial" },
+      { name: "Golden Ears Bridge approach", lat: 49.1889, lng: -122.6906, type: "transit" },
+    ],
+    transit_routes: [
+      { route: "502 Langley Centre", corridor: "Fraser Highway", operator: "TransLink" },
+      { route: "320 Langley Centre", corridor: "Fraser Highway", operator: "TransLink" },
+      { route: "509 Walnut Grove", corridor: "88 Avenue / Highway 1", operator: "TransLink" },
+    ],
+    google_business_pin: {
+      name: "PlowWow Snow Removal — Port Kells",
+      maps_url: "https://www.google.com/maps/search/snow+removal+port+kells+surrey",
+      embed_query: "Port Kells, Surrey, BC",
+    },
+    neighbourhoods: [
+      { name: "176 Street Corridor", note: "Warehouse and distribution frontage; primary freight route to Highway 1." },
+      { name: "88 Avenue Business Park", note: "Truck yards, cross-dock and flex-industrial strata units." },
+      { name: "Anniedale", note: "Emerging logistics blocks on former rural parcels." },
+      { name: "Tynehead", note: "Highway 1 industrial edge beside the regional park." },
+      { name: "Highway 15 / 17 belt", note: "Cross-border and port-bound freight logistics." },
+    ],
+    faq: [
+      { q: "Do you provide snow removal in Port Kells?", a: "Yes. PlowWow provides 24/7 commercial and industrial snow removal, plowing, salting and de-icing throughout Port Kells, covering distribution centres, warehouses, truck yards and business-park stratas on fixed-price seasonal contracts." },
+      { q: "Can you clear large industrial lots and loading docks?", a: "Absolutely. Port Kells is a warehouse and trucking district. We run loaders and large plows for big lots, and prioritize loading docks, apron zones and trailer lanes so freight keeps moving around the clock." },
+      { q: "How fast do you respond after snowfall?", a: "We monitor conditions and dispatch automatically at trigger depth — no call needed — with priority response and a guaranteed clearing window for seasonal clients, day or night." },
+      { q: "Do you document service for property managers and insurers?", a: "Yes. Every visit is time-stamped with scope logged — the record property managers, industrial-strata councils and insurers need to show reasonable care under Section 72." },
+    ],
+    pricing: {
+      residential_seasonal: "N/A — Port Kells is an industrial district",
+      strata_seasonal: "$4,500–$18,000 / season (industrial-strata, by lot area)",
+      commercial_seasonal: "$6,000–$40,000+ / season (distribution & logistics sites)",
+      per_visit: "$450–$2,500 / visit by site size",
+      de_ice_treatment: "$300–$1,200 / application",
+    },
+    comparison_table: {
+      competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
+      factors: ["Large-lot loaders", "24/7 auto-dispatch", "Dock & trailer-lane priority", "Documented service logs", "WorkSafeBC insured"],
+    },
+    internal_links: ["/p/surrey", "/p/langley", "/p/campbell-heights"],
+    external_authority_links: [
+      { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
+      { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
+    ],
+    intro_long: p([
+      "Port Kells is where northeast Surrey does its heavy lifting. Between the Highway 1 interchange at 176 Street and the Golden Ears crossing, the district is a continuous run of distribution centres, cold-storage warehouses, cross-dock terminals and trucking yards — the kind of infrastructure that moves goods across the Lower Mainland and the border. In a normal week that machinery hums along unnoticed. In a snow event, it becomes a liability map: every dock apron, every trailer lane, every shared drive aisle in a bare-land strata is a place where a truck can jackknife or a worker can fall.",
+      "What makes Port Kells different from a residential Surrey neighbourhood is scale and continuity. These are not driveways; they are acres of exposed asphalt that drift in wind and glaze over in freeze-thaw. And the operations on them do not close for weather — freight schedules, shift changes and just-in-time deliveries run through the night, which means snow has to be cleared on the operation's clock, not the contractor's convenience.",
+      "PlowWow treats Port Kells as a dedicated industrial zone. We stage large-lot equipment — loaders and heavy plows rather than pickup blades — pre-position bulk de-icing product, and route crews to keep loading docks and truck lanes open first. The goal is simple: when the snow comes, the freight keeps moving.",
+    ]),
+    conditions_long: p([
+      "Port Kells sits inland enough to catch Fraser Valley outflow early. When arctic air pours down the valley and meets Pacific moisture, the 176 Street belt is often under snow while coastal South Surrey is still just wet. The district's flat, treeless parcels then do two things that complicate clearing: they let wind pile drifts against dock doors and fence lines, and they expose enormous surfaces to the daily freeze-thaw cycle.",
+      "That freeze-thaw is the real hazard. A distribution lot that melts to slush under afternoon sun refreezes overnight into sheet ice precisely where forklifts turn and drivers step down from cabs. Depth rarely shuts Port Kells down; ice does. Our response is built around proactive de-icing and return visits timed to the refreeze, not just a single plowing pass after accumulation.",
+      "We monitor local conditions continuously and dispatch at trigger depth automatically, with priority routing for contracted sites so the docks and lanes that keep freight flowing are cleared before the district wakes up for the next shift.",
+    ]),
+    prep_long: p([
+      "Seasonal readiness in Port Kells is activated by November 1. Bulk de-icing product is pre-positioned in on-site bins for owner top-up between visits, brine is staged for pre-treatment ahead of forecast events, incident-log software is provisioned per property manager, and 24/7 dispatch numbers are distributed to site managers and industrial-strata councils.",
+      "Because Port Kells operations run around the clock, we map each site's critical paths in advance — which docks load overnight, which lanes the trucks use to stage, where the pedestrian routes cross the yard — so crews clear in the order that keeps the business running. Any large industrial site that has not locked a seasonal contract by early November risks losing priority access during the first event, which in this outflow-exposed belt frequently arrives in mid-November.",
+    ]),
+    mistakes_long: p([
+      "The most common Port Kells mistake is treating an industrial lot like a big driveway — sending a single pickup with a blade to a parcel that needs a loader. The lot gets a token pass, the windrows block dock doors, and the freeze-thaw ice is never addressed. The second mistake is ignoring the refreeze: clearing once after snowfall and walking away, leaving overnight sheet ice across the exact zones where the next shift's forklifts and drivers work.",
+      "The third is documentation. Industrial-strata councils and commercial property managers carry the same Section 72 duty of care as any other owner, and when a slip-and-fall claim lands, an undocumented 'we cleared it' is worth little. PlowWow logs every visit with time and scope so the record exists before it is needed. Matching equipment to the parcel, treating the refreeze, and documenting the work are what separate a real industrial snow program from a landscaper moonlighting in January.",
+    ]),
+    testimonials: [
+      { name: "Dave K.", role: "Facilities Manager", neighbourhood: "176 Street Corridor", rating: 5, quote: "Two loading docks, a 4-acre trailer yard, trucks in and out all night. PlowWow clears our lanes before the 6 AM shift and hits the docks first. We have not lost a load to weather since we signed." },
+      { name: "Priya S.", role: "Industrial Strata Council", neighbourhood: "88 Avenue Business Park", rating: 5, quote: "Bare-land strata, shared drive aisles, twelve tenants. Our old contractor plowed the middle and left the ice. PlowWow salts the refreeze and sends us a log for every visit. Our insurer noticed." },
+      { name: "Marco T.", role: "Operations Director", neighbourhood: "Anniedale", rating: 5, quote: "Distribution centre on a wide-open parcel that drifts badly in outflow. They stage a loader locally and clear the whole yard fast. This is what an industrial snow contract is supposed to look like." },
+    ],
+  },
+
+  "campbell-heights": {
+    slug: "campbell-heights",
+    city: "Campbell Heights",
+    region: "Metro Vancouver / South Surrey",
+    lat: 49.0492,
+    lng: -122.7486,
+    phone: "604-761-1518",
+    email: "info@plowwow.com",
+    avg_annual_snowfall_cm: 42,
+    snow_season_start: "November",
+    snow_season_end: "March",
+    freeze_thaw_cycles: 20,
+    terrain_note:
+      "Campbell Heights is a purpose-built business park spread across the elevated South Surrey plateau between roughly 24th and 40th Avenue around 192 Street — one of the largest industrial parks in Metro Vancouver. The 'Heights' is not a marketing name: the park sits on higher ground than the Semiahmoo lowlands below it, which means it catches and holds snow while coastal South Surrey a few kilometres away stays wet.",
+    snowfall_note:
+      "Campbell Heights averages around 42 cm of snow a year — less than the Fraser Valley belt but held longer thanks to elevation and shade on wide internal roads. The operational challenge is surface area: this is a park of very large parcels, long private roads and expansive truck yards, so even a modest snowfall covers an enormous footprint that must be cleared before shift changes and inbound freight.",
+    strata_note:
+      "Campbell Heights includes a growing base of business-park and bare-land strata complexes — multi-unit industrial and flex developments whose councils are responsible for shared roads, truck courts and parking as common property. The BC Strata Property Act Section 72 duty applies in full, and with employee and visitor volumes in the thousands across the park, slip-and-fall exposure on common industrial surfaces is a real and documented insurer concern.",
+    commercial_note:
+      "Campbell Heights is a logistics, manufacturing and distribution hub — fulfilment centres, production plants, warehouses, fleet depots and flex/office buildings, many operating multiple shifts. The park's scale and round-the-clock operations mean snow clearance is measured in acres and timed to shift changes: fleet gates, employee lots and loading areas all have to be open when the next crew arrives.",
+    residential_note:
+      "Campbell Heights itself is industrial; the nearest residential fabric is in adjacent Grandview Heights and the Sunnyside/Morgan Creek areas of South Surrey. Winter demand in the park is overwhelmingly commercial and strata-industrial, which shapes our routing toward large equipment and early, high-throughput passes rather than residential service.",
+    bylaw: {
+      rule: "Property owners must clear snow and ice from adjacent public sidewalks by 10:00 AM the day following a snowfall.",
+      authority: "City of Surrey Traffic Bylaw, 1997, No. 13007",
+      fine: "Up to $500 per offence; municipal clearing costs recoverable against the property",
+      link: "https://www.surrey.ca",
+    },
+    weather_api: {
+      lat: 49.0492,
+      lng: -122.7486,
+      environment_canada_url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html",
+      open_meteo_url:
+        "https://api.open-meteo.com/v1/forecast?latitude=49.0492&longitude=-122.7486&current=temperature_2m,weather_code,snowfall&temperature_unit=celsius",
+    },
+    landmarks: [
+      { name: "Campbell Heights Business Park", lat: 49.0492, lng: -122.7486, type: "commercial" },
+      { name: "South Surrey Athletic Park", lat: 49.0533, lng: -122.7808, type: "venue" },
+      { name: "Redwood Park", lat: 49.0386, lng: -122.7469, type: "park" },
+      { name: "Highway 99 / 8 Avenue", lat: 49.0206, lng: -122.7997, type: "transit" },
+      { name: "Grandview Corners", lat: 49.0478, lng: -122.8034, type: "commercial" },
+    ],
+    transit_routes: [
+      { route: "531 Willowbrook", corridor: "24 Avenue / 32 Avenue", operator: "TransLink" },
+      { route: "354 White Rock Centre", corridor: "Highway 99 / South Surrey", operator: "TransLink" },
+      { route: "375 Guildford", corridor: "King George Boulevard", operator: "TransLink" },
+    ],
+    google_business_pin: {
+      name: "PlowWow Snow Removal — Campbell Heights",
+      maps_url: "https://www.google.com/maps/search/snow+removal+campbell+heights+surrey",
+      embed_query: "Campbell Heights, Surrey, BC",
+    },
+    neighbourhoods: [
+      { name: "Campbell Heights North", note: "Logistics and distribution facilities on large parcels." },
+      { name: "Campbell Heights South", note: "Manufacturing, production and flex-industrial units." },
+      { name: "192 Street Corridor", note: "Primary access and truck route into the park." },
+      { name: "32 Avenue", note: "Business-park frontage and fleet access." },
+      { name: "Grandview Heights (adjacent)", note: "Mixed commercial and strata development." },
+    ],
+    faq: [
+      { q: "Do you provide snow removal in Campbell Heights?", a: "Yes. PlowWow provides 24/7 business-park and industrial snow removal, plowing, salting and de-icing across Campbell Heights, covering logistics facilities, manufacturing plants, warehouses and business-park stratas on fixed-price seasonal contracts." },
+      { q: "Can you handle a park the size of Campbell Heights?", a: "Absolutely. Campbell Heights has expansive lots, long internal roads and heavy truck traffic. We stage large equipment locally and clear big sites fast to keep fleet, employee and loading access open through shift changes." },
+      { q: "Does elevation make Campbell Heights worse for snow?", a: "It can. The park sits on higher South Surrey ground, so it catches and holds snow and ice while lower coastal areas stay wet. We plan earlier trigger depths and extra de-icing for that reason." },
+      { q: "Do you document service for managers and insurers?", a: "Yes. Every visit is time-stamped with scope logged — the record property managers, business-park strata councils and insurers need to demonstrate reasonable care under Section 72." },
+    ],
+    pricing: {
+      residential_seasonal: "N/A — Campbell Heights is a business park",
+      strata_seasonal: "$5,000–$20,000 / season (business-park strata, by area)",
+      commercial_seasonal: "$7,000–$45,000+ / season (large logistics & manufacturing)",
+      per_visit: "$500–$3,000 / visit by site size",
+      de_ice_treatment: "$350–$1,400 / application",
+    },
+    comparison_table: {
+      competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
+      factors: ["Large-lot loaders", "24/7 auto-dispatch", "Shift-change timing", "Documented service logs", "WorkSafeBC insured"],
+    },
+    internal_links: ["/p/surrey", "/p/white-rock", "/p/port-kells"],
+    external_authority_links: [
+      { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
+      { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
+    ],
+    intro_long: p([
+      "Campbell Heights is South Surrey's industrial engine — one of the largest business parks in Metro Vancouver, laid out across the elevated plateau around 192 Street between 24th and 40th Avenue. Fulfilment centres, manufacturing plants, warehouses and fleet depots occupy very large parcels connected by long private roads, and many run multiple shifts. In winter, that scale is the whole story: a single snowfall blankets an enormous footprint that has to be cleared before the next crew arrives and the next truck rolls in.",
+      "The park's elevation compounds the challenge. Campbell Heights sits high enough above the Semiahmoo lowlands that it catches and holds snow and ice while coastal South Surrey, only minutes downhill, stays merely wet. What reads as a light dusting on the news can be a genuine ice problem across the park's shaded internal roads and expansive lots.",
+      "PlowWow runs Campbell Heights as a large-format industrial account: loaders and heavy plows staged locally, bulk de-icing pre-positioned, and clearing sequenced to the park's shift changes so fleet gates, employee lots and loading areas open on time.",
+    ]),
+    conditions_long: p([
+      "Elevation and surface area define winter in Campbell Heights. Because the park sits on higher ground, snow arrives a little earlier, lingers a little longer, and refreezes more readily on shaded stretches of its long internal roads than in the coastal neighbourhoods below. The parcels are vast and largely treeless, so wind moves snow around and daytime melt refreezes overnight into ice across lots where trucks manoeuvre and staff walk between buildings.",
+      "The operational reality is that even a modest accumulation covers acres. Clearing has to be both fast and large-format — you cannot service a Campbell Heights parcel with a pickup blade and finish before the shift change. Our routing accounts for the park's geography, treating the higher and shaded blocks as priority zones for early passes and repeat de-icing.",
+      "We dispatch automatically at trigger depth and return for the refreeze, keeping contracted sites' critical access — gates, employee parking, loading — open around the operating clock rather than after it.",
+    ]),
+    prep_long: p([
+      "Campbell Heights seasonal readiness is activated by early November. Bulk product is pre-positioned in on-site bins, brine is staged for pre-treatment ahead of forecast events, incident-log software is provisioned per property manager, and 24/7 dispatch numbers go out to site managers and business-park strata councils.",
+      "Because the park's operations run on shifts, we map each site's timing and critical paths in advance — when the fleet leaves, when staff arrive, which loading areas run overnight — so crews clear in the order that keeps operations moving. Given the park's elevation and scale, sites that have not secured a seasonal contract by early November risk being unable to lock priority large-equipment coverage before the first event.",
+    ]),
+    mistakes_long: p([
+      "The classic Campbell Heights mistake is underestimating scale — hiring for the footprint of a strip mall and discovering, mid-storm, that a single crew with light equipment cannot clear acres of business-park lot before the shift change. The result is blocked gates, un-plowed employee parking and freight backed up at the door.",
+      "The second mistake is ignoring elevation and refreeze. Contractors used to coastal South Surrey treat Campbell Heights like the lowlands, clear once, and leave — missing the overnight ice that forms on the park's higher, shaded roads. The third is thin documentation: business-park strata councils and commercial managers carry the Section 72 duty of care, and when thousands of employees and visitors move through the park daily, a slip-and-fall claim without a service log is a serious exposure. Large-format equipment, elevation-aware timing, and documented visits are what a real Campbell Heights snow program requires.",
+    ]),
+    testimonials: [
+      { name: "Steve L.", role: "Distribution Centre Manager", neighbourhood: "Campbell Heights North", rating: 5, quote: "Massive lot, two shifts, fleet in and out constantly. PlowWow stages a loader here and clears the whole site before the 6 AM crew. The scale finally matches the property." },
+      { name: "Amrit D.", role: "Business-Park Strata Council", neighbourhood: "192 Street Corridor", rating: 5, quote: "Shared roads, dozens of units, employees everywhere. They clear early, salt the refreeze on the high roads, and document every visit. Our insurance renewal went smoothly for once." },
+      { name: "Rachel V.", role: "Plant Operations", neighbourhood: "Campbell Heights South", rating: 5, quote: "We are up on the plateau and we ice over when White Rock is just wet. PlowWow gets that. They pre-treat before events and come back for the refreeze. No more morning slip reports." },
+    ],
+  },
 };
