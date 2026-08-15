@@ -231,11 +231,6 @@ const AppFeatures = () => {
       },
       description: DESCRIPTION,
       featureList: features.map((f) => f.h).join(", "),
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        ratingCount: "47",
-      },
     });
     document.head.appendChild(ld);
 

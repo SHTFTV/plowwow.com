@@ -347,19 +347,6 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         provider: { "@id": "https://plowwow.com/#organization" },
         serviceType: "Snow Removal, De-Icing & Salting",
         address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
-        aggregateRating: (() => {
-          try {
-            const raw = typeof window !== "undefined" ? window.localStorage.getItem("plowwow.seoSettings.v1") : null;
-            const s = raw ? JSON.parse(raw) : null;
-            return {
-              "@type": "AggregateRating",
-              ratingValue: s?.ratingValue || "4.9",
-              reviewCount: s?.reviewCount || "47",
-            };
-          } catch {
-            return { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47" };
-          }
-        })(),
         sameAs: (() => {
           try {
             const raw = typeof window !== "undefined" ? window.localStorage.getItem("plowwow.seoSettings.v1") : null;
