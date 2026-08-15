@@ -130,7 +130,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
         "Fleet Redundancy",
       ],
     },
-    internal_links: ["surrey", "coquitlam", "richmond", "north-vancouver", "new-westminster"],
+    internal_links: ["surrey", "coquitlam", "richmond", "north-vancouver", "new-westminster", "vancouver"],
     external_authority_links: [
       { label: "City of Burnaby Bylaws", url: "https://www.burnaby.ca" },
       { label: "Environment Canada — Burnaby / Vancouver", url: "https://weather.gc.ca/city/pages/bc-9_metric_e.html" },
@@ -273,7 +273,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
         "Documented Incident Log",
       ],
     },
-    internal_links: ["langley", "burnaby", "delta", "white-rock", "coquitlam"],
+    internal_links: ["langley", "burnaby", "delta", "white-rock", "coquitlam", "vancouver"],
     external_authority_links: [
       { label: "City of Surrey Bylaws", url: "https://www.surrey.ca" },
       { label: "Environment Canada — Surrey", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
@@ -559,7 +559,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
         "Parkland-Safe De-Icers",
       ],
     },
-    internal_links: ["port-coquitlam", "port-moody", "burnaby", "maple-ridge", "new-westminster"],
+    internal_links: ["port-coquitlam", "port-moody", "burnaby", "maple-ridge", "new-westminster", "vancouver"],
     external_authority_links: [
       { label: "City of Coquitlam Bylaws", url: "https://www.coquitlam.ca" },
       { label: "Environment Canada — Coquitlam", url: "https://weather.gc.ca/city/pages/bc-16_metric_e.html" },
@@ -829,7 +829,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Large-lot loaders", "24/7 auto-dispatch", "Dock & trailer-lane priority", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["surrey", "langley", "campbell-heights"],
+    internal_links: ["surrey", "langley", "campbell-heights", "vancouver", "burnaby"],
     external_authority_links: [
       { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
       { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
@@ -935,7 +935,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Large-lot loaders", "24/7 auto-dispatch", "Shift-change timing", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["surrey", "white-rock", "port-kells"],
+    internal_links: ["surrey", "white-rock", "port-kells", "vancouver", "burnaby"],
     external_authority_links: [
       { label: "City of Surrey — Snow & Ice", url: "https://www.surrey.ca" },
       { label: "Environment Canada — Surrey Forecast", url: "https://weather.gc.ca/city/pages/bc-50_metric_e.html" },
@@ -1041,7 +1041,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["langley", "willoughby", "fort-langley"],
+    internal_links: ["langley", "willoughby", "fort-langley", "vancouver", "burnaby"],
     external_authority_links: [
       { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
       { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
@@ -1147,7 +1147,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["langley", "walnut-grove", "fort-langley"],
+    internal_links: ["langley", "walnut-grove", "fort-langley", "vancouver", "burnaby"],
     external_authority_links: [
       { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
       { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
@@ -1253,7 +1253,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       competitors: ["PlowWow", "Generic landscaper", "Owner-operator with pickup"],
       factors: ["Townhouse drive-aisle equipment", "24/7 auto-dispatch", "Walkway & ramp de-icing", "Documented service logs", "WorkSafeBC insured"],
     },
-    internal_links: ["langley", "walnut-grove", "willoughby"],
+    internal_links: ["langley", "walnut-grove", "willoughby", "vancouver", "burnaby"],
     external_authority_links: [
       { label: "Township of Langley — Snow & Ice", url: "https://www.tol.ca" },
       { label: "Environment Canada — Langley Forecast", url: "https://weather.gc.ca/city/pages/bc-52_metric_e.html" },
