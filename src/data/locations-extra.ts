@@ -169,11 +169,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The fifth mistake is waiting until after the first event to call a contractor. Burnaby seasonal capacity is filled between September 1 and October 15. By the first snowfall warning of the season, every reputable contractor is at book, and the properties that reach out on the morning of an event end up on a per-visit list with 6-hour response windows and no documentation — which is to say, with none of the protection that a seasonal contract exists to provide.",
       "The sixth and most quietly expensive mistake is under-documenting. Burnaby's insurer market has hardened. Corporations without event-level documentation are seeing premium increases of 25–60% at renewal, and a small but growing number have been non-renewed outright. Every PlowWow Burnaby visit generates a GPS-verified track, timestamped photos, and a per-product application record; that data package has become as important as the plowing itself.",
     ]),
-    testimonials: [
-      { name: "Priya S.", role: "Strata Council President", neighbourhood: "Metrotown", rating: 5, quote: "Two 30-storey towers, three podium levels, and a shared parkade ramp. PlowWow brine-treated our ramp on the night before every warning this winter, and we did not have a single ice complaint for the first time in six years." },
-      { name: "Rob D.", role: "Facilities Director", neighbourhood: "Big Bend", rating: 5, quote: "24-hour logistics site with 40 dock doors. PlowWow runs a dedicated loader here through every event with zero dock closures. That is the metric that matters to us and they hit it every time." },
-      { name: "Meaghan K.", role: "Homeowner", neighbourhood: "Forest Grove", rating: 5, quote: "We live at 320 metres on Burnaby Mountain. Every other contractor we tried refused to come up the hill during outflow events. PlowWow shows up with chains on, plows the driveway, and salts the walk. That is what we pay for." },
-    ],
+    testimonials: [],
   },
 
   surrey: {
@@ -312,11 +308,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The fifth mistake is booking late. Surrey seasonal capacity fills between September 1 and October 15. Post-October reservations end up on per-visit lists, and per-visit service during a Cloverdale outflow event is not service — it is a queue with a 6-hour response window and no documentation.",
       "The sixth mistake is under-documenting medical-corridor properties. Surrey Memorial Hospital-adjacent buildings and the King George medical strip carry a higher-than-commercial duty of care because of ambulance access and mobility-impaired pedestrian volumes. Contracts that do not include per-visit photo documentation of ambulance-bay approaches and accessibility ramps are inadequate for the site type.",
     ]),
-    testimonials: [
-      { name: "Anita R.", role: "Strata Council President", neighbourhood: "Clayton Heights", rating: 5, quote: "First-year council, first winter, and we would have made every rookie mistake on our own. PlowWow's onboarding walked us through the resident notice, the parking-relocation policy, and the incident-log format. We ended the winter with zero claims." },
-      { name: "Steven L.", role: "Facilities Manager", neighbourhood: "Campbell Heights", rating: 5, quote: "24-hour distribution site with 26 dock doors. PlowWow runs a dedicated loader here through every event with zero dock-hour losses. Our tenants used to complain every storm; now they call us about landscaping instead." },
-      { name: "Diane M.", role: "Homeowner", neighbourhood: "Fraser Heights", rating: 5, quote: "Hillside driveway, elderly parents, private lane that gets missed by everyone. PlowWow shows up before 6 AM every event with a chained truck and a walk-behind for the stairs. Worth every dollar." },
-    ],
+    testimonials: [],
   },
 
   richmond: {
@@ -455,11 +447,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The fifth mistake is booking late. Richmond seasonal capacity fills between September 1 and October 15. Post-October reservations end up on per-visit lists with 4–6 hour response windows and no documentation — which is unworkable for any strata, retail, or medical property.",
       "The sixth mistake is single-product contracting. Below -8°C outflow days, sodium chloride stops working, and Richmond crosses that threshold multiple times per winter. Contracts that do not name calcium chloride and magnesium chloride alongside standard rock salt are contracts that fail during the coldest events of the season.",
     ]),
-    testimonials: [
-      { name: "Jessica W.", role: "Strata Council President", neighbourhood: "City Centre", rating: 5, quote: "We are one block from Richmond-Brighouse Canada Line station. Our old contractor treated us like a suburban townhome complex; PlowWow treats us like the transit-adjacent building we actually are. Zero ice complaints this winter, first time in our building's history." },
-      { name: "Mike T.", role: "Logistics Manager", neighbourhood: "Bridgeport", rating: 5, quote: "24-hour cross-dock operation, 60 dock doors, air-freight schedule that cannot slip. PlowWow keeps a dedicated loader on our site every event with zero dock-hour losses. That is the metric that pays for the contract." },
-      { name: "Angela H.", role: "Heritage Merchant", neighbourhood: "Steveston", rating: 5, quote: "Wooden boardwalk, mixed retail, city heritage inspector on speed dial. PlowWow uses the right product every time and coordinates with the village staff. No salt scars on the boards, no compliance letters. That is how heritage snow work is supposed to be done." },
-    ],
+    testimonials: [],
   },
 
   coquitlam: {
@@ -598,11 +586,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The fifth mistake is using rock salt in Maillardville and along parkland-adjacent frontages. Coquitlam's water-quality bylaws restrict chloride runoff near Como Lake Park, Mundy Park, and Minnekhada, and heritage guidelines in Maillardville discourage aggressive rock-salt use. Magnesium chloride and acetate blends are the correct products.",
       "The sixth mistake is booking late. Coquitlam seasonal capacity, particularly for Burke Mountain, fills between September 1 and October 15. Post-October reservations end up on per-visit lists with 5–8 hour response windows, which is a documented failure mode for any strata property on the mountain.",
     ]),
-    testimonials: [
-      { name: "Chris B.", role: "Strata Council President", neighbourhood: "Burke Mountain", rating: 5, quote: "Sixty units, 350 m elevation, an outflow event every winter that closes Coast Meridian for six hours. PlowWow dispatches chained trucks before dawn every single time, and we have not had a slip-and-fall complaint in four seasons." },
-      { name: "Farah N.", role: "Building Manager", neighbourhood: "Lafarge Lake–Douglas", rating: 5, quote: "Two towers, one podium, direct station-approach frontage on the Evergreen Line. PlowWow treats us like the transit-adjacent building we are. Our insurer noticed at renewal — deductible dropped this year for the first time in five years." },
-      { name: "Rob L.", role: "Homeowner", neighbourhood: "Westwood Plateau", rating: 5, quote: "Hillside driveway, 12% grade, elderly neighbour on one side who cannot shovel. PlowWow clears our driveway and salts our neighbour's walk for a modest add-on. That is the kind of service that keeps a whole cul-de-sac safe." },
-    ],
+    testimonials: [],
   },
 
   "north-vancouver": {
@@ -746,11 +730,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The sixth mistake is booking late. North Vancouver seasonal capacity, particularly for the mountain neighbourhoods, fills between August 15 and September 30. Post-October reservations end up on per-visit lists with 6–10 hour response windows on the North Shore — which is a documented failure mode for any strata property above 300 metres.",
       "The seventh mistake, increasingly expensive since 2021, is under-documenting. North Shore insurer renewal correspondence explicitly now references per-event documentation as a rate-modifying factor. Every PlowWow North Van visit generates a GPS-verified track, timestamped photos, per-product application records, and elevation-condition notes; that documentation has become as important as the plowing itself.",
     ]),
-    testimonials: [
-      { name: "Meredith P.", role: "Strata Council President", neighbourhood: "Braemar", rating: 5, quote: "480 m elevation, 200 cm winters, private strata road that closes if the plow does not show. PlowWow has cleared us before dawn on every single event this season. Our insurer approved our renewal without a rate increase — that is unheard of on the North Shore in 2026." },
-      { name: "James M.", role: "Facilities Director", neighbourhood: "Lions Gate Hospital corridor", rating: 5, quote: "Ambulance-bay approach, accessibility ramps, mobility-impaired frontage, and a public sidewalk that sees 400 pedestrians an hour on weekdays. PlowWow treats this site the way it deserves to be treated. We have not had a slip complaint on our watch since we signed with them." },
-      { name: "Karen R.", role: "Homeowner", neighbourhood: "Upper Delbrook", rating: 5, quote: "Long private lane, mature cedars, elderly parents at home. Every previous contractor treated us like a Lower Lonsdale property — and every previous contractor missed us during outflow. PlowWow shows up chained, clears the lane, salts the walk. That is the North Shore standard." },
-    ],
+    testimonials: [],
   },
 
   "port-kells": {
@@ -852,11 +832,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The most common Port Kells mistake is treating an industrial lot like a big driveway — sending a single pickup with a blade to a parcel that needs a loader. The lot gets a token pass, the windrows block dock doors, and the freeze-thaw ice is never addressed. The second mistake is ignoring the refreeze: clearing once after snowfall and walking away, leaving overnight sheet ice across the exact zones where the next shift's forklifts and drivers work.",
       "The third is documentation. Industrial-strata councils and commercial property managers carry the same Section 72 duty of care as any other owner, and when a slip-and-fall claim lands, an undocumented 'we cleared it' is worth little. PlowWow logs every visit with time and scope so the record exists before it is needed. Matching equipment to the parcel, treating the refreeze, and documenting the work are what separate a real industrial snow program from a landscaper moonlighting in January.",
     ]),
-    testimonials: [
-      { name: "Dave K.", role: "Facilities Manager", neighbourhood: "176 Street Corridor", rating: 5, quote: "Two loading docks, a 4-acre trailer yard, trucks in and out all night. PlowWow clears our lanes before the 6 AM shift and hits the docks first. We have not lost a load to weather since we signed." },
-      { name: "Priya S.", role: "Industrial Strata Council", neighbourhood: "88 Avenue Business Park", rating: 5, quote: "Bare-land strata, shared drive aisles, twelve tenants. Our old contractor plowed the middle and left the ice. PlowWow salts the refreeze and sends us a log for every visit. Our insurer noticed." },
-      { name: "Marco T.", role: "Operations Director", neighbourhood: "Anniedale", rating: 5, quote: "Distribution centre on a wide-open parcel that drifts badly in outflow. They stage a loader locally and clear the whole yard fast. This is what an industrial snow contract is supposed to look like." },
-    ],
+    testimonials: [],
   },
 
   "campbell-heights": {
@@ -958,11 +934,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The classic Campbell Heights mistake is underestimating scale — hiring for the footprint of a strip mall and discovering, mid-storm, that a single crew with light equipment cannot clear acres of business-park lot before the shift change. The result is blocked gates, un-plowed employee parking and freight backed up at the door.",
       "The second mistake is ignoring elevation and refreeze. Contractors used to coastal South Surrey treat Campbell Heights like the lowlands, clear once, and leave — missing the overnight ice that forms on the park's higher, shaded roads. The third is thin documentation: business-park strata councils and commercial managers carry the Section 72 duty of care, and when thousands of employees and visitors move through the park daily, a slip-and-fall claim without a service log is a serious exposure. Large-format equipment, elevation-aware timing, and documented visits are what a real Campbell Heights snow program requires.",
     ]),
-    testimonials: [
-      { name: "Steve L.", role: "Distribution Centre Manager", neighbourhood: "Campbell Heights North", rating: 5, quote: "Massive lot, two shifts, fleet in and out constantly. PlowWow stages a loader here and clears the whole site before the 6 AM crew. The scale finally matches the property." },
-      { name: "Amrit D.", role: "Business-Park Strata Council", neighbourhood: "192 Street Corridor", rating: 5, quote: "Shared roads, dozens of units, employees everywhere. They clear early, salt the refreeze on the high roads, and document every visit. Our insurance renewal went smoothly for once." },
-      { name: "Rachel V.", role: "Plant Operations", neighbourhood: "Campbell Heights South", rating: 5, quote: "We are up on the plateau and we ice over when White Rock is just wet. PlowWow gets that. They pre-treat before events and come back for the refreeze. No more morning slip reports." },
-    ],
+    testimonials: [],
   },
 
   "walnut-grove": {
@@ -1064,11 +1036,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The most common Walnut Grove mistake is hiring a contractor sized for driveways, not townhouse stratas — a pickup that plows the entrance, piles a windrow across the visitor lot, and never touches the refreeze on the walkways where residents actually slip. The second is ignoring resident communication, so vehicles block drive aisles and the crew cannot complete the route.",
       "The third is thin documentation. A Walnut Grove strata council carries the same Section 72 duty of care as a downtown tower, and when a resident or visitor falls on a shared walk, an undocumented 'we cleared it' is worth little to an insurer. PlowWow logs every visit with time and scope, treats the refreeze as seriously as the snowfall, and works with councils on resident parking — the three things that separate a real townhouse-strata program from a landscaper with a blade.",
     ]),
-    testimonials: [
-      { name: "Karen M.", role: "Strata Council President", neighbourhood: "Forest Green", rating: 5, quote: "5" },
-      { name: "Dave L.", role: "Property Manager", neighbourhood: "88 Avenue Corridor", rating: 5, quote: "5" },
-      { name: "Sandra P.", role: "Homeowner", neighbourhood: "Alex Hope", rating: 5, quote: "5" },
-    ],
+    testimonials: [],
   },
 
   "willoughby": {
@@ -1170,11 +1138,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The classic Willoughby mistake is underestimating scale — hiring a single pickup for a multi-building strata that needs coordinated, large-format clearing, then watching ramps and visitor lots go untouched while the entrance gets a token pass. The second is ignoring parkade ramps, leaving overnight ice on the below-grade ramps where cars and residents are most exposed.",
       "The third is thin documentation and poor resident coordination. Willoughby councils manage hundreds of residents and the same Section 72 duty of care as any strata, so a slip-and-fall without a service log is a real exposure, and un-notified residents blocking drive aisles can stall an entire route. Matching equipment to the site's scale, prioritizing ramps and the refreeze, and documenting every visit are what a real Willoughby strata program requires.",
     ]),
-    testimonials: [
-      { name: "Amrit S.", role: "Strata Council", neighbourhood: "Yorkson", rating: 5, quote: "5" },
-      { name: "Jennifer T.", role: "Property Manager", neighbourhood: "Latimer", rating: 5, quote: "5" },
-      { name: "Mike R.", role: "Homeowner", neighbourhood: "Routley", rating: 5, quote: "5" },
-    ],
+    testimonials: [],
   },
 
   "fort-langley": {
@@ -1276,10 +1240,6 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
       "The most common Fort Langley mistake is treating it like any other suburb — sending a plow to shove snow around without regard for the heritage streetscape, blocking storefronts, and skipping the sidewalk de-icing that a pedestrian village actually needs. The second is ignoring the riverside freeze-thaw, clearing once and leaving the damp-cold ice that forms on the village's walked sidewalks and waterfront paths.",
       "The third is thin documentation. Bedford Landing councils and village businesses carry the same duty of care as anyone — and with the foot traffic Fort Langley draws, a slip on an un-cleared, undocumented sidewalk is a real exposure. Precision walkway clearing, freeze-thaw de-icing, and documented service, all with respect for the heritage setting, are what Fort Langley genuinely requires.",
     ]),
-    testimonials: [
-      { name: "Robert H.", role: "Village Business Owner", neighbourhood: "Glover Road Village", rating: 5, quote: "5" },
-      { name: "Patricia W.", role: "Strata Council", neighbourhood: "Bedford Landing", rating: 5, quote: "5" },
-      { name: "Tom G.", role: "Homeowner", neighbourhood: "Church Street", rating: 5, quote: "5" },
-    ],
+    testimonials: [],
   },
 };

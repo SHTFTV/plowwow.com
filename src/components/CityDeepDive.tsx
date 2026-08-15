@@ -388,6 +388,7 @@ const CityDeepDive = ({ data }: { data: LocationDeepData }) => {
       </section>
 
       {/* Testimonials */}
+      {data.testimonials.length > 0 && (
       <section className="py-14" id="testimonials">
         <div className="container max-w-4xl">
           <h2 className="text-3xl font-black text-foreground mb-6">
@@ -411,6 +412,7 @@ const CityDeepDive = ({ data }: { data: LocationDeepData }) => {
           </div>
         </div>
       </section>
+      )}
 
       {/* Prep */}
       <section className="py-14 bg-muted/30" id="prep">
