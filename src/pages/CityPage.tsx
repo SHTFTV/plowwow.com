@@ -1,116 +1,58 @@
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { MapPin, Phone, ShieldCheck, Snowflake, Truck, Clock } from "lucide-react";
 import NotFound from "./NotFound";
-import { Phone, ShieldCheck, Truck, Clock, MapPin, Snowflake } from "lucide-react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CityMap from "@/components/CityMap";
-import { buildCityCopy } from "@/data/cityContent";
-import skidSteerImg from "@/assets/plowwow-skid-steer.png";
-import f350Img from "@/assets/plowwow-f350-salter.png";
-import crewImg from "@/assets/plowwow-crew.png";
-import dozerImg from "@/assets/plowwow-dozer.png";
-import walkBehindImg from "@/assets/plowwow-walk-behind-salter.png";
-import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { getCityBySlug, cities } from "@/data/cities";
-import { truncateForMeta } from "@/lib/seo";
-import { postsForCity } from "@/lib/internalLinks";
-import { getLocationDeep } from "@/data/locations";
 import CityDeepDive from "@/components/CityDeepDive";
-import CityDevBadge from "@/components/dev/CityDevBadge";
-import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
+import DirectionsCard from "@/components/city/DirectionsCard";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { buildCityCopy } from "@/data/cityContent";
+import { getCityBySlug } from "@/data/cities";
+import { getLocationDeep } from "@/data/locations";
+import { postsForCity } from "@/lib/internalLinks";
+import { truncateForMeta } from "@/lib/seo";
+
+const ORIGIN = "https://plowwow.com";
+const PHONE = "+1-604-761-1518";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
-  // Normalize: strip any trailing slashes from the route param before lookup
   const normalizedSlug = citySlug?.replace(/\/+$/, "");
   const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
   const locationDeep = normalizedSlug ? getLocationDeep(normalizedSlug) : undefined;
-
   if (!city) return <NotFound />;
-  const mergedFaqs = locationDeep
-    ? [...locationDeep.faq, ...city.faqs]
-    : city.faqs;
 
-  const pageTitle = `${city.tagline} | PlowWow`;
-  // Base description is the city intro; when we have deep-dive data,
-  // enrich the OG/Twitter description with unique local specifics
-  // (snowfall, freeze-thaw cycles, season window) so social previews
-  // reflect each city page's unique copy rather than a generic blurb.
-  const pageDescription = truncateForMeta(city.intro);
-  const socialDescription = locationDeep
-    ? truncateForMeta(
-        `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
-      )
-    : pageDescription;
-  const socialTitle = `${city.name} Snow Removal & De-icing | PlowWow`;
-  const origin =
-    typeof window !== "undefined"
-      ? window.location.origin.replace(/\/+$/, "")
-      : "https://plowwow.com";
-  // Canonical URL has no trailing slash for consistency
-  const url = `${origin}/${city.slug}`;
-  const ogImage = city.ogImage;
-  const ogImageWidth = city.ogImageWidth ?? 1200;
-  const ogImageHeight = city.ogImageHeight ?? 630;
+  const url = `${ORIGIN}/${city.slug}`;
+  const pageTitle = `${city.name} Snow Removal & De-Icing | PlowWow`;
+  const pageDescription = truncateForMeta(
+    `${city.intro} Snow plowing, snow clearing, salting and de-icing for applicable properties in ${city.name}, BC.`,
+  );
+  const mergedFaqs = locationDeep ? [...locationDeep.faq, ...city.faqs] : city.faqs;
+  const { sections: copySections } = buildCityCopy(city);
+  const neighborhoodPosts = postsForCity(city.slug).slice(0, 9);
 
-  // Update document head (lightweight; no react-helmet needed)
   if (typeof document !== "undefined") {
     document.title = pageTitle;
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`);
+    const setMeta = (selector: string, attr: "name" | "property", key: string, content: string) => {
+      let el = document.querySelector(selector);
       if (!el) {
         el = document.createElement("meta");
-        el.setAttribute("name", name);
+        el.setAttribute(attr, key);
         document.head.appendChild(el);
       }
       el.setAttribute("content", content);
     };
-    const setProperty = (property: string, content: string) => {
-      let el = document.querySelector(`meta[property="${property}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("property", property);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    setMeta("description", pageDescription);
-    setProperty("og:title", socialTitle);
-    setProperty("og:description", socialDescription);
-    setProperty("og:url", url);
-    setProperty("og:image", ogImage);
-    setProperty("og:image:width", String(ogImageWidth));
-    setProperty("og:image:height", String(ogImageHeight));
-    setProperty("og:image:alt", `${city.name} snow removal — ${city.tagline}`);
-    setProperty("og:site_name", "PlowWow");
-    setProperty("og:locale", "en_CA");
-    setProperty("og:type", "website");
-    setProperty("twitter:card", "summary_large_image");
-    setProperty("twitter:title", socialTitle);
-    setProperty("twitter:description", socialDescription);
-    setProperty("twitter:image", ogImage);
-    setProperty("twitter:image:width", String(ogImageWidth));
-    setProperty("twitter:image:height", String(ogImageHeight));
-    setProperty("twitter:image:alt", `${city.name} snow removal — ${city.tagline}`);
+    setMeta('meta[name="description"]', "name", "description", pageDescription);
+    setMeta('meta[property="og:title"]', "property", "og:title", pageTitle);
+    setMeta('meta[property="og:description"]', "property", "og:description", pageDescription);
+    setMeta('meta[property="og:url"]', "property", "og:url", url);
+    setMeta('meta[property="og:type"]', "property", "og:type", "website");
+    setMeta('meta[property="og:site_name"]', "property", "og:site_name", "PlowWow");
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
@@ -120,146 +62,103 @@ const CityPage = () => {
     canonical.setAttribute("href", url);
   }
 
-  const localBusinessSchema = {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SnowRemovalService"],
-    "@id": `${url}#localbusiness`,
-    name: `PlowWow Snow Removal — ${city.name}`,
-    image: ogImage,
-    logo: "https://plowwow.com/wp-content/uploads/logo.png",
-    url,
-    telephone: "+1-604-761-1518",
-    priceRange: "$$",
-    areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
-    address: { "@type": "PostalAddress", addressLocality: city.name, addressRegion: city.province, addressCountry: "CA" },
-    provider: { "@id": "https://plowwow.com/#organization" },
-    serviceType: "Snow Removal, De-Icing & Salting",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: `${city.name} Snow & Ice Services`,
-      itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Snow Plowing" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strata & HOA Snow Removal" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "De-Icing & Salting" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Residential Driveway Clearing" } },
-      ],
-    },
-  };
-
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: mergedFaqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-      { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://plowwow.com/locations" },
-      { "@type": "ListItem", position: 3, name: city.name, item: url },
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${ORIGIN}/#organization`,
+        name: "PlowWow",
+        url: `${ORIGIN}/`,
+        telephone: PHONE,
+        areaServed: { "@type": "AdministrativeArea", name: "Lower Mainland, British Columbia" },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${ORIGIN}/#website`,
+        url: `${ORIGIN}/`,
+        name: "PlowWow",
+        publisher: { "@id": `${ORIGIN}/#organization` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": `${ORIGIN}/#website` },
+        about: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: `Snow Removal & De-Icing in ${city.name}`,
+        serviceType: "Snow plowing, snow clearing, salting and de-icing",
+        provider: { "@id": `${ORIGIN}/#organization` },
+        areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
+        url,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: "Service Areas", item: `${ORIGIN}/locations` },
+          { "@type": "ListItem", position: 3, name: city.name, item: url },
+        ],
+      },
+      ...(mergedFaqs.length
+        ? [{
+            "@type": "FAQPage",
+            "@id": `${url}#faq`,
+            mainEntity: mergedFaqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }]
+        : []),
     ],
   };
 
-  const otherCities = cities.filter((c) => c.slug !== city.slug);
-  const { sections: copySections } = buildCityCopy(city);
-
   return (
     <div className="min-h-screen">
-      {locationDeep && (
-        <>
-          <meta name="geo.region" content="CA-BC" />
-          <meta name="geo.placename" content={`${locationDeep.city}, British Columbia`} />
-          <meta name="geo.position" content={`${locationDeep.lat};${locationDeep.lng}`} />
-          <meta name="ICBM" content={`${locationDeep.lat}, ${locationDeep.lng}`} />
-        </>
-      )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <TopBar />
       <Navbar />
-
       <main>
-        {/* Hero */}
-        <section className="relative isolate overflow-hidden bg-[#0d2a4a] text-white">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(247,148,29,0.25),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(56,114,191,0.45),transparent_55%)]"
-          />
-          <div className="container relative z-10 py-20 md:py-28">
+        <section className="bg-[#0d2a4a] text-white">
+          <div className="container py-20 md:py-28">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-bold px-4 py-1.5 rounded-full text-sm mb-5 shadow-lg">
-                <Snowflake className="w-4 h-4" /> Serving {city.name} 24/7
+              <span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground font-bold px-4 py-1.5 rounded-full text-sm mb-5">
+                <Snowflake className="w-4 h-4" /> Lower Mainland snow & ice service
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5">
-                {city.tagline}
+                Snow Removal & De-Icing in {city.name}, BC
               </h1>
               <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl">{city.intro}</p>
-              <div className="flex flex-wrap gap-4 mb-10">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8 shadow-xl"
-                >
-                  <Link to={`/${city.slug}/quote`}>Get a Free Quote</Link>
+              <div className="flex flex-wrap gap-4 mb-9">
+                <Button asChild size="lg" className="rounded-full font-bold px-8">
+                  <Link to={`/${city.slug}/quote`}>Request a Quote</Link>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-foreground font-heading font-bold rounded-full text-lg px-8"
-                >
-                  <a href="tel:6047611518" className="inline-flex items-center gap-2">
-                    <Phone className="w-5 h-5" /> 604-761-1518
-                  </a>
+                <Button asChild size="lg" variant="outline" className="rounded-full font-bold px-8 bg-white/10 text-white border-white">
+                  <a href="tel:6047611518"><Phone className="w-5 h-5 mr-2" />604-761-1518</a>
                 </Button>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-2xl">
-                {[
-                  { icon: Clock, label: "24/7 Monitoring" },
-                  { icon: ShieldCheck, label: "WorkSafeBC Insured" },
-                  { icon: Truck, label: "GPS-Tracked Fleet" },
-                ].map(({ icon: Icon, label }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2 text-sm font-semibold"
-                  >
-                    <Icon className="w-4 h-4 text-secondary" />
-                    {label}
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-semibold"><Clock className="w-4 h-4" />24/7 monitoring</div>
+                <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-semibold"><ShieldCheck className="w-4 h-4" />WorkSafeBC coverage</div>
+                <div className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-semibold"><Truck className="w-4 h-4" />GPS-tracked fleet</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* City Map */}
-        <section className="py-16" id="map">
+        <section className="py-14" id="local-orientation">
           <div className="container">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                {city.name} at a Glance
-              </h2>
-              <p className="text-muted-foreground">
-                City Hall pinned for orientation, plus a quick link to live {city.name} weather.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-black mb-3">{city.name} local orientation</h2>
+              <p className="text-muted-foreground">City Hall is pinned for geographic orientation. This does not represent a PlowWow office location.</p>
             </div>
             <div className="grid lg:grid-cols-2 gap-8">
               <CityMap cityName={city.name} province={city.province} cityHall={city.cityHall} />
@@ -268,252 +167,69 @@ const CityPage = () => {
           </div>
         </section>
 
-        {/* Snowfall + Neighborhoods */}
-        <section className="py-20" id="climate">
-          <div className="container">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                {city.name}'s Winter, by the Numbers
-              </h2>
-              <p className="text-muted-foreground">
-                Typical monthly snowfall and the neighborhoods we dispatch first.
-              </p>
-            </div>
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-                <h3 className="font-heading font-bold text-xl mb-1">Monthly Snowfall (cm)</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Average accumulation across {city.name}.
-                </p>
-                <ResponsiveContainer width="100%" height={260}>
-                  <BarChart data={city.snowfall}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                    <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                    <Tooltip
-                      contentStyle={{
-                        background: "hsl(var(--popover))",
-                        border: "1px solid hsl(var(--border))",
-                        borderRadius: 8,
-                        fontSize: 12,
-                      }}
-                    />
-                    <Bar dataKey="cm" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-
-              <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-                <h3 className="font-heading font-bold text-xl mb-1">Priority Neighborhoods</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Where {city.name} crews dispatch first when a storm triggers.
-                </p>
-                <ul className="space-y-3">
-                  {city.neighborhoods.map((n) => (
-                    <li
-                      key={n.name}
-                      className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/50 p-3"
-                    >
-                      <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <p className="font-semibold text-foreground">{n.name}</p>
-                        <p className="text-sm text-muted-foreground">{n.note}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Fleet showcase — visual break */}
-        <section className="py-16 bg-muted/30" id="fleet">
-          <div className="container">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                The {city.name} Fleet
-              </h2>
-              <p className="text-muted-foreground">
-                Right-sized iron for every {city.name} property — from highway-grade plow trucks
-                to skid steers and walk-behind salters for tight courtyards.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { src: f350Img, label: `F-350 plow + V-box salter dispatched across ${city.name}` },
-                { src: skidSteerImg, label: `Branded skid steer for ${city.name} loading docks & lots` },
-                { src: dozerImg, label: `Tracked dozer for heavy ${city.name} accumulations` },
-              ].map((img) => (
-                <figure
-                  key={img.label}
-                  className="rounded-2xl overflow-hidden border border-border bg-card shadow-sm"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.label}
-                    loading="lazy"
-                    className="w-full h-56 object-cover"
-                  />
-                  <figcaption className="p-4 text-sm text-muted-foreground">
-                    {img.label}
-                  </figcaption>
-                </figure>
+        <section className="py-14 bg-muted/30" id="neighborhoods">
+          <div className="container max-w-4xl">
+            <h2 className="text-3xl font-black mb-5">Neighbourhoods and property areas in {city.name}</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {city.neighborhoods.map((n) => (
+                <article key={n.name} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="font-bold flex items-center gap-2"><MapPin className="w-4 h-4 text-primary" />{n.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{n.note}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Long-form SEO/AEO/GEO/LLM content — unique per city */}
-        <section className="py-16 bg-background" id="deep-dive">
+        <section className="py-16" id="city-content">
           <div className="container max-w-3xl">
-            {copySections.map((s, idx) => (
-              <div key={s.id}>
-                <article id={s.id} className="mb-10">
-                  <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
-                    {s.heading}
-                  </h2>
-                  {s.paragraphs.map((p, i) => (
-                    <p key={i} className="text-muted-foreground mb-3 leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </article>
-                {idx === Math.floor(copySections.length / 3) && (
-                  <figure className="my-10 rounded-2xl overflow-hidden border border-border">
-                    <img
-                      src={crewImg}
-                      alt={`PlowWow crew on a ${city.name} site after an overnight push`}
-                      loading="lazy"
-                      className="w-full h-64 md:h-80 object-cover"
-                    />
-                    <figcaption className="p-4 text-sm text-muted-foreground bg-card">
-                      The {city.name} crew — same faces, every storm.
-                    </figcaption>
-                  </figure>
-                )}
-                {idx === Math.floor((copySections.length * 2) / 3) && (
-                  <figure className="my-10 rounded-2xl overflow-hidden border border-border">
-                    <img
-                      src={walkBehindImg}
-                      alt={`Walk-behind salter treating a ${city.name} walkway`}
-                      loading="lazy"
-                      className="w-full h-56 md:h-72 object-cover"
-                    />
-                    <figcaption className="p-4 text-sm text-muted-foreground bg-card">
-                      Walk-behind salters finish what the trucks can't reach.
-                    </figcaption>
-                  </figure>
-                )}
-              </div>
+            {copySections.map((s) => (
+              <article id={s.id} key={s.id} className="mb-10">
+                <h2 className="text-2xl md:text-3xl font-black mb-4">{s.heading}</h2>
+                {s.paragraphs.map((p, i) => <p key={i} className="text-muted-foreground mb-3 leading-relaxed">{p}</p>)}
+              </article>
             ))}
           </div>
         </section>
 
         {locationDeep && <CityDeepDive data={locationDeep} />}
 
-        {/* FAQ */}
-        <section className="py-20 bg-muted/30">
-          <div className="container max-w-3xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                {city.name} Snow Removal FAQ
-              </h2>
-              <p className="text-muted-foreground">Answers to the questions we hear most.</p>
+        {mergedFaqs.length > 0 && (
+          <section className="py-16 bg-muted/30" id="faq">
+            <div className="container max-w-3xl">
+              <h2 className="text-3xl md:text-4xl font-black mb-8">{city.name} snow removal FAQ</h2>
+              <Accordion type="single" collapsible className="space-y-3">
+                {mergedFaqs.map((f, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-5">
+                    <AccordionTrigger className="text-left font-semibold">{f.q}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
-            <Accordion type="single" collapsible className="space-y-3">
-              {mergedFaqs.map((f, i) => (
-                <AccordionItem
-                  key={i}
-                  value={`item-${i}`}
-                  className="bg-card border border-border rounded-xl px-5"
-                >
-                  <AccordionTrigger className="text-left font-semibold">{f.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Neighborhood guides for this city */}
-        {(() => {
-          const posts = city ? postsForCity(city.slug).slice(0, 9) : [];
-          if (posts.length === 0) return null;
-          return (
-            <section className="py-14 bg-muted/30 border-t border-border">
-              <div className="container">
-                <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
-                  <h2 className="text-2xl md:text-3xl font-black text-foreground">
-                    {city.name} neighborhood snow removal guides
-                  </h2>
-                  <Link to="/locations" className="text-sm font-semibold text-primary hover:underline">
-                    All service areas →
+        {neighborhoodPosts.length > 0 && (
+          <section className="py-14 border-t border-border">
+            <div className="container">
+              <h2 className="text-2xl md:text-3xl font-black mb-6">{city.name} neighbourhood snow guides</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {neighborhoodPosts.map((p) => (
+                  <Link key={p.slug} to={`/${p.slug}`} className="rounded-xl border border-border bg-card p-4 hover:border-primary">
+                    <span className="text-xs uppercase font-bold text-primary">{city.name}</span>
+                    <p className="mt-1 font-semibold">{p.title}</p>
                   </Link>
-                </div>
-                <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {posts.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        to={`/${p.slug}`}
-                        className="block h-full rounded-xl border border-border bg-card p-4 hover:border-primary hover:shadow-sm transition-all"
-                      >
-                        <span className="text-xs uppercase tracking-wider font-bold text-primary">
-                          {city.name}
-                        </span>
-                        <p className="mt-1 text-sm font-semibold text-foreground leading-snug">
-                          {p.title}
-                        </p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                ))}
               </div>
-            </section>
-          );
-        })()}
-
-        {/* Nearby cities — distance-ranked */}
-        <RelatedCities citySlug={city.slug} cityName={city.name} count={4} />
-
-        {/* Full service-area list */}
-        <section className="py-10 border-t border-border">
-          <div className="container">
-            <h2 className="text-xl font-black text-foreground mb-1">
-              Every city we plow
-            </h2>
-            <p className="text-muted-foreground mb-4 text-sm">
-              From Vancouver to Abbotsford — same crews, same response standards.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                to="/burnaby"
-                className="inline-flex items-center gap-1.5 rounded-full bg-card border border-border px-3.5 py-1.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
-              >
-                <MapPin className="w-3.5 h-3.5 text-primary" />
-                Burnaby
-              </Link>
-              {otherCities.map((c) => (
-                <Link
-                  key={c.slug}
-                  to={`/${c.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-card border border-border px-3.5 py-1.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-primary" />
-                  {c.name}
-                </Link>
-              ))}
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* Contact */}
-        <div id={`${city.slug}-quote`}>
-          <ContactForm />
-        </div>
+        <RelatedCities citySlug={city.slug} cityName={city.name} count={6} />
+        <div id={`${city.slug}-quote`}><ContactForm /></div>
       </main>
       <Footer />
-      <CityDevBadge cityName={city.name} />
     </div>
   );
 };
