@@ -68,10 +68,10 @@ ${subset.map(urlBlock).join("\n")}
   console.log(`✓ ${filename} (${subset.length} urls)`);
 }
 
-// --- Split routes into buckets -------------------------------------------------
+// --- Split routes into mutually-exclusive buckets ------------------------------
 const staticRoutes = routes.filter((r) => r.kind === "static");
 const cityRoutes = routes.filter((r) => r.kind === "city");
-const blogRoutes = routes.filter((r) => r.kind === "legacy-blog");
+const allBlogRoutes = routes.filter((r) => r.kind === "legacy-blog");
 const pageRoutes = routes.filter((r) => r.kind === "legacy-page");
 
 // Neighborhood posts = blog posts whose slug matches a known neighborhood/city
@@ -87,23 +87,27 @@ const NEIGHBORHOOD_HINTS = [
   "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
   "deep-cove", "lonsdale", "queensborough", "fleetwood", "ladner",
 ];
-const neighborhoodRoutes = blogRoutes.filter((r) => {
+const neighborhoodRoutes = allBlogRoutes.filter((r) => {
   const slug = r.path.replace(/^\/(blog\/)?/, "").replace(/\/$/, "").toLowerCase();
   return NEIGHBORHOOD_HINTS.some((h) => slug.includes(h));
 });
+const neighborhoodPaths = new Set(neighborhoodRoutes.map((r) => r.path));
+// A URL belongs to exactly one page sitemap. Neighborhood posts are removed from
+// the general blog bucket so sitemap consumers never see duplicate page <loc>s.
+const blogRoutes = allBlogRoutes.filter((r) => !neighborhoodPaths.has(r.path));
 
 // Blog tag / category listing pages are now path-based static routes
 // (`/blog/tag/<slug>/`), so they flow through `staticRoutes` above and each
 // has its own prerendered directory with a self-referencing canonical.
 const tagRoutes: RouteMeta[] = staticRoutes.filter((r) => r.path.startsWith("/blog/tag/"));
+const nonTagStaticRoutes = staticRoutes.filter((r) => !r.path.startsWith("/blog/tag/"));
 
-writeUrlset("sitemap-static.xml", staticRoutes.filter((r) => !r.path.startsWith("/blog/tag/")));
+writeUrlset("sitemap-static.xml", nonTagStaticRoutes);
 writeUrlset("sitemap-cities.xml", cityRoutes);
 writeUrlset("sitemap-blog.xml", blogRoutes);
 if (neighborhoodRoutes.length) writeUrlset("sitemap-neighborhoods.xml", neighborhoodRoutes);
 writeUrlset("sitemap-tags.xml", tagRoutes);
 if (pageRoutes.length) writeUrlset("sitemap-pages.xml", pageRoutes);
-
 
 // --- Sitemap index -------------------------------------------------------------
 const children = [
