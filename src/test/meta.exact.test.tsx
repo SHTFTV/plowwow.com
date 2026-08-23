@@ -14,6 +14,7 @@ import Admin from "@/pages/Admin";
 import NotFound from "@/pages/NotFound";
 import CityPage from "@/pages/CityPage";
 import { getCityBySlug } from "@/data/cities";
+import { getLocationDeep } from "@/data/locations";
 import { truncateForMeta } from "@/lib/seo";
 
 vi.mock("@/integrations/supabase/client", () => {
@@ -53,7 +54,6 @@ type Expected = {
   robots: "index, follow" | "noindex, nofollow";
 };
 
-// If a page updates its metadata, update the matching entry here.
 const FIXTURES: Expected[] = [
   {
     name: "GuestPost",
@@ -101,8 +101,7 @@ const get = {
   name: (n: string) =>
     (document.head.querySelector(`meta[name="${n}"]`) as HTMLMetaElement | null)?.content ?? null,
   prop: (p: string) =>
-    (document.head.querySelector(`meta[property="${p}"]`) as HTMLMetaElement | null)?.content ??
-    null,
+    (document.head.querySelector(`meta[property="${p}"]`) as HTMLMetaElement | null)?.content ?? null,
   canonical: () =>
     (document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null)?.href ?? null,
 };
@@ -112,13 +111,10 @@ describe("exact meta-tag values per route", () => {
     it(`${f.name} exposes the expected head tags exactly`, async () => {
       render(
         <MemoryRouter initialEntries={[f.path]}>
-          <Routes>
-            <Route path="*" element={f.el} />
-          </Routes>
+          <Routes><Route path="*" element={f.el} /></Routes>
         </MemoryRouter>,
       );
       await waitFor(() => expect(document.title).toBe(f.title), WAIT);
-
       const url = `${BASE}${f.path}`;
       expect({
         title: document.title,
@@ -153,24 +149,9 @@ describe("exact meta-tag values per route", () => {
   }
 });
 
-// -----------------------------------------------------------------------------
-// Dynamic /:citySlug routes — CityPage builds meta from src/data/cities.ts.
-// Uses window.location.origin (jsdom default) for canonical/og:url, matching
-// the runtime behavior of the page itself.
-// -----------------------------------------------------------------------------
-// Includes single-word, dashed, and multi-dashed edge-case slugs so meta
-// generation is proven consistent across slug shapes.
 const CITY_SAMPLE_SLUGS = [
-  "vancouver",
-  "coquitlam",
-  "new-westminster",
-  "port-moody",
-  "port-coquitlam",
-  "west-vancouver",
-  "north-vancouver",
-  "pitt-meadows",
-  "maple-ridge",
-  "white-rock",
+  "vancouver", "coquitlam", "new-westminster", "port-moody", "port-coquitlam",
+  "west-vancouver", "north-vancouver", "pitt-meadows", "maple-ridge", "white-rock",
 ];
 
 describe("exact meta-tag values for dynamic /:citySlug routes", () => {
@@ -178,7 +159,8 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
     it(`/${slug} renders CityPage meta + JSON-LD exactly`, async () => {
       const city = getCityBySlug(slug);
       expect(city, `city fixture missing for slug ${slug}`).toBeTruthy();
-
+      const locationDeep = getLocationDeep(slug);
+      const expectedFaqs = locationDeep ? [...locationDeep.faq, ...city!.faqs] : city!.faqs;
       const expectedTitle = `${city!.tagline} | PlowWow`;
       const expectedDescription = truncateForMeta(city!.intro);
       const origin = window.location.origin.replace(/\/+$/, "");
@@ -187,9 +169,7 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
 
       render(
         <MemoryRouter initialEntries={[`/${slug}`]}>
-          <Routes>
-            <Route path="/:citySlug" element={<CityPage />} />
-          </Routes>
+          <Routes><Route path="/:citySlug" element={<CityPage />} /></Routes>
         </MemoryRouter>,
       );
       await waitFor(() => expect(document.title).toBe(expectedTitle), WAIT);
@@ -205,8 +185,7 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
         "og:image": get.prop("og:image"),
         "twitter:card": get.prop("twitter:card") ?? get.name("twitter:card"),
         "twitter:title": get.prop("twitter:title") ?? get.name("twitter:title"),
-        "twitter:description":
-          get.prop("twitter:description") ?? get.name("twitter:description"),
+        "twitter:description": get.prop("twitter:description") ?? get.name("twitter:description"),
         "twitter:image": get.prop("twitter:image") ?? get.name("twitter:image"),
       }).toEqual({
         title: expectedTitle,
@@ -223,20 +202,11 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
         "twitter:image": expectedOg,
       });
 
-      // JSON-LD: LocalBusiness + FAQPage should both be present with the
-      // expected shape wired to this city.
-      const blocks = Array.from(
-        document.querySelectorAll('script[type="application/ld+json"]'),
-      )
+      const blocks = Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
         .map((n) => {
-          try {
-            return JSON.parse(n.textContent || "{}");
-          } catch {
-            return null;
-          }
+          try { return JSON.parse(n.textContent || "{}"); } catch { return null; }
         })
         .filter((b): b is Record<string, any> => b && typeof b === "object");
-
       const local = blocks.find((b) => b["@type"] === "LocalBusiness");
       const faq = blocks.find((b) => b["@type"] === "FAQPage");
 
@@ -245,15 +215,12 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
       expect(local!.name).toBe(`PlowWow Snow Removal — ${city!.name}`);
       expect(local!.url).toBe(expectedUrl);
       expect(local!.image).toBe(expectedOg);
-      expect(local!.areaServed).toEqual({
-        "@type": "City",
-        name: `${city!.name}, ${city!.province}`,
-      });
+      expect(local!.areaServed).toEqual({ "@type": "City", name: `${city!.name}, ${city!.province}` });
 
       expect(faq, "FAQPage JSON-LD present").toBeTruthy();
       expect(faq!["@context"]).toBe("https://schema.org");
       expect(Array.isArray(faq!.mainEntity)).toBe(true);
-      expect(faq!.mainEntity.length).toBe(city!.faqs.length);
+      expect(faq!.mainEntity.length).toBe(expectedFaqs.length);
       for (const entry of faq!.mainEntity) {
         expect(entry["@type"]).toBe("Question");
         expect(typeof entry.name).toBe("string");
@@ -261,24 +228,10 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
         expect(typeof entry.acceptedAnswer.text).toBe("string");
       }
 
-      // ---- DOM ↔ JSON-LD cross-validation ---------------------------------
-      // The values crawlers ingest from the head MUST match the values inside
-      // the structured data. Drift between them creates split-brain SEO where
-      // Google's rich-result parser sees one URL/image and social crawlers
-      // another. Assert exact equality on the two fields that matter most.
-      expect(local!.url, `LocalBusiness.url must equal canonical for /${slug}`).toBe(
-        get.canonical(),
-      );
-      expect(local!.url, `LocalBusiness.url must equal og:url for /${slug}`).toBe(
-        get.prop("og:url"),
-      );
-      expect(local!.image, `LocalBusiness.image must equal og:image for /${slug}`).toBe(
-        get.prop("og:image"),
-      );
-      expect(
-        local!.image,
-        `LocalBusiness.image must equal twitter:image for /${slug}`,
-      ).toBe(get.prop("twitter:image") ?? get.name("twitter:image"));
+      expect(local!.url, `LocalBusiness.url must equal canonical for /${slug}`).toBe(get.canonical());
+      expect(local!.url, `LocalBusiness.url must equal og:url for /${slug}`).toBe(get.prop("og:url"));
+      expect(local!.image, `LocalBusiness.image must equal og:image for /${slug}`).toBe(get.prop("og:image"));
+      expect(local!.image, `LocalBusiness.image must equal twitter:image for /${slug}`).toBe(get.prop("twitter:image") ?? get.name("twitter:image"));
     });
   }
 });
