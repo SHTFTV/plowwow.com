@@ -126,6 +126,10 @@ const App = () => (
                 element={<LegacyPage kind="blog" />}
               />
             ))}
+            {/* Temporary compatibility route for legacy Vercel redirects that currently target /p/<city>.
+                CityPage derives its canonical from the city slug, so /p/vancouver renders the Vancouver
+                page with canonical /vancouver instead of falling through to NotFound. */}
+            <Route path="/p/:citySlug/*" element={<CityPage />} />
             <Route path="/:citySlug/*" element={<CityPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

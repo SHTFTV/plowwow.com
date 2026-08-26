@@ -22,8 +22,6 @@ vi.mock("recharts", async () => {
   };
 });
 
-// Silence Supabase network calls; return an authenticated admin session so
-// Admin/Auth mount their applyPageMeta effect without redirecting.
 vi.mock("@/integrations/supabase/client", () => {
   const fakeSession = { user: { id: "test-admin" } };
   return {
@@ -87,7 +85,6 @@ const jsonLdBlocks = (scope: ParentNode = document) =>
     })
     .filter(Boolean) as any[];
 
-
 beforeEach(() => {
   document.head.innerHTML = "";
 });
@@ -146,7 +143,6 @@ describe("SEO metadata — dynamic /:citySlug", () => {
       await waitFor(() => {
         expect(document.title).toContain("PlowWow");
       });
-      // Canonical/og:url self-reference by path (origin varies in jsdom)
       const canon = canonicalHref()!;
       expect(canon.endsWith(`/${slug}`)).toBe(true);
       expect(metaProp("og:url")!.endsWith(`/${slug}`)).toBe(true);
@@ -175,17 +171,18 @@ describe("SEO metadata — dynamic /:citySlug", () => {
 });
 
 describe("sitemap.xml + robots.txt inclusion rules", () => {
-  const sitemap = readFileSync(resolve(process.cwd(), "public/sitemap.xml"), "utf8");
+  const sitemapIndex = readFileSync(resolve(process.cwd(), "public/sitemap.xml"), "utf8");
+  const staticSitemap = readFileSync(resolve(process.cwd(), "public/sitemap-static.xml"), "utf8");
   const robots = readFileSync(resolve(process.cwd(), "public/robots.txt"), "utf8");
 
-  it("sitemap includes /guest-post and /seo-report", () => {
-    expect(sitemap).toContain(`${BASE}/guest-post`);
-    expect(sitemap).toContain(`${BASE}/seo-report`);
+  it("static child sitemap includes /guest-post and /seo-report", () => {
+    expect(staticSitemap).toContain(`${BASE}/guest-post/`);
+    expect(staticSitemap).toContain(`${BASE}/seo-report/`);
   });
 
   it("sitemap excludes private /auth and /admin routes", () => {
-    expect(sitemap).not.toMatch(/<loc>https:\/\/plowwow\.com\/auth<\/loc>/);
-    expect(sitemap).not.toMatch(/<loc>https:\/\/plowwow\.com\/admin(\/|<)/);
+    expect(staticSitemap).not.toMatch(/<loc>https:\/\/plowwow\.com\/auth\/?<\/loc>/);
+    expect(staticSitemap).not.toMatch(/<loc>https:\/\/plowwow\.com\/admin(\/|<)/);
   });
 
   it("robots.txt disallows /auth and /admin, references sitemap", () => {
@@ -194,9 +191,9 @@ describe("sitemap.xml + robots.txt inclusion rules", () => {
     expect(robots).toMatch(/Sitemap:\s*https:\/\/plowwow\.com\/sitemap\.xml/);
   });
 
-  it("sitemap uses absolute plowwow.com URLs only", () => {
-    const locs = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => m[1]);
+  it("sitemap index uses absolute plowwow.com child sitemap URLs only", () => {
+    const locs = Array.from(sitemapIndex.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => m[1]);
     expect(locs.length).toBeGreaterThan(0);
-    for (const loc of locs) expect(loc.startsWith("https://plowwow.com/")).toBe(true);
+    for (const loc of locs) expect(loc.startsWith("https://plowwow.com/sitemap-")).toBe(true);
   });
 });

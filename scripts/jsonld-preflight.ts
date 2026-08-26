@@ -3,14 +3,16 @@
 // schema.org fields for the types we ship (LocalBusiness/SnowRemovalService,
 // BlogPosting, FAQPage, BreadcrumbList, Organization, WebSite).
 //
-// Exits with code 1 if any page has invalid or incomplete structured data, so
-// this can gate a Netlify deploy.
+// Exits with code 1 if any page has invalid or incomplete structured data.
 
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, join } from "node:path";
 
 const DIST = resolve(process.cwd(), "dist");
-const OUT_DIR = "/mnt/documents";
+// Keep reports inside the repository by default so this works on GitHub Actions,
+// Vercel, local development, and other CI runners. Allow an explicit override
+// for callers that want artifacts written elsewhere.
+const OUT_DIR = resolve(process.env.SEO_REPORT_DIR ?? resolve(process.cwd(), "seo-report"));
 
 type Finding = { file: string; type: string; issue: string };
 
