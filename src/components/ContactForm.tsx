@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -143,6 +143,17 @@ const ContactForm = () => {
       });
       return;
     }
+
+    if (!isSupabaseConfigured) {
+      const copy = {
+        title: "Quote requests are temporarily unavailable",
+        description: "Please contact dispatch@plowwow.com and we’ll help you directly.",
+      };
+      setBlockMessage(copy);
+      toast({ title: copy.title, description: copy.description, variant: "destructive" });
+      return;
+    }
+
     setSubmitting(true);
     try {
       const { data: res, error } = await supabase.functions.invoke<
@@ -152,7 +163,6 @@ const ContactForm = () => {
       });
 
       const invokeErr = error as { context?: Response } | null;
-      // supabase.functions.invoke returns non-2xx bodies inside error.context — parse them
       let payload = res ?? null;
       if (invokeErr?.context && typeof invokeErr.context.text === "function") {
         try {
@@ -166,7 +176,6 @@ const ContactForm = () => {
         const copy = (BLOCK_COPY as Record<string, { title: string; description: string }>)[code] ?? BLOCK_COPY.error;
         setBlockMessage(copy);
         toast({ title: copy.title, description: copy.description, variant: "destructive" });
-        // Surface field-level messages when the server returned validation details
         if (code === "invalid" && payload?.details) {
           const fieldErrors: Record<string, string> = {};
           for (const [k, v] of Object.entries(payload.details)) {
@@ -220,108 +229,47 @@ const ContactForm = () => {
           className="bg-card rounded-2xl shadow-lg p-6 md:p-10 space-y-6 border border-border"
           noValidate
         >
-          {/* Honeypot field — hidden from real users, must remain empty */}
           <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
             <label htmlFor="company_website">Company website</label>
-            <input
-              id="company_website"
-              name="company_website"
-              type="text"
-              tabIndex={-1}
-              autoComplete="off"
-              value={honeypot}
-              onChange={(e) => setHoneypot(e.target.value)}
-            />
+            <input id="company_website" name="company_website" type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
           </div>
           {blockMessage && (
-            <div
-              role="alert"
-              aria-live="polite"
-              className="rounded-lg border border-destructive/40 bg-destructive/5 p-4"
-            >
-              <p className="font-heading font-bold text-destructive text-sm">
-                {blockMessage.title}
-              </p>
+            <div role="alert" aria-live="polite" className="rounded-lg border border-destructive/40 bg-destructive/5 p-4">
+              <p className="font-heading font-bold text-destructive text-sm">{blockMessage.title}</p>
               <p className="text-sm text-destructive/90 mt-1">{blockMessage.description}</p>
             </div>
           )}
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
-              <Input
-                id="name"
-                value={data.name}
-                onChange={(e) => update("name", e.target.value)}
-                placeholder="Jane Doe"
-                maxLength={100}
-                aria-invalid={!!errors.name}
-              />
+              <Input id="name" value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Jane Doe" maxLength={100} aria-invalid={!!errors.name} />
               {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email *</Label>
-              <Input
-                id="email"
-                type="email"
-                value={data.email}
-                onChange={(e) => update("email", e.target.value)}
-                placeholder="you@example.com"
-                maxLength={255}
-                aria-invalid={!!errors.email}
-              />
+              <Input id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" maxLength={255} aria-invalid={!!errors.email} />
               {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone *</Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={data.phone}
-                onChange={(e) => update("phone", e.target.value)}
-                placeholder="604-555-1234"
-                maxLength={20}
-                aria-invalid={!!errors.phone}
-              />
+              <Input id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder="604-555-1234" maxLength={20} aria-invalid={!!errors.phone} />
               {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="postalCode">Postal code *</Label>
-              <Input
-                id="postalCode"
-                value={data.postalCode}
-                onChange={(e) => update("postalCode", e.target.value.toUpperCase())}
-                placeholder="V6B 1A1"
-                maxLength={7}
-                aria-invalid={!!errors.postalCode}
-              />
-              {errors.postalCode && (
-                <p className="text-sm text-destructive">{errors.postalCode}</p>
-              )}
+              <Input id="postalCode" value={data.postalCode} onChange={(e) => update("postalCode", e.target.value.toUpperCase())} placeholder="V6B 1A1" maxLength={7} aria-invalid={!!errors.postalCode} />
+              {errors.postalCode && <p className="text-sm text-destructive">{errors.postalCode}</p>}
             </div>
           </div>
-
           <div className="space-y-2">
             <Label htmlFor="address">Service address *</Label>
-            <Input
-              id="address"
-              value={data.address}
-              onChange={(e) => update("address", e.target.value)}
-              placeholder="123 Main St, Vancouver, BC"
-              maxLength={200}
-              aria-invalid={!!errors.address}
-            />
+            <Input id="address" value={data.address} onChange={(e) => update("address", e.target.value)} placeholder="123 Main St, Vancouver, BC" maxLength={200} aria-invalid={!!errors.address} />
             {errors.address && <p className="text-sm text-destructive">{errors.address}</p>}
           </div>
-
           <div className="space-y-2">
             <Label htmlFor="serviceType">Service type *</Label>
-            <Select
-              value={data.serviceType}
-              onValueChange={(v) => update("serviceType", v)}
-            >
-              <SelectTrigger id="serviceType" aria-invalid={!!errors.serviceType}>
-                <SelectValue placeholder="Choose a service" />
-              </SelectTrigger>
+            <Select value={data.serviceType} onValueChange={(v) => update("serviceType", v)}>
+              <SelectTrigger id="serviceType" aria-invalid={!!errors.serviceType}><SelectValue placeholder="Choose a service" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="residential-plowing">Residential Snow Plowing</SelectItem>
                 <SelectItem value="commercial-plowing">Commercial Snow Plowing</SelectItem>
@@ -330,62 +278,27 @@ const ContactForm = () => {
                 <SelectItem value="seasonal-contract">Seasonal Contract</SelectItem>
               </SelectContent>
             </Select>
-            {errors.serviceType && (
-              <p className="text-sm text-destructive">{errors.serviceType}</p>
-            )}
+            {errors.serviceType && <p className="text-sm text-destructive">{errors.serviceType}</p>}
           </div>
-
           <div className="space-y-3">
             <Label>Preferred contact method *</Label>
-            <RadioGroup
-              value={data.contactMethod}
-              onValueChange={(v) => update("contactMethod", v as FormState["contactMethod"])}
-              className="grid grid-cols-3 gap-3"
-            >
-              {[
-                { v: "phone", l: "Phone call" },
-                { v: "email", l: "Email" },
-                { v: "text", l: "Text / SMS" },
-              ].map((o) => (
-                <label
-                  key={o.v}
-                  htmlFor={`cm-${o.v}`}
-                  className="flex items-center gap-2 border border-border rounded-lg px-4 py-3 cursor-pointer hover:bg-accent transition-colors has-[:checked]:border-primary has-[:checked]:bg-accent"
-                >
-                  <RadioGroupItem value={o.v} id={`cm-${o.v}`} />
+            <RadioGroup value={data.contactMethod} onValueChange={(v) => update("contactMethod", v as FormState["contactMethod"])} className="grid grid-cols-3 gap-3">
+              {[{ v: "phone", l: "Phone call" }, { v: "email", l: "Email" }, { v: "text", l: "Text / SMS" }].map((o) => (
+                <label key={o.v} htmlFor={"cm-" + o.v} className="flex items-center gap-2 border border-border rounded-lg px-4 py-3 cursor-pointer hover:bg-accent transition-colors has-[:checked]:border-primary has-[:checked]:bg-accent">
+                  <RadioGroupItem value={o.v} id={"cm-" + o.v} />
                   <span className="text-sm font-medium">{o.l}</span>
                 </label>
               ))}
             </RadioGroup>
           </div>
-
           <div className="space-y-2">
             <Label htmlFor="notes">Additional details (optional)</Label>
-            <Textarea
-              id="notes"
-              value={data.notes}
-              onChange={(e) => update("notes", e.target.value)}
-              placeholder="Driveway size, special access notes, etc."
-              maxLength={1000}
-              rows={4}
-            />
+            <Textarea id="notes" value={data.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Driveway size, special access notes, etc." maxLength={1000} rows={4} />
           </div>
-
-          <Button
-            type="submit"
-            disabled={submitting}
-            className="w-full bg-primary hover:bg-primary/90 font-heading font-bold rounded-full h-12 text-base"
-          >
-            {submitting ? "Sending..." : (
-              <>
-                <Send className="w-4 h-4" />
-                Request Free Quote
-              </>
-            )}
+          <Button type="submit" disabled={submitting} className="w-full bg-primary hover:bg-primary/90 font-heading font-bold rounded-full h-12 text-base">
+            {submitting ? "Sending..." : <><Send className="w-4 h-4" />Request Free Quote</>}
           </Button>
-          <p className="text-xs text-muted-foreground text-center">
-            We typically respond within 24 hours. No obligation.
-          </p>
+          <p className="text-xs text-muted-foreground text-center">We typically respond within 24 hours. No obligation.</p>
         </form>
       </div>
     </section>
