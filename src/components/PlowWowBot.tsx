@@ -1,26 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 
-const MASCOT_SVG = (
-  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-    <ellipse cx="40" cy="52" rx="22" ry="20" fill="#FF9900"/>
-    <text x="40" y="55" textAnchor="middle" fontSize="6" fontWeight="bold" fill="white" fontFamily="Arial">PlowWow</text>
-    <text x="40" y="62" textAnchor="middle" fontSize="5" fill="white" fontFamily="Arial">.com</text>
-    <circle cx="40" cy="30" r="18" fill="#87CEEB"/>
-    <ellipse cx="40" cy="14" rx="18" ry="6" fill="#0072CE"/>
-    <rect x="22" y="10" width="36" height="8" rx="3" fill="#0072CE"/>
-    <circle cx="40" cy="7" r="5" fill="#0072CE"/>
-    <circle cx="33" cy="28" r="4" fill="white"/>
-    <circle cx="47" cy="28" r="4" fill="white"/>
-    <circle cx="34" cy="29" r="2.5" fill="#1a1a1a"/>
-    <circle cx="48" cy="29" r="2.5" fill="#1a1a1a"/>
-    <circle cx="35" cy="28" r="1" fill="white"/>
-    <circle cx="49" cy="28" r="1" fill="white"/>
-    <circle cx="28" cy="33" r="4" fill="#FF9999" opacity="0.6"/>
-    <circle cx="52" cy="33" r="4" fill="#FF9999" opacity="0.6"/>
-    <path d="M33 36 Q40 42 47 36" stroke="#1a1a1a" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <ellipse cx="16" cy="50" rx="6" ry="10" fill="#FF9900" transform="rotate(-30 16 50)"/>
-    <ellipse cx="64" cy="50" rx="6" ry="10" fill="#FF9900" transform="rotate(30 64 50)"/>
-  </svg>
+const MascotImage = () => (
+  <img
+    src="/wow-mascot.png"
+    alt=""
+    aria-hidden="true"
+    className="h-full w-full object-contain"
+  />
 );
 
 const SYSTEM_PROMPT = `You are PlowWow Bot, the friendly AI snow removal assistant for PlowWow.com.
@@ -142,7 +128,7 @@ export default function PlowWowBot() {
 
       <div className="pwb">
         <button className="pwb-launcher" onClick={() => setOpen(!open)} aria-label="Open PlowWow Bot">
-          {MASCOT_SVG}
+          <MascotImage />
           {hasNew && !open && <span className="pwb-badge">1</span>}
         </button>
 
@@ -150,7 +136,7 @@ export default function PlowWowBot() {
           <div className="pwb-window">
             <div className="pwb-header">
               <div className="pwb-av-wrap">
-                <div className="pwb-av">{MASCOT_SVG}</div>
+                <div className="pwb-av"><MascotImage /></div>
                 <div className="pwb-ping">
                   <div className="pwb-ping-ring" />
                   <div className="pwb-ping-dot" />
@@ -173,7 +159,7 @@ export default function PlowWowBot() {
                 const bubbleCls = isBot ? (m.first ? "bot" : "ice") : "user";
                 return (
                   <div key={i} className={`pwb-row ${isBot ? "" : "user"}`}>
-                    {isBot && <div className="pwb-mav">{MASCOT_SVG}</div>}
+                    {isBot && <div className="pwb-mav"><MascotImage /></div>}
                     <div>
                       <div className={`pwb-bubble ${bubbleCls}`}>
                         {m.content}
@@ -189,7 +175,7 @@ export default function PlowWowBot() {
               })}
               {loading && (
                 <div className="pwb-row">
-                  <div className="pwb-mav">{MASCOT_SVG}</div>
+                  <div className="pwb-mav"><MascotImage /></div>
                   <div className="pwb-typing">
                     <div className="pwb-dot" /><div className="pwb-dot" /><div className="pwb-dot" />
                   </div>
