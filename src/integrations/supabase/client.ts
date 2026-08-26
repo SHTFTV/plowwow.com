@@ -2,16 +2,21 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const configuredUrl = import.meta.env.VITE_SUPABASE_URL;
+const configuredPublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-// Import the supabase client like this:
-// import { supabase } from "@/integrations/supabase/client";
+export const isSupabaseConfigured = Boolean(configuredUrl && configuredPublishableKey);
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
-  }
-});
+// Keep the public site available if deployment configuration is temporarily missing.
+// Calls are guarded at their entry points while this fallback is active.
+export const supabase = createClient<Database>(
+  configuredUrl || 'https://configuration-required.supabase.co',
+  configuredPublishableKey || 'configuration-required',
+  {
+    auth: {
+      storage: localStorage,
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  },
+);
