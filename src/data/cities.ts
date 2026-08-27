@@ -233,6 +233,74 @@ export const cities: City[] = [
     ],
   },
   {
+    slug: "port-kells-snow-removal",
+    cityHall: { lat: 49.179, lon: -122.714, address: "176 Street & 96 Avenue, Surrey" },
+    name: "Port Kells",
+    province: "BC",
+    tagline: "Port Kells Commercial Snow Removal",
+    intro:
+      "24/7 commercial and industrial snow removal in Port Kells, Surrey. Plowing, salting and de-icing for warehouses, loading docks, truck yards, parking lots and internal roads.",
+    ogImage: "https://plowwow.com/og-surrey.jpg",
+    badges: ["Commercial & industrial", "24/7 dispatch", "Seasonal contracts"],
+    snowfall: [
+      { month: "Nov", cm: 5 },
+      { month: "Dec", cm: 17 },
+      { month: "Jan", cm: 15 },
+      { month: "Feb", cm: 9 },
+      { month: "Mar", cm: 3 },
+    ],
+    neighborhoods: [
+      { name: "176 Street corridor", note: "Warehouses, distribution centres and truck yards" },
+      { name: "96 Avenue", note: "Industrial sites and commercial access routes" },
+      { name: "Highway 1 corridor", note: "Freight-sensitive properties requiring continuous access" },
+      { name: "Anniedale", note: "Industrial and mixed commercial properties" },
+    ],
+    faqs: [
+      {
+        q: "Do you provide commercial snow removal in Port Kells?",
+        a: "Yes. PlowWow provides seasonal and event-based service for warehouses, loading docks, truck yards, parking lots and internal industrial roads throughout Port Kells.",
+      },
+      {
+        q: "Can you keep loading docks and truck lanes open overnight?",
+        a: "Yes. Contracted industrial properties receive trigger-based dispatch, priority dock and apron clearing, de-icing and documented return visits during prolonged storms.",
+      },
+    ],
+  },
+  {
+    slug: "campbell-heights-snow-removal",
+    cityHall: { lat: 49.047, lon: -122.69, address: "192 Street & 24 Avenue, Surrey" },
+    name: "Campbell Heights",
+    province: "BC",
+    tagline: "Campbell Heights Commercial Snow Removal",
+    intro:
+      "Commercial snow clearing and ice management for Campbell Heights business parks and industrial properties in South Surrey. Priority plowing for parking lots, loading areas, sidewalks and access roads.",
+    ogImage: "https://plowwow.com/og-surrey.jpg",
+    badges: ["Business parks", "Industrial sites", "Documented service"],
+    snowfall: [
+      { month: "Nov", cm: 4 },
+      { month: "Dec", cm: 15 },
+      { month: "Jan", cm: 13 },
+      { month: "Feb", cm: 8 },
+      { month: "Mar", cm: 3 },
+    ],
+    neighborhoods: [
+      { name: "192 Street corridor", note: "Warehouses, logistics facilities and business parks" },
+      { name: "24 Avenue", note: "Industrial campuses and employee parking areas" },
+      { name: "Grandview Heights", note: "Commercial properties and mixed-use access routes" },
+      { name: "South Surrey industrial area", note: "Large lots, loading zones and internal roads" },
+    ],
+    faqs: [
+      {
+        q: "Do you service Campbell Heights industrial properties?",
+        a: "Yes. PlowWow clears business parks, warehouses, distribution facilities, loading areas, employee parking lots and private access roads across Campbell Heights.",
+      },
+      {
+        q: "How are Campbell Heights properties dispatched?",
+        a: "Seasonal contracts use agreed accumulation and surface-temperature triggers, with documented plowing, salting, walkway treatment and return visits as conditions require.",
+      },
+    ],
+  },
+  {
     slug: "surrey",
     cityHall: { lat: 49.19, lon: -122.849, address: "13450 104 Ave" },
     name: "Surrey",
