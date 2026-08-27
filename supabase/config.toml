@@ -14,3 +14,9 @@ verify_jwt = false
 
 [functions.newsletter-confirm]
 verify_jwt = false
+
+# The public quote form is invoked before a visitor has a Supabase session.
+# It performs its own input validation, honeypot checks and server-side rate
+# limiting, so this endpoint must be reachable without a user JWT.
+[functions.submit-quote]
+verify_jwt = false
