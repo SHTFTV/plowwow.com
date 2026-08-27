@@ -44,23 +44,29 @@ export default function PlowWowBot() {
     const newMessages = [...messages, { role: "user", content: userText }];
     setMessages(newMessages);
     setLoading(true);
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-6",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
-        }),
-      });
-      const data = await res.json();
-      const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response. Please try again!";
-      setMessages([...newMessages, { role: "assistant", content: reply }]);
-    } catch {
-      setMessages([...newMessages, { role: "assistant", content: "Sorry, something went wrong! Try again or call us directly. ❄️" }]);
+    const normalized = userText.toLowerCase();
+    let reply =
+      "I can help with services, pricing, service areas, or a free quote. For the fastest help, call 604-761-1518 or email wow@plowwow.com. ❄️";
+
+    if (normalized.includes("price") || normalized.includes("cost") || normalized.includes("much")) {
+      reply =
+        "Residential driveway plowing starts from $49 per visit. Commercial, strata, salting, and seasonal pricing depends on the property—tap the quote option and we’ll prepare the right plan. ❄️";
+    } else if (normalized.includes("service") || normalized.includes("offer")) {
+      reply =
+        "We provide driveway and parking-lot plowing, walkway clearing, salting and de-icing, roof snow removal, and seasonal contracts. We also support strata and commercial properties.";
+    } else if (normalized.includes("quote") || normalized.includes("address")) {
+      reply =
+        "Great—email wow@plowwow.com with the property address and service needed, or call 604-761-1518 for a fast quote. We’ll confirm coverage and next steps.";
+    } else if (normalized.includes("how") || normalized.includes("work")) {
+      reply =
+        "Tell us your address and the service you need, and we’ll confirm coverage, timing, and pricing. For urgent help, call 604-761-1518.";
+    } else if (normalized.includes("strata") || normalized.includes("commercial")) {
+      reply =
+        "Yes—we support strata and commercial sites with proactive plowing, walkways, de-icing, storm monitoring, and seasonal service plans. Email wow@plowwow.com for a property review.";
     }
+
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    setMessages([...newMessages, { role: "assistant", content: reply }]);
     setLoading(false);
   };
 
