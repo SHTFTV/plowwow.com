@@ -37,6 +37,7 @@ import CityDeepDive from "@/components/CityDeepDive";
 import CityDevBadge from "@/components/dev/CityDevBadge";
 import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
+import WowStrataCallout from "@/components/WowStrataCallout";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -249,6 +250,8 @@ const CityPage = () => {
             </div>
           </div>
         </section>
+
+        <WowStrataCallout cityName={city.name} quotePath={`/${city.slug}/quote`} />
 
         {/* City Map */}
         <section className="py-16" id="map">
