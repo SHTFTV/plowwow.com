@@ -9,26 +9,28 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container">
-        <h2 className="text-3xl md:text-4xl text-center mb-12 text-foreground">How PlowWow Works</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="mb-8 text-center text-3xl text-foreground sm:mb-12 md:text-4xl">How PlowWow Works</h2>
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-4 lg:gap-8">
           {steps.map((step) => (
-            <div key={step.num} className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground text-2xl font-black">{step.num}</span>
+            <div key={step.num} className="flex items-start gap-4 text-left lg:block lg:text-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary lg:mx-auto lg:mb-4 lg:h-16 lg:w-16">
+                <span className="text-xl font-black text-primary-foreground lg:text-2xl">{step.num}</span>
               </div>
-              <h3 className="font-bold text-foreground text-lg mb-2">{step.title}</h3>
-              <p className="text-muted-foreground text-sm">{step.desc}</p>
+              <div>
+                <h3 className="mb-1 font-bold text-foreground text-lg lg:mb-2">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+              </div>
             </div>
           ))}
         </div>
-        <div className="text-center mt-12">
-          <p className="text-foreground font-heading font-bold text-lg mb-4">
-            ⚠️ Capacity is Limited for 2025-26 Season
+        <div className="mt-10 text-center sm:mt-12">
+          <p className="mb-4 font-heading text-base font-bold text-foreground sm:text-lg">
+            ⚠️ Capacity is Limited for the 2026–27 Season
           </p>
-          <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading font-bold rounded-full text-lg px-8">
-            Call Now to Reserve Your Spot
+          <Button asChild size="lg" className="w-full max-w-sm rounded-full bg-secondary px-6 font-heading text-base font-bold text-secondary-foreground hover:bg-secondary/90 sm:w-auto sm:px-8 sm:text-lg">
+            <a href="tel:+16047611518">Call Now to Reserve Your Spot</a>
           </Button>
         </div>
       </div>
