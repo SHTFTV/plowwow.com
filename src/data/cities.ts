@@ -29,9 +29,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.2606, lon: -123.1139, address: "453 W 12th Ave" },
     name: "Vancouver",
     province: "BC",
-    tagline: "Vancouver Snow Removal & De-icing",
+    tagline: "Vancouver Snow Removal for Strata & Commercial Properties",
     intro:
-      "24/7 plowing, salting and ice-control across Vancouver — from Downtown and the West End to Kitsilano, Mount Pleasant and East Van. Priority dispatch for strata, retail and residential.",
+      "24/7 Vancouver snow removal, commercial snow plowing, salting and ice control for strata, retail, industrial and residential properties — from Downtown and the West End to Kitsilano, Mount Pleasant and East Van.",
     ogImage: "https://plowwow.com/og-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
@@ -305,9 +305,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.19, lon: -122.849, address: "13450 104 Ave" },
     name: "Surrey",
     province: "BC",
-    tagline: "Surrey Snow Removal & Ice Control",
+    tagline: "Surrey Commercial Snow Removal & Ice Management",
     intro:
-      "Surrey snow service across all six town centres — City Centre, Guildford, Newton, Cloverdale, Fleetwood and South Surrey. Largest dispatch fleet in the corridor.",
+      "24/7 Surrey commercial snow removal, snow plowing, salting and ice management across all six town centres — City Centre, Guildford, Newton, Cloverdale, Fleetwood and South Surrey. Priority service for strata, retail and industrial sites.",
     ogImage: "https://plowwow.com/og-surrey.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
@@ -336,9 +336,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.1042, lon: -122.6603, address: "20399 Douglas Cres" },
     name: "Langley",
     province: "BC",
-    tagline: "Langley Snow Removal",
+    tagline: "Langley Snow Removal & Commercial Snow Plowing",
     intro:
-      "Plowing and salting across Langley City and Langley Township — Willoughby, Walnut Grove, Brookswood, Fort Langley and Aldergrove. Strata, commercial and residential.",
+      "24/7 snow removal, commercial snow plowing, salting and ice control across Langley City and Langley Township — including Willoughby, Walnut Grove, Brookswood, Fort Langley and Aldergrove. Seasonal service for strata, retail, industrial and residential properties.",
     ogImage: "https://plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
@@ -366,9 +366,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.0504, lon: -122.2853, address: "32315 South Fraser Way" },
     name: "Abbotsford",
     province: "BC",
-    tagline: "Abbotsford Snow Removal & De-icing",
+    tagline: "Abbotsford Commercial Snow Removal & Snow Clearing",
     intro:
-      "Abbotsford plowing and ice control — Sumas Mountain, Clayburn, Historic Downtown and Mt. Lehman. Eastern Fraser Valley sites see heavier storms; we stage extra salt here.",
+      "24/7 Abbotsford commercial snow removal, snow clearing, plowing, salting and ice control for strata, retail, industrial and residential sites — including Sumas Mountain, Clayburn, Historic Downtown and Mt. Lehman. Extra equipment and salt are staged for heavier Fraser Valley storms.",
     ogImage: "https://plowwow.com/og-abbotsford.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
