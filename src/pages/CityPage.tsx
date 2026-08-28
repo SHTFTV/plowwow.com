@@ -127,7 +127,7 @@ const CityPage = () => {
     "@id": `${url}#localbusiness`,
     name: `PlowWow Snow Removal — ${city.name}`,
     image: ogImage,
-    logo: "https://plowwow.com/wp-content/uploads/logo.png",
+    logo: "https://plowwow.com/icon-192.png",
     url,
     telephone: "+1-604-761-1518",
     priceRange: "$$",
