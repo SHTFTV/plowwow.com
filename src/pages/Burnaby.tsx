@@ -11,7 +11,6 @@ import NeighborhoodFocus from "@/components/burnaby/NeighborhoodFocus";
 import ServiceTabs from "@/components/burnaby/ServiceTabs";
 import SeasonalPackages from "@/components/burnaby/SeasonalPackages";
 import BurnabyFAQ from "@/components/burnaby/BurnabyFAQ";
-import StickyCallBar from "@/components/burnaby/StickyCallBar";
 import CityDeepDive from "@/components/CityDeepDive";
 import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
@@ -69,7 +68,6 @@ const Burnaby = () => {
       </div>
     </main>
     <Footer />
-    <StickyCallBar />
   </div>
   );
 };
