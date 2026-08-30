@@ -99,6 +99,24 @@ const tagRoutes: RouteMeta[] = staticRoutes.filter((r) => r.path.startsWith("/bl
 
 writeUrlset("sitemap-static.xml", staticRoutes.filter((r) => !r.path.startsWith("/blog/tag/")));
 writeUrlset("sitemap-cities.xml", cityRoutes);
+const videoXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+${cityRoutes.map((route) => `  <url>
+    <loc>${BASE_URL}${withSlash(route.path)}</loc>
+    <video:video>
+      <video:thumbnail_loc>${route.ogImage ?? `${BASE_URL}/og-default.jpg`}</video:thumbnail_loc>
+      <video:title>${route.title.replaceAll("&", "&amp;")}</video:title>
+      <video:description>${route.description.replaceAll("&", "&amp;")}</video:description>
+      <video:content_loc>${BASE_URL}/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
+    </video:video>
+  </url>`).join("\n")}
+</urlset>
+`;
+writeFileSync(resolve("public", "sitemap-videos.xml"), videoXml);
+console.log(`✓ sitemap-videos.xml (${cityRoutes.length} urls)`);
 writeUrlset("sitemap-blog.xml", blogRoutes);
 if (neighborhoodRoutes.length) writeUrlset("sitemap-neighborhoods.xml", neighborhoodRoutes);
 writeUrlset("sitemap-tags.xml", tagRoutes);
@@ -109,6 +127,7 @@ if (pageRoutes.length) writeUrlset("sitemap-pages.xml", pageRoutes);
 const children = [
   "sitemap-static.xml",
   "sitemap-cities.xml",
+  "sitemap-videos.xml",
   "sitemap-blog.xml",
   neighborhoodRoutes.length ? "sitemap-neighborhoods.xml" : null,
   "sitemap-tags.xml",

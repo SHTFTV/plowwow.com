@@ -38,6 +38,7 @@ import CityDevBadge from "@/components/dev/CityDevBadge";
 import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
 import WowStrataCallout from "@/components/WowStrataCallout";
+import CitySnowVideo from "@/components/CitySnowVideo";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -62,7 +63,7 @@ const CityPage = () => {
         `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
       )
     : pageDescription;
-  const socialTitle = `${city.name} Snow Removal & De-icing | PlowWow`;
+  const socialTitle = pageTitle;
   const origin =
     typeof window !== "undefined"
       ? window.location.origin.replace(/\/+$/, "")
@@ -123,7 +124,7 @@ const CityPage = () => {
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SnowRemovalService"],
+    "@type": "LocalBusiness",
     "@id": `${url}#localbusiness`,
     name: `PlowWow Snow Removal — ${city.name}`,
     image: ogImage,
@@ -168,6 +169,16 @@ const CityPage = () => {
     ],
   };
 
+  const videoSchema = {
+    "@context": "https://schema.org", "@type": "VideoObject", "@id": `${url}#snow-video`,
+    name: `Snow Removal in ${city.name} | PlowWow Field Operations`,
+    description: `A short PlowWow field-operations video showing professional snow-removal readiness for strata, commercial and residential properties in ${city.name}, British Columbia.`,
+    thumbnailUrl: [ogImage], uploadDate: "2026-08-30T00:00:00-07:00", duration: "PT10S",
+    contentUrl: `${origin}/videos/plowwow-snow-removal-operations.mp4`, embedUrl: `${url}#snow-video`, inLanguage: "en-CA",
+    publisher: { "@type": "Organization", name: "PlowWow", logo: { "@type": "ImageObject", url: `${origin}/icon-192.png` } },
+    regionsAllowed: "CA",
+  };
+
   const otherCities = cities.filter((c) => c.slug !== city.slug);
   const { sections: copySections } = buildCityCopy(city);
 
@@ -193,6 +204,7 @@ const CityPage = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
 
       <TopBar />
       <Navbar />
@@ -252,6 +264,8 @@ const CityPage = () => {
         </section>
 
         <WowStrataCallout cityName={city.name} quotePath={`/${city.slug}/quote`} />
+
+        <CitySnowVideo cityName={city.name} poster={ogImage} />
 
         {/* City Map */}
         <section className="py-16" id="map">

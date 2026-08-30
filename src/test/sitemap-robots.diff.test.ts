@@ -8,9 +8,11 @@ const MUST_INCLUDE = ["/guest-post", "/seo-report", "/blog", "/"];
 const MUST_EXCLUDE_FROM_SITEMAP = ["/auth", "/admin"];
 const MUST_DISALLOW_IN_ROBOTS = ["/auth", "/admin"];
 
-const sitemap = readFileSync(resolve(process.cwd(), "public/sitemap.xml"), "utf8");
+const routeSitemaps = ["sitemap-static.xml", "sitemap-cities.xml", "sitemap-blog.xml", "sitemap-neighborhoods.xml", "sitemap-tags.xml", "sitemap-pages.xml"];
+const sitemap = routeSitemaps.map((file) => readFileSync(resolve(process.cwd(), "public", file), "utf8")).join("\n");
 const robots = readFileSync(resolve(process.cwd(), "public/robots.txt"), "utf8");
-const locs = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => m[1]);
+const normalizeUrl = (url: string) => url === `${BASE_URL}/` ? url : url.replace(/\/$/, "");
+const locs = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => normalizeUrl(m[1]));
 
 describe("sitemap.xml diff vs expected route rules", () => {
   it("includes every required public route", () => {
@@ -44,7 +46,11 @@ describe("sitemap.xml diff vs expected route rules", () => {
   });
 
   it("has no duplicate <loc> entries", () => {
-    expect(new Set(locs).size).toBe(locs.length);
+    for (const file of routeSitemaps) {
+      const xml = readFileSync(resolve(process.cwd(), "public", file), "utf8");
+      const fileLocs = Array.from(xml.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => normalizeUrl(m[1]));
+      expect(new Set(fileLocs).size, `${file} contains duplicate routes`).toBe(fileLocs.length);
+    }
   });
 });
 

@@ -175,7 +175,9 @@ describe("SEO metadata — dynamic /:citySlug", () => {
 });
 
 describe("sitemap.xml + robots.txt inclusion rules", () => {
-  const sitemap = readFileSync(resolve(process.cwd(), "public/sitemap.xml"), "utf8");
+  const sitemap = ["sitemap-static.xml", "sitemap-cities.xml", "sitemap-blog.xml", "sitemap-neighborhoods.xml", "sitemap-tags.xml", "sitemap-pages.xml"]
+    .map((file) => readFileSync(resolve(process.cwd(), "public", file), "utf8"))
+    .join("\n");
   const robots = readFileSync(resolve(process.cwd(), "public/robots.txt"), "utf8");
 
   it("sitemap includes /guest-post and /seo-report", () => {

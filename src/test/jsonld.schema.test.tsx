@@ -67,6 +67,7 @@ const KNOWN_TYPES = new Set([
   "Review",
   "OfferCatalog",
   "Offer",
+  "VideoObject",
 ]);
 
 type Block = Record<string, any>;

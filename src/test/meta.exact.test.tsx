@@ -15,6 +15,7 @@ import NotFound from "@/pages/NotFound";
 import CityPage from "@/pages/CityPage";
 import { getCityBySlug } from "@/data/cities";
 import { truncateForMeta } from "@/lib/seo";
+import { getLocationDeep } from "@/data/locations";
 
 vi.mock("@/integrations/supabase/client", () => {
   const fakeSession = { user: { id: "test-admin" } };
@@ -253,7 +254,8 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
       expect(faq, "FAQPage JSON-LD present").toBeTruthy();
       expect(faq!["@context"]).toBe("https://schema.org");
       expect(Array.isArray(faq!.mainEntity)).toBe(true);
-      expect(faq!.mainEntity.length).toBe(city!.faqs.length);
+      const deepFaqCount = getLocationDeep(city!.slug)?.faq.length ?? 0;
+      expect(faq!.mainEntity.length).toBe(city!.faqs.length + deepFaqCount);
       for (const entry of faq!.mainEntity) {
         expect(entry["@type"]).toBe("Question");
         expect(typeof entry.name).toBe("string");
