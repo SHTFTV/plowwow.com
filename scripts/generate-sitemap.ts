@@ -101,9 +101,13 @@ writeUrlset("sitemap-static.xml", staticRoutes.filter((r) => !r.path.startsWith(
 writeUrlset("sitemap-cities.xml", cityRoutes);
 const videoXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${cityRoutes.map((route) => `  <url>
     <loc>${BASE_URL}${withSlash(route.path)}</loc>
+${SUPPORTED_LOCALES.map((locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${localizedUrl(BASE_URL, withSlash(route.path), locale)}" />`).join("\n")}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${localizedUrl(BASE_URL, withSlash(route.path), X_DEFAULT_LOCALE)}" />
+    <lastmod>${today}</lastmod>
     <video:video>
       <video:thumbnail_loc>${route.ogImage ?? `${BASE_URL}/og-default.jpg`}</video:thumbnail_loc>
       <video:title>${route.title.replaceAll("&", "&amp;")}</video:title>
