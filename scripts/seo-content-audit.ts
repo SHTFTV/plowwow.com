@@ -1,7 +1,7 @@
 // SEO content audit — scans every neighborhood/city blog markdown file and
 // flags thin content, missing property_types coverage, missing "nearby"
 // landmarks, and missing/short FAQ sections. Outputs JSON + CSV to
-// /mnt/documents so the report is immediately downloadable.
+// seo-report/, matching every other validator script's convention.
 //
 // Run: bun run scripts/seo-content-audit.ts
 
@@ -9,7 +9,7 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const CONTENT_DIR = resolve(process.cwd(), "src/content/legacy/blog");
-const OUT_DIR = "/mnt/documents";
+const OUT_DIR = resolve(process.cwd(), "seo-report");
 const MIN_WORDS = 800;
 const MIN_FAQS = 3;
 
@@ -122,8 +122,8 @@ function main() {
   console.log(
     `[audit] ${summary.passing}/${summary.total} passing · ${summary.failing} flagged`,
   );
-  console.log(`[audit] JSON → /mnt/documents/seo-content-audit.json`);
-  console.log(`[audit] CSV  → /mnt/documents/seo-content-audit.csv`);
+  console.log(`[audit] JSON → seo-report/seo-content-audit.json`);
+  console.log(`[audit] CSV  → seo-report/seo-content-audit.csv`);
   if (failing.length) {
     for (const r of failing.slice(0, 10)) {
       console.log(`  · ${r.slug} — ${r.issues.join("; ")}`);

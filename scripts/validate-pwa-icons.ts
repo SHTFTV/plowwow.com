@@ -7,11 +7,11 @@
  *    (src/assets/wow-mascot.png) via a perceptual hash comparison of
  *    the icon's centre region against a downscaled mascot silhouette.
  *
- * Emits /mnt/documents/pwa-icon-report.json and prints a table. Exits
+ * Emits seo-report/pwa-icon-report.json and prints a table. Exits
  * non-zero when any icon is missing, mis-sized, or does not look like
  * the mascot.
  */
-import { readFileSync, existsSync, writeFileSync } from "node:fs";
+import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
 import sharp from "sharp";
@@ -118,14 +118,16 @@ async function main() {
     failed,
     entries: results,
   };
-  writeFileSync("/mnt/documents/pwa-icon-report.json", JSON.stringify(report, null, 2));
+  const outDir = resolve(ROOT, "seo-report");
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(resolve(outDir, "pwa-icon-report.json"), JSON.stringify(report, null, 2));
 
   console.log("\nPWA icon validation");
   console.table(results.map((r) => ({
     source: r.source, src: r.src, sizes: r.sizes, actual: r.actual || "-",
     mascotScore: r.mascotScore || "-", status: r.status,
   })));
-  console.log(`\n${results.length - failed}/${results.length} icons OK. Report → /mnt/documents/pwa-icon-report.json`);
+  console.log(`\n${results.length - failed}/${results.length} icons OK. Report → seo-report/pwa-icon-report.json`);
   if (failed) process.exit(1);
 }
 

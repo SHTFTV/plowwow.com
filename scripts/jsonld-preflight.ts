@@ -10,7 +10,13 @@ import { existsSync, readdirSync, readFileSync, statSync, writeFileSync, mkdirSy
 import { resolve, join } from "node:path";
 
 const DIST = resolve(process.cwd(), "dist");
-const OUT_DIR = "/mnt/documents";
+// Canonical output location, matching every other validator script's
+// convention (see scripts/generate-html-report.ts's REPORT_DIR and
+// scripts/validator-summary.ts's seo-report/jsonld-preflight.json lookup).
+// This used to be a hardcoded /mnt/documents, a path that only existed on
+// one developer machine — it does not exist in CI or on Vercel's build
+// image, so every build failed here with EACCES/ENOENT trying to mkdir it.
+const OUT_DIR = resolve(process.cwd(), "seo-report");
 
 type Finding = { file: string; type: string; issue: string };
 

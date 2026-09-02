@@ -32,7 +32,9 @@ type ValidationDoc = { totalIssues?: number; totalRoutes?: number; sections?: { 
 
 const legacy = readJson<LegacyDoc>("legacy-redirects.json");
 const hydration = readJson<HydrationDoc>("hydration.json");
-const jsonld = readJson<JsonLdDoc>("../../mnt/documents/jsonld-preflight.json") ?? readJson<JsonLdDoc>("jsonld-preflight.json");
+// jsonld-preflight.ts now writes to seo-report/ (its old /mnt/documents
+// output path never existed outside one developer machine).
+const jsonld = readJson<JsonLdDoc>("jsonld-preflight.json");
 const robots = readJson<RobotsDoc>("robots-directives.json");
 const validation = readJson<ValidationDoc>("validation-report.json");
 
