@@ -21,14 +21,14 @@ export default function Auth() {
       description: "Secure sign-in for PlowWow contractors and admins. Access your snow ops dashboard, takeoff estimates, and account tools.",
       path: "/auth",
       noindex: true,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "WebPage",
         name: "PlowWow Sign In",
         description: "Contractor & admin portal sign-in for PlowWow.",
-        url: "https://plowwow.com/auth",
-        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+        url: "https://www.plowwow.com/auth",
+        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://www.plowwow.com" },
       },
     });
   }, []);

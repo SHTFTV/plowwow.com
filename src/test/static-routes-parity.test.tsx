@@ -74,14 +74,14 @@ function jsonLdBlocks() {
 
 type Case = { name: string; path: string; el: React.ReactElement; expectedCanonical: string };
 const CASES: Case[] = [
-  { name: "GuestPost", path: "/guest-post", el: <GuestPost />, expectedCanonical: "https://plowwow.com/guest-post" },
-  { name: "Auth", path: "/auth", el: <Auth />, expectedCanonical: "https://plowwow.com/auth" },
-  { name: "Admin", path: "/admin", el: <Admin />, expectedCanonical: "https://plowwow.com/admin" },
-  { name: "SeoReport", path: "/seo-report", el: <SeoReport />, expectedCanonical: "https://plowwow.com/seo-report" },
-  { name: "Intelligence", path: "/intelligence", el: <Intelligence />, expectedCanonical: "https://plowwow.com/intelligence" },
-  { name: "AppFeatures", path: "/advanced-technology", el: <AppFeatures />, expectedCanonical: "https://plowwow.com/advanced-technology" },
-  { name: "BlogIndex", path: "/blog", el: <BlogIndex />, expectedCanonical: "https://plowwow.com/blog" },
-  { name: "Takeoff", path: "/takeoff", el: <Takeoff />, expectedCanonical: "https://plowwow.com/takeoff" },
+  { name: "GuestPost", path: "/guest-post", el: <GuestPost />, expectedCanonical: "https://www.plowwow.com/guest-post" },
+  { name: "Auth", path: "/auth", el: <Auth />, expectedCanonical: "https://www.plowwow.com/auth" },
+  { name: "Admin", path: "/admin", el: <Admin />, expectedCanonical: "https://www.plowwow.com/admin" },
+  { name: "SeoReport", path: "/seo-report", el: <SeoReport />, expectedCanonical: "https://www.plowwow.com/seo-report" },
+  { name: "Intelligence", path: "/intelligence", el: <Intelligence />, expectedCanonical: "https://www.plowwow.com/intelligence" },
+  { name: "AppFeatures", path: "/advanced-technology", el: <AppFeatures />, expectedCanonical: "https://www.plowwow.com/advanced-technology" },
+  { name: "BlogIndex", path: "/blog", el: <BlogIndex />, expectedCanonical: "https://www.plowwow.com/blog" },
+  { name: "Takeoff", path: "/takeoff", el: <Takeoff />, expectedCanonical: "https://www.plowwow.com/takeoff" },
 ];
 
 describe("static routes: og/twitter parity + DOM↔JSON-LD cross-validation", () => {

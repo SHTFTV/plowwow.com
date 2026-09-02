@@ -41,12 +41,12 @@ Allow: /
 User-agent: DuckAssistBot
 Allow: /
 
-Sitemap: https://plowwow.com/sitemap.xml
-Sitemap: https://plowwow.com/sitemap-cities.xml
-Sitemap: https://plowwow.com/sitemap-neighbourhoods.xml
-Sitemap: https://plowwow.com/sitemap-neighborhoods.xml
-Sitemap: https://plowwow.com/sitemap-blog.xml
-Sitemap: https://plowwow.com/sitemap-images.xml
-Sitemap: https://plowwow.com/sitemap-pages.xml
-Sitemap: https://plowwow.com/sitemap-static.xml
-Sitemap: https://plowwow.com/sitemap-tags.xml
+Sitemap: https://www.plowwow.com/sitemap.xml
+Sitemap: https://www.plowwow.com/sitemap-cities.xml
+Sitemap: https://www.plowwow.com/sitemap-neighbourhoods.xml
+Sitemap: https://www.plowwow.com/sitemap-neighborhoods.xml
+Sitemap: https://www.plowwow.com/sitemap-blog.xml
+Sitemap: https://www.plowwow.com/sitemap-images.xml
+Sitemap: https://www.plowwow.com/sitemap-pages.xml
+Sitemap: https://www.plowwow.com/sitemap-static.xml
+Sitemap: https://www.plowwow.com/sitemap-tags.xml

@@ -41,7 +41,7 @@ const AuthorPage = () => {
 
   useEffect(() => {
     if (!author) return;
-    const url = `https://plowwow.com/author/${slug}/`;
+    const url = `https://www.plowwow.com/author/${slug}/`;
     document.title = `${author.name} — PlowWow`;
     const setMeta = (name: string, content: string, property = false) => {
       const key = property ? "property" : "name";
@@ -84,7 +84,7 @@ const AuthorPage = () => {
         description: author.bio,
         url,
         jobTitle: author.role,
-        worksFor: { "@type": "Organization", name: "PlowWow", url: "https://plowwow.com/" },
+        worksFor: { "@type": "Organization", name: "PlowWow", url: "https://www.plowwow.com/" },
         ...(author.twitter ? { sameAs: [`https://twitter.com/${author.twitter.replace(/^@/, "")}`] } : {}),
       },
       url,

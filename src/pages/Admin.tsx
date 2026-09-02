@@ -60,14 +60,14 @@ export default function Admin() {
       description: "PlowWow internal admin dashboard for managing quote requests, contractors, and snow ops operations.",
       path: "/admin",
       noindex: true,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "WebPage",
         name: "PlowWow Admin",
         description: "Internal admin dashboard (restricted).",
-        url: "https://plowwow.com/admin",
-        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+        url: "https://www.plowwow.com/admin",
+        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://www.plowwow.com" },
       },
     });
   }, []);

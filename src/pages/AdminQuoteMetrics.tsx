@@ -131,7 +131,7 @@ export default function AdminQuoteMetrics() {
       description: "PlowWow internal metrics dashboard for quote submission abuse and rate-limit trends.",
       path: "/admin/quote-metrics",
       noindex: true,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
     });
   }, []);
 

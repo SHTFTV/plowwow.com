@@ -181,7 +181,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     const origin =
       typeof window !== "undefined"
         ? window.location.origin.replace(/\/+$/, "")
-        : "https://plowwow.com";
+        : "https://www.plowwow.com";
     const path = `/${slug}/`;
     const absoluteUrl = `${origin}${path}`;
     // Prefer the post's inline hero image; fall back to a per-slug hero, then a
@@ -283,15 +283,15 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         author: {
           "@type": "Person",
           name: "PlowWow Team",
-          url: "https://plowwow.com/author/plowwow-team/",
+          url: "https://www.plowwow.com/author/plowwow-team/",
         },
         publisher: {
           "@type": "Organization",
           name: "PlowWow",
-          url: "https://plowwow.com/",
+          url: "https://www.plowwow.com/",
           logo: {
             "@type": "ImageObject",
-            url: "https://plowwow.com/icon-192.png",
+            url: "https://www.plowwow.com/icon-192.png",
           },
         },
         inLanguage: "en-CA",
@@ -313,8 +313,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-          { "@type": "ListItem", position: 2, name: "Blog", item: "https://plowwow.com/blog/" },
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.plowwow.com/blog/" },
           {
             "@type": "ListItem",
             position: 3,
@@ -342,9 +342,9 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         telephone: "+1-604-761-1518",
         priceRange: "$$",
         image: heroPath ? (heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`) : absoluteImage,
-        logo: "https://plowwow.com/icon-192.png",
+        logo: "https://www.plowwow.com/icon-192.png",
         areaServed: { "@type": "Place", name: areaName },
-        provider: { "@id": "https://plowwow.com/#organization" },
+        provider: { "@id": "https://www.plowwow.com/#organization" },
         serviceType: "Snow Removal, De-Icing & Salting",
         address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
         sameAs: (() => {

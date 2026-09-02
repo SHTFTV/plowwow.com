@@ -82,8 +82,8 @@ const Takeoff = () => {
   useEffect(() => {
     const TITLE = "Snow Contract Takeoff & Estimate Tool | PlowWow";
     const DESC = "Build snow-contract takeoffs and export branded PDF estimates using your own editable rate card.";
-    const URL_ABS = "https://plowwow.com/takeoff";
-    const OG_IMAGE = "https://plowwow.com/og-default.jpg";
+    const URL_ABS = "https://www.plowwow.com/takeoff";
+    const OG_IMAGE = "https://www.plowwow.com/og-default.jpg";
     document.title = TITLE;
     const set = (sel: string, attr: string, val: string) => {
       let el = document.querySelector(sel);

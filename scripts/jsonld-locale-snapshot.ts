@@ -98,11 +98,13 @@ for (const file of files) {
   // Skip the static 404 page — it isn't a canonical route.
   if (file.endsWith("/404.html")) continue;
   const rel = file.replace(DIST + "/", "").replace(/\/?index\.html$/, "") || "/";
-  const routePath = rel === "/" ? "/" : `/${rel}/`;
+  // vercel.json declares trailingSlash: false, so route paths (and the
+  // canonical URLs built from them) must not carry a trailing slash.
+  const routePath = rel === "/" ? "/" : `/${rel}`;
   // Skip /blog/<slug>/ legacy alias pages — they intentionally carry the
   // canonical root-URL JSON-LD (`/<slug>/`) plus a meta-refresh redirect,
   // so comparing to the alias path always false-positives.
-  if (routePath.startsWith("/blog/") && routePath !== "/blog/") continue;
+  if (routePath.startsWith("/blog/") && routePath !== "/blog") continue;
   const canonicalUrl = `${BASE_URL}${routePath}`;
   const html = readFileSync(file, "utf8");
 

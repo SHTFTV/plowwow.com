@@ -13,14 +13,14 @@ const NotFound = () => {
       description: "The page you are looking for does not exist. Return to PlowWow for 24/7 snow removal, salting, and de-icing across Greater Vancouver.",
       path,
       noindex: true,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "WebPage",
         name: "Page Not Found",
         description: "404 — the requested PlowWow page does not exist.",
-        url: `https://plowwow.com${path}`,
-        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+        url: `https://www.plowwow.com${path}`,
+        isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://www.plowwow.com" },
       },
     });
   }, [location.pathname]);

@@ -1,8 +1,8 @@
 # Build Validation Report
 
-_Generated 2026-07-29T02:20:22.788Z_
+_Generated 2026-09-02T11:40:24.525Z_
 
-- Total routes: **444**
+- Total routes: **476**
 - Required locales: `en-CA, en, x-default`
 - Total issues: **0**
 

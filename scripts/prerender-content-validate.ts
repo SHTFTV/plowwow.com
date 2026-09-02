@@ -15,6 +15,7 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { cities } from "../src/data/cities";
+import { BASE_URL } from "./routes";
 
 const DIST = resolve("dist");
 const HOME_HTML = readFileSync(resolve(DIST, "index.html"), "utf8");
@@ -47,7 +48,7 @@ for (const t of targets) {
     continue;
   }
   const html = readFileSync(file, "utf8");
-  const url = `https://plowwow.com/${t.slug}/`;
+  const url = `${BASE_URL}/${t.slug}`;
 
   const problems: string[] = [];
 

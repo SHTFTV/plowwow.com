@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { legacyBlogSlugs } from "@/legacy-slug-list";
+import { BASE_URL } from "../../scripts/routes";
 
 // Verifies that:
 //   1. Every blog slug is listed in sitemap-blog.xml at its canonical /<slug>/ URL.
@@ -25,7 +26,7 @@ describe("blog URL canonicalization in sitemaps", () => {
   it("every blog slug appears in sitemap-blog.xml at its canonical URL", () => {
     const xml = readFileSync(resolve(PUBLIC_DIR, "sitemap-blog.xml"), "utf8");
     const missing = legacyBlogSlugs.filter(
-      (slug) => !xml.includes(`<loc>https://plowwow.com/${slug}/</loc>`),
+      (slug) => !xml.includes(`<loc>${BASE_URL}/${slug}</loc>`),
     );
     expect(missing).toEqual([]);
   });
@@ -37,8 +38,8 @@ describe("blog URL canonicalization in sitemaps", () => {
       const xml = readFileSync(path, "utf8");
       const leaks = legacyBlogSlugs.filter(
         (slug) =>
-          xml.includes(`<loc>https://plowwow.com/blog/${slug}/</loc>`) ||
-          xml.includes(`<loc>https://plowwow.com/blog/${slug}</loc>`),
+          xml.includes(`<loc>${BASE_URL}/blog/${slug}/</loc>`) ||
+          xml.includes(`<loc>${BASE_URL}/blog/${slug}</loc>`),
       );
       expect(leaks, `${name} leaks /blog/<slug> URLs`).toEqual([]);
     }

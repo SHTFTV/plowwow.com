@@ -3,361 +3,376 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://plowwow.com/vancouver/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/vancouver/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/vancouver/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/vancouver/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/burnaby</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/burnaby" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/burnaby" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/burnaby" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-vancouver.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-burnaby.jpg</video:thumbnail_loc>
+      <video:title>Burnaby Snow Removal &amp; De-Icing | PlowWow</video:title>
+      <video:description>24/7 Burnaby snow plowing and salting — Metrotown, Brentwood, Lougheed, Highgate. WorkSafeBC insured strata &amp; commercial crews on standby.</video:description>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.plowwow.com/vancouver</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/vancouver" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/vancouver" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/vancouver" />
+    <lastmod>2026-09-02</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://www.plowwow.com/og-vancouver.jpg</video:thumbnail_loc>
       <video:title>Vancouver Snow Removal for Strata &amp; Commercial Properties | PlowWow</video:title>
       <video:description>24/7 Vancouver snow removal, commercial snow plowing, salting and ice control for strata, retail, industrial and residential properties — from Downtown an…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/new-westminster/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/new-westminster/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/new-westminster/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/new-westminster/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/new-westminster</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/new-westminster" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/new-westminster" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/new-westminster" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-new-westminster.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-new-westminster.jpg</video:thumbnail_loc>
       <video:title>New West Snow Removal &amp; Salting | PlowWow</video:title>
       <video:description>Reliable plowing and de-icing for New Westminster's steep streets, Uptown towers and Quayside properties. WorkSafeBC insured crews on standby through ever…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/coquitlam/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/coquitlam/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/coquitlam/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/coquitlam/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/coquitlam</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/coquitlam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/coquitlam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/coquitlam" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-coquitlam.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-coquitlam.jpg</video:thumbnail_loc>
       <video:title>Coquitlam Snow Removal &amp; Ice Control | PlowWow</video:title>
       <video:description>Plowing, salting and sidewalk clearing for Coquitlam — Westwood Plateau, Burke Mountain, City Centre and Maillardville. Elevation-tuned routing for higher…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/port-coquitlam/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/port-coquitlam/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/port-coquitlam/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/port-coquitlam/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/port-coquitlam</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/port-coquitlam" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/port-coquitlam" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/port-coquitlam" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-port-coquitlam.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-port-coquitlam.jpg</video:thumbnail_loc>
       <video:title>Port Coquitlam Snow &amp; De-icing | PlowWow</video:title>
       <video:description>PoCo plowing for Downtown, Birchland, Citadel Heights and Riverwood. Commercial lot clearing and residential driveways with same-storm response.</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/port-moody/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/port-moody/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/port-moody/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/port-moody/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/port-moody</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/port-moody" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/port-moody" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/port-moody" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-port-moody.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-port-moody.jpg</video:thumbnail_loc>
       <video:title>Port Moody Snow Removal | PlowWow</video:title>
       <video:description>Plowing and salting for Port Moody — Heritage Mountain, Newport Village, Inlet District and College Park. Strata-priority dispatch with photo proof of ser…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/pitt-meadows/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/pitt-meadows/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/pitt-meadows/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/pitt-meadows/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/pitt-meadows</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/pitt-meadows" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/pitt-meadows" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/pitt-meadows" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-pitt-meadows.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-pitt-meadows.jpg</video:thumbnail_loc>
       <video:title>Pitt Meadows Plowing &amp; Salting | PlowWow</video:title>
       <video:description>Pitt Meadows snow service for downtown, Bonson, Mitchell Island industrial and residential streets. Flat-grade routing keeps response fast across the city.</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/maple-ridge/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/maple-ridge/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/maple-ridge/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/maple-ridge/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/maple-ridge</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/maple-ridge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/maple-ridge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/maple-ridge" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-maple-ridge.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-maple-ridge.jpg</video:thumbnail_loc>
       <video:title>Maple Ridge Snow Removal | PlowWow</video:title>
       <video:description>Plowing, sanding and salting for Maple Ridge — Albion, Silver Valley, Hammond and Town Centre. Higher-elevation routes pre-salted ahead of forecast events.</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/port-kells-snow-removal/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/port-kells-snow-removal/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/port-kells-snow-removal/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/port-kells-snow-removal/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/port-kells-snow-removal</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/port-kells-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/port-kells-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/port-kells-snow-removal" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-surrey.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-surrey.jpg</video:thumbnail_loc>
       <video:title>Port Kells Commercial Snow Removal | PlowWow</video:title>
       <video:description>24/7 commercial and industrial snow removal in Port Kells, Surrey. Plowing, salting and de-icing for warehouses, loading docks, truck yards, parking lots…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/campbell-heights-snow-removal/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/campbell-heights-snow-removal/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/campbell-heights-snow-removal/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/campbell-heights-snow-removal/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/campbell-heights-snow-removal</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/campbell-heights-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/campbell-heights-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/campbell-heights-snow-removal" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-surrey.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-surrey.jpg</video:thumbnail_loc>
       <video:title>Campbell Heights Commercial Snow Removal | PlowWow</video:title>
       <video:description>Commercial snow clearing and ice management for Campbell Heights business parks and industrial properties in South Surrey. Priority plowing for parking lo…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/surrey/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/surrey/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/surrey/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/surrey/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/surrey</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/surrey" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/surrey" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/surrey" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-surrey.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-surrey.jpg</video:thumbnail_loc>
       <video:title>Surrey Commercial Snow Removal &amp; Ice Management | PlowWow</video:title>
       <video:description>24/7 Surrey commercial snow removal, snow plowing, salting and ice management across all six town centres — City Centre, Guildford, Newton, Cloverdale, Fl…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/langley/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/langley/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/langley/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/langley/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/langley</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/langley" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/langley" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/langley" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-langley.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-langley.jpg</video:thumbnail_loc>
       <video:title>Langley Snow Removal &amp; Commercial Snow Plowing | PlowWow</video:title>
       <video:description>24/7 snow removal, commercial snow plowing, salting and ice control across Langley City and Langley Township — including Willoughby, Walnut Grove, Brooksw…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/abbotsford/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/abbotsford/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/abbotsford/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/abbotsford/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/abbotsford</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/abbotsford" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/abbotsford" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/abbotsford" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-abbotsford.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-abbotsford.jpg</video:thumbnail_loc>
       <video:title>Abbotsford Commercial Snow Removal &amp; Snow Clearing | PlowWow</video:title>
       <video:description>24/7 Abbotsford commercial snow removal, snow clearing, plowing, salting and ice control for strata, retail, industrial and residential sites — including…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/west-vancouver/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/west-vancouver/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/west-vancouver/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/west-vancouver/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/west-vancouver</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/west-vancouver" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/west-vancouver" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/west-vancouver" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-west-vancouver.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-west-vancouver.jpg</video:thumbnail_loc>
       <video:title>West Vancouver Snow Removal | PlowWow</video:title>
       <video:description>Plowing, salting and ice control across West Vancouver — British Properties, Ambleside, Dundarave, Caulfeild and Cypress. Steep-grade routing and pre-salt…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/north-vancouver/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/north-vancouver/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/north-vancouver/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/north-vancouver/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/north-vancouver</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/north-vancouver" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/north-vancouver" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/north-vancouver" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-north-vancouver.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-north-vancouver.jpg</video:thumbnail_loc>
       <video:title>North Vancouver Snow Removal &amp; Salting | PlowWow</video:title>
       <video:description>24/7 plowing and de-icing across the North Shore — Lonsdale, Lynn Valley, Deep Cove, Edgemont and Capilano. Elevation-tuned dispatch for higher-snowfall z…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/richmond/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/richmond/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/richmond/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/richmond/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/richmond</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/richmond" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/richmond" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/richmond" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-richmond.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-richmond.jpg</video:thumbnail_loc>
       <video:title>Richmond Snow Removal &amp; De-icing | PlowWow</video:title>
       <video:description>Flat-grade plowing and ice control across Richmond — City Centre, Steveston, Ironwood and Bridgeport. Commercial lots and strata corridors with same-storm…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/delta/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/delta/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/delta/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/delta/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/delta</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/delta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/delta" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/delta" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-delta.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-delta.jpg</video:thumbnail_loc>
       <video:title>Delta Snow Removal &amp; Salting | PlowWow</video:title>
       <video:description>Plowing, sanding and salting for Delta — Tsawwassen, Ladner and North Delta. Coastal and industrial routes with priority strata and commercial dispatch.</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/white-rock/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/white-rock/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/white-rock/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/white-rock/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/white-rock</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/white-rock" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/white-rock" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/white-rock" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-white-rock.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-white-rock.jpg</video:thumbnail_loc>
       <video:title>White Rock Snow Removal | PlowWow</video:title>
       <video:description>Coastal plowing and ice control across White Rock — uptown, the waterfront promenade corridor and hillside SFH. Strata-priority dispatch with photo proof…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/mission/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/mission/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/mission/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/mission/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/mission</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/mission" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/mission" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/mission" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-mission.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-mission.jpg</video:thumbnail_loc>
       <video:title>Mission Snow Removal &amp; Ice Control | PlowWow</video:title>
       <video:description>Plowing and salting across Mission — Downtown, Cedar Valley, Hatzic and Silverdale. Eastern Fraser Valley sites see heavier storms; we stage extra salt he…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/chilliwack/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/chilliwack/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/chilliwack/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/chilliwack/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/chilliwack</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/chilliwack" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/chilliwack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/chilliwack" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-chilliwack.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-chilliwack.jpg</video:thumbnail_loc>
       <video:title>Chilliwack Snow Removal &amp; De-icing | PlowWow</video:title>
       <video:description>Chilliwack plowing and ice control — Sardis, Promontory, Yarrow, Vedder and Downtown. Heavy-snowfall corridor with extra salt staging and pre-storm routin…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/port-kells/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/port-kells/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/port-kells/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/port-kells/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/port-kells</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/port-kells" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/port-kells" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/port-kells" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-surrey.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-surrey.jpg</video:thumbnail_loc>
       <video:title>Port Kells Commercial &amp; Industrial Snow Removal | PlowWow</video:title>
       <video:description>24/7 snow plowing, salting and de-icing for Port Kells' warehouse, distribution and trucking properties — the 176 Street and Highway 1 logistics belt in n…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/campbell-heights/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/campbell-heights/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/campbell-heights/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/campbell-heights/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/campbell-heights</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/campbell-heights" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/campbell-heights" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/campbell-heights" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-surrey.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-surrey.jpg</video:thumbnail_loc>
       <video:title>Campbell Heights Business Park Snow Removal | PlowWow</video:title>
       <video:description>24/7 snow and ice management for Campbell Heights — one of Metro Vancouver's largest business parks, spanning South Surrey around 192 Street between 24th…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/walnut-grove/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/walnut-grove/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/walnut-grove/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/walnut-grove/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/walnut-grove</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/walnut-grove" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/walnut-grove" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/walnut-grove" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-langley.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-langley.jpg</video:thumbnail_loc>
       <video:title>Walnut Grove Snow Removal — Townhouse Strata, Driveways &amp; Walkways | PlowWow</video:title>
       <video:description>Snow plowing, salting and de-icing for Walnut Grove strata complexes, townhouse communities and homes in northwest Langley — driveways, visitor parking, w…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/willoughby/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/willoughby/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/willoughby/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/willoughby/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/willoughby</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/willoughby" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/willoughby" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/willoughby" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-langley.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-langley.jpg</video:thumbnail_loc>
       <video:title>Willoughby Snow Removal — Townhouse &amp; Condo Strata Specialists | PlowWow</video:title>
       <video:description>Snow and ice management for Willoughby's fast-growing townhouse and condo strata communities in Langley — shared drive aisles, visitor lots, walkways and…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://plowwow.com/fort-langley/</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://plowwow.com/fort-langley/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://plowwow.com/fort-langley/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://plowwow.com/fort-langley/" />
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://www.plowwow.com/fort-langley</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/fort-langley" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/fort-langley" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/fort-langley" />
+    <lastmod>2026-09-02</lastmod>
     <video:video>
-      <video:thumbnail_loc>https://plowwow.com/og-langley.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.plowwow.com/og-langley.jpg</video:thumbnail_loc>
       <video:title>Fort Langley Snow Removal — Village, Strata &amp; Heritage Properties | PlowWow</video:title>
       <video:description>Snow plowing, salting and de-icing for Fort Langley's village businesses, Bedford Landing stratas and residential streets — driveways, walkways, parking a…</video:description>
-      <video:content_loc>https://plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
+      <video:content_loc>https://www.plowwow.com/videos/plowwow-snow-removal-operations.mp4</video:content_loc>
       <video:duration>10</video:duration>
       <video:publication_date>2026-08-30T00:00:00-07:00</video:publication_date>
     </video:video>

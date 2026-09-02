@@ -2,7 +2,7 @@
 // Sufficient for JS-executing crawlers (Googlebot, Bingbot). Social preview crawlers
 // (LinkedIn/Slack/Facebook) fall back to the static index.html og:* tags.
 
-const BASE_URL = "https://plowwow.com";
+const BASE_URL = "https://www.plowwow.com";
 const JSONLD_ATTR = "data-pagemeta-jsonld";
 
 const setMetaName = (name: string, content: string) => {

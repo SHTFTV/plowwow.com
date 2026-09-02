@@ -29,7 +29,7 @@ vi.mock("@/integrations/supabase/client", () => ({
   },
 }));
 
-const BASE = "https://plowwow.com";
+const BASE = "https://www.plowwow.com";
 
 type Case = { name: string; initialUrl: string; expectedCanonical: string };
 

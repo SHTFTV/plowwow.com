@@ -15,7 +15,7 @@ import { neighborhoodsOgUrl } from "@/generated/neighborhoods-og";
 const ALL = "all";
 const CITYWIDE = "citywide";
 const PAGE_SIZE = 12;
-const BASE = "https://plowwow.com";
+const BASE = "https://www.plowwow.com";
 
 const BlogNeighborhoods = () => {
   const [params, setParams] = useSearchParams();

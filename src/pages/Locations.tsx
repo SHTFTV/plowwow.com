@@ -15,25 +15,25 @@ const Locations = () => {
       description:
         "Every city and neighborhood PlowWow services across Metro Vancouver and the Fraser Valley — 24/7 strata, commercial and residential snow removal.",
       path: "/locations",
-      ogImage: "https://plowwow.com/og-image.jpg",
+      ogImage: "https://www.plowwow.com/og-image.jpg",
       jsonLd: [
         {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "PlowWow Service Areas",
-          url: "https://plowwow.com/locations",
+          url: "https://www.plowwow.com/locations",
           about: cityHubs.map((c) => ({
             "@type": "Place",
             name: `${c.name}, BC`,
-            url: `https://plowwow.com${c.path}`,
+            url: `https://www.plowwow.com${c.path}`,
           })),
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-            { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://plowwow.com/locations" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
+            { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://www.plowwow.com/locations" },
           ],
         },
       ],

@@ -11,7 +11,7 @@ import { WAIT } from "./helpers/seo-test-guard";
 import CityPage from "@/pages/CityPage";
 import NotFound from "@/pages/NotFound";
 
-const BASE = "https://plowwow.com";
+const BASE = "https://www.plowwow.com";
 
 // Each entry: raw path we navigate to. We don't hard-code the canonical
 // because jsdom normalizes <link href> (percent-encoding unicode); instead

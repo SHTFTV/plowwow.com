@@ -38,22 +38,22 @@ const GuestPost = () => {
       title: TITLE,
       description: DESCRIPTION,
       path: PATH,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
       jsonLd: [
         {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: TITLE,
           description: DESCRIPTION,
-          url: `https://plowwow.com${PATH}`,
-          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+          url: `https://www.plowwow.com${PATH}`,
+          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://www.plowwow.com" },
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-            { "@type": "ListItem", position: 2, name: "Guest Post", item: `https://plowwow.com${PATH}` },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
+            { "@type": "ListItem", position: 2, name: "Guest Post", item: `https://www.plowwow.com${PATH}` },
           ],
         },
       ],

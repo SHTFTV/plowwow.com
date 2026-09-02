@@ -198,7 +198,11 @@ function blogLocalBusiness(url: string, headline: string, heroAbs: string): LD {
 // Head builder
 // ---------------------------------------------------------------------------
 function renderHead(route: RouteMeta): string {
-  const canonicalPath = route.path === "/" ? "/" : route.path.endsWith("/") ? route.path : `${route.path}/`;
+  // vercel.json declares trailingSlash: false site-wide, so canonical/hreflang
+  // URLs must NOT carry a trailing slash (except "/" itself) — a trailing slash
+  // just gets redirected away by Vercel, and a canonical that points at a URL
+  // which redirects elsewhere is an indexing anti-pattern.
+  const canonicalPath = route.path === "/" ? "/" : route.path.replace(/\/+$/, "");
   const url = `${BASE_URL}${canonicalPath}`;
   const title = esc(route.title);
   const desc = esc(route.description);

@@ -70,7 +70,7 @@ const CopyFilename = ({ value }: { value: string }) => {
 
 const SeoReport = () => {
   const origin =
-    typeof window !== "undefined" ? window.location.origin : "https://plowwow.com";
+    typeof window !== "undefined" ? window.location.origin : "https://www.plowwow.com";
   const rows = useMemo(() => buildRows(origin), [origin]);
   const [downloading, setDownloading] = useState(false);
   const [onlyMismatches, setOnlyMismatches] = useState(false);
@@ -310,22 +310,22 @@ const SeoReport = () => {
       description: DESCRIPTION,
       path: PATH,
       noindex: true,
-      ogImage: "https://plowwow.com/og-default.jpg",
+      ogImage: "https://www.plowwow.com/og-default.jpg",
       jsonLd: [
         {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: TITLE,
           description: DESCRIPTION,
-          url: `https://plowwow.com${PATH}`,
-          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://plowwow.com" },
+          url: `https://www.plowwow.com${PATH}`,
+          isPartOf: { "@type": "WebSite", name: "PlowWow", url: "https://www.plowwow.com" },
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-            { "@type": "ListItem", position: 2, name: "SEO Report", item: `https://plowwow.com${PATH}` },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
+            { "@type": "ListItem", position: 2, name: "SEO Report", item: `https://www.plowwow.com${PATH}` },
           ],
         },
       ],

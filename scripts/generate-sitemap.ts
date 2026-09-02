@@ -17,7 +17,10 @@ import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl } from "./lib/locales";
 
 const today = new Date().toISOString().slice(0, 10);
-const withSlash = (p: string) => (p === "/" ? "/" : p.endsWith("/") ? p : `${p}/`);
+// vercel.json declares trailingSlash: false site-wide, so sitemap <loc> URLs
+// must match the real (no-trailing-slash) served URL, or they point at a
+// redirect instead of the indexable page.
+const withSlash = (p: string) => p;
 
 const routes = Array.from(
   new Map(collectRoutes().map((r) => [r.path, r])).values(),

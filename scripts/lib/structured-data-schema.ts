@@ -36,8 +36,8 @@ export const localBusinessSchema: SchemaObject = {
   additionalProperties: false,
   properties: {
     name: { type: "string", minLength: 1 },
-    url: { type: "string", format: "uri", pattern: "^https://plowwow\\.com(/|$)" },
-    image: { type: "string", format: "uri", pattern: "^https://plowwow\\.com/" },
+    url: { type: "string", format: "uri", pattern: "^https://(www\\.)?plowwow\\.com(/|$)" },
+    image: { type: "string", format: "uri", pattern: "^https://(www\\.)?plowwow\\.com/" },
     telephone: { type: "string", pattern: "^\\+?[0-9\\-\\s().]+$", minLength: 7 },
     areaServed: { type: "string", minLength: 1 },
     priceRange: { type: "string", minLength: 1 },

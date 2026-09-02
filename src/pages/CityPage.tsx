@@ -67,7 +67,7 @@ const CityPage = () => {
   const origin =
     typeof window !== "undefined"
       ? window.location.origin.replace(/\/+$/, "")
-      : "https://plowwow.com";
+      : "https://www.plowwow.com";
   // Canonical URL has no trailing slash for consistency
   const url = `${origin}/${city.slug}`;
   const ogImage = city.ogImage;
@@ -128,13 +128,13 @@ const CityPage = () => {
     "@id": `${url}#localbusiness`,
     name: `PlowWow Snow Removal — ${city.name}`,
     image: ogImage,
-    logo: "https://plowwow.com/icon-192.png",
+    logo: "https://www.plowwow.com/icon-192.png",
     url,
     telephone: "+1-604-761-1518",
     priceRange: "$$",
     areaServed: { "@type": "City", name: `${city.name}, ${city.province}` },
     address: { "@type": "PostalAddress", addressLocality: city.name, addressRegion: city.province, addressCountry: "CA" },
-    provider: { "@id": "https://plowwow.com/#organization" },
+    provider: { "@id": "https://www.plowwow.com/#organization" },
     serviceType: "Snow Removal, De-Icing & Salting",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -163,8 +163,8 @@ const CityPage = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
-      { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://plowwow.com/locations" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: "https://www.plowwow.com/locations" },
       { "@type": "ListItem", position: 3, name: city.name, item: url },
     ],
   };

@@ -385,7 +385,7 @@ const BlogIndex = () => {
       if (!el) { el = document.createElement("link"); el.rel = "canonical"; document.head.appendChild(el); }
       el.href = href;
     };
-    const URL_ROOT = "https://plowwow.com/blog";
+    const URL_ROOT = "https://www.plowwow.com/blog";
     // Reverse map: category label → path slug. Keeps canonical selection in
     // sync with TAG_SLUG_TO_LABEL above.
     const CAT_TO_SLUG: Record<string, string> = {
@@ -408,7 +408,7 @@ const BlogIndex = () => {
     const URL_ABS = qs.length ? `${URL_BASE}?${qs.join("&")}` : URL_BASE;
 
 
-    const OG_IMAGE = "https://plowwow.com/og-default.jpg";
+    const OG_IMAGE = "https://www.plowwow.com/og-default.jpg";
     setMeta("description", description);
     setProp("og:title", title);
     setProp("og:description", description);
@@ -499,7 +499,7 @@ const BlogIndex = () => {
       itemListElement: visible.map((slug, i) => ({
         "@type": "ListItem",
         position: start + i + 1,
-        url: `https://plowwow.com/${slug}/`,
+        url: `https://www.plowwow.com/${slug}/`,
         name: titleFor(slug),
       })),
     });
@@ -511,7 +511,7 @@ const BlogIndex = () => {
     bc.type = "application/ld+json";
     bc.id = bcId;
     const crumbs: any[] = [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
       { "@type": "ListItem", position: 2, name: "Blog", item: URL_ROOT },
     ];
     if (activeCat !== "All") {

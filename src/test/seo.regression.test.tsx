@@ -49,7 +49,7 @@ vi.mock("@/integrations/supabase/client", () => {
   };
 });
 
-const BASE = "https://plowwow.com";
+const BASE = "https://www.plowwow.com";
 
 const renderPage = (path: string, element: React.ReactElement) =>
   render(
@@ -124,7 +124,7 @@ describe("SEO metadata — static pages", () => {
       expect(metaProp("og:description")).toBe(desc);
       expect(metaProp("og:type")).toBe("website");
       expect(metaName("twitter:card")).toBe("summary_large_image");
-      expect(metaProp("og:image")).toMatch(/^https:\/\/plowwow\.com\//);
+      expect(metaProp("og:image")).toMatch(/^https:\/\/www\.plowwow\.com\//);
 
       const robots = metaName("robots") || "";
       expect(robots.includes("noindex")).toBe(c.noindex);
@@ -193,12 +193,12 @@ describe("sitemap.xml + robots.txt inclusion rules", () => {
   it("robots.txt disallows /auth and /admin, references sitemap", () => {
     expect(robots).toMatch(/Disallow:\s*\/admin/);
     expect(robots).toMatch(/Disallow:\s*\/auth/);
-    expect(robots).toMatch(/Sitemap:\s*https:\/\/plowwow\.com\/sitemap\.xml/);
+    expect(robots).toMatch(/Sitemap:\s*https:\/\/www\.plowwow\.com\/sitemap\.xml/);
   });
 
   it("sitemap uses absolute plowwow.com URLs only", () => {
     const locs = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)).map((m) => m[1]);
     expect(locs.length).toBeGreaterThan(0);
-    for (const loc of locs) expect(loc.startsWith("https://plowwow.com/")).toBe(true);
+    for (const loc of locs) expect(loc.startsWith("https://www.plowwow.com/")).toBe(true);
   });
 });

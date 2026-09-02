@@ -1,7 +1,7 @@
 // Site-wide BreadcrumbList JSON-LD builder. Every page can produce
 // a schema.org BreadcrumbList that terminates at its own canonical URL.
 
-const BASE_URL = "https://plowwow.com";
+const BASE_URL = "https://www.plowwow.com";
 
 export type Crumb = { name: string; path: string };
 

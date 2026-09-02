@@ -57,7 +57,7 @@ const localBusinessSchema = {
       ],
     },
     name: { type: "string", minLength: 3 },
-    url: { type: "string", format: "uri", pattern: "^https://plowwow\\.com/" },
+    url: { type: "string", format: "uri", pattern: "^https://(www\\.)?plowwow\\.com/" },
     telephone: { type: "string", pattern: "^\\+?[0-9()\\-\\s]{7,}$" },
     image: { type: "string", format: "uri", pattern: "^https://" },
     logo: { type: "string", format: "uri", pattern: "^https://" },

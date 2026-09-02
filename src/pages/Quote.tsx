@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 const TITLE = "Get a Snow Removal Quote | PlowWow Metro Vancouver";
 const DESCRIPTION =
   "Request a fixed seasonal snow removal quote for your Metro Vancouver strata, commercial or industrial property. 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer.";
-const CANONICAL = "https://plowwow.com/quote";
+const CANONICAL = "https://www.plowwow.com/quote";
 
 const Quote = () => {
   useEffect(() => {

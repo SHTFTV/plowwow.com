@@ -50,7 +50,7 @@ const BurnabySchema = () => {
       "@type": "HomeAndConstructionBusiness",
       additionalType: "https://schema.org/ProfessionalService",
       name: "PlowWow Burnaby Snow Removal",
-      image: "https://plowwow.com/og-burnaby.jpg",
+      image: "https://www.plowwow.com/og-burnaby.jpg",
       telephone: "+1-604-761-1518",
       email: "Wow@PlowWow.com",
       priceRange: "$$",
@@ -130,7 +130,7 @@ const BurnabySchema = () => {
     const pageDescription =
       "24/7 Snow Removal in Burnaby — Metrotown, Brentwood, Burnaby Mountain. Plowing, salting & strata service. WorkSafeBC insured. Call 604-761-1518.";
     const pageUrl = window.location.origin + "/burnaby";
-    const ogImage = "https://plowwow.com/og-burnaby.jpg";
+    const ogImage = "https://www.plowwow.com/og-burnaby.jpg";
     const ogImageWidth = "1200";
     const ogImageHeight = "630";
 

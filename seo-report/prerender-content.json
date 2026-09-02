@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T02:20:23.975Z",
+  "generatedAt": "2026-09-02T11:40:24.847Z",
   "passed": [
     "/burnaby-snow-removal/",
     "/burnaby/",
@@ -10,6 +10,8 @@
     "/port-moody/",
     "/pitt-meadows/",
     "/maple-ridge/",
+    "/port-kells-snow-removal/",
+    "/campbell-heights-snow-removal/",
     "/surrey/",
     "/langley/",
     "/abbotsford/",
@@ -19,7 +21,12 @@
     "/delta/",
     "/white-rock/",
     "/mission/",
-    "/chilliwack/"
+    "/chilliwack/",
+    "/port-kells/",
+    "/campbell-heights/",
+    "/walnut-grove/",
+    "/willoughby/",
+    "/fort-langley/"
   ],
   "failures": []
 }

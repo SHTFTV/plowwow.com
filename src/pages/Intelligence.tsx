@@ -13,7 +13,7 @@ import IntelligenceCTA from "@/components/intelligence/IntelligenceCTA";
 const TITLE = "PlowWow Snow Intelligence — PWIE & Wow-Shield";
 const DESCRIPTION =
   "PlowWow's snow intelligence stack: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Ghost Fleet GPS, and Wow-Shield™ liability vault.";
-const BASE = "https://plowwow.com";
+const BASE = "https://www.plowwow.com";
 const PATH = "/intelligence";
 const URL_ABS = `${BASE}${PATH}`;
 const OG_IMAGE = `${BASE}/og-default.jpg`;

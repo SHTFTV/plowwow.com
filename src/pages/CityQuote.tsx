@@ -127,7 +127,7 @@ const CityQuote = () => {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", `https://plowwow.com/${cityMeta.slug}/quote`);
+    canonical.setAttribute("href", `https://www.plowwow.com/${cityMeta.slug}/quote`);
   }, [cityMeta]);
 
   if (!cityMeta) return <NotFound />;

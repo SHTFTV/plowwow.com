@@ -32,7 +32,7 @@ export const cities: City[] = [
     tagline: "Vancouver Snow Removal for Strata & Commercial Properties",
     intro:
       "24/7 Vancouver snow removal, commercial snow plowing, salting and ice control for strata, retail, industrial and residential properties — from Downtown and the West End to Kitsilano, Mount Pleasant and East Van.",
-    ogImage: "https://plowwow.com/og-vancouver.jpg",
+    ogImage: "https://www.plowwow.com/og-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 14 },
@@ -66,7 +66,7 @@ export const cities: City[] = [
     tagline: "New West Snow Removal & Salting",
     intro:
       "Reliable plowing and de-icing for New Westminster's steep streets, Uptown towers and Quayside properties. WorkSafeBC insured crews on standby through every storm.",
-    ogImage: "https://plowwow.com/og-new-westminster.jpg",
+    ogImage: "https://www.plowwow.com/og-new-westminster.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 16 },
@@ -95,7 +95,7 @@ export const cities: City[] = [
     tagline: "Coquitlam Snow Removal & Ice Control",
     intro:
       "Plowing, salting and sidewalk clearing for Coquitlam — Westwood Plateau, Burke Mountain, City Centre and Maillardville. Elevation-tuned routing for higher-snowfall zones.",
-    ogImage: "https://plowwow.com/og-coquitlam.jpg",
+    ogImage: "https://www.plowwow.com/og-coquitlam.jpg",
     snowfall: [
       { month: "Nov", cm: 7 },
       { month: "Dec", cm: 22 },
@@ -124,7 +124,7 @@ export const cities: City[] = [
     tagline: "Port Coquitlam Snow & De-icing",
     intro:
       "PoCo plowing for Downtown, Birchland, Citadel Heights and Riverwood. Commercial lot clearing and residential driveways with same-storm response.",
-    ogImage: "https://plowwow.com/og-port-coquitlam.jpg",
+    ogImage: "https://www.plowwow.com/og-port-coquitlam.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 18 },
@@ -153,7 +153,7 @@ export const cities: City[] = [
     tagline: "Port Moody Snow Removal",
     intro:
       "Plowing and salting for Port Moody — Heritage Mountain, Newport Village, Inlet District and College Park. Strata-priority dispatch with photo proof of service.",
-    ogImage: "https://plowwow.com/og-port-moody.jpg",
+    ogImage: "https://www.plowwow.com/og-port-moody.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 20 },
@@ -182,7 +182,7 @@ export const cities: City[] = [
     tagline: "Pitt Meadows Plowing & Salting",
     intro:
       "Pitt Meadows snow service for downtown, Bonson, Mitchell Island industrial and residential streets. Flat-grade routing keeps response fast across the city.",
-    ogImage: "https://plowwow.com/og-pitt-meadows.jpg",
+    ogImage: "https://www.plowwow.com/og-pitt-meadows.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 15 },
@@ -211,7 +211,7 @@ export const cities: City[] = [
     tagline: "Maple Ridge Snow Removal",
     intro:
       "Plowing, sanding and salting for Maple Ridge — Albion, Silver Valley, Hammond and Town Centre. Higher-elevation routes pre-salted ahead of forecast events.",
-    ogImage: "https://plowwow.com/og-maple-ridge.jpg",
+    ogImage: "https://www.plowwow.com/og-maple-ridge.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 21 },
@@ -240,7 +240,7 @@ export const cities: City[] = [
     tagline: "Port Kells Commercial Snow Removal",
     intro:
       "24/7 commercial and industrial snow removal in Port Kells, Surrey. Plowing, salting and de-icing for warehouses, loading docks, truck yards, parking lots and internal roads.",
-    ogImage: "https://plowwow.com/og-surrey.jpg",
+    ogImage: "https://www.plowwow.com/og-surrey.jpg",
     badges: ["Commercial & industrial", "24/7 dispatch", "Seasonal contracts"],
     snowfall: [
       { month: "Nov", cm: 5 },
@@ -274,7 +274,7 @@ export const cities: City[] = [
     tagline: "Campbell Heights Commercial Snow Removal",
     intro:
       "Commercial snow clearing and ice management for Campbell Heights business parks and industrial properties in South Surrey. Priority plowing for parking lots, loading areas, sidewalks and access roads.",
-    ogImage: "https://plowwow.com/og-surrey.jpg",
+    ogImage: "https://www.plowwow.com/og-surrey.jpg",
     badges: ["Business parks", "Industrial sites", "Documented service"],
     snowfall: [
       { month: "Nov", cm: 4 },
@@ -308,7 +308,7 @@ export const cities: City[] = [
     tagline: "Surrey Commercial Snow Removal & Ice Management",
     intro:
       "24/7 Surrey commercial snow removal, snow plowing, salting and ice management across all six town centres — City Centre, Guildford, Newton, Cloverdale, Fleetwood and South Surrey. Priority service for strata, retail and industrial sites.",
-    ogImage: "https://plowwow.com/og-surrey.jpg",
+    ogImage: "https://www.plowwow.com/og-surrey.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 15 },
@@ -339,7 +339,7 @@ export const cities: City[] = [
     tagline: "Langley Snow Removal & Commercial Snow Plowing",
     intro:
       "24/7 snow removal, commercial snow plowing, salting and ice control across Langley City and Langley Township — including Willoughby, Walnut Grove, Brookswood, Fort Langley and Aldergrove. Seasonal service for strata, retail, industrial and residential properties.",
-    ogImage: "https://plowwow.com/og-langley.jpg",
+    ogImage: "https://www.plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 17 },
@@ -369,7 +369,7 @@ export const cities: City[] = [
     tagline: "Abbotsford Commercial Snow Removal & Snow Clearing",
     intro:
       "24/7 Abbotsford commercial snow removal, snow clearing, plowing, salting and ice control for strata, retail, industrial and residential sites — including Sumas Mountain, Clayburn, Historic Downtown and Mt. Lehman. Extra equipment and salt are staged for heavier Fraser Valley storms.",
-    ogImage: "https://plowwow.com/og-abbotsford.jpg",
+    ogImage: "https://www.plowwow.com/og-abbotsford.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 22 },
@@ -399,7 +399,7 @@ export const cities: City[] = [
     tagline: "West Vancouver Snow Removal",
     intro:
       "Plowing, salting and ice control across West Vancouver — British Properties, Ambleside, Dundarave, Caulfeild and Cypress. Steep-grade routing and pre-salting for higher elevations.",
-    ogImage: "https://plowwow.com/og-west-vancouver.jpg",
+    ogImage: "https://www.plowwow.com/og-west-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 6 },
       { month: "Dec", cm: 22 },
@@ -429,7 +429,7 @@ export const cities: City[] = [
     tagline: "North Vancouver Snow Removal & Salting",
     intro:
       "24/7 plowing and de-icing across the North Shore — Lonsdale, Lynn Valley, Deep Cove, Edgemont and Capilano. Elevation-tuned dispatch for higher-snowfall zones.",
-    ogImage: "https://plowwow.com/og-north-vancouver.jpg",
+    ogImage: "https://www.plowwow.com/og-north-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 7 },
       { month: "Dec", cm: 24 },
@@ -459,7 +459,7 @@ export const cities: City[] = [
     tagline: "Richmond Snow Removal & De-icing",
     intro:
       "Flat-grade plowing and ice control across Richmond — City Centre, Steveston, Ironwood and Bridgeport. Commercial lots and strata corridors with same-storm response.",
-    ogImage: "https://plowwow.com/og-richmond.jpg",
+    ogImage: "https://www.plowwow.com/og-richmond.jpg",
     snowfall: [
       { month: "Nov", cm: 3 },
       { month: "Dec", cm: 12 },
@@ -488,7 +488,7 @@ export const cities: City[] = [
     tagline: "Delta Snow Removal & Salting",
     intro:
       "Plowing, sanding and salting for Delta — Tsawwassen, Ladner and North Delta. Coastal and industrial routes with priority strata and commercial dispatch.",
-    ogImage: "https://plowwow.com/og-delta.jpg",
+    ogImage: "https://www.plowwow.com/og-delta.jpg",
     snowfall: [
       { month: "Nov", cm: 3 },
       { month: "Dec", cm: 11 },
@@ -517,7 +517,7 @@ export const cities: City[] = [
     tagline: "White Rock Snow Removal",
     intro:
       "Coastal plowing and ice control across White Rock — uptown, the waterfront promenade corridor and hillside SFH. Strata-priority dispatch with photo proof of service.",
-    ogImage: "https://plowwow.com/og-white-rock.jpg",
+    ogImage: "https://www.plowwow.com/og-white-rock.jpg",
     snowfall: [
       { month: "Nov", cm: 3 },
       { month: "Dec", cm: 10 },
@@ -546,7 +546,7 @@ export const cities: City[] = [
     tagline: "Mission Snow Removal & Ice Control",
     intro:
       "Plowing and salting across Mission — Downtown, Cedar Valley, Hatzic and Silverdale. Eastern Fraser Valley sites see heavier storms; we stage extra salt here.",
-    ogImage: "https://plowwow.com/og-mission.jpg",
+    ogImage: "https://www.plowwow.com/og-mission.jpg",
     snowfall: [
       { month: "Nov", cm: 7 },
       { month: "Dec", cm: 24 },
@@ -575,7 +575,7 @@ export const cities: City[] = [
     tagline: "Chilliwack Snow Removal & De-icing",
     intro:
       "Chilliwack plowing and ice control — Sardis, Promontory, Yarrow, Vedder and Downtown. Heavy-snowfall corridor with extra salt staging and pre-storm routing.",
-    ogImage: "https://plowwow.com/og-chilliwack.jpg",
+    ogImage: "https://www.plowwow.com/og-chilliwack.jpg",
     snowfall: [
       { month: "Nov", cm: 8 },
       { month: "Dec", cm: 26 },
@@ -605,7 +605,7 @@ export const cities: City[] = [
     tagline: "Port Kells Commercial & Industrial Snow Removal",
     intro:
       "24/7 snow plowing, salting and de-icing for Port Kells' warehouse, distribution and trucking properties — the 176 Street and Highway 1 logistics belt in northeast Surrey. Large-lot equipment and priority dispatch for industrial and strata sites.",
-    ogImage: "https://plowwow.com/og-surrey.jpg",
+    ogImage: "https://www.plowwow.com/og-surrey.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 16 },
@@ -635,7 +635,7 @@ export const cities: City[] = [
     tagline: "Campbell Heights Business Park Snow Removal",
     intro:
       "24/7 snow and ice management for Campbell Heights — one of Metro Vancouver's largest business parks, spanning South Surrey around 192 Street between 24th and 40th Avenue. Large-lot plowing, loading-dock clearing and de-icing for logistics, manufacturing and strata sites.",
-    ogImage: "https://plowwow.com/og-surrey.jpg",
+    ogImage: "https://www.plowwow.com/og-surrey.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 14 },
@@ -665,7 +665,7 @@ export const cities: City[] = [
     tagline: "Walnut Grove Snow Removal — Townhouse Strata, Driveways & Walkways",
     intro:
       "Snow plowing, salting and de-icing for Walnut Grove strata complexes, townhouse communities and homes in northwest Langley — driveways, visitor parking, walkways and common areas, documented for your council.",
-    ogImage: "https://plowwow.com/og-langley.jpg",
+    ogImage: "https://www.plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 15 },
@@ -695,7 +695,7 @@ export const cities: City[] = [
     tagline: "Willoughby Snow Removal — Townhouse & Condo Strata Specialists",
     intro:
       "Snow and ice management for Willoughby's fast-growing townhouse and condo strata communities in Langley — shared drive aisles, visitor lots, walkways and parkade ramps, cleared and documented for your council.",
-    ogImage: "https://plowwow.com/og-langley.jpg",
+    ogImage: "https://www.plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
       { month: "Dec", cm: 16 },
@@ -725,7 +725,7 @@ export const cities: City[] = [
     tagline: "Fort Langley Snow Removal — Village, Strata & Heritage Properties",
     intro:
       "Snow plowing, salting and de-icing for Fort Langley's village businesses, Bedford Landing stratas and residential streets — driveways, walkways, parking and common areas cleared and documented, with care for the heritage setting.",
-    ogImage: "https://plowwow.com/og-langley.jpg",
+    ogImage: "https://www.plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
       { month: "Dec", cm: 14 },

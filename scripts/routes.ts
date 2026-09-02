@@ -5,7 +5,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { cities } from "../src/data/cities";
 
-export const BASE_URL = "https://plowwow.com";
+export const BASE_URL = "https://www.plowwow.com";
 
 export type RouteMeta = {
   path: string; // "/vancouver" (no trailing slash, no origin)
@@ -57,7 +57,11 @@ export function collectRoutes(): RouteMeta[] {
       description:
         "24/7 Burnaby snow plowing and salting — Metrotown, Brentwood, Lougheed, Highgate. WorkSafeBC insured strata & commercial crews on standby.",
       ogImage: `${BASE_URL}/og-burnaby.jpg`,
-      kind: "static",
+      // Burnaby has its own bespoke page component (src/pages/Burnaby.tsx) and is
+      // intentionally omitted from the `cities` array below, but it must still be
+      // treated as a "city" route here so it lands in sitemap-cities.xml (not
+      // sitemap-static.xml) alongside every other city page. See scripts/generate-sitemap.ts.
+      kind: "city",
     },
     {
       path: "/blog",
