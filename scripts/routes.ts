@@ -16,12 +16,44 @@ export type RouteMeta = {
 };
 
 const CONTENT_DIR = resolve(process.cwd(), "src/content/legacy");
+const VERCEL_JSON = resolve(process.cwd(), "vercel.json");
 
 function readSlugs(dir: string): string[] {
   return readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
     .map((f) => f.replace(/\.md$/, ""));
 }
+
+// Legacy .md files under src/content/legacy/pages accumulate over time as
+// pages get retired and 301-redirected elsewhere (a city page's old
+// "-snow-removal" slug superseded by the clean /:city route, a marketing
+// page folded back into "/", etc.) — see vercel.json's `redirects`. The
+// markdown source often lingers after the redirect is added, so without
+// this check collectRoutes() below keeps emitting a RouteMeta (and thus a
+// sitemap-pages.xml <url>) for a path that live-serves a 301 to somewhere
+// already indexed, which reads to Google as a duplicate/redirect-chain page
+// and wastes crawl budget. Cross-referencing vercel.json's static (non
+// wildcard) redirect sources catches every such case going forward without
+// needing a hand-maintained slug list.
+function getRedirectedSlugs(): Set<string> {
+  if (!existsSync(VERCEL_JSON)) return new Set();
+  let config: { redirects?: Array<{ source: string; destination: string }> };
+  try {
+    config = JSON.parse(readFileSync(VERCEL_JSON, "utf8"));
+  } catch {
+    return new Set();
+  }
+  const slugs = new Set<string>();
+  for (const r of config.redirects ?? []) {
+    // Only plain single-segment sources ("/foo" or "/foo/") — skip
+    // wildcard/placeholder rules (":slug", "*"), which aren't legacy-page slugs.
+    const m = r.source.match(/^\/([a-z0-9-]+)\/?$/i);
+    if (m) slugs.add(m[1]);
+  }
+  return slugs;
+}
+
+const REDIRECTED_SLUGS = getRedirectedSlugs();
 
 function parseLegacy(raw: string) {
   const title = raw.match(/^Title:\s*(.+)$/m)?.[1]?.trim() ?? "PlowWow";
@@ -183,6 +215,10 @@ export function collectRoutes(): RouteMeta[] {
   // Legacy content pages
   for (const slug of readSlugs(resolve(CONTENT_DIR, "pages"))) {
     if (slug === "home") continue;
+    // Already 301-redirected to a live, already-indexed page (see
+    // getRedirectedSlugs above) — omit from the sitemap rather than
+    // submitting a URL that immediately redirects away.
+    if (REDIRECTED_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "pages", `${slug}.md`), "utf8");
     const { title, description } = parseLegacy(raw);
     routes.push({
