@@ -17,11 +17,12 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { cachedFetch, snapshotStats as cacheStats, CACHE_ENABLED } from "./lib/http-cache";
+import { BASE_URL } from "./routes";
 
 const NETLIFY_TOML = resolve("netlify.toml");
 const DIST = resolve("dist");
 const SITEMAP = resolve(DIST, "sitemap.xml");
-const CANONICAL_HOST = "https://plowwow.com";
+const CANONICAL_HOST = BASE_URL;
 const MAX_HOPS = 3; // >1 counts as a chain and fails
 
 type Rule = { from: string; to: string; status: number };

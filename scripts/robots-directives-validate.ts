@@ -12,13 +12,14 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
+import { BASE_URL } from "./routes";
 
 const EXPECTED_SITEMAPS = [
-  "https://plowwow.com/sitemap.xml",
-  "https://plowwow.com/sitemap-static.xml",
-  "https://plowwow.com/sitemap-cities.xml",
-  "https://plowwow.com/sitemap-blog.xml",
-  "https://plowwow.com/sitemap-images.xml",
+  `${BASE_URL}/sitemap.xml`,
+  `${BASE_URL}/sitemap-static.xml`,
+  `${BASE_URL}/sitemap-cities.xml`,
+  `${BASE_URL}/sitemap-blog.xml`,
+  `${BASE_URL}/sitemap-images.xml`,
 ];
 
 // Directives keyed by User-agent. Each entry lists required verbatim lines

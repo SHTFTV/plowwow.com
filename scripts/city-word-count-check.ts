@@ -21,6 +21,7 @@ import { join } from "node:path";
 import { cities } from "../src/data/cities";
 import { buildCityCopy } from "../src/data/cityContent";
 import { getLocationDeep } from "../src/data/locations";
+import { BASE_URL } from "./routes";
 import { validateJsonLdBlock } from "../src/lib/jsonLdValidator";
 
 const MIN_WORDS = 5800;
@@ -139,7 +140,7 @@ function countCityWords(city: CityTextInput): number {
 }
 
 function buildCityJsonLd(city: CityTextInput) {
-  const url = `https://plowwow.com/${city.slug}`;
+  const url = `${BASE_URL}/${city.slug}`;
   const deep = getLocationDeep(city.slug);
   const faqs = [...(deep?.faq ?? []), ...city.faqs];
 
@@ -172,12 +173,12 @@ function buildCityJsonLd(city: CityTextInput) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://plowwow.com/" },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/` },
       {
         "@type": "ListItem",
         position: 2,
         name: "Service Areas",
-        item: "https://plowwow.com/locations",
+        item: `${BASE_URL}/locations`,
       },
       { "@type": "ListItem", position: 3, name: city.name, item: url },
     ],

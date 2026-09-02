@@ -1,8 +1,9 @@
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
+import { BASE_URL } from "./routes";
 
-const SITE = "https://plowwow.com";
+const SITE = BASE_URL;
 const BLOG_DIR = resolve(process.cwd(), "src/content/legacy/blog");
 const IMAGE_DIR = resolve(process.cwd(), "public/blog-images");
 const OUT = resolve(process.cwd(), "public/rss.xml");
