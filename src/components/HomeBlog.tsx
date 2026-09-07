@@ -23,7 +23,7 @@ type SyncStatus = {
 const HomeBlog = () => {
   const [carouselSlugs, setCarouselSlugs] = useState<string[]>(fallbackSlugs);
   const [imageVersion, setImageVersion] = useState<string>(String(Date.now()));
-  const [syncStatus, setSyncStatus] = useState<SyncStatus>({ source: "build-fallback" });
+  const [, setSyncStatus] = useState<SyncStatus>({ source: "build-fallback" });
 
   useEffect(() => {
     let cancelled = false;
@@ -143,43 +143,6 @@ const HomeBlog = () => {
           >
             View all posts →
           </Link>
-        </div>
-
-        <div
-          data-testid="blog-sync-status"
-          className="mb-4 flex flex-wrap items-center gap-2 text-[11px] font-semibold"
-          aria-live="polite"
-        >
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 ${
-              syncStatus.source === "blog-index"
-                ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
-                : syncStatus.source === "sitemap"
-                  ? "bg-amber-500/10 text-amber-700 dark:text-amber-300"
-                  : "bg-destructive/10 text-destructive"
-            }`}
-          >
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
-            {syncStatus.source === "blog-index" && "Blog index synced"}
-            {syncStatus.source === "sitemap" && "Sitemap fallback"}
-            {syncStatus.source === "build-fallback" && "Using build snapshot"}
-          </span>
-          {syncStatus.generatedAt && (
-            <span className="text-muted-foreground">
-              Last blog index sync:{" "}
-              <time dateTime={syncStatus.generatedAt}>
-                {new Date(syncStatus.generatedAt).toLocaleString("en-US", {
-                  dateStyle: "medium",
-                  timeStyle: "short",
-                })}
-              </time>
-            </span>
-          )}
-          {syncStatus.error && (
-            <span className="text-muted-foreground" title={syncStatus.error}>
-              ({syncStatus.error.slice(0, 60)})
-            </span>
-          )}
         </div>
 
         <div

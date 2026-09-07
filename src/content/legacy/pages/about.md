@@ -65,7 +65,7 @@ Activities are monitored by dispatch through live streaming cameras, and the foo
 
 [Coquitlam/ Poco](https://plowwow.com/contact/)
 
-[Vancouver](https://plowwow.com/vancouver-snow-removal)
+[Vancouver](https://www.plowwow.com/vancouver)
 
 [Surrey](https://roofers.io/#contact)
 
@@ -126,10 +126,10 @@ Wow@PlowWow.com
 
 [Richmond](https://plowwow.com/richmond-snow-removal)
 
-[Burnaby](https://plowwow.com/burnaby-snow-removal)
+[Burnaby](https://www.plowwow.com/burnaby)
 
 [New Westminster](https://plowwow.com/new-westminster-snow-removal)
 
-[Vancouver](https://plowwow.com/vancouver-snow-removal)
+[Vancouver](https://www.plowwow.com/vancouver)
 
 © Copyright 2025 plowwow.com | All Rights Reserved.

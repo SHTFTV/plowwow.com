@@ -333,7 +333,7 @@ PlowWow partners with trusted local operators who understand Coquitlam’s terra
 
 **PlowWow Service Areas**
 
-[Chilliwack](https://plowwow.com/chilliwack-snow-removal) • [Abbotsford](https://plowwow.com/abbotsford-snow-removal) • [Mission](https://plowwow.com/mission-snow-removal) • [Maple Ridge](https://plowwow.com/maple-ridge-snow-removal) • [Pitt Meadows](https://plowwow.com/pitt-meadows-snow-removal) • [Coquitlam](https://plowwow.com/coquitlam-snow-removal) • [Port Coquitlam](https://plowwow.com/port-coquitlam-snow-removal) • [Port Moody](https://plowwow.com/port-moody-snow-removal) • [Anmore](https://plowwow.com/anmore-snow-removal) • [Belcarra](https://plowwow.com/belcarra-snow-removal) • [Surrey](https://plowwow.com/surrey-snow-removal) • [Delta](https://plowwow.com/delta-snow-removal) • [White Rock](https://plowwow.com/white-rock-snow-removal) • [Richmond](https://plowwow.com/richmond-snow-removal) • [Burnaby](https://plowwow.com/burnaby-snow-removal) • [New Westminster](https://plowwow.com/new-westminster-snow-removal) • [Vancouver](https://plowwow.com/vancouver-snow-removal)
+[Chilliwack](https://plowwow.com/chilliwack-snow-removal) • [Abbotsford](https://plowwow.com/abbotsford-snow-removal) • [Mission](https://plowwow.com/mission-snow-removal) • [Maple Ridge](https://plowwow.com/maple-ridge-snow-removal) • [Pitt Meadows](https://plowwow.com/pitt-meadows-snow-removal) • [Coquitlam](https://plowwow.com/coquitlam-snow-removal) • [Port Coquitlam](https://plowwow.com/port-coquitlam-snow-removal) • [Port Moody](https://plowwow.com/port-moody-snow-removal) • [Anmore](https://plowwow.com/anmore-snow-removal) • [Belcarra](https://plowwow.com/belcarra-snow-removal) • [Surrey](https://plowwow.com/surrey-snow-removal) • [Delta](https://plowwow.com/delta-snow-removal) • [White Rock](https://plowwow.com/white-rock-snow-removal) • [Richmond](https://plowwow.com/richmond-snow-removal) • [Burnaby](https://www.plowwow.com/burnaby) • [New Westminster](https://plowwow.com/new-westminster-snow-removal) • [Vancouver](https://www.plowwow.com/vancouver)
 
 ##### Learn More
 
@@ -550,10 +550,10 @@ Wow@PlowWow.com
 
 [Richmond](https://plowwow.com/richmond-snow-removal)
 
-[Burnaby](https://plowwow.com/burnaby-snow-removal)
+[Burnaby](https://www.plowwow.com/burnaby)
 
 [New Westminster](https://plowwow.com/new-westminster-snow-removal)
 
-[Vancouver](https://plowwow.com/vancouver-snow-removal)
+[Vancouver](https://www.plowwow.com/vancouver)
 
 © Copyright 2025 plowwow.com | All Rights Reserved.

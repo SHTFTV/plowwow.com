@@ -17,6 +17,32 @@ export type RouteMeta = {
 
 const CONTENT_DIR = resolve(process.cwd(), "src/content/legacy");
 
+// These WordPress-era city URLs are permanent redirects in vercel.json.
+// Keeping their legacy markdown copies in the sitemap asks crawlers to index
+// redirecting URLs and splits signals from the canonical city pages.
+const REDIRECTED_LEGACY_PAGE_SLUGS = new Set([
+  "vancouver-snow-removal",
+  "burnaby-snow-removal",
+  "surrey-snow-removal",
+  "richmond-snow-removal",
+  "coquitlam-snow-removal",
+  "port-coquitlam-snow-removal",
+  "port-moody-snow-removal",
+  "maple-ridge-snow-removal",
+  "pitt-meadows-snow-removal",
+  "new-westminster-snow-removal",
+  "north-vancouver-snow-removal",
+  "west-vancouver-snow-removal",
+  "white-rock-snow-removal",
+  "delta-snow-removal",
+  "langley-snow-removal",
+  "abbotsford-snow-removal",
+  "chilliwack-snow-removal",
+  "mission-snow-removal",
+  "anmore-snow-removal",
+  "belcarra-snow-removal",
+]);
+
 function readSlugs(dir: string): string[] {
   return readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
@@ -182,7 +208,7 @@ export function collectRoutes(): RouteMeta[] {
 
   // Legacy content pages
   for (const slug of readSlugs(resolve(CONTENT_DIR, "pages"))) {
-    if (slug === "home") continue;
+    if (slug === "home" || REDIRECTED_LEGACY_PAGE_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "pages", `${slug}.md`), "utf8");
     const { title, description } = parseLegacy(raw);
     routes.push({

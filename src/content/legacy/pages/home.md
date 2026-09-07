@@ -229,7 +229,7 @@ Professional snow removal services for Vancouver's west side communities, includ
 
 Downtown, Kitsilano, Mount Pleasant, Dunbar, Marpole & more
 
-[View Services →](https://plowwow.com/vancouver-snow-removal)
+[View Services →](https://www.plowwow.com/vancouver)
 
 ### West Vancouver
 
@@ -251,7 +251,7 @@ Comprehensive snow management for Burnaby, Richmond, and New Westminster with 24
 
 Metrotown, Central Burnaby, Brentwood, Willingdon Heights
 
-[View Services →](https://plowwow.com/burnaby-snow-removal)
+[View Services →](https://www.plowwow.com/burnaby)
 
 ### Richmond
 
@@ -473,10 +473,10 @@ Wow@PlowWow.com
 
 [Richmond](https://plowwow.com/richmond-snow-removal)
 
-[Burnaby](https://plowwow.com/burnaby-snow-removal)
+[Burnaby](https://www.plowwow.com/burnaby)
 
 [New Westminster](https://plowwow.com/new-westminster-snow-removal)
 
-[Vancouver](https://plowwow.com/vancouver-snow-removal)
+[Vancouver](https://www.plowwow.com/vancouver)
 
 © Copyright 2025 plowwow.com | All Rights Reserved.
