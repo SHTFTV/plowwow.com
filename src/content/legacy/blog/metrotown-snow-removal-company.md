@@ -111,7 +111,7 @@ We cover all areas of Metrotown, including Metrotown Centre, surrounding towers,
 
 ##### What does seasonal snow removal cost?
 
-Seasonal snow removal costs range from $8,000 to $15,000+, depending on property size and access complexity.
+Seasonal snow removal costs range from $2,500 for strata seasonal contracts up to $15,000+ for larger or more complex properties, depending on property size and access complexity.
 
 ##### Is liability insurance included?
 
