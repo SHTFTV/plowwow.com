@@ -13,11 +13,12 @@ const BurnabyHero = () => (
           ❄ Serving Burnaby 24/7
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5">
-          Burnaby Snow Removal <span className="text-secondary">Quote</span>
+          Burnaby Snow Removal <span className="text-secondary">& Ice Control</span>
         </h1>
         <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl">
-          24/7 plowing, salting & de-icing for Metrotown, Brentwood, Burnaby Mountain
-          and Capitol Hill. Priority strata, commercial & residential dispatch.
+          Planned winter service for strata, commercial and residential properties in
+          Metrotown, Brentwood, Burnaby Mountain, Capitol Hill, Edmonds and Lougheed.
+          Plowing, walkway clearing and de-icing from one local team.
         </p>
         <div className="flex flex-wrap gap-4 mb-10">
           <Button

@@ -181,6 +181,7 @@ const CityPage = () => {
 
   const otherCities = cities.filter((c) => c.slug !== city.slug);
   const { sections: copySections } = buildCityCopy(city);
+  const isVancouver = city.slug === "vancouver";
 
   return (
     <div className="min-h-screen">
@@ -264,6 +265,51 @@ const CityPage = () => {
         </section>
 
         <WowStrataCallout cityName={city.name} quotePath={`/${city.slug}/quote`} />
+
+        {isVancouver && (
+          <section className="py-16 bg-background" aria-labelledby="vancouver-service-heading">
+            <div className="container">
+              <div className="max-w-3xl mb-10">
+                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Vancouver winter service</p>
+                <h2 id="vancouver-service-heading" className="text-3xl md:text-4xl font-black text-foreground mb-4">
+                  One plan for plowing, walkways and ice control
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Vancouver storms are often wet, fast-changing and followed by overnight refreezing. We build each route around the property’s real risk points—not just the driveway—so entrances, sidewalks, parkade ramps, loading areas and parking lanes stay usable.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: "Before the storm",
+                    body: "Site review, priority-area mapping, equipment planning and optional pre-treatment for forecast ice or snow.",
+                  },
+                  {
+                    title: "During accumulation",
+                    body: "Route-based dispatch for contracted sites, with plowing and hand clearing matched to access needs and agreed triggers.",
+                  },
+                  {
+                    title: "After clearing",
+                    body: "De-icing, refreeze checks and service records for strata councils, property managers and commercial operators.",
+                  },
+                ].map((item) => (
+                  <article key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                    <h3 className="font-heading text-xl font-black text-foreground mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.body}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="rounded-full font-bold">
+                  <Link to="/vancouver/quote">Request a Vancouver Site Review</Link>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full font-bold">
+                  <a href="tel:6047611518">Call 604-761-1518</a>
+                </Button>
+              </div>
+            </div>
+          </section>
+        )}
 
         <CitySnowVideo cityName={city.name} poster={ogImage} />
 

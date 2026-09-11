@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How much salt do you apply?",
-    a: "We follow BC best-practice application rates of 40–80 g/m² of rock salt, adjusted by surface temperature and precipitation type, with logged applications for liability.",
+    a: "Application depends on surface temperature, precipitation, site conditions and the product selected. Crews treat the agreed risk areas and can log applications for property-management records.",
   },
   {
     q: "Are you WorkSafeBC insured?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Do you check SD41 school closures?",
-    a: "Yes. We monitor Burnaby School District 41 alerts and prioritize routes to schools, daycares, and senior housing.",
+    a: "The Burnaby page provides quick access to School District 41 alerts as a planning resource. Service priority is determined by each property's contract and route plan.",
   },
   {
     q: "What is the difference between On-Call and Seasonal Unlimited?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "How quickly do you respond after a snowfall starts?",
-    a: "Seasonal contract clients in Burnaby receive service within 2–4 hours of trigger accumulation. On-call clients are scheduled after contract routes.",
+    a: "Response depends on storm intensity, road conditions, property access and the trigger in your agreement. Contracted sites are placed on planned routes before the storm; on-call work is scheduled as capacity allows.",
   },
 ];
 

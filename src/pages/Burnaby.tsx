@@ -26,6 +26,41 @@ const Burnaby = () => {
     <main>
       <BurnabyHero />
 
+      <section className="py-16 bg-background" aria-labelledby="burnaby-plan-heading">
+        <div className="container">
+          <div className="max-w-3xl mb-10">
+            <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Burnaby winter service</p>
+            <h2 id="burnaby-plan-heading" className="text-3xl md:text-4xl font-black text-foreground mb-4">
+              A site-specific plan for Burnaby hills, ramps and busy entrances
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Conditions can differ between Burnaby Mountain, Metrotown and South Burnaby during the same storm. Before winter, we identify your priority surfaces, access limits, snow-storage areas and treatment expectations so crews arrive with the right equipment and a clear scope.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Strata & apartments",
+                body: "Entrances, walkways, drive lanes and parkade ramps planned around resident access and the property’s service triggers.",
+              },
+              {
+                title: "Commercial properties",
+                body: "Parking areas, loading zones and pedestrian routes cleared around operating hours, site access and documented priorities.",
+              },
+              {
+                title: "Residential service",
+                body: "Driveway, steps and walkway service for properties that fit an active Burnaby route, quoted by layout and scope.",
+              },
+            ].map((item) => (
+              <article key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-black text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20" id="climate">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-12">

@@ -4,14 +4,14 @@ import { Check } from "lucide-react";
 const residential = [
   "Driveway & walkway plowing",
   "Front step & entryway salting",
-  "Roof-edge ice dam prevention",
+  "Return visits for melt-and-refreeze conditions",
   "Per-visit or seasonal billing",
   "Photo-documented service",
 ];
 
 const commercial = [
   "24/7 parking lot plowing",
-  "ASTM-rated salt & sand application with logs",
+  "Logged salt and de-icer application",
   "Snow stacking & off-site relocation",
   "Strata & property management reporting",
   "Pre-storm site visits & risk assessment",

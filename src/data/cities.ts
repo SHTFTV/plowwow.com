@@ -44,8 +44,9 @@ export const cities: City[] = [
       { name: "Downtown / West End", note: "High-rise strata & retail frontages" },
       { name: "Kitsilano", note: "Townhomes & boutique commercial" },
       { name: "Mount Pleasant", note: "Mixed-use & creative studios" },
-      { name: "East Vancouver", note: "Residential streets & laneways" },
-      { name: "UBC / Point Grey", note: "Campus-adjacent strata & SFH" },
+      { name: "East Vancouver", note: "Strata, retail corridors & residential access" },
+      { name: "South Vancouver", note: "Commercial sites, apartments & residences" },
+      { name: "UBC / Point Grey", note: "Campus-adjacent strata & residences" },
     ],
     faqs: [
       {
@@ -54,7 +55,27 @@ export const cities: City[] = [
       },
       {
         q: "How fast can you dispatch in downtown Vancouver?",
-        a: "Most downtown sites are reached within 60–90 minutes of trigger. Contracted strata properties get same-storm priority.",
+        a: "Dispatch timing depends on storm intensity, traffic, property access and the service trigger in your agreement. Contracted properties are placed on planned routes before the storm and receive priority over new on-call requests.",
+      },
+      {
+        q: "What Vancouver properties do you service?",
+        a: "We provide winter service for strata buildings, apartment communities, retail and mixed-use properties, offices, commercial lots and residential properties. Each quote is based on the areas that must remain accessible, including entrances, sidewalks, drive lanes and parking areas.",
+      },
+      {
+        q: "Do you provide salting and de-icing in Vancouver?",
+        a: "Yes. Plans can include pre-storm treatment, post-clearing de-icing and return visits when meltwater is likely to refreeze. Application details can be documented for property-management records.",
+      },
+      {
+        q: "Can you work around parkades, loading zones and tight downtown access?",
+        a: "Yes. We match equipment and service windows to the site. A pre-season review identifies parkade ramps, loading areas, fire routes, pedestrian entrances and snow-storage constraints before crews are dispatched.",
+      },
+      {
+        q: "Do Vancouver contracts include service records?",
+        a: "Service records are available for contracted properties and can include arrival details, completed work and site photos. Ask for the reporting level your strata council or property manager requires when requesting a quote.",
+      },
+      {
+        q: "When should a Vancouver property book seasonal snow service?",
+        a: "Book before the first forecast snow event so there is time to review the site, confirm trigger depths, select treatment areas and add the property to a planned route. Capacity becomes limited as winter approaches.",
       },
     ],
   },
