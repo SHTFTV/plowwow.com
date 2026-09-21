@@ -38,7 +38,7 @@ Our Strathcona service program covers:
 
 PlowWow offers three pricing models for Strathcona properties, and we'll recommend the one that actually saves you money based on your property type and tolerance for risk:
 
-**Per-visit pricing.** Residential service starts at $125 per visit for a straightforward sidewalk or walkway-only stop. Driveways, parking stalls, lot size, hills or inclines, stairs, accumulation and de-icing are priced by scope.
+**Per-visit pricing.** Book five visits from $125 each to reserve a residential route spot. On-call service without that booking starts at $150. Salting-only visits are 50% of the snow-clearing rate plus product. Driveways, parking stalls, lot size, hills, stairs and accumulation are priced by scope.
 
 **Monthly winter retainer.** A flat monthly fee from November through March covers unlimited visits during snow events, plus pre-treatment before forecasted storms. This is what most strata corporations and small commercial properties choose because it makes budgeting predictable and removes the "do we call or not?" decision from your council.
 

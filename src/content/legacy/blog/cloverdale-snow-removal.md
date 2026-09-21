@@ -88,7 +88,7 @@ When the snow began at 2:00 AM, our **Ghost Fleet** arrived immediately to clear
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Cloverdale?
-Snow removal costs in Cloverdale range from $150 to $500 per visit for standard commercial properties. Residential service starts at $125 per visit for a straightforward sidewalk or walkway-only stop; driveways, parking stalls, lot size, hills or inclines, snow accumulation and de-icing are priced by scope.
+Snow removal costs in Cloverdale range from $150 to $500 per visit for standard commercial properties. Residential customers can book five snow visits from $125 each to reserve a route spot; on-call service without that booking starts at $150. Salting-only visits are 50% of the snow-clearing rate plus product. Driveways, stalls, hills and accumulation are priced by scope.
 
 ### Is commercial snow removal mandatory in Surrey?
 Yes, the City of Surrey requires commercial property owners to clear snow and ice from sidewalks adjacent to their property by 10:00 AM daily. Failure to comply can result in municipal fines and increased liability in the event of a slip-and-fall accident on your perimeter.

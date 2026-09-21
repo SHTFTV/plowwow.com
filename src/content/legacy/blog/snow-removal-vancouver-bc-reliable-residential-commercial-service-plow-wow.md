@@ -83,8 +83,11 @@ Dedicated snow removal services for residential and commercial areas.
 
 Starting from
 
-$125/visit
+$125/visit with a five-visit booking
 
+*   Five booked visits reserve a place on the residential route
+*   On-call service without the five-visit booking starts at $150 per visit
+*   Salting-only visits are 50% of the snow-clearing rate, plus salt or ice-melt material
 *   Straightforward sidewalk or walkway-only service at the starting rate
 *   Driveways and parking stalls priced by size and access
 *   Hills, inclines, stairs and larger lots priced by scope
@@ -140,7 +143,7 @@ We cater to a wide range of properties, including residential driveways, commerc
 
 ##### What affects the residential per-visit price?
 
-Residential visits start at $125 for a straightforward sidewalk or walkway-only service. Driveway or parking-stall area, lot size, hills and inclines, stairs, snow depth, ice buildup and the choice of salt or specialty ice melt can increase the final visit price.
+Residential visits start at $125 when five snow visits are booked to hold a route spot. On-call service without the five-visit booking starts at $150 and is subject to availability. Salting-only visits are 50% of the applicable snow-clearing rate, plus salt or ice-melt material. Driveway or parking-stall area, lot size, hills and inclines, stairs, snow depth and ice buildup can increase the final visit price.
 
 ![Image 1: 800x1080](https://images.unsplash.com/photo-1761294097893-e9b8fdfca9eb?ixid=M3w1ODkyNzF8MHwxfHNlYXJjaHw2fHxjdXN0b21lciUyMHNlcnZpY2UlMjBpbnRlcmFjdGlvbnxlbnwwfDF8fHwxNzYzMDkzMzM4fDA&ixlib=rb-4.1.0&fm=webp&fit=crop&crop=entropy&w=800&h=1080&q=20&dpr=2)
 

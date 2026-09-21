@@ -92,7 +92,7 @@ This proactive approach prevents the "ice-over" effect that frequently causes ac
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Squamish?
-Residential snow removal in Squamish starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, larger lots and steep or sloped access are quoted by scope; commercial and strata work is priced separately according to acreage and service frequency.
+Residential customers in Squamish can book five snow visits from $125 each to reserve a route spot; on-call service without that booking starts at $150. Salting-only visits are 50% of the snow-clearing rate plus product. Driveways, parking stalls, larger lots and steep access are quoted by scope.
 
 ### Does PlowWow offer 24/7 emergency snow plowing?
 Yes, PlowWow provides 24/7 emergency snow removal and ice control across all of Squamish, including holidays and weekends. Our "Ghost Fleet" remains on standby throughout the winter season to respond immediately to rapid snowfall events or sudden freezing rain.

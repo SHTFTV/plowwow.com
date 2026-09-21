@@ -95,7 +95,7 @@ This proactive approach saved our clients from potential injuries and the stress
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Tsawwassen?
-Residential snow removal in Tsawwassen starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, larger lots and sloped access are added by scope. Accumulation, ice buildup and the choice of salt or specialty de-icer also affect the visit price.
+Residential customers in Tsawwassen can book five snow visits from $125 each to reserve a route spot; on-call service without that booking starts at $150. Salting-only visits are 50% of the snow-clearing rate plus product. Driveways, parking stalls, larger lots and sloped access are added by scope.
 
 ### Is professional snow removal required for Tsawwassen businesses?
 Yes, under the City of Delta's bylaws and the Occupiers' Liability Act, business owners must keep their premises safe for the public, which includes the timely removal of snow and ice. Most businesses hire a professional service to ensure clear access and to document their maintenance for insurance purposes.

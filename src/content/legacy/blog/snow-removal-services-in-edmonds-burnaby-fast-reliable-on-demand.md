@@ -41,7 +41,9 @@ Affordable and Reliable Services
 
 $45/yr
 
-*   Sidewalk / Walkway Service: From $125 per visit for a straightforward residential route stop.
+*   Five-Visit Booking: From $125 per snow-clearing visit and reserves a residential route spot.
+*   On-Call Service: From $150 per visit without a five-visit booking, subject to availability.
+*   Salting-Only Visit: 50% of the applicable snow-clearing visit rate, plus salt or ice-melt material.
 *   Driveway & Parking Service: Quoted by driveway size, parking stalls and access.
 *   Full Residential Service: Quoted for driveways, sidewalks, internal walkways, stairs and porch access.
 *   Seasonal Plan: $1,200 per season – Unlimited visits with priority scheduling.
@@ -120,7 +122,7 @@ Find answers to your most pressing questions about our snow removal services, in
 
 ##### What are the costs for snow removal in Edmonds?
 
-Our residential snow removal services start at $125 per visit for a straightforward sidewalk or walkway-only stop. Driveways, parking stalls, lot size, hills or inclines, stairs, accumulation and ice-control products are priced according to the actual scope.
+Our residential snow removal services start at $125 per visit when five visits are booked to hold a route spot. On-call service without that booking starts at $150. Salting-only visits are 50% of the applicable snow-clearing rate, plus product. Driveways, parking stalls, lot size, hills or inclines, stairs and accumulation are priced according to the actual scope.
 
 ##### Do you offer emergency snow removal services?
 

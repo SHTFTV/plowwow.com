@@ -188,7 +188,7 @@ export const LOCATIONS: Record<string, LocationDeepData> = {
       residential_seasonal: "$450 – $900",
       strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$3,500 – $15,000",
-      per_visit: "$125+ residential; driveways, stalls, hills and de-icing priced by scope",
+      per_visit: "$125+ with 5-visit booking; on-call $150+; salting-only 50% of snow rate + product",
       de_ice_treatment: "$45 – $120",
     },
     comparison_table: {
