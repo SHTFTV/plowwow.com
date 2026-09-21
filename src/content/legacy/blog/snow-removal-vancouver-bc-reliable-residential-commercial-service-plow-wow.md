@@ -83,11 +83,12 @@ Dedicated snow removal services for residential and commercial areas.
 
 Starting from
 
-$75/visit
+$125/visit
 
-*   Driveway plowing
-*   Sidewalk shoveling
-*   De-icing and salting
+*   Straightforward sidewalk or walkway-only service at the starting rate
+*   Driveways and parking stalls priced by size and access
+*   Hills, inclines, stairs and larger lots priced by scope
+*   De-icing and salting available at an additional material cost
 *   On-demand or seasonal contracts
 *   24/7 emergency service available
 
@@ -136,6 +137,10 @@ Yes, we provide seasonal contracts for both residential and commercial propertie
 ##### What types of properties do you service?
 
 We cater to a wide range of properties, including residential driveways, commercial parking lots, and pedestrian areas, ensuring comprehensive snow removal solutions.
+
+##### What affects the residential per-visit price?
+
+Residential visits start at $125 for a straightforward sidewalk or walkway-only service. Driveway or parking-stall area, lot size, hills and inclines, stairs, snow depth, ice buildup and the choice of salt or specialty ice melt can increase the final visit price.
 
 ![Image 1: 800x1080](https://images.unsplash.com/photo-1761294097893-e9b8fdfca9eb?ixid=M3w1ODkyNzF8MHwxfHNlYXJjaHw2fHxjdXN0b21lciUyMHNlcnZpY2UlMjBpbnRlcmFjdGlvbnxlbnwwfDF8fHwxNzYzMDkzMzM4fDA&ixlib=rb-4.1.0&fm=webp&fit=crop&crop=entropy&w=800&h=1080&q=20&dpr=2)
 

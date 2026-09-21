@@ -92,7 +92,7 @@ In this scenario, the business owner without a professional service is at risk. 
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Fort Langley?
-Residential driveway clearing typically starts at $75-$150 per visit, while commercial and strata contracts are customized based on square footage and service frequency. We offer free on-site quotes to provide an accurate price reflecting your property's specific layout and needs.
+Residential snow clearing starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, larger lots, hills or inclines, stairs and de-icing are added according to the property layout. Commercial and strata contracts are customized by surface area and service frequency.
 
 ### Does PlowWow offer 24/7 service?
 Yes, PlowWow provides 24/7 snow removal in Fort Langley throughout the winter season. Our teams monitor the weather around the clock and deploy automatically based on your contract's "trigger" depth (usually 2cm or 5cm).

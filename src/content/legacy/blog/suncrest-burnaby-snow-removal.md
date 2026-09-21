@@ -38,7 +38,7 @@ Our Suncrest service program covers:
 
 PlowWow offers three pricing models for Suncrest properties, and we'll recommend the one that actually saves you money based on your property type and tolerance for risk:
 
-**Per-visit pricing.** Best for single-family homes and very small properties that only need service during a true snow event. You pay only when we plow. Rates start around $85 per visit for a standard driveway and scale by lot size and time of day.
+**Per-visit pricing.** Residential service starts at $125 per visit for a straightforward sidewalk or walkway-only stop. Driveways, parking stalls, lot size, hills or inclines, stairs, accumulation and de-icing are priced by scope.
 
 **Monthly winter retainer.** A flat monthly fee from November through March covers unlimited visits during snow events, plus pre-treatment before forecasted storms. This is what most strata corporations and small commercial properties choose because it makes budgeting predictable and removes the "do we call or not?" decision from your council.
 

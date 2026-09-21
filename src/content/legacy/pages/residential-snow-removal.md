@@ -2,6 +2,8 @@ Title: Residential Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/residential-snow-removal/
 
+Description: Residential snow removal starts at $125 per visit for straightforward sidewalk or walkway service. Driveways, parking stalls, lot size, hills, stairs and ice control affect the quote.
+
 Markdown Content:
 # Residential Snow Removal | PlowWow Snow Removal and De-Ice Management
 
@@ -44,6 +46,12 @@ Select Page
     *   [App](https://plowwow.com/app/)
 
 # Residential
+
+## Residential Snow Removal From $125 Per Visit
+
+Residential service starts at **$125 per visit** for a straightforward sidewalk or walkway-only stop. That is a starting callout, not a flat price for every property. Driveways and parking stalls are added according to their size, access and clearing method.
+
+Lot size, stairs, steep hills or inclines, deeper accumulation and ice buildup can increase the time and equipment required. Salt, standard ice melt and specialty products also carry different material costs. We confirm the areas to be cleared before service so the homeowner understands the scope and price.
 
 ## Residential Snow Removal Private Homes and Estates
 

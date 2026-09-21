@@ -88,7 +88,7 @@ The Strata Council received an automated PDF report through our **Wow-Shield Vau
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in North Vancouver?
-Residential snow removal in North Vancouver typically starts at $75–$150 per visit for a standard driveway and walkway, while commercial and strata properties are quoted based on square footage and ice management needs. Total costs vary depending on the elevation of your property and the frequency of the "snow-to-rain" transitions in your specific neighborhood.
+Residential snow removal in North Vancouver starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, larger lots, stairs and steep hills or inclines increase the scope. Commercial and strata properties are quoted separately based on surface area, elevation and ice-management needs.
 
 ### What is the bylaw for clearing snow in the District of North Vancouver?
 Property owners in the District of North Vancouver must clear snow and ice from sidewalks bordering their property within 24 hours of the snowfall ending. Local bylaws emphasize the importance of keeping pedestrian pathways safe, particularly for those with mobility challenges or those using transit stops.

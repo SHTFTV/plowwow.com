@@ -79,7 +79,7 @@ As the sun rises over the coastal mountains, the strata council members wake up 
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Steveston?
-Snow removal costs in Steveston typically range from $150 to $600 per month for residential seasonal contracts, while commercial and strata properties are quoted based on square footage and service frequency. For one-time "per-push" services, prices generally start at $75 per visit depending on the size of the driveway and the depth of the snow.
+Residential snow removal in Steveston starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, larger lots, stairs, snow depth and ice-control products increase the scope. Seasonal, commercial and strata properties are quoted separately.
 
 ### Does the City of Richmond plow my sidewalk?
 The City of Richmond is responsible for plowing major arterial roads and designated school routes, but they do not clear sidewalks in front of private residences or businesses. In Steveston, bylaws require property owners to clear the sidewalks adjacent to their property by 10:00 AM daily.

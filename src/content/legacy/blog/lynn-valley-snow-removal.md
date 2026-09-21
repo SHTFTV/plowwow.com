@@ -82,7 +82,7 @@ In the 2022/2023 winter season, this property faced a "flash freeze" after a hea
 ## Frequently Asked Questions
 
 ### How much does snow removal cost in Lynn Valley?
-Snow removal costs in Lynn Valley typically range from $75 to $150 per visit for standard residential driveways, while commercial and strata contracts are generally priced on a custom seasonal or per-inch basis. Factors influencing the price include the total square footage of the area, the steepness of the terrain, and whether you require hand-shoveling for walkways or specialized de-icing agents.
+Residential snow removal in Lynn Valley starts at $125 per visit for straightforward sidewalk or walkway-only service. Driveways, parking stalls, lot size, steep terrain, stairs, hand shovelling and specialty ice-melt products increase the scope. Commercial and strata contracts are quoted separately.
 
 ### Is Lynn Valley snow removal different than other North Vancouver areas?
 Yes, Lynn Valley is part of a "micro-climate" snow belt that receives significantly more accumulation and more frequent "freeze-thaw" cycles than lower-elevation areas. Because it sits higher up the mountain, Lynn Valley often requires more frequent salt applications and a more proactive plowing schedule than neighborhoods like Lower Lonsdale or Deep Cove.
