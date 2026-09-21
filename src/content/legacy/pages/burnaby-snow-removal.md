@@ -271,6 +271,10 @@ Lower elevation residential neighborhoods near Vancouver border.
 *   [SD41 Twitter Alerts](https://twitter.com/BurnabySchools)
 *   [City of Burnaby – Service Updates](https://www.burnaby.ca/)
 
+## Burnaby Hills and Parkade Planning Guide
+
+For a site checklist covering Burnaby's 10 a.m. sidewalk rule, steep grades, parkade ramps, drainage, refreeze and snow storage, read our [Burnaby hills and parkade snow-and-ice plan](/burnaby-hills-parkade-snow-ice-plan).
+
 ## Weather & Winter Resources
 
 *   [Environment Canada](https://weather.gc.ca/)
