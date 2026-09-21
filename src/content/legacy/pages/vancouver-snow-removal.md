@@ -271,10 +271,6 @@ Lower elevation areas near the Fraser River with variable snowfall.
 *   [VSB Twitter Alerts](https://twitter.com/VSB39)
 *   [City of Vancouver – Service Updates](https://vancouver.ca/)
 
-## Vancouver Snow and Ice Planning Guide
-
-For a practical property checklist covering the City's 10 a.m. sidewalk deadline, entrances, catch basins, refreeze checks and service records, read our [Vancouver sidewalk snow-clearing plan](/vancouver-sidewalk-snow-clearing-plan).
-
 ## Weather & Winter Resources
 
 *   [Environment Canada](https://weather.gc.ca/)
