@@ -2,13 +2,13 @@ Title: BC Strata Seasonal Snow Contracts — Cost Breakdown 2026 | PlowWow
 
 URL Source: https://plowwow.com/strata-seasonal-snow-contracts-bc-cost-breakdown/
 
-Description: BC strata seasonal snow contracts explained — seasonal vs per-push pricing, what actually gets included, insurance duties, budget line items and how to compare Metro Vancouver quotes in 2026.
+Description: Most small-to-mid-size BC strata snow contracts budget about $3,000–$8,000 per season. See how walkways, ramps, parking, service triggers and de-icer choice affect the quote.
 
 Markdown Content:
 
 # BC Strata Seasonal Snow Contracts — What They Cost and What's In Them
 
-Every autumn, hundreds of strata councils across Metro Vancouver open the same envelope of three snow-removal quotes and try to figure out why one is $4,800 for the winter, the second is $11,400, and the third is a "$185 per push" plus twelve line-item extras that no one can price ahead of time. **PlowWow** writes seasonal contracts for townhouse complexes, mid-rise condos and mixed-use strata buildings from Kitsilano to Maple Ridge. This guide breaks down the actual cost drivers, the insurance duty a strata cannot contract away, and the specific line items every BC strata council should demand in writing before signing anything in October.
+Every autumn, strata councils across Metro Vancouver open snow-removal quotes that can look difficult to compare. As a practical budgeting ballpark, **many small-to-mid-size strata properties fall around $3,000–$8,000 per winter**, but the physical service area matters more than the number of units. A building with one parkade ramp and one short walkway may cost less; a site with long sidewalks, many parking stalls, internal walkways, stairs and repeated ice treatment may cost more. **PlowWow** writes seasonal contracts for townhouse complexes, condos and mixed-use strata buildings from Kitsilano to Maple Ridge. This guide explains the actual cost drivers and what every BC strata council should demand in writing before signing.
 
 ![Wow mascot standing alone on a freshly plowed Metro Vancouver strata townhouse driveway with tidy salted walkways, mailbox kiosk and evergreens in the background under a bright winter sky](/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg "BC strata seasonal snow contracts cost breakdown 2026 — PlowWow")
 
@@ -36,15 +36,15 @@ Every reputable BC snow contractor prices seasonal contracts using the same five
 
 If a strata council receives a quote that is 40 percent below the median of the other bids, it is almost always missing one of the five drivers above — typically documentation and pre-6 a.m. SLA. Both of those matter enormously when a claim is filed.
 
-## Typical 2026 Seasonal Contract Ranges — Metro Vancouver
+## Typical 2026 Strata Snow Contract Ballpark — Metro Vancouver
 
-The following are 2025–26 seasonal-contract ranges we see across our own portfolio and comparable Metro Vancouver operators. Every site is different — these are budgeting anchors, not quotes.
+For an ordinary small-to-mid-size Metro Vancouver strata, **$3,000–$8,000 per season is a useful first budgeting range, not a quote or a minimum charge**. Some compact properties have only one walkway and one ramp and may price below that range. Larger or more demanding properties can price above it.
 
-- **Small townhouse strata (< 15 units, ~1,500 m² surface):** $4,800–$7,800 per season
-- **Mid-size townhouse or low-rise (15–40 units, 2,000–3,500 m²):** $7,800–$13,500 per season
-- **Larger complex or mixed-use podium (40–80 units, 3,500–6,500 m²):** $13,500–$24,000 per season
-- **Large / multi-building strata (80+ units, > 6,500 m²):** $24,000–$55,000+ per season
-- **Commercial strata (retail-plaza style, drive-through / apron surfaces):** priced separately per operating-hours SLA
+- **Simple access:** one short walkway, one ramp and limited treatment area often sits near the lower end or below the ballpark.
+- **Typical small-to-mid-size strata:** approximately **$3,000–$8,000 per season** after a site review.
+- **Higher-scope property:** long public sidewalks, many parking stalls, internal paths, stairs, multiple entrances or large drive lanes can move the price above the ballpark.
+- **Product and service level:** rock salt, ice melt or concrete- and pet-friendlier products have different costs, as do pre-treatment, return visits and tighter clear-by times.
+- **Large, mixed-use or commercial strata:** quoted from the measured scope rather than from unit count alone.
 
 Contracts include the November 1 to March 31 service window as a Metro Vancouver standard. Contracts that only cover December to February are a 20–30 percent discount but leave the shoulder-season risk with the strata.
 
@@ -120,6 +120,9 @@ For a written seasonal quote against your building's actual square metreage and 
 
 **Is a seasonal snow contract worth it in a mild winter?**
 Yes, because you're paying for risk transfer, not just for pushes. In a low-event winter you effectively over-pay slightly to guarantee that a high-event winter cannot generate a special levy.
+
+**What should a typical strata budget for seasonal snow removal?**
+About $3,000–$8,000 per season is a reasonable starting ballpark for many small-to-mid-size properties. The quote changes with sidewalk length, parking stalls and drive lanes, internal walkways, ramps, stairs, service triggers, return visits and whether the plan uses rock salt or a different ice-melt product. A compact building with only one walkway and one ramp may cost less, while a large or complicated site may cost more.
 
 **Can a strata sign a two-year snow contract?**
 Yes, and pricing is often 5–10 percent better for a two-year lock, but many BC operators only quote year by year because insurance and fuel costs move.

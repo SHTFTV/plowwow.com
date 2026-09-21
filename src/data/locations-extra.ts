@@ -111,7 +111,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$500 – $1,100",
-      strata_seasonal: "$2,800 – $12,000",
+      strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$3,800 – $22,000",
       per_visit: "$95 – $300",
       de_ice_treatment: "$55 – $145",
@@ -250,7 +250,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$475 – $950",
-      strata_seasonal: "$2,600 – $9,500",
+      strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$3,600 – $18,000",
       per_visit: "$90 – $275",
       de_ice_treatment: "$50 – $130",
@@ -389,7 +389,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$425 – $900",
-      strata_seasonal: "$2,400 – $8,500",
+      strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$3,400 – $16,000",
       per_visit: "$85 – $250",
       de_ice_treatment: "$55 – $135",
@@ -528,7 +528,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$550 – $1,400",
-      strata_seasonal: "$2,900 – $14,000",
+      strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$4,000 – $20,000",
       per_visit: "$95 – $325",
       de_ice_treatment: "$60 – $155",
@@ -669,7 +669,7 @@ export const LOCATIONS_EXTRA: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$600 – $1,600",
-      strata_seasonal: "$3,200 – $16,000",
+      strata_seasonal: "$3,000 – $8,000 typical; alpine or complex sites quoted separately",
       commercial_seasonal: "$4,200 – $22,000",
       per_visit: "$110 – $375",
       de_ice_treatment: "$65 – $175",

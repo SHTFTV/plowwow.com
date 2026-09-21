@@ -121,7 +121,7 @@ Both. We have residential per-visit and seasonal plans for Hastings-Sunrise driv
 
 ### What does a seasonal contract cost for a strata in Hastings-Sunrise?
 
-It depends on lot size, sidewalk length, number of fire lanes and whether snow relocation is needed. Most small-to-mid Hastings-Sunrise strata fall in the $4,000–$12,000 per-season range. Larger high-rises and mixed-use podiums quote higher because of relocation hauling. We provide a detailed written quote — with a property map — within 24 hours of a site walk.
+It depends on sidewalk length, parking stalls and drive lanes, internal walkways, ramps, service triggers and whether the site uses rock salt or another ice-melt product. Many small-to-mid Hastings-Sunrise strata use $3,000–$8,000 per season as a budgeting ballpark. A compact site with one walkway and one ramp may cost less; large or complex properties may cost more. We provide a detailed written quote after a site walk.
 
 ### What de-icer do you use near landscaping and pets?
 

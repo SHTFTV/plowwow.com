@@ -186,7 +186,7 @@ export const LOCATIONS: Record<string, LocationDeepData> = {
     ],
     pricing: {
       residential_seasonal: "$450 – $900",
-      strata_seasonal: "$2,400 – $8,500",
+      strata_seasonal: "$3,000 – $8,000 typical; complex sites quoted separately",
       commercial_seasonal: "$3,500 – $15,000",
       per_visit: "$85 – $250",
       de_ice_treatment: "$45 – $120",
