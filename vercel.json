@@ -1,6 +1,36 @@
 {
   "redirects": [
     {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/metrotown-burnaby-strata-commercial-snow-removal/",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/metrotown-strata-snow-removal",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/metrotown-strata-snow-removal/",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/metrotown-snow-removal-company",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/metrotown-snow-removal-company/",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
       "source": "/metrotown-snow-removal",
       "destination": "/burnaby",
       "permanent": true
@@ -311,16 +341,6 @@
       "permanent": true
     },
     {
-      "source": "/commercial",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/commercial/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/residential",
       "destination": "/",
       "permanent": true
@@ -331,13 +351,8 @@
       "permanent": true
     },
     {
-      "source": "/blog",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/",
-      "destination": "/",
+      "source": "/blog/:slug((?!neighborhoods$)[^/]+)",
+      "destination": "/:slug",
       "permanent": true
     },
     {

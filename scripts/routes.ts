@@ -21,6 +21,12 @@ const CONTENT_DIR = resolve(process.cwd(), "src/content/legacy");
 // Keeping their legacy markdown copies in the sitemap asks crawlers to index
 // redirecting URLs and splits signals from the canonical city pages.
 const REDIRECTED_LEGACY_PAGE_SLUGS = new Set([
+  "app",
+  "how-it-works",
+  "marketing",
+  "metrotown-snow-removal",
+  "services",
+  "strata-experts",
   "vancouver-snow-removal",
   "burnaby-snow-removal",
   "surrey-snow-removal",

@@ -57,14 +57,16 @@
 # LEGACY WORDPRESS PAGES
 # ============================================================
 
+/metrotown-burnaby-strata-commercial-snow-removal  /burnaby  301
+/metrotown-burnaby-strata-commercial-snow-removal/  /burnaby  301
+/metrotown-strata-snow-removal  /burnaby  301
+/metrotown-strata-snow-removal/  /burnaby  301
+/metrotown-snow-removal-company  /burnaby  301
+/metrotown-snow-removal-company/  /burnaby  301
 /services  /  301
 /services/  /  301
-/commercial  /  301
-/commercial/  /  301
 /residential  /  301
 /residential/  /  301
-/blog  /  301
-/blog/  /  301
 /blog/uncategorized  /  301
 /now-removal-arbutus  /vancouver  301
 /now-removal-arbutus/  /vancouver  301

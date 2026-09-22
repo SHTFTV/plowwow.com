@@ -82,37 +82,37 @@
 # --- 301: consolidate duplicate Metrotown pages ---
 [[redirects]]
   from = "/metrotown-burnaby-strata-commercial-snow-removal"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/metrotown-burnaby-strata-commercial-snow-removal/*"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/metrotown-strata-snow-removal"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/metrotown-strata-snow-removal/*"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/metrotown-snow-removal-company"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/metrotown-snow-removal-company/*"
-  to = "/metrotown-snow-removal/"
+  to = "/burnaby/"
   status = 301
   force = true
 
@@ -231,4 +231,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-

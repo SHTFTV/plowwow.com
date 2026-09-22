@@ -118,7 +118,7 @@ function cityLocalBusiness(route: RouteMeta, url: string): LD | null {
   if (!city) return null;
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SnowRemovalService"],
+    "@type": "LocalBusiness",
     "@id": `${url}#localbusiness`,
     name: `PlowWow Snow Removal — ${city.name}`,
     image: city.ogImage,
@@ -135,7 +135,6 @@ function cityLocalBusiness(route: RouteMeta, url: string): LD | null {
     },
     provider: { "@id": `${BASE_URL}/#organization` },
     serviceType: "Snow Removal, De-Icing & Salting",
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: `${city.name} Snow & Ice Services`,
@@ -175,22 +174,42 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
   };
 }
 
-function blogLocalBusiness(url: string, headline: string, heroAbs: string): LD {
+function blogService(url: string, headline: string, heroAbs: string): LD {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SnowRemovalService"],
-    "@id": `${url}#localbusiness`,
+    "@type": "Service",
+    "@id": `${url}#service`,
     name: `PlowWow Snow Removal — ${headline}`,
     url,
-    telephone: "+1-604-761-1518",
-    priceRange: "$$",
     image: heroAbs,
-    logo: `${BASE_URL}/icon-192.png`,
     areaServed: { "@type": "Place", name: headline },
-    provider: { "@id": `${BASE_URL}/#organization` },
+    provider: {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "PlowWow",
+      url: `${BASE_URL}/`,
+      telephone: "+1-604-761-1518",
+    },
     serviceType: "Snow Removal, De-Icing & Salting",
-    address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "47" },
+  };
+}
+
+function commercialService(url: string): LD {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: "Commercial Snow Removal and De-Icing",
+    url,
+    serviceType: "Commercial Snow Plowing, Sidewalk Clearing, Salting and De-Icing",
+    areaServed: { "@type": "AdministrativeArea", name: "Greater Vancouver and the Fraser Valley, BC" },
+    provider: {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "PlowWow",
+      url: `${BASE_URL}/`,
+      telephone: "+1-604-761-1518",
+    },
   };
 }
 
@@ -305,11 +324,13 @@ function renderHead(route: RouteMeta): string {
       `${BASE_URL}/og-default.jpg`;
     const heroAbs = heroCandidate.startsWith("http") ? heroCandidate : `${BASE_URL}${heroCandidate}`;
     graph.push(blogPosting(route, url, headline, heroAbs));
-    graph.push(blogLocalBusiness(url, headline, heroAbs));
+    graph.push(blogService(url, headline, heroAbs));
     if (blog) {
       const fp = faqPage(extractFaqs(blog.body));
       if (fp) graph.push(fp);
     }
+  } else if (route.path === "/commercial") {
+    graph.push(commercialService(url));
   }
 
   const ldBlocks = graph

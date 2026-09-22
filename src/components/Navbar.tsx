@@ -15,10 +15,10 @@ import logoMascot from "@/assets/plowwow-mascot.jpg";
 const navItems = [
   { label: "Home", href: "/#" },
   { label: "About", href: "/#about" },
-  { label: "Residential", href: "/#services" },
-  { label: "Commercial", href: "/#services" },
+  { label: "Residential", href: "/residential-snow-removal" },
+  { label: "Commercial", href: "/commercial" },
   { label: "Service Areas", href: "/#service-areas" },
-  { label: "Services", href: "/#services" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -123,8 +123,8 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button variant="default" className="bg-primary hover:bg-primary/90 font-heading font-bold rounded-full px-6">
-            Get Quote
+          <Button asChild variant="default" className="bg-primary hover:bg-primary/90 font-heading font-bold rounded-full px-6">
+            <Link to="/quote">Get Quote</Link>
           </Button>
         </div>
 
@@ -176,8 +176,8 @@ const Navbar = () => {
               </div>
             </details>
 
-            <Button variant="default" className="bg-primary font-heading font-bold rounded-full mt-2">
-              Get Quote
+            <Button asChild variant="default" className="bg-primary font-heading font-bold rounded-full mt-2">
+              <Link to="/quote" onClick={() => setOpen(false)}>Get Quote</Link>
             </Button>
           </div>
         </div>

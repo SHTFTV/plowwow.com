@@ -146,7 +146,7 @@ function buildCityJsonLd(city: CityTextInput) {
 
   const localBusiness = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "SnowRemovalService"],
+    "@type": "LocalBusiness",
     name: `PlowWow Snow Removal — ${city.name}`,
     url,
     telephone: "+1-604-761-1518",
