@@ -89,6 +89,7 @@ const NEIGHBORHOOD_HINTS = [
   "kensington", "arbutus", "sapperton", "burke-mountain", "heritage-mountain",
   "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
   "deep-cove", "lonsdale", "queensborough", "fleetwood", "ladner",
+  "campbell-heights",
 ];
 const neighborhoodRoutes = blogRoutes.filter((r) => {
   const slug = r.path.replace(/^\/(blog\/)?/, "").replace(/\/$/, "").toLowerCase();

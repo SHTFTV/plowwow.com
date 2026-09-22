@@ -76,7 +76,7 @@ const NEIGHBORHOOD_HINTS = [
   "shaughnessy", "killarney", "edmonds", "burquitlam", "champlain", "renfrew",
   "kensington", "arbutus", "sapperton", "burke-mountain", "heritage-mountain",
   "silver-valley", "buckingham", "middlegate", "middle-gate", "sfu", "edgemont",
-  "deep-cove", "lonsdale",
+  "deep-cove", "lonsdale", "campbell-heights",
 ];
 
 const categoryFor = (slug: string, title: string): Category => {
