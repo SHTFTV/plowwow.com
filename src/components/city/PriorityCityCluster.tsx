@@ -37,6 +37,13 @@ const clusters: Record<string, CityCluster> = {
     ],
     guides: [
       {
+        title: "Langley strata snow-removal cost checklist",
+        description: "Pricing factors, service triggers and the contract details needed for a useful comparison.",
+        href: "/langley-strata-snow-removal-cost-contract-checklist",
+        image: "/blog-images/langley-strata-snow-removal-cost-contract-checklist.jpg",
+        imageAlt: "Wow reviewing a snow-removal checklist at a cleared Langley townhouse strata",
+      },
+      {
         title: "Willoughby strata and commercial snow plowing",
         description: "Planning for townhomes, mixed-use properties, drive aisles and pedestrian access.",
         href: "/willoughby-strata-commercial-snow-plowing",
@@ -56,13 +63,6 @@ const clusters: Record<string, CityCluster> = {
         href: "/fort-langley-snow-removal",
         image: "/blog-images/fort-langley-snow-removal.jpg",
         imageAlt: "PlowWow snow removal guide for Fort Langley",
-      },
-      {
-        title: "Skid-steer snow removal in Langley",
-        description: "Where compact equipment helps on tight commercial and multi-family sites.",
-        href: "/skid-steer-snow-removal-in-langley-bc",
-        image: "/blog-images/campbell-heights-loading-dock-snow-plan.jpg",
-        imageAlt: "Skid-steer snow removal equipment for a Langley property",
       },
     ],
   },
@@ -131,6 +131,13 @@ const clusters: Record<string, CityCluster> = {
     ],
     guides: [
       {
+        title: "Burnaby commercial opening-time snow plan",
+        description: "Parkade ramps, hills, entrances, loading access and pre-opening readiness.",
+        href: "/burnaby-commercial-snow-removal-parkade-hills-opening-plan",
+        image: "/blog-images/burnaby-commercial-snow-removal-parkade-hills-opening-plan.jpg",
+        imageAlt: "Wow beside a cleared Burnaby commercial parkade ramp before opening",
+      },
+      {
         title: "Burnaby hills and parkade snow plan",
         description: "A practical plan for slopes, ramps, drainage and overnight refreeze.",
         href: "/burnaby-hills-parkade-snow-ice-plan",
@@ -150,13 +157,6 @@ const clusters: Record<string, CityCluster> = {
         href: "/lougheed-town-centre-burnaby-snow-removal",
         image: "/blog-images/lougheed-town-centre-burnaby-snow-removal.jpg",
         imageAlt: "Snow removal guide for Lougheed Town Centre in Burnaby",
-      },
-      {
-        title: "Burnaby Heights snow removal",
-        description: "Commercial frontages, residential walks and neighbourhood route planning.",
-        href: "/burnaby-heights-strata-commercial-snow-removal",
-        image: "/blog-images/burnaby-heights-strata-commercial-snow-removal.jpg",
-        imageAlt: "Snow removal guide for Burnaby Heights properties",
       },
     ],
   },

@@ -41,10 +41,10 @@ const priorityCityPrerender: Record<
     summary:
       "PlowWow plans Langley snow removal around the surfaces and access each property actually needs: commercial entrances and parking near Langley City, townhouse drive aisles and walks in Willoughby and Walnut Grove, residential approaches in Brookswood and Murrayville, and advance routing for Fort Langley and Aldergrove. Services include plowing, walkway clearing, salting and ice control for strata, commercial and booked residential properties.",
     links: [
+      { label: "Langley strata snow-removal cost checklist", href: "/langley-strata-snow-removal-cost-contract-checklist" },
       { label: "Willoughby strata snow plowing", href: "/willoughby-strata-commercial-snow-plowing" },
       { label: "Walnut Grove strata snow plowing", href: "/walnut-grove-strata-commercial-snow-plowing" },
       { label: "Fort Langley snow removal", href: "/fort-langley-snow-removal" },
-      { label: "Skid-steer snow removal in Langley", href: "/skid-steer-snow-removal-in-langley-bc" },
     ],
   },
   "/vancouver": {
@@ -63,10 +63,10 @@ const priorityCityPrerender: Record<
     summary:
       "Burnaby combines steep residential streets, high-rise districts, parkade ramps and large commercial or industrial properties. PlowWow separates vehicle and pedestrian work, selects equipment for the available space, and establishes the clearing order before crews arrive. Service planning covers Metrotown and South Burnaby, Brentwood and Willingdon, Lougheed and Government Road, and the higher-elevation approaches around Burnaby Mountain and Capitol Hill.",
     links: [
+      { label: "Burnaby commercial opening-time snow plan", href: "/burnaby-commercial-snow-removal-parkade-hills-opening-plan" },
       { label: "Burnaby hills and parkade snow plan", href: "/burnaby-hills-parkade-snow-ice-plan" },
       { label: "Brentwood strata snow removal", href: "/brentwood-burnaby-strata-snow-removal" },
       { label: "Lougheed Town Centre snow removal", href: "/lougheed-town-centre-burnaby-snow-removal" },
-      { label: "Burnaby Heights snow removal", href: "/burnaby-heights-strata-commercial-snow-removal" },
     ],
   },
 };
