@@ -49,6 +49,18 @@ const REDIRECTED_LEGACY_PAGE_SLUGS = new Set([
   "belcarra-snow-removal",
 ]);
 
+// These preserved blog files are still useful source material, but their
+// public root URLs are permanent redirects to stronger city hubs. Excluding
+// them prevents sitemap entries whose first response is a redirect.
+const REDIRECTED_LEGACY_BLOG_SLUGS = new Set([
+  "metrotown-burnaby-strata-commercial-snow-removal",
+  "metrotown-snow-removal-company",
+  "metrotown-strata-snow-removal",
+  "north-vancouver-snow-removal",
+  "now-removal-arbutus",
+  "west-vancouver-snow-removal",
+]);
+
 function readSlugs(dir: string): string[] {
   return readdirSync(dir)
     .filter((f) => f.endsWith(".md"))
@@ -228,6 +240,7 @@ export function collectRoutes(): RouteMeta[] {
 
   // Legacy blog posts
   for (const slug of readSlugs(resolve(CONTENT_DIR, "blog"))) {
+    if (REDIRECTED_LEGACY_BLOG_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "blog", `${slug}.md`), "utf8");
     const { title, description } = parseLegacy(raw);
     const heroPath = resolve(process.cwd(), "public/blog-images", `${slug}.jpg`);
