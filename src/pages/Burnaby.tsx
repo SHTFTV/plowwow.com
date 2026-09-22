@@ -16,6 +16,7 @@ import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
 import { getLocationDeep } from "@/data/locations";
 import { Link } from "react-router-dom";
+import PriorityCityCluster from "@/components/city/PriorityCityCluster";
 
 const Burnaby = () => {
   const deep = getLocationDeep("burnaby");
@@ -26,6 +27,8 @@ const Burnaby = () => {
     <Navbar />
     <main>
       <BurnabyHero />
+
+      <PriorityCityCluster citySlug="burnaby" />
 
       <section className="py-16 bg-background" aria-labelledby="burnaby-plan-heading">
         <div className="container">
@@ -108,7 +111,10 @@ const Burnaby = () => {
           <p className="text-muted-foreground leading-relaxed mb-5">
             Our Burnaby snow and ice guide covers hill approaches, parkade ramps, pedestrian routes, drainage, snow storage and the follow-up checks that help manage changing temperatures.
           </p>
-          <Link to="/burnaby-hills-parkade-snow-ice-plan" className="inline-flex items-center font-bold text-primary hover:underline">
+          <Link
+            to="/burnaby-hills-parkade-snow-ice-plan"
+            className="inline-flex items-center font-bold text-primary hover:underline"
+          >
             Read the Burnaby hills and parkade snow plan →
           </Link>
         </div>

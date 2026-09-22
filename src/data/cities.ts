@@ -29,9 +29,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.2606, lon: -123.1139, address: "453 W 12th Ave" },
     name: "Vancouver",
     province: "BC",
-    tagline: "Vancouver Snow Removal for Strata & Commercial Properties",
+    tagline: "Snow Removal Vancouver for Strata, Commercial & Residential Properties",
     intro:
-      "24/7 Vancouver snow removal, commercial snow plowing, salting and ice control for strata, retail, industrial and residential properties — from Downtown and the West End to Kitsilano, Mount Pleasant and East Van.",
+      "Vancouver snow removal, sidewalk clearing, salting and ice control for strata, apartments, retail, offices and booked residential routes — from Downtown and the West End to Kitsilano, Mount Pleasant, East Vancouver and the south side.",
     ogImage: "https://www.plowwow.com/og-vancouver.jpg",
     snowfall: [
       { month: "Nov", cm: 4 },
@@ -357,9 +357,9 @@ export const cities: City[] = [
     cityHall: { lat: 49.1042, lon: -122.6603, address: "20399 Douglas Cres" },
     name: "Langley",
     province: "BC",
-    tagline: "Langley Snow Removal & Commercial Snow Plowing",
+    tagline: "Snow Removal Langley for Strata, Commercial & Residential Properties",
     intro:
-      "24/7 snow removal, commercial snow plowing, salting and ice control across Langley City and Langley Township — including Willoughby, Walnut Grove, Brookswood, Fort Langley and Aldergrove. Seasonal service for strata, retail, industrial and residential properties.",
+      "Langley snow removal, commercial snow plowing, walkway clearing, salting and ice control across Langley City and Langley Township — including Willoughby, Walnut Grove, Brookswood, Murrayville, Fort Langley and Aldergrove.",
     ogImage: "https://www.plowwow.com/og-langley.jpg",
     snowfall: [
       { month: "Nov", cm: 5 },
@@ -372,6 +372,7 @@ export const cities: City[] = [
       { name: "Willoughby", note: "Fast-growing strata corridor" },
       { name: "Walnut Grove", note: "Family residential" },
       { name: "Brookswood", note: "Acreage & SFH" },
+      { name: "Murrayville", note: "Strata, residential & medical-area access" },
       { name: "Fort Langley", note: "Historic core & retail" },
       { name: "Aldergrove", note: "Suburban & rural" },
     ],
@@ -379,6 +380,14 @@ export const cities: City[] = [
       {
         q: "Do you service Langley acreages?",
         a: "Yes — longer driveways and farm approaches are quoted by length and surface; we run trucks suited to gravel and packed lanes.",
+      },
+      {
+        q: "Do you cover both Langley City and the Township of Langley?",
+        a: "Yes. We quote properties across both municipalities, then confirm whether the address fits an active Langley route. Booked and seasonal properties receive priority over new on-call requests during a storm.",
+      },
+      {
+        q: "What does residential snow removal cost in Langley?",
+        a: "Booked residential visits start at $125 when five visits are reserved. On-call service starts at $150 when route capacity is available. Lot size, driveway length, slope, stairs, walkways and de-icing scope can change the price.",
       },
     ],
   },

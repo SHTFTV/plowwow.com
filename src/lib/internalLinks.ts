@@ -5,6 +5,7 @@
 
 import { blogPosts } from "@/generated/blog-posts";
 import { cities } from "@/data/cities";
+import { BLOG_CITY_OVERRIDES } from "@/data/blogCityOverrides";
 
 // Known city hubs. Burnaby uses the bespoke /burnaby route; the rest
 // live at /:citySlug via CityPage.
@@ -20,6 +21,8 @@ const matchOrder = [...cityHubs].sort((a, b) => b.slug.length - a.slug.length);
 export type BlogPostLite = (typeof blogPosts)[number];
 
 export function cityForBlogSlug(slug: string): (typeof cityHubs)[number] | null {
+  const override = BLOG_CITY_OVERRIDES[slug];
+  if (override) return cityHubs.find((hub) => hub.slug === override) ?? null;
   for (const hub of matchOrder) {
     if (slug.includes(hub.slug)) return hub;
   }

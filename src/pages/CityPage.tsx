@@ -39,6 +39,7 @@ import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
 import WowStrataCallout from "@/components/WowStrataCallout";
 import CitySnowVideo from "@/components/CitySnowVideo";
+import PriorityCityCluster from "@/components/city/PriorityCityCluster";
 
 const CityPage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -311,6 +312,8 @@ const CityPage = () => {
           </section>
         )}
 
+        <PriorityCityCluster citySlug={city.slug} />
+
         <CitySnowVideo cityName={city.name} poster={ogImage} />
 
         {/* City Map */}
@@ -487,7 +490,10 @@ const CityPage = () => {
               <p className="text-muted-foreground leading-relaxed mb-5">
                 Our Vancouver snow and ice guide explains service timing, sidewalk priorities, catch-basin access, overnight refreeze checks and visit documentation for strata and commercial properties.
               </p>
-              <Link to="/vancouver-sidewalk-snow-clearing-plan" className="inline-flex items-center font-bold text-primary hover:underline">
+              <Link
+                to="/vancouver-sidewalk-snow-clearing-plan"
+                className="inline-flex items-center font-bold text-primary hover:underline"
+              >
                 Read the Vancouver sidewalk snow-clearing plan →
               </Link>
             </div>

@@ -3,6 +3,7 @@
 
 import type { blogPosts as BlogPostsT } from "@/generated/blog-posts";
 import type { cities as CitiesT } from "@/data/cities";
+import { BLOG_CITY_OVERRIDES } from "@/data/blogCityOverrides";
 
 type BlogPost = (typeof BlogPostsT)[number];
 type City = (typeof CitiesT)[number];
@@ -27,8 +28,11 @@ export function runLinkAudit(
 ): LinkAuditReport {
   const matchOrder = [...hubs].sort((a, b) => b.slug.length - a.slug.length);
 
-  const cityFor = (slug: string) =>
-    matchOrder.find((h) => slug.includes(h.slug)) ?? null;
+  const cityFor = (slug: string) => {
+    const override = BLOG_CITY_OVERRIDES[slug];
+    if (override) return hubs.find((hub) => hub.slug === override) ?? null;
+    return matchOrder.find((h) => slug.includes(h.slug)) ?? null;
+  };
 
   const countBySlug: Record<string, number> = Object.fromEntries(
     hubs.map((h) => [h.slug, 0]),
