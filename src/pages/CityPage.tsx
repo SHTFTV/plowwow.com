@@ -475,6 +475,25 @@ const CityPage = () => {
 
         {locationDeep && <CityDeepDive data={locationDeep} />}
 
+        {city.slug === "vancouver" && (
+          <section className="py-14 border-y border-border bg-card" aria-labelledby="vancouver-winter-guide-heading">
+            <div className="container max-w-4xl">
+              <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">
+                Vancouver planning guide
+              </p>
+              <h2 id="vancouver-winter-guide-heading" className="text-2xl md:text-3xl font-black text-foreground mb-4">
+                Plan sidewalks, entrances and refreeze checks before the storm
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                Our Vancouver snow and ice guide explains service timing, sidewalk priorities, catch-basin access, overnight refreeze checks and visit documentation for strata and commercial properties.
+              </p>
+              <Link to="/vancouver-sidewalk-snow-clearing-plan" className="inline-flex items-center font-bold text-primary hover:underline">
+                Read the Vancouver sidewalk snow-clearing plan →
+              </Link>
+            </div>
+          </section>
+        )}
+
         {/* FAQ */}
         <section className="py-20 bg-muted/30">
           <div className="container max-w-3xl">
