@@ -15,6 +15,7 @@ import CityDeepDive from "@/components/CityDeepDive";
 import DirectionsCard from "@/components/city/DirectionsCard";
 import RelatedCities from "@/components/city/RelatedCities";
 import { getLocationDeep } from "@/data/locations";
+import { Link } from "react-router-dom";
 
 const Burnaby = () => {
   const deep = getLocationDeep("burnaby");
@@ -95,6 +96,23 @@ const Burnaby = () => {
       <BurnabyFAQ />
 
       {deep && <CityDeepDive data={deep} />}
+
+      <section className="py-14 border-y border-border bg-card" aria-labelledby="burnaby-winter-guide-heading">
+        <div className="container max-w-4xl">
+          <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">
+            Burnaby planning guide
+          </p>
+          <h2 id="burnaby-winter-guide-heading" className="text-2xl md:text-3xl font-black text-foreground mb-4">
+            Plan steep grades, parkade ramps and overnight refreeze
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-5">
+            Our Burnaby snow and ice guide covers hill approaches, parkade ramps, pedestrian routes, drainage, snow storage and the follow-up checks that help manage changing temperatures.
+          </p>
+          <Link to="/burnaby-hills-parkade-snow-ice-plan" className="inline-flex items-center font-bold text-primary hover:underline">
+            Read the Burnaby hills and parkade snow plan →
+          </Link>
+        </div>
+      </section>
 
       <RelatedCities citySlug="burnaby" cityName="Burnaby" count={4} />
 
