@@ -18,7 +18,7 @@ import { resolve, join } from "node:path";
 import { readImageMeta, formatFromExtension } from "../src/test/helpers/image-size";
 
 const DIST = resolve("dist");
-const CANONICAL_HOST = "plowwow.com";
+const CANONICAL_HOSTS = new Set(["plowwow.com", "www.plowwow.com"]);
 const MIN_W = 600;
 const MIN_H = 315;
 const RECOMMENDED_W = 1200;
@@ -78,7 +78,7 @@ async function checkOne(ref: Ref): Promise<Check> {
   let height = 0;
   let mime: string | null = null;
   let status = 0;
-  const isLocal = url.host === CANONICAL_HOST;
+  const isLocal = CANONICAL_HOSTS.has(url.hostname);
   if (isLocal) {
     const local = join(DIST, url.pathname);
     if (!existsSync(local)) {
