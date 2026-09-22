@@ -32,6 +32,45 @@ const esc = (s: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
+const priorityCityPrerender: Record<
+  string,
+  { heading: string; summary: string; links: { label: string; href: string }[] }
+> = {
+  "/langley": {
+    heading: "Snow removal across Langley City and Langley Township",
+    summary:
+      "PlowWow plans Langley snow removal around the surfaces and access each property actually needs: commercial entrances and parking near Langley City, townhouse drive aisles and walks in Willoughby and Walnut Grove, residential approaches in Brookswood and Murrayville, and advance routing for Fort Langley and Aldergrove. Services include plowing, walkway clearing, salting and ice control for strata, commercial and booked residential properties.",
+    links: [
+      { label: "Willoughby strata snow plowing", href: "/willoughby-strata-commercial-snow-plowing" },
+      { label: "Walnut Grove strata snow plowing", href: "/walnut-grove-strata-commercial-snow-plowing" },
+      { label: "Fort Langley snow removal", href: "/fort-langley-snow-removal" },
+      { label: "Skid-steer snow removal in Langley", href: "/skid-steer-snow-removal-in-langley-bc" },
+    ],
+  },
+  "/vancouver": {
+    heading: "Vancouver sidewalks, entrances, parkade ramps and urban sites",
+    summary:
+      "Vancouver winter service often involves more pedestrian work than plowable space. PlowWow combines hand clearing, de-icing, small-equipment work and refreeze checks for strata, apartments, retail, offices and booked residential routes. Site plans can cover Downtown and the West End, Mount Pleasant and East Vancouver, Kitsilano and the West Side, and commercial or residential properties across South Vancouver.",
+    links: [
+      { label: "Kensington–Cedar Cottage snow removal", href: "/kensington-cedar-cottage-snow-removal" },
+      { label: "Renfrew Heights snow removal", href: "/snow-removal-renfrew-heights" },
+      { label: "Shaughnessy snow removal", href: "/shaughnessy-snow-removal" },
+      { label: "Vancouver sidewalk snow-clearing plan", href: "/vancouver-sidewalk-snow-clearing-plan" },
+    ],
+  },
+  "/burnaby": {
+    heading: "Burnaby snow service for hills, ramps and dense neighbourhoods",
+    summary:
+      "Burnaby combines steep residential streets, high-rise districts, parkade ramps and large commercial or industrial properties. PlowWow separates vehicle and pedestrian work, selects equipment for the available space, and establishes the clearing order before crews arrive. Service planning covers Metrotown and South Burnaby, Brentwood and Willingdon, Lougheed and Government Road, and the higher-elevation approaches around Burnaby Mountain and Capitol Hill.",
+    links: [
+      { label: "Burnaby hills and parkade snow plan", href: "/burnaby-hills-parkade-snow-ice-plan" },
+      { label: "Brentwood strata snow removal", href: "/brentwood-burnaby-strata-snow-removal" },
+      { label: "Lougheed Town Centre snow removal", href: "/lougheed-town-centre-burnaby-snow-removal" },
+      { label: "Burnaby Heights snow removal", href: "/burnaby-heights-strata-commercial-snow-removal" },
+    ],
+  },
+};
+
 // ---------------------------------------------------------------------------
 // Blog markdown parsing (FAQs + hero image) — mirrors src/pages/LegacyPage.tsx
 // ---------------------------------------------------------------------------
@@ -350,10 +389,23 @@ function renderHead(route: RouteMeta): string {
   // unique H1, description, and link back to the canonical URL. React
   // replaces this on hydration; crawlers snapshotting initial HTML still see
   // per-route content that differs from the homepage shell.
+  const priority = priorityCityPrerender[route.path];
+  const priorityHtml = priority
+    ? `
+        <section aria-labelledby="local-service-plan">
+          <h2 id="local-service-plan">${esc(priority.heading)}</h2>
+          <p>${esc(priority.summary)}</p>
+          <h2>Local snow-removal guides</h2>
+          <ul>${priority.links
+            .map((link) => `<li><a href="${esc(link.href)}">${esc(link.label)}</a></li>`)
+            .join("")}</ul>
+        </section>`
+    : "";
   const bodyHtml = `
       <main data-prerendered="${esc(route.path)}">
         <h1>${esc(headline)}</h1>
         <p>${esc(route.description)}</p>
+        ${priorityHtml}
         <p><a href="${esc(url)}">${esc(headline)} — PlowWow</a></p>
         <p><a href="/quote/">Request a quote</a> · <a href="/locations/">Service areas</a> · <a href="/blog/">Blog</a></p>
       </main>`;
