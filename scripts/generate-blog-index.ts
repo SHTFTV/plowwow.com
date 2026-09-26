@@ -7,6 +7,12 @@ const IMAGE_DIR = resolve(process.cwd(), "public/blog-images");
 const OUT_FILE = resolve(process.cwd(), "src/generated/blog-posts.ts");
 const JSON_OUT = resolve(process.cwd(), "public/blog-index.json");
 
+// Keep editorial dates stable across fresh checkouts and deployments.
+const savedDates = new Map<string, { publishedAt: string; updatedAt: string }>(
+  existsSync(JSON_OUT) ? JSON.parse(readFileSync(JSON_OUT, "utf8")).posts.map((p: { slug: string; publishedAt: string; updatedAt: string }) => [p.slug, p]) : [],
+);
+const parsedDate = (value?: string) => value && Number.isFinite(Date.parse(value)) ? Date.parse(value) : 0;
+
 const cleanTitle = (title: string, slug: string) =>
   (title || slug)
     .replace(/\s*\|\s*PlowWow.*$/i, "")
@@ -69,15 +75,10 @@ const posts = readdirSync(BLOG_DIR)
     const imageMatch = body.match(/!\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]+")?\)/);
     const heroPath = resolve(IMAGE_DIR, `${slug}.jpg`);
     const hasHeroImage = existsSync(heroPath);
-    // Prefer file mtime so newly added posts always sort to the top of the
-    // carousel. Git timestamps are unreliable here because bulk commits give
-    // every post the same second, which collapses the sort to alphabetical
-    // slug order and freezes the homepage carousel. Fall back to git only
-    // when mtime is missing.
-    const mtimeMs = statSync(filePath).mtimeMs;
     const git = gitTimestamps(`src/content/legacy/blog/${file}`);
-    const publishedAtMs = mtimeMs || git.first;
-    const updatedAtMs = Math.max(mtimeMs, git.last || 0) || mtimeMs;
+    const saved = savedDates.get(slug);
+    const publishedAtMs = parsedDate(raw.match(/^Published:\s*(.+)$/m)?.[1]) || parsedDate(saved?.publishedAt) || git.first || statSync(filePath).mtimeMs;
+    const updatedAtMs = parsedDate(raw.match(/^Updated:\s*(.+)$/m)?.[1]) || parsedDate(saved?.updatedAt) || publishedAtMs;
 
     const theme = pickTheme(slug, title);
     const image = hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`;
