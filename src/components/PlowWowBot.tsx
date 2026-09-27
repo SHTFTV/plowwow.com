@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ExternalLink, Mail, MessageSquare, Phone, Star, X } from "lucide-react";
+import wowMascot from "@/assets/wow-mascot.png";
 
 const PHONE = "604-761-1518";
 const PHONE_HREF = "tel:+16047611518";
@@ -45,7 +46,7 @@ export default function PlowWowBot() {
       </button>
 
       <div className="flex items-center gap-3 px-4 pb-3 pt-4">
-        <img src="/wow-mascot.png" alt="" aria-hidden="true" className="h-12 w-12 shrink-0 object-contain" />
+        <img src={wowMascot} alt="" aria-hidden="true" width={48} height={48} className="h-12 w-12 shrink-0 object-contain" />
         <div className="min-w-0">
           <p className="text-[10px] font-semibold uppercase tracking-wider text-sky-300">PlowWow Snow Removal</p>
           <p className="mt-0.5 text-sm font-semibold leading-tight text-white">Fast quotes & storm help</p>

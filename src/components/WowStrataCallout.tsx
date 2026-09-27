@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Building2, Mail, Phone, ShieldCheck, Snowflake } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import wowMascot from "@/assets/wow-mascot.png";
 
 interface WowStrataCalloutProps {
   cityName: string;
@@ -40,7 +41,7 @@ const WowStrataCallout = ({ cityName, quotePath }: WowStrataCalloutProps) => (
           </div>
         </div>
         <div className="relative z-10 mx-auto w-full max-w-[300px] self-end">
-          <img src="/wow-mascot.png" alt="PlowWow mascot waving with a snow shovel" className="h-auto w-full drop-shadow-2xl" loading="lazy" />
+          <img src={wowMascot} alt="PlowWow mascot waving with a snow shovel" width={1024} height={1024} className="h-auto w-full drop-shadow-2xl" loading="lazy" />
         </div>
       </div>
     </div>
