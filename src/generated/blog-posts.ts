@@ -13,6 +13,253 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "commercial-snow-storage-site-map",
+    "title": "Where Will the Snow Go? A Commercial Snow-Storage Planning Guide",
+    "blurb": "Mark snow-storage zones, protected access routes and overflow decisions before winter so commercial snow clearing has a practical destination for each push…",
+    "image": "/blog-images/commercial-snow-storage-site-map.jpg",
+    "alt": "Illustrative site map showing a candidate snow-storage area separated from the building entrance, pedestrian route and driveway sightlines",
+    "theme": "commercial",
+    "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-30T19:00:01.000Z",
+    "updatedAt": "2026-09-30T19:00:01.000Z"
+  },
+  {
+    "slug": "commercial-snow-equipment-site-access-guide",
+    "title": "Truck Plow or Compact Equipment? Match Snow Clearing to Your Property",
+    "blurb": "Plan commercial snow clearing around entrances, turning space, pedestrian routes and snow storage before choosing truck plows or compact equipment…",
+    "image": "/blog-images/commercial-snow-equipment-site-access-guide.jpg",
+    "alt": "Diagram separating a commercial property into open vehicle lanes, a constrained courtyard and pedestrian entrances, each requiring an equipment access review",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-30T19:00:00.000Z",
+    "updatedAt": "2026-09-30T19:00:00.000Z"
+  },
+  {
+    "slug": "commercial-snow-removal-after-service-checklist",
+    "title": "Commercial Snow Removal: The After-Service Site Check",
+    "blurb": "A practical after-service snow-removal checklist for commercial sites: review access, report blocked areas and coordinate follow-up with your contractor…",
+    "image": "/blog-images/_theme-commercial.jpg",
+    "alt": "PlowWow mascot on a cleared commercial parking area with snow along the edges",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-27T18:00:00.000Z",
+    "updatedAt": "2026-09-27T18:00:00.000Z"
+  },
+  {
+    "slug": "commercial-snow-removal-quote-site-information",
+    "title": "Commercial Snow Removal: What to Include in a Quote Request",
+    "blurb": "Help contractors quote your commercial snow removal accurately with site photos, access details, operating hours and a clear list of surfaces and services…",
+    "image": "/blog-images/commercial-snow-removal-quote-site-information.jpg",
+    "alt": "PlowWow mascot on a cleared commercial parking area with snow along the edges",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-26T15:00:01.000Z",
+    "updatedAt": "2026-09-26T15:00:01.000Z"
+  },
+  {
+    "slug": "metro-vancouver-strata-winter-readiness-checklist",
+    "title": "Strata Winter Readiness Checklist",
+    "blurb": "Prepare your Metro Vancouver strata for winter with a site map, access plan, clearing priorities and a practical handover checklist for snow removal…",
+    "image": "/blog-images/metro-vancouver-strata-winter-readiness-checklist.jpg",
+    "alt": "PlowWow mascot beside a cleared walkway at a snow-covered strata property",
+    "theme": "strata",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-26T15:00:00.000Z",
+    "updatedAt": "2026-09-26T15:00:00.000Z"
+  },
+  {
+    "slug": "burnaby-commercial-snow-removal-parkade-hills-opening-plan",
+    "title": "Burnaby Commercial Snow Removal: Ramps, Hills & Opening Plans",
+    "blurb": "Plan Burnaby commercial snow removal around opening time, sloped parkade ramps, public entrances, loading access, drainage and overnight refreeze…",
+    "image": "/blog-images/burnaby-commercial-snow-removal-parkade-hills-opening-plan.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared Burnaby commercial parkade ramp and salted entrance before opening",
+    "theme": "commercial",
+    "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-22T22:01:40.000Z",
+    "updatedAt": "2026-09-22T22:01:40.000Z"
+  },
+  {
+    "slug": "langley-strata-snow-removal-cost-contract-checklist",
+    "title": "Langley Strata Snow Removal Cost & Contract Checklist",
+    "blurb": "A practical Langley strata snow-removal cost guide covering sidewalks, parking, ramps, salting, service triggers and the details needed for an accurate contract…",
+    "image": "/blog-images/langley-strata-snow-removal-cost-contract-checklist.jpg",
+    "alt": "Wow, the PlowWow mascot, reviewing a snow-removal checklist at a cleared Langley townhouse strata",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-22T22:01:40.000Z",
+    "updatedAt": "2026-09-22T22:01:40.000Z"
+  },
+  {
+    "slug": "campbell-heights-loading-dock-snow-plan",
+    "title": "Campbell Heights Snow Plan for Loading Docks",
+    "blurb": "Plan Campbell Heights industrial snow service for loading docks, truck lanes, employee parking, sidewalks, drainage and overnight ice control…",
+    "image": "/blog-images/campbell-heights-loading-dock-snow-plan.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared Campbell Heights industrial truck lane and loading docks",
+    "theme": "citywide",
+    "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-22T03:45:22.000Z",
+    "updatedAt": "2026-09-22T03:45:22.000Z"
+  },
+  {
+    "slug": "coquitlam-elevation-snow-ice-plan",
+    "title": "Coquitlam Snow Plan for Hills and Refreeze",
+    "blurb": "Plan Coquitlam snow and ice service for steep strata access, parkade ramps, sidewalks, elevation changes, drainage and overnight refreeze checks…",
+    "image": "/blog-images/coquitlam-elevation-snow-ice-plan.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared Coquitlam hillside strata ramp and parkade entrance",
+    "theme": "citywide",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-22T03:45:22.000Z",
+    "updatedAt": "2026-09-22T03:45:22.000Z"
+  },
+  {
+    "slug": "burnaby-hills-parkade-snow-ice-plan",
+    "title": "Burnaby Snow & Ice Plan for Hills and Parkade Ramps",
+    "blurb": "Plan Burnaby strata and commercial snow service for steep grades, parkade ramps, sidewalks, drains and overnight refreeze without relying on last-minute calls…",
+    "image": "/blog-images/burnaby-hills-parkade-snow-ice-plan.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared Burnaby strata parkade ramp and pedestrian walkway",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-21T16:19:27.000Z",
+    "updatedAt": "2026-09-21T16:19:27.000Z"
+  },
+  {
+    "slug": "vancouver-sidewalk-snow-clearing-plan",
+    "title": "Vancouver Snow Removal Plan: Sidewalks Before 10 a.m.",
+    "blurb": "A practical Vancouver snow and ice plan for strata and commercial properties: sidewalks, catch basins, refreeze checks, service timing and documentation…",
+    "image": "/blog-images/vancouver-sidewalk-snow-clearing-plan.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared Vancouver sidewalk after wet coastal snow",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-09-21T16:19:27.000Z",
+    "updatedAt": "2026-09-21T16:19:27.000Z"
+  },
+  {
+    "slug": "willoughby-strata-commercial-snow-plowing",
+    "title": "Willoughby Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Willoughby, Langley, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Willoughby strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-10T00:42:04.000Z",
+    "updatedAt": "2026-09-10T00:42:04.000Z"
+  },
+  {
+    "slug": "walnut-grove-strata-commercial-snow-plowing",
+    "title": "Walnut Grove Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Walnut Grove, Langley, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Walnut Grove strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-10T00:38:40.000Z",
+    "updatedAt": "2026-09-10T00:38:40.000Z"
+  },
+  {
+    "slug": "campbell-heights-strata-commercial-snow-plowing",
+    "title": "Campbell Heights Commercial Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Campbell Heights, Surrey, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Campbell Heights business park during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-10T00:35:20.000Z",
+    "updatedAt": "2026-09-10T00:35:20.000Z"
+  },
+  {
+    "slug": "port-kells-strata-commercial-snow-plowing",
+    "title": "Port Kells Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Port Kells, Surrey, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Port Kells industrial park during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-10T00:24:39.000Z",
+    "updatedAt": "2026-09-10T00:24:39.000Z"
+  },
+  {
+    "slug": "pitt-meadows-strata-commercial-snow-plowing",
+    "title": "Pitt Meadows Strata Snow Plowing",
+    "blurb": "PlowWow seasonal strata & commercial snow plowing in Pitt Meadows, BC. Lock in priority routing, anti-icing, and 5x booking coverage before winter hits…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A PlowWow commercial plow truck clearing a Pitt Meadows strata complex during a heavy winter snowfall event",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-09-10T00:20:43.000Z",
+    "updatedAt": "2026-09-10T00:20:43.000Z"
+  },
+  {
     "slug": "westwood-plateau-coquitlam-parking-lot-snow-removal",
     "title": "Westwood Plateau Coquitlam Parking Lot Snow Removal — PlowWow",
     "blurb": "Parking lot snow removal for Westwood Plateau, Coquitlam. Elevation-tuned dispatch, fixed seasonal pricing, photo + GPS logs. Book 2025–26 before capacity fills…",
@@ -223,13 +470,14 @@ export const blogPosts = [
   {
     "slug": "strata-seasonal-snow-contracts-bc-cost-breakdown",
     "title": "BC Strata Seasonal Snow Contracts — Cost Breakdown 2026",
-    "blurb": "BC strata seasonal snow contracts explained — seasonal vs per-push pricing, what actually gets included, insurance duties, budget line items and how to compare Metro Vancouver quot…",
+    "blurb": "Most small-to-mid-size BC strata snow contracts budget about $3,000–$8,000 per season. See how walkways, ramps, parking, service triggers and de-icer choice affect the quote…",
     "image": "/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg",
     "alt": "Wow mascot standing alone on a freshly plowed Metro Vancouver strata townhouse driveway with tidy salted walkways, mailbox kiosk and evergreens in the background under a bright winter sky",
     "theme": "strata",
     "tags": [
       "Strata",
-      "Liability",
+      "Commercial",
+      "De-Icing",
       "Contracts"
     ],
     "hasCustomHero": true,
