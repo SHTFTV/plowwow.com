@@ -91,3 +91,11 @@ Allow: /join
 Allow: /sitemap.xml
 Allow: /llms.txt
 Allow: /.well-known/
+
+
+## Winter 2026–2027 equipment planning guides
+
+- [Burnaby Snow Equipment for Stratas and Commercial Sites, 2026–27](https://www.plowwow.com/burnaby-commercial-strata-snow-equipment-2026-2027): Site-specific equipment selection, parking access and snow-storage planning.
+- [Coquitlam Strata Snow Equipment and Stall Clearing, 2026–27](https://www.plowwow.com/coquitlam-strata-snow-equipment-parking-stalls-2026-2027): Site-specific equipment selection, parking access and snow-storage planning.
+- [Langley Commercial Snow Equipment: Trucks or Loaders, 2026–27](https://www.plowwow.com/langley-commercial-snow-equipment-loaders-2026-2027): Site-specific equipment selection, parking access and snow-storage planning.
+- [Vancouver Strata Snow Equipment: Sidewalks to Stalls, 2026–27](https://www.plowwow.com/vancouver-strata-snow-equipment-sidewalks-parking-2026-2027): Site-specific equipment selection, parking access and snow-storage planning.

@@ -184,7 +184,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       typeof window !== "undefined"
         ? window.location.origin.replace(/\/+$/, "")
         : "https://www.plowwow.com";
-    const path = `/${slug}/`;
+    const path = isEquipmentGuide ? `/${slug}` : `/${slug}/`;
     const absoluteUrl = `${origin}${path}`;
     // Prefer the post's inline hero image; fall back to a per-slug hero, then a
     // guaranteed-reachable branded OG default so every share always resolves an image.
@@ -210,16 +210,17 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     setProp("og:locale", "en_CA");
     setProp("og:image", absoluteImage);
     setProp("og:image:secure_url", absoluteImage);
-    setProp("og:image:width", "1200");
-    setProp("og:image:height", "630");
-    setProp("og:image:alt", safeTitle);
+    const imageAlt = isEquipmentGuide ? (body.match(/!\[([^\]]+)\]/)?.[1] || safeTitle) : safeTitle;
+    setProp("og:image:width", isEquipmentGuide ? "1536" : "1200");
+    setProp("og:image:height", isEquipmentGuide ? "1024" : "630");
+    setProp("og:image:alt", imageAlt);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:site", "@plowwow");
     setMeta("twitter:creator", "@plowwow");
     setMeta("twitter:title", safeTitle);
     setMeta("twitter:description", safeDescription);
     setMeta("twitter:image", absoluteImage);
-    setMeta("twitter:image:alt", safeTitle);
+    setMeta("twitter:image:alt", imageAlt);
     setCanonical(absoluteUrl);
 
     // Remove any stale article time meta so non-blog pages don't inherit them.
@@ -283,9 +284,9 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             }
           : { image: absoluteImage }),
         author: {
-          "@type": "Person",
-          name: "PlowWow Team",
-          url: "https://www.plowwow.com/author/plowwow-team/",
+          "@type": isEquipmentGuide ? "Organization" : "Person",
+          name: isEquipmentGuide ? "PlowWow editorial team" : "PlowWow Team",
+          url: "https://www.plowwow.com/author/plowwow-team",
         },
         publisher: {
           "@type": "Organization",
@@ -360,7 +361,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           }
         })(),
       });
-      document.head.appendChild(svc);
+      if (!isEquipmentGuide) document.head.appendChild(svc);
     }
     return () => {
       document.getElementById(ldId)?.remove();

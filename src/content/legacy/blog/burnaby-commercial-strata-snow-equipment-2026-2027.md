@@ -16,6 +16,10 @@ Markdown Content:
 
 *Visual: AI-generated editorial illustration created for PlowWow. The truck is shown in an open ground-level court, separate from the parkade; it does not depict a confirmed Burnaby project.*
 
+## Which equipment fits this property?
+
+For Burnaby sites with slopes and parkades, access and surface limits come before machine size. Use a site assessment to separate open ground-level plowing from restricted ramps, decks and pedestrian routes. A truck, compact loader and walkway crew may have different roles; no machine category is automatically suitable for an icy grade.
+
 A Burnaby property can combine a relatively open parking lot with a steep approach, a covered entrance and a restricted parkade. Those are different snow-management problems. For winter 2026–2027, a useful equipment proposal explains each zone instead of treating the whole address as one truck-plowing job.
 
 A hillside strata around Capitol Hill or Burnaby Mountain deserves a different access review from a broad commercial lot in Big Bend. Even neighbouring buildings may have different slopes, drainage and operating hours. Select equipment after walking the actual site, not from a city-wide assumption about what machine is “best.”
@@ -56,3 +60,17 @@ Burnaby's [resident and business snow responsibilities](https://www.burnaby.ca/s
 Send your marked layout, slope and clearance information, structural restrictions, occupied hours and storage locations with the quote request. Ask whether relocation or hauling is included, what triggers an extra authorization, and how blocked work is reported.
 
 Use our [Burnaby service guide](/burnaby) and [parkade, hills and opening-time checklist](/burnaby-commercial-snow-removal-parkade-hills-opening-plan), then [request a site-specific plan](/quote). For staged resident parking, also read the [Coquitlam stall-clearing guide](/coquitlam-strata-snow-equipment-parking-stalls-2026-2027).
+
+## Frequently Asked Questions
+
+### Can a front-end loader work on a Burnaby parking deck?
+
+Only after qualified confirmation that the structure permits the proposed equipment and snow loads. Entrance width alone does not establish load capacity, and overhead clearance must be checked throughout the route.
+
+### Are tracks automatically better than tires on an icy slope?
+
+No. The operator must assess the actual surface, traction, stopping and turning space, attachment and manufacturer limits. A tracked carrier or heavier machine is not automatic approval for a slope.
+
+### How should a mixed-use property schedule stall clearing?
+
+Separate priority access from parking cleanup. Arrange vacant stall groups around resident and business activity, assign a communication contact and document blocked spaces for the agreed follow-up.

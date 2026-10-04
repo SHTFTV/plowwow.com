@@ -16,6 +16,10 @@ Markdown Content:
 
 *Visual: AI-generated editorial illustration created for PlowWow. A broad private promenade demonstrates why usable width matters; this is not a photograph of a client property or confirmed equipment assignment.*
 
+## Which equipment fits this property?
+
+For a constrained Vancouver strata, match equipment to each surface: an approved ATV or UTV may suit a broad walkway, a truck may suit an open drive aisle, and compact equipment may suit accessible stall rows. A loader is useful only where access and snow relocation justify it. Full-stall clearing also needs vehicle moves and a snow-storage or hauling plan.
+
 A Vancouver strata can have a long sidewalk frontage, a small rear parking court and almost nowhere to store snow. Choosing the largest plow first misses the real problem: each surface needs a workable clearing route and a destination for the snow. For winter 2026–2027, start with the building layout and the hours people need access.
 
 The useful comparison is not simply ATV versus truck versus loader. It is which machine can reach each work zone, protect its surface and move snow without blocking the next part of the property. A mixed equipment plan may make more sense than one machine attempting everything.
@@ -53,3 +57,17 @@ Vancouver's [winter maintenance guidance](https://vancouver.ca/streets-transport
 Include photos, the narrowest access measurements, frontage length, parking layout, operating hours, proposed storage and the vehicle-moving contact. Ask for separate scope covering pedestrian clearing, vehicle areas, stall cleanup, ongoing ice monitoring and any hauling.
 
 Review our [Vancouver snow-service planning](/vancouver) and [sidewalk clearing guide](/vancouver-sidewalk-snow-clearing-plan), then [send your property details](/quote). Equipment, route placement and service availability must be confirmed for the actual site. For a different layout, see the [Burnaby slope and parkade guide](/burnaby-commercial-strata-snow-equipment-2026-2027).
+
+## Frequently Asked Questions
+
+### Is a UTV the best option for a wide Vancouver sidewalk?
+
+It can be suitable if the full machine and blade fit the route, the surface permits its weight and use, and vehicle access is authorized. Narrow gates, stairs, delicate paving and entrance details may require smaller equipment or hand clearing.
+
+### Can a loader clear every parking stall without moving cars?
+
+No. Vehicles must be moved out of the work zone. A phased plan should identify a holding area, the order of stall groups, protected fixtures and any follow-up for blocked spaces.
+
+### When should a small strata consider snow hauling?
+
+Consider hauling when approved on-site storage cannot hold the snow without blocking required parking, access, sightlines or drainage. Agree on loading, transport, lawful disposal and authorization before the storage area fills.

@@ -16,6 +16,10 @@ Markdown Content:
 
 *Visual: AI-generated editorial illustration created for PlowWow. Empty stalls show the access needed for a clearing pass; this is not a documented Coquitlam job or a recommended machine for every site.*
 
+## Which equipment fits this property?
+
+For Coquitlam townhouse parking, plan vehicle movements before choosing the machine. A truck may handle accessible aisles, compact equipment may handle released stall rows, and a loader may support larger-volume relocation or hauling. Keep pedestrian work separate and identify where the snow can be stored without sacrificing required access.
+
 “We need every parking stall cleared” is a reasonable objective for a Coquitlam strata. It is not yet an equipment specification. Before deciding whether you need a truck, skid steer or front-end loader, work out how vehicles will move and where the displaced snow can go.
 
 For winter 2026–2027, treat drive aisles, resident stalls, visitor parking, entrance walks and storage areas as separate tasks. A townhouse complex on Burke Mountain or Westwood Plateau may have a different exposure and access pattern from a commercial property near Coquitlam Centre. Use the address and site survey rather than assuming conditions are identical across the city.
@@ -59,3 +63,17 @@ Agree what happens when the storage area is full. Relocation within the site, lo
 List accessible surfaces, vehicle-related exclusions, protected wheel stops and curbs, the follow-up process and service documentation. Mechanical removal does not guarantee ice-free pavement. Include ongoing ice monitoring, treatment and reporting, especially where drainage or shade affects conditions.
 
 For a useful quote, send the stall map, photos, narrowest access dimensions, storage proposal and resident communication plan. Review [Coquitlam snow-service planning](/coquitlam) and our [elevation and snow-management guide](/coquitlam-elevation-snow-ice-plan), then [request a property assessment](/quote). For larger lots and loader decisions, see the [Langley equipment guide](/langley-commercial-snow-equipment-loaders-2026-2027).
+
+## Frequently Asked Questions
+
+### Does a Coquitlam strata need a skid steer for its parking stalls?
+
+Possibly, if compact equipment fits the site and its attachment suits the work. It is not a universal requirement: compare access, turns, protected surfaces, snow volume and the destination for removed snow.
+
+### What happens if residents cannot move their vehicles?
+
+The contractor cannot clear beneath occupied stalls. Record the inaccessible areas and follow the agreed return-visit process; do not mark them as fully cleared or direct residents into an active equipment zone.
+
+### Does clearing the drive aisle finish the strata snow-removal job?
+
+No. The written scope should also identify included stalls, entrance walks, accessible connections and adjacent sidewalks, plus ongoing ice monitoring and any relocation or hauling.

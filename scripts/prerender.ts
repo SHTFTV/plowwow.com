@@ -212,7 +212,7 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
     image: heroAbs,
     datePublished,
     dateModified,
-    author: { "@type": "Organization", name: "PlowWow", url: `${BASE_URL}/` },
+    author: { "@type": "Organization", name: equipmentGuideSlugs.has(slug) ? "PlowWow editorial team" : "PlowWow", url: equipmentGuideSlugs.has(slug) ? `${BASE_URL}/author/plowwow-team` : `${BASE_URL}/` },
     publisher: {
       "@type": "Organization",
       name: "PlowWow",
@@ -374,7 +374,7 @@ function renderHead(route: RouteMeta): string {
       `${BASE_URL}/og-default.jpg`;
     const heroAbs = heroCandidate.startsWith("http") ? heroCandidate : `${BASE_URL}${heroCandidate}`;
     graph.push(blogPosting(route, url, headline, heroAbs));
-    graph.push(blogService(url, headline, heroAbs));
+    if (!equipmentGuideSlugs.has(slug)) graph.push(blogService(url, headline, heroAbs));
     if (blog) {
       const fp = faqPage(extractFaqs(blog.body));
       if (fp) graph.push(fp);
@@ -386,7 +386,7 @@ function renderHead(route: RouteMeta): string {
   const ldBlocks = graph
     .map(
       (g) =>
-        `<script type="application/ld+json">${JSON.stringify(g)
+        `<script type="application/ld+json"${equipmentGuideSlugs.has(canonicalPath.slice(1)) && ["BlogPosting", "BreadcrumbList", "FAQPage"].includes(String(g["@type"])) ? ` id="${g["@type"] === "BlogPosting" ? "legacy-page-article-jsonld" : g["@type"] === "BreadcrumbList" ? "legacy-page-breadcrumb-jsonld" : "legacy-page-faq-jsonld"}"` : ""}>${JSON.stringify(g)
           .replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n    ");
@@ -417,6 +417,23 @@ function renderHead(route: RouteMeta): string {
     ? readFileSync(resolve(CONTENT_BLOG_DIR, `${guideSlug}.md`), "utf8")
     : "";
   const guideBody = guideRaw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1];
+  if (guideBody) {
+    const post = blogPosts.find((p) => p.slug === guideSlug)!;
+    const properties: Record<string, string> = {
+      "og:type": "article",
+      "og:image:width": "1536",
+      "og:image:height": "1024",
+      "og:image:alt": post.alt,
+      "og:image:type": "image/jpeg",
+      "article:published_time": post.publishedAt,
+      "article:modified_time": post.updatedAt,
+    };
+    for (const [name, value] of Object.entries(properties)) {
+      html = html.replace(new RegExp(`<meta\\s+property="${name}"[^>]*>`, "g"), "");
+      html = html.replace("</head>", `<meta property="${name}" content="${esc(value)}" />\n</head>`);
+    }
+    html = html.replace(/<meta\s+name="twitter:image:alt"[^>]*>/g, `<meta name="twitter:image:alt" content="${esc(post.alt)}" />`);
+  }
   // Ship the complete new guides, their hero visuals and links in the first
   // HTML response, before the client application renders the same markdown.
   const bodyHtml = guideBody
