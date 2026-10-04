@@ -13,6 +13,17 @@ import { BASE_URL, collectRoutes, type RouteMeta } from "./routes";
 import { cities } from "../src/data/cities";
 import { blogPosts } from "../src/generated/blog-posts";
 import { SUPPORTED_LOCALES, X_DEFAULT_LOCALE, localizedUrl, ALTERNATE_OG_LOCALES } from "./lib/locales";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+const equipmentGuideSlugs = new Set([
+  "vancouver-strata-snow-equipment-sidewalks-parking-2026-2027",
+  "burnaby-commercial-strata-snow-equipment-2026-2027",
+  "coquitlam-strata-snow-equipment-parking-stalls-2026-2027",
+  "langley-commercial-snow-equipment-loaders-2026-2027",
+]);
 
 const DIST = resolve("dist");
 const TEMPLATE_PATH = resolve(DIST, "index.html");
@@ -401,7 +412,16 @@ function renderHead(route: RouteMeta): string {
             .join("")}</ul>
         </section>`
     : "";
-  const bodyHtml = `
+  const guideSlug = route.path.replace(/^\//, "").replace(/\/$/, "");
+  const guideRaw = equipmentGuideSlugs.has(guideSlug)
+    ? readFileSync(resolve(CONTENT_BLOG_DIR, `${guideSlug}.md`), "utf8")
+    : "";
+  const guideBody = guideRaw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1];
+  // Ship the complete new guides, their hero visuals and links in the first
+  // HTML response, before the client application renders the same markdown.
+  const bodyHtml = guideBody
+    ? `<main data-prerendered="${esc(route.path)}"><article>${renderToStaticMarkup(createElement(ReactMarkdown, { remarkPlugins: [remarkGfm], children: guideBody }))}</article></main>`
+    : `
       <main data-prerendered="${esc(route.path)}">
         <h1>${esc(headline)}</h1>
         <p>${esc(route.description)}</p>
@@ -410,6 +430,7 @@ function renderHead(route: RouteMeta): string {
         <p><a href="/quote/">Request a quote</a> · <a href="/locations/">Service areas</a> · <a href="/blog/">Blog</a></p>
       </main>`;
   html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+  if (guideBody) html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, "");
 
   // Body marker so curl/grep can prove distinct HTML content per route.
   html = html.replace(

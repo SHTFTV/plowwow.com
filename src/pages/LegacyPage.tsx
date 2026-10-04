@@ -127,6 +127,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
   if (!raw) return <Navigate to="/" replace />;
 
   const { title, body, metaDescription } = parseFrontmatter(raw);
+  const isEquipmentGuide = kind === "blog" && slug.includes("snow-equipment") && slug.endsWith("2026-2027");
+  const displayBody = isEquipmentGuide ? body.replace(/^# .+\n+/m, "") : body;
   const description = metaDescription
     ? truncateForMeta(metaDescription)
     : truncateForMeta(
@@ -480,8 +482,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         )}
 
         <section className="py-10 md:py-14">
-          <article className="container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border max-w-none lg:prose-lg">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+          <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border ${isEquipmentGuide ? "!max-w-3xl" : "max-w-none"} lg:prose-lg`}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{displayBody}</ReactMarkdown>
           </article>
         </section>
 

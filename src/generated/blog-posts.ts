@@ -13,6 +13,70 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "burnaby-commercial-strata-snow-equipment-2026-2027",
+    "title": "Burnaby Snow Equipment for Stratas and Commercial Sites, 2026–27",
+    "blurb": "Plan Burnaby commercial and strata snow equipment around slopes, parkade restrictions, sidewalks and parking stalls for winter 2026–2027…",
+    "image": "/blog-images/burnaby-commercial-strata-snow-equipment-2026-2027.jpg",
+    "alt": "A pickup with a front snow plow clearing an open ground-level commercial parking court with a separate parkade entrance in the background",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-04T09:30:00.000Z",
+    "updatedAt": "2026-10-04T09:30:00.000Z"
+  },
+  {
+    "slug": "coquitlam-strata-snow-equipment-parking-stalls-2026-2027",
+    "title": "Coquitlam Strata Snow Equipment and Stall Clearing, 2026–27",
+    "blurb": "Choose snow equipment for Coquitlam townhouse stratas and commercial parking. Plan vehicle moves, walkway access and snow relocation for winter 2026–27…",
+    "image": "/blog-images/coquitlam-strata-snow-equipment-parking-stalls-2026-2027.jpg",
+    "alt": "A wheeled compact skid-steer loader with a snow attachment working in a vacant row of parking stalls beside imagined West Coast townhouses",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-04T09:30:00.000Z",
+    "updatedAt": "2026-10-04T09:30:00.000Z"
+  },
+  {
+    "slug": "langley-commercial-snow-equipment-loaders-2026-2027",
+    "title": "Langley Commercial Snow Equipment: Trucks or Loaders, 2026–27",
+    "blurb": "Compare plow trucks, skid steers and front-end loaders for Langley commercial lots and stratas, including full-stall clearing and hauling for winter 2026–27…",
+    "image": "/blog-images/langley-commercial-snow-equipment-loaders-2026-2027.jpg",
+    "alt": "A front-end wheel loader carrying snow low in its bucket across an open commercial lot toward a designated storage area away from loading doors",
+    "theme": "commercial",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-04T09:30:00.000Z",
+    "updatedAt": "2026-10-04T09:30:00.000Z"
+  },
+  {
+    "slug": "vancouver-strata-snow-equipment-sidewalks-parking-2026-2027",
+    "title": "Vancouver Strata Snow Equipment: Sidewalks to Stalls, 2026–27",
+    "blurb": "Choose ATV or UTV plows, trucks and compact loaders for Vancouver strata sidewalks and parking. Plan stall access and snow storage for winter 2026–27…",
+    "image": "/blog-images/vancouver-strata-snow-equipment-sidewalks-parking-2026-2027.jpg",
+    "alt": "A compact UTV with a front snow blade clearing a broad paved promenade beside an imagined Vancouver-style strata building",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-04T09:30:00.000Z",
+    "updatedAt": "2026-10-04T09:30:00.000Z"
+  },
+  {
     "slug": "commercial-snow-storage-site-map",
     "title": "Where Will the Snow Go? A Commercial Snow-Storage Planning Guide",
     "blurb": "Mark snow-storage zones, protected access routes and overflow decisions before winter so commercial snow clearing has a practical destination for each push…",

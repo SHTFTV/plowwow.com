@@ -44,6 +44,8 @@ const summaryFor = (slug: string) => {
   const path = Object.keys(blogFiles).find((p) => p.endsWith(`/${slug}.md`));
   if (!path) return "";
   const raw = blogFiles[path];
+  const description = raw.match(/^Description:\s*(.+)$/m)?.[1]?.trim();
+  if (description) return description;
   const bodyMatch = raw.match(/Markdown Content:\s*\n([\s\S]*)$/);
   const body = (bodyMatch?.[1] ?? raw)
     .replace(/!\[[^\]]*\]\([^)]*\)/g, " ") // images

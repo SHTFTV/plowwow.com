@@ -1,13 +1,33 @@
 {
-  "generatedAt": "2026-09-30T19:13:22.604Z",
-  "count": 150,
+  "generatedAt": "2026-10-04T16:35:32.813Z",
+  "count": 154,
   "carousel": [
-    "commercial-snow-storage-site-map",
-    "commercial-snow-equipment-site-access-guide",
-    "commercial-snow-removal-quote-site-information",
-    "metro-vancouver-strata-winter-readiness-checklist"
+    "burnaby-commercial-strata-snow-equipment-2026-2027",
+    "coquitlam-strata-snow-equipment-parking-stalls-2026-2027",
+    "langley-commercial-snow-equipment-loaders-2026-2027",
+    "vancouver-strata-snow-equipment-sidewalks-parking-2026-2027"
   ],
   "posts": [
+    {
+      "slug": "burnaby-commercial-strata-snow-equipment-2026-2027",
+      "publishedAt": "2026-10-04T09:30:00.000Z",
+      "updatedAt": "2026-10-04T09:30:00.000Z"
+    },
+    {
+      "slug": "coquitlam-strata-snow-equipment-parking-stalls-2026-2027",
+      "publishedAt": "2026-10-04T09:30:00.000Z",
+      "updatedAt": "2026-10-04T09:30:00.000Z"
+    },
+    {
+      "slug": "langley-commercial-snow-equipment-loaders-2026-2027",
+      "publishedAt": "2026-10-04T09:30:00.000Z",
+      "updatedAt": "2026-10-04T09:30:00.000Z"
+    },
+    {
+      "slug": "vancouver-strata-snow-equipment-sidewalks-parking-2026-2027",
+      "publishedAt": "2026-10-04T09:30:00.000Z",
+      "updatedAt": "2026-10-04T09:30:00.000Z"
+    },
     {
       "slug": "commercial-snow-storage-site-map",
       "publishedAt": "2026-09-30T19:00:01.000Z",
