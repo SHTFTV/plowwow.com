@@ -64,7 +64,7 @@ function calcSubtotal(form: {
 const Takeoff = () => {
   const navigate = useNavigate();
   const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(typeof window !== "undefined");
   const [rates, setRates] = useState<RateCard>(DEFAULT_RATES);
   const [estimates, setEstimates] = useState<Estimate[]>([]);
 
@@ -373,7 +373,7 @@ const Takeoff = () => {
       <div className="min-h-screen">
         <TopBar />
         <Navbar />
-        <main className="container py-20 max-w-2xl">
+        <main id="main-content" tabIndex={-1} className="container py-20 max-w-2xl">
           <h1 className="text-4xl font-black mb-4">Snow Contract Takeoff Tool</h1>
           <p className="text-muted-foreground mb-6">
             Sign in to build takeoffs with your own rate card, save estimates, and export
@@ -392,7 +392,7 @@ const Takeoff = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main className="container py-12 max-w-6xl">
+      <main id="main-content" tabIndex={-1} className="container py-12 max-w-6xl">
         <div className="flex items-start justify-between mb-8 gap-4 flex-wrap">
           <div>
             <h1 className="text-3xl md:text-4xl font-black mb-2">Takeoff & Estimate</h1>

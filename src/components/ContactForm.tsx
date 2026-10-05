@@ -127,6 +127,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
     setBlockMessage(null);
     const result = quoteSchema.safeParse(data);
     if (!result.success) {
@@ -136,6 +137,8 @@ const ContactForm = () => {
         if (k && !fieldErrors[k]) fieldErrors[k] = i.message;
       });
       setErrors(fieldErrors);
+      const firstField = result.error.issues[0]?.path[0];
+      if (firstField) requestAnimationFrame(() => document.getElementById(String(firstField))?.focus());
       toast({
         title: "Please fix the errors",
         description: "Some fields need your attention.",
@@ -185,16 +188,16 @@ const ContactForm = () => {
         }
         return;
       }
-      if (payload?.error && !payload.success) {
+      if (error || payload?.success !== true) {
         const copy = BLOCK_COPY.error;
-        setBlockMessage({ title: copy.title, description: payload.error });
-        toast({ title: copy.title, description: payload.error, variant: "destructive" });
+        setBlockMessage({ title: copy.title, description: payload?.error || "We could not confirm your request. Please try again or contact us by phone or email." });
+        toast({ title: copy.title, description: payload?.error || "We could not confirm your request. Please try again or contact us by phone or email.", variant: "destructive" });
         return;
       }
 
       toast({
         title: "Quote request sent!",
-        description: "We'll get back to you within 24 hours.",
+        description: "Your request was accepted. We’ll contact you using your preferred method.",
       });
       setData(initial);
       setHoneypot("");
@@ -225,6 +228,8 @@ const ContactForm = () => {
         </div>
 
         <form
+          aria-label="Snow removal quote request"
+          aria-busy={submitting}
           onSubmit={handleSubmit}
           className="bg-card rounded-2xl shadow-lg p-6 md:p-10 space-y-6 border border-border"
           noValidate
@@ -242,34 +247,34 @@ const ContactForm = () => {
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="name">Full name *</Label>
-              <Input id="name" value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Jane Doe" maxLength={100} aria-invalid={!!errors.name} />
-              {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+              <Input autoComplete="name" name="name" required aria-describedby={errors.name ? "name-error" : undefined} id="name" value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Jane Doe" maxLength={100} aria-invalid={!!errors.name} />
+              {errors.name && <p id="name-error" role="alert" className="text-sm text-destructive">{errors.name}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email *</Label>
-              <Input id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" maxLength={255} aria-invalid={!!errors.email} />
-              {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+              <Input autoComplete="email" name="email" required aria-describedby={errors.email ? "email-error" : undefined} id="email" type="email" value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="you@example.com" maxLength={255} aria-invalid={!!errors.email} />
+              {errors.email && <p id="email-error" role="alert" className="text-sm text-destructive">{errors.email}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone *</Label>
-              <Input id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder="604-555-1234" maxLength={20} aria-invalid={!!errors.phone} />
-              {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+              <Input autoComplete="tel" name="phone" required aria-describedby={errors.phone ? "phone-error" : undefined} id="phone" type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} placeholder="604-555-1234" maxLength={20} aria-invalid={!!errors.phone} />
+              {errors.phone && <p id="phone-error" role="alert" className="text-sm text-destructive">{errors.phone}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="postalCode">Postal code *</Label>
-              <Input id="postalCode" value={data.postalCode} onChange={(e) => update("postalCode", e.target.value.toUpperCase())} placeholder="V6B 1A1" maxLength={7} aria-invalid={!!errors.postalCode} />
-              {errors.postalCode && <p className="text-sm text-destructive">{errors.postalCode}</p>}
+              <Input autoComplete="postal-code" name="postalCode" required aria-describedby={errors.postalCode ? "postalCode-error" : undefined} id="postalCode" value={data.postalCode} onChange={(e) => update("postalCode", e.target.value.toUpperCase())} placeholder="V6B 1A1" maxLength={7} aria-invalid={!!errors.postalCode} />
+              {errors.postalCode && <p id="postalCode-error" role="alert" className="text-sm text-destructive">{errors.postalCode}</p>}
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="address">Service address *</Label>
-            <Input id="address" value={data.address} onChange={(e) => update("address", e.target.value)} placeholder="123 Main St, Vancouver, BC" maxLength={200} aria-invalid={!!errors.address} />
-            {errors.address && <p className="text-sm text-destructive">{errors.address}</p>}
+            <Input autoComplete="street-address" name="address" required aria-describedby={errors.address ? "address-error" : undefined} id="address" value={data.address} onChange={(e) => update("address", e.target.value)} placeholder="123 Main St, Vancouver, BC" maxLength={200} aria-invalid={!!errors.address} />
+            {errors.address && <p id="address-error" role="alert" className="text-sm text-destructive">{errors.address}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="serviceType">Service type *</Label>
             <Select value={data.serviceType} onValueChange={(v) => update("serviceType", v)}>
-              <SelectTrigger id="serviceType" aria-invalid={!!errors.serviceType}><SelectValue placeholder="Choose a service" /></SelectTrigger>
+              <SelectTrigger aria-required="true" aria-describedby={errors.serviceType ? "serviceType-error" : undefined} id="serviceType" aria-invalid={!!errors.serviceType}><SelectValue placeholder="Choose a service" /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="residential-plowing">Residential Snow Plowing</SelectItem>
                 <SelectItem value="commercial-plowing">Commercial Snow Plowing</SelectItem>
@@ -278,11 +283,11 @@ const ContactForm = () => {
                 <SelectItem value="seasonal-contract">Seasonal Contract</SelectItem>
               </SelectContent>
             </Select>
-            {errors.serviceType && <p className="text-sm text-destructive">{errors.serviceType}</p>}
+            {errors.serviceType && <p id="serviceType-error" role="alert" className="text-sm text-destructive">{errors.serviceType}</p>}
           </div>
           <div className="space-y-3">
             <Label>Preferred contact method *</Label>
-            <RadioGroup value={data.contactMethod} onValueChange={(v) => update("contactMethod", v as FormState["contactMethod"])} className="grid grid-cols-3 gap-3">
+            <RadioGroup aria-label="Preferred contact method" value={data.contactMethod} onValueChange={(v) => update("contactMethod", v as FormState["contactMethod"])} className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {[{ v: "phone", l: "Phone call" }, { v: "email", l: "Email" }, { v: "text", l: "Text / SMS" }].map((o) => (
                 <label key={o.v} htmlFor={"cm-" + o.v} className="flex items-center gap-2 border border-border rounded-lg px-4 py-3 cursor-pointer hover:bg-accent transition-colors has-[:checked]:border-primary has-[:checked]:bg-accent">
                   <RadioGroupItem value={o.v} id={"cm-" + o.v} />

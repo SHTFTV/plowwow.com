@@ -7,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
-import RoutePreloader from "./components/RoutePreloader";
 import { ServiceWorkerUpdatePrompt } from "./components/pwa/ServiceWorkerUpdatePrompt";
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 import PlowWowBot from "./components/PlowWowBot";
@@ -51,15 +50,7 @@ const RouteFallback = () => (
   </div>
 );
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <RoutePreloader />
-        <ServiceWorkerUpdatePrompt />
-        <Suspense fallback={<RouteFallback />}>
+export const AppRoutes = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
@@ -129,6 +120,17 @@ const App = () => (
             <Route path="/:citySlug/*" element={<CityPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+);
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <ServiceWorkerUpdatePrompt />
+        <Suspense fallback={<RouteFallback />}>
+          <AppRoutes />
         </Suspense>
         <PlowWowBot />
       </BrowserRouter>

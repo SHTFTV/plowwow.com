@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ExternalLink, Mail, MessageSquare, Phone, Star, X } from "lucide-react";
-import wowMascot from "@/assets/wow-mascot.png";
+import wowMascot from "@/assets/wow-mascot.webp";
 
 const PHONE = "604-761-1518";
 const PHONE_HREF = "tel:+16047611518";

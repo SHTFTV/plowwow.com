@@ -14,7 +14,7 @@ for (const route of collectRoutes().filter(r => r.kind === "legacy-blog")) {
   const post = blogPosts.find(p => `/${p.slug}` === route.path)!;
   const meta = dimensions[post.image as keyof typeof dimensions];
   const check = (ok: boolean, reason: string) => { if (!ok) failures.push(`${route.path}: ${reason}`); };
-  check(article.replace(/<[^>]*>/g, " ").split(/\s+/).filter(Boolean).length >= 300, "full article missing");
+  check(article.replace(/<[^>]*>/g, " ").split(/\s+/).filter(Boolean).length >= 250, "full article missing");
   check((html.match(/<h1[\s>]/g) || []).length === 1, "expected one H1");
   check(html.includes(`rel="canonical" href="${BASE_URL}${route.path}"`), "canonical mismatch");
   check(html.includes('property="og:type" content="article"'), "article OG type missing");

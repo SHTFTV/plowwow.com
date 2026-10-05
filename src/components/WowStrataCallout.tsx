@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Building2, Mail, Phone, ShieldCheck, Snowflake } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import wowMascot from "@/assets/wow-mascot.png";
+import wowMascot from "@/assets/wow-mascot.webp";
 
 interface WowStrataCalloutProps {
   cityName: string;

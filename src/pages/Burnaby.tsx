@@ -25,7 +25,7 @@ const Burnaby = () => {
     <BurnabySchema />
     <TopBar />
     <Navbar />
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <BurnabyHero />
 
       <PriorityCityCluster citySlug="burnaby" />

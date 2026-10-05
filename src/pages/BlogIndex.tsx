@@ -403,7 +403,7 @@ const BlogIndex = () => {
     const canonicalSlug =
       tagSlug ?? (activeCat !== "All" ? CAT_TO_SLUG[activeCat] : null);
     const URL_BASE = canonicalSlug
-      ? `${URL_ROOT}/tag/${canonicalSlug}/`
+      ? `${URL_ROOT}/tag/${canonicalSlug}`
       : URL_ROOT;
     const qs: string[] = [];
     if (page > 1) qs.push(`page=${page}`);
@@ -927,7 +927,7 @@ const BlogIndex = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="py-16 md:py-20 bg-gradient-to-b from-muted/40 to-background">
           <div className="container max-w-4xl">
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">

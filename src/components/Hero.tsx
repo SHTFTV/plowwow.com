@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
-import heroBanner from "@/assets/plowwow-banner.png";
+import heroBanner from "@/assets/plowwow-banner.webp";
 
 const Hero = () => (
   <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-[#0d2a4a]">
     <figure className="absolute inset-0 m-0">
       <img
         src={heroBanner}
+        fetchPriority="high"
+        decoding="async"
         alt="PlowWow snow removal mascot driving a blue snow plow truck — professional winter services across Vancouver and the Lower Mainland BC"
         width={1600}
         height={640}

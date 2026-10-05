@@ -91,7 +91,7 @@ const QuoteConfirmed = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="py-16">
           <div className="container max-w-3xl">
             <div className="text-center mb-8">

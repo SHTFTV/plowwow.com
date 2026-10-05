@@ -10,10 +10,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoMascot from "@/assets/plowwow-mascot.jpg";
+import logoMascot from "@/assets/plowwow-mascot.webp";
 
 const navItems = [
-  { label: "Home", href: "/#" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Residential", href: "/residential-snow-removal" },
   { label: "Commercial", href: "/commercial" },
@@ -79,7 +79,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-card shadow-md sticky top-0 z-50">
+    <nav aria-label="Main navigation" className="bg-card shadow-md sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
         <a href="/" className="flex items-center gap-2">
           <figure>
@@ -129,14 +129,14 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button aria-expanded={open} aria-controls="mobile-navigation" className="lg:hidden min-h-11 min-w-11 flex items-center justify-center" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {/* Mobile nav */}
       {open && (
-        <div className="lg:hidden bg-card border-t border-border pb-4">
+        <div id="mobile-navigation" className="lg:hidden bg-card border-t border-border pb-4">
           <div className="container flex flex-col gap-3 pt-3">
             {navItems.map((item) => (
               <a

@@ -1,7 +1,7 @@
-import snowClearing from "@/assets/snow-clearing.jpg";
-import snowPlowing from "@/assets/snow-plowing.jpg";
-import salting from "@/assets/salting.jpg";
-import snowRelocation from "@/assets/snow-relocation.jpg";
+import snowClearing from "@/assets/snow-clearing.webp";
+import snowPlowing from "@/assets/snow-plowing.webp";
+import salting from "@/assets/salting.webp";
+import snowRelocation from "@/assets/snow-relocation.webp";
 
 const services = [
   {

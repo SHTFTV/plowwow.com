@@ -50,7 +50,7 @@ const Locations = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="py-14 md:py-20 bg-gradient-to-b from-muted/40 to-background">
           <div className="container max-w-4xl">
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">

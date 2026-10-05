@@ -17,8 +17,8 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CityMap from "@/components/CityMap";
 import { buildCityCopy } from "@/data/cityContent";
-import skidSteerImg from "@/assets/plowwow-skid-steer.png";
-import f350Img from "@/assets/plowwow-f350-salter.png";
+import skidSteerImg from "@/assets/plowwow-skid-steer.webp";
+import f350Img from "@/assets/plowwow-f350-salter.webp";
 import crewImg from "@/assets/plowwow-crew.png";
 import dozerImg from "@/assets/plowwow-dozer.png";
 import walkBehindImg from "@/assets/plowwow-walk-behind-salter.png";
@@ -65,10 +65,7 @@ const CityPage = () => {
       )
     : pageDescription;
   const socialTitle = pageTitle;
-  const origin =
-    typeof window !== "undefined"
-      ? window.location.origin.replace(/\/+$/, "")
-      : "https://www.plowwow.com";
+  const origin = "https://www.plowwow.com";
   // Canonical URL has no trailing slash for consistency
   const url = `${origin}/${city.slug}`;
   const ogImage = city.ogImage;
@@ -211,7 +208,7 @@ const CityPage = () => {
       <TopBar />
       <Navbar />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-[#0d2a4a] text-white">
           <div

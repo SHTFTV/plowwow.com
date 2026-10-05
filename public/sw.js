@@ -22,7 +22,7 @@
 // Kill switch: navigating to any URL with `?sw=off` unregisters this
 // worker and evicts every cache it owns.
 
-const VERSION = "v7";
+const VERSION = "v8";
 const CACHE_HTML = `pw-html-${VERSION}`;
 const CACHE_ASSETS = `pw-assets-${VERSION}`;
 const CACHE_IMAGES = `pw-images-${VERSION}`;
@@ -156,6 +156,8 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (!isSameOrigin(url)) return;
+  // Never persist account, admin, confirmation or API responses.
+  if (/\/quote$/.test(url.pathname) || /^\/(?:admin|auth|api|quote\/confirmed|newsletter\/confirm)(?:\/|$)/.test(url.pathname)) return;
 
   if (url.searchParams.get("sw") === "off") {
     event.respondWith((async () => {

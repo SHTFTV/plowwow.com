@@ -110,7 +110,7 @@ const GuestPost = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="py-24 md:py-32 bg-intel-night text-white">
           <div className="container max-w-3xl text-center">
             <h1 className="font-display text-4xl md:text-5xl font-extrabold">

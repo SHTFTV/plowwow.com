@@ -1,6 +1,41 @@
 {
   "redirects": [
     {
+      "source": "/app-features",
+      "destination": "/advanced-technology",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/author/colinindustryarmymarketing-com",
+      "destination": "/author/plowwow-team",
+      "permanent": true
+    },
+    {
+      "source": "/vancouver-strata-commercial-snow-plowing",
+      "destination": "/vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/mertrotown-snow-removal",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/burnaby/snow/removal",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
+      "source": "/blog/metrotown-burnaby-strata-commercial-snow-removal",
+      "destination": "/burnaby",
+      "permanent": true
+    },
+    {
       "source": "/sitemap-neighbourhoods.xml",
       "destination": "/sitemap-neighborhoods.xml",
       "permanent": true

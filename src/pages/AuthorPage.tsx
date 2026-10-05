@@ -41,7 +41,7 @@ const AuthorPage = () => {
 
   useEffect(() => {
     if (!author) return;
-    const url = `https://www.plowwow.com/author/${slug}/`;
+    const url = `https://www.plowwow.com/author/${slug}`;
     document.title = `${author.name} — PlowWow`;
     const setMeta = (name: string, content: string, property = false) => {
       const key = property ? "property" : "name";
@@ -109,7 +109,7 @@ const AuthorPage = () => {
   return (
     <>
       <Navbar />
-      <main className="container py-16 max-w-4xl">
+      <main id="main-content" tabIndex={-1} className="container py-16 max-w-4xl">
         <nav aria-label="Breadcrumb" className="text-sm opacity-70 mb-4">
           <Link to="/" className="hover:text-primary">Home</Link>
           <span aria-hidden="true"> / </span>

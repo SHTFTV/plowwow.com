@@ -15,14 +15,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 20% 10%;
 
-    --primary: 207 90% 42%;
+    --primary: 207 90% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 35 95% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary-foreground: 210 20% 10%;
 
     --muted: 210 20% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted-foreground: 210 10% 38%;
 
     --accent: 207 85% 95%;
     --accent-foreground: 207 90% 30%;
@@ -115,3 +115,14 @@
   10%  { opacity: 0.9; }
   100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0.2; }
 }
+
+/* Keep keyboard navigation visible and honor reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Keep intentional carousels and wide guide tables inside the mobile viewport. */
+html { overflow-x: clip; }
+.prose { overflow-wrap: anywhere; }
+.prose table { display: block; max-width: 100%; overflow-x: auto; }
+.prose pre { max-width: 100%; overflow-x: auto; }

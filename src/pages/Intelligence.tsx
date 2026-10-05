@@ -114,7 +114,7 @@ const Intelligence = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <IntelligenceHero />
         <IntelligenceFeatures />
         <PWIEEngine />

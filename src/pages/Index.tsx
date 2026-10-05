@@ -15,6 +15,7 @@ const Index = () => (
   <div className="min-h-screen">
     <TopBar />
     <Navbar />
+    <main id="main-content" tabIndex={-1}>
     <Hero />
     <Services />
     <About />
@@ -24,6 +25,7 @@ const Index = () => (
     <HowItWorks />
     <HomeBlog />
     <ContactForm />
+    </main>
     <Footer />
   </div>
 );

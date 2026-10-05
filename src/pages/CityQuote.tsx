@@ -33,7 +33,7 @@ const quoteSchema = z.object({
   name: z.string().trim().min(2, "Name is required").max(100),
   email: z.string().trim().email("Enter a valid email").max(255),
   phone: z.string().trim().min(7, "Phone is required").max(30),
-  address: z.string().trim().min(3, "Property address is required").max(200),
+  address: z.string().trim().min(5, "Property address is required").max(200),
   propertyType: z.enum(["strata", "commercial", "residential", "industrial", "medical"]),
   serviceLevel: z.enum(["seasonal", "per-visit", "de-icing-only"]),
   propertySize: z.enum(["small", "medium", "large", "xlarge"]),
@@ -180,6 +180,7 @@ const CityQuote = () => {
         },
       });
       if (error) throw error;
+      if (data?.success !== true) throw new Error("Your request could not be confirmed. Please try again.");
       const denied = (data as { blocked?: boolean } | null)?.blocked;
       if (denied) {
         toast({
@@ -276,7 +277,7 @@ const CityQuote = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="bg-[#0d2a4a] text-white">
           <div className="container py-12">
             <Link

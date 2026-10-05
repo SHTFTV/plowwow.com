@@ -14,9 +14,9 @@ export const supabase = createClient<Database>(
   configuredPublishableKey || 'configuration-required',
   {
     auth: {
-      storage: localStorage,
-      persistSession: true,
-      autoRefreshToken: true,
+      storage: typeof window !== "undefined" ? window.localStorage : undefined,
+      persistSession: typeof window !== "undefined",
+      autoRefreshToken: typeof window !== "undefined",
     },
   },
 );

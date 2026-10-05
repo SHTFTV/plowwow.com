@@ -46,7 +46,6 @@ const REDIRECTED_LEGACY_PAGE_SLUGS = new Set([
   "chilliwack-snow-removal",
   "mission-snow-removal",
   "anmore-snow-removal",
-  "belcarra-snow-removal",
 ]);
 
 // These preserved blog files are still useful source material, but their

@@ -100,7 +100,7 @@ const BlogNeighborhoods = () => {
     if (activeTag !== ALL) qs.set("tag", activeTag);
     if (currentPage > 1) qs.set("page", String(currentPage));
     const q = qs.toString();
-    return `${BASE}/blog/neighborhoods/${q ? `?${q}` : ""}`;
+    return `${BASE}/blog/neighborhoods${q ? `?${q}` : ""}`;
   }, [activeCity, activeTag, currentPage]);
 
   const cityLabel = cityFilters.find((c) => c.key === activeCity)?.label ?? "All neighborhoods";
@@ -169,7 +169,7 @@ const BlogNeighborhoods = () => {
       if (tag) qs.set("tag", tag);
       if (pageN > 1) qs.set("page", String(pageN));
       const q = qs.toString();
-      return `${BASE}/blog/neighborhoods/${q ? `?${q}` : ""}`;
+      return `${BASE}/blog/neighborhoods${q ? `?${q}` : ""}`;
     };
     const addLink = (rel: string, href: string, extra: Record<string, string> = {}) => {
       const el = document.createElement("link");
@@ -288,7 +288,7 @@ const BlogNeighborhoods = () => {
     <div className="min-h-screen">
       <TopBar />
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="py-12 md:py-16 bg-gradient-to-b from-muted/40 to-background">
           <div className="container max-w-6xl">
             <nav aria-label="Breadcrumb" className="mb-4 text-xs text-muted-foreground">
@@ -319,7 +319,7 @@ const BlogNeighborhoods = () => {
                       type="button"
                       aria-pressed={isActive}
                       onClick={() => setFilter("city", f.key)}
-                      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                      className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                         isActive
                           ? "border-primary bg-primary text-primary-foreground"
                           : "border-border bg-card text-foreground hover:border-primary hover:text-primary"
@@ -347,7 +347,7 @@ const BlogNeighborhoods = () => {
                         type="button"
                         aria-pressed={isActive}
                         onClick={() => setFilter("tag", f.key)}
-                        className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+                        className={`inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                           isActive
                             ? "border-primary bg-primary text-primary-foreground"
                             : "border-border bg-card text-foreground hover:border-primary hover:text-primary"

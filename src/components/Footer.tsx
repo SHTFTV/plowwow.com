@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoMascot from "@/assets/plowwow-mascot.jpg";
+import logoMascot from "@/assets/plowwow-mascot.webp";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 const propertyTypes = [
@@ -22,7 +22,7 @@ const whyPlowwow = [
 ];
 
 const Footer = () => (
-  <footer id="contact" className="bg-footer text-footer-foreground py-16">
+  <footer id="site-footer" className="bg-footer text-footer-foreground py-16">
     <div className="container">
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
         <div className="lg:col-span-1">
@@ -77,7 +77,7 @@ const Footer = () => (
             </li>
             <li><Link to="/author/plowwow-team" className="hover:text-primary transition-colors">Authors</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
-            <li><Link to="/app-features" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
+            <li><Link to="/advanced-technology" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
           </ul>
         </div>

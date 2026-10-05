@@ -242,7 +242,7 @@ const NewsletterConfirm = () => {
   }, [token]);
 
   return (
-    <main className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 py-16">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-background text-foreground flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
         {state.kind === "loading" && (
           <>
