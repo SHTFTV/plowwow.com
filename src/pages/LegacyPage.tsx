@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { truncateForMeta } from "@/lib/seo";
+import imageMetadata from "@/generated/blog-image-metadata.json";
 import { blogPosts } from "@/generated/blog-posts";
 import { cityForBlogSlug, siblingsForBlogSlug } from "@/lib/internalLinks";
 
@@ -127,8 +128,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
   if (!raw) return <Navigate to="/" replace />;
 
   const { title, body, metaDescription } = parseFrontmatter(raw);
-  const isEquipmentGuide = kind === "blog" && slug.includes("snow-equipment") && slug.endsWith("2026-2027");
-  const displayBody = isEquipmentGuide ? body.replace(/^# .+\n+/m, "") : body;
+  const post = kind === "blog" ? blogPosts.find(p => p.slug === slug) : undefined;
+  const displayBody = body.replace(/^# .+\n+/m, "").replace(/^# /gm, "## ").replace(post ? /!\[[^\]]*\]\([^)]*\)/ : /$^/, "");
   const description = metaDescription
     ? truncateForMeta(metaDescription)
     : truncateForMeta(
@@ -180,17 +181,14 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       el.href = href;
     };
     setMeta("description", description);
-    const origin =
-      typeof window !== "undefined"
-        ? window.location.origin.replace(/\/+$/, "")
-        : "https://www.plowwow.com";
-    const path = isEquipmentGuide ? `/${slug}` : `/${slug}/`;
+    const origin = "https://www.plowwow.com";
+    const path = `/${slug}`;
     const absoluteUrl = `${origin}${path}`;
     // Prefer the post's inline hero image; fall back to a per-slug hero, then a
     // guaranteed-reachable branded OG default so every share always resolves an image.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const heroCandidate =
-      heroFromBody ||
+      post?.image || heroFromBody ||
       (kind === "blog" ? `/blog-images/${slug}.jpg` : null) ||
       "/og-default.jpg";
     const absoluteImage = heroCandidate.startsWith("http")
@@ -210,9 +208,14 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     setProp("og:locale", "en_CA");
     setProp("og:image", absoluteImage);
     setProp("og:image:secure_url", absoluteImage);
-    const imageAlt = isEquipmentGuide ? (body.match(/!\[([^\]]+)\]/)?.[1] || safeTitle) : safeTitle;
-    setProp("og:image:width", isEquipmentGuide ? "1536" : "1200");
-    setProp("og:image:height", isEquipmentGuide ? "1024" : "630");
+    const imageAlt = post?.alt || body.match(/!\[([^\]]+)\]/)?.[1] || safeTitle;
+    const dimensions = imageMetadata[heroCandidate as keyof typeof imageMetadata];
+    if (dimensions) {
+      setProp("og:image:width", String(dimensions.width));
+      setProp("og:image:height", String(dimensions.height));
+    } else {
+      document.querySelectorAll('meta[property="og:image:width"], meta[property="og:image:height"]').forEach(el => el.remove());
+    }
     setProp("og:image:alt", imageAlt);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:site", "@plowwow");
@@ -284,8 +287,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             }
           : { image: absoluteImage }),
         author: {
-          "@type": isEquipmentGuide ? "Organization" : "Person",
-          name: isEquipmentGuide ? "PlowWow editorial team" : "PlowWow Team",
+          "@type": "Organization",
+          name: "PlowWow editorial team",
           url: "https://www.plowwow.com/author/plowwow-team",
         },
         publisher: {
@@ -317,7 +320,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://www.plowwow.com/" },
-          { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.plowwow.com/blog/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.plowwow.com/blog" },
           {
             "@type": "ListItem",
             position: 3,
@@ -328,40 +331,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       });
       document.head.appendChild(crumb);
 
-      // SnowRemovalService / LocalBusiness block for neighborhood posts.
-      const svcId = "legacy-page-service-jsonld";
-      document.getElementById(svcId)?.remove();
-      const areaMatch = title.match(/^(.*?)(?:\s*[-–|]\s*|\s+in\s+|\s+snow)/i);
-      const areaName = areaMatch?.[1]?.trim() || title.replace(/\s*\|\s*PlowWow.*$/i, "");
-      const svc = document.createElement("script");
-      svc.type = "application/ld+json";
-      svc.id = svcId;
-      svc.text = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "SnowRemovalService"],
-        "@id": `${absoluteUrl}#localbusiness`,
-        name: `PlowWow Snow Removal — ${areaName}`,
-        url: absoluteUrl,
-        telephone: "+1-604-761-1518",
-        priceRange: "$$",
-        image: heroPath ? (heroPath.startsWith("http") ? heroPath : `${origin}${heroPath}`) : absoluteImage,
-        logo: "https://www.plowwow.com/icon-192.png",
-        areaServed: { "@type": "Place", name: areaName },
-        provider: { "@id": "https://www.plowwow.com/#organization" },
-        serviceType: "Snow Removal, De-Icing & Salting",
-        address: { "@type": "PostalAddress", addressRegion: "BC", addressCountry: "CA" },
-        sameAs: (() => {
-          try {
-            const raw = typeof window !== "undefined" ? window.localStorage.getItem("plowwow.seoSettings.v1") : null;
-            const s = raw ? JSON.parse(raw) : null;
-            const arr = Array.isArray(s?.sameAs) ? s.sameAs.filter((u: string) => /^https?:\/\//i.test(u)) : [];
-            return arr.length ? arr : undefined;
-          } catch {
-            return undefined;
-          }
-        })(),
-      });
-      if (!isEquipmentGuide) document.head.appendChild(svc);
+
     }
     return () => {
       document.getElementById(ldId)?.remove();
@@ -444,6 +414,11 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           </div>
         </section>
 
+        {post && <figure className="container !max-w-3xl pt-6">
+          <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
+          <figcaption className="mt-2 text-sm text-muted-foreground">{post.alt}. Source: PlowWow editorial library; not a verified project record.</figcaption>
+        </figure>}
+
         {kind === "blog" && wasUpdated && dates && (
           <section className="pt-2 pb-4">
             <div className="container max-w-3xl">
@@ -473,8 +448,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
-                    This post was revised on {formatDate(dates.updatedAt)} with the latest
-                    pricing, response-time, and bylaw details from our field operations.
+                    This post was revised on {formatDate(dates.updatedAt)}. Confirm current service scope and availability when requesting a quote.
                   </p>
                 )}
               </aside>
@@ -483,7 +457,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         )}
 
         <section className="py-10 md:py-14">
-          <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border ${isEquipmentGuide ? "!max-w-3xl" : "max-w-none"} lg:prose-lg`}>
+          <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border !max-w-3xl lg:prose-lg`}>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{displayBody}</ReactMarkdown>
           </article>
         </section>

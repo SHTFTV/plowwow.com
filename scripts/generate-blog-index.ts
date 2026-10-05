@@ -1,3 +1,4 @@
+import sharp from "sharp";
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -119,7 +120,14 @@ const posts = readdirSync(BLOG_DIR)
   })
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug));
 
+const imageMetadata: Record<string, { width: number; height: number }> = {};
+for (const post of posts) {
+  const metadata = await sharp(resolve("public", post.image.replace(/^\//, ""))).metadata();
+  if (!metadata.width || !metadata.height) throw new Error(`Missing dimensions: ${post.image}`);
+  imageMetadata[post.image] = { width: metadata.width, height: metadata.height };
+}
 mkdirSync(resolve(process.cwd(), "src/generated"), { recursive: true });
+writeFileSync(resolve("src/generated/blog-image-metadata.json"), JSON.stringify(imageMetadata, null, 2) + "\n");
 writeFileSync(
   OUT_FILE,
   `export type BlogPostSummary = {\n  slug: string;\n  title: string;\n  blurb: string;\n  image: string;\n  alt: string;\n  theme: "strata" | "commercial" | "residential" | "storm" | "citywide";\n  tags: string[];\n  hasCustomHero: boolean;\n  publishedAt: string;\n  updatedAt: string;\n};\n\nexport const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPostSummary[];\n`,

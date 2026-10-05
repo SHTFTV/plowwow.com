@@ -1,6 +1,26 @@
 {
   "redirects": [
     {
+      "source": "/sitemap-neighbourhoods.xml",
+      "destination": "/sitemap-neighborhoods.xml",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/commercial-snow-removal-coquitlam",
+      "destination": "/coquitlam",
+      "permanent": true
+    },
+    {
+      "source": "/category/uncategorized",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/metrotown-burnaby-strata-commercial-snow-removal",
       "destination": "/burnaby",
       "permanent": true

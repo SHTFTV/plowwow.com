@@ -14,7 +14,7 @@ const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancou
  * Dismissal lasts only for the current page view, so it returns on refresh.
  */
 export default function PlowWowBot() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches);
 
   useEffect(() => {
     if (!visible) return;
@@ -25,7 +25,7 @@ export default function PlowWowBot() {
     return () => window.removeEventListener("keydown", dismissWithEscape);
   }, [visible]);
 
-  if (!visible) return null;
+  if (!visible) return <button type="button" onClick={() => setVisible(true)} aria-label="Open PlowWow contact panel" className="fixed bottom-4 right-4 z-[9999] rounded-full bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400">Contact PlowWow</button>;
 
   const focusRing =
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
@@ -34,7 +34,7 @@ export default function PlowWowBot() {
     <aside
       aria-label="Contact PlowWow snow removal"
       data-testid="plowwow-contact-floater"
-      className="fixed right-2 top-1/2 z-[9999] w-[230px] max-w-[calc(100vw-1rem)] -translate-y-1/2 rounded-2xl border border-sky-300/30 bg-slate-950/95 text-white shadow-2xl backdrop-blur supports-[backdrop-filter]:bg-slate-950/90"
+      className="fixed right-4 bottom-4 md:bottom-auto md:top-1/2 z-[9999] w-[230px] max-w-[calc(100vw-1rem)] md:-translate-y-1/2 rounded-2xl border border-sky-300/30 bg-slate-950/95 text-white shadow-2xl backdrop-blur supports-[backdrop-filter]:bg-slate-950/90"
     >
       <button
         type="button"

@@ -17,13 +17,9 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import imageMetadata from "../src/generated/blog-image-metadata.json";
 
-const equipmentGuideSlugs = new Set([
-  "vancouver-strata-snow-equipment-sidewalks-parking-2026-2027",
-  "burnaby-commercial-strata-snow-equipment-2026-2027",
-  "coquitlam-strata-snow-equipment-parking-stalls-2026-2027",
-  "langley-commercial-snow-equipment-loaders-2026-2027",
-]);
+
 
 const DIST = resolve("dist");
 const TEMPLATE_PATH = resolve(DIST, "index.html");
@@ -124,7 +120,7 @@ function breadcrumb(route: RouteMeta, url: string, headline: string): LD {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/` },
-        { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/blog/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/blog` },
         { "@type": "ListItem", position: 3, name: headline, item: url },
       ],
     };
@@ -135,7 +131,7 @@ function breadcrumb(route: RouteMeta, url: string, headline: string): LD {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/` },
-        { "@type": "ListItem", position: 2, name: "Service Areas", item: `${BASE_URL}/locations/` },
+        { "@type": "ListItem", position: 2, name: "Service Areas", item: `${BASE_URL}/locations` },
         { "@type": "ListItem", position: 3, name: headline, item: url },
       ],
     };
@@ -212,7 +208,7 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
     image: heroAbs,
     datePublished,
     dateModified,
-    author: { "@type": "Organization", name: equipmentGuideSlugs.has(slug) ? "PlowWow editorial team" : "PlowWow", url: equipmentGuideSlugs.has(slug) ? `${BASE_URL}/author/plowwow-team` : `${BASE_URL}/` },
+    author: { "@type": "Organization", name: "PlowWow editorial team", url: `${BASE_URL}/author/plowwow-team` },
     publisher: {
       "@type": "Organization",
       name: "PlowWow",
@@ -374,7 +370,6 @@ function renderHead(route: RouteMeta): string {
       `${BASE_URL}/og-default.jpg`;
     const heroAbs = heroCandidate.startsWith("http") ? heroCandidate : `${BASE_URL}${heroCandidate}`;
     graph.push(blogPosting(route, url, headline, heroAbs));
-    if (!equipmentGuideSlugs.has(slug)) graph.push(blogService(url, headline, heroAbs));
     if (blog) {
       const fp = faqPage(extractFaqs(blog.body));
       if (fp) graph.push(fp);
@@ -386,7 +381,7 @@ function renderHead(route: RouteMeta): string {
   const ldBlocks = graph
     .map(
       (g) =>
-        `<script type="application/ld+json"${equipmentGuideSlugs.has(canonicalPath.slice(1)) && ["BlogPosting", "BreadcrumbList", "FAQPage"].includes(String(g["@type"])) ? ` id="${g["@type"] === "BlogPosting" ? "legacy-page-article-jsonld" : g["@type"] === "BreadcrumbList" ? "legacy-page-breadcrumb-jsonld" : "legacy-page-faq-jsonld"}"` : ""}>${JSON.stringify(g)
+        `<script type="application/ld+json"${["legacy-blog", "legacy-page"].includes(route.kind) && ["BlogPosting", "BreadcrumbList", "FAQPage"].includes(String(g["@type"])) ? ` id="${g["@type"] === "BlogPosting" ? "legacy-page-article-jsonld" : g["@type"] === "BreadcrumbList" ? "legacy-page-breadcrumb-jsonld" : "legacy-page-faq-jsonld"}"` : ""}>${JSON.stringify(g)
           .replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n    ");
@@ -413,16 +408,19 @@ function renderHead(route: RouteMeta): string {
         </section>`
     : "";
   const guideSlug = route.path.replace(/^\//, "").replace(/\/$/, "");
-  const guideRaw = equipmentGuideSlugs.has(guideSlug)
-    ? readFileSync(resolve(CONTENT_BLOG_DIR, `${guideSlug}.md`), "utf8")
-    : "";
+  const contentPath = resolve("src/content/legacy", route.kind === "legacy-blog" ? "blog" : "pages", `${guideSlug}.md`);
+  const guideRaw = ["legacy-blog", "legacy-page"].includes(route.kind) && existsSync(contentPath)
+    ? readFileSync(contentPath, "utf8") : "";
   const guideBody = guideRaw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1];
-  if (guideBody) {
+  if (guideBody && route.kind === "legacy-blog") {
     const post = blogPosts.find((p) => p.slug === guideSlug)!;
+    const dimensions = imageMetadata[post.image as keyof typeof imageMetadata];
     const properties: Record<string, string> = {
       "og:type": "article",
-      "og:image:width": "1536",
-      "og:image:height": "1024",
+      "og:image": `${BASE_URL}${post.image}`,
+      "og:image:secure_url": `${BASE_URL}${post.image}`,
+      "og:image:width": String(dimensions.width),
+      "og:image:height": String(dimensions.height),
       "og:image:alt": post.alt,
       "og:image:type": "image/jpeg",
       "article:published_time": post.publishedAt,
@@ -432,22 +430,29 @@ function renderHead(route: RouteMeta): string {
       html = html.replace(new RegExp(`<meta\\s+property="${name}"[^>]*>`, "g"), "");
       html = html.replace("</head>", `<meta property="${name}" content="${esc(value)}" />\n</head>`);
     }
+    html = html.replace(/<meta\s+name="twitter:image"[^>]*>/g, `<meta name="twitter:image" content="${BASE_URL}${post.image}" />`);
     html = html.replace(/<meta\s+name="twitter:image:alt"[^>]*>/g, `<meta name="twitter:image:alt" content="${esc(post.alt)}" />`);
   }
   // Ship the complete new guides, their hero visuals and links in the first
   // HTML response, before the client application renders the same markdown.
+  const post = blogPosts.find((p) => p.slug === guideSlug);
+  const cleanBody = guideBody?.replace(/^# .+\n+/m, "").replace(/^# /gm, "## ").replace(/!\[[^\]]*\]\([^)]*\)/, "");
+  const heroHtml = post ? `<figure><img src="${esc(post.image)}" alt="${esc(post.alt)}" width="${imageMetadata[post.image as keyof typeof imageMetadata].width}" height="${imageMetadata[post.image as keyof typeof imageMetadata].height}" fetchpriority="high"><figcaption>${esc(post.alt)}. Source: PlowWow editorial library; not a verified project record.</figcaption></figure>` : "";
+  const city = cities.find(c => `/${c.slug}` === route.path);
+  const cityHtml = city ? `<p>${esc(city.intro)}</p><h2>Neighbourhoods and property types</h2><ul>${city.neighborhoods.map(n => `<li><strong>${esc(n.name)}</strong>: ${esc(n.note)}</li>`).join("")}</ul><h2>Frequently asked questions</h2>${city.faqs.map(f => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join("")}` : "";
   const bodyHtml = guideBody
-    ? `<main data-prerendered="${esc(route.path)}"><article>${renderToStaticMarkup(createElement(ReactMarkdown, { remarkPlugins: [remarkGfm], children: guideBody }))}</article></main>`
+    ? `<main data-prerendered="${esc(route.path)}"><article><h1>${esc(headline)}</h1>${heroHtml}${renderToStaticMarkup(createElement(ReactMarkdown, { remarkPlugins: [remarkGfm], children: post ? cleanBody : guideBody.replace(/^# .+\n+/m, "").replace(/^# /gm, "## ") }))}<nav aria-label="Guide navigation"><a href="/blog">All guides</a> · <a href="/locations">Service areas</a> · <a href="/quote">Request a quote</a></nav></article></main>`
     : `
       <main data-prerendered="${esc(route.path)}">
         <h1>${esc(headline)}</h1>
         <p>${esc(route.description)}</p>
         ${priorityHtml}
+        ${cityHtml}
         <p><a href="${esc(url)}">${esc(headline)} — PlowWow</a></p>
         <p><a href="/quote/">Request a quote</a> · <a href="/locations/">Service areas</a> · <a href="/blog/">Blog</a></p>
       </main>`;
   html = html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
-  if (guideBody) html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, "");
+  html = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, "");
 
   // Body marker so curl/grep can prove distinct HTML content per route.
   html = html.replace(

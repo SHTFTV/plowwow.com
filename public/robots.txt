@@ -43,7 +43,6 @@ Allow: /
 
 Sitemap: https://www.plowwow.com/sitemap.xml
 Sitemap: https://www.plowwow.com/sitemap-cities.xml
-Sitemap: https://www.plowwow.com/sitemap-neighbourhoods.xml
 Sitemap: https://www.plowwow.com/sitemap-neighborhoods.xml
 Sitemap: https://www.plowwow.com/sitemap-blog.xml
 Sitemap: https://www.plowwow.com/sitemap-images.xml

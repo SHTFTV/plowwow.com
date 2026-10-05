@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Rss } from "lucide-react";
+import { Phone, Mail, MapPin, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoMascot from "@/assets/plowwow-mascot.jpg";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -99,15 +99,6 @@ const Footer = () => (
             </li>
           </ul>
           <div className="flex gap-3 mt-4">
-            <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors">
-              <Instagram className="w-5 h-5" />
-            </a>
           </div>
         </div>
       </div>
