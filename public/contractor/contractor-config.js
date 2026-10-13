@@ -1,0 +1,2 @@
+export const endpoint='https://uxfzsopnuklopjcrtmxh.supabase.co/functions/v1/plowwow-contractor-apply';
+export const publicKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4Znpzb3BudWtsb3BqY3J0bXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODczMzI3NjUsImV4cCI6MjEwMjkwODc2NX0.Wsk2j3JvBHSR026umekjS-LxSeBq088k_59memRQRC8";
