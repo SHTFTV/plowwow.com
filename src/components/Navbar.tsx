@@ -1,3 +1,4 @@
+import "./wow-hero.css";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoMascot from "@/assets/plowwow-mascot.webp";
+import logoMascot from "@/assets/wow-mascot.webp";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -79,13 +80,14 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav aria-label="Main navigation" className="bg-card shadow-md sticky top-0 z-50">
+    <nav aria-label="Main navigation" className="wow-navbar bg-card shadow-md sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
-        <a href="/" className="flex items-center gap-2">
+        <a href="/" className="wow-nav-brand">
           <figure>
             <img src={logoMascot} alt="PlowWow snow removal — Vancouver & Lower Mainland BC" width={60} height={60} className="object-contain" />
             <figcaption className="sr-only">PlowWow — 24/7 snow removal across Vancouver and the Lower Mainland</figcaption>
           </figure>
+          <span>Plow<em>Wow</em><small>WE PUT THE WOW IN PLOW</small></span>
         </a>
 
         {/* Desktop nav */}

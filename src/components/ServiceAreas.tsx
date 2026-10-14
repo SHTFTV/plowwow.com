@@ -200,7 +200,7 @@ const ServiceAreas = () => {
     const typingInSearch =
       typeof document !== "undefined" && document.activeElement === inputRef.current;
     const forced = forceRestoreRef.current;
-    const shouldFocus = forced || !typingInSearch;
+    const shouldFocus = forced || (userInteractedRef.current && !typingInSearch);
 
     if (shouldFocus) {
       userInteractedRef.current = true;
@@ -246,7 +246,7 @@ const ServiceAreas = () => {
 
   useEffect(() => {
     const el = cardRefs.current[activeIndex];
-    if (!el) return;
+    if (!el || !userInteractedRef.current) return;
     el.scrollIntoView({ block: "nearest", behavior: "smooth" });
     // Only steal focus when the user has actually started navigating
     if (userInteractedRef.current) {
