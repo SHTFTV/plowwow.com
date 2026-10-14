@@ -32,6 +32,16 @@ PlowWow plans around a five-hour service standard after a storm event ends. The 
 
 Vancouver’s current guidance calls for full-width clearing of adjacent public sidewalks by 10 a.m. daily when snow or freezing conditions affect them, including the side frontage of corner lots. [Read the City’s current winter guidance](https://vancouver.ca/streets-transportation/snow-removal-from-city-streets.aspx).
 
+## Prepare the handover before winter
+
+Choose one property contact and a backup who can respond when a gate is locked, a vehicle blocks an agreed area or conditions change. Use the same names for locations in resident reports and contractor updates. A report that identifies the upper entrance steps is more useful than a general message saying the building is icy.
+
+Check current roadwork notices before relying on a familiar approach. Fairview access arrangements can change; the crew must respect closures and assess whether an alternate route is suitable. Agree how inaccessible work is recorded and how the next action is authorized.
+
+## Questions to compare proposals
+
+Ask which surfaces and tasks are priced, what starts a visit, how ongoing snowfall is handled and whether extra treatment or relocation costs more. Confirm the records you will receive instead of assuming GPS reports or photographs are included. Put accepted arrangements in writing so council, residents and contractor share the same expectations.
+
 ## Request a Fairview quote
 
 Send your address, marked photos or plan, access restrictions and requested work areas. Call or text [604-761-1518](tel:+16047611518), email [wow@plowwow.com](mailto:wow@plowwow.com), or [request a quote](/quote).
