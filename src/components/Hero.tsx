@@ -51,7 +51,7 @@ const Hero = () => {
     <section aria-labelledby="hero-heading" className={`wow-hero ${paused || !motionAllowed ? "wow-motion-paused" : ""}`}>
       <div className="wow-hero-stage">
         <video ref={videoRef} className="wow-hero-film" aria-hidden="true" muted loop playsInline preload="none" poster={heroBanner}>
-          <source src="/videos/plowwow-snow-removal-operations.mp4" type="video/mp4" />
+          <source src="/videos/wow-winter-services.mp4" type="video/mp4" />
         </video>
         <div className="wow-hero-shade" aria-hidden="true" />
         <div className="wow-snow" aria-hidden="true">{FLAKES.map((style, i) => <i key={i} style={style as CSSProperties} />)}</div>
@@ -76,7 +76,7 @@ const Hero = () => {
         <div className="wow-hero-bottom"><a href="#services">MEET YOUR WINTER CREW <ArrowDown size={14} aria-hidden="true" /></a><button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} disabled={!motionAllowed}>{paused || !motionAllowed ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}{!motionAllowed ? "REDUCED MOTION" : paused ? "PLAY MOTION" : "PAUSE MOTION"}</button></div>
       </div>
       <div className="wow-hero-rail"><span>COMMERCIAL LOTS</span><b>✳</b><span>STRATA PROPERTIES</span><b>✳</b><span>RESIDENTIAL</span><b>✳</b><span>SNOW · SALT · DE-ICE</span></div>
-      <p className="wow-hero-credit">Original PlowWow mascot with illustrative winter footage. Service scope and timing are confirmed with your quote.</p>
+      <p className="wow-hero-credit">Original PlowWow mascot over an illustrative plowing, sidewalk-salting and brine-spraying montage. Service scope and timing are confirmed with your quote.</p>
     </section>
   );
 };
