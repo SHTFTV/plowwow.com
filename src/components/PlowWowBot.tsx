@@ -14,7 +14,7 @@ const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancou
  * Dismissal lasts only for the current page view, so it returns on refresh.
  */
 export default function PlowWowBot() {
-  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches);
+  const [visible, setVisible] = useState(() => typeof window !== "undefined" && window.location.pathname !== "/" && window.matchMedia("(min-width: 768px)").matches);
 
   useEffect(() => {
     if (!visible) return;
