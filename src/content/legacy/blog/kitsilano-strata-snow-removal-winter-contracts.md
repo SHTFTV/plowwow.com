@@ -10,7 +10,7 @@ Markdown Content:
 
 # Kitsilano Strata Snow Removal: A Winter Contract Checklist
 
-![PlowWow Wow mascots in an illustrative snowy Kitsilano neighbourhood scene](/blog-images/kitsilano-strata-snow-removal-winter-contracts.jpg "PlowWow Kitsilano strata winter planning")
+![PlowWow mascot in an illustrative snowy Kitsilano neighbourhood scene](/blog-images/kitsilano-strata-snow-removal-winter-contracts.jpg "PlowWow Kitsilano strata winter planning")
 
 Kitsilano winter-planning illustration from PlowWow’s existing image library. This is branded editorial artwork, not a photograph of a client building or a confirmed service visit.
 
