@@ -1,7 +1,9 @@
+import WinterCommitment from "./WinterCommitment";
 import crewImage from "@/assets/plowwow-crew.png";
 import { Button } from "@/components/ui/button";
 
 const About = () => (
+  <>
   <section id="about" className="py-20">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center">
@@ -23,6 +25,8 @@ const About = () => (
       </div>
     </div>
   </section>
+  <WinterCommitment />
+  </>
 );
 
 export default About;

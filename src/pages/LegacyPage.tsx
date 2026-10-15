@@ -6,6 +6,7 @@ import { publicLink } from "@/lib/publicLinks";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WinterCommitment from "@/components/WinterCommitment";
 import ContactForm from "@/components/ContactForm";
 import { truncateForMeta } from "@/lib/seo";
 import imageMetadata from "@/generated/blog-image-metadata.json";
@@ -456,6 +457,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             </div>
           </section>
         )}
+
+        {kind === "page" && slug === "about" && <WinterCommitment />}
 
         <section className="py-10 md:py-14">
           <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border !max-w-3xl lg:prose-lg`}>
