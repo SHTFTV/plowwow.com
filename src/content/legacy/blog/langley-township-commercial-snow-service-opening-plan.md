@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 15, 2026.*
 
-![Original PlowWow planning diagram: frontage, entrances, handover. Illustrative layout; not a Township map, project photograph or equipment specification.](/blog-images/langley-township-commercial-snow-service-opening-plan.jpg)
+![Wow maps the walking route beside a Langley welcome sign, connecting homes and entrances. AI illustration by PlowWow; the sign is decorative and does not imply Township endorsement.](/blog-images/wow-langley-story-v1.jpg "Township of Langley: Build Your Snow Plan Around Opening Time")
 
-*Original PlowWow planning diagram: frontage, entrances, handover. Illustrative layout; not a Township map, project photograph or equipment specification.*
+*Wow maps the walking route beside a Langley welcome sign, connecting homes and entrances. AI illustration by PlowWow; the sign is decorative and does not imply Township endorsement.*
 
 A cleared parking lane is only one part of opening a property after snowfall. Staff still need to reach the door, customers need a continuous walking route, and the person opening the building needs to know what remains unfinished. A commercial winter plan works best when those outcomes appear on the same site map.
 
@@ -29,6 +29,10 @@ Begin at the arrival point and follow the route to the entrance. Include accessi
 ## Put hand work in the same plan as the truck
 
 A truck may clear the vehicle lane while an entrance still needs a shovel or compact blower. List narrow paths, thresholds, stairs and gate openings separately. Give the provider the narrowest opening and any surface restrictions before equipment is assigned. The objective is a connected route, with a clear hand-off between machine work and detailed clearing.
+
+![Wow plows a private lot toward an on-site snow pile while keeping the entrance and pedestrian route clear. AI illustration by PlowWow.](/blog-images/wow-plow-story-v1.jpg)
+
+*Wow plows a private lot toward an on-site snow pile while keeping the entrance and pedestrian route clear. AI illustration by PlowWow.*
 
 ## Resolve access before dispatch
 

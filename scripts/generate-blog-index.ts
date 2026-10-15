@@ -82,11 +82,13 @@ const posts = readdirSync(BLOG_DIR)
     const updatedAtMs = parsedDate(raw.match(/^Updated:\s*(.+)$/m)?.[1]) || parsedDate(saved?.updatedAt) || publishedAtMs;
 
     const theme = pickTheme(slug, title);
-    const image = hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`;
+    // Versioned Wow story art is explicitly selected in the article Markdown.
+    const storyHero = imageMatch?.[2]?.startsWith("/blog-images/wow-") && existsSync(resolve("public", imageMatch[2].slice(1))) ? imageMatch[2] : undefined;
+    const image = storyHero ?? (hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`);
     // When we fall back to a themed image, always use the descriptive theme alt
     // so screen readers get mascot-only framing wording (not the short markdown alt).
     const markdownAlt = imageMatch?.[1]?.trim() ?? "";
-    const alt = hasHeroImage
+    const alt = (storyHero || hasHeroImage)
       ? (markdownAlt || `${title} by PlowWow`)
       : (markdownAlt.length >= 40 ? markdownAlt : THEME_ALT[theme]);
 
