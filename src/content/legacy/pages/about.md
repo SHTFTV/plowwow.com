@@ -5,6 +5,10 @@ URL Source: https://plowwow.com/about/
 Markdown Content:
 # About Plowwow | PlowWow Snow Removal and De-Ice Management
 
+![The PlowWow team in the snow wearing branded blue PlowWow hoodies](/images/plowwow-team-blue-hoodies.png)
+
+The people behind the Wow.
+
 [Wow@plowwow.com](mailto:Wow@plowwow.com)
 *   [Facebook](https://plowwow.com/about/#)
 *   [X](https://plowwow.com/about/#)
