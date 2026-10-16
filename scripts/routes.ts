@@ -232,7 +232,7 @@ export function collectRoutes(): RouteMeta[] {
       path: `/${slug}`,
       title,
       description: truncate(description),
-      ogImage: slug === "strip-malls" ? `${BASE_URL}/images/wow-strip-mall-share-v1.jpg` : `${BASE_URL}/og-default.jpg`,
+      ogImage: slug === "residential-snow-removal" ? `${BASE_URL}/images/wow-residential-hero-v1.webp` : slug === "strip-malls" ? `${BASE_URL}/images/wow-strip-mall-share-v1.jpg` : `${BASE_URL}/og-default.jpg`,
       kind: "legacy-page",
     });
   }

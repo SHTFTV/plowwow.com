@@ -11,16 +11,16 @@ const EMAIL_HREF = "mailto:wow@plowwow.com";
 const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancouver";
 
 /**
- * One persistent LS Fencing-style contact floater for the whole site.
- * Dismissal lasts only for the current page view, so it returns on refresh.
+ * One persistent PlowWow contact floater for the whole site.
+ * The residential page starts compact so the hero and booking action remain visible.
  */
 export default function PlowWowBot() {
   const location = useLocation();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(location.pathname.replace(/\/$/, "") !== "/residential-snow-removal");
 
   useEffect(() => {
-    setVisible(true);
-  }, [location.key]);
+    setVisible(location.pathname.replace(/\/$/, "") !== "/residential-snow-removal");
+  }, [location.key, location.pathname]);
 
   useEffect(() => {
     if (!visible) return;

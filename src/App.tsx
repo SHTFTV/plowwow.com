@@ -8,6 +8,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { legacyPageSlugs, legacyBlogSlugs } from "./legacy-slug-list";
 import { ServiceWorkerUpdatePrompt } from "./components/pwa/ServiceWorkerUpdatePrompt";
+const ResidentialSnowRemoval = lazy(() => import("./pages/ResidentialSnowRemoval.tsx"));
 const StripMalls = lazy(() => import("./pages/StripMalls.tsx"));
 const LegacyPage = lazy(() => import("./pages/LegacyPage.tsx"));
 import PlowWowBot from "./components/PlowWowBot";
@@ -104,8 +105,9 @@ export const AppRoutes = () => (
             <Route path="/quote/confirmed" element={<QuoteConfirmed />} />
             <Route path="/:citySlug/quote" element={<CityQuote />} />
             <Route path="/:citySlug/quote/" element={<CityQuote />} />
+            <Route path="/residential-snow-removal" element={<ResidentialSnowRemoval />} />
             <Route path="/strip-malls" element={<StripMalls />} />
-            {legacyPageSlugs.filter((slug) => slug !== "strip-malls").map((slug) => (
+            {legacyPageSlugs.filter((slug) => slug !== "strip-malls" && slug !== "residential-snow-removal").map((slug) => (
               <Route
                 key={`page-${slug}`}
                 path={`/${slug}`}
