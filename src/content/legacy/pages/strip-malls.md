@@ -1,27 +1,26 @@
-Title: Strip Mall Snow Removal — PlowWow
-URL Source: https://plowwow.com/strip-malls
+Title: Strip Mall Snow Removal | Storefronts & Parking | PlowWow
+URL Source: https://www.plowwow.com/strip-malls
+Description: Snow plowing, storefront walk clearing and de-icing for Lower Mainland strip malls. Plan customer access, deliveries and snow storage with PlowWow.
 
 Markdown Content:
 # Strip Mall Snow Removal
 
-PlowWow keeps **strip malls** across the Lower Mainland open for business through every winter event — from light dustings to major snowfalls.
+Snow clearing and de-icing planned around customer parking, storefront walks, accessible routes and deliveries at Lower Mainland shopping plazas.
 
-## What We Service
+## One property, several jobs
 
-- Customer parking lots and drive aisles
-- Storefront sidewalks and curbs
-- Loading zones and rear access
-- Stairs, ramps and pedestrian crossings
-- Snow relocation when piles get too large
+- Parking and drive aisles: plan plow passes and snow-storage areas.
+- Storefront access: connect the cleared lot to entrances, crossings and curb ramps.
+- Tenant operations: identify early opening hours, rear access and delivery needs.
 
-## Why Landlords and Tenants Choose PlowWow
+## Equipment matched to the site
 
-- **Pre-open clearing** — lots and walks ready before customers arrive
-- **Fixed seasonal pricing** — no surprise invoices for landlords or tenants
-- **24/7 automatic dispatch** — no calls required
-- **Salting and de-icing** included in every visit
-- **Photo + GPS documentation** for tenant billing and liability
+A pickup plow and spreader can cover the lot. Storefront walks may need a compact snow blower, shovel or utility vehicle, depending on width and access. Clearing and treatment areas are defined in the agreement. Snow relocation or hauling is quoted separately when needed.
 
-## Get a Strip Mall Quote
+## Seasonal service and extreme storms
 
-Call **604-761-1518** or email **Wow@PlowWow.com** to reserve your 2025–26 winter contract.
+Seasonal service has no visit cap. Routes are planned around a five-hour return target in normal conditions, with the start and scope defined in the agreement. Continuous snowfall lasting 12 hours or more, or an event of 20 cm or more, carries an extreme-event surcharge of 40% of the agreed per-event baseline. Your agreement defines the baseline and event measurement.
+
+## Plan your plaza
+
+Call 604-761-1518 or email wow@plowwow.com. Include the address, unit count, storefront walk length, tenant hours and delivery needs. PlowWow coordinates service and billing.
