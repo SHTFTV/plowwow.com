@@ -24,8 +24,8 @@ export default function ResidentialSnowRemoval() {
       element.setAttribute('content', value);
     };
     meta('description', description); meta('og:title', title, 'property'); meta('og:description', description, 'property'); meta('og:url', canonical, 'property');
-    meta('og:image', 'https://www.plowwow.com/images/wow-residential-hero-v1.webp', 'property'); meta('og:image:alt', 'Wow clearing a residential walkway — original brand illustration', 'property');
-    meta('twitter:image', 'https://www.plowwow.com/images/wow-residential-hero-v1.webp'); meta('twitter:card', 'summary_large_image');
+    meta('og:image', 'https://www.plowwow.com/images/wow-residential-share-v1.jpg', 'property'); meta('og:image:alt', 'Wow clearing a residential walkway — original brand illustration', 'property');
+    meta('twitter:image', 'https://www.plowwow.com/images/wow-residential-share-v1.jpg'); meta('twitter:card', 'summary_large_image');
     let link = document.querySelector('link[rel="canonical"]'); if (!link) { link = document.createElement('link'); link.setAttribute('rel', 'canonical'); document.head.appendChild(link); } link.setAttribute('href', canonical);
   }, []);
   return <><TopBar/><Navbar/><main id="main-content" className="strip-page">
