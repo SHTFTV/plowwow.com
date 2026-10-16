@@ -87,7 +87,7 @@ const Navbar = () => {
             <img src={logoMascot} alt="PlowWow snow removal — Vancouver & Lower Mainland BC" width={60} height={60} className="object-contain" />
             <figcaption className="sr-only">PlowWow — 24/7 snow removal across Vancouver and the Lower Mainland</figcaption>
           </figure>
-          <span>Plow<em>Wow</em><small>WE PUT THE WOW IN PLOW</small></span>
+          <span>Plow<em style={{ color: "#f58220", WebkitTextFillColor: "#f58220", fontStyle: "normal" }}>Wow</em><small>WE PUT THE WOW IN PLOW</small></span>
         </a>
 
         {/* Desktop nav */}
