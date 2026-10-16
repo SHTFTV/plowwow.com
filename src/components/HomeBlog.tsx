@@ -119,9 +119,9 @@ const HomeBlog = () => {
   const renderedSlugs = latestPosts.map((p) => p!.slug);
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30" aria-labelledby="home-blog-heading">
+    <section className="py-8 md:py-12 bg-muted/30" aria-labelledby="home-blog-heading">
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6 md:mb-8">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">
               From the PlowWow Blog
