@@ -18,12 +18,12 @@ const Index = () => (
     <main id="main-content" tabIndex={-1}>
     <Hero />
     <Services />
+    <HomeBlog />
     <About />
     <SkilledTeamProjects />
     <Features />
     <ServiceAreas />
     <HowItWorks />
-    <HomeBlog />
     <ContactForm />
     </main>
     <Footer />
