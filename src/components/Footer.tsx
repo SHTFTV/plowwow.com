@@ -21,7 +21,11 @@ const whyPlowwow = [
   { label: "Snow Relocation", href: "/snow-relocation" },
 ];
 
+import WowCrew from "./WowCrew";
+
 const Footer = () => (
+  <>
+  <WowCrew />
   <footer id="site-footer" className="bg-footer text-footer-foreground py-16">
     <div className="container">
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -125,6 +129,7 @@ const Footer = () => (
       </div>
     </div>
   </footer>
+  </>
 );
 
 export default Footer;
