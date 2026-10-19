@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 19, 2026*
 
-![PlowWow original explanatory diagram for your first snow route: what to confirm before dispatch](/blog-images/snow-operator-first-route-readiness.jpg "Operator Readiness: a planning illustration")
+![Wow, the PlowWow mascot, in a branded operator readiness concept scene](/blog-images/wow-snow-operator-first-route-readiness.jpg "OPERATOR READINESS: PlowWow concept illustration")
 
-*Visual: original PlowWow editorial diagram explaining operator readiness. Illustrative planning information, not a photograph of a completed job or a site-specific instruction.*
+*Visual: AI-generated PlowWow brand concept featuring Wow, created for this operator readiness guide. Illustrative artwork, not a photograph of a customer property, completed job or actual crew visit.*
 
 ## Start with the accepted arrangement
 

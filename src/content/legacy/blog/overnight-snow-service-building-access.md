@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 19, 2026*
 
-![PlowWow original explanatory diagram for overnight snow service: plan building access before the visit](/blog-images/overnight-snow-service-building-access.jpg "Overnight Access: a planning illustration")
+![Wow, the PlowWow mascot, in a branded overnight access concept scene](/blog-images/wow-overnight-snow-service-building-access.jpg "OVERNIGHT ACCESS: PlowWow concept illustration")
 
-*Visual: original PlowWow editorial diagram explaining overnight access. Illustrative planning information, not a photograph of a completed job or a site-specific instruction.*
+*Visual: AI-generated PlowWow brand concept featuring Wow, created for this overnight access guide. Illustrative artwork, not a photograph of a customer property, completed job or actual crew visit.*
 
 ## Access is part of the scope
 

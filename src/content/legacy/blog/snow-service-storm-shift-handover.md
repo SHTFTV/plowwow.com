@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 19, 2026*
 
-![PlowWow original explanatory diagram for a better snow-service handover between storm shifts](/blog-images/snow-service-storm-shift-handover.jpg "Storm Handover: a planning illustration")
+![Wow, the PlowWow mascot, in a branded storm handover concept scene](/blog-images/wow-snow-service-storm-shift-handover.jpg "STORM HANDOVER: PlowWow concept illustration")
 
-*Visual: original PlowWow editorial diagram explaining storm handover. Illustrative planning information, not a photograph of a completed job or a site-specific instruction.*
+*Visual: AI-generated PlowWow brand concept featuring Wow, created for this storm handover guide. Illustrative artwork, not a photograph of a customer property, completed job or actual crew visit.*
 
 ## Start with what changed
 

@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 19, 2026*
 
-![PlowWow original explanatory diagram for snowmelt and drains: give each maintenance task an owner](/blog-images/snowmelt-drainage-maintenance-coordination.jpg "Snowmelt & Drains: a planning illustration")
+![Wow, the PlowWow mascot, in a branded snowmelt & drains concept scene](/blog-images/wow-snowmelt-drainage-maintenance-coordination.jpg "SNOWMELT & DRAINS: PlowWow concept illustration")
 
-*Visual: original PlowWow editorial diagram explaining snowmelt & drains. Illustrative planning information, not a photograph of a completed job or a site-specific instruction.*
+*Visual: AI-generated PlowWow brand concept featuring Wow, created for this snowmelt & drains guide. Illustrative artwork, not a photograph of a customer property, completed job or actual crew visit.*
 
 ## One concern can involve several teams
 

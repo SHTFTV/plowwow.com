@@ -12,9 +12,9 @@ Markdown Content:
 
 *By the PlowWow editorial team · October 19, 2026*
 
-![PlowWow original explanatory diagram for better snow quotes start with better property photos](/blog-images/snow-quote-photos-property-brief.jpg "Quote Preparation: a planning illustration")
+![Wow, the PlowWow mascot, in a branded quote preparation concept scene](/blog-images/wow-snow-quote-photos-property-brief.jpg "QUOTE PREPARATION: PlowWow concept illustration")
 
-*Visual: original PlowWow editorial diagram explaining quote preparation. Illustrative planning information, not a photograph of a completed job or a site-specific instruction.*
+*Visual: AI-generated PlowWow brand concept featuring Wow, created for this quote preparation guide. Illustrative artwork, not a photograph of a customer property, completed job or actual crew visit.*
 
 ## Give each photo a question to answer
 
