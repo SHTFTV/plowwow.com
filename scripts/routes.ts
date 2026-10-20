@@ -151,7 +151,7 @@ export function collectRoutes(): RouteMeta[] {
       title: "Snow Removal Cost Calculator & Online Quote | PlowWow",
       description:
         "Enter your address and explore a preliminary snow removal budget. See seasonal, snow-and-salt and salt-only pricing before sharing contact details.",
-      ogImage: `${BASE_URL}/og-default.jpg`,
+      ogImage: `${BASE_URL}/blog-images/wow-what-snow-removal-really-costs.jpg`,
       kind: "static",
     },
     {
