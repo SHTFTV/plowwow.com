@@ -16,10 +16,10 @@ const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancou
  */
 export default function PlowWowBot() {
   const location = useLocation();
-  const [visible, setVisible] = useState(location.pathname.replace(/\/$/, "") !== "/residential-snow-removal");
+  const [visible, setVisible] = useState(!["/residential-snow-removal", "/quote"].includes(location.pathname.replace(/\/$/, "")));
 
   useEffect(() => {
-    setVisible(location.pathname.replace(/\/$/, "") !== "/residential-snow-removal");
+    setVisible(!["/residential-snow-removal", "/quote"].includes(location.pathname.replace(/\/$/, "")));
   }, [location.key, location.pathname]);
 
   useEffect(() => {
