@@ -111,8 +111,8 @@ const BLOCK_COPY: Record<BlockCode, { title: string; description: string }> = {
   },
 };
 
-const ContactForm = () => {
-  const [data, setData] = useState<FormState>(initial);
+const ContactForm = ({ initialAddress = "", initialNotes = "" }: { initialAddress?: string; initialNotes?: string }) => {
+  const [data, setData] = useState<FormState>(() => ({ ...initial, address: initialAddress, notes: initialNotes }));
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState("");

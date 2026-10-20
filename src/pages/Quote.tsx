@@ -1,101 +1,41 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-
-const TITLE = "Get a Snow Removal Quote Online | PlowWow Vancouver";
-const DESCRIPTION =
-  "Request a fixed seasonal snow removal quote for your Metro Vancouver strata, commercial or industrial property. 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer.";
-const CANONICAL = "https://www.plowwow.com/quote";
-
-const Quote = () => {
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.title = TITLE;
-    const setMeta = (name: string, content: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("name", name);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    const setProp = (property: string, content: string) => {
-      let el = document.querySelector(`meta[property="${property}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute("property", property);
-        document.head.appendChild(el);
-      }
-      el.setAttribute("content", content);
-    };
-    const setCanonical = (href: string) => {
-      let el = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-      if (!el) {
-        el = document.createElement("link");
-        el.rel = "canonical";
-        document.head.appendChild(el);
-      }
-      el.href = href;
-    };
-    setMeta("description", DESCRIPTION);
-    setProp("og:title", TITLE);
-    setProp("og:description", DESCRIPTION);
-    setProp("og:url", CANONICAL);
-    setProp("og:type", "website");
-    setCanonical(CANONICAL);
-
-    const ldId = "quote-page-jsonld";
-    document.getElementById(ldId)?.remove();
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.id = ldId;
-    ld.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      name: TITLE,
-      description: DESCRIPTION,
-      url: CANONICAL,
-      mainEntity: {
-        "@type": "LocalBusiness",
-        name: "PlowWow Snow Removal",
-        telephone: "+1-604-761-1518",
-        email: "dispatch@plowwow.com",
-        areaServed: "Metro Vancouver, BC",
-      },
-    });
-    document.head.appendChild(ld);
-    return () => {
-      document.getElementById(ldId)?.remove();
-    };
-  }, []);
-
-  return (
-    <div className="min-h-screen">
-      <TopBar />
-      <Navbar />
-      <main id="main-content" tabIndex={-1}>
-        <section className="py-14 md:py-20 bg-gradient-to-b from-muted/40 to-background">
-          <div className="container max-w-3xl">
-            <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">
-              PlowWow
-            </p>
-            <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
-              Get Your Snow Removal Quote Online
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Fixed seasonal pricing, 24/7 dispatch, GPS-logged service and pet-safe de-icer for strata, commercial and industrial properties across Metro Vancouver.
-            </p>
-            <a href="/snow-removal-pricing-lower-mainland/" className="inline-block mt-5 font-bold underline" style={{color:"#c45c08"}}>How much does snow removal cost? Read our pricing guide →</a>
-          </div>
-        </section>
-        <ContactForm />
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default Quote;
+import mascot from "@/assets/wow-mascot.webp";
+import sections from "@/content/quote-guide.json";
+import "./quote-page.css";
+const TITLE = "Snow Removal Cost Calculator & Online Quote | PlowWow";
+const DESCRIPTION = "Enter your address and explore a preliminary snow removal budget. See seasonal, snow-and-salt and salt-only pricing before sharing contact details.";
+const money = (n: number) => new Intl.NumberFormat("en-CA", {style:"currency",currency:"CAD",maximumFractionDigits:0}).format(n);
+const cities = ["West Vancouver","North Vancouver","New Westminster","Port Coquitlam","Port Moody","Pitt Meadows","Maple Ridge","Tsawwassen","Vancouver","Richmond","Burnaby","Coquitlam","Surrey","Langley","Delta","Abbotsford","Chilliwack","Mission","White Rock"];
+const faqs = [
+["Can I get a snow removal estimate without giving my name?","Yes. Enter your street address, confirm your municipality and choose approximate service measurements. View the preliminary prices before opening the optional enquiry form. No contact details are needed to use the calculator."],
+["Does entering my address measure my property?","No. This beta matches municipality text, not satellite measurements. You supply approximate common walkway length and open-lot clearing area. Unknown measurements need a property review rather than a fabricated quote."],
+["How is salt-only pricing calculated?","Salt-only is half the combined snow-and-salt service rate. Seasonal service allowance equals the combined rate multiplied by combined visits plus half the additional salt-only visits."],
+["Are stairs included in snow removal?","Connecting stairs and landings on the agreed common walkway route are considered in the standard walkway scope. Individual-unit stairs and paths are excluded unless specified. Ramps and unusual access require review."],
+["Can I book snow removal while I am away?","Ask about a short-term arrangement before leaving. Dates, covered areas, access and crew availability need confirmation. An online calculation does not book a service or reserve equipment."],
+["Are heavy snowfall and snow hauling included?","Repeat clearing and extraordinary-weather terms must be defined in the reviewed contract. Snow relocation and off-site hauling are separate authorised extras, priced for the equipment, trucking and associated costs required."],
+["Is the calculator an all-inclusive seasonal contract?","No. It is a starting budget for discussing a seasonal package. The final written agreement defines the season, service boundaries, visit obligations, materials, exclusions and any caps or extra charges."],
+["How accurate is the online snow removal price?","The displayed range is an initial budget policy around provisional rates, not a validated accuracy guarantee. Measurements, slopes, access, materials, equipment and service obligations can change the reviewed price."]
+];
+type Result = {address:string;city:string;zone:string;combined:number;salt:number;season:number;snow:number;salts:number};
+export default function Quote(){
+ const [address,setAddress]=useState(""); const [city,setCity]=useState("");const [zone,setZone]=useState("lowland");const [step,setStep]=useState(false);const [walk,setWalk]=useState("");const [lot,setLot]=useState("");const [snow,setSnow]=useState(10);const [salts,setSalts]=useState(20);const [result,setResult]=useState<Result|null>(null);const [contact,setContact]=useState(false);const [error,setError]=useState("");const resultRef=useRef<HTMLElement>(null);
+ useEffect(()=>{document.title=TITLE;for(const [key,value] of [["description",DESCRIPTION],["og:title",TITLE],["og:description",DESCRIPTION]]){const attr=key.startsWith("og:")?"property":"name";let meta=document.querySelector(`meta[${attr}="${key}"]`);if(!meta){meta=document.createElement("meta");meta.setAttribute(attr,key);document.head.appendChild(meta);}meta.setAttribute("content",value);}},[]);
+ function begin(e:FormEvent){e.preventDefault();if(!/\d/.test(address)||address.trim().length<8){setError("Enter a street number, street and municipality.");return;}const found=cities.find(c=>address.toLowerCase().includes(c.toLowerCase()));setCity(found||"");if(/burke mountain|burnaby mountain|\bsfu\b|upper coquitlam/i.test(address)){setZone("upland");setSnow(20);setSalts(30);}setStep(true);setResult(null);setContact(false);setError("");}
+ function estimate(e:FormEvent){e.preventDefault();const w=Number(walk),l=Number(lot);if(!city||!Number.isFinite(w+l)||w<0||l<0||w+l<=0||!Number.isInteger(snow)||!Number.isInteger(salts)||snow<0||salts<0||snow+salts===0){setError("Confirm the municipality and enter a positive service measurement and visit allowance.");return;}if(w>10000||l>200000){setError("This is a large or complex scope. Please call 604-761-1518 for a property review.");return;}const combined=Math.max(175,w/0.3048*0.15+l*0.015);setResult({address:address.trim(),city,zone,combined,salt:combined/2,season:combined*(snow+salts/2),snow,salts});setContact(false);setError("");requestAnimationFrame(()=>resultRef.current?.focus());}
+ return <div className="pw-quote"><TopBar/><Navbar/><main id="main-content" tabIndex={-1}>
+ <section className="pq-hero"><div><p className="pq-kicker">PLOWWOW / ONLINE QUOTING · BETA</p><h1>Enter your address.<br/><em>See your snow budget.</em></h1><p className="pq-lede">A clearer starting price for strata, commercial and residential snow removal. No name. No email. No sales form before the numbers.</p><form onSubmit={begin} className="pq-address"><label htmlFor="service-address">Where do you need snow removal?</label><div><input id="service-address" autoComplete="street-address" required maxLength={200} value={address} onChange={e=>{setAddress(e.target.value);setResult(null);setContact(false);setStep(false);}} placeholder="Street number, street, city"/><button type="submit">Get my starting price →</button></div></form><p className="pq-fine">The start of our online quoting system for transparency. A few property details help turn an address into a useful preliminary budget.</p><a href="#how-pricing-works">See how the pricing works ↓</a></div><img src={mascot} alt="Wow, the PlowWow snow removal mascot" width="420" height="420" fetchPriority="high"/></section>
+ {error?<p role="alert" className="pq-error">{error}</p>:null}
+ {step?<section className="pq-calculator" aria-labelledby="measure-title"><p className="pq-kicker">2 / APPROXIMATE THE WORK, NOT THE WHOLE PROPERTY</p><h2 id="measure-title">A couple of details. Then your price.</h2><p>Address matching is not a satellite measurement. Tell us approximately what needs clearing. Common-route stairs are considered; do not count individual steps.</p><form onSubmit={estimate}><div className="pq-fields"><label>Municipality<select required value={city} onChange={e=>{setCity(e.target.value);setResult(null);setContact(false);}}><option value="">Choose municipality</option>{cities.map(c=><option key={c}>{c}</option>)}</select></label><label>Property winter zone<select value={zone} onChange={e=>{const high=e.target.value==="upland";setZone(e.target.value);setSnow(high?20:10);setSalts(high?30:20);setResult(null);setContact(false);}}><option value="lowland">Lowland / standard exposure</option><option value="upland">Upland / mountain / exposed site</option></select></label><label>Common walkway length (metres)<input type="number" min="0" max="10000" step="any" value={walk} placeholder="e.g. 100" onChange={e=>{setWalk(e.target.value);setResult(null);setContact(false);}}/></label><label>Open-lot clearing area (square feet)<input type="number" min="0" max="200000" step="any" value={lot} placeholder="e.g. 10000" onChange={e=>{setLot(e.target.value);setResult(null);setContact(false);}}/></label></div><details><summary>See or change seasonal visit allowances</summary><p>Operating planning settings, not observed address snowfall averages. Salt-only visits below are additional to combined visits.</p><div className="pq-fields"><label>Snow + salt visits<input type="number" min="0" max="100" required value={snow} onChange={e=>{setSnow(Number(e.target.value));setResult(null);setContact(false);}}/></label><label>Additional salt-only visits<input type="number" min="0" max="200" required value={salts} onChange={e=>{setSalts(Number(e.target.value));setResult(null);setContact(false);}}/></label></div></details><button type="submit">Show my preliminary prices →</button><p className="pq-fine">Don't know the measurements? <a href="tel:+16047611518">Call for a property review</a>. We won't invent them.</p></form></section>:null}
+ {result?<section className="pq-result" ref={resultRef} tabIndex={-1} aria-labelledby="result-title"><p className="pq-kicker">YOUR STARTING POINT / BEFORE GST</p><h2 id="result-title">{result.city}: your preliminary winter budget.</h2><p>{result.address} · {result.zone} allowance</p><div className="pq-numbers"><div><small>Seasonal service allowance</small><strong>{money(Math.floor(result.season*.75/100)*100)}–{money(Math.ceil(result.season*1.25/100)*100)}</strong></div><div><small>Snow + salt / service</small><strong>{money(result.combined)}</strong></div><div><small>Salt-only / service</small><strong>{money(result.salt)}</strong></div></div><p>{result.snow} combined visits + {result.salts} additional salt-only visits = {result.snow+result.salts/2} service equivalents.</p><p>Range: ±25% around the working service allowance, rounded outward to $100. This is an initial budget policy, not a proven accuracy interval. Readiness reserves, dedicated equipment, ramps, alternative ice melt and other extras require review.</p><button onClick={()=>setContact(true)}>Interested? Get a reviewed quote →</button><p className="pq-fine">Nothing submitted. No booking made. Your address stays in this calculator until you choose to send an enquiry.</p>{contact?<div className="pq-contact"><h3>Let's confirm the property and final scope.</h3><p>Your preview is above. Now you can share contact details for a reviewed proposal.</p><ContactForm initialAddress={result.address} initialNotes={`Online beta preview: ${result.city}, ${result.zone}. ${walk||0}m common walkways; ${lot||0} sq ft lot. ${result.snow} combined and ${result.salts} additional salt-only visits. Preliminary service allowance ${money(result.season)} before GST and reviewed extras.`}/></div>:null}</section>:null}
+ <section className="pq-intro" id="how-pricing-works"><p className="pq-kicker">SNOW INTELLIGENCE / PRICING YOU CAN FOLLOW</p><h2>A starting number.<br/>A proper conversation.</h2><p>We are opening up the first stage of our online quoting system. Explore the cost before sharing contact details, see what changes the price, then let us confirm the ground-level details.</p><div className="pq-equation"><span>SNOW + SALT<strong>1 service</strong></span><b>=</b><span>SALT ONLY<strong>2 services</strong></span></div></section>
+ <figure className="pq-banner"><img src="/blog-images/wow-what-snow-removal-really-costs.jpg" alt="PlowWow winter service pricing guide with Wow branding" loading="lazy" width="1200" height="630"/><figcaption>Clear scope. Visible assumptions. A reviewed price before you commit.</figcaption></figure>
+ <div className="pq-guide">{sections.map((section,index)=><section key={section.title} id={`pricing-guide-${index+1}`}><p className="pq-kicker">{String(index+1).padStart(2,"0")} / WINTER PRICING GUIDE</p><h2>{section.title}</h2>{section.body.map(p=><p key={p.slice(0,45)}>{p}</p>)}{index===1?<div className="pq-note"><strong>The beta calculation, in plain sight</strong><p>Common walkway: $0.15 per linear foot. Open lot: $0.015 per square foot. Combined-service minimum: $175, applied as a floor, not an extra trip charge. These are provisional starting rates for this calculator, not verified market averages. Walkway metres convert to feet; no building floor area is used.</p></div>:null}</section>)}</div>
+ <section className="pq-faq"><p className="pq-kicker">STRAIGHT ANSWERS</p><h2>Online snow removal quotes: your questions.</h2>{faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}<nav aria-label="More snow removal information"><a href="/snow-removal-pricing-lower-mainland/">Snow removal pricing guide →</a><a href="/locations">Find your service area →</a><a href="/blog">Winter property guides →</a></nav></section>
+ <section className="pq-end"><h2>Let's make winter pricing clearer.</h2><p>Start with the address. See the assumptions. Decide if you want us to take a closer look.</p><a href="#service-address">Try the calculator ↑</a><a href="tel:+16047611518">Call 604-761-1518</a><a href="mailto:wow@plowwow.com">wow@plowwow.com</a></section>
+ <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))})}}/>
+ </main><Footer/></div>;
+}

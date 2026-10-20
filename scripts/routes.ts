@@ -148,9 +148,9 @@ export function collectRoutes(): RouteMeta[] {
     },
     {
       path: "/quote",
-      title: "Get a Snow Removal Quote | PlowWow Metro Vancouver",
+      title: "Snow Removal Cost Calculator & Online Quote | PlowWow",
       description:
-        "Request a fixed seasonal snow removal quote for your Metro Vancouver strata, commercial or industrial property. 24/7 dispatch, GPS-logged salt runs.",
+        "Enter your address and explore a preliminary snow removal budget. See seasonal, snow-and-salt and salt-only pricing before sharing contact details.",
       ogImage: `${BASE_URL}/og-default.jpg`,
       kind: "static",
     },
