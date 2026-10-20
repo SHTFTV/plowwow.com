@@ -43,3 +43,9 @@ The question remains open. A useful process should carry its assumptions into th
 [Request a reviewed quote](/quote).
 
 *Company editorial: this is PlowWow’s own proposed approach, not independent reporting.*
+
+## New pricing and contractor guides
+
+[How Much Does Snow Removal Cost in the Lower Mainland?](/snow-removal-pricing-lower-mainland/)
+
+[How to Choose a Great Snow Removal Contractor: Wow’s Checklist](/how-to-choose-snow-removal-contractor/)
