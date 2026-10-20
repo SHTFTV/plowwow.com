@@ -1,3 +1,4 @@
+import CityPricingGuides from "@/components/city/CityPricingGuides";
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
 import { Phone, ShieldCheck, Truck, Clock, MapPin, Snowflake } from "lucide-react";
@@ -58,7 +59,7 @@ const CityPage = () => {
   // enrich the OG/Twitter description with unique local specifics
   // (snowfall, freeze-thaw cycles, season window) so social previews
   // reflect each city page's unique copy rather than a generic blurb.
-  const pageDescription = truncateForMeta(city.intro);
+  const pageDescription = city.slug === "vancouver" ? "Vancouver snow removal and ice control for strata, commercial and residential properties. Plan sidewalks, entrances and parking with a reviewed PlowWow quote." : truncateForMeta(city.intro);
   const socialDescription = locationDeep
     ? truncateForMeta(
         `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
@@ -310,6 +311,7 @@ const CityPage = () => {
         )}
 
         <PriorityCityCluster citySlug={city.slug} />
+        {city.slug === "vancouver" && <CityPricingGuides citySlug="vancouver" />}
 
         <CitySnowVideo cityName={city.name} poster={ogImage} />
 

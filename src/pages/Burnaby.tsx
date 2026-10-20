@@ -1,3 +1,4 @@
+import CityPricingGuides from "@/components/city/CityPricingGuides";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,6 +30,7 @@ const Burnaby = () => {
       <BurnabyHero />
 
       <PriorityCityCluster citySlug="burnaby" />
+      <CityPricingGuides citySlug="burnaby" />
 
       <section className="py-16 bg-background" aria-labelledby="burnaby-plan-heading">
         <div className="container">
