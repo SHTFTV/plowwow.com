@@ -14,13 +14,11 @@ import {
 import logoMascot from "@/assets/wow-mascot.webp";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
   { label: "Residential", href: "/residential-snow-removal" },
   { label: "Commercial", href: "/commercial" },
   { label: "Service Areas", href: "/#service-areas" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Pricing & Quotes", href: "/snow-removal-pricing-lower-mainland/" },
 ];
 
 type CityLink = { name: string; slug: string };
@@ -126,7 +124,7 @@ const Navbar = () => {
           </DropdownMenu>
 
           <Button asChild variant="default" className="bg-primary hover:bg-primary/90 font-heading font-bold rounded-full px-6">
-            <Link to="/quote">Get Quote</Link>
+            <Link to="/quote">Quote Online</Link>
           </Button>
         </div>
 
@@ -179,7 +177,7 @@ const Navbar = () => {
             </details>
 
             <Button asChild variant="default" className="bg-primary font-heading font-bold rounded-full mt-2">
-              <Link to="/quote" onClick={() => setOpen(false)}>Get Quote</Link>
+              <Link to="/quote" onClick={() => setOpen(false)}>Quote Online</Link>
             </Button>
           </div>
         </div>

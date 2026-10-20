@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 
-const TITLE = "Get a Snow Removal Quote | PlowWow Metro Vancouver";
+const TITLE = "Get a Snow Removal Quote Online | PlowWow Vancouver";
 const DESCRIPTION =
   "Request a fixed seasonal snow removal quote for your Metro Vancouver strata, commercial or industrial property. 24/7 dispatch, GPS-logged salt runs, pet-safe de-icer.";
 const CANONICAL = "https://www.plowwow.com/quote";
@@ -83,11 +83,12 @@ const Quote = () => {
               PlowWow
             </p>
             <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
-              Get a Metro Vancouver Snow Removal Quote
+              Get Your Snow Removal Quote Online
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Fixed seasonal pricing, 24/7 dispatch, GPS-logged service and pet-safe de-icer for strata, commercial and industrial properties across Metro Vancouver.
             </p>
+            <a href="/snow-removal-pricing-lower-mainland/" className="inline-block mt-5 font-bold underline" style={{color:"#c45c08"}}>How much does snow removal cost? Read our pricing guide →</a>
           </div>
         </section>
         <ContactForm />
