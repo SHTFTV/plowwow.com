@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Rss } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoMascot from "@/assets/plowwow-mascot.webp";
+import logoMascot from "@/assets/wow-mascot.webp";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 const propertyTypes = [
