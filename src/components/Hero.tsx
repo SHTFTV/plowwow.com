@@ -65,6 +65,7 @@ const Hero = () => {
               <a className="wow-quote" href="/quote">GET YOUR WINTER QUOTE <ArrowUpRight size={20} aria-hidden="true" /></a>
               <a className="wow-call" href="tel:+16047611518"><Phone size={17} aria-hidden="true" />604-761-1518</a>
             </div>
+            <a className="wow-news-badge" href="/blog"><strong>plow<span>.news</span></strong><span>News from Wow about the plow industry <ArrowUpRight size={16} aria-hidden="true" /></span></a>
           </div>
           <figure className="wow-hero-mascot">
             <div className="wow-mascot-halo" aria-hidden="true" />
