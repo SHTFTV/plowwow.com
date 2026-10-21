@@ -12,7 +12,7 @@ Markdown Content:
 
 # PlowWow’s Online Snow Removal Calculator for Metro Vancouver Is Here
 
-![Wow using a tablet beside a cleared driveway in original PlowWow calculator artwork](/blog-images/metro-vancouver-snow-removal-calculator.jpg "PlowWow’s online snow removal calculator")
+![Wow using a tablet beside a cleared driveway in original PlowWow calculator artwork](/blog-images/metro-vancouver-online-snow-removal-calculator.jpg "PlowWow’s online snow removal calculator")
 
 *Original PlowWow AI concept artwork. An illustrative winter property, not a confirmed customer site.*
 
