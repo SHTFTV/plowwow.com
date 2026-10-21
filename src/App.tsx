@@ -26,6 +26,8 @@ const AdminGuestPosts = lazy(() => import("./pages/AdminGuestPosts.tsx"));
 const PublishHelper = lazy(() => import("./pages/PublishHelper.tsx"));
 const Takeoff = lazy(() => import("./pages/Takeoff.tsx"));
 const Quote = lazy(() => import("./pages/Quote.tsx"));
+const QuoteRequest = lazy(() => import("./pages/QuoteRequest.tsx"));
+const QuoteReceived = lazy(() => import("./pages/QuoteReceived.tsx"));
 const Locations = lazy(() => import("./pages/Locations.tsx"));
 const AdminLinkAudit = lazy(() => import("./pages/AdminLinkAudit.tsx"));
 const AdminGscCoverage = lazy(() => import("./pages/AdminGscCoverage.tsx"));
@@ -97,6 +99,8 @@ export const AppRoutes = () => (
             <Route path="/publish-helper" element={<PublishHelper />} />
             <Route path="/takeoff" element={<Takeoff />} />
             <Route path="/quote" element={<Quote />} />
+            <Route path="/quote/request" element={<QuoteRequest />} />
+            <Route path="/quote/received" element={<QuoteReceived />} />
             <Route path="/locations" element={<Locations />} />
             <Route path="/author/:slug" element={<AuthorPage />} />
             <Route path="/author/:slug/" element={<AuthorPage />} />

@@ -39,3 +39,21 @@ for (const cityPath of quoteRoutes) {
   mkdirSync(dir, {recursive:true}); writeFileSync(resolve(dir,'index.html'), html);
 }
 console.log(`✓ public-render: ${quoteRoutes.length} directly accessible city quote forms (noindex)`);
+
+// Quote funnel follow-up pages contain session-specific context: render safe empty states, noindex.
+for (const path of ['/quote/request','/quote/received']) {
+  const body=await render(path);
+  const start=template.indexOf('<div id="root">')+'<div id="root">'.length;
+  const end=template.lastIndexOf('</div>',template.indexOf('</body>'));
+  let html=template.slice(0,start)+body+template.slice(end);
+  const title=path.endsWith('/request')?'Review & Request Your Snow Removal Quote | PlowWow':'Your Quote Request · Next Steps | PlowWow';
+  html=html.replace(/<title>[^<]*<\/title>/,`<title>${title}</title>`)
+    .replace(/<link rel="canonical"[^>]*>/,`<link rel="canonical" href="https://www.plowwow.com${path}">`)
+    .replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g,'')
+    .replace(/<meta (?:property|name)="(?:og:|twitter:)[^"]*"[^>]*>/g,'')
+    .replace(/<meta name="robots"[^>]*>/g,'')
+     .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Review your PlowWow snow removal request and see the next steps. Final scope, price and availability require confirmation.">')
+    .replace('</head>',`<meta name="robots" content="noindex,follow"><meta name="referrer" content="same-origin"><meta property="og:title" content="${title}"><meta property="og:description" content="Your PlowWow quote request and next steps."><meta property="og:type" content="website"><meta property="og:site_name" content="PlowWow"><meta property="og:url" content="https://www.plowwow.com${path}"><meta property="og:image" content="https://www.plowwow.com/quote-media/sidewalk.jpg"><meta property="og:image:width" content="1536"><meta property="og:image:height" content="1024"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:alt" content="Wow clearing a snowy walkway"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="Your PlowWow quote request and next steps."><meta name="twitter:image" content="https://www.plowwow.com/quote-media/sidewalk.jpg"></head>`);
+  const dir=resolve('dist',path.slice(1));mkdirSync(dir,{recursive:true});writeFileSync(resolve(dir,'index.html'),html);
+}
+console.log('✓ public-render: safe noindex A/B/C funnel follow-up pages');

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { z } from "zod";
+import { acceptedQuoteId } from "@/lib/quoteFunnel";
 import { supabase, isSupabaseConfigured } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -111,7 +112,7 @@ const BLOCK_COPY: Record<BlockCode, { title: string; description: string }> = {
   },
 };
 
-const ContactForm = ({ initialAddress = "", initialNotes = "", initialPostalCode = "" }: { initialAddress?: string; initialNotes?: string; initialPostalCode?: string }) => {
+const ContactForm = ({ initialAddress = "", initialNotes = "", initialPostalCode = "", onAccepted }: { initialAddress?: string; initialNotes?: string; initialPostalCode?: string; onAccepted?: (requestId: string) => void }) => {
   const [data, setData] = useState<FormState>(() => ({ ...initial, address: initialAddress, postalCode: initialPostalCode, notes: initialNotes }));
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -160,7 +161,7 @@ const ContactForm = ({ initialAddress = "", initialNotes = "", initialPostalCode
     setSubmitting(true);
     try {
       const { data: res, error } = await supabase.functions.invoke<
-        { success?: boolean; error?: string; code?: BlockCode; details?: Record<string, string[]> }
+        { success?: boolean; error?: string; code?: BlockCode; id?: string; details?: Record<string, string[]> }
       >("submit-quote", {
         body: { ...result.data, hp: honeypot, startedAt: startedAtRef.current },
       });
@@ -192,6 +193,12 @@ const ContactForm = ({ initialAddress = "", initialNotes = "", initialPostalCode
         const copy = BLOCK_COPY.error;
         setBlockMessage({ title: copy.title, description: payload?.error || "We could not confirm your request. Please try again or contact us by phone or email." });
         toast({ title: copy.title, description: payload?.error || "We could not confirm your request. Please try again or contact us by phone or email.", variant: "destructive" });
+        return;
+      }
+
+      const savedId = acceptedQuoteId(payload, error);
+      if (onAccepted && savedId) {
+        onAccepted(savedId);
         return;
       }
 
