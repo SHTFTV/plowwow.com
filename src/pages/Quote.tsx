@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import { serviceExamples, matchQuoteCity } from "@/lib/quoteExamples";
 import sections from "@/content/quote-guide.json";
 import "./quote-page.css";
-const TITLE = "Free Snow Removal Cost Estimator · Metro Vancouver | PlowWow";
+const TITLE = "Snow Removal Quotes Online | PlowWow";
 const DESCRIPTION = "Get a free beta snow removal estimate for Metro Vancouver sidewalks, house driveways, storefronts and strata sites. Compare seasonal, five-visit and custom plans.";
 const money = (n: number) => new Intl.NumberFormat("en-CA", {style:"currency",currency:"CAD",maximumFractionDigits:2}).format(n);
 const cities = ["West Vancouver","North Vancouver","New Westminster","Port Coquitlam","Port Moody","Pitt Meadows","Maple Ridge","Tsawwassen","Vancouver","Richmond","Burnaby","Coquitlam","Surrey","Langley","Delta","Abbotsford","Chilliwack","Mission","White Rock"];
