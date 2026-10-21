@@ -1,0 +1,13 @@
+import {endpoint,publicKey} from '/contractor/contractor-config.js';
+import {validateApplication} from '/contractor/contractor-schema.js';
+const form=document.querySelector('form'),status=document.querySelector('#status'),button=form.querySelector('button[type=submit]');
+const startedAt=Date.now();let pending=null;
+form.addEventListener('input',()=>{pending=null;});
+async function request(payload){const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+publicKey,apikey:publicKey},body:JSON.stringify(payload)});const data=await response.json();if(!response.ok)throw Error(data.error||'We could not save your application. Please try again.');return data;}
+form.addEventListener('submit',async event=>{event.preventDefault();if(button.disabled)return;const raw=Object.fromEntries(new FormData(form));
+const source=new URLSearchParams(location.search).get('src')||'website';
+const application={business:raw.name,name:raw.name,email:raw.email,phone:raw.phone,base:raw.city,province:'BC',postalCode:raw.postalCode,areas:raw.areas,interest:'Current Lower Mainland / Fraser Valley support',response:raw.response,availability:raw.availability,services:'Individual shoveler application. Transport: '+raw.transport,insuranceStatus:'To discuss before any work',autoCoverage:'Not provided at application stage',worksafeStatus:'To be reviewed before any work',notes:'SHOVELER APPLICATION | Address: '+raw.address+' | Source: '+source.slice(0,60),operators:1,consent:raw.consent==='on',equipment:[{type:'Hand-clearing crew',make:'',model:'',year:null,quantity:1,details:'One applicant. Tools: '+raw.tools,photoCount:0}]};
+try{validateApplication(application);}catch(error){status.textContent=error.message;return;}
+button.disabled=true;button.textContent='Sending…';status.textContent='Saving your application securely…';
+try{if(!pending)pending=await request({action:'start',application,hp:raw.company_url,startedAt});const result=await request({action:'finish',id:pending.id,token:pending.token});if(result.success!==true||!result.id)throw Error('Submission was not confirmed. Please retry.');form.reset();pending=null;status.textContent='Application received. Your reference is '+result.id+'. PlowWow will review your details and contact you if there is a suitable opportunity. This is not a job offer or a guarantee of work.';status.focus();}catch(error){status.textContent=error.message||'We could not confirm your application. Your details are still here; please retry.';}finally{button.disabled=false;button.textContent='Send my shoveler application';}
+});
