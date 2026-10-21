@@ -1,5 +1,5 @@
 export const RATES = Object.freeze({walkPerFoot:0.15,lotPerSqFt:0.015,minimum:175,saltFraction:0.5,gst:0.05,version:'2026-10-21-beta'});
-export const CITIES = ['Vancouver','Burnaby','Richmond','Coquitlam','Port Coquitlam','Port Moody','New Westminster','North Vancouver','West Vancouver','Surrey','Langley','Delta','White Rock','Maple Ridge','Pitt Meadows','Abbotsford','Mission','Chilliwack'];
+export const CITIES = ['Vancouver','Burnaby','Richmond','Coquitlam','Port Coquitlam','Port Moody','New Westminster','North Vancouver','West Vancouver','Surrey','Langley','Delta','Tsawwassen','White Rock','Maple Ridge','Pitt Meadows','Abbotsford','Mission','Chilliwack'];
 export function calculate(input){
  const {walk,lot,snow,salt,units='metric',city}=input;
  if(!CITIES.includes(city))throw new Error('Choose a supported Lower Mainland municipality.');
