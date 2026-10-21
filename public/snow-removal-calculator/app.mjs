@@ -1,0 +1,25 @@
+import {calculate,CITIES,RATES} from './engine.mjs';
+const form=document.querySelector('#calculator'),out=document.querySelector('#result'),error=document.querySelector('#error');
+const money=n=>new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD'}).format(n);
+const $=id=>document.getElementById(id);let current=null,input=null;
+CITIES.forEach(c=>{const o=document.createElement('option');o.value=o.textContent=c;$('city').append(o)});
+function invalidate(){current=null;out.hidden=true;error.textContent=''}
+form.addEventListener('input',invalidate);form.addEventListener('change',invalidate);
+$('units').addEventListener('change',()=>{const metric=$('units').value==='metric';$('walk-unit').textContent=metric?'metres':'feet';$('lot-unit').textContent=metric?'square metres':'square feet';$('walk').value='';$('lot').value='';});
+form.addEventListener('submit',e=>{e.preventDefault();try{
+ input={city:$('city').value,walk:Number($('walk').value||0),lot:Number($('lot').value||0),snow:Number($('snow').value),salt:Number($('salt').value),units:$('units').value};
+ current=calculate(input);$('combined').textContent=money(current.combined);$('salt-result').textContent=money(current.saltOnly);$('season').textContent=money(current.season);$('range').textContent=money(current.low)+'–'+money(current.high);$('gst').textContent=money(current.gst);$('total').textContent=money(current.total);
+ $('walk-line').textContent=`${current.walkFt.toFixed(1)} linear feet × $0.15 = ${money(current.walkway)}`;
+ $('lot-line').textContent=`${current.lotSqFt.toFixed(1)} square feet × $0.015 = ${money(current.openArea)}`;
+ $('minimum-line').textContent=current.minimumAdjustment>0?`Minimum adjustment: ${money(current.minimumAdjustment)} brings the combined visit to $175. It is not an additional trip fee.`:'Measured scope is above the $175 combined-visit minimum.';
+ $('visits-line').textContent=`${current.snow} combined visits + ${current.salt} additional salt-only visits = ${current.equivalents} service equivalents.`;
+ $('review-warning').hidden=!$('ramp').checked;
+ out.hidden=false;out.focus();out.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+ }catch(err){error.textContent=err.message;error.focus()}});
+function summary(){return `PLOWWOW — PRELIMINARY SNOW REMOVAL BUDGET\n${input.city} | Rates ${RATES.version}\nWalkways: ${input.walk} ${input.units==='metric'?'m':'ft'}\nOpen clearing area: ${input.lot} ${input.units==='metric'?'m²':'ft²'}\n${$('walk-line').textContent}\n${$('lot-line').textContent}\n${$('minimum-line').textContent}\nCombined snow + salt: ${money(current.combined)} / visit\nSalt-only: ${money(current.saltOnly)} / additional visit\n${$('visits-line').textContent}\nSeasonal working allowance: ${money(current.season)} before GST\nGST 5%: ${money(current.gst)}\nTotal working allowance with GST: ${money(current.total)}\nPlanning range before GST: ${money(current.low)}–${money(current.high)}\nRamp/sloped access: ${$('ramp').checked?'yes; ramp-specific costs excluded pending review':'not indicated'}\nNormal snowfall and standard clearing surfaces assumed. Not a contract, booking or availability confirmation. Measurements and provisional rates require review. Additional snow hauling, extraordinary weather, equipment and materials may be quoted separately.\nhttps://www.plowwow.com/snow-removal-calculator\n604-761-1518 | wow@plowwow.com`;}
+$('download').addEventListener('click',()=>{if(!current)return;const url=URL.createObjectURL(new Blob([summary()],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='PlowWow-winter-budget.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+$('print').addEventListener('click',()=>window.print());
+document.querySelector('#request').addEventListener('submit',e=>{e.preventDefault();if(!current)return;const address=$('address').value.trim(),postal=$('postal').value.toUpperCase().trim();if(!/\d/.test(address)||address.length<8||!/^V[0-9][ABCEGHJ-NPRSTV-Z] ?[0-9][ABCEGHJ-NPRSTV-Z][0-9]$/.test(postal)){$('request-error').textContent='Enter a street number, street and valid BC postal code.';return;}
+ if(location.hostname!=='www.plowwow.com'&&location.hostname!=='plowwow.com'){$('request-error').textContent='Open this calculator on PlowWow to carry your details privately into the quote request.';return;}
+ try{sessionStorage.setItem('plowwow.quoteDraft.v1',JSON.stringify({address,postal,city:input.city,service:'Measured snow + salt budget',estimate:current.combined,unit:'per combined service',notes:summary().slice(0,1000),createdAt:new Date().toISOString()}));sessionStorage.removeItem('plowwow.quoteReceipt.v1');location.assign('/quote/request');}catch{$('request-error').textContent='Your browser could not retain the estimate. Download it or call us; no request has been sent.';}});
+if(location.hostname!=='www.plowwow.com'&&location.hostname!=='plowwow.com'){$('request').hidden=true;$('continue-main').hidden=false;}

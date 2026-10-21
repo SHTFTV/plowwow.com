@@ -18,7 +18,7 @@ const navItems = [
   { label: "Commercial", href: "/commercial" },
   { label: "Service Areas", href: "/#service-areas" },
   { label: "Blog", href: "/blog" },
-  { label: "Pricing & Quotes", href: "/snow-removal-pricing-lower-mainland/" },
+  { label: "Cost Calculator", href: "/snow-removal-calculator" },
 ];
 
 type CityLink = { name: string; slug: string };

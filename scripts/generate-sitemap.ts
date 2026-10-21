@@ -74,6 +74,7 @@ ${subset.map(urlBlock).join("\n")}
 // --- Split routes into buckets -------------------------------------------------
 const staticRoutes = routes.filter((r) => r.kind === "static");
 staticRoutes.push({ path: "/contractor-apply", kind: "static" } as RouteMeta);
+staticRoutes.push({ path: "/snow-removal-calculator", kind: "static" } as RouteMeta);
 const cityRoutes = routes.filter((r) => r.kind === "city");
 const blogRoutes = routes.filter((r) => r.kind === "legacy-blog");
 const pageRoutes = routes.filter((r) => r.kind === "legacy-page");

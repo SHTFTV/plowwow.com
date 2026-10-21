@@ -314,7 +314,7 @@ const CityPage = () => {
                 <h2 className="text-2xl font-black mb-3">What does snow removal in Vancouver cost?</h2>
                 <p className="text-muted-foreground leading-relaxed">Start with your address and postal code in our online estimator. The area to clear, stairs, slopes, parkade ramps, access and treatment needs all affect the estimate. Choose seasonal service, booked visits or an on-call request to suit the property; route availability and the final scope are confirmed before booking.</p>
                 <p className="mt-3 text-sm text-muted-foreground">Estimator prices are beta estimates for normal-condition snowfall events. Heavy or prolonged storms, accumulated snow, relocation and extra work need a separately confirmed scope. An estimate is not a confirmed dispatch or formal contract.</p>
-                <Button asChild className="mt-5 rounded-full font-bold"><Link to="/quote?city=vancouver">Enter your address for an instant estimate</Link></Button>
+                <Button asChild className="mt-5 rounded-full font-bold"><Link to="/quote?city=vancouver">Enter your address for an instant estimate</Link></Button><p className="mt-4"><a href="/snow-removal-calculator" className="font-bold underline">Use the Vancouver snow removal cost calculator ↗</a> — enter measured walkways and clearing areas, compare a winter visit scenario, and download the itemized result.</p>
               </div>
               <div className="mt-8 rounded-2xl border border-border p-6">
                 <h2 className="text-2xl font-black mb-3">Who clears the sidewalk outside your property?</h2>

@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {calculate} from '../src/lib/snowBudget.mjs';
+const base={city:'Vancouver',walk:100,lot:10000,snow:10,salt:20,units:'imperial'};
+test('minimum is a floor, salt is half, GST and service equivalents agree',()=>{const r=calculate(base);assert.equal(r.combined,175);assert.equal(r.minimumAdjustment,10);assert.equal(r.saltOnly,87.5);assert.equal(r.equivalents,20);assert.equal(r.season,3500);assert.equal(r.gst,175);assert.equal(r.total,3675);});
+test('metric and imperial describe the same work',()=>{const a=calculate(base),b=calculate({...base,walk:30.48,lot:929.0304,units:'metric'});assert.ok(Math.abs(a.season-b.season)<1e-8)});
+test('above minimum itemization uses each surface exactly once',()=>{const r=calculate({...base,walk:1000,lot:20000});assert.equal(r.combined,450);assert.equal(r.minimumAdjustment,0);assert.equal(r.season,9000)});
+test('salt-only scenario is supported without phantom snow visits',()=>{const r=calculate({...base,snow:0,salt:4});assert.equal(r.season,350)});
+test('invalid scopes and visit counts cannot create a quote',()=>{for(const change of [{walk:0,lot:0},{walk:-1},{lot:Infinity},{snow:1.5},{salt:201},{snow:101},{snow:0,salt:0},{city:'Toronto'},{lot:200001},{units:'yards'}])assert.throws(()=>calculate({...base,...change}));});
+test('standalone and React calculation sources cannot drift',()=>assert.equal(readFileSync('src/lib/snowBudget.mjs','utf8'),readFileSync('public/snow-removal-calculator/engine.mjs','utf8')));

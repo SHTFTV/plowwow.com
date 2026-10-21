@@ -148,7 +148,7 @@ export function collectRoutes(): RouteMeta[] {
     },
     {
       path: "/quote",
-      title: "Snow Removal Quotes Online | PlowWow",
+      title: "Snow Removal Quotes Online & Cost Calculator | PlowWow",
       description:
         "Get a free beta snow removal estimate for Metro Vancouver sidewalks, house driveways, storefronts and strata sites. Compare seasonal, five-visit and custom plans.",
       ogImage: `${BASE_URL}/blog-images/wow-what-snow-removal-really-costs.jpg`,
