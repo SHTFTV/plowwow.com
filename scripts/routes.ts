@@ -148,9 +148,9 @@ export function collectRoutes(): RouteMeta[] {
     },
     {
       path: "/quote",
-      title: "Snow Removal Cost Calculator & Online Quote | PlowWow",
+      title: "Free Snow Removal Cost Estimator · Metro Vancouver | PlowWow",
       description:
-        "Enter your address and explore a preliminary snow removal budget. See seasonal, snow-and-salt and salt-only pricing before sharing contact details.",
+        "Get a free beta snow removal estimate for Metro Vancouver sidewalks, house driveways, storefronts and strata sites. Compare seasonal, five-visit and custom plans.",
       ogImage: `${BASE_URL}/blog-images/wow-what-snow-removal-really-costs.jpg`,
       kind: "static",
     },
