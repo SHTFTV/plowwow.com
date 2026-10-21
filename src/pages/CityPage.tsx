@@ -60,7 +60,7 @@ const CityPage = () => {
   // (snowfall, freeze-thaw cycles, season window) so social previews
   // reflect each city page's unique copy rather than a generic blurb.
   const pageDescription = city.slug === "vancouver" ? "Vancouver snow removal and ice control for strata, commercial and residential properties. Plan sidewalks, entrances and parking with a reviewed PlowWow quote." : truncateForMeta(city.intro);
-  const socialDescription = locationDeep
+  const socialDescription = city.slug === "vancouver" ? pageDescription : locationDeep
     ? truncateForMeta(
         `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
       )
@@ -309,6 +309,18 @@ const CityPage = () => {
             </div>
           </section>
         )}
+
+        {isVancouver && <section className="container pb-12" aria-label="Vancouver snow removal pricing and sidewalk responsibilities"><div className="mt-10 rounded-2xl border border-primary/30 bg-card p-6 md:p-8">
+                <h2 className="text-2xl font-black mb-3">What does snow removal in Vancouver cost?</h2>
+                <p className="text-muted-foreground leading-relaxed">Start with your address and postal code in our online estimator. The area to clear, stairs, slopes, parkade ramps, access and treatment needs all affect the estimate. Choose seasonal service, booked visits or an on-call request to suit the property; route availability and the final scope are confirmed before booking.</p>
+                <p className="mt-3 text-sm text-muted-foreground">Estimator prices are beta estimates for normal-condition snowfall events. Heavy or prolonged storms, accumulated snow, relocation and extra work need a separately confirmed scope. An estimate is not a confirmed dispatch or formal contract.</p>
+                <Button asChild className="mt-5 rounded-full font-bold"><Link to="/quote?city=vancouver">Enter your address for an instant estimate</Link></Button>
+              </div>
+              <div className="mt-8 rounded-2xl border border-border p-6">
+                <h2 className="text-2xl font-black mb-3">Who clears the sidewalk outside your property?</h2>
+                <p className="text-muted-foreground leading-relaxed">Vancouver owners and occupants are responsible for clearing snow and ice from the full width of the adjacent sidewalk, including the side of a corner lot, by 10 a.m. each day when snow or freezing conditions are present. Include the frontage in your service plan and confirm the agreed clearing window.</p>
+                <a className="inline-block mt-3 underline underline-offset-4" href="https://vancouver.ca/streets-transportation/snow-removal-from-city-streets.aspx" target="_blank" rel="noopener noreferrer">City of Vancouver: current sidewalk snow and ice guidance ↗</a>
+              </div></section>}
 
         <PriorityCityCluster citySlug={city.slug} />
         {city.slug === "vancouver" && <CityPricingGuides citySlug="vancouver" />}

@@ -59,12 +59,13 @@ const Hero = () => {
           <div className="wow-hero-copy">
             <p className="wow-eyebrow"><span /> VANCOUVER · LOWER MAINLAND · FRASER VALLEY</p>
             <h1 id="hero-heading">WE PUT THE<br /><span>WOW</span> IN PLOW.</h1>
-            <p className="wow-service-label">SNOW REMOVAL &amp; ICE MANAGEMENT</p>
+            <p className="wow-service-label">SNOW REMOVAL VANCOUVER &amp; LOWER MAINLAND</p>
             <p className="wow-hero-description">Your property. Our winter priority.<br />Snow clearing, salting and de-icing for commercial, strata and residential properties.</p>
             <div className="wow-hero-actions">
               <a className="wow-quote" href="/quote">GET YOUR WINTER QUOTE <ArrowUpRight size={20} aria-hidden="true" /></a>
               <a className="wow-call" href="tel:+16047611518"><Phone size={17} aria-hidden="true" />604-761-1518</a>
             </div>
+            <a href="/vancouver" className="inline-block mt-5 text-white underline underline-offset-4 font-semibold">Vancouver snow removal: services, planning &amp; booking ↗</a>
             <a className="wow-news-badge" href="/blog"><strong>plow<span>.news</span></strong><span>News from Wow about the plow industry <ArrowUpRight size={16} aria-hidden="true" /></span></a>
           </div>
           <figure className="wow-hero-mascot">
