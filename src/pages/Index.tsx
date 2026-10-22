@@ -12,6 +12,8 @@ import SkilledTeamProjects from "@/components/SkilledTeamProjects";
 import OnlineQuoteCard from "@/components/OnlineQuoteCard";
 import HomeBlog from "@/components/HomeBlog";
 
+import PropertyExperience from "@/components/PropertyExperience";
+
 const Index = () => (
   <div className="min-h-screen">
     <TopBar />
@@ -19,6 +21,7 @@ const Index = () => (
     <main id="main-content" tabIndex={-1}>
     <Hero />
     <OnlineQuoteCard />
+    <PropertyExperience />
     <Services />
     <HomeBlog />
     <About />
