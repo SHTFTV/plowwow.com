@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig(() => ({
+export default defineConfig(({ isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -20,7 +20,7 @@ export default defineConfig(() => ({
   },
   build: {
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
+    rollupOptions: isSsrBuild ? undefined : {
       input: { main: path.resolve(__dirname, "index.html"), "calculator-runtime": path.resolve(__dirname, "src/simple-calculator.mjs") },
       output: { entryFileNames: (chunk) => chunk.name === "calculator-runtime" ? "calculator-runtime.js" : "assets/[name]-[hash].js" },
     },
