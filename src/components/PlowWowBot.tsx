@@ -12,14 +12,19 @@ const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancou
 
 /**
  * One persistent PlowWow contact floater for the whole site.
- * The residential page starts compact so the hero and booking action remain visible.
+ * Calculator and residential pages start compact so their primary action stays visible.
  */
+function startsCompact(pathname: string) {
+  const path = pathname.replace(/\/+$/, "");
+  return path === "/residential-snow-removal" || path === "/quote" || path.startsWith("/quote/") || /\/quote$/.test(path) || path === "/metro-vancouver-online-snow-removal-calculator";
+}
+
 export default function PlowWowBot() {
   const location = useLocation();
-  const [visible, setVisible] = useState(!["/residential-snow-removal", "/quote"].includes(location.pathname.replace(/\/$/, "")));
+  const [visible, setVisible] = useState(!startsCompact(location.pathname));
 
   useEffect(() => {
-    setVisible(!["/residential-snow-removal", "/quote"].includes(location.pathname.replace(/\/$/, "")));
+    setVisible(!startsCompact(location.pathname));
   }, [location.key, location.pathname]);
 
   useEffect(() => {
