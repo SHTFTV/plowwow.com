@@ -1918,6 +1918,15 @@
           "value": "1; mode=block"
         }
       ]
+    },
+    {
+      "source": "/calculator-embed/:path*",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
     }
   ],
   "cleanUrls": true,
