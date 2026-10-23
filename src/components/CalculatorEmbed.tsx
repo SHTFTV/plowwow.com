@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function CalculatorEmbed() {
+export default function CalculatorEmbed({ showIntro = true }: { showIntro?: boolean }) {
   const frame = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function CalculatorEmbed() {
   }, []);
 
   return (
-    <section className="container max-w-3xl py-6" aria-labelledby="inline-calculator-title">
-      <h2 id="inline-calculator-title" className="text-2xl font-black mb-2">Get your snow removal estimate</h2>
-      <p className="text-muted-foreground mb-4">Enter your address. See one price for your driveway, sidewalk, walkway and steps.</p>
+    <section className="container max-w-3xl py-6" aria-labelledby={showIntro ? "inline-calculator-title" : undefined} aria-label={showIntro ? undefined : "Snow removal calculator"}>
+      {showIntro ? <><h2 id="inline-calculator-title" className="text-2xl font-black mb-2">Get your snow removal estimate</h2>
+      <p className="text-muted-foreground mb-4">Enter your address. See one price for your driveway, sidewalk, walkway and steps.</p></> : null}
       <iframe ref={frame} src="/calculator-embed/" title="PlowWow snow removal calculator" className="w-full border-0" style={{ height: 620 }} />
       <p className="text-sm mt-3"><a className="text-primary underline" href="/snow-removal-calculator">Open the full calculator ↗</a></p>
     </section>

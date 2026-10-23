@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/property-map-preview/:path*",
+      "destination": "/snow-removal-calculator",
+      "permanent": true
+    },
+    {
       "source": "/app-features",
       "destination": "/advanced-technology",
       "permanent": true

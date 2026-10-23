@@ -2,11 +2,11 @@ Title: PlowWow’s Online Snow Removal Calculator for Metro Vancouver Is Here
 
 URL Source: https://www.plowwow.com/metro-vancouver-online-snow-removal-calculator
 
-Description: Get a clearer winter starting budget with PlowWow’s free snow removal calculator: measured surfaces, salt-only visits, seasonal scenarios, GST and a downloadable estimate.
+Description: Enter your address and see one combined residential snow removal starting price for the driveway, sidewalk, walkway and steps. No email required.
 
 Published: 2026-10-21T14:55:00-07:00
 
-Updated: 2026-10-21T14:55:00-07:00
+Updated: 2026-10-23T11:07:33-07:00
 
 Markdown Content:
 
@@ -16,56 +16,34 @@ Markdown Content:
 
 *Original PlowWow AI concept artwork. An illustrative winter property, not a confirmed customer site.*
 
-**By the PlowWow team · October 21, 2026**
+**By the PlowWow team · Published October 21, 2026 · Updated October 23, 2026**
 
-What will snow removal cost for your property this winter? You should be able to explore a useful starting number before a sales conversation. PlowWow’s [free online snow removal calculator](/snow-removal-calculator) puts the working calculation in front of you: the clearing surfaces, provisional rates, service minimum, salt-only visits and GST.
+Enter your address in the calculator above to see one combined residential snow removal starting price. The driveway, adjacent sidewalk, walkway, front steps and entrance are included together. You do not need to select each surface, measure the property or provide an email address to see the result.
 
-It is a beta planning tool for Vancouver and the listed Metro Vancouver and Fraser Valley municipalities. No name, phone number or email is required to see the result. It does not measure an address automatically, reserve a crew or turn a budget into a contract. It helps you ask better questions before the property review.
+## Address, price, optional follow-up
 
-## Two ways to get started
+The same simple calculator is available on [the main calculator page](/snow-removal-calculator), [the quote page](/quote) and the city quote pages. Enter a complete street number, street and municipality. Google Maps locates the address and shows the property on a satellite map.
 
-If you want a quick standard service example, [enter your address and postal code in the estimator](/quote). Current normal-condition starting examples are $75 for a walkway and steps, $125 for a single driveway and walkway, and $150 for a storefront entrance and frontage, before GST. The stated scope matters; parking lots, delivery lanes and larger properties are separate.
+The result displays a combined residential starting estimate of **$125 CAD per seasonal-route visit, before GST**. It uses a standard residential scope. The address lookup does not measure pavement or establish that every property needs the same amount of work. Larger properties, commercial sites, unusual access and one-off service require a confirmed quote.
 
-If you manage shared walkways, a circular drive or an open parking area, use the measured-scope calculator. Choose your municipality and units, add the approximate pedestrian-route length and vehicle-clearing area, then view an itemized budget. The calculator does not use the building’s floor area as a substitute for the outdoor work.
+You can view the price without signing up or sharing contact details. If you want PlowWow to follow up, choose the follow-up button after seeing the estimate. Your address, combined scope and starting price carry into the request form, where you provide the details needed for a reply. Nothing is booked or charged by viewing an estimate.
 
-## A snow removal calculator that shows its work
+## What the combined scope covers
 
-The measured-scope beta starts with $0.15 per linear foot of common walkway and $0.015 per square foot of open clearing area. It applies a $175 minimum to a combined snow-and-salt visit. The minimum is a floor, not a fee added on top of an already calculated visit. These are provisional PlowWow operating rates, not surveyed Vancouver market averages.
+The starting estimate brings the usual residential clearing areas together: driveway, adjacent sidewalk, walkway, front steps and entrance. There is no separate driveway-versus-sidewalk question. Describe any unusual access or extra work when you choose to request follow-up.
 
-For example, 100 linear feet of shared path contributes $15. An open clearing area of 10,000 square feet contributes $150. The measured subtotal is $165, so the minimum brings the combined visit to $175. It does not become $340. If the measured work totals more than $175, the calculation uses that larger figure.
+A steep driveway, narrow gate, parked vehicles, long private access or limited snow-storage space can change the work required. Heavy accumulation, drifting, compacted snow or ice also need review. The final written quote confirms the actual service boundaries and price.
 
-You can enter metres and square metres or feet and square feet. The tool converts the inputs into the same underlying units, so describing the same surfaces in either system produces the same price. Changing the unit selector clears the measurements rather than silently treating a number of metres as the same number of feet.
+## Seasonal routes and larger properties
 
-## Snowfall events and ice-control visits are different
+The displayed starting price is for a standard residential property joining a planned winter route. It does not reserve a crew or confirm attendance at a particular time. One-off visits and urgent requests need their own agreed arrangement.
 
-Vancouver winter planning is about more than counting snowstorms. Additional ice-control work can be needed between clearing visits. In this beta, a salt-only visit is half the combined snow-and-salt rate. It is displayed separately so you can see how the winter scenario changes.
+For a strata or commercial property, shared roads, multiple entrances, parking areas, loading routes and ramps need a property-specific plan. A residential starting estimate does not cover an entire complex. Include those details in an optional follow-up request so PlowWow can review the scope and availability.
 
-At the $175 combined minimum, ten combined visits and twenty additional salt-only visits produce a $3,500 working allowance before GST. Five per cent GST adds $175, making the illustrated total $3,675. The calculation is ten times $175 plus twenty times $87.50. It is not thirty full-price combined visits.
+## Your address and the next step
 
-Those counts are editable assumptions. They are not a weather forecast, a promise of included visits or a cap on the work required. A prolonged storm may involve more than one clearing pass, while a snow-free cold period can still require treatment. The final proposal must define obligations and extraordinary-weather terms.
+Address searches are sent to Google Maps when you ask to see the price. Google supplies the location; PlowWow supplies the standard starting price. If the map shows the wrong property, correct the address before continuing. Changing the address clears the previous result.
 
-## What the seasonal range means
+The follow-up button carries the estimate in your browser session. It does not send an email or submit an enquiry automatically. You choose whether to continue and submit the separate request form. PlowWow then reviews the property, access, route capacity and service terms before confirming a formal quote.
 
-The tool shows a working seasonal allowance and a planning range of 25 per cent below and above it, rounded outward to $100. This is a preliminary budgeting policy, not a statistically validated accuracy guarantee. It is useful for comparing your own scenarios while keeping the underlying assumptions visible.
-
-A seasonal contract is more than that multiplication. Dates, trigger depths, response obligations, access, materials, service boundaries, standby requirements and any extra-work authorizations belong in the written agreement. Seasonal coverage, a five-visit package and a single visit are available for discussion; the calculator does not invent a package discount or confirm availability.
-
-## Ramps, steep access and larger properties need a closer look
-
-A parkade ramp should never disappear into a generic square-foot number. Select the ramp warning if your site includes sloped vehicle access. The displayed standard-surface allowance then explicitly excludes ramp-specific labour, equipment and treatment pending review. A short steep ramp can require a different service plan from a broad, level surface.
-
-For strata properties, identify front, rear and internal shared pedestrian routes. Mark connecting stairs and landings, entrance thresholds, gates, loading areas and snow-storage constraints. Individual-unit paths and stairs need explicit agreement. For a commercial property, describe the opening times and access routes that matter to the business. The calculator cannot infer those details from a municipality selection.
-
-## Save the number, then request the quote
-
-Download the itemized result as a text estimate, or use print to save a PDF through your browser. The document includes the rates, measurements, visit assumptions and limitations. Downloading does not send an enquiry or authorize a charge.
-
-When you are ready, enter the service address and postal code to continue to PlowWow’s formal quote request. The estimate travels in your browser session for review. Nothing is sent until you submit that separate enquiry. A property review is where scope, route capacity and the final price are confirmed.
-
-## Built to become more useful with real quoting work
-
-We are improving the system around the questions property owners actually ask: what is included, which visits cost what, and what changes the price? Completed property reviews can help us compare preliminary assumptions with the work that was actually scoped. We will not describe untested accuracy as a guarantee.
-
-Start with [the snow removal cost calculator](/snow-removal-calculator), explore [Vancouver snow removal](/vancouver), or read [the Lower Mainland pricing guide](/snow-removal-pricing-lower-mainland/). For a direct conversation, call [604-761-1518](tel:+16047611518) or email [wow@plowwow.com](mailto:wow@plowwow.com).
-
-Clearer pricing. Better questions. A little more Wow before winter.
+Start with [the snow removal calculator](/snow-removal-calculator), explore [Vancouver snow removal](/vancouver), or read [the Lower Mainland pricing guide](/snow-removal-pricing-lower-mainland/). For a direct conversation, call [604-761-1518](tel:+16047611518).

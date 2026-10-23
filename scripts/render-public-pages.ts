@@ -23,7 +23,7 @@ const quoteRoutes = [...new Set(routes.filter(r => r.kind === 'city' || r.path =
 for (const cityPath of quoteRoutes) {
   const path = `${cityPath}/quote`;
   const body = await render(path);
-  if (!body.includes('<form') || !/<h1[\s>]/.test(body)) throw new Error(`Missing city quote form: ${path}`);
+  if (!body.includes('src="/calculator-embed/"') || !/<h1[\s>]/.test(body)) throw new Error(`Missing shared city calculator: ${path}`);
   const start = template.indexOf('<div id="root">') + '<div id="root">'.length;
   const end = template.lastIndexOf('</div>', template.indexOf('</body>'));
   const city = body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)![1].replace(/<[^>]*>/g, '').replace(/\s*Snow Removal Quote.*/, '');
@@ -38,7 +38,7 @@ for (const cityPath of quoteRoutes) {
   const dir = resolve('dist', path.slice(1));
   mkdirSync(dir, {recursive:true}); writeFileSync(resolve(dir,'index.html'), html);
 }
-console.log(`✓ public-render: ${quoteRoutes.length} directly accessible city quote forms (noindex)`);
+console.log(`✓ public-render: ${quoteRoutes.length} directly accessible address-only city calculators (noindex)`);
 
 // Quote funnel follow-up pages contain session-specific context: render safe empty states, noindex.
 for (const path of ['/quote/request','/quote/received']) {
