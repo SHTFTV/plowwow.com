@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import calculatorMarkup from "./calculator-embed.html?raw";
 
 export default function CalculatorEmbed() {
   const frame = useRef<HTMLIFrameElement>(null);
@@ -30,7 +31,7 @@ export default function CalculatorEmbed() {
     <section className="container max-w-3xl py-6" aria-labelledby="inline-calculator-title">
       <h2 id="inline-calculator-title" className="text-2xl font-black mb-2">Get your snow removal estimate</h2>
       <p className="text-muted-foreground mb-4">Enter your address and choose what needs clearing.</p>
-      <iframe ref={frame} src="/calculator-embed/" title="PlowWow snow removal calculator" className="w-full border-0" style={{ height: 620 }} />
+      <iframe ref={frame} srcDoc={calculatorMarkup} title="PlowWow snow removal calculator" className="w-full border-0" style={{ height: 620 }} />
       <p className="text-sm mt-3"><a className="text-primary underline" href="/snow-removal-calculator">Open the full calculator ↗</a></p>
     </section>
   );
