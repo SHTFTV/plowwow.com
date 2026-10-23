@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { publicLink } from "@/lib/publicLinks";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
+import CalculatorEmbed from "@/components/CalculatorEmbed";
 import Footer from "@/components/Footer";
 import WinterCommitment from "@/components/WinterCommitment";
 import ContactForm from "@/components/ContactForm";
@@ -350,7 +351,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       <TopBar />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
-        <section className="py-14 md:py-20 bg-gradient-to-b from-muted/40 to-background">
+        <section className={`${slug === "metro-vancouver-online-snow-removal-calculator" ? "py-6 md:py-8" : "py-14 md:py-20"} bg-gradient-to-b from-muted/40 to-background`}>
           <div className="container max-w-3xl">
             {kind === "blog" && (
               <nav aria-label="Breadcrumb" className="mb-4 text-xs">
@@ -415,6 +416,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             )}
           </div>
         </section>
+
+        {kind === "blog" && slug === "metro-vancouver-online-snow-removal-calculator" && <CalculatorEmbed />}
 
         {post && <figure className="container !max-w-3xl pt-6">
           <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
