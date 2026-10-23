@@ -26,7 +26,7 @@ const SkilledTeamProjects = () => (
         </h2>
         <p className="text-muted-foreground text-lg">
           From single driveways to multi-building strata sites — PlowWow has the crew,
-          equipment and experience for the 2025–26 season.
+          equipment and experience for the 2026–27 season.
         </p>
       </div>
 

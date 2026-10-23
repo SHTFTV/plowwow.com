@@ -140,3 +140,26 @@ html { overflow-x: clip; }
 @media(max-width:767px),(prefers-reduced-motion:reduce) { .property-experience-track { animation:none!important; } .property-experience-group[aria-hidden="true"] { display:none; } }
 
 @media(max-width:767px),(prefers-reduced-motion:reduce) { .property-experience-control { display:none; } }
+
+
+/* Property-management ribbon: native scrolling, with no automatic motion. */
+.manager-banner{scroll-margin-top:88px;position:relative;padding:38px 0 30px;background:#fff;border-top:4px solid #ff9637;border-bottom:1px solid #dfe7ed;color:#111b2a;overflow:hidden}
+.manager-banner-heading{margin-bottom:22px}
+.manager-banner-eyebrow{color:#a24400;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
+.manager-banner h2{font-size:clamp(22px,2.6vw,32px);line-height:1.2;margin:0;letter-spacing:-.025em}
+.manager-banner-window{overflow-x:auto;scrollbar-width:thin;scrollbar-color:#e58c37 #edf1f4;padding:8px 2px 16px;scroll-snap-type:x proximity}
+.manager-banner-track{width:max-content;min-width:100%}
+.manager-banner-group{display:flex;gap:20px}
+.manager-banner-card{flex:1 0 280px;width:clamp(280px,28vw,430px);height:144px;scroll-snap-align:start;border:1px solid #dce4eb;border-radius:14px;box-shadow:0 5px 18px #11223309;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden}
+.manager-banner-card img{display:block;object-fit:contain;width:100%;height:100%;max-width:310px}
+.manager-banner-card .manager-logo-ascent{max-width:150px}
+.manager-banner-add{gap:15px;background:#071426;color:#fff;border-color:#071426;text-decoration:none;justify-content:flex-start}
+.manager-banner-add strong{font-size:23px;display:block;line-height:1.2;color:#fff}
+.manager-banner-add small{font-size:12px;display:block;margin-top:7px;line-height:1.5;color:#d7e5f3}
+.manager-banner-plus{flex:none;display:grid;place-items:center;width:43px;height:43px;background:#ff9637;color:#071426;border-radius:50%}
+.manager-banner-add>svg{margin-left:auto;flex:none;color:#ffad5f}
+.manager-banner-note{font-size:12px;line-height:1.7;color:#526172;margin-top:10px}
+.manager-banner-hint{font-size:12px;color:#526172;margin-top:4px}
+.manager-banner-note a{font-weight:700;color:#164f70;margin-left:6px;text-decoration:underline;text-underline-offset:3px}
+.manager-banner a:focus-visible,.manager-banner-window:focus-visible{outline:3px solid #e88020;outline-offset:4px}
+@media(max-width:640px){.manager-banner{padding:26px 0 22px}.manager-banner-heading{margin-bottom:12px}.manager-banner-card{height:128px;width:280px;padding:22px}.manager-banner-group{gap:14px}.manager-banner-add{gap:12px}.manager-banner-add strong{font-size:22px}.manager-banner-note a{display:inline-block;margin-left:0}}

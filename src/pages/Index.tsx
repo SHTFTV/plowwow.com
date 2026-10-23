@@ -12,6 +12,7 @@ import SkilledTeamProjects from "@/components/SkilledTeamProjects";
 import OnlineQuoteCard from "@/components/OnlineQuoteCard";
 import HomeBlog from "@/components/HomeBlog";
 
+import PropertyManagerBanner from "@/components/PropertyManagerBanner";
 import PropertyExperience from "@/components/PropertyExperience";
 
 const Index = () => (
@@ -25,6 +26,7 @@ const Index = () => (
     <Services />
     <HomeBlog />
     <About />
+    <PropertyManagerBanner />
     <SkilledTeamProjects />
     <Features />
     <ServiceAreas />
