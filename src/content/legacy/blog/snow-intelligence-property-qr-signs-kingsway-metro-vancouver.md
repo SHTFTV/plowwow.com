@@ -6,7 +6,7 @@ Description: PlowWow’s Snow Intelligence rollout brings building-specific QR l
 
 Published: 2026-10-23T17:00:21-07:00
 
-Updated: 2026-10-23T17:19:58-07:00
+Updated: 2026-10-23T17:56:12-07:00
 
 Markdown Content:
 
@@ -41,9 +41,9 @@ Our public building pages provide those contact options now. They are the proper
 
 ## Eight years of Kingsway winter work
 
-![A PlowWow crew member clearing snow from the sidewalk at the Kingsway properties in Burnaby](/blog-images/kingsway-plowwow-sidewalk-snow-clearing-archive.jpg "PlowWow snow clearing at the Kingsway properties")
+![Snow-covered commercial parking area and building frontage at 5549 Kingsway in Burnaby, photographed at night](/blog-images/kingsway-5549-building-snow-plowwow.jpg "PlowWow Kingsway building snow-removal photograph")
 
-*Snow clearing at our Kingsway properties in Burnaby. Still from PlowWow’s original site footage; property identified by the PlowWow owner.*
+*5549 Kingsway, Burnaby: the commercial frontage and parking area in winter. Original PlowWow site photograph, recovered from the archived Metrotown uploads.*
 
 The technology is new. The relationship is established. Eight years serving these Kingsway properties means this rollout starts with sites we already work at, with established service relationships.
 

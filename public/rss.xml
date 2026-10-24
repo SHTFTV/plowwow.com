@@ -6,12 +6,20 @@
     <atom:link href="https://www.plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Sat, 24 Oct 2026 00:25:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 00:56:12 GMT</lastBuildDate>
     <image>
       <url>https://www.plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://www.plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>Putting the Wow in the Plow Industry. Again: Property QR Signs</title>
+      <link>https://www.plowwow.com/snow-intelligence-property-qr-signs-kingsway-metro-vancouver/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/snow-intelligence-property-qr-signs-kingsway-metro-vancouver/</guid>
+      <pubDate>Sat, 24 Oct 2026 00:56:12 GMT</pubDate>
+      <description>PlowWow’s Snow Intelligence rollout brings building-specific QR lawn signs to Metro Vancouver properties, starting with our long-served Kingsway sites…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/snow-intelligence-property-qr-signs-kingsway-metro-vancouver.jpg" type="image/jpeg" length="0" />
+    </item>
     <item>
       <title>Richmond Snow Removal Costs for 2026/27: Frontage, Driveways &amp; Ice</title>
       <link>https://www.plowwow.com/richmond-snow-removal-cost-estimate-2026-2027/</link>
@@ -43,14 +51,6 @@
       <pubDate>Sat, 24 Oct 2026 00:25:57 GMT</pubDate>
       <description>Start with a free instant beta estimate, then check slopes, shared paths and the actual clearing scope before agreeing your Coquitlam winter price…</description>
       <enclosure url="https://www.plowwow.com/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg" type="image/jpeg" length="0" />
-    </item>
-    <item>
-      <title>Putting the Wow in the Plow Industry. Again: Property QR Signs</title>
-      <link>https://www.plowwow.com/snow-intelligence-property-qr-signs-kingsway-metro-vancouver/</link>
-      <guid isPermaLink="true">https://www.plowwow.com/snow-intelligence-property-qr-signs-kingsway-metro-vancouver/</guid>
-      <pubDate>Sat, 24 Oct 2026 00:19:58 GMT</pubDate>
-      <description>PlowWow’s Snow Intelligence rollout brings building-specific QR lawn signs to Metro Vancouver properties, starting with our long-served Kingsway sites…</description>
-      <enclosure url="https://www.plowwow.com/blog-images/snow-intelligence-property-qr-signs-kingsway-metro-vancouver.jpg" type="image/jpeg" length="0" />
     </item>
     <item>
       <title>Abbotsford Strata Snow Plowing</title>
