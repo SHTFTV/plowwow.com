@@ -31,8 +31,8 @@ const Footer = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
         <div className="lg:col-span-1">
           <figure className="mb-4">
-            <img src={logoMascot} alt="PlowWow snow removal company logo and mascot" width={80} height={80} />
-            <figcaption className="sr-only">PlowWow — Professional snow removal serving Vancouver and Greater British Columbia</figcaption>
+            <img src={logoMascot} alt="PlowWow™ snow removal company logo and mascot" width={80} height={80} />
+            <figcaption className="sr-only">PlowWow™ — Professional snow removal serving Vancouver and Greater British Columbia</figcaption>
           </figure>
           <p className="text-sm opacity-80">
             We Put The Wow in Plow. Professional snow removal across Vancouver & Greater British Columbia.
@@ -50,8 +50,8 @@ const Footer = () => (
           </ul>
         </nav>
 
-        <nav aria-label="Why PlowWow">
-          <h4 className="font-heading font-bold text-lg mb-4">Why PlowWow</h4>
+        <nav aria-label="Why PlowWow™">
+          <h4 className="font-heading font-bold text-lg mb-4">Why PlowWow™</h4>
           <ul className="space-y-2 text-sm opacity-80">
             {whyPlowwow.map((w) => (
               <li key={w.href}>
@@ -74,7 +74,7 @@ const Footer = () => (
               <a
                 href="/rss.xml"
                 className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-                aria-label="Subscribe to the PlowWow blog RSS feed"
+                aria-label="Subscribe to the PlowWow™ blog RSS feed"
               >
                 <Rss className="w-3.5 h-3.5" aria-hidden="true" />
                 Subscribe (RSS)
@@ -82,7 +82,7 @@ const Footer = () => (
             </li>
             <li><Link to="/author/plowwow-team" className="hover:text-primary transition-colors">Authors</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
-            <li><Link to="/advanced-technology" className="hover:text-primary transition-colors">PlowWow App — Features & Pricing</Link></li>
+            <li><Link to="/advanced-technology" className="hover:text-primary transition-colors">PlowWow™ App — Features & Pricing</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
           </ul>
         </div>
@@ -115,7 +115,7 @@ const Footer = () => (
           <a
             href="/rss.xml"
             className="underline hover:text-primary"
-            aria-label="Subscribe to the PlowWow blog via RSS"
+            aria-label="Subscribe to the PlowWow™ blog via RSS"
           >
             Subscribe via RSS
           </a>
@@ -124,7 +124,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-8 pt-6 border-t border-footer-foreground/20 text-center text-sm opacity-60">
-        <div>© {new Date().getFullYear()} PlowWow.com — All rights reserved.</div>
+        <div>© {new Date().getFullYear()} PlowWow™ — All rights reserved.</div>
         <div className="mt-1">Powered by Industry Army Marketing</div>
       </div>
     </div>

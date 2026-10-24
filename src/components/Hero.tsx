@@ -71,14 +71,14 @@ const Hero = () => {
           <figure className="wow-hero-mascot">
             <div className="wow-mascot-halo" aria-hidden="true" />
             <span className="wow-mascot-word" aria-hidden="true">WOW</span>
-            <img src={wowMascot} alt="Wow, PlowWow’s blue mascot, waving with a snow shovel and orange safety vest" width={1024} height={1024} fetchPriority="high" decoding="async" />
+            <img src={wowMascot} alt="Wow, PlowWow™’s blue mascot, waving with a snow shovel and orange safety vest" width={1024} height={1024} fetchPriority="high" decoding="async" />
             <figcaption>YOUR WINTER. <strong>HANDLED.</strong></figcaption>
           </figure>
         </div>
         <div className="wow-hero-bottom"><a href="#services">MEET YOUR WINTER CREW <ArrowDown size={14} aria-hidden="true" /></a><button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} disabled={!motionAllowed}>{paused || !motionAllowed ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}{!motionAllowed ? "REDUCED MOTION" : paused ? "PLAY MOTION" : "PAUSE MOTION"}</button></div>
       </div>
       <div className="wow-hero-rail"><span>COMMERCIAL LOTS</span><b>✳</b><span>STRATA PROPERTIES</span><b>✳</b><span>RESIDENTIAL</span><b>✳</b><span>SNOW · SALT · DE-ICE</span></div>
-      <p className="wow-hero-credit">Original PlowWow mascot over an illustrative plowing, sidewalk-salting and brine-spraying montage. Service scope and timing are confirmed with your quote.</p>
+      <p className="wow-hero-credit">Original PlowWow™ mascot over an illustrative plowing, sidewalk-salting and brine-spraying montage. Service scope and timing are confirmed with your quote.</p>
     </section>
   );
 };
