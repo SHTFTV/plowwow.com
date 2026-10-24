@@ -13,6 +13,38 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "downtown-port-coquitlam-wilson-medical-office-snow-removal",
+    "title": "Downtown Port Coquitlam Medical-Office Snow Removal: Wilson Medical Renews",
+    "blurb": "Wilson Medical has renewed for 2026–27. PlowWow’s medical-office snow removal experts plan snow clearing, salting and parking-to-door access in Downtown Port Coquitlam…",
+    "image": "/blog-images/downtown-port-coquitlam-wilson-medical-office-snow-removal.jpg",
+    "alt": "Wow, the PlowWow mascot, indicating an imagined cleared medical-office walkway, with the words Clear paths. Care continues. Downtown, Port Coquitlam.",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-24T07:59:30.000Z",
+    "updatedAt": "2026-10-24T07:59:30.000Z"
+  },
+  {
+    "slug": "sapperton-new-westminster-medical-office-snow-removal",
+    "title": "Medical-Office Snow Removal Experts in Sapperton, New Westminster",
+    "blurb": "Columbia Medical Building has renewed for 2026–27. PlowWow brings medical-office snow removal, salting and patient-access planning to Sapperton, New Westminster…",
+    "image": "/blog-images/sapperton-new-westminster-medical-office-snow-removal.jpg",
+    "alt": "Wow, the PlowWow mascot, beside an imagined cleared medical-office entrance, with the words Medical access. Winter ready. Sapperton, New Westminster.",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-24T07:59:30.000Z",
+    "updatedAt": "2026-10-24T07:59:30.000Z"
+  },
+  {
     "slug": "snow-intelligence-property-qr-signs-kingsway-metro-vancouver",
     "title": "Putting the Wow in the Plow Industry. Again: Property QR Signs",
     "blurb": "PlowWow’s Snow Intelligence rollout brings building-specific QR lawn signs to Metro Vancouver properties, starting with our long-served Kingsway sites…",

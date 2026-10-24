@@ -1,3 +1,4 @@
+import { medicalRenewalPlace } from "../src/data/medicalRenewalLocations";
 // Post-build prerender: for every route, take dist/index.html and inject a
 // route-specific <title>, meta description, canonical, hreflang, OG tags, and
 // full JSON-LD (BreadcrumbList + FAQPage + LocalBusiness/BlogPosting) into the
@@ -202,6 +203,7 @@ function blogPosting(route: RouteMeta, url: string, headline: string, heroAbs: s
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    ...(medicalRenewalPlace(slug) ? { contentLocation: medicalRenewalPlace(slug) } : {}),
     headline,
     description: route.description,
     url,

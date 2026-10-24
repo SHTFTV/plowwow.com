@@ -1,13 +1,23 @@
 {
-  "generatedAt": "2026-10-24T00:56:35.816Z",
-  "count": 191,
+  "generatedAt": "2026-10-24T08:08:27.687Z",
+  "count": 193,
   "carousel": [
+    "downtown-port-coquitlam-wilson-medical-office-snow-removal",
+    "sapperton-new-westminster-medical-office-snow-removal",
     "snow-intelligence-property-qr-signs-kingsway-metro-vancouver",
-    "medical-strata-snow-removal-property-experience",
-    "metro-vancouver-online-snow-removal-calculator",
-    "coquitlam-snow-removal-cost-estimate-2026-2027"
+    "medical-strata-snow-removal-property-experience"
   ],
   "posts": [
+    {
+      "slug": "downtown-port-coquitlam-wilson-medical-office-snow-removal",
+      "publishedAt": "2026-10-24T07:59:30.000Z",
+      "updatedAt": "2026-10-24T07:59:30.000Z"
+    },
+    {
+      "slug": "sapperton-new-westminster-medical-office-snow-removal",
+      "publishedAt": "2026-10-24T07:59:30.000Z",
+      "updatedAt": "2026-10-24T07:59:30.000Z"
+    },
     {
       "slug": "snow-intelligence-property-qr-signs-kingsway-metro-vancouver",
       "publishedAt": "2026-10-24T00:00:21.000Z",
