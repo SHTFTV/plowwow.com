@@ -6,7 +6,7 @@ Description: PlowWow’s Snow Intelligence rollout brings building-specific QR l
 
 Published: 2026-10-23T17:00:21-07:00
 
-Updated: 2026-10-23T17:00:21-07:00
+Updated: 2026-10-23T17:19:58-07:00
 
 Markdown Content:
 
@@ -40,6 +40,10 @@ If you are flagging an icy area or an access issue, tell us which entrance, walk
 Our public building pages provide those contact options now. They are the property-specific access point for the wider Snow Intelligence rollout. We’ll keep building on that connection as the rollout progresses.
 
 ## Eight years of Kingsway winter work
+
+![A PlowWow crew member clearing snow from the sidewalk at the Kingsway properties in Burnaby](/blog-images/kingsway-plowwow-sidewalk-snow-clearing-archive.jpg "PlowWow snow clearing at the Kingsway properties")
+
+*Snow clearing at our Kingsway properties in Burnaby. Still from PlowWow’s original site footage; property identified by the PlowWow owner.*
 
 The technology is new. The relationship is established. Eight years serving these Kingsway properties means this rollout starts with sites we already work at, with established service relationships.
 

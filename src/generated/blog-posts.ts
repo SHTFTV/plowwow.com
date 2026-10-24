@@ -24,7 +24,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-24T00:00:21.000Z",
-    "updatedAt": "2026-10-24T00:00:21.000Z"
+    "updatedAt": "2026-10-24T00:19:58.000Z"
   },
   {
     "slug": "medical-strata-snow-removal-property-experience",
