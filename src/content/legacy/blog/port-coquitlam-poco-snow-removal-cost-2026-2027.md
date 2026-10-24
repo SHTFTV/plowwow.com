@@ -6,15 +6,15 @@ Description: For Port Coquitlam homes and businesses, start with an instant beta
 
 Published: 2026-10-21T12:25:00-07:00
 
-Updated: 2026-10-21T12:25:00-07:00
+Updated: 2026-10-23T17:25:57-07:00
 
 Markdown Content:
 
 # PoCo Snow Removal Costs for 2026/27: What Is Included in My Quote?
 
-![PlowWow illustrated Port Coquitlam property-scope plan for winter pricing](/blog-images/port-coquitlam-poco-snow-removal-cost-2026-2027.jpg "Winter property service scope example")
+![Wow beside two sidewalk frontages wrapping a snowy residential corner lot in an illustrated Port Coquitlam setting](/blog-images/port-coquitlam-poco-snow-removal-cost-2026-2027.jpg "PlowWow winter planning illustration")
 
-*Original PlowWow scope illustration. An example layout, not a measured customer site or a photograph of local conditions.*
+*AI-assisted PlowWow brand illustration showing winter access planning. This is an imagined setting, not a photograph of a customer property or current local conditions.*
 
 **[Try the free instant snow-removal estimate](/quote?city=Port%20Coquitlam)** — enter your address and postal code, see a beta starting figure, then request a formal quote.
 

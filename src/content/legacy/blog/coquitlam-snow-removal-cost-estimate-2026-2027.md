@@ -6,15 +6,15 @@ Description: Start with a free instant beta estimate, then check slopes, shared 
 
 Published: 2026-10-21T12:25:00-07:00
 
-Updated: 2026-10-21T12:25:00-07:00
+Updated: 2026-10-23T17:25:57-07:00
 
 Markdown Content:
 
 # What Will Snow Removal Cost My Coquitlam Property in 2026/27?
 
-![PlowWow illustrated Coquitlam property-scope plan for winter pricing](/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg "Winter property service scope example")
+![Wow reviewing a sloped townhouse approach and shared walkway in an illustrated Coquitlam winter setting](/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg "PlowWow winter planning illustration")
 
-*Original PlowWow scope illustration. An example layout, not a measured customer site or a photograph of local conditions.*
+*AI-assisted PlowWow brand illustration showing winter access planning. This is an imagined setting, not a photograph of a customer property or current local conditions.*
 
 **[Try the free instant snow-removal estimate](/quote?city=Coquitlam)** — enter your address and postal code, see a beta starting figure, then request a formal quote.
 

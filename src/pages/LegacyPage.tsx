@@ -421,7 +421,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {post && <figure className="container !max-w-3xl pt-6">
           <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
-          <figcaption className="mt-2 text-sm text-muted-foreground">{post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
+          <figcaption className="mt-2 text-sm text-muted-foreground">{post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
         </figure>}
 
         {kind === "blog" && wasUpdated && dates && (

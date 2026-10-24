@@ -61,21 +61,21 @@ export const blogPosts = [
     "title": "What Will Snow Removal Cost My Coquitlam Property in 2026/27?",
     "blurb": "Start with a free instant beta estimate, then check slopes, shared paths and the actual clearing scope before agreeing your Coquitlam winter price…",
     "image": "/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg",
-    "alt": "PlowWow illustrated Coquitlam property-scope plan for winter pricing",
+    "alt": "Wow reviewing a sloped townhouse approach and shared walkway in an illustrated Coquitlam winter setting",
     "theme": "residential",
     "tags": [
       "Contracts"
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-21T19:25:00.000Z",
-    "updatedAt": "2026-10-21T19:25:00.000Z"
+    "updatedAt": "2026-10-24T00:25:57.000Z"
   },
   {
     "slug": "langley-property-snow-removal-cost-2026-2027",
     "title": "Langley Property Snow Removal Costs in 2026/27: Start With the Address",
     "blurb": "Compare standard PlowWow estimates with a reviewed Langley property plan, including City versus Township rules, long access routes and shared areas…",
     "image": "/blog-images/langley-property-snow-removal-cost-2026-2027.jpg",
-    "alt": "PlowWow illustrated Langley property-scope plan for winter pricing",
+    "alt": "Wow pointing along a long townhouse access lane with a separate pedestrian path in an illustrated Langley winter setting",
     "theme": "residential",
     "tags": [
       "Contracts",
@@ -83,14 +83,14 @@ export const blogPosts = [
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-21T19:25:00.000Z",
-    "updatedAt": "2026-10-21T19:25:00.000Z"
+    "updatedAt": "2026-10-24T00:25:57.000Z"
   },
   {
     "slug": "port-coquitlam-poco-snow-removal-cost-2026-2027",
     "title": "PoCo Snow Removal Costs for 2026/27: What Is Included in My Quote?",
     "blurb": "For Port Coquitlam homes and businesses, start with an instant beta estimate and check corner-lot frontage, lane access and return visits…",
     "image": "/blog-images/port-coquitlam-poco-snow-removal-cost-2026-2027.jpg",
-    "alt": "PlowWow illustrated Port Coquitlam property-scope plan for winter pricing",
+    "alt": "Wow beside two sidewalk frontages wrapping a snowy residential corner lot in an illustrated Port Coquitlam setting",
     "theme": "citywide",
     "tags": [
       "Commercial",
@@ -98,14 +98,14 @@ export const blogPosts = [
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-21T19:25:00.000Z",
-    "updatedAt": "2026-10-21T19:25:00.000Z"
+    "updatedAt": "2026-10-24T00:25:57.000Z"
   },
   {
     "slug": "richmond-snow-removal-cost-estimate-2026-2027",
     "title": "Richmond Snow Removal Costs for 2026/27: Frontage, Driveways & Ice",
     "blurb": "See PlowWow’s current starting examples and learn why Richmond storefront frontage, corner sidewalks and private lots need different winter scopes…",
     "image": "/blog-images/richmond-snow-removal-cost-estimate-2026-2027.jpg",
-    "alt": "PlowWow illustrated Richmond property-scope plan for winter pricing",
+    "alt": "Wow reviewing a long shop frontage and cleared entrance route in an illustrated Richmond winter setting",
     "theme": "residential",
     "tags": [
       "Residential",
@@ -114,7 +114,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-21T19:25:00.000Z",
-    "updatedAt": "2026-10-21T19:25:00.000Z"
+    "updatedAt": "2026-10-24T00:25:57.000Z"
   },
   {
     "slug": "langley-cold-morning-snow-removal-planning-october-2026",
