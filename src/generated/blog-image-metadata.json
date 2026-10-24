@@ -1,4 +1,128 @@
 {
+  "/blog-images/snow-intelligence-property-qr-signs-kingsway-metro-vancouver.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/medical-strata-snow-removal-property-experience.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/metro-vancouver-online-snow-removal-calculator.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/langley-property-snow-removal-cost-2026-2027.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/port-coquitlam-poco-snow-removal-cost-2026-2027.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/richmond-snow-removal-cost-estimate-2026-2027.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-langley-story-v1.jpg": {
+    "width": 1024,
+    "height": 576
+  },
+  "/blog-images/wow-thaw-refreeze-property-inspection-notes.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/_theme-strata.jpg": {
+    "width": 1376,
+    "height": 768
+  },
+  "/blog-images/wow-what-snow-removal-really-costs.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-overnight-snow-service-building-access.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-snow-operator-first-route-readiness.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-snow-quote-photos-property-brief.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-snow-service-storm-shift-handover.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-snowmelt-drainage-maintenance-coordination.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-forecast-story-v1.jpg": {
+    "width": 1024,
+    "height": 576
+  },
+  "/blog-images/fairview-slopes-strata-snow-removal-hills-access.jpg": {
+    "width": 1600,
+    "height": 912
+  },
+  "/blog-images/kitsilano-strata-snow-removal-winter-contracts.jpg": {
+    "width": 1000,
+    "height": 558
+  },
+  "/blog-images/richmond-annual-commercial-strata-snow-removal-contracts.jpg": {
+    "width": 1376,
+    "height": 768
+  },
+  "/blog-images/first-frost-fraser-valley-concrete-ice-control.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/new-westminster-snow-removal-assistance-seniors-2026.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/blog-images/port-moody-snow-stars-subsidy-winter-access-2026.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/blog-images/richmond-snow-removal-subsidy-snow-angels-2026.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/blog-images/surrey-snow-removal-subsidy-seniors-strata-2026.jpg": {
+    "width": 1024,
+    "height": 1024
+  },
+  "/blog-images/burnaby-strata-winter-walkways-park-access.jpg": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/blog-images/langley-sidewalk-snow-removal-city-township-park-paths.jpg": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/blog-images/surrey-commercial-sidewalk-access-after-snow-plowing.jpg": {
+    "width": 1376,
+    "height": 768
+  },
+  "/blog-images/vancouver-sidewalk-snow-removal-connected-walking-routes.jpg": {
+    "width": 1536,
+    "height": 1024
+  },
+  "/blog-images/_theme-storm.jpg": {
+    "width": 1376,
+    "height": 768
+  },
   "/blog-images/burnaby-commercial-strata-snow-equipment-2026-2027.jpg": {
     "width": 1536,
     "height": 1024
@@ -58,10 +182,6 @@
   "/blog-images/vancouver-sidewalk-snow-clearing-plan.jpg": {
     "width": 1200,
     "height": 630
-  },
-  "/blog-images/_theme-strata.jpg": {
-    "width": 1376,
-    "height": 768
   },
   "/blog-images/westwood-plateau-coquitlam-parking-lot-snow-removal.jpg": {
     "width": 1280,
@@ -176,10 +296,6 @@
     "height": 900
   },
   "/blog-images/ranch-park-coquitlam-strata-commercial-snow-removal.jpg": {
-    "width": 1376,
-    "height": 768
-  },
-  "/blog-images/_theme-storm.jpg": {
     "width": 1376,
     "height": 768
   },

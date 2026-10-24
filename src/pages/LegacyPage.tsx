@@ -421,7 +421,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {post && <figure className="container !max-w-3xl pt-6">
           <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
-          <figcaption className="mt-2 text-sm text-muted-foreground">{post.alt}. Source: PlowWow editorial library; not a verified project record.</figcaption>
+          <figcaption className="mt-2 text-sm text-muted-foreground">{post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
         </figure>}
 
         {kind === "blog" && wasUpdated && dates && (

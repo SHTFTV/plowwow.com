@@ -13,6 +13,544 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "snow-intelligence-property-qr-signs-kingsway-metro-vancouver",
+    "title": "Putting the Wow in the Plow Industry. Again: Property QR Signs",
+    "blurb": "PlowWow’s Snow Intelligence rollout brings building-specific QR lawn signs to Metro Vancouver properties, starting with our long-served Kingsway sites…",
+    "image": "/blog-images/snow-intelligence-property-qr-signs-kingsway-metro-vancouver.jpg",
+    "alt": "PlowWow’s Snow Intelligence QR lawn sign for 5549 Kingsway, with a building-specific code and direct snow-team contact",
+    "theme": "residential",
+    "tags": [
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-24T00:00:21.000Z",
+    "updatedAt": "2026-10-24T00:00:21.000Z"
+  },
+  {
+    "slug": "medical-strata-snow-removal-property-experience",
+    "title": "Winter Access Matters: PlowWow’s Medical and Strata Property Experience",
+    "blurb": "From medical building entrances to strata ramps and shared paths, PlowWow brings property-specific snow and ice planning to busy Metro Vancouver sites…",
+    "image": "/blog-images/medical-strata-snow-removal-property-experience.jpg",
+    "alt": "PlowWow winter access artwork featuring the branded plow and salter truck, with the message People still need to get there",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-22T00:30:00.000Z",
+    "updatedAt": "2026-10-22T00:30:00.000Z"
+  },
+  {
+    "slug": "metro-vancouver-online-snow-removal-calculator",
+    "title": "PlowWow’s Online Snow Removal Calculator for Metro Vancouver Is Here",
+    "blurb": "Enter your address and see one combined residential snow removal starting price for the driveway, sidewalk, walkway and steps. No email required…",
+    "image": "/blog-images/metro-vancouver-online-snow-removal-calculator.jpg",
+    "alt": "Wow using a tablet beside a cleared driveway in original PlowWow calculator artwork",
+    "theme": "citywide",
+    "tags": [
+      "Residential",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-21T21:55:00.000Z",
+    "updatedAt": "2026-10-23T18:07:33.000Z"
+  },
+  {
+    "slug": "coquitlam-snow-removal-cost-estimate-2026-2027",
+    "title": "What Will Snow Removal Cost My Coquitlam Property in 2026/27?",
+    "blurb": "Start with a free instant beta estimate, then check slopes, shared paths and the actual clearing scope before agreeing your Coquitlam winter price…",
+    "image": "/blog-images/coquitlam-snow-removal-cost-estimate-2026-2027.jpg",
+    "alt": "PlowWow illustrated Coquitlam property-scope plan for winter pricing",
+    "theme": "residential",
+    "tags": [
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-21T19:25:00.000Z",
+    "updatedAt": "2026-10-21T19:25:00.000Z"
+  },
+  {
+    "slug": "langley-property-snow-removal-cost-2026-2027",
+    "title": "Langley Property Snow Removal Costs in 2026/27: Start With the Address",
+    "blurb": "Compare standard PlowWow estimates with a reviewed Langley property plan, including City versus Township rules, long access routes and shared areas…",
+    "image": "/blog-images/langley-property-snow-removal-cost-2026-2027.jpg",
+    "alt": "PlowWow illustrated Langley property-scope plan for winter pricing",
+    "theme": "residential",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-21T19:25:00.000Z",
+    "updatedAt": "2026-10-21T19:25:00.000Z"
+  },
+  {
+    "slug": "port-coquitlam-poco-snow-removal-cost-2026-2027",
+    "title": "PoCo Snow Removal Costs for 2026/27: What Is Included in My Quote?",
+    "blurb": "For Port Coquitlam homes and businesses, start with an instant beta estimate and check corner-lot frontage, lane access and return visits…",
+    "image": "/blog-images/port-coquitlam-poco-snow-removal-cost-2026-2027.jpg",
+    "alt": "PlowWow illustrated Port Coquitlam property-scope plan for winter pricing",
+    "theme": "citywide",
+    "tags": [
+      "Commercial",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-21T19:25:00.000Z",
+    "updatedAt": "2026-10-21T19:25:00.000Z"
+  },
+  {
+    "slug": "richmond-snow-removal-cost-estimate-2026-2027",
+    "title": "Richmond Snow Removal Costs for 2026/27: Frontage, Driveways & Ice",
+    "blurb": "See PlowWow’s current starting examples and learn why Richmond storefront frontage, corner sidewalks and private lots need different winter scopes…",
+    "image": "/blog-images/richmond-snow-removal-cost-estimate-2026-2027.jpg",
+    "alt": "PlowWow illustrated Richmond property-scope plan for winter pricing",
+    "theme": "residential",
+    "tags": [
+      "Residential",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-21T19:25:00.000Z",
+    "updatedAt": "2026-10-21T19:25:00.000Z"
+  },
+  {
+    "slug": "langley-cold-morning-snow-removal-planning-october-2026",
+    "title": "Cold Morning in Langley? Get Your Snow Plan Ready",
+    "blurb": "A nearby 3°C morning observation is a timely reminder to review Langley snow removal, winter access and seasonal service before the first snowfall…",
+    "image": "/blog-images/wow-langley-story-v1.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing Langley winter-service planning",
+    "theme": "citywide",
+    "tags": [
+      "Liability",
+      "Contracts"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T17:30:00.000Z",
+    "updatedAt": "2026-10-20T17:30:00.000Z"
+  },
+  {
+    "slug": "plus-two-temperature-strata-winter-readiness",
+    "title": "Plus 2°C on Your Phone: Is Your Strata Ready for Winter?",
+    "blurb": "A cool phone reading is a reminder to review winter routes, monitoring and service scope. It is not proof that every walkway needs salt…",
+    "image": "/blog-images/wow-thaw-refreeze-property-inspection-notes.jpg",
+    "alt": "Wow, the PlowWow mascot, explaining winter walkway checks and refreeze planning",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "De-Icing"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T17:30:00.000Z",
+    "updatedAt": "2026-10-20T17:30:00.000Z"
+  },
+  {
+    "slug": "burnaby-snow-removal-pricing-mountain-lowland",
+    "title": "Burnaby Snow Removal Pricing: SFU, Hills and Lower Routes",
+    "blurb": "Why Burnaby snow-service quotes differ between mountain sites and lower routes: equipment, ramps, treatment and seasonal readiness explained…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing clear winter service for Burnaby",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T03:00:00.000Z",
+    "updatedAt": "2026-10-20T03:00:00.000Z"
+  },
+  {
+    "slug": "burnaby-strata-snow-contract-entrances-ramps",
+    "title": "Burnaby Strata Snow Contracts: Entrances, Ramps and Repeat Visits",
+    "blurb": "Build a Burnaby winter-service brief for Metrotown, Brentwood, Lougheed or mountain sites, with common routes, extra treatment and contract limits clear…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing clear winter service for Burnaby",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Contracts"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T03:00:00.000Z",
+    "updatedAt": "2026-10-20T03:00:00.000Z"
+  },
+  {
+    "slug": "vancouver-seasonal-snow-removal-costs",
+    "title": "Vancouver Seasonal Snow Removal Costs: What Your Quote Should Cover",
+    "blurb": "Compare Vancouver snow removal pricing by common routes, ice treatment, access and seasonal scope. Request a reviewed quote from PlowWow…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing clear winter service for Vancouver",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T03:00:00.000Z",
+    "updatedAt": "2026-10-20T03:00:00.000Z"
+  },
+  {
+    "slug": "vancouver-strata-snow-contractor-scope-checklist",
+    "title": "Choosing a Vancouver Strata Snow Contractor: Scope Before Price",
+    "blurb": "A Vancouver council checklist for sidewalk frontage, entrances, parkade access, salt-only treatment and a clear seasonal snow agreement…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing clear winter service for Vancouver",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "De-Icing",
+      "Contracts"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-20T03:00:00.000Z",
+    "updatedAt": "2026-10-20T03:00:00.000Z"
+  },
+  {
+    "slug": "what-snow-removal-really-costs",
+    "title": "What Does Snow Removal Really Cost? Contracts, Single Events and the Fine Print",
+    "blurb": "Understand seasonal snow contracts, individual events, away-from-home coverage, heavy snow, salt allowances and equipment-hour charges before comparing estimates…",
+    "image": "/blog-images/wow-what-snow-removal-really-costs.jpg",
+    "alt": "Wow preparing a clear property quote for snow removal",
+    "theme": "citywide",
+    "tags": [
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-19T23:30:00.000Z",
+    "updatedAt": "2026-10-19T23:30:00.000Z"
+  },
+  {
+    "slug": "how-to-choose-snow-removal-contractor",
+    "title": "How to Choose a Great Snow Removal Contractor: Wow’s Checklist",
+    "blurb": "Wow explains how to compare snow contractors: clear pricing, included service areas, local crews, backup equipment and winter contract terms…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing clearer snow-service pricing",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-19T23:00:00.000Z",
+    "updatedAt": "2026-10-19T23:00:00.000Z"
+  },
+  {
+    "slug": "will-wow-set-new-standard-snow-pricing",
+    "title": "Will Wow Set a New Standard for Snow Removal Pricing?",
+    "blurb": "Could clearer online estimates make winter-service decisions easier? PlowWow sets out what a useful quote should explain before a price becomes an agreement…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, PlowWow’s mascot, preparing a property quote",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-19T23:00:00.000Z",
+    "updatedAt": "2026-10-19T23:00:00.000Z"
+  },
+  {
+    "slug": "overnight-snow-service-building-access",
+    "title": "Overnight Snow Service: Plan Building Access Before the Visit",
+    "blurb": "Prepare gates, entry routes, deliveries and overnight contacts so a snow-service crew can understand the agreed access plan before reaching your property…",
+    "image": "/blog-images/wow-overnight-snow-service-building-access.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded overnight access concept scene",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "snow-operator-first-route-readiness",
+    "title": "Your First Snow Route: What to Confirm Before Dispatch",
+    "blurb": "A practical readiness guide for snow operators covering accepted scope, site information, equipment limits and communication before the first route…",
+    "image": "/blog-images/wow-snow-operator-first-route-readiness.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded operator readiness concept scene",
+    "theme": "citywide",
+    "tags": [
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "snow-quote-photos-property-brief",
+    "title": "Better Snow Quotes Start With Better Property Photos",
+    "blurb": "Prepare useful, privacy-conscious photos and a simple property brief so a snow-service quote starts with access, priorities and a clear scope…",
+    "image": "/blog-images/wow-snow-quote-photos-property-brief.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded quote preparation concept scene",
+    "theme": "residential",
+    "tags": [
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "snow-service-storm-shift-handover",
+    "title": "A Better Snow-Service Handover Between Storm Shifts",
+    "blurb": "Keep the next snow-service shift informed with a clear site handover covering access, unfinished work, observations and the person approving changes…",
+    "image": "/blog-images/wow-snow-service-storm-shift-handover.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded storm handover concept scene",
+    "theme": "storm",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "snowmelt-drainage-maintenance-coordination",
+    "title": "Snowmelt and Drains: Give Each Maintenance Task an Owner",
+    "blurb": "Coordinate snow clearing, drain observations and building maintenance so meltwater concerns reach the right person without confusing the service scope…",
+    "image": "/blog-images/wow-snowmelt-drainage-maintenance-coordination.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded snowmelt & drains concept scene",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "thaw-refreeze-property-inspection-notes",
+    "title": "After the Thaw: A Better Refreeze Inspection Note",
+    "blurb": "Use clear observations after a thaw to help coordinate follow-up around shaded entrances, low spots and meltwater crossing winter walking routes…",
+    "image": "/blog-images/wow-thaw-refreeze-property-inspection-notes.jpg",
+    "alt": "Wow, the PlowWow mascot, in a branded thaw & refreeze concept scene",
+    "theme": "residential",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-19T15:00:00.000Z",
+    "updatedAt": "2026-10-19T15:00:00.000Z"
+  },
+  {
+    "slug": "metro-vancouver-mild-winter-forecast-snow-service-plan",
+    "title": "A Mild Winter Forecast? Metro Vancouver Still Needs a Snow Plan",
+    "blurb": "Keep Metro Vancouver strata and commercial winter plans ready without treating a seasonal outlook as a promise about every snowfall…",
+    "image": "/blog-images/wow-forecast-story-v1.jpg",
+    "alt": "Mild winter? Wow keeps the shovel, blower and plow ready anyway. AI illustration by PlowWow; the newspaper is fictional, not a weather forecast.",
+    "theme": "storm",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Liability",
+      "Weather",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-15T20:00:00.000Z",
+    "updatedAt": "2026-10-15T20:00:00.000Z"
+  },
+  {
+    "slug": "langley-township-commercial-snow-service-opening-plan",
+    "title": "Township of Langley: Build Your Snow Plan Around Opening Time",
+    "blurb": "Connect commercial sidewalk clearing, private entrances and service handovers in a Township of Langley winter plan…",
+    "image": "/blog-images/wow-langley-story-v1.jpg",
+    "alt": "Wow maps the walking route beside a Langley welcome sign, connecting homes and entrances. AI illustration by PlowWow; the sign is decorative and does not imply Township endorsement.",
+    "theme": "commercial",
+    "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-15T18:00:00.000Z",
+    "updatedAt": "2026-10-15T18:00:00.000Z"
+  },
+  {
+    "slug": "fairview-slopes-strata-snow-removal-hills-access",
+    "title": "Fairview Slopes Strata Snow Removal: Hills and Access",
+    "blurb": "Plan Fairview Slopes strata snow removal around steep approaches, street closures, narrow access and pedestrian routes. Request a PlowWow site review…",
+    "image": "/blog-images/fairview-slopes-strata-snow-removal-hills-access.jpg",
+    "alt": "PlowWow mascot in a winter illustration of a sloping Vancouver residential street",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-14T22:00:00.000Z",
+    "updatedAt": "2026-10-14T22:00:00.000Z"
+  },
+  {
+    "slug": "kitsilano-strata-snow-removal-winter-contracts",
+    "title": "Kitsilano Strata Snow Removal: A Winter Contract Checklist",
+    "blurb": "Plan Kitsilano strata snow removal around sidewalks, entrance steps, parkade access and a clear seasonal contract with PlowWow…",
+    "image": "/blog-images/kitsilano-strata-snow-removal-winter-contracts.jpg",
+    "alt": "PlowWow mascot in an illustrative snowy Kitsilano neighbourhood scene",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-14T21:30:00.000Z",
+    "updatedAt": "2026-10-14T21:30:00.000Z"
+  },
+  {
+    "slug": "richmond-annual-commercial-strata-snow-removal-contracts",
+    "title": "Richmond Snow Removal: Annual Contracts for Commercial & Strata Lots",
+    "blurb": "Book priority snow removal for Richmond strip malls, commercial parking lots and stratas. Help shape PlowWow’s new route with an annual winter-service contract…",
+    "image": "/blog-images/richmond-annual-commercial-strata-snow-removal-contracts.jpg",
+    "alt": "Wow, the PlowWow mascot, beside a cleared commercial parking lot in a branded winter-service illustration",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-14T03:00:00.000Z",
+    "updatedAt": "2026-10-14T03:00:00.000Z"
+  },
+  {
+    "slug": "first-frost-fraser-valley-concrete-ice-control",
+    "title": "First Frost, Fraser Valley: Protect Concrete and Plan Ice Control",
+    "blurb": "Langley, Abbotsford, Maple Ridge, Mission and Aldergrove: prepare winter service and approved supplies for new and stamped concrete…",
+    "image": "/blog-images/first-frost-fraser-valley-concrete-ice-control.jpg",
+    "alt": "PlowWow planning diagram showing concrete identification, approved traction materials and repeat route inspections",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-12T19:00:00.000Z",
+    "updatedAt": "2026-10-12T19:00:00.000Z"
+  },
+  {
+    "slug": "new-westminster-snow-removal-assistance-seniors-2026",
+    "title": "New Westminster Snow Help: An Accessible-Route Subsidy?",
+    "blurb": "What could a New Westminster snow-assistance pilot cover? Explore accessible paths, existing sidewalk guidance and questions for city hall in 2026–27…",
+    "image": "/blog-images/new-westminster-snow-removal-assistance-seniors-2026.jpg",
+    "alt": "PlowWow Wow mascot with an illustrated winter property scene for New Westminster snow-assistance planning",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-08T17:00:00.000Z",
+    "updatedAt": "2026-10-08T17:00:00.000Z"
+  },
+  {
+    "slug": "port-moody-snow-stars-subsidy-winter-access-2026",
+    "title": "Port Moody Snow Stars: Could a Snow Subsidy Add Support?",
+    "blurb": "Port Moody Snow Stars recognizes helpful neighbours. Could a funded snow-assistance pilot add support? Explore route priorities and city hall questions…",
+    "image": "/blog-images/port-moody-snow-stars-subsidy-winter-access-2026.jpg",
+    "alt": "PlowWow Wow mascot with an illustrated winter property scene for Port Moody snow-assistance planning",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-08T17:00:00.000Z",
+    "updatedAt": "2026-10-08T17:00:00.000Z"
+  },
+  {
+    "slug": "richmond-snow-removal-subsidy-snow-angels-2026",
+    "title": "Richmond Snow Removal Help: Could a Subsidy Fill the Gap?",
+    "blurb": "Could Richmond add a snow-removal subsidy? Compare Snow Angels with Peterborough’s pilot and questions to ask city hall before winter 2026–27…",
+    "image": "/blog-images/richmond-snow-removal-subsidy-snow-angels-2026.jpg",
+    "alt": "PlowWow Wow mascot with an illustrated winter property scene for Richmond snow-assistance planning",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-08T17:00:00.000Z",
+    "updatedAt": "2026-10-08T17:00:00.000Z"
+  },
+  {
+    "slug": "surrey-snow-removal-subsidy-seniors-strata-2026",
+    "title": "Surrey Snow Subsidy: Seniors’ Support and Strata Responsibilities",
+    "blurb": "Could Surrey test snow-removal assistance for seniors? Compare household support with strata contracts, practical access needs and questions for council…",
+    "image": "/blog-images/surrey-snow-removal-subsidy-seniors-strata-2026.jpg",
+    "alt": "PlowWow Wow mascot with an illustrated winter property scene for Surrey snow-assistance planning",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-08T17:00:00.000Z",
+    "updatedAt": "2026-10-08T17:00:00.000Z"
+  },
+  {
+    "slug": "burnaby-strata-winter-walkways-park-access",
+    "title": "Burnaby Strata Snow Clearing: Slopes, Walkways and Park Access",
+    "blurb": "Build a Burnaby strata snow and ice plan for sloped entrances, shaded walkways and park connections, with the local sidewalk deadline and contract checklist…",
+    "image": "/blog-images/burnaby-strata-winter-walkways-park-access.jpg",
+    "alt": "PlowWow editorial illustration for burnaby strata snow clearing: slopes, walkways and park access",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-07T20:00:00.000Z",
+    "updatedAt": "2026-10-07T20:00:00.000Z"
+  },
+  {
+    "slug": "langley-sidewalk-snow-removal-city-township-park-paths",
+    "title": "Langley Sidewalk Snow Rules: City, Township and Park Paths",
+    "blurb": "Compare Langley City and Township sidewalk snow deadlines. Plan commercial and strata walkways, park connections and winter service responsibilities…",
+    "image": "/blog-images/langley-sidewalk-snow-removal-city-township-park-paths.jpg",
+    "alt": "PlowWow editorial illustration for langley sidewalk snow rules: city, township and park paths",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-07T20:00:00.000Z",
+    "updatedAt": "2026-10-07T20:00:00.000Z"
+  },
+  {
+    "slug": "surrey-commercial-sidewalk-access-after-snow-plowing",
+    "title": "Surrey Snow Plowing: Keep Commercial Sidewalk Access Open",
+    "blurb": "Plan Surrey commercial sidewalk clearing after road plows pass. Address snowbanks, drainage, park connections and the 10 a.m. snow-removal requirement…",
+    "image": "/blog-images/surrey-commercial-sidewalk-access-after-snow-plowing.jpg",
+    "alt": "PlowWow editorial illustration for surrey snow plowing: keep commercial sidewalk access open",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-07T20:00:00.000Z",
+    "updatedAt": "2026-10-07T20:00:00.000Z"
+  },
+  {
+    "slug": "vancouver-sidewalk-snow-removal-connected-walking-routes",
+    "title": "Vancouver Sidewalk Snow Removal: Connected Walking Routes",
+    "blurb": "Plan Vancouver strata sidewalk snow removal, full-width clearance and park connections. Check the 10 a.m. rule and winter pedestrian access for 2026–27…",
+    "image": "/blog-images/vancouver-sidewalk-snow-removal-connected-walking-routes.jpg",
+    "alt": "PlowWow editorial illustration for vancouver sidewalk snow removal: connected walking routes",
+    "theme": "citywide",
+    "tags": [
+      "Strata"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-07T20:00:00.000Z",
+    "updatedAt": "2026-10-07T20:00:00.000Z"
+  },
+  {
+    "slug": "lower-mainland-single-digit-weather-seasonal-snow-bookings-2026",
+    "title": "Cool Nights: Lower Mainland Snow & Salt Bookings for 2026–27",
+    "blurb": "Prepare for winter with PlowWow seasonal contracts, five-visit booking enquiries or single visits for salt, brine and plowing across the Lower Mainland…",
+    "image": "/blog-images/_theme-storm.jpg",
+    "alt": "PlowWow mascot at a cleared commercial parking lot illustrating winter service planning",
+    "theme": "storm",
+    "tags": [
+      "De-Icing",
+      "Weather",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-06T03:00:00.000Z",
+    "updatedAt": "2026-10-06T03:00:00.000Z"
+  },
+  {
     "slug": "burnaby-commercial-strata-snow-equipment-2026-2027",
     "title": "Burnaby Snow Equipment for Stratas and Commercial Sites, 2026–27",
     "blurb": "Plan Burnaby commercial and strata snow equipment around slopes, parkade restrictions, sidewalks and parking stalls for winter 2026–2027…",
@@ -1579,20 +2117,20 @@ export const blogPosts = [
   {
     "slug": "kitsilano-vancouver-snow-removal",
     "title": "Kitsilano Vancouver Snow Removal",
-    "blurb": "Kitsilano snow removal for character-home driveways, West 4th and West Broadway retail, low-rise strata, and beach-area commercial. 60-minute response, GPS logs, pet-safe de-icer…",
+    "blurb": "Request Kitsilano snow removal for strata, residential and commercial properties. Confirm the site scope, seasonal arrangement and route availability with PlowWow…",
     "image": "/blog-images/kitsilano-vancouver-snow-removal.jpg",
-    "alt": "Kitsilano Vancouver snow removal — PlowWow mascot waving on a snow-covered Kitsilano street with character homes, a skid steer plowing in the background and English Bay visible in the distance",
+    "alt": "PlowWow Wow mascots in an illustrated snowy Kitsilano street scene",
     "theme": "citywide",
     "tags": [
       "Strata",
       "Commercial",
       "Residential",
-      "De-Icing",
+      "Contracts",
       "Equipment"
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-07-29T03:38:17.816Z",
-    "updatedAt": "2026-07-29T03:38:17.816Z"
+    "updatedAt": "2026-10-14T21:30:00.000Z"
   },
   {
     "slug": "ladner-delta-strata-commercial-snow-removal",
@@ -1861,21 +2399,19 @@ export const blogPosts = [
   },
   {
     "slug": "fairview-vancouver-strata-commercial-snow-removal",
-    "title": "Fairview Vancouver Strata & Commercial Snow Removal",
-    "blurb": "Fairview Vancouver strata & commercial snow removal — 24/7 dispatch, seasonal contracts, GPS-logged salt runs, pet-safe de-icer and BC Strata Act compliance…",
+    "title": "Fairview Vancouver Strata and Commercial Snow Removal",
+    "blurb": "Request Fairview Vancouver strata and commercial snow removal. Review access, sidewalks, service scope and winter timing with PlowWow…",
     "image": "/blog-images/fairview-vancouver-strata-commercial-snow-removal.jpg",
-    "alt": "PlowWow mascot waving beside a freshly plowed Fairview Vancouver street at blue dawn with Broadway mid-rise stratas, snow-dusted street trees and the False Creek skyline behind",
+    "alt": "PlowWow mascot beside an illustrated snowy residential street on a Vancouver hillside",
     "theme": "strata",
     "tags": [
       "Strata",
       "Commercial",
-      "De-Icing",
-      "Contracts",
       "Equipment"
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-07-29T03:38:17.814Z",
-    "updatedAt": "2026-07-29T03:38:17.814Z"
+    "updatedAt": "2026-10-14T22:00:00.000Z"
   },
   {
     "slug": "false-creek-vancouver-strata-snow-removal",
@@ -1998,13 +2534,15 @@ export const blogPosts = [
   },
   {
     "slug": "commercial-snow-removal-burnaby",
-    "title": "Commercial Snow Removal Burnaby",
-    "blurb": "Ensuring Safe and Accessible Business Premises Reliable Commercial Snow Removal in Burnaby Keep your business operational and safe during winter with our expert snow removal servic…",
-    "image": "/blog-images/_theme-commercial.jpg",
-    "alt": "Image 1: Get Professional Commercial Snow Removal in Burnaby",
+    "title": "Commercial Snow Removal Burnaby: Parking, Ramps and Winter Routes",
+    "blurb": "Plan Burnaby commercial snow plowing around parking lanes, entrances, ramps, storage and equipment. Compare the full scope with a reviewed PlowWow quote…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing commercial winter property service",
     "theme": "commercial",
     "tags": [
-      "Commercial"
+      "Commercial",
+      "Contracts",
+      "Equipment"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-07-29T03:38:17.812Z",
@@ -2012,13 +2550,15 @@ export const blogPosts = [
   },
   {
     "slug": "commercial-snow-removal-vancouver",
-    "title": "Commercial Snow Removal Vancouver",
-    "blurb": "Comprehensive Snow Management Solutions Efficient Snow Removal for Your Business Ensure your business remains accessible and safe during winter with our expert snow removal service…",
-    "image": "/blog-images/_theme-commercial.jpg",
-    "alt": "Image 1: snow removal edmonds burnaby, edmonds snow removal, snow plowing edmonds, burnaby snow removal, salting edmonds, de-icing edmonds, plowwow snow removal, winter services edmonds",
+    "title": "Commercial Snow Removal Vancouver: Access, Opening Hours and Site Scope",
+    "blurb": "Plan commercial snow removal in Vancouver around customer routes, loading access, sidewalk frontage and ice treatment. Request a reviewed PlowWow quote…",
+    "image": "/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg",
+    "alt": "Wow, the PlowWow mascot, introducing commercial winter property service",
     "theme": "commercial",
     "tags": [
-      "Commercial"
+      "Commercial",
+      "Contracts",
+      "Equipment"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-07-29T03:38:17.812Z",

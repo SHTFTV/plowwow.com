@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/advanced-technology" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/advanced-technology" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/advanced-technology" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -15,7 +15,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/24-7-service" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/24-7-service" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/24-7-service" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -24,7 +24,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/about" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/about" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -33,16 +33,16 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/apartment-complexes" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/apartment-complexes" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/apartment-complexes" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.plowwow.com/app</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/app" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/app" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/app" />
-    <lastmod>2026-09-07</lastmod>
+    <loc>https://www.plowwow.com/belcarra-snow-removal</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/belcarra-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/belcarra-snow-removal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/belcarra-snow-removal" />
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -51,7 +51,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/commercial" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/commercial" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/commercial" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -60,34 +60,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/contact" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/contact" />
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.plowwow.com/how-it-works</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/how-it-works" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/how-it-works" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/how-it-works" />
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.plowwow.com/marketing</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/marketing" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/marketing" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/marketing" />
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.plowwow.com/metrotown-snow-removal</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/metrotown-snow-removal" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/metrotown-snow-removal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/metrotown-snow-removal" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -96,7 +69,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/plowwow-service-areas" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/plowwow-service-areas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/plowwow-service-areas" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -105,7 +78,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/residential-snow-removal" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/residential-snow-removal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/residential-snow-removal" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -114,16 +87,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/satisfaction-guaranteed" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/satisfaction-guaranteed" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/satisfaction-guaranteed" />
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.plowwow.com/services</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/services" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/services" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -132,7 +96,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/skilled-courteous-team" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/skilled-courteous-team" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/skilled-courteous-team" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -141,7 +105,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/snow-blowers-for-sidewalks" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/snow-blowers-for-sidewalks" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/snow-blowers-for-sidewalks" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -150,7 +114,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/snow-relocation" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/snow-relocation" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/snow-relocation" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -159,7 +123,16 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/snow-removal-management-system" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/snow-removal-management-system" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/snow-removal-management-system" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.plowwow.com/snow-removal-pricing-lower-mainland</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/snow-removal-pricing-lower-mainland" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/snow-removal-pricing-lower-mainland" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/snow-removal-pricing-lower-mainland" />
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -168,16 +141,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/strata-complexes" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/strata-complexes" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/strata-complexes" />
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.plowwow.com/strata-experts</loc>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/strata-experts" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/strata-experts" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/strata-experts" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -186,7 +150,7 @@
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/strip-malls" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/strip-malls" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/strip-malls" />
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

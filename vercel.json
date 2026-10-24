@@ -1935,5 +1935,15 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/p/kw-5549",
+      "destination": "/p/kw-5549/index.html"
+    },
+    {
+      "source": "/p/kw-5593",
+      "destination": "/p/kw-5593/index.html"
+    }
+  ]
 }
