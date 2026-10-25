@@ -1,28 +1,28 @@
-.wow-crew-footer{box-sizing:border-box;background:radial-gradient(ellipse at 20% 70%,#14517b,#061527 60%);color:#f5f9ff;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:35px;padding:75px max(30px,6vw);overflow:hidden;font-family:Arial,sans-serif;isolation:isolate}.wow-crew-footer *{box-sizing:border-box}.wow-crew-stage{position:relative;min-height:450px;width:100%;max-width:700px;margin:auto}.wow-crew-character{position:absolute!important;object-fit:contain;width:48%!important;max-width:none!important;height:auto!important;bottom:20px;filter:drop-shadow(0 20px 14px #0005);transform-origin:50% 90%;animation:wow-crew-bop 1.05s ease-in-out infinite}.wow-crew-0{left:1%;bottom:120px;width:36%!important;animation-delay:-.35s;z-index:1}.wow-crew-1{left:32%;bottom:150px;width:36%!important;animation-delay:-.7s;z-index:0}.wow-crew-2{right:0;bottom:105px;width:36%!important;animation-delay:-.15s;z-index:1}.wow-crew-3{left:4%;z-index:2;animation-delay:-.5s}.wow-crew-4{right:1%;z-index:3;animation-delay:-.05s}.wow-crew-eyebrow{font-size:10px!important;letter-spacing:.18em;font-weight:bold;color:#8ad9ff;margin:0 0 25px!important}.wow-crew-copy h2{font-family:Nunito,Arial,sans-serif!important;font-size:clamp(40px,4.6vw,68px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.02!important;color:white!important;margin:0 0 25px!important;padding:0!important}.wow-crew-copy h2 span{color:#ff9a3e}.wow-crew-copy>p:not(.wow-crew-eyebrow):not(.wow-crew-caption){color:#c9dce9;font-size:16px;line-height:1.8;max-width:480px}.wow-crew-actions{display:flex;flex-wrap:wrap;gap:15px;margin-top:30px}.wow-crew-actions a{background:#ff9a3e;color:#051626!important;border-radius:7px;padding:14px 19px;font-size:13px;font-weight:bold;text-decoration:none!important}.wow-crew-actions a+a{background:transparent;border:1px solid #7ccbf6;color:#b4e6ff!important}.wow-crew-caption{color:#a1b8ca!important;font-size:10px!important;line-height:1.7!important;margin-top:24px!important}.wow-crew-pause{background:transparent;border:1px solid #6c9dbd;border-radius:5px;padding:7px 12px;color:#c7e8ff;cursor:pointer;font-size:11px}.wow-crew-footer a:focus-visible,.wow-crew-pause:focus-visible{outline:3px solid #ff9a3e;outline-offset:4px}.wow-crew-paused .wow-crew-character{animation-play-state:paused}@keyframes wow-crew-bop{0%,100%{transform:translateY(0) rotate(-3deg)}45%{transform:translateY(-19px) rotate(3deg)}70%{transform:translateY(-3px) rotate(1deg)}}@media(max-width:850px){.wow-crew-footer{grid-template-columns:1fr;padding:48px 25px;gap:15px}.wow-crew-stage{max-width:500px;min-height:360px}.wow-crew-copy{max-width:560px;margin:auto;width:100%}.wow-crew-copy h2{font-size:47px!important}.wow-crew-character{width:44%!important}.wow-crew-0,.wow-crew-1,.wow-crew-2{width:34%!important}.wow-crew-0{bottom:90px}.wow-crew-1{bottom:105px}.wow-crew-2{bottom:80px}}@media(max-width:430px){.wow-crew-stage{min-height:285px}.wow-crew-0{bottom:70px}.wow-crew-1{bottom:85px}.wow-crew-2{bottom:65px}}@media(prefers-reduced-motion:reduce){.wow-crew-character{animation:none!important}}
-
-/* One shared 100 BPM beat. The camera reveals the crew after a solo opening. */
-.wow-crew-stage{overflow:hidden}
-.wow-crew-formation{position:absolute;inset:0;transform-origin:50% 45%;animation:wow-crew-pullback 8.4s cubic-bezier(.2,.65,.25,1) infinite}
-.wow-crew-performer{position:absolute;bottom:20px;width:48%;transform-origin:50% 92%;animation:wow-crew-reveal 8.4s linear infinite}
-.wow-crew-performer .wow-crew-character{position:relative!important;display:block;width:100%!important;bottom:auto;left:auto;right:auto;animation:wow-crew-groove 1.2s linear infinite;animation-delay:0s;transform-origin:50% 92%;will-change:transform}
-.wow-crew-performer.wow-crew-0{left:1%;bottom:120px;width:36%;z-index:1}
-.wow-crew-performer.wow-crew-1{left:32%;bottom:150px;width:36%;z-index:0;animation:none;opacity:1}
-.wow-crew-performer.wow-crew-2{right:0;bottom:105px;width:36%;z-index:1}
-.wow-crew-performer.wow-crew-3{left:4%;z-index:2}
-.wow-crew-performer.wow-crew-4{right:1%;z-index:3}
-.wow-crew-paused .wow-crew-formation,.wow-crew-paused .wow-crew-performer,.wow-crew-paused .wow-crew-character,.wow-crew-waiting .wow-crew-formation,.wow-crew-waiting .wow-crew-performer,.wow-crew-waiting .wow-crew-character{animation-play-state:paused!important}
-@keyframes wow-crew-pullback{0%,18%,100%{transform:scale(1.85) translateY(8%)}35%,78%{transform:scale(1) translateY(0)}}
-@keyframes wow-crew-reveal{0%,18%,100%{opacity:0;transform:scale(.7)}35%,78%{opacity:1;transform:scale(1)}92%{opacity:0;transform:scale(.7)}}
-@keyframes wow-crew-groove{
-0%,50%,100%{transform:translateY(3px) rotate(0deg) scale(1.045,.955)}
-8%{transform:translate(-3px,-2px) rotate(-2deg) scale(.985,1.025)}
-20%{transform:translate(-7px,-24px) rotate(-4deg) scale(.98,1.02)}
-31%{transform:translate(-5px,-17px) rotate(-3deg) scale(1,1)}
-43%{transform:translate(-1px,0) rotate(-1deg) scale(1.02,.98)}
-58%{transform:translate(3px,-2px) rotate(2deg) scale(.985,1.025)}
-70%{transform:translate(7px,-24px) rotate(4deg) scale(.98,1.02)}
-81%{transform:translate(5px,-17px) rotate(3deg) scale(1,1)}
-93%{transform:translate(1px,0) rotate(1deg) scale(1.02,.98)}}
-@media(max-width:850px){.wow-crew-performer{width:44%}.wow-crew-performer.wow-crew-0,.wow-crew-performer.wow-crew-1,.wow-crew-performer.wow-crew-2{width:34%}.wow-crew-performer.wow-crew-0{bottom:90px}.wow-crew-performer.wow-crew-1{bottom:105px}.wow-crew-performer.wow-crew-2{bottom:80px}}
-@media(max-width:430px){.wow-crew-performer.wow-crew-0{bottom:70px}.wow-crew-performer.wow-crew-1{bottom:85px}.wow-crew-performer.wow-crew-2{bottom:65px}}
-@media(prefers-reduced-motion:reduce){.wow-crew-formation,.wow-crew-performer,.wow-crew-character{animation:none!important;transform:none!important;opacity:1!important}}
+.wow-crew-footer{box-sizing:border-box;background:radial-gradient(ellipse at 20% 70%,#14517b,#061527 60%);color:#f5f9ff;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:35px;padding:65px max(30px,6vw);overflow:hidden;font-family:Arial,sans-serif;isolation:isolate}
+.wow-crew-footer *{box-sizing:border-box}
+.wow-crew-stage{position:relative;width:100%;max-width:700px;aspect-ratio:1.35;margin:auto;overflow:hidden}
+.wow-crew-formation{position:absolute;inset:0}
+.wow-crew-performer{position:absolute;width:30%;bottom:40%;transform-origin:50% 92%;animation:wow-crew-multiply 8s ease-in-out infinite;will-change:transform}
+.wow-crew-character{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 7px #0004);transform-origin:50% 92%;animation:wow-crew-groove 1.2s ease-in-out infinite}
+.wow-crew-0{left:2%;--solo-x:110%;--solo-y:60%;z-index:1}
+.wow-crew-1{left:35%;z-index:3;animation:wow-crew-lead 8s ease-in-out infinite}
+.wow-crew-2{left:68%;--solo-x:-110%;--solo-y:60%;z-index:1}
+.wow-crew-3{left:13%;bottom:3%;width:37%;--solo-x:50%;--solo-y:-45%;z-index:4}
+.wow-crew-4{left:50%;bottom:3%;width:37%;--solo-x:-50%;--solo-y:-45%;z-index:4}
+/* Copies begin behind the solo, spread into formation, hold, then regroup. No translucent ghosts. */
+@keyframes wow-crew-multiply{0%,16%,100%{visibility:hidden;transform:translate(var(--solo-x),var(--solo-y)) scale(.9)}17%{visibility:visible;transform:translate(var(--solo-x),var(--solo-y)) scale(.9)}36%,76%{visibility:visible;transform:translate(0,0) scale(1)}94%{visibility:visible;transform:translate(var(--solo-x),var(--solo-y)) scale(.9)}95%{visibility:hidden;transform:translate(var(--solo-x),var(--solo-y)) scale(.9)}}
+@keyframes wow-crew-lead{0%,16%,95%,100%{transform:translateY(60%) scale(1.65)}36%,76%{transform:translateY(0) scale(1)}}
+@keyframes wow-crew-groove{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-8px) rotate(-2deg)}75%{transform:translateY(-8px) rotate(2deg)}}
+.wow-crew-eyebrow{font-size:10px!important;letter-spacing:.18em;font-weight:bold;color:#8ad9ff;margin:0 0 25px!important}
+.wow-crew-copy h2{font-family:Nunito,Arial,sans-serif!important;font-size:clamp(40px,4.6vw,68px)!important;font-weight:900!important;letter-spacing:-.04em!important;line-height:1.02!important;color:white!important;margin:0 0 25px!important;padding:0!important}
+.wow-crew-copy h2 span{color:#ff9a3e}
+.wow-crew-copy>p:not(.wow-crew-eyebrow):not(.wow-crew-caption){color:#c9dce9;font-size:16px;line-height:1.8;max-width:480px}
+.wow-crew-actions{display:flex;flex-wrap:wrap;gap:15px;margin-top:30px}
+.wow-crew-actions a{background:#ff9a3e;color:#051626!important;border-radius:7px;padding:14px 19px;font-size:13px;font-weight:bold;text-decoration:none!important}
+.wow-crew-actions a+a{background:transparent;border:1px solid #7ccbf6;color:#b4e6ff!important}
+.wow-crew-caption{color:#a1b8ca!important;font-size:10px!important;line-height:1.7!important;margin-top:24px!important}
+.wow-crew-pause{background:transparent;border:1px solid #6c9dbd;border-radius:5px;padding:7px 12px;color:#c7e8ff;cursor:pointer;font-size:11px}
+.wow-crew-footer a:focus-visible,.wow-crew-pause:focus-visible{outline:3px solid #ff9a3e;outline-offset:4px}
+.wow-crew-paused .wow-crew-performer,.wow-crew-paused .wow-crew-character,.wow-crew-waiting .wow-crew-performer,.wow-crew-waiting .wow-crew-character{animation-play-state:paused!important}
+@media(max-width:850px){.wow-crew-footer{grid-template-columns:1fr;padding:36px 20px 48px;gap:26px}.wow-crew-stage{max-width:500px}.wow-crew-copy{max-width:560px;margin:auto;width:100%}.wow-crew-copy h2{font-size:47px!important}}
+@media(prefers-reduced-motion:reduce){.wow-crew-performer,.wow-crew-character{animation:none!important;transform:none!important;visibility:visible!important}}
