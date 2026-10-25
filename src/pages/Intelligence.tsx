@@ -2,21 +2,15 @@ import { useEffect } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import IntelligenceHero from "@/components/intelligence/IntelligenceHero";
-import IntelligenceFeatures from "@/components/intelligence/IntelligenceFeatures";
-import PWIEEngine from "@/components/intelligence/PWIEEngine";
-import WeatherBrain from "@/components/intelligence/WeatherBrain";
-import WowShield from "@/components/intelligence/WowShield";
-import GhostFleet from "@/components/intelligence/GhostFleet";
-import IntelligenceCTA from "@/components/intelligence/IntelligenceCTA";
+import BetaOverview from "@/components/intelligence/BetaOverview";
 
-const TITLE = "PlowWow Snow Intelligence — PWIE & Wow-Shield";
+const TITLE = "PlowWow™ Snow Intelligence | First-Year Beta";
 const DESCRIPTION =
-  "PlowWow's snow intelligence stack: PWIE dispatch, Weather Brain forecasting, Salt-Scan AI, Ghost Fleet GPS, and Wow-Shield™ liability vault.";
+  "A first-year snow-operations beta shaped by 15 snow seasons. Explore the public estimator, planned capabilities and how to help PlowWow test the next steps.";
 const BASE = "https://www.plowwow.com";
 const PATH = "/intelligence";
 const URL_ABS = `${BASE}${PATH}`;
-const OG_IMAGE = `${BASE}/og-default.jpg`;
+const OG_IMAGE = `${BASE}/og/snow-intelligence-beta.jpg`;
 
 const setMeta = (name: string, content: string) => {
   let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -115,13 +109,7 @@ const Intelligence = () => {
       <TopBar />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
-        <IntelligenceHero />
-        <IntelligenceFeatures />
-        <PWIEEngine />
-        <WeatherBrain />
-        <WowShield />
-        <GhostFleet />
-        <IntelligenceCTA />
+        <BetaOverview />
       </main>
       <Footer />
     </div>

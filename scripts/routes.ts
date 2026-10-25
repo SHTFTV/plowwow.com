@@ -124,18 +124,18 @@ export function collectRoutes(): RouteMeta[] {
     },
     {
       path: "/intelligence",
-      title: "PlowWow Intelligence — Snow Ops Software | PlowWow",
+      title: "PlowWow™ Snow Intelligence | First-Year Beta",
       description:
-        "AI-assisted routing, salt-scan and GPS-tracked fleet dashboards for professional snow removal contractors.",
-      ogImage: `${BASE_URL}/og-default.jpg`,
+        "First-year beta shaped by snow-removal experience. Try the public estimator and review what is planned or under evaluation.",
+      ogImage: `${BASE_URL}/og/snow-intelligence-beta.jpg`,
       kind: "static",
     },
     {
       path: "/advanced-technology",
-      title: "Advanced Snow Removal Technology | PlowWow",
+      title: "PlowWow™ Technology | Honest Beta Status",
       description:
-        "How PlowWow uses real-time weather triggers, GPS tracking and geofenced routing to keep Greater Vancouver strata and commercial lots clear.",
-      ogImage: `${BASE_URL}/og-default.jpg`,
+        "Explore the Snow Intelligence beta, founder experience and research into site mapping, photo review, weather support and service records.",
+      ogImage: `${BASE_URL}/og/snow-technology-beta.jpg`,
       kind: "static",
     },
     {

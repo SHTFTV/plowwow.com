@@ -6,7 +6,7 @@ Description: Start with PlowWow’s Abbotsford snow estimate, confirm your winte
 
 Published: 2026-10-24T19:35:58-07:00
 
-Updated: 2026-10-24T19:35:58-07:00
+Updated: 2026-10-24T20:11:19-07:00
 
 Markdown Content:
 
@@ -107,3 +107,12 @@ No. The written proposal establishes the price and service obligations. Confirm 
 - [Abbotsford.io: a local guide to snow-removal costs](https://abbotsford.io/resources/abbotsford-snow-removal-costs-five-hour-route).
 
 *Offer and product references checked October 24, 2026. Ask us to confirm the current proposal for your property.*
+
+
+## First-year beta, informed by real operating experience
+
+Our founder reports 15 snow-removal seasons, four seasons of North American marketing through a previous brand, and 25 years in contracting. Snow Intelligence itself is in its first year of beta. We believe combining that experience with new AI tools is our strongest direction yet; real use and user feedback must establish the results.
+
+For Abbotsford and the Fraser Valley, two useful development questions are **a clearer property scope before a quote** and **a clearer record after a visit**. The pricing beta is publicly available. Client notifications and service-record access must be confirmed for each participating property. Pre-season hazard maps and AI-assisted photo review are concepts under evaluation, not released promises. An ordinary completion photo is not a validated salt-density measurement or an assurance that a surface is safe.
+
+AI is advancing quickly, and we are learning with it. We are not presenting this first beta as an independently tested winner over other software. [Read the current beta status](/intelligence), or [tell us which workflow your property needs most](mailto:wow@plowwow.com?subject=Abbotsford%20Snow%20Intelligence%20beta).

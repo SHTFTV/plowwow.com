@@ -25,7 +25,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-25T02:35:58.000Z",
-    "updatedAt": "2026-10-25T02:35:58.000Z"
+    "updatedAt": "2026-10-25T03:11:19.000Z"
   },
   {
     "slug": "downtown-port-coquitlam-wilson-medical-office-snow-removal",
