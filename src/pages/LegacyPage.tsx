@@ -22,6 +22,7 @@ const blogDatesBySlug: Record<string, { publishedAt: string; updatedAt: string }
 
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-US", {
+    timeZone: "America/Vancouver",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -467,7 +468,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         <section className="py-10 md:py-14">
           <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-a:text-primary prose-img:rounded-xl prose-img:border prose-img:border-border !max-w-3xl lg:prose-lg`}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={(url) => /^tel:\+?[\d()-]+$/.test(url) ? url : defaultUrlTransform(url)} components={{ a: ({node, href, ...props}) => <a {...props} href={publicLink(href)} /> }}>{displayBody}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={(url) => /^(?:tel|sms):\+?[\d()-]+$/.test(url) ? url : defaultUrlTransform(url)} components={{ a: ({node, href, ...props}) => <a {...props} href={publicLink(href)} /> }}>{displayBody}</ReactMarkdown>
           </article>
         </section>
 

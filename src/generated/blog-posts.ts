@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "abbotsford-snow-removal-pricing-five-hour-routes",
+    "title": "Abbotsford Snow Removal Pricing: Start Online, Plan Your Five-Hour Route",
+    "blurb": "Start with PlowWow’s Abbotsford snow estimate, confirm your winter scope and ask about capacity on a planned five-hour route. Snow Intelligence rollout explained…",
+    "image": "/blog-images/abbotsford-snow-removal-pricing-five-hour-routes.jpg",
+    "alt": "Wow introduces Abbotsford snow-removal pricing: start with an estimate, review the scope and confirm route availability",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-25T02:35:58.000Z",
+    "updatedAt": "2026-10-25T02:35:58.000Z"
+  },
+  {
     "slug": "downtown-port-coquitlam-wilson-medical-office-snow-removal",
     "title": "Downtown Port Coquitlam Medical-Office Snow Removal: Wilson Medical Renews",
     "blurb": "Wilson Medical has renewed for 2026–27. PlowWow’s medical-office snow removal experts plan snow clearing, salting and parking-to-door access in Downtown Port Coquitlam…",
