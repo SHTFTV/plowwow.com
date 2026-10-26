@@ -1,0 +1,48 @@
+{
+  "updated": "2026-10-26",
+  "timezone": "America/Vancouver",
+  "authorisation": "Owner requested two city posts now, overriding the routine one-per-day limit for this manual batch only.",
+  "repository": "SHTFTV/plowwow.com",
+  "productionProject": "prj_GI6hiDoZPZyc5uo9hYihi8dviyfq",
+  "featureEvidence": {
+    "sourceCommit": "11e2d76a3ca6df242713e6dd3151803239fbf165",
+    "files": [
+      "src/simple-calculator.mjs",
+      "src/pages/QuoteRequest.tsx",
+      "src/components/intelligence/BetaOverview.tsx"
+    ],
+    "liveCheck": "2026-10-26: public Surrey civic address lookup returned standard residential estimate; optional handoff preserved address, scope and figure. No request submitted; no inbox-delivery claim."
+  },
+  "entries": [
+    {
+      "city": "Surrey",
+      "slug": "surrey-snow-intelligence-property-request",
+      "date": "2026-10-26",
+      "state": "prepared-pending-production-verification"
+    },
+    {
+      "city": "Langley",
+      "slug": "langley-snow-estimate-address-review",
+      "date": "2026-10-26",
+      "state": "prepared-pending-production-verification"
+    },
+    {
+      "city": "Abbotsford",
+      "planned": "2026-10-27",
+      "angle": "Verify a distinct app workflow; avoid repeating five-hour route/pricing article.",
+      "state": "planned-research"
+    },
+    {
+      "city": "Chilliwack",
+      "planned": "2026-10-28",
+      "angle": "Demonstrated contractor workflow, with actual availability confirmed.",
+      "state": "planned-research"
+    },
+    {
+      "city": "Burnaby",
+      "planned": "2026-10-29",
+      "angle": "Verified records/status/handoff workflow; replace unsupported feature angle.",
+      "state": "planned-research"
+    }
+  ]
+}

@@ -1,13 +1,23 @@
 {
-  "generatedAt": "2026-10-25T03:11:59.065Z",
-  "count": 194,
+  "generatedAt": "2026-10-26T19:19:57.695Z",
+  "count": 196,
   "carousel": [
+    "langley-snow-estimate-address-review",
+    "surrey-snow-intelligence-property-request",
     "abbotsford-snow-removal-pricing-five-hour-routes",
-    "downtown-port-coquitlam-wilson-medical-office-snow-removal",
-    "sapperton-new-westminster-medical-office-snow-removal",
-    "snow-intelligence-property-qr-signs-kingsway-metro-vancouver"
+    "downtown-port-coquitlam-wilson-medical-office-snow-removal"
   ],
   "posts": [
+    {
+      "slug": "langley-snow-estimate-address-review",
+      "publishedAt": "2026-10-26T19:18:28.000Z",
+      "updatedAt": "2026-10-26T19:18:28.000Z"
+    },
+    {
+      "slug": "surrey-snow-intelligence-property-request",
+      "publishedAt": "2026-10-26T19:18:28.000Z",
+      "updatedAt": "2026-10-26T19:18:28.000Z"
+    },
     {
       "slug": "abbotsford-snow-removal-pricing-five-hour-routes",
       "publishedAt": "2026-10-25T02:35:58.000Z",

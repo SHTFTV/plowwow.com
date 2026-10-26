@@ -13,6 +13,35 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "langley-snow-estimate-address-review",
+    "title": "Langley Snow Estimate: Review the Address Before Follow-Up",
+    "blurb": "See how PlowWow carries a Langley address and starting estimate into an optional quote request, and what to review before asking for property-specific service…",
+    "image": "/blog-images/langley-snow-estimate-address-review.jpg",
+    "alt": "PlowWow mascot Wow explains the Langley estimate workflow from address check to optional property review",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-26T19:18:28.000Z",
+    "updatedAt": "2026-10-26T19:18:28.000Z"
+  },
+  {
+    "slug": "surrey-snow-intelligence-property-request",
+    "title": "Surrey Snow Intelligence: Put the Property in the Request",
+    "blurb": "Use PlowWow’s current estimate-to-request flow for a Surrey property, then define shared paths, access and the beta features you need confirmed…",
+    "image": "/blog-images/surrey-snow-intelligence-property-request.jpg",
+    "alt": "PlowWow mascot Wow introduces a Surrey property request with address, shared paths and access priorities",
+    "theme": "residential",
+    "tags": [
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-26T19:18:28.000Z",
+    "updatedAt": "2026-10-26T19:18:28.000Z"
+  },
+  {
     "slug": "abbotsford-snow-removal-pricing-five-hour-routes",
     "title": "Abbotsford Snow Removal Pricing: Start Online, Plan Your Five-Hour Route",
     "blurb": "Start with PlowWow’s Abbotsford snow estimate, confirm your winter scope and ask about capacity on a planned five-hour route. Snow Intelligence rollout explained…",
