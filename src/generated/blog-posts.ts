@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "abbotsford-snow-estimate-sharing-review",
+    "title": "Abbotsford Snow Estimates: Share the Scope, Not Just the Link",
+    "blurb": "An Abbotsford strata planning guide to PlowWow’s browser-based estimate handoff: what a shared link carries, what it does not and who reviews the scope…",
+    "image": "/blog-images/abbotsford-snow-estimate-sharing-review.jpg",
+    "alt": "PlowWow mascot Wow explains that an estimate draft stays in the current browser session while a property review needs a clear shared scope",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-27T18:55:24.000Z",
+    "updatedAt": "2026-10-27T18:55:24.000Z"
+  },
+  {
     "slug": "langley-snow-estimate-address-review",
     "title": "Langley Snow Estimate: Review the Address Before Follow-Up",
     "blurb": "See how PlowWow carries a Langley address and starting estimate into an optional quote request, and what to review before asking for property-specific service…",
@@ -178,19 +193,21 @@ export const blogPosts = [
   },
   {
     "slug": "richmond-snow-removal-cost-estimate-2026-2027",
-    "title": "Richmond Snow Removal Costs for 2026/27: Frontage, Driveways & Ice",
-    "blurb": "See PlowWow’s current starting examples and learn why Richmond storefront frontage, corner sidewalks and private lots need different winter scopes…",
+    "title": "Richmond Snow Removal Cost Calculator: Driveways & Strata",
+    "blurb": "Estimate Richmond, BC snow removal by address. Compare driveway, sidewalk, strata and commercial scope, then request a reviewed PlowWow quote…",
     "image": "/blog-images/richmond-snow-removal-cost-estimate-2026-2027.jpg",
-    "alt": "Wow reviewing a long shop frontage and cleared entrance route in an illustrated Richmond winter setting",
-    "theme": "residential",
+    "alt": "PlowWow mascot reviewing a shop frontage and cleared entrance route in an illustrated Richmond winter setting",
+    "theme": "strata",
     "tags": [
+      "Strata",
+      "Commercial",
       "Residential",
       "Contracts",
       "Equipment"
     ],
     "hasCustomHero": true,
     "publishedAt": "2026-10-21T19:25:00.000Z",
-    "updatedAt": "2026-10-24T00:25:57.000Z"
+    "updatedAt": "2026-10-27T04:00:00.000Z"
   },
   {
     "slug": "langley-cold-morning-snow-removal-planning-october-2026",
