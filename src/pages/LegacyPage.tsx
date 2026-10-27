@@ -1,3 +1,4 @@
+import SurreyRequestFeature from "@/components/SurreyRequestFeature";
 import { medicalRenewalPlace } from "@/data/medicalRenewalLocations";
 import { useLocation, Navigate, Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -354,6 +355,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       <TopBar />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
+        {slug === "surrey-snow-intelligence-property-request" ? <SurreyRequestFeature markdown={displayBody} date={dates?.publishedAt || "2026-10-26"} minutes={readingMinutes} /> : <>
         <section className={`${slug === "metro-vancouver-online-snow-removal-calculator" ? "py-6 md:py-8" : "py-14 md:py-20"} bg-gradient-to-b from-muted/40 to-background`}>
           <div className="container max-w-3xl">
             {kind === "blog" && (
@@ -471,6 +473,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
             <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={(url) => /^(?:tel|sms):\+?[\d()-]+$/.test(url) ? url : defaultUrlTransform(url)} components={{ a: ({node, href, ...props}) => <a {...props} href={publicLink(href)} /> }}>{displayBody}</ReactMarkdown>
           </article>
         </section>
+
+        </>}
 
         {kind === "blog" && (() => {
           const parentCity = cityForBlogSlug(slug);
