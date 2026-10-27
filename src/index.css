@@ -163,3 +163,10 @@ html { overflow-x: clip; }
 .manager-banner-note a{font-weight:700;color:#164f70;margin-left:6px;text-decoration:underline;text-underline-offset:3px}
 .manager-banner a:focus-visible,.manager-banner-window:focus-visible{outline:3px solid #e88020;outline-offset:4px}
 @media(max-width:640px){.manager-banner{padding:26px 0 22px}.manager-banner-heading{margin-bottom:12px}.manager-banner-card{height:128px;width:280px;padding:22px}.manager-banner-group{gap:14px}.manager-banner-add{gap:12px}.manager-banner-add strong{font-size:22px}.manager-banner-note a{display:inline-block;margin-left:0}}
+
+/* Editorial reference links must remain readable, including bold link labels. */
+.prose a { color: #124a73; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.prose a:hover { color: #082f49; }
+.prose a strong { color: inherit; }
+.dark .prose a { color: #7dd3fc; }
+.dark .prose a:hover { color: #bae6fd; }
