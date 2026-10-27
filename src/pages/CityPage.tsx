@@ -322,6 +322,19 @@ const CityPage = () => {
                 <a className="inline-block mt-3 underline underline-offset-4" href="https://vancouver.ca/streets-transportation/snow-removal-from-city-streets.aspx" target="_blank" rel="noopener noreferrer">City of Vancouver: current sidewalk snow and ice guidance ↗</a>
               </div></section>}
 
+        {city.slug === "richmond" && (
+          <section className="container pb-12" aria-labelledby="richmond-estimate-heading">
+            <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+              <h2 id="richmond-estimate-heading" className="text-2xl font-black mb-3">Richmond snow removal: get a starting estimate</h2>
+              <p className="text-muted-foreground leading-relaxed">Enter your Richmond address to see a standard residential starting estimate for a driveway, adjacent sidewalk, walkway and front steps. No measurements or signup needed. Strata sites, commercial lots and one-off visits need a reviewed quote; route availability is confirmed separately.</p>
+              <div className="mt-5 flex flex-wrap items-center gap-4">
+                <Button asChild className="rounded-full font-bold"><a href="/snow-removal-calculator">Calculate your Richmond estimate</a></Button>
+                <Link className="font-bold underline underline-offset-4" to="/richmond-snow-removal-cost-estimate-2026-2027/">Read the Richmond snow removal cost guide</Link>
+              </div>
+            </div>
+          </section>
+        )}
+
         <PriorityCityCluster citySlug={city.slug} />
         {city.slug === "vancouver" && <CityPricingGuides citySlug="vancouver" />}
 
