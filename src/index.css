@@ -168,5 +168,3 @@ html { overflow-x: clip; }
 .prose a { color: #124a73; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
 .prose a:hover { color: #082f49; }
 .prose a strong { color: inherit; }
-.dark .prose a { color: #7dd3fc; }
-.dark .prose a:hover { color: #bae6fd; }
