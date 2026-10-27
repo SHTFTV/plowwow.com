@@ -1,3 +1,4 @@
+import WowSkinnyBanner from "./WowSkinnyBanner";
 import "./wow-hero.css";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -78,6 +79,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
+    <>
     <nav aria-label="Main navigation" className="wow-navbar bg-card shadow-md sticky top-0 z-50">
       <div className="container flex items-center justify-between py-3">
         <a href="/" className="wow-nav-brand">
@@ -183,6 +185,8 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    <WowSkinnyBanner />
+    </>
   );
 };
 

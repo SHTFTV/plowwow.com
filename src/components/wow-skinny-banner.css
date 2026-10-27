@@ -1,0 +1,13 @@
+.wow-skinny{position:relative;isolation:isolate;width:100%;height:112px;overflow:hidden;background:#071e39;border-bottom:2px solid #ffa822;color:#fff}
+.wow-skinny-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% 50%;z-index:-3}
+.wow-skinny-shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(4,22,44,.92),rgba(4,22,44,.75) 25%,transparent 58%)}
+.wow-skinny-inner{position:relative;max-width:1380px;height:100%;margin:auto;padding:0 24px;display:flex;align-items:center;gap:16px}
+.wow-skinny-mascot{height:106px;width:108px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 3px 7px #0008)}
+.wow-skinny-copy{display:flex;flex-direction:column;gap:3px;text-shadow:0 1px 5px #071426}
+.wow-skinny-brand{font-size:10px;letter-spacing:.13em;font-weight:800;color:#ffd183}
+.wow-skinny-copy strong{font-size:22px;line-height:1.1;font-weight:850;color:#fff}
+.wow-skinny-copy a{font-size:12px;font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:3px;width:fit-content}
+.wow-skinny-credit{position:absolute;bottom:6px;right:80px;font-size:9px;color:#fff;background:#071e39b3;padding:2px 5px;border-radius:3px}
+.wow-skinny-toggle{position:absolute;right:16px;bottom:6px;min-width:50px;min-height:32px;border:1px solid #ffffff80;border-radius:5px;background:#071e39d9;color:#fff;font-size:11px;cursor:pointer}
+.wow-skinny a:focus-visible,.wow-skinny button:focus-visible{outline:3px solid #ffb32c;outline-offset:3px}
+@media(max-width:600px){.wow-skinny{height:96px}.wow-skinny-inner{padding:0 10px;gap:8px}.wow-skinny-mascot{height:90px;width:84px}.wow-skinny-copy strong{font-size:17px;max-width:165px}.wow-skinny-brand{font-size:8px}.wow-skinny-copy a{font-size:11px}.wow-skinny-shade{background:linear-gradient(90deg,#071e39d9,rgba(7,30,57,.7) 45%,transparent 85%)}.wow-skinny-credit{right:66px;font-size:8px;bottom:3px}.wow-skinny-toggle{right:8px;bottom:3px;min-width:44px;min-height:28px}.wow-skinny-video{object-position:62% 50%}}
