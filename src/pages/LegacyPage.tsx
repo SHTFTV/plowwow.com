@@ -194,7 +194,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     // guaranteed-reachable branded OG default so every share always resolves an image.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const heroCandidate =
-      (slug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/abbotsford-snow-estimate-sharing-review-share.jpg" : null) ||
+      (slug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : null) ||
       post?.image || heroFromBody ||
       (kind === "blog" ? `/blog-images/${slug}.jpg` : null) ||
       "/og-default.jpg";
@@ -430,7 +430,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           <figcaption className="mt-2 text-sm text-muted-foreground">{["sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? "AI-assisted PlowWow brand illustration of an imagined medical-office setting; not a photograph of the named property." : post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027", "sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
         </figure>}
 
-        {kind === "blog" && slug === "abbotsford-snow-estimate-sharing-review" && <figure className="container !max-w-3xl py-6"><video controls playsInline preload="metadata" poster="/blog-images/abbotsford-snow-estimate-sharing-review.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Brand illustration; not real Abbotsford footage, a customer property or a demonstration of working app features.</figcaption></figure>}
+        {kind === "blog" && slug === "abbotsford-snow-estimate-sharing-review" && <figure className="container !max-w-3xl py-6"><video controls playsInline preload="metadata" poster="/blog-images/wow-abbotsford-estimate-sharing-v2.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Brand illustration; not real Abbotsford footage, a customer property or a demonstration of working app features.</figcaption></figure>}
 
         {kind === "blog" && wasUpdated && dates && (
           <section className="pt-2 pb-4">

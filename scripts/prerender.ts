@@ -417,10 +417,11 @@ function renderHead(route: RouteMeta): string {
   if (guideBody && route.kind === "legacy-blog") {
     const post = blogPosts.find((p) => p.slug === guideSlug)!;
     const dimensions = imageMetadata[post.image as keyof typeof imageMetadata];
+    const sharePath = guideSlug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : post.image;
     const properties: Record<string, string> = {
       "og:type": "article",
-      "og:image": `${BASE_URL}${post.image}`,
-      "og:image:secure_url": `${BASE_URL}${post.image}`,
+      "og:image": `${BASE_URL}${sharePath}`,
+      "og:image:secure_url": `${BASE_URL}${sharePath}`,
       "og:image:width": String(dimensions.width),
       "og:image:height": String(dimensions.height),
       "og:image:alt": post.alt,
@@ -432,7 +433,7 @@ function renderHead(route: RouteMeta): string {
       html = html.replace(new RegExp(`<meta\\s+property="${name}"[^>]*>`, "g"), "");
       html = html.replace("</head>", `<meta property="${name}" content="${esc(value)}" />\n</head>`);
     }
-    html = html.replace(/<meta\s+name="twitter:image"[^>]*>/g, `<meta name="twitter:image" content="${BASE_URL}${post.image}" />`);
+    html = html.replace(/<meta\s+name="twitter:image"[^>]*>/g, `<meta name="twitter:image" content="${BASE_URL}${sharePath}" />`);
     html = html.replace(/<meta\s+name="twitter:image:alt"[^>]*>/g, `<meta name="twitter:image:alt" content="${esc(post.alt)}" />`);
   }
   // Ship the complete new guides, their hero visuals and links in the first

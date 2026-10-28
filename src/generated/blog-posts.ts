@@ -16,8 +16,8 @@ export const blogPosts = [
     "slug": "abbotsford-snow-estimate-sharing-review",
     "title": "Abbotsford Snow Estimates: Share the Scope, Not Just the Link",
     "blurb": "An Abbotsford strata planning guide to PlowWow’s browser-based estimate handoff: what a shared link carries, what it does not and who reviews the scope…",
-    "image": "/blog-images/abbotsford-snow-estimate-sharing-review.jpg",
-    "alt": "PlowWow mascot Wow explains that an estimate draft stays in the current browser session while a property review needs a clear shared scope",
+    "image": "/blog-images/wow-abbotsford-estimate-sharing-v2.jpg",
+    "alt": "AI-generated PlowWow illustration: Wow in a blue beanie and orange PlowWow vest beside Share the Scope lettering in an illustrated Abbotsford winter setting",
     "theme": "citywide",
     "tags": [
       "Strata",

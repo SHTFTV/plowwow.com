@@ -12,9 +12,9 @@ Markdown Content:
 
 # Abbotsford snow estimates: share the scope, not just the link
 
-![PlowWow mascot Wow explains that an estimate draft stays in the current browser session while a property review needs a clear shared scope](/blog-images/abbotsford-snow-estimate-sharing-review.jpg "PlowWow estimate sharing and review")
+![AI-generated PlowWow illustration: Wow in a blue beanie and orange PlowWow vest beside Share the Scope lettering in an illustrated Abbotsford winter setting](/blog-images/wow-abbotsford-estimate-sharing-v2.jpg "PlowWow estimate sharing and review")
 
-*Original PlowWow editorial diagram using approved Wow brand artwork. It explains the current browser handoff, not a client portal or a screenshot of a customer request.*
+*AI-generated PlowWow editorial illustration using the approved Wow character identity. Imagined winter setting; not real property footage, a client portal or a screenshot of a customer request.*
 
 **By the PlowWow team · October 27, 2026 · Snow Intelligence beta**
 
