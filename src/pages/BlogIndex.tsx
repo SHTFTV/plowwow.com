@@ -1341,7 +1341,7 @@ const BlogIndex = () => {
                             loading="lazy"
                             width={1280}
                             height={800}
-                            className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                            className={slug === "abbotsford-snow-estimate-sharing-review" ? "w-full h-full object-contain bg-[#071b35]" : "w-full h-full object-cover group-hover:scale-105 transition duration-500"}
                           />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-primary/20 via-primary/5 to-muted" />
