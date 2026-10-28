@@ -1019,7 +1019,7 @@ const BlogIndex = () => {
               <div
                 role="group"
                 aria-label="Sort posts"
-                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+                className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-2xl border border-border bg-card p-1 sm:rounded-full"
               >
                 <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   Sort
@@ -1050,7 +1050,7 @@ const BlogIndex = () => {
               <div
                 role="group"
                 aria-label="Filter by date"
-                className="inline-flex items-center gap-1 rounded-full border border-border bg-card p-1"
+                className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-2xl border border-border bg-card p-1 sm:rounded-full"
               >
                 <span className="px-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
                   {sortBy === "updated" ? "Updated" : "Published"}
