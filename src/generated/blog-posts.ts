@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "chilliwack-winter-contractor-application-capacity",
+    "title": "Chilliwack Winter Contractors: Make Your Capacity Clear",
+    "blurb": "What PlowWow’s current contractor application asks Chilliwack operators to prepare: equipment, travel range, availability and details for review…",
+    "image": "/blog-images/chilliwack-winter-contractor-application-capacity.jpg",
+    "alt": "Original PlowWow explanatory diagram of preparing people and equipment details, describing travel and timing, then confirming review and agreement",
+    "theme": "citywide",
+    "tags": [
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-28T17:23:05.000Z",
+    "updatedAt": "2026-10-28T17:23:05.000Z"
+  },
+  {
     "slug": "abbotsford-snow-estimate-sharing-review",
     "title": "Abbotsford Snow Estimates: Share the Scope, Not Just the Link",
     "blurb": "An Abbotsford strata planning guide to PlowWow’s browser-based estimate handoff: what a shared link carries, what it does not and who reviews the scope…",

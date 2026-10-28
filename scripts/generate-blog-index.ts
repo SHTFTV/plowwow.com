@@ -129,6 +129,10 @@ for (const post of posts) {
   imageMetadata[post.image] = { width: metadata.width, height: metadata.height };
 }
 mkdirSync(resolve(process.cwd(), "src/generated"), { recursive: true });
+for (const name of readdirSync(IMAGE_DIR).filter(n => n.endsWith("-share.jpg"))) {
+  const meta = await sharp(resolve(IMAGE_DIR, name)).metadata();
+  if (meta.width && meta.height) imageMetadata[`/blog-images/${name}`] = { width: meta.width, height: meta.height };
+}
 writeFileSync(resolve("src/generated/blog-image-metadata.json"), JSON.stringify(imageMetadata, null, 2) + "\n");
 writeFileSync(
   OUT_FILE,

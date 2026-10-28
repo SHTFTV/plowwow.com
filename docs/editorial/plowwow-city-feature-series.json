@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-28",
   "timezone": "America/Vancouver",
   "authorisation": "Owner requested two city posts now, overriding the routine one-per-day limit for this manual batch only.",
   "repository": "SHTFTV/plowwow.com",
@@ -18,25 +18,31 @@
       "city": "Surrey",
       "slug": "surrey-snow-intelligence-property-request",
       "date": "2026-10-26",
-      "state": "prepared-pending-production-verification"
+      "state": "verified-published",
+      "actualDate": "2026-10-26"
     },
     {
       "city": "Langley",
       "slug": "langley-snow-estimate-address-review",
       "date": "2026-10-26",
-      "state": "prepared-pending-production-verification"
+      "state": "verified-published",
+      "actualDate": "2026-10-26"
     },
     {
       "city": "Abbotsford",
       "planned": "2026-10-27",
       "angle": "Verify a distinct app workflow; avoid repeating five-hour route/pricing article.",
-      "state": "planned-research"
+      "state": "verified-published",
+      "slug": "abbotsford-snow-estimate-sharing-review",
+      "actualDate": "2026-10-27",
+      "evidence": "Actual-domain article and homepage inspected October28; prior release acceptance retained separately."
     },
     {
       "city": "Chilliwack",
       "planned": "2026-10-28",
-      "angle": "Demonstrated contractor workflow, with actual availability confirmed.",
-      "state": "planned-research"
+      "angle": "Public contractor application: fields and practical preparation. No submission or approved dashboard claim.",
+      "state": "draft-pending-acceptance",
+      "slug": "chilliwack-winter-contractor-application-capacity"
     },
     {
       "city": "Burnaby",

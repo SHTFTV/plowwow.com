@@ -417,13 +417,13 @@ function renderHead(route: RouteMeta): string {
   if (guideBody && route.kind === "legacy-blog") {
     const post = blogPosts.find((p) => p.slug === guideSlug)!;
     const dimensions = imageMetadata[post.image as keyof typeof imageMetadata];
-    const sharePath = guideSlug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : post.image;
+    const sharePath = guideSlug === "chilliwack-winter-contractor-application-capacity" ? "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg" : guideSlug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : post.image;
     const properties: Record<string, string> = {
       "og:type": "article",
       "og:image": `${BASE_URL}${sharePath}`,
       "og:image:secure_url": `${BASE_URL}${sharePath}`,
-      "og:image:width": String(dimensions.width),
-      "og:image:height": String(dimensions.height),
+      "og:image:width": guideSlug === "chilliwack-winter-contractor-application-capacity" ? "1200" : String(dimensions.width),
+      "og:image:height": guideSlug === "chilliwack-winter-contractor-application-capacity" ? "630" : String(dimensions.height),
       "og:image:alt": post.alt,
       "og:image:type": "image/jpeg",
       "article:published_time": post.publishedAt,

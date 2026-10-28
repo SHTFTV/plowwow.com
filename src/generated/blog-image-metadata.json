@@ -1,4 +1,8 @@
 {
+  "/blog-images/chilliwack-winter-contractor-application-capacity.jpg": {
+    "width": 1440,
+    "height": 720
+  },
   "/blog-images/wow-abbotsford-estimate-sharing-v2.jpg": {
     "width": 1200,
     "height": 630
@@ -610,5 +614,17 @@
   "/blog-images/austin-heights-coquitlam-strip-mall-snow-removal.jpg": {
     "width": 1280,
     "height": 960
+  },
+  "/blog-images/abbotsford-snow-estimate-sharing-review-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg": {
+    "width": 1200,
+    "height": 630
   }
 }

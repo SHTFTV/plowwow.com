@@ -1,3 +1,4 @@
+import WowSkinnyBanner from "@/components/WowSkinnyBanner";
 import SurreyRequestFeature from "@/components/SurreyRequestFeature";
 import { medicalRenewalPlace } from "@/data/medicalRenewalLocations";
 import { useLocation, Navigate, Link } from "react-router-dom";
@@ -194,6 +195,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     // guaranteed-reachable branded OG default so every share always resolves an image.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const heroCandidate =
+      (slug === "chilliwack-winter-contractor-application-capacity" ? "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg" : null) ||
       (slug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : null) ||
       post?.image || heroFromBody ||
       (kind === "blog" ? `/blog-images/${slug}.jpg` : null) ||
@@ -431,6 +433,8 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
         </figure>}
 
         {kind === "blog" && slug === "abbotsford-snow-estimate-sharing-review" && <figure className="container !max-w-3xl py-6"><video controls playsInline preload="metadata" poster="/blog-images/wow-abbotsford-estimate-sharing-v2.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Brand illustration; not real Abbotsford footage, a customer property or a demonstration of working app features.</figcaption></figure>}
+
+        {kind === "blog" && slug === "chilliwack-winter-contractor-application-capacity" && <><WowSkinnyBanner /><aside className="container !max-w-3xl py-4" aria-label="Advertising opportunity"><div className="border-y border-primary/30 py-3 text-sm"><strong>ADVERTISEMENT · PLOWWOW JOURNAL</strong> · <a className="underline" href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20PlowWow">Advertise here</a></div></aside><figure className="container !max-w-3xl py-4"><video controls playsInline preload="metadata" poster="/blog-images/chilliwack-winter-contractor-application-capacity.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Not real Chilliwack footage, a customer property, completed work or a demonstration of app features.</figcaption></figure></>}
 
         {kind === "blog" && wasUpdated && dates && (
           <section className="pt-2 pb-4">
