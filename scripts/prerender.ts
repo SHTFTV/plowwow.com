@@ -417,7 +417,7 @@ function renderHead(route: RouteMeta): string {
   if (guideBody && route.kind === "legacy-blog") {
     const post = blogPosts.find((p) => p.slug === guideSlug)!;
     const dimensions = imageMetadata[post.image as keyof typeof imageMetadata];
-    const sharePath = guideSlug.startsWith("polar-vortex-") ? `/blog-images/${guideSlug}-share.jpg` : guideSlug === "chilliwack-winter-contractor-application-capacity" ? "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg" : guideSlug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : post.image;
+    const sharePath = ["polar-vortex-richmond-winter-loading-drainage-plan","polar-vortex-surrey-mixed-property-winter-readiness","polar-vortex-vancouver-winter-access-plan"].includes(guideSlug) ? `/blog-images/${guideSlug}-v2-share.jpg` : guideSlug.startsWith("polar-vortex-") ? `/blog-images/${guideSlug}-share.jpg` : guideSlug === "chilliwack-winter-contractor-application-capacity" ? "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg" : guideSlug === "abbotsford-snow-estimate-sharing-review" ? "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg" : post.image;
     const properties: Record<string, string> = {
       "og:type": "article",
       "og:image": `${BASE_URL}${sharePath}`,

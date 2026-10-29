@@ -43,43 +43,43 @@ export const blogPosts = [
     "slug": "polar-vortex-richmond-winter-loading-drainage-plan",
     "title": "Richmond winter planning: keep loading routes and drainage in the same conversation",
     "blurb": "Prepare a Richmond commercial-property winter enquiry with loading access, snow storage and drainage questions…",
-    "image": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg",
-    "alt": "Original PlowWow Richmond preparation diagram: LOADING, SNOW STORAGE, DRAINAGE",
+    "image": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero-v2.jpg",
+    "alt": "AI-assisted editorial illustration of a snowy commercial loading approach, snow-storage area and drainage grate in an imagined Richmond setting",
     "theme": "citywide",
     "tags": [
       "Commercial"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T00:13:30.000Z"
+    "updatedAt": "2026-10-29T06:07:19.000Z"
   },
   {
     "slug": "polar-vortex-surrey-mixed-property-winter-readiness",
     "title": "Surrey winter readiness: separate the yard, walkway and equipment jobs",
     "blurb": "Build a Surrey winter plan around different work areas and the equipment each task actually needs…",
-    "image": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero.jpg",
-    "alt": "Original PlowWow Surrey preparation diagram: YARD, WALKWAY, EQUIPMENT",
+    "image": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero-v2.jpg",
+    "alt": "AI-assisted editorial illustration of a service yard, separate pedestrian walkway and parked snow-clearing equipment in an imagined Surrey setting",
     "theme": "residential",
     "tags": [
       "Equipment"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T05:50:05.000Z"
+    "updatedAt": "2026-10-29T06:07:19.000Z"
   },
   {
     "slug": "polar-vortex-vancouver-winter-access-plan",
     "title": "Vancouver winter readiness: map the route from sidewalk to door",
     "blurb": "Review Vancouver sidewalk and building access responsibilities before a forecast becomes a service decision…",
-    "image": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero.jpg",
-    "alt": "Original PlowWow Vancouver preparation diagram: SIDEWALK, ACCESS ROUTE, DOOR",
+    "image": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero-v2.jpg",
+    "alt": "AI-assisted editorial illustration of a continuous cleared route from a city sidewalk to a warm building entrance in an imagined Vancouver setting",
     "theme": "citywide",
     "tags": [
       "Weather"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T05:50:05.000Z"
+    "updatedAt": "2026-10-29T06:07:19.000Z"
   },
   {
     "slug": "chilliwack-winter-contractor-application-capacity",

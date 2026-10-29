@@ -6,15 +6,15 @@ Description: Build a Surrey winter plan around different work areas and the equi
 
 Published: 2026-10-28T17:13:30-07:00
 
-Updated: 2026-10-28T22:50:05-07:00
+Updated: 2026-10-28T23:07:19-07:00
 
 Markdown Content:
 
 # Surrey winter readiness: separate the yard, walkway and equipment jobs
 
-![Original PlowWow Surrey preparation diagram: YARD, WALKWAY, EQUIPMENT](/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero.jpg)
+![AI-assisted editorial illustration of a service yard, separate pedestrian walkway and parked snow-clearing equipment in an imagined Surrey setting](/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero-v2.jpg)
 
-*Original editorial diagram. Not a site photograph, weather map or completed-work record.*
+*Original AI-assisted editorial illustration of an imagined winter setting. Not a real customer property, weather forecast or completed-work photograph.*
 
 **By the PlowWow editorial team · October 28, 2026**
 
@@ -33,8 +33,6 @@ A parking or work yard, a public-facing walkway and a narrow entrance can requir
 ## Check municipal guidance and contract scope
 
 Surrey’s official winter-safety guidance asks owners to clear snow and ice from adjoining sidewalks by 10 a.m. daily. Read the current city guidance and confirm which boundaries are included in your service discussion. A municipal plow route and a private-property agreement do different jobs.
-
-![Original planning strip: YARD, WALKWAY, EQUIPMENT](/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-strip.jpg)
 
 ## Give equipment and people separate roles
 

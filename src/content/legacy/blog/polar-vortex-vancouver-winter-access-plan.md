@@ -6,15 +6,15 @@ Description: Review Vancouver sidewalk and building access responsibilities befo
 
 Published: 2026-10-28T17:13:30-07:00
 
-Updated: 2026-10-28T22:50:05-07:00
+Updated: 2026-10-28T23:07:19-07:00
 
 Markdown Content:
 
 # Vancouver winter readiness: map the route from sidewalk to door
 
-![Original PlowWow Vancouver preparation diagram: SIDEWALK, ACCESS ROUTE, DOOR](/blog-images/polar-vortex-vancouver-winter-access-plan-hero.jpg)
+![AI-assisted editorial illustration of a continuous cleared route from a city sidewalk to a warm building entrance in an imagined Vancouver setting](/blog-images/polar-vortex-vancouver-winter-access-plan-hero-v2.jpg)
 
-*Original editorial diagram. Not a site photograph, weather map or completed-work record.*
+*Original AI-assisted editorial illustration of an imagined winter setting. Not a real customer property, weather forecast or completed-work photograph.*
 
 **By the PlowWow editorial team · October 28, 2026**
 
@@ -33,8 +33,6 @@ The City of Vancouver says owners and occupants must clear snow and ice from the
 ## Connect the sidewalk to the entrance
 
 Walk the route that a resident, customer or delivery worker actually uses. Mark steps, ramps, gates, narrow passages and places where snow cannot be stored. Separate the public sidewalk from private paths and entrances. A clear road beside the building does not tell you whether someone can reach its door.
-
-![Original planning strip: SIDEWALK, ACCESS ROUTE, DOOR](/blog-images/polar-vortex-vancouver-winter-access-plan-strip.jpg)
 
 ## Give the reviewer a usable access record
 

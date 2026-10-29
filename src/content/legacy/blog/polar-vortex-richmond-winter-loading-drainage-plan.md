@@ -6,15 +6,15 @@ Description: Prepare a Richmond commercial-property winter enquiry with loading 
 
 Published: 2026-10-28T17:13:30-07:00
 
-Updated: 2026-10-28T17:13:30-07:00
+Updated: 2026-10-28T23:07:19-07:00
 
 Markdown Content:
 
 # Richmond winter planning: keep loading routes and drainage in the same conversation
 
-![Original PlowWow Richmond preparation diagram: LOADING, SNOW STORAGE, DRAINAGE](/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg)
+![AI-assisted editorial illustration of a snowy commercial loading approach, snow-storage area and drainage grate in an imagined Richmond setting](/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero-v2.jpg)
 
-*Original editorial diagram. Not a site photograph, weather map or completed-work record.*
+*Original AI-assisted editorial illustration of an imagined winter setting. Not a real customer property, weather forecast or completed-work photograph.*
 
 **By the PlowWow editorial team · October 28, 2026**
 
@@ -29,8 +29,6 @@ Richmond’s official snow page says owners or occupiers of residential, industr
 ## Mark the work that must remain accessible
 
 For a business site, identify loading doors, pedestrian entrances, collection points and the hours they are used. List turning or clearance restrictions rather than assuming every truck can reach the same space. A marked plan is more useful than a request to clear everything.
-
-![Original planning strip: LOADING, SNOW STORAGE, DRAINAGE](/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-strip.jpg)
 
 ## Discuss meltwater as well as snow storage
 
