@@ -16,8 +16,8 @@ export const blogPosts = [
     "slug": "polar-vortex-burnaby-strata-winter-handoff",
     "title": "Burnaby strata winter planning: one clear handoff before the weather changes",
     "blurb": "A Burnaby strata checklist for identifying shared routes, authorisation and winter-service handoffs…",
-    "image": "/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero.jpg",
-    "alt": "Original PlowWow Burnaby preparation diagram: MAP, AUTHORISE, CONFIRM",
+    "image": "/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero-v2.jpg",
+    "alt": "AI editorial illustration of a winter walkway review at an imagined strata property",
     "theme": "strata",
     "tags": [
       "Strata",

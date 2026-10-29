@@ -392,7 +392,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
                 </ol>
               </nav>
             )}
-            <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">
+            <p className="text-sm uppercase tracking-widest text-foreground font-bold mb-3">
               {kind === "blog" ? "From the PlowWow Blog" : "PlowWow"}
             </p>
             <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
@@ -402,7 +402,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
               <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
                 <time
                   dateTime={dates.publishedAt}
-                  className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-black uppercase tracking-wider text-primary"
+                  className="inline-flex items-center rounded-full border border-amber-400 bg-amber-100 px-3 py-1 font-black uppercase tracking-wider text-slate-900"
                 >
                   Published {formatDate(dates.publishedAt)}
                 </time>
@@ -430,12 +430,12 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {post && <figure className="container !max-w-3xl pt-6">
           <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
-          <figcaption className="mt-2 text-sm text-muted-foreground">{["sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? "AI-assisted PlowWow brand illustration of an imagined medical-office setting; not a photograph of the named property." : post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027", "sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
+          <figcaption className="mt-2 text-sm text-muted-foreground">{["sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? "AI-assisted PlowWow brand illustration of an imagined medical-office setting; not a photograph of the named property." : post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027", "sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : post.slug === "polar-vortex-burnaby-strata-winter-handoff" ? "Original AI-assisted PlowWow editorial illustration. Imagined winter property; not a real Burnaby site or completed-work photograph." : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
         </figure>}
 
         {kind === "blog" && slug === "abbotsford-snow-estimate-sharing-review" && <figure className="container !max-w-3xl py-6"><video controls playsInline preload="metadata" poster="/blog-images/wow-abbotsford-estimate-sharing-v2.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Brand illustration; not real Abbotsford footage, a customer property or a demonstration of working app features.</figcaption></figure>}
 
-        {kind === "blog" && slug?.startsWith("polar-vortex-") && <><WowSkinnyBanner /><aside className="container !max-w-3xl py-4" aria-label="Advertising opportunity"><div className="border-y border-primary/30 py-3 text-sm"><strong>ADVERTISEMENT · PLOWWOW JOURNAL</strong> · <a className="underline" href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20PlowWow">Advertise here</a></div></aside></>}
+        {kind === "blog" && slug?.startsWith("polar-vortex-") && <><aside className="container !max-w-3xl py-4" aria-label="Advertising opportunity"><div className="border-y border-primary/30 py-3 text-sm"><strong>ADVERTISEMENT · PLOWWOW JOURNAL</strong> · <a className="underline" href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20PlowWow">Advertise here</a></div></aside></>}
 
         {kind === "blog" && slug === "chilliwack-winter-contractor-application-capacity" && <><WowSkinnyBanner /><aside className="container !max-w-3xl py-4" aria-label="Advertising opportunity"><div className="border-y border-primary/30 py-3 text-sm"><strong>ADVERTISEMENT · PLOWWOW JOURNAL</strong> · <a className="underline" href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20PlowWow">Advertise here</a></div></aside><figure className="container !max-w-3xl py-4"><video controls playsInline preload="metadata" poster="/blog-images/chilliwack-winter-contractor-application-capacity.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Not real Chilliwack footage, a customer property, completed work or a demonstration of app features.</figcaption></figure></>}
 

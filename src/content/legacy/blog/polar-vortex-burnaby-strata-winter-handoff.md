@@ -12,9 +12,9 @@ Markdown Content:
 
 # Burnaby strata winter planning: one clear handoff before the weather changes
 
-![Original PlowWow Burnaby preparation diagram: MAP, AUTHORISE, CONFIRM](/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero.jpg)
+![AI editorial illustration of a winter walkway review at an imagined strata property](/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero-v2.jpg)
 
-*Original editorial diagram. Not a site photograph, weather map or completed-work record.*
+*Original AI-assisted editorial illustration of an imagined winter property. Not an actual Burnaby property or completed-work photograph.*
 
 **By the PlowWow editorial team · October 28, 2026**
 
