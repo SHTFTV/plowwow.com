@@ -16,8 +16,8 @@ const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancou
  */
 function startsCompact(pathname: string) {
   const path = pathname.replace(/\/+$/, "");
-  // Keep this story’s Wow hero visible on phones; desktop and other routes retain their defaults.
-  const storyOnPhone = (path === "/abbotsford-snow-estimate-sharing-review" || path === "/blog/abbotsford-snow-estimate-sharing-review") &&
+  // Keep the latest planning guides unobstructed on phones.
+  const storyOnPhone = (path === "/abbotsford-snow-estimate-sharing-review" || path === "/blog/abbotsford-snow-estimate-sharing-review" || path.startsWith("/polar-vortex-") || path.startsWith("/blog/polar-vortex-")) &&
     typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
   return storyOnPhone || path === "/residential-snow-removal" || path === "/quote" || path.startsWith("/quote/") || /\/quote$/.test(path) || path === "/metro-vancouver-online-snow-removal-calculator";
 }
