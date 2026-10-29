@@ -1352,7 +1352,7 @@ const BlogIndex = () => {
                         {publishedAt && (
                           <time
                             dateTime={publishedAt}
-                            className="absolute bottom-3 left-3 rounded-md border border-primary/30 bg-background/95 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-primary shadow-sm"
+                            className="absolute bottom-3 left-3 rounded-md border border-primary/30 bg-background/95 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-slate-900 shadow-sm"
                           >
                             {formatDate(publishedAt)}
                           </time>
@@ -1363,7 +1363,7 @@ const BlogIndex = () => {
                           {publishedAt && (
                             <time
                               dateTime={publishedAt}
-                              className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-primary"
+                              className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-slate-900"
                             >
                               Published {formatDate(publishedAt)}
                             </time>
@@ -1380,7 +1380,7 @@ const BlogIndex = () => {
                             </time>
                           )}
                         </div>
-                        <h2 className="mt-1 font-heading font-bold text-lg text-foreground group-hover:text-primary leading-snug">
+                        <h2 className="mt-1 font-heading font-bold text-lg text-foreground group-hover:text-slate-900 leading-snug">
                           {highlight(titleFor(slug), query)}
                         </h2>
                         <p className="mt-2 text-sm text-muted-foreground line-clamp-3 flex-1">
