@@ -276,7 +276,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     document.getElementById(crumbId)?.remove();
     if (kind === "blog") {
       // Detect inline hero image from the markdown body (first `![alt](path)`).
-      const imgMatch = body.match(/!\[([^\]]*)\]\((\/[^)\s]+)\)/);
+      const imgMatch = body.match(/!\[([^\]]*)\]\((\/[^)\s]+)(?:\s+"[^"]*")?\)/);
       const heroPath = imgMatch?.[2];
       const heroAlt = imgMatch?.[1] ?? title;
       const art = document.createElement("script");

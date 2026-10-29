@@ -89,7 +89,7 @@ function readBlog(slug: string): { body: string; heroPath: string | null } | nul
   if (!existsSync(p)) return null;
   const raw = readFileSync(p, "utf8");
   const body = (raw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1] ?? raw).trim();
-  const heroMatch = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/);
+  const heroMatch = body.match(/!\[[^\]]*\]\((\/[^)\s]+)(?:\s+"[^"]*")?\)/);
   return { body, heroPath: heroMatch?.[1] ?? null };
 }
 
