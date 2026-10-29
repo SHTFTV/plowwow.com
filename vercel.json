@@ -1,6 +1,51 @@
 {
   "redirects": [
     {
+      "source": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg",
+      "destination": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero-v2.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-share.jpg",
+      "destination": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-v2-share.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-strip.jpg",
+      "destination": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero-v2.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero.jpg",
+      "destination": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero-v2.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-share.jpg",
+      "destination": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-v2-share.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-strip.jpg",
+      "destination": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero-v2.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero.jpg",
+      "destination": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero-v2.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-vancouver-winter-access-plan-share.jpg",
+      "destination": "/blog-images/polar-vortex-vancouver-winter-access-plan-v2-share.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/blog-images/polar-vortex-vancouver-winter-access-plan-strip.jpg",
+      "destination": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero-v2.jpg",
+      "permanent": true
+    },
+    {
       "source": "/property-map-preview/:path*",
       "destination": "/snow-removal-calculator",
       "permanent": true
