@@ -13,6 +13,63 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "polar-vortex-burnaby-strata-winter-handoff",
+    "title": "Burnaby strata winter planning: one clear handoff before the weather changes",
+    "blurb": "A Burnaby strata checklist for identifying shared routes, authorisation and winter-service handoffs…",
+    "image": "/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero.jpg",
+    "alt": "Original PlowWow Burnaby preparation diagram: MAP, AUTHORISE, CONFIRM",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Weather"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-29T00:13:30.000Z",
+    "updatedAt": "2026-10-29T00:13:30.000Z"
+  },
+  {
+    "slug": "polar-vortex-richmond-winter-loading-drainage-plan",
+    "title": "Richmond winter planning: keep loading routes and drainage in the same conversation",
+    "blurb": "Prepare a Richmond commercial-property winter enquiry with loading access, snow storage and drainage questions…",
+    "image": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg",
+    "alt": "Original PlowWow Richmond preparation diagram: LOADING, SNOW STORAGE, DRAINAGE",
+    "theme": "citywide",
+    "tags": [
+      "Commercial"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-29T00:13:30.000Z",
+    "updatedAt": "2026-10-29T00:13:30.000Z"
+  },
+  {
+    "slug": "polar-vortex-surrey-mixed-property-winter-readiness",
+    "title": "Surrey winter readiness: separate the yard, walkway and equipment jobs",
+    "blurb": "Build a Surrey winter plan around different work areas and the equipment each task actually needs…",
+    "image": "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero.jpg",
+    "alt": "Original PlowWow Surrey preparation diagram: YARD, WALKWAY, EQUIPMENT",
+    "theme": "residential",
+    "tags": [
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-29T00:13:30.000Z",
+    "updatedAt": "2026-10-29T00:13:30.000Z"
+  },
+  {
+    "slug": "polar-vortex-vancouver-winter-access-plan",
+    "title": "Vancouver winter readiness: map the route from sidewalk to door",
+    "blurb": "Review Vancouver sidewalk and building access responsibilities before a forecast becomes a service decision…",
+    "image": "/blog-images/polar-vortex-vancouver-winter-access-plan-hero.jpg",
+    "alt": "Original PlowWow Vancouver preparation diagram: SIDEWALK, ACCESS ROUTE, DOOR",
+    "theme": "citywide",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-29T00:13:30.000Z",
+    "updatedAt": "2026-10-29T00:13:30.000Z"
+  },
+  {
     "slug": "chilliwack-winter-contractor-application-capacity",
     "title": "Chilliwack Winter Contractors: Make Your Capacity Clear",
     "blurb": "What PlowWow’s current contractor application asks Chilliwack operators to prepare: equipment, travel range, availability and details for review…",

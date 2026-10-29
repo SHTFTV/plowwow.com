@@ -1,4 +1,20 @@
 {
+  "/blog-images/polar-vortex-burnaby-strata-winter-handoff-hero.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-hero.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-vancouver-winter-access-plan-hero.jpg": {
+    "width": 1200,
+    "height": 630
+  },
   "/blog-images/chilliwack-winter-contractor-application-capacity.jpg": {
     "width": 1440,
     "height": 720
@@ -620,6 +636,22 @@
     "height": 630
   },
   "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-burnaby-strata-winter-handoff-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-surrey-mixed-property-winter-readiness-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-vancouver-winter-access-plan-share.jpg": {
     "width": 1200,
     "height": 630
   },
