@@ -13,6 +13,18 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "polar-vortex-langley-city-township-winter-plan",
+    "title": "Langley snow planning: City, Township and the route that actually needs clearing",
+    "blurb": "A Langley winter-readiness guide that separates City and Township responsibilities, shared walkways, treatment decisions and the scope behind an online estimate…",
+    "image": "/blog-images/polar-vortex-langley-city-township-winter-plan-hero.jpg",
+    "alt": "Original PlowWow Langley planning diagram with the Wow mascot: address, shared route, confirmed scope",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": false,
+    "publishedAt": "2026-10-29T05:50:05.000Z",
+    "updatedAt": "2026-10-29T05:50:05.000Z"
+  },
+  {
     "slug": "polar-vortex-burnaby-strata-winter-handoff",
     "title": "Burnaby strata winter planning: one clear handoff before the weather changes",
     "blurb": "A Burnaby strata checklist for identifying shared routes, authorisation and winter-service handoffs…",
@@ -25,7 +37,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T00:13:30.000Z"
+    "updatedAt": "2026-10-29T05:50:05.000Z"
   },
   {
     "slug": "polar-vortex-richmond-winter-loading-drainage-plan",
@@ -53,7 +65,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T00:13:30.000Z"
+    "updatedAt": "2026-10-29T05:50:05.000Z"
   },
   {
     "slug": "polar-vortex-vancouver-winter-access-plan",
@@ -67,7 +79,7 @@ export const blogPosts = [
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-10-29T00:13:30.000Z",
-    "updatedAt": "2026-10-29T00:13:30.000Z"
+    "updatedAt": "2026-10-29T05:50:05.000Z"
   },
   {
     "slug": "chilliwack-winter-contractor-application-capacity",

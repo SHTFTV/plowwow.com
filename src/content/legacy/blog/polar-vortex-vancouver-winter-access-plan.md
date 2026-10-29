@@ -6,7 +6,7 @@ Description: Review Vancouver sidewalk and building access responsibilities befo
 
 Published: 2026-10-28T17:13:30-07:00
 
-Updated: 2026-10-28T17:13:30-07:00
+Updated: 2026-10-28T22:50:05-07:00
 
 Markdown Content:
 
@@ -17,6 +17,10 @@ Markdown Content:
 *Original editorial diagram. Not a site photograph, weather map or completed-work record.*
 
 **By the PlowWow editorial team · October 28, 2026**
+
+## What the supplied November analysis does—and does not—say
+
+Severe Weather Europe’s October 28 analysis discusses model projections of an unusually early polar-vortex disruption in November. A forecast split or wind reversal is not an observed record and does not establish snowfall at a Lower Mainland address. NOAA’s October ENSO discussion also describes a strengthening El Niño. Treat both as large-scale context; use current local forecasts and site conditions for an operating decision.
 
 ## A preparation cue, not a city snow forecast
 
@@ -66,3 +70,9 @@ Checked October 28, 2026. Weather reporting and official guidance are linked bel
 - [Surrey: Surrey winter readiness: separate the yard, walkway and equipment jobs](/polar-vortex-surrey-mixed-property-winter-readiness)
 
 - [Current PlowWow beta explanation](/intelligence)
+
+- [Severe Weather Europe — original October 28 polar-vortex analysis](https://www.severe-weather.eu/global-weather/polar-vortex-split-record-early-stratospheric-warming-event-november-2026-united-states-canada-europe-fa)
+
+- [NOAA CPC — October 8, 2026 ENSO discussion](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml)
+
+- [Langley: City and Township winter planning](/polar-vortex-langley-city-township-winter-plan)

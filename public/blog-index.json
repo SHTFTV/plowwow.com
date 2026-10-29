@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-29T04:37:29.035Z",
-  "count": 202,
+  "generatedAt": "2026-10-29T05:50:59.441Z",
+  "count": 203,
   "carousel": [
     "chilliwack-winter-contractor-application-capacity",
     "abbotsford-snow-estimate-sharing-review",
@@ -9,9 +9,14 @@
   ],
   "posts": [
     {
+      "slug": "polar-vortex-langley-city-township-winter-plan",
+      "publishedAt": "2026-10-29T05:50:05.000Z",
+      "updatedAt": "2026-10-29T05:50:05.000Z"
+    },
+    {
       "slug": "polar-vortex-burnaby-strata-winter-handoff",
       "publishedAt": "2026-10-29T00:13:30.000Z",
-      "updatedAt": "2026-10-29T00:13:30.000Z"
+      "updatedAt": "2026-10-29T05:50:05.000Z"
     },
     {
       "slug": "polar-vortex-richmond-winter-loading-drainage-plan",
@@ -21,12 +26,12 @@
     {
       "slug": "polar-vortex-surrey-mixed-property-winter-readiness",
       "publishedAt": "2026-10-29T00:13:30.000Z",
-      "updatedAt": "2026-10-29T00:13:30.000Z"
+      "updatedAt": "2026-10-29T05:50:05.000Z"
     },
     {
       "slug": "polar-vortex-vancouver-winter-access-plan",
       "publishedAt": "2026-10-29T00:13:30.000Z",
-      "updatedAt": "2026-10-29T00:13:30.000Z"
+      "updatedAt": "2026-10-29T05:50:05.000Z"
     },
     {
       "slug": "chilliwack-winter-contractor-application-capacity",
