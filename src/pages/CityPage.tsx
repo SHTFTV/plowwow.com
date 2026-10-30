@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { applyPriorityPageMeta } from "@/lib/priorityPageMeta";
+import { priorityPageSeo, vancouverServiceSchema } from "@/data/priorityPageSeo";
 import CityPricingGuides from "@/components/city/CityPricingGuides";
 import { useParams, Link } from "react-router-dom";
 import NotFound from "./NotFound";
@@ -49,17 +52,21 @@ const CityPage = () => {
   const city = normalizedSlug ? getCityBySlug(normalizedSlug) : undefined;
   const locationDeep = normalizedSlug ? getLocationDeep(normalizedSlug) : undefined;
 
+  useEffect(() => {
+    if (normalizedSlug === "vancouver") applyPriorityPageMeta("vancouver");
+  }, [normalizedSlug]);
+
   if (!city) return <NotFound />;
   const mergedFaqs = locationDeep
     ? [...locationDeep.faq, ...city.faqs]
     : city.faqs;
 
-  const pageTitle = `${city.tagline} | PlowWow`;
+  const pageTitle = city.slug === "vancouver" ? priorityPageSeo.vancouver.title : `${city.tagline} | PlowWow`;
   // Base description is the city intro; when we have deep-dive data,
   // enrich the OG/Twitter description with unique local specifics
   // (snowfall, freeze-thaw cycles, season window) so social previews
   // reflect each city page's unique copy rather than a generic blurb.
-  const pageDescription = city.slug === "vancouver" ? "Vancouver snow removal and ice control for strata, commercial and residential properties. Plan sidewalks, entrances and parking with a reviewed PlowWow quote." : truncateForMeta(city.intro);
+  const pageDescription = city.slug === "vancouver" ? priorityPageSeo.vancouver.description : truncateForMeta(city.intro);
   const socialDescription = city.slug === "vancouver" ? pageDescription : locationDeep
     ? truncateForMeta(
         `${city.intro} — ${locationDeep.avg_annual_snowfall_cm} cm avg snowfall, ${locationDeep.freeze_thaw_cycles} freeze-thaw cycles, season runs ${locationDeep.snow_season_start}–${locationDeep.snow_season_end}.`,
@@ -170,8 +177,8 @@ const CityPage = () => {
 
   const videoSchema = {
     "@context": "https://schema.org", "@type": "VideoObject", "@id": `${url}#snow-video`,
-    name: `Snow Removal in ${city.name} | PlowWow Field Operations`,
-    description: `A short PlowWow field-operations video showing professional snow-removal readiness for strata, commercial and residential properties in ${city.name}, British Columbia.`,
+    name: city.slug === "vancouver" ? "PlowWow winter-service brand film" : `Snow Removal in ${city.name} | PlowWow Field Operations`,
+    description: city.slug === "vancouver" ? "An illustrative PlowWow promotional film. Not a record of work at a Vancouver property or a demonstration of app functionality." : `A short PlowWow field-operations video showing professional snow-removal readiness for strata, commercial and residential properties in ${city.name}, British Columbia.`,
     thumbnailUrl: [ogImage], uploadDate: "2026-08-30T00:00:00-07:00", duration: "PT10S",
     contentUrl: `${origin}/videos/plowwow-snow-removal-operations.mp4`, embedUrl: `${url}#snow-video`, inLanguage: "en-CA",
     publisher: { "@type": "Organization", name: "PlowWow", logo: { "@type": "ImageObject", url: `${origin}/icon-192.png` } },
@@ -194,7 +201,7 @@ const CityPage = () => {
       )}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(city.slug === "vancouver" ? vancouverServiceSchema() : localBusinessSchema) }}
       />
       <script
         type="application/ld+json"
@@ -219,7 +226,7 @@ const CityPage = () => {
           <div className="container relative z-10 py-20 md:py-28">
             <div className="max-w-3xl">
               <span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground font-heading font-bold px-4 py-1.5 rounded-full text-sm mb-5 shadow-lg">
-                <Snowflake className="w-4 h-4" /> Serving {city.name} 24/7
+                <Snowflake className="w-4 h-4" /> {city.slug === "vancouver" ? "Vancouver snow & ice service" : `Serving ${city.name} 24/7`}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-5">
                 {city.tagline}
@@ -245,11 +252,15 @@ const CityPage = () => {
                 </Button>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-2xl">
-                {[
+                {(city.slug === "vancouver" ? [
+                  { icon: Clock, label: "Reviewed service windows" },
+                  { icon: ShieldCheck, label: "Written property scope" },
+                  { icon: Truck, label: "Route availability confirmed" },
+                ] : [
                   { icon: Clock, label: "24/7 Monitoring" },
                   { icon: ShieldCheck, label: "WorkSafeBC Insured" },
                   { icon: Truck, label: "GPS-Tracked Fleet" },
-                ].map(({ icon: Icon, label }) => (
+                ]).map(({ icon: Icon, label }) => (
                   <div
                     key={label}
                     className="flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2 text-sm font-semibold"
@@ -263,6 +274,7 @@ const CityPage = () => {
           </div>
         </section>
 
+        {isVancouver && <nav aria-label="Vancouver page sections" className="container py-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><a href="#vancouver-service-heading" className="underline">Services</a><a href="#vancouver-property-scope" className="underline">Property planning</a><a href="#vancouver-sidewalk-plan" className="underline">Sidewalk responsibilities</a><a href="#vancouver-quote-review" className="underline">Quote and booking</a><a href="#vancouver-faq" className="underline">Questions</a><Link to="/vancouver/quote" className="underline">Request a quote</Link></nav>}
         <WowStrataCallout cityName={city.name} quotePath={`/${city.slug}/quote`} />
 
         {isVancouver && (
@@ -338,7 +350,7 @@ const CityPage = () => {
         <PriorityCityCluster citySlug={city.slug} />
         {city.slug === "vancouver" && <CityPricingGuides citySlug="vancouver" />}
 
-        <CitySnowVideo cityName={city.name} poster={ogImage} />
+        <CitySnowVideo cityName={city.name} poster={ogImage} promotional={isVancouver} />
 
         {/* City Map */}
         <section className="py-16" id="map">
@@ -363,14 +375,14 @@ const CityPage = () => {
           <div className="container">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                {city.name}'s Winter, by the Numbers
+                {isVancouver ? "Plan around the property" : `${city.name}'s Winter, by the Numbers`}
               </h2>
               <p className="text-muted-foreground">
-                Typical monthly snowfall and the neighborhoods we dispatch first.
+                {isVancouver ? "Use the actual address, access and accepted scope when planning winter service." : "Typical monthly snowfall and the neighborhoods we dispatch first."}
               </p>
             </div>
             <div className="grid lg:grid-cols-2 gap-8">
-              <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
+              {isVancouver ? <div className="bg-card border border-border rounded-2xl p-6 shadow-sm"><h3 className="font-heading font-bold text-xl mb-3">What to send for a Vancouver quote</h3><ul className="list-disc pl-5 space-y-3 text-muted-foreground"><li>Address, postal code and the areas that need clearing.</li><li>Entrances, stairs, ramps and equipment-access constraints.</li><li>A site contact, requested service window and preferred next step.</li><li>Photographs or a current plan, with approximate dimensions identified.</li></ul><Link to="/vancouver/quote" className="inline-block mt-5 font-bold underline">Prepare your property estimate →</Link></div> : (<div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
                 <h3 className="font-heading font-bold text-xl mb-1">Monthly Snowfall (cm)</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Average accumulation across {city.name}.
@@ -391,12 +403,13 @@ const CityPage = () => {
                     <Bar dataKey="cm" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
-              </div>
+              </div>)}
+
 
               <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-                <h3 className="font-heading font-bold text-xl mb-1">Priority Neighborhoods</h3>
+                <h3 className="font-heading font-bold text-xl mb-1">{isVancouver ? "Vancouver enquiry areas" : "Priority Neighborhoods"}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Where {city.name} crews dispatch first when a storm triggers.
+                  {isVancouver ? "Identify the actual property; routes and availability are reviewed individually." : `Where ${city.name} crews dispatch first when a storm triggers.`}
                 </p>
                 <ul className="space-y-3">
                   {city.neighborhoods.map((n) => (
@@ -422,11 +435,10 @@ const CityPage = () => {
           <div className="container">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">
-                The {city.name} Fleet
+                {isVancouver ? "Equipment planning for your site" : `The ${city.name} Fleet`}
               </h2>
               <p className="text-muted-foreground">
-                Right-sized iron for every {city.name} property — from highway-grade plow trucks
-                to skid steers and walk-behind salters for tight courtyards.
+                {isVancouver ? "Illustrative PlowWow equipment artwork. The equipment and methods for your property are confirmed in the reviewed scope." : `Right-sized iron for every ${city.name} property — from highway-grade plow trucks to skid steers and walk-behind salters for tight courtyards.`}
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -441,12 +453,12 @@ const CityPage = () => {
                 >
                   <img
                     src={img.src}
-                    alt={img.label}
+                    alt={isVancouver ? `Illustrative PlowWow equipment artwork: ${img.label.split(" ")[0]}` : img.label}
                     loading="lazy"
                     className="w-full h-56 object-cover"
                   />
                   <figcaption className="p-4 text-sm text-muted-foreground">
-                    {img.label}
+                    {isVancouver ? "PlowWow equipment illustration; not a photograph of a Vancouver service visit." : img.label}
                   </figcaption>
                 </figure>
               ))}
@@ -473,12 +485,12 @@ const CityPage = () => {
                   <figure className="my-10 rounded-2xl overflow-hidden border border-border">
                     <img
                       src={crewImg}
-                      alt={`PlowWow crew on a ${city.name} site after an overnight push`}
+                      alt={isVancouver ? "PlowWow crew branding image" : `PlowWow crew on a ${city.name} site after an overnight push`}
                       loading="lazy"
                       className="w-full h-64 md:h-80 object-cover"
                     />
                     <figcaption className="p-4 text-sm text-muted-foreground bg-card">
-                      The {city.name} crew — same faces, every storm.
+                      {isVancouver ? "PlowWow crew branding image, not a Vancouver project or dispatch record." : `The ${city.name} crew — same faces, every storm.`}
                     </figcaption>
                   </figure>
                 )}
@@ -486,12 +498,12 @@ const CityPage = () => {
                   <figure className="my-10 rounded-2xl overflow-hidden border border-border">
                     <img
                       src={walkBehindImg}
-                      alt={`Walk-behind salter treating a ${city.name} walkway`}
+                      alt={isVancouver ? "Illustrative PlowWow walk-behind salter artwork" : `Walk-behind salter treating a ${city.name} walkway`}
                       loading="lazy"
                       className="w-full h-56 md:h-72 object-cover"
                     />
                     <figcaption className="p-4 text-sm text-muted-foreground bg-card">
-                      Walk-behind salters finish what the trucks can't reach.
+                      {isVancouver ? "Illustrative equipment branding; walkway methods depend on the accepted property scope." : "Walk-behind salters finish what the trucks cannot reach."}
                     </figcaption>
                   </figure>
                 )}
@@ -525,7 +537,7 @@ const CityPage = () => {
         )}
 
         {/* FAQ */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20 bg-muted/30" id={isVancouver ? "vancouver-faq" : undefined}>
           <div className="container max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3">

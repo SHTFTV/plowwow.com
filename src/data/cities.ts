@@ -50,34 +50,34 @@ export const cities: City[] = [
     ],
     faqs: [
       {
-        q: "Do you service Vancouver during heavy snow events?",
-        a: "Yes — our Vancouver fleet runs 24/7 during snowfall warnings with priority routes for strata and commercial contracts.",
+            "q": "Can I request snow removal for a Vancouver property?",
+            "a": "PlowWow accepts enquiries for strata, commercial and residential snow clearing, salting and de-icing. Send the property address, required areas and preferred timing. Accepted scope, route availability and service windows are confirmed in your quote."
       },
       {
-        q: "How fast can you dispatch in downtown Vancouver?",
-        a: "Dispatch timing depends on storm intensity, traffic, property access and the service trigger in your agreement. Contracted properties are placed on planned routes before the storm and receive priority over new on-call requests.",
+            "q": "Is an online estimate a confirmed booking?",
+            "a": "No. The estimator is a beta starting point. A submitted request, reviewed quote and accepted booking are separate stages. Heavy or prolonged snowfall, accumulated snow, relocation and unusual access may need a separately reviewed scope."
       },
       {
-        q: "What Vancouver properties do you service?",
-        a: "We provide winter service for strata buildings, apartment communities, retail and mixed-use properties, offices, commercial lots and residential properties. Each quote is based on the areas that must remain accessible, including entrances, sidewalks, drive lanes and parking areas.",
+            "q": "What should a Vancouver strata or commercial enquiry include?",
+            "a": "Include entrances, sidewalks, parking lanes, stairs, parkade ramps, access restrictions and the person coordinating the site. Identify which areas matter first and who can approve the proposal."
       },
       {
-        q: "Do you provide salting and de-icing in Vancouver?",
-        a: "Yes. Plans can include pre-storm treatment, post-clearing de-icing and return visits when meltwater is likely to refreeze. Application details can be documented for property-management records.",
+            "q": "Can a plan include salting and de-icing?",
+            "a": "Yes. Discuss treatment areas, service triggers and any follow-up requirements when reviewing the property. Product choices and the accepted work depend on the actual site and agreement."
       },
       {
-        q: "Can you work around parkades, loading zones and tight downtown access?",
-        a: "Yes. We match equipment and service windows to the site. A pre-season review identifies parkade ramps, loading areas, fire routes, pedestrian entrances and snow-storage constraints before crews are dispatched.",
+            "q": "How are tight access, loading areas and parkades handled?",
+            "a": "Describe the layout and restrictions before the quote is accepted. Equipment access, service windows and any proposed snow-storage location need to be reviewed for the property."
       },
       {
-        q: "Do Vancouver contracts include service records?",
-        a: "Service records are available for contracted properties and can include arrival details, completed work and site photos. Ask for the reporting level your strata council or property manager requires when requesting a quote.",
+            "q": "What service records should I request?",
+            "a": "Ask what arrival information, completed-work notes and photographs are included in your proposed service. Reporting requirements should be agreed with PlowWow; records do not guarantee insurance coverage or a particular outcome."
       },
       {
-        q: "When should a Vancouver property book seasonal snow service?",
-        a: "Book before the first forecast snow event so there is time to review the site, confirm trigger depths, select treatment areas and add the property to a planned route. Capacity becomes limited as winter approaches.",
-      },
-    ],
+            "q": "When should I enquire about seasonal service?",
+            "a": "Enquire before the work is needed so there is time to discuss the site and the service options. Confirm current route capacity and the terms of the one-year, three-year, five-event or on-call option directly. A preferred date is not a dispatch confirmation."
+      }
+],
   },
   {
     slug: "new-westminster",

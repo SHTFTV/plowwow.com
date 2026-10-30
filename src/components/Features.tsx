@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const features = [
   { icon: Users, title: "Skilled & Courteous Team", href: "/skilled-courteous-team", description: "Professional crews trained for every winter scenario" },
   { icon: ShieldCheck, title: "Satisfaction Guaranteed", href: "/satisfaction-guaranteed", description: "We stand behind our work with a service guarantee" },
-  { icon: Cpu, title: "Advanced Technology", href: "/advanced-technology", description: "GPS tracking and weather monitoring for smart dispatch" },
+  { icon: Cpu, title: "Advanced Technology", href: "/advanced-technology", description: "Explore the first-year beta and the current status of proposed technology" },
   { icon: Clock, title: "24/7 Service", href: "/24-7-service", description: "Automatic dispatch, emergency response, priority service" },
   { icon: Building2, title: "Strata Experts", href: "/strata-experts", description: "Multi-unit properties, documented service, insurance support" },
   { icon: Truck, title: "Snow Relocation", href: "/snow-relocation", description: "Heavy equipment, professional hauling, proper disposal" },

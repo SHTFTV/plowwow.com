@@ -3,6 +3,7 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { priorityPageSeo } from "../src/data/priorityPageSeo";
 import { cities } from "../src/data/cities";
 
 export const BASE_URL = "https://www.plowwow.com";
@@ -88,9 +89,8 @@ export function collectRoutes(): RouteMeta[] {
   const staticRoutes: RouteMeta[] = [
     {
       path: "/",
-      title: "Snow Removal & De-Icing in Greater Vancouver | PlowWow",
-      description:
-        "PlowWow delivers 24/7 snow plowing, salting, and de-icing for residential, strata, and commercial properties across Greater Vancouver, BC.",
+      title: priorityPageSeo.home.title,
+      description: priorityPageSeo.home.description,
       ogImage: `${BASE_URL}/og-default.jpg`,
       kind: "static",
     },
@@ -216,8 +216,8 @@ export function collectRoutes(): RouteMeta[] {
   for (const c of cities) {
     routes.push({
       path: `/${c.slug}`,
-      title: `${c.tagline} | PlowWow`,
-      description: truncate(c.intro),
+      title: c.slug === "vancouver" ? priorityPageSeo.vancouver.title : `${c.tagline} | PlowWow`,
+      description: c.slug === "vancouver" ? priorityPageSeo.vancouver.description : truncate(c.intro),
       ogImage: c.ogImage,
       kind: "city",
     });

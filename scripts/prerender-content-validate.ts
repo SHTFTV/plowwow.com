@@ -87,8 +87,13 @@ for (const t of targets) {
     html,
   );
   const hasPostalAddress = /"@type"\s*:\s*"PostalAddress"/.test(html);
-  if (!hasLocalBusiness) problems.push(`missing LocalBusiness JSON-LD`);
-  if (!hasPostalAddress) problems.push(`missing PostalAddress JSON-LD`);
+  if (t.slug === "vancouver") {
+    if (!/"@type"\s*:\s*"Service"/.test(html) || !html.includes("https://www.plowwow.com/vancouver#service")) problems.push("missing Vancouver Service with provider identity");
+    if (!html.includes("snow-removal-from-city-streets.aspx")) problems.push("missing official Vancouver sidewalk source");
+  } else {
+    if (!hasLocalBusiness) problems.push(`missing LocalBusiness JSON-LD`);
+    if (!hasPostalAddress) problems.push(`missing PostalAddress JSON-LD`);
+  }
 
   if (problems.length) failures.push(`✗ /${t.slug}/\n    - ${problems.join("\n    - ")}`);
   else passed.push(`/${t.slug}/`);

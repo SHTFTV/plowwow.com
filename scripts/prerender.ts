@@ -1,3 +1,4 @@
+import { vancouverServiceSchema } from "../src/data/priorityPageSeo";
 import { medicalRenewalPlace } from "../src/data/medicalRenewalLocations";
 // Post-build prerender: for every route, take dist/index.html and inject a
 // route-specific <title>, meta description, canonical, hreflang, OG tags, and
@@ -163,6 +164,7 @@ function faqPage(faqs: Faq[]): LD | null {
 function cityLocalBusiness(route: RouteMeta, url: string): LD | null {
   const city = cities.find((c) => `/${c.slug}` === route.path);
   if (!city) return null;
+  if (city.slug === "vancouver") return vancouverServiceSchema();
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -383,7 +385,7 @@ function renderHead(route: RouteMeta): string {
   const ldBlocks = graph
     .map(
       (g) =>
-        `<script type="application/ld+json"${["legacy-blog", "legacy-page"].includes(route.kind) && ["BlogPosting", "BreadcrumbList", "FAQPage"].includes(String(g["@type"])) ? ` id="${g["@type"] === "BlogPosting" ? "legacy-page-article-jsonld" : g["@type"] === "BreadcrumbList" ? "legacy-page-breadcrumb-jsonld" : "legacy-page-faq-jsonld"}"` : ""}>${JSON.stringify(g)
+        `<script type="application/ld+json" data-prerender-route-schema="true"${["legacy-blog", "legacy-page"].includes(route.kind) && ["BlogPosting", "BreadcrumbList", "FAQPage"].includes(String(g["@type"])) ? ` id="${g["@type"] === "BlogPosting" ? "legacy-page-article-jsonld" : g["@type"] === "BreadcrumbList" ? "legacy-page-breadcrumb-jsonld" : "legacy-page-faq-jsonld"}"` : ""}>${JSON.stringify(g)
           .replace(/</g, "\\u003c")}</script>`,
     )
     .join("\n    ");

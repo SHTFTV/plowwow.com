@@ -18,6 +18,8 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
+import { vancouverSections } from "../src/data/vancouverServiceContent";
+import { vancouverServiceSchema } from "../src/data/priorityPageSeo";
 import { cities } from "../src/data/cities";
 import { buildCityCopy } from "../src/data/cityContent";
 import { getLocationDeep } from "../src/data/locations";
@@ -211,7 +213,7 @@ for (const city of inputs) {
   const { localBusiness, faqPage, breadcrumbs } = buildCityJsonLd(city);
   const allIssues: string[] = [];
   for (const [label, block] of [
-    ["LocalBusiness", localBusiness],
+    ["LocalBusiness", city.slug === "vancouver" ? vancouverServiceSchema() : localBusiness],
     ["FAQPage", faqPage],
     ["BreadcrumbList", breadcrumbs],
   ] as const) {
@@ -234,7 +236,9 @@ for (const city of inputs) {
     issues: allIssues,
   };
   rows.push(row);
-  if (words < MIN_WORDS || allIssues.length > 0) hasFailure = true;
+  const minimum = city.slug === "vancouver" ? 1200 : MIN_WORDS;
+  if (city.slug === "vancouver" && (vancouverSections.length !== 8 || vancouverSections.some(s => !s.id || s.paragraphs.length < 2))) allIssues.push("Vancouver must retain eight substantive property-planning sections with at least two paragraphs each.");
+  if (words < minimum || allIssues.length > 0) hasFailure = true;
 }
 
 const pad = (s: string, n: number) => s + " ".repeat(Math.max(0, n - s.length));
@@ -243,13 +247,14 @@ console.log("\nCity page word-count & JSON-LD gate\n");
 console.log(pad("slug", 22), pad("words", 8), pad("min", 6), pad("jsonld", 8), "status");
 console.log("-".repeat(60));
 for (const r of rows) {
-  const wOk = r.words >= MIN_WORDS;
+  const minimum = r.slug === "vancouver" ? 1200 : MIN_WORDS;
+  const wOk = r.words >= minimum;
   const jOk = r.jsonldErrors === 0;
   const status = wOk && jOk ? "PASS" : "FAIL";
   console.log(
     pad(r.slug, 22),
     pad(String(r.words), 8),
-    pad(String(MIN_WORDS), 6),
+    pad(String(minimum), 6),
     pad(String(r.jsonldErrors), 8),
     status,
   );
@@ -260,9 +265,9 @@ for (const r of rows) {
 
 if (hasFailure) {
   console.error(
-    "\n✗ city-word-count-check FAILED — one or more cities are under 5,800 words or have JSON-LD errors.\n",
+    "\n✗ city-word-count-check FAILED — one or more cities fail their content coverage or JSON-LD requirements.\n",
   );
   process.exit(1);
 } else {
-  console.log("\n✓ all cities meet the 5,800-word bar and emit valid JSON-LD.\n");
+  console.log("\n✓ all cities meet their content requirements (Vancouver: eight evidence-led planning sections; other cities: existing 5,800-word bar) and emit valid JSON-LD.\n");
 }

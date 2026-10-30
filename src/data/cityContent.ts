@@ -1,3 +1,4 @@
+import { vancouverServiceCopy } from "./vancouverServiceContent";
 import type { City } from "./cities";
 import { CITY_FLAVOR, type CityFlavor } from "./cityFlavor";
 
@@ -212,6 +213,7 @@ const closing = (city: City): string[] => [
 ];
 
 export function buildCityCopy(city: City): CityCopy {
+  if (city.slug === "vancouver") return vancouverServiceCopy();
   const flavor =
     CITY_FLAVOR[city.slug] ?? CITY_FLAVOR.vancouver; // fallback to keep tests safe
   const sections: CitySection[] = [];

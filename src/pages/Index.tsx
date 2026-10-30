@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { applyPriorityPageMeta } from "@/lib/priorityPageMeta";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -15,7 +17,9 @@ import HomeBlog from "@/components/HomeBlog";
 import PropertyManagerBanner from "@/components/PropertyManagerBanner";
 import PropertyExperience from "@/components/PropertyExperience";
 
-const Index = () => (
+const Index = () => {
+  useEffect(() => { applyPriorityPageMeta("home"); }, []);
+  return (
   <div className="min-h-screen">
     <TopBar />
     <Navbar />
@@ -36,5 +40,6 @@ const Index = () => (
     <Footer />
   </div>
 );
+};
 
 export default Index;
