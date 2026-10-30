@@ -195,6 +195,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
     // guaranteed-reachable branded OG default so every share always resolves an image.
     const heroFromBody = body.match(/!\[[^\]]*\]\((\/[^)\s]+)\)/)?.[1];
     const heroCandidate =
+      (slug === "vancouver-winter-tires-edmonton-snowfall-reminder" ? "/blog-images/vancouver-winter-tires-edmonton-snowfall-reminder-share.jpg" : null) ||
       (slug && ["polar-vortex-richmond-winter-loading-drainage-plan","polar-vortex-surrey-mixed-property-winter-readiness","polar-vortex-vancouver-winter-access-plan"].includes(slug) ? `/blog-images/${slug}-v2-share.jpg` : null) ||
       (slug?.startsWith("polar-vortex-") ? `/blog-images/${slug}-share.jpg` : null) ||
       (slug === "chilliwack-winter-contractor-application-capacity" ? "/blog-images/chilliwack-winter-contractor-application-capacity-share.jpg" : null) ||
@@ -483,6 +484,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
           <article className={`container max-w-3xl prose prose-slate dark:prose-invert prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h3:text-xl prose-img:rounded-xl prose-img:border prose-img:border-border !max-w-3xl lg:prose-lg`}>
             <ReactMarkdown remarkPlugins={[remarkGfm]} urlTransform={(url) => /^(?:tel|sms):\+?[\d()-]+$/.test(url) ? url : defaultUrlTransform(url)} components={{ a: ({node, href, ...props}) => <a {...props} href={publicLink(href)} /> }}>{displayBody}</ReactMarkdown>
           </article>
+          {slug === "vancouver-winter-tires-edmonton-snowfall-reminder" && <figure className="container max-w-3xl pb-8" data-publisher-video><p className="mb-3"><a className="inline-block rounded-lg bg-primary px-5 py-3 font-bold text-primary-foreground" href="https://www.youtube.com/watch?v=P7IhW5kiLL0" target="_blank" rel="noopener">Watch the CityNews video ↗</a></p><details><summary className="cursor-pointer py-3 font-bold">Open the embedded CityNews player</summary><iframe src="https://www.youtube-nocookie.com/embed/P7IhW5kiLL0" title="CityNews: Edmonton’s first significant snowfall brings collisions, plowing questions" width="1200" height="675" className="w-full aspect-video rounded-xl border-0" style={{height:"auto"}} loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /></details><figcaption className="mt-2 text-sm text-muted-foreground">Video: CityNews (@CityNews). Publisher reporting; not PlowWow footage. <a className="underline" href="https://www.youtube.com/watch?v=P7IhW5kiLL0">Watch on YouTube</a></figcaption></figure>}
         </section>
 
         </>}
