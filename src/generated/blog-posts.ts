@@ -13,6 +13,116 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "greater-vancouver-el-nino-winter-planning-2026-27",
+    "title": "PlowWow versus “Godzilla”: the 2026–27 El Niño story",
+    "blurb": "The 2026–27 El Niño story for Greater Vancouver: what WMO and NOAA report, why seasonal averages differ from storms and where the Godzilla nickname ends…",
+    "image": "/blog-images/greater-vancouver-el-nino-winter-planning-2026-27.jpg",
+    "alt": "The approved PlowWow Wow mascot in an original illustrated coastal winter scene",
+    "theme": "citywide",
+    "tags": [
+      "Weather",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-30T02:21:07.195Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "langley-el-nino-winter-review-windows-2026-27",
+    "title": "Langley and the “Godzilla” winter: why the road story can change",
+    "blurb": "Langley’s winter story separates the projected Pacific signal from municipal road response, including the Township’s changing priority ladder…",
+    "image": "/blog-images/langley-el-nino-winter-review-windows-2026-27.jpg",
+    "alt": "The approved PlowWow Wow mascot in an original illustrated coastal winter scene",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-30T02:21:07.195Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "new-westminster-el-nino-sidewalk-review-2026-27",
+    "title": "New Westminster and El Niño: a mild average is not an empty winter",
+    "blurb": "New Westminster’s El Niño angle: a warmer seasonal average does not predict every winter day or change the City’s published sidewalk-clearing framework…",
+    "image": "/blog-images/new-westminster-el-nino-sidewalk-review-2026-27.jpg",
+    "alt": "The approved PlowWow Wow mascot in an original illustrated coastal winter scene",
+    "theme": "citywide",
+    "tags": [
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-30T02:21:07.195Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "port-moody-el-nino-pedestrian-review-2026-27",
+    "title": "Port Moody’s El Niño question: what does “warmer” leave unresolved?",
+    "blurb": "Port Moody’s El Niño story connects uncertainty about individual storms with the City’s distinct pedestrian-route categories, without inventing a local forecast…",
+    "image": "/blog-images/port-moody-el-nino-pedestrian-review-2026-27.jpg",
+    "alt": "The approved PlowWow Wow mascot in an original illustrated coastal winter scene",
+    "theme": "citywide",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-30T02:21:07.195Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "polar-vortex-abbotsford-january-2024-storage-flashback",
+    "title": "Abbotsford after the January 2024 cold: watch the road, not just the headline",
+    "blurb": "An updated Abbotsford cold-weather feature: the January 2024 archive, current road-camera and pavement-sensor sources, and the limits of a single observation…",
+    "image": "/blog-images/polar-vortex-abbotsford-january-2024-storage-flashback.jpg",
+    "alt": "The established PlowWow Wow mascot in an imagined Abbotsford-inspired commercial winter property; original AI-assisted editorial illustration",
+    "theme": "citywide",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-29T18:38:04.000Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "polar-vortex-aldergrove-january-2024-boundary-flashback",
+    "title": "Aldergrove’s winter road story: why priority can change after a cold spell",
+    "blurb": "Aldergrove’s revised winter feature explains why Township road priorities can change as conditions worsen, while keeping January 2024 history distinct…",
+    "image": "/blog-images/polar-vortex-aldergrove-january-2024-boundary-flashback.jpg",
+    "alt": "The established PlowWow Wow mascot in an imagined Aldergrove-inspired mixed-use winter property; original AI-assisted editorial illustration",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-29T18:38:04.000Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "polar-vortex-coquitlam-january-2024-shared-route-flashback",
+    "title": "Coquitlam’s hillside winter question: what the priority map actually says",
+    "blurb": "Coquitlam’s revised cold-weather feature examines the hillside detail in the City’s snow-response categories and the difference between a map and live conditions…",
+    "image": "/blog-images/polar-vortex-coquitlam-january-2024-shared-route-flashback.jpg",
+    "alt": "The established PlowWow Wow mascot in an imagined Coquitlam-inspired hillside shared-access setting; original AI-assisted editorial illustration",
+    "theme": "citywide",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-29T18:38:04.000Z",
+    "updatedAt": "2026-10-30T02:21:07.195Z"
+  },
+  {
+    "slug": "polar-vortex-port-moody-january-2024-pedestrian-flashback",
+    "title": "Port Moody cold flashback: the last metres to the entrance",
+    "blurb": "January 2024 Arctic-cold flashback: Port Moody frontage and pedestrian planning, public-to-private handoffs, mixed-use entrances and clear service scope…",
+    "image": "/blog-images/polar-vortex-port-moody-january-2024-pedestrian-flashback.jpg",
+    "alt": "The established PlowWow Wow mascot in an imagined Port Moody-inspired waterfront pedestrian setting; original AI-assisted editorial illustration",
+    "theme": "citywide",
+    "tags": [
+      "Weather"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-29T18:38:04.000Z",
+    "updatedAt": "2026-10-29T18:38:04.000Z"
+  },
+  {
     "slug": "polar-vortex-langley-city-township-winter-plan",
     "title": "Langley snow planning: City, Township and the route that actually needs clearing",
     "blurb": "A Langley winter-readiness guide that separates City and Township responsibilities, shared walkways, treatment decisions and the scope behind an online estimate…",

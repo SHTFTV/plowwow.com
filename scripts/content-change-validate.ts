@@ -21,6 +21,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { execSync } from "node:child_process";
+import { collectChangedMarkdown, repeatedProse } from "./lib/content-prose-guard";
 
 const BLOG_DIR = "src/content/legacy/blog";
 const IMG_DIR = "public/blog-images";
@@ -46,14 +47,7 @@ if (!all) {
   scope = new Set<string>();
   let gitOk = false;
   try {
-    const diff = execSync("git diff --name-only origin/main...HEAD -- src/content/legacy/blog", {
-      stdio: ["ignore", "pipe", "ignore"],
-    })
-      .toString()
-      .trim()
-      .split("\n")
-      .filter(Boolean)
-      .map((p) => p.split("/").pop()!);
+    const diff = collectChangedMarkdown(cmd => execSync(cmd, {stdio:["ignore","pipe","ignore"]}).toString(), process.env.CONTENT_BASE_REF || "origin/main");
     diff.forEach((f) => {
       scope!.add(f);
       strictFiles.add(f);
@@ -72,6 +66,9 @@ if (!all) {
     }
   }
 }
+
+const explicit = process.argv.find(x=>x.startsWith("--files="))?.slice(8).split(",").filter(Boolean);
+if (explicit) { scope = new Set(explicit); explicit.forEach(f=>strictFiles.add(f)); }
 
 const files = readdirSync(BLOG_DIR)
   .filter((f) => f.endsWith(".md"))
@@ -110,7 +107,7 @@ for (const file of files) {
   check(!!urlMatch, file, "Missing 'URL Source:' header");
   if (urlMatch) {
     const u = urlMatch[1];
-    check(u.startsWith(CANONICAL_HOST), file, `URL Source not on ${CANONICAL_HOST}`);
+    check(/^https:\/\/(?:www\.)?plowwow\.com\//.test(u), file, `URL Source not on ${CANONICAL_HOST}`);
     check(u.includes(`/${slug}/`) || u.endsWith(`/${slug}`), file, `URL Source slug mismatch (expected ${slug})`);
   }
 
@@ -128,6 +125,17 @@ for (const file of files) {
     check(title.length >= 15, file, `Hero image title too short (${title.length} chars)`);
     const imgPath = join("public", path.replace(/^\//, ""));
     check(existsSync(imgPath), file, `Hero image file missing at ${imgPath}`);
+  }
+}
+
+// Compare substantive paragraphs, excluding shared credits, lists and metadata.
+// This catches copied/city-swapped prose; distinct reporting still needs human review.
+for (const file of files) {
+  if (!strictFiles.has(file) && !strictAll && !all) continue;
+  const raw = readFileSync(join(BLOG_DIR,file),"utf8");
+  for (const other of readdirSync(BLOG_DIR).filter(f=>f.endsWith(".md")&&f!==file)) {
+    const result=repeatedProse(raw,readFileSync(join(BLOG_DIR,other),"utf8"));
+    if (result.flagged) check(false,file,`Repeated substantive prose with ${other}: ${result.matchedParagraphs} paragraphs / ${result.matchedWords} words (${Math.round(result.coverage*100)}% coverage)`);
   }
 }
 
@@ -154,7 +162,7 @@ if (full) {
 // Pass --strict or --all to enforce strict mode across everything in scope.
 if (!strictAll && !all) {
   for (const i of issues) {
-    if (i.level === "error" && !strictFiles.has(i.file)) i.level = "warn";
+    if (i.level === "error" && !strictFiles.has(i.file) && i.file !== "(full)") i.level = "warn";
   }
 }
 
@@ -172,6 +180,6 @@ for (const e of errors) console.error(`  ✗ ${e.file}: ${e.message}`);
 
 if (errors.length > 0) {
   console.error(`\n${strictAll || all ? "✗" : "⚠"} content-change-validate: ${errors.length} error(s), ${warns.length} warning(s)`);
-  if (strictAll || all) process.exit(1);
+  process.exit(1);
 }
 console.log(`✓ content-change-validate: ${files.length} blog post(s) OK (${warns.length} warning(s))`);

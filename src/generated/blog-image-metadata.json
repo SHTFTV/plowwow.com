@@ -1,4 +1,36 @@
 {
+  "/blog-images/greater-vancouver-el-nino-winter-planning-2026-27.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/langley-el-nino-winter-review-windows-2026-27.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/new-westminster-el-nino-sidewalk-review-2026-27.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/port-moody-el-nino-pedestrian-review-2026-27.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-abbotsford-january-2024-storage-flashback.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/blog-images/polar-vortex-aldergrove-january-2024-boundary-flashback.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/blog-images/polar-vortex-coquitlam-january-2024-shared-route-flashback.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/blog-images/polar-vortex-port-moody-january-2024-pedestrian-flashback.jpg": {
+    "width": 1600,
+    "height": 900
+  },
   "/blog-images/polar-vortex-langley-city-township-winter-plan-hero.jpg": {
     "width": 1200,
     "height": 630
@@ -643,11 +675,39 @@
     "width": 1200,
     "height": 630
   },
+  "/blog-images/greater-vancouver-el-nino-winter-planning-2026-27-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/langley-el-nino-winter-review-windows-2026-27-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/new-westminster-el-nino-sidewalk-review-2026-27-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-abbotsford-january-2024-storage-flashback-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-aldergrove-january-2024-boundary-flashback-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
   "/blog-images/polar-vortex-burnaby-strata-winter-handoff-share.jpg": {
     "width": 1200,
     "height": 630
   },
+  "/blog-images/polar-vortex-coquitlam-january-2024-shared-route-flashback-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
   "/blog-images/polar-vortex-langley-city-township-winter-plan-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/polar-vortex-port-moody-january-2024-pedestrian-flashback-share.jpg": {
     "width": 1200,
     "height": 630
   },
@@ -672,6 +732,10 @@
     "height": 630
   },
   "/blog-images/polar-vortex-vancouver-winter-access-plan-v2-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "/blog-images/port-moody-el-nino-pedestrian-review-2026-27-share.jpg": {
     "width": 1200,
     "height": 630
   },

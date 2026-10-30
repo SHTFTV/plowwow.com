@@ -1,13 +1,53 @@
 {
-  "generatedAt": "2026-10-29T06:07:57.145Z",
-  "count": 203,
+  "generatedAt": "2026-10-30T02:21:33.263Z",
+  "count": 211,
   "carousel": [
-    "chilliwack-winter-contractor-application-capacity",
-    "abbotsford-snow-estimate-sharing-review",
-    "langley-snow-estimate-address-review",
-    "surrey-snow-intelligence-property-request"
+    "greater-vancouver-el-nino-winter-planning-2026-27",
+    "langley-el-nino-winter-review-windows-2026-27",
+    "new-westminster-el-nino-sidewalk-review-2026-27",
+    "port-moody-el-nino-pedestrian-review-2026-27"
   ],
   "posts": [
+    {
+      "slug": "greater-vancouver-el-nino-winter-planning-2026-27",
+      "publishedAt": "2026-10-30T02:21:07.195Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "langley-el-nino-winter-review-windows-2026-27",
+      "publishedAt": "2026-10-30T02:21:07.195Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "new-westminster-el-nino-sidewalk-review-2026-27",
+      "publishedAt": "2026-10-30T02:21:07.195Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "port-moody-el-nino-pedestrian-review-2026-27",
+      "publishedAt": "2026-10-30T02:21:07.195Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "polar-vortex-abbotsford-january-2024-storage-flashback",
+      "publishedAt": "2026-10-29T18:38:04.000Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "polar-vortex-aldergrove-january-2024-boundary-flashback",
+      "publishedAt": "2026-10-29T18:38:04.000Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "polar-vortex-coquitlam-january-2024-shared-route-flashback",
+      "publishedAt": "2026-10-29T18:38:04.000Z",
+      "updatedAt": "2026-10-30T02:21:07.195Z"
+    },
+    {
+      "slug": "polar-vortex-port-moody-january-2024-pedestrian-flashback",
+      "publishedAt": "2026-10-29T18:38:04.000Z",
+      "updatedAt": "2026-10-29T18:38:04.000Z"
+    },
     {
       "slug": "polar-vortex-langley-city-township-winter-plan",
       "publishedAt": "2026-10-29T05:50:05.000Z",
