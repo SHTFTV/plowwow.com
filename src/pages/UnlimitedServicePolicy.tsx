@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { applyPageMeta } from "@/lib/pageMeta";
 
 const title = "Unlimited Snow Removal & Ice Control Policy | PlowWow";
-const description = "Understand what PlowWow's unlimited seasonal snow removal package includes, including repeat clearing visits, salting and de-icing, and exceptional-weather exclusions.";
+const description = "Understand what PlowWow's unlimited seasonal snow removal package includes, including repeat clearing visits, salting and de-icing, and exceptional-weather protections.";
 
 export default function UnlimitedServicePolicy() {
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function UnlimitedServicePolicy() {
             <p className="text-sm font-bold tracking-[0.18em] text-sky-200 uppercase">PlowWow seasonal service</p>
             <h1 className="mt-4 max-w-4xl text-4xl md:text-6xl font-bold leading-tight">What does <span className="text-sky-300">Unlimited</span> mean?</h1>
             <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-slate-200">
-              One agreed seasonal price for ongoing snow clearing and ice management throughout the contracted winter season, subject to the exceptional-weather conditions explained below.
+              One agreed seasonal price for ongoing snow clearing and ice management throughout the contracted winter season, subject to the exceptional-weather protections explained below.
             </p>
           </div>
         </section>
@@ -69,17 +69,20 @@ export default function UnlimitedServicePolicy() {
           <section aria-labelledby="exception-heading" className="rounded-2xl border border-amber-300 bg-amber-50 p-6 md:p-8 text-slate-900">
             <div className="flex items-center gap-3">
               <ShieldCheck className="h-8 w-8 text-amber-700" aria-hidden="true" />
-              <h2 id="exception-heading" className="text-2xl md:text-3xl font-bold">The exceptional-weather exception</h2>
+              <h2 id="exception-heading" className="text-2xl md:text-3xl font-bold">The exceptional-weather protection</h2>
             </div>
             <p className="mt-4 leading-relaxed">
-              The Unlimited Seasonal Package is intended to cover routine and reasonably anticipated winter conditions. An additional charge may apply only when weather conditions are exceptional, specifically:
+              Unlimited seasonal service is designed for routine and reasonably anticipated winter conditions. An exceptional-weather charge may apply only when either of these thresholds is reached:
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed">
-              <li>Extreme snowfall accumulation that goes beyond normal seasonal operating conditions; or</li>
-              <li>A continuous snowfall event that lasts more than 12 consecutive hours. This is beyond two five-hour operating shifts, with additional time for continued operations. The first five-hour shift is typically the most demanding as crews work through the initial accumulation.</li>
+              <li>A major snowfall event produces 12 inches (30 cm) or more of snow accumulation; or</li>
+              <li>Snowfall continues for more than 12 consecutive hours. This is beyond two five-hour operating shifts, with additional time for continued operations. The first five-hour shift is typically the most demanding as crews work through the initial accumulation.</li>
             </ul>
             <p className="mt-4 leading-relaxed">
-              These are exceptional-event circumstances, not routine per-visit or per-salting fees. Any applicable exceptional-weather charge must be addressed in the property's written service agreement. The agreement governs the specific scope, pricing and treatment of exceptional events.
+              These limits are in place to protect the people doing the work and the equipment they rely on. Extreme, prolonged storms can leave crews physically and mentally exhausted and put exceptional demands on vehicles and machinery. A clear threshold helps us plan safe operations, maintain equipment readiness and apply a fair, transparent policy to every client.
+            </p>
+            <p className="mt-4 leading-relaxed">
+              These are exceptional-event circumstances, not routine per-visit or per-salting fees. Any applicable exceptional-weather charge must be addressed in the property's written service agreement, including how it is calculated. The signed agreement governs the specific scope and pricing.
             </p>
           </section>
 
