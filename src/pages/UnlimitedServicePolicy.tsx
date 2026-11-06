@@ -76,7 +76,7 @@ export default function UnlimitedServicePolicy() {
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed">
               <li>Extreme snowfall accumulation that goes beyond normal seasonal operating conditions; or</li>
-              <li>A continuous snowfall event that lasts more than 16 consecutive hours.</li>
+              <li>A continuous snowfall event that lasts more than 12 consecutive hours. This is beyond two five-hour operating shifts, with additional time for continued operations. The first five-hour shift is typically the most demanding as crews work through the initial accumulation.</li>
             </ul>
             <p className="mt-4 leading-relaxed">
               These are exceptional-event circumstances, not routine per-visit or per-salting fees. Any applicable exceptional-weather charge must be addressed in the property's written service agreement. The agreement governs the specific scope, pricing and treatment of exceptional events.
