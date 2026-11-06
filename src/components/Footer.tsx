@@ -82,6 +82,7 @@ const Footer = () => (
             </li>
             <li><Link to="/author/plowwow-team" className="hover:text-primary transition-colors">Authors</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
+            <li><Link to="/unlimited-service-policy" className="hover:text-primary transition-colors">Unlimited Service Policy</Link></li>
             <li><Link to="/advanced-technology" className="hover:text-primary transition-colors">PlowWow™ App — Features & Pricing</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
           </ul>
