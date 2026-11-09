@@ -10,6 +10,9 @@ Markdown Content:
 
 # Richmond Snow Removal: Annual Contracts for Commercial & Strata Lots
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Wow, the PlowWow mascot, beside a cleared commercial parking lot in a branded winter-service illustration](/blog-images/richmond-annual-commercial-strata-snow-removal-contracts.jpg "PlowWow Richmond commercial route planning")
 
 White-glove winter service starts with a well-planned route and a clear site plan. Source: existing PlowWow editorial illustration; not a photograph of a Richmond client property or the incoming truck.

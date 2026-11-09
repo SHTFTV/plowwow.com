@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in New Westminste
 Markdown Content:
 # New Westminster Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a New Westminster strata complex during a heavy winter snowfall event](/blog-images/new-westminster-strata-commercial-snow-plowing.jpg "PlowWow New Westminster commercial snow plowing")
 
 ## Proactive Winter Risk Management for New Westminster Strata Councils
@@ -64,11 +67,11 @@ Furthermore, New Westminster City Bylaws require all owners or occupiers of busi
 Strata budgets are under more pressure than ever. At [plowwow.com](https://plowwow.com), we provide two primary financial models to help New Westminster councils manage their "Rainy Day" (or Snowy Day) funds effectively.
 
 ### Fixed Seasonal Contracts
-This is the "Insurance Policy" model. You pay a set monthly fee throughout the winter months, regardless of how much snow falls.
+This is the "Insurance Policy" model. You pay a set monthly fee throughout the winter months, subject to the agreed scope and extreme-event charges.
 +-----------------------------------------------------------+
 |           BENEFIT PANEL: FIXED SEASONAL                   |
 +-----------------------------------------------------------+
-| 1. Guaranteed Budgeting: No surprise invoices in January. |
+| 1. Guaranteed Budgeting: agreed seasonal pricing, subject to extreme-event terms in January. |
 | 2. Highest Priority: You are the "Tier 1" dispatch group. |
 | 3. Unlimited Visits: No matter how many storms, you're set|
 | 4. Peace of Mind: Automatic activation at 1cm or 0°C.     |

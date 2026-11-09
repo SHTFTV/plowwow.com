@@ -8,6 +8,9 @@ Markdown Content:
 
 # Marpole Vancouver Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Marpole, the southernmost corner of Vancouver gets hit hard and gets hit early. Cold air pours up the Fraser River, the Granville Street commercial strip ices over before sunrise, and the older walk-up apartment buildings between West 64th and Marine Drive have narrow side-walks and steep front stairs that turn into liability the moment the temperature drops. PlowWow is the snow-and-ice partner Marpole strata councils, property managers, shop owners and homeowners call when "we'll get there when we get there" is not an answer.
 
 Marpole snow removal for Granville Street retail, walk-up apartments, Marine Drive commercial, and residential driveways. 60-minute response, GPS logs, pet-safe de-icer.

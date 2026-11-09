@@ -2,8 +2,13 @@ Title: Surrey Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/surrey-snow-removal/
 
+Description: Surrey Snow Removal | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com mailto:Wow@plowwow.com Facebook https://plowwow.com/surrey-snow-removal/ X
+
 Markdown Content:
 # Surrey Snow Removal | PlowWow Snow Removal and De-Ice Management
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 
 [Wow@plowwow.com](mailto:Wow@plowwow.com)
 *   [Facebook](https://plowwow.com/surrey-snow-removal/#)
@@ -299,7 +304,7 @@ No. Our automatic dispatch system monitors snowfall 24/7. Once snow reaches the 
 
 What’s included in your seasonal snow removal contract?
 
-Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing throughout the winter season. You pay one fixed price with no surprise charges. Services include automatic dispatch, priority response, professional equipment, return visits as needed, and detailed service documentation.
+Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing throughout the winter season. You pay an agreed seasonal price, subject to extreme-event terms. Services include automatic dispatch, priority response, professional equipment, return visits as needed, and detailed service documentation.
 
 Do you provide salting and de-icing services in Surrey?
 
@@ -323,7 +328,7 @@ We use proactive ice management, including preventative de-icer application, tar
 
 What makes PlowWow different from other snow removal companies?
 
-PlowWow works with trusted local operators who understand Surrey’s size, traffic patterns, and winter conditions. We offer fixed-rate seasonal pricing, automatic dispatch, professional equipment, detailed documentation, and reliable service with no surprise billing.
+PlowWow works with trusted local operators who understand Surrey’s size, traffic patterns, and winter conditions. We offer fixed-rate seasonal pricing, automatic dispatch, professional equipment, detailed documentation, and reliable service with disclosed seasonal and extreme-event pricing.
 
 **PlowWow Service Areas**
 

@@ -8,6 +8,9 @@ Markdown Content:
 
 # Kensington-Cedar Cottage East Vancouver Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Kensington-Cedar Cottage, Kensington-Cedar Cottage — the family-residential heart of East Van between Knight and Nanaimo, Kingsway and 41st, everything from the morning commute to first deliveries depends on lots, walks and ramps being cleared *before* people arrive. PlowWow is the snow-and-ice partner stratas, property managers and homeowners in Kensington-Cedar Cottage call when "we'll get there when we get there" is not an answer.
 
 Single-family driveways, character-home walkways, and small strata along Kingsway and Victoria Drive. Per-visit, monthly, and seasonal plans — all sidewalks bylaw-compliant.

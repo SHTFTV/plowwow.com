@@ -313,6 +313,15 @@ function renderHead(route: RouteMeta): string {
     `<meta property="og:image" content="${img}" />`,
   );
 
+  if (route.path === "/unlimited-clarification-policy") {
+    const dimensions = imageMetadata["/images/plowwow-unlimited-policy-hero-v2.jpg" as keyof typeof imageMetadata];
+    if (dimensions) {
+      html = html.replace(/(<meta property="og:image:width" content=")[^"]*("[^>]*>)/, '$1' + dimensions.width + '$2');
+      html = html.replace(/(<meta property="og:image:height" content=")[^"]*("[^>]*>)/, '$1' + dimensions.height + '$2');
+    }
+    html = html.replace(/(<meta (?:property="og:image:alt"|name="twitter:image:alt") content=")[^"]*("[^>]*>)/g, '$1PlowWow Unlimited Clarification Policy: customers, crew, equipment and business protection$2');
+  }
+
   // og:locale:alternate — one per non-primary supported locale, so link
   // previews on locale-aware surfaces (LinkedIn, Facebook) advertise every
   // variant we ship. Inserted after og:locale so validators see them together.

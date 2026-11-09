@@ -5,6 +5,9 @@ Description: Professional strata snow removal in Brentwood, Burnaby. 24/7 dispat
 Markdown Content:
 # Brentwood Burnaby Strata Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![PlowWow strata snow removal truck clearing a Brentwood Burnaby townhome driveway at dawn](https://plowwow.com/og-burnaby.jpg)
 *Alt: PlowWow plow truck clearing visitor parking at a Brentwood strata complex after an overnight snowfall.*
 
@@ -78,7 +81,7 @@ The default trigger is 2 cm of verified accumulation at the closest PlowWow sens
 PlowWow services the ramp apron, ramp surface, and the first 10 metres inside the parkade entrance — the zones where snow and ice are tracked in. Full interior parkade cleaning is a separate service.
 
 ### How does fixed seasonal pricing work for a mild winter?
-The seasonal price is the seasonal price, regardless of how many events occur. In a mild winter the strata effectively pays for "winter readiness" — the standby capacity, anti-icing passes, and pre-stocked materials — even if only one or two plowable events occur. In a heavy winter the strata is protected from per-event invoicing that would otherwise blow the budget.
+The seasonal price is the seasonal price, subject to the agreed scope and extreme-event charges. In a mild winter the strata effectively pays for "winter readiness" — the standby capacity, anti-icing passes, and pre-stocked materials — even if only one or two plowable events occur. In a heavy winter the strata is protected from per-event invoicing that would otherwise blow the budget.
 
 ### Can PlowWow coordinate with our property manager rather than the council directly?
 Yes. Most Brentwood contracts route operational reports to the property manager and financial documents to the strata treasurer, with the council president CC'd on storm-event summaries.

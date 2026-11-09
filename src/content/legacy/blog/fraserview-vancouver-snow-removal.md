@@ -8,6 +8,9 @@ Markdown Content:
 
 # Fraserview Vancouver Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Fraserview, the south-east slope of Vancouver — dropping from East 49th down to Marine Drive and the Fraser River — turns into one of the trickiest zones in the city to keep open. Long sloped residential streets, the Fraserview Golf Course tree line trapping cold air, townhomes and small strata clustered around Argyle and Elliott, and the Victoria Drive commercial strip all have to be cleared and salted before the morning commute or the whole neighborhood seizes up. PlowWow is the snow-and-ice partner Fraserview strata councils, property managers and homeowners call when "we'll get there when we get there" is not an answer.
 
 Fraserview snow removal for sloped residential streets, Killarney-edge townhomes, Fraserview Golf area, and Victoria Drive commercial. 60-minute response, GPS logs, pet-safe de-icer.

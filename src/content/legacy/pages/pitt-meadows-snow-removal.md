@@ -2,7 +2,12 @@ Title: Pitt Meadows Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/pitt-meadows-snow-removal/
 
+Description: H3: Agricultural & Equestrian Property Snow Services Serving Pitt Meadows’ agricultural character with specialized snow removal solutions: Farm Operations:
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ### H3: Agricultural & Equestrian Property Snow Services
 
 Serving Pitt Meadows’ agricultural character with specialized snow removal solutions:

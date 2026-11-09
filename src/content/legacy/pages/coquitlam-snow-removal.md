@@ -2,8 +2,13 @@ Title: Coquitlam Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/coquitlam-snow-removal/
 
+Description: Coquitlam Snow Removal | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com mailto:Wow@plowwow.com Facebook https://plowwow.com/coquitlam-snow-remo
+
 Markdown Content:
 # Coquitlam Snow Removal | PlowWow Snow Removal and De-Ice Management
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 
 [Wow@plowwow.com](mailto:Wow@plowwow.com)
 *   [Facebook](https://plowwow.com/coquitlam-snow-removal/#)
@@ -91,7 +96,7 @@ Plow trucks, skid steers, snow blowers, sidewalk machines, and ice management to
 
 ### Fixed-Rate Seasonal Packages
 
-Predictable pricing with unlimited service throughout winter—no surprise invoices during heavy snow years.
+Predictable pricing with unlimited service throughout winter—agreed seasonal pricing, subject to extreme-event terms.
 
 ### Fast Response Times
 
@@ -305,7 +310,7 @@ No. Our automatic dispatch system tracks snowfall 24/7. Once snow reaches the tr
 
 What’s included in your seasonal snow removal contract?
 
-Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing for the entire winter season. You pay one fixed price with no surprise charges. Services include automatic dispatch, priority response, professional equipment, return visits when conditions require, and detailed service documentation.
+Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing for the entire winter season. You pay an agreed seasonal price, subject to extreme-event terms. Services include automatic dispatch, priority response, professional equipment, return visits when conditions require, and detailed service documentation.
 
 Do you provide salting and de-icing services in Coquitlam?
 

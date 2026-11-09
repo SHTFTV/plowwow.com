@@ -8,6 +8,9 @@ Markdown Content:
 
 # Sperling-Duthie Burnaby Snow Removal — Mountain-Adjacent Strata & Residential Seasonal Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 **Sperling-Duthie** climbs the northwest shoulder of Burnaby Mountain — a quiet, tree-lined pocket of townhome stratas, character homes and small strip retail wedged between Burnaby Mountain Conservation Area, SFU commuter routes and the Lougheed Highway corridor. Its elevation gain, tree cover and mountain-drainage runoff make it one of the trickiest snow-removal zones in Burnaby. **PlowWow** is the seasonal-contract snow removal partner Sperling-Duthie strata councils, character-home owners and small-retail landlords rely on for early-morning clears, salt-run documentation and a predictable winter budget.
 
 ![Wow mascot standing alone on a plowed Sperling-Duthie Burnaby hillside street with snow-covered mid-century homes and the forested slope of Burnaby Mountain rising in the background](/blog-images/sperling-duthie-burnaby-strata-commercial-snow-removal.jpg "Sperling-Duthie Burnaby strata and residential snow removal — PlowWow")
@@ -86,7 +89,7 @@ Before signing, verify (with copies):
 - **Runoff-aware salt runs.** Ramps and gutters that catch mountain drainage are treated as their own hazard, not lumped into "drive aisle."
 - **Pet-safe de-icer default.** Magnesium chloride or CMA on all pedestrian surfaces.
 - **Refreeze dispatches included.** Salt-only runs on forecast refreeze are baked into the seasonal price.
-- **Fixed seasonal price.** One number, no per-event upcharges.
+- **Fixed seasonal price.** One number, agreed extreme-event charges apply.
 
 ## Surfaces in a Sperling-Duthie Contract
 

@@ -10,6 +10,9 @@ Markdown Content:
 
 # Will Wow Set a New Standard for Snow Removal Pricing?
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 *PlowWow editorial · October 19, 2026 · Company perspective*
 
 ![Wow, PlowWow’s mascot, preparing a property quote](/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg "TRANSPARENT SNOW PRICING: PlowWow concept illustration")

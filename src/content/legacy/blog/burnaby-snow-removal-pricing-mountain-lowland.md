@@ -10,6 +10,9 @@ Markdown Content:
 
 # Burnaby Snow Removal Pricing: SFU, Hills and Lower Routes
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 *Wow’s Winter Guides · October 19, 2026 · PlowWow company guide*
 
 ![Wow, the PlowWow mascot, introducing clear winter service for Burnaby](/blog-images/wow-will-wow-set-new-standard-snow-pricing.jpg "PlowWow winter service and property planning guide")

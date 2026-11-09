@@ -8,6 +8,9 @@ Markdown Content:
 
 # Yaletown Vancouver Snow Removal — 24/7 Commercial & Strata De-Icing
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 Yaletown is Vancouver's most photogenic winter neighborhood — and one of the most operationally punishing to keep clear during a snow event. Heritage-brick loading docks turned restaurant patios, cobblestone laneways, sloped brick sidewalks that ice over the moment freezing rain hits, and a strata density that packs 20,000 residents between Nelson, Homer, Pacific and Cambie. PlowWow is the 24/7 snow-and-ice partner Yaletown strata councils, restaurant groups, retail landlords and boutique office tenants call when they need the door open at 7 a.m. and the patio safe by lunch.
 
 ![Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance](/blog-images/yaletown-vancouver-snow-removal.jpg)
@@ -102,7 +105,7 @@ Yaletown contracted sites are on priority dispatch. Automatic dispatch begins at
 
 ### What about freezing rain — the real Yaletown problem?
 
-Freezing-rain and sleet events trigger a dedicated salt-only dispatch even without a plow run. Contracted sites get brine and granule reapplication through the entire freeze-thaw window at no extra charge.
+Freezing-rain and sleet events trigger a dedicated salt-only dispatch even without a plow run. Contracted sites get brine and granule reapplication within the agreed treatment scope and extreme-event terms.
 
 ### Do you clear the back laneways where deliveries come in?
 

@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Richmond, BC. 
 Markdown Content:
 # Richmond Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Richmond strata complex during a heavy winter snowfall event](/blog-images/richmond-strata-commercial-snow-plowing.jpg "PlowWow Richmond commercial snow plowing")
 
 ## Proactive Winter Risk Management for Richmond Strata Councils
@@ -61,12 +64,12 @@ By partnering with [plowwow.com](https://plowwow.com), strata councils shift the
 Financial predictability is a core requirement for Strata General Meetings (AGM). Property managers generally weigh two distinct financial models when engaging with [plowwow.com](https://plowwow.com).
 
 ### The Fixed Seasonal Contract
-This is the "Full Insurance" model. The strata pays a set fee for the season, regardless of how many times it snows.
+This is the "Full Insurance" model. The strata pays a set fee for the season, subject to the agreed scope and extreme-event charges.
 
 +-------------------------------------------------------------+
 | BENEFITS OF FIXED SEASONAL CONTRACTS                        |
 +-------------------------------------------------------------+
-| 1. Budget Certainty: No surprise "per-push" invoices.       |
+| 1. Budget Certainty: disclosed seasonal and extreme-event pricing.       |
 | 2. Guaranteed Priority: You are the top of the route.       |
 | 3. Unlimited Service: Covers 2cm events and 20cm blizzards. |
 | 4. Peace of Mind: Zero monitoring required by the council.  |

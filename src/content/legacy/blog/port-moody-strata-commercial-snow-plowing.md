@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Port Moody, BC
 Markdown Content:
 # Port Moody Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Port Moody strata complex during a heavy winter snowfall event](/blog-images/port-moody-strata-commercial-snow-plowing.jpg "PlowWow Port Moody commercial snow plowing")
 
 ## 1. Proactive Winter Risk Management for Port Moody Strata Councils
@@ -66,7 +69,7 @@ This is the ultimate "set it and forget it" model. The strata pays a flat monthl
 +-----------------------------------------------------+
 | BENEFIT PANEL: FIXED SEASONAL CONTRACTS             |
 +-----------------------------------------------------+
-| 1. Guaranteed Budget: No surprise invoices in Jan   |
+| 1. Guaranteed Budget: disclosed seasonal and extreme-event pricing in Jan   |
 | 2. P1 Priority: You are the first on our route      |
 | 3. Full Liability Transfer: We own the risk         |
 | 4. All-In Materials: Brine, salt, and labor inc.    |

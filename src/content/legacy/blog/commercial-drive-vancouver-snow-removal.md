@@ -8,6 +8,9 @@ Markdown Content:
 
 # Commercial Drive Vancouver Snow Removal — 24/7 Retail & Grandview-Woodland Strata
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 Commercial Drive — The Drive to everyone who lives on it — is the most retail-dense pedestrian street in East Vancouver. When snow hits between Venables and East 13th, dozens of independent cafes, restaurants, grocers and shops on both sides of the street have to be shovelled, salted and open before the first espresso order at 6:30 a.m. PlowWow is the 24/7 snow-and-ice partner The Drive retail landlords, restaurant operators, Grandview-Woodland strata councils, and heritage-building owners call when "opening late because of the weather" is not something an independent business can afford.
 
 ![Commercial Drive Vancouver snow removal — PlowWow mascot waving on a plowed Drive at blue dawn with snow-dusted Italian cafes, indie storefronts and string lights across the snowy street](/blog-images/commercial-drive-vancouver-snow-removal.jpg)
@@ -104,7 +107,7 @@ Contracted Drive sites are on priority dispatch. Automatic dispatch begins at 2 
 
 ### What about freezing rain?
 
-Freezing-rain and sleet events trigger a dedicated salt-only dispatch even without a plow visit. Contracted sites get brine and granule reapplication through the entire freeze-thaw window at no extra charge.
+Freezing-rain and sleet events trigger a dedicated salt-only dispatch even without a plow visit. Contracted sites get brine and granule reapplication within the agreed treatment scope and extreme-event terms.
 
 ### Do you clear the back laneways where our produce trucks come in?
 

@@ -2,8 +2,13 @@ Title: Abbotsford Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/abbotsford-snow-removal/
 
+Description: Abbotsford Snow Removal | PlowWow Snow Removal and De-Ice Management Wow@plowwow.com mailto:Wow@plowwow.com Facebook https://plowwow.com/abbotsford-snow-re
+
 Markdown Content:
 # Abbotsford Snow Removal | PlowWow Snow Removal and De-Ice Management
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 
 [Wow@plowwow.com](mailto:Wow@plowwow.com)
 *   [Facebook](https://plowwow.com/abbotsford-snow-removal/#)
@@ -91,7 +96,7 @@ Modern plow trucks, snow blowers, skid steers, and commercial-grade de-icing equ
 
 ### Fixed-Rate Seasonal Packages
 
-Predictable pricing with unlimited service throughout the winter season—no surprise bills, no matter how much snow Abbotsford receives.
+Predictable pricing with unlimited service throughout the winter season—agreed seasonal pricing, subject to extreme-event terms.
 
 ### Fast Response Times
 
@@ -350,7 +355,7 @@ No! With PlowWow's automatic dispatch system, we monitor weather conditions and 
 
 What's included in your seasonal snow removal contract?
 
-Our seasonal contracts include unlimited snow plowing, shoveling, de-icing, and salting throughout the entire winter season, regardless of how many snow events occur in Abbotsford. You pay one fixed price upfront, making budgeting simple and eliminating surprise costs even during heavy snow years. Services include automatic dispatch, priority response, professional clearing with commercial-grade equipment, return visits when conditions warrant, detailed service documentation, and liability protection. This is especially popular with Abbotsford businesses, industrial operations, and strata councils who need predictable budgeting.
+Our seasonal contracts include unlimited snow plowing, shoveling, de-icing, and salting throughout the entire winter season, regardless of how many snow events occur in Abbotsford. You pay the agreed seasonal price, subject to extreme-event charges, making budgeting simple and setting out the seasonal scope and extreme-event charges in advance. Services include automatic dispatch, priority response, professional clearing with commercial-grade equipment, return visits when conditions warrant, detailed service documentation, and liability protection. This is especially popular with Abbotsford businesses, industrial operations, and strata councils who need predictable budgeting.
 
 Do you provide salting and de-icing services in Abbotsford?
 

@@ -8,6 +8,9 @@ Markdown Content:
 
 # Oakridge Vancouver Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands on the Cambie corridor, Oakridge is one of the first Vancouver neighborhoods to feel it. Sloped feeder streets between West 41st and West 49th, dense strata towers around Oakridge–41st Avenue Canada Line station, the Oakridge Centre redevelopment perimeter, and the quiet residential blocks east of Cambie all need to be moving by 7 a.m. — and a hospital-grade strata tower with a parkade ramp full of black ice is nobody's idea of a good morning. PlowWow is the snow-and-ice partner Oakridge strata councils, property managers and homeowners call when "we'll get there when we get there" is not an answer.
 
 Oakridge snow removal for strata towers, low-rise condos, Oakridge Centre retail and Cambie corridor commercial. Guaranteed 60-minute response, GPS logs, pet-safe de-icer.

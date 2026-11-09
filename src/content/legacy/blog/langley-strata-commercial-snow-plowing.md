@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Langley, BC. L
 Markdown Content:
 # Langley Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Langley strata complex during a heavy winter snowfall event](/blog-images/langley-strata-commercial-snow-plowing.jpg "PlowWow Langley commercial snow plowing")
 
 ## Proactive Winter Risk Management for Langley Properties
@@ -62,7 +65,7 @@ How should a Langley strata budget for winter? **Plowwow.com** offers two primar
 +-----------------------------------------------------------------------+
 | THE ANCHOR: FIXED SEASONAL CONTRACTS                                  |
 +-----------------------------------------------------------------------+
-| * BUDGET CERTAINTY: One price, regardless of snowfall volume.         |
+| * BUDGET CERTAINTY: One price, subject to the agreed scope and extreme-event charges.         |
 | * PRIORITY STATUS: You are at the top of the dispatch list.           |
 | * UNLIMITED VISITS: No "per-push" fees to track or dispute.           |
 | * BEST FOR: High-density stratas with strict annual budgets.          |

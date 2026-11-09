@@ -2,7 +2,12 @@ Title: Port Moody Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/port-moody-snow-removal/
 
+Description: Facebook https://plowwow.com/port-moody-snow-removal/ X https://plowwow.com/port-moody-snow-removal/ Instagram https://plowwow.com/port-moody-snow-removal/
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 *   [Facebook](https://plowwow.com/port-moody-snow-removal/#)
 *   [X](https://plowwow.com/port-moody-snow-removal/#)
 *   [Instagram](https://plowwow.com/port-moody-snow-removal/#)
@@ -206,7 +211,7 @@ Absolutely. Port Moody has steep terrain, especially in Heritage Mountain and He
 
 Port Moody often experiences snow that melts during the day and refreezes at night. We proactively apply de-icer before refreeze events and return when temperatures drop to prevent hazardous ice formation.
 
-PlowWow works with trusted local operators who understand Port Moody’s hillside neighborhoods, narrow roads, and winter climate. We offer fixed-rate seasonal pricing, automatic dispatch, detailed documentation, and reliable service with no surprise billing.
+PlowWow works with trusted local operators who understand Port Moody’s hillside neighborhoods, narrow roads, and winter climate. We offer fixed-rate seasonal pricing, automatic dispatch, detailed documentation, and reliable service with disclosed seasonal and extreme-event pricing.
 
 ##### Learn More
 

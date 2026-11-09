@@ -8,6 +8,9 @@ Markdown Content:
 
 # Coal Harbour Vancouver Snow Removal — Luxury Strata & Waterfront Commercial
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow hits Coal Harbour, the buildings that can least afford a service failure — $2M+ waterfront strata condos, Class-A office towers on Cordova and Hastings, the Vancouver Convention Centre supply corridor, and the Harbour Air seaplane terminal — all need the same thing at the same time: cleared, salted, safe, and completed before 6 a.m. PlowWow is the 24/7 snow-and-ice partner Coal Harbour strata concierges, property managers, luxury-tower building operators and marina landlords call when the standard is "invisible service delivered on time, every time."
 
 ![Coal Harbour Vancouver snow removal — PlowWow mascot waving on a plowed waterfront promenade at blue dawn with luxury glass towers, seaplanes at Harbour Air, and snow-capped North Shore mountains](/blog-images/coal-harbour-vancouver-snow-removal.jpg)

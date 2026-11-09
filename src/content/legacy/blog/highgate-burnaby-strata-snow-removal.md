@@ -8,6 +8,9 @@ Markdown Content:
 
 # Highgate Burnaby Strata Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Highgate, South Burnaby's dense strata corridor along Kingsway and Edmonds, just north of the New Westminster border, everything from the morning commute to first deliveries depends on lots, walks and ramps being cleared *before* people arrive. PlowWow is the snow-and-ice partner stratas, property managers and homeowners in Highgate call when "we'll get there when we get there" is not an answer.
 
 High-rise and townhome strata, underground parkade ramps, and retail-podium sidewalks cleared and salted before 7 a.m. — fixed seasonal pricing, full photo + GPS logs.

@@ -8,6 +8,9 @@ Markdown Content:
 
 # Lougheed Town Centre Burnaby Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Lougheed Town Centre, North Burnaby's busiest transit, retail and high-rise hub at Lougheed Highway and North Road, everything from the morning commute to first deliveries depends on lots, walks and ramps being cleared *before* people arrive. PlowWow is the snow-and-ice partner stratas, property managers and homeowners in Lougheed Town Centre call when "we'll get there when we get there" is not an answer.
 
 Pre-open mall lot clearing, SkyTrain-adjacent strata towers, mixed-use podium decks, and 24/7 dispatch when North Road ices over.

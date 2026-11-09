@@ -1,8 +1,13 @@
 Title: Strata Snow Removal Experts — PlowWow
 URL Source: https://plowwow.com/strata-experts
 
+Description: Strata Snow Removal Experts PlowWow has spent more than a decade specializing in strata snow removal across Vancouver and the Lower Mainland. We understand
+
 Markdown Content:
 # Strata Snow Removal Experts
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 
 PlowWow has spent more than a decade specializing in **strata snow removal** across Vancouver and the Lower Mainland. We understand council budgets, AGM reporting, insurance documentation and the day-to-day reality of multi-unit property management.
 
@@ -39,7 +44,7 @@ Yes. Hand shoveling and snow-blower clearing of walks, stairs and unit entries i
 PlowWow delivers per-event and monthly service summaries with GPS and photo records, suitable for AGM packages, council meetings, insurance claims and slip-and-fall defense.
 
 ### How is strata pricing structured?
-Strata sites are quoted on a fixed seasonal basis with unlimited visits, so council and owners have a predictable winter budget regardless of storm count.
+Strata sites are quoted on a fixed seasonal basis with unlimited visits, so council and owners have a predictable winter budget within the agreed scope and extreme-event terms.
 
 ### What happens during a major storm with multiple events?
 Strata properties are on priority dispatch — every triggered event is serviced, with snow relocation added when on-site piles start blocking visitor parking, sightlines or fire access.

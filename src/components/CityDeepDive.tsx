@@ -342,7 +342,7 @@ const CityDeepDive = ({ data }: { data: LocationDeepData }) => {
             ))}
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Pricing in {data.city} is driven by property size, slope, access, event-count exposure, and de-icing scope. Fixed seasonal contracts nearly always beat per-visit for any property that cannot tolerate a 6:00 AM insurance exposure — the seasonal price is capped regardless of how many events the winter delivers, while per-visit pricing scales linearly with a difficult season. Get an accurate quote for your {data.city} property in under 60 seconds using our online form.
+            Pricing in {data.city} is driven by property size, slope, access, event-count exposure, and de-icing scope. Fixed seasonal contracts nearly always beat per-visit for any property that cannot tolerate a 6:00 AM insurance exposure — seasonal pricing covers repeat visits within the agreed scope, while extreme-event charges apply under the written agreement. <a href="/unlimited-clarification-policy" className="underline">Read what unlimited seasonal service means</a>, then request a written quote for your {data.city} property using our online form.
           </p>
         </div>
       </section>

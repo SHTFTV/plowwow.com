@@ -8,6 +8,9 @@ Markdown Content:
 
 # South Slope Burnaby Snow Removal — 24/7 Strata & Commercial Seasonal Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When winter hits **South Slope**, Burnaby, strata councils, property managers and commercial operators need one thing: a snow-and-ice partner who is already on-site before the morning commute — not one still checking the forecast. **PlowWow** is the seasonal-contract snow removal company South Slope property managers, Byrne Road industrial landlords and hillside strata boards call for guaranteed 24/7 response, GPS-logged salt runs, pet-safe de-icer and a fixed winter budget.
 
 **[Get a free South Slope Burnaby snow removal quote →](/quote)**
@@ -80,7 +83,7 @@ PlowWow's South Slope seasonal contracts are built around six commitments:
 3. **Pet-safe de-icer as default.** Magnesium chloride or calcium magnesium acetate on all pedestrian surfaces. Rock salt only where a client specifically requests it for a non-pedestrian surface.
 4. **Freezing-rain dispatches, not just plow dispatches.** Salt-only runs on forecast refreeze events are included in the seasonal price — not billed as extras. On hillside grades this is the difference between an open drive aisle and a closed one.
 5. **Sidewalk crews, not just plow trucks.** Public-sidewalk clearing under Burnaby bylaws is part of the base scope, not an add-on.
-6. **Fixed seasonal price.** One number quoted in writing before November. No per-event upcharges.
+6. **Fixed seasonal price.** One number quoted in writing before November. extreme-event charges as set out in the agreement.
 
 ## Surfaces Included in a South Slope Seasonal Contract
 
@@ -179,7 +182,7 @@ Public sidewalks are included in the base scope. Under Burnaby's Street and Traf
 
 ### What does a fixed seasonal price actually include for South Slope?
 
-Unlimited plow-and-salt dispatches on accumulation events, unlimited salt-only dispatches on refreeze events, sidewalk clearing under bylaw, per-visit GPS and photo documentation, weekly summaries to the property manager and an end-of-season package for AGM. One quoted number, no per-event upcharges.
+Unlimited plow-and-salt dispatches on accumulation events, unlimited salt-only dispatches on refreeze events, sidewalk clearing under bylaw, per-visit GPS and photo documentation, weekly summaries to the property manager and an end-of-season package for AGM. One quoted number, extreme-event charges as set out in the agreement.
 
 ### When should a South Slope strata council or landlord book?
 

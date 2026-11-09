@@ -10,6 +10,9 @@ Markdown Content:
 
 # Kitsilano Strata Snow Removal: A Winter Contract Checklist
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![PlowWow mascot in an illustrative snowy Kitsilano neighbourhood scene](/blog-images/kitsilano-strata-snow-removal-winter-contracts.jpg "PlowWow Kitsilano strata winter planning")
 
 Kitsilano winter-planning illustration from PlowWow’s existing image library. This is branded editorial artwork, not a photograph of a client building or a confirmed service visit.

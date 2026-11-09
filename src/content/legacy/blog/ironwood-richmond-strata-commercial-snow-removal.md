@@ -8,6 +8,9 @@ Markdown Content:
 
 # Ironwood Richmond Snow Removal — Retail, Strata & Commercial Seasonal Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 **Ironwood** sits at the southeast corner of Lulu Island where Steveston Highway meets No. 5 Road — a retail-anchored district that goes from empty at 5 a.m. to jammed by 9 a.m. When freezing rain glazes the Ironwood Plaza parking lot or a skim of snow buries the loading lanes at Home Depot, tenants don't call the landlord — they call WorkSafeBC. **PlowWow** is the seasonal-contract snow removal partner Ironwood property managers, big-box operators and townhome strata boards trust for pre-open clears, documented salt runs and a locked-in winter budget.
 
 ![Wow mascot standing alone in a freshly plowed Ironwood Richmond big-box retail parking lot with the Ironwood Plaza storefront and empty snow-cleared drive lanes in the background](/blog-images/ironwood-richmond-strata-commercial-snow-removal.jpg "Ironwood Richmond retail and strata snow removal — PlowWow")
@@ -86,7 +89,7 @@ Our Ironwood seasonal contracts are built on six commitments — written into ev
 3. **Pet-safe de-icer as default.** Magnesium chloride or CMA on all pedestrian surfaces. Rock salt only on non-pedestrian surfaces by client request.
 4. **Cart corrals, refuges and islands are in scope.** Not just drive lanes.
 5. **Public-sidewalk clearing under Richmond bylaw is included.** Not billed as an extra.
-6. **One quoted seasonal number.** No mid-season upcharges, no per-event invoices.
+6. **One quoted seasonal number.** Repeat visits within the agreed scope; extreme-event charges apply.
 
 ## What a Typical Ironwood Winter Actually Looks Like
 

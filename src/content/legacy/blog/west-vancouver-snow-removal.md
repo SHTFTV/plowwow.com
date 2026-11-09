@@ -5,6 +5,9 @@ Description: Luxury hillside snow removal and ice control in West Vancouver — 
 Markdown Content:
 # West Vancouver Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Luxury West Vancouver hillside home with snow-dusted cedars and an ocean view, plowed driveway in foreground](/blog-images/west-vancouver-snow-removal.jpg "West Vancouver hillside snow removal by PlowWow")
 
 Living in West Vancouver offers some of the most spectacular vistas in British Columbia, but the region’s unique geography presents significant challenges during the winter months. At PlowWow, we provide specialized snow removal and ice management services tailored specifically for the steep grades, micro-climates, and luxury estates of West Vancouver. From the high elevations of the British Properties to the salt-aired drives of Horseshoe Bay, our team ensures your property remains safe, accessible, and compliant with municipal bylaws throughout the winter season.
@@ -69,7 +72,7 @@ Furthermore, West Vancouver has strict noise bylaws. Our fleet utilizes modern, 
 Snow removal pricing in West Vancouver varies based on the "Slope Factor" and the total square footage of the traversable area. Because a 100-foot driveway in Ambleside is very different from a 100-foot switchback in the British Properties, we provide custom quotes for every client.
 
 We offer two primary contract types:
-1.  **Seasonal Flat-Rate:** A predictable, "all-you-can-plow" model that covers you regardless of how many times it snows. This is the preferred choice for most West Vancouver estates and stratas.
+1.  **Seasonal Flat-Rate:** A predictable, seasonal repeat-visit model that covers you subject to the agreed scope and extreme-event charges. This is the preferred choice for most West Vancouver estates and stratas.
 2.  **Per-Visit (Will Call):** A flexible model where you pay only when service is requested or a certain accumulation threshold is met.
 
 Our contracts focus on the "Service Level Agreement" (SLA), defining exactly when we will arrive (e.g., "within 4 hours of 2cm of accumulation"). This provides peace of mind that your hillside home will never be snowed in.

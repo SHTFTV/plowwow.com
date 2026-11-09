@@ -133,6 +133,9 @@ for (const name of readdirSync(IMAGE_DIR).filter(n => n.endsWith("-share.jpg")))
   const meta = await sharp(resolve(IMAGE_DIR, name)).metadata();
   if (meta.width && meta.height) imageMetadata[`/blog-images/${name}`] = { width: meta.width, height: meta.height };
 }
+const policyHero = "/images/plowwow-unlimited-policy-hero-v2.jpg";
+const policyMeta = await sharp(resolve("public", policyHero.slice(1))).metadata();
+if (policyMeta.width && policyMeta.height) imageMetadata[policyHero] = { width: policyMeta.width, height: policyMeta.height };
 writeFileSync(resolve("src/generated/blog-image-metadata.json"), JSON.stringify(imageMetadata, null, 2) + "\n");
 writeFileSync(
   OUT_FILE,

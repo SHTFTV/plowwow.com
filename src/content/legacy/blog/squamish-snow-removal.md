@@ -5,6 +5,9 @@ Description: PlowWow handles Squamish snow plowing, salting, and 24/7 ice contro
 Markdown Content:
 # Squamish Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Squamish commercial plaza freshly plowed with the Stawamus Chief mountain in the background](/blog-images/squamish-snow-removal.jpg "Squamish snow removal by PlowWow")
 
 Winter in the Sea-to-Sky corridor is as unpredictable as it is beautiful. For businesses, strata corporations, and residents in Squamish, British Columbia, snow management isn't just about convenience—it is a critical matter of safety, liability, and economic continuity. Nestled between the Howe Sound and the Coast Mountains, Squamish experiences a unique microclimate where heavy, wet "Pineapple Express" snow can instantly turn into hazardous black ice as temperatures fluctuate.
@@ -71,7 +74,7 @@ Furthermore, it is prohibited to plow or shovel snow from private property onto 
 
 We believe in transparent pricing tailored to the Squamish market. Because the Sea-to-Sky region experiences high variability in snowfall, we offer three primary contract structures:
 
-1.  **Seasonal Fixed Rate:** Ideal for strata corporations and businesses that need a predictable budget. You pay one monthly fee for the entire winter season, regardless of how many times it snows.
+1.  **Seasonal Fixed Rate:** Ideal for strata corporations and businesses that need a predictable budget. You pay one monthly fee for the entire winter season, subject to the agreed scope and extreme-event charges.
 2.  **Per-Visit (Will Call):** Best for smaller residential properties or businesses with a lower risk profile. You only pay when you request a service or when a specific snow depth is reached.
 3.  **Comprehensive Hybrid:** A base monitoring fee plus a per-centimetre or per-application rate. This is often the preferred choice for large industrial sites in the Squamish Business Park.
 

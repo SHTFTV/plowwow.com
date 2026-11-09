@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in White Rock, BC
 Markdown Content:
 # White Rock Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a White Rock strata complex during a heavy winter snowfall event](/blog-images/white-rock-strata-commercial-snow-plowing.jpg "PlowWow White Rock commercial snow plowing")
 
 ## 1. Proactive Winter Risk Management for White Rock Properties
@@ -61,7 +64,7 @@ plowwow.com provides every client with digital service logs. These are crucial f
 How should a White Rock property budget for winter? We offer two primary structures at plowwow.com to ensure financial predictability and operational excellence.
 
 ### The Fixed Seasonal Contract
-This is the gold standard for strata councils who need a locked-in budget. You pay a set monthly fee for the duration of the winter season, regardless of whether it snows once or twenty times.
+This is the gold standard for strata councils who need a locked-in budget. You pay a set monthly fee for the duration of the winter season, subject to the agreed scope and extreme-event charges.
 
 +-----------------------------------------------------------------------+
 |          BENEFIT PANEL: FIXED SEASONAL CONTRACT                       |
