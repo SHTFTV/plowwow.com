@@ -8,6 +8,9 @@ Markdown Content:
 
 # River Springs Coquitlam Snow Removal — 24/7 Strata & Commercial Seasonal Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When winter hits **River Springs**, Coquitlam, strata councils, property managers and commercial operators need one thing: a snow-and-ice partner who is already on-site before the morning commute — not one still checking the forecast. **PlowWow** is the seasonal-contract snow removal company River Springs property managers, retail landlords and strata boards call for guaranteed 24/7 response, GPS-logged salt runs, pet-safe de-icer and a fixed winter budget.
 
 ![PlowWow mascot waving beside a plowed River Springs Coquitlam street at blue dawn, snow-dusted trees and Coquitlam landmarks in the background — River Springs Coquitlam snow removal](/blog-images/river-springs-coquitlam-strata-commercial-snow-removal.jpg)
@@ -71,7 +74,7 @@ A River Springs seasonal package includes:
 - 24/7 dispatch access and a named account manager
 - Season-end service report with GPS logs, visit counts and salt volumes
 - Pet-safe de-icer as the default across the property
-- No surprise invoices, no per-hour billing, no "call to activate"
+- agreed seasonal pricing, subject to extreme-event terms, no per-hour billing, no "call to activate"
 
 **Why a fixed seasonal contract wins in River Springs:** strata budgets are set at AGM. Commercial NOI forecasts are set in Q3. Retail operators can't absorb $8,000 in surprise January plow invoices. A seasonal contract turns snow into a known line item and eliminates the "who authorized this?" fight at the March strata meeting.
 
@@ -129,7 +132,7 @@ Yes — full CGL with WorkSafeBC coverage. Certificates of Insurance are issued 
 
 ### Can we get a fixed seasonal price for our River Springs property?
 
-Yes — every River Springs contract is a fixed November 1 to March 31 seasonal price. No per-visit invoices, no per-storm surprises.
+Yes — every River Springs contract is a fixed November 1 to March 31 seasonal price. Repeat visits within the agreed scope, with extreme-event charges as defined in your agreement.
 
 ### What happens on freezing-rain days when there is no snow to plow?
 

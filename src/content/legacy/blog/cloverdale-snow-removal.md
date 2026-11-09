@@ -5,6 +5,9 @@ Description: Professional Cloverdale snow removal by PlowWow. 24/7 commercial, s
 Markdown Content:
 # Cloverdale Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Cloverdale Surrey commercial plaza freshly plowed at dawn with rodeo arena signage in background](/blog-images/cloverdale-snow-removal.jpg "Cloverdale Surrey snow removal by PlowWow")
 
 Cloverdale, the historic heart of Surrey, British Columbia, faces a unique set of winter challenges that differ significantly from the rest of the Lower Mainland. When a Fraser Valley outflow event pushes freezing Arctic air through the valley, Cloverdale is often the first to see heavy accumulation and the last to see it melt. For businesses along the Highway 10 corridor and residents in the rapidly growing Clayton Heights area, professional snow management is not just a convenience—it is a matter of safety, liability, and municipal compliance.
@@ -71,7 +74,7 @@ PlowWow helps you stay compliant by ensuring that all perimeter sidewalks and en
 
 We believe in transparent, predictable pricing. Snow removal costs in Cloverdale typically depend on the size of the area, the frequency of service, and the type of contract selected.
 
-1.  **Fixed-Rate Seasonal Contracts:** This is the preferred choice for Cloverdale stratas and commercial businesses. You pay a set monthly fee throughout the winter season, covering all snow events. This provides budget certainty, regardless of how many times it snows.
+1.  **Fixed-Rate Seasonal Contracts:** This is the preferred choice for Cloverdale stratas and commercial businesses. You pay a set monthly fee throughout the winter season, covering all snow events. This provides budget certainty, subject to the agreed scope and extreme-event charges.
 2.  **Per-Event Pricing:** Best for those who want to pay only when it snows. We provide a quote based on the accumulation depth (e.g., 2–4 inches, 4–8 inches).
 3.  **Will-Call Service:** Available for residential clients, though priority is always given to our contract holders during major storms.
 

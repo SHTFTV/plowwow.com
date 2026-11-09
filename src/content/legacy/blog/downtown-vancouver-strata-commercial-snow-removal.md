@@ -8,6 +8,9 @@ Markdown Content:
 
 # Downtown Vancouver Snow Removal — 24/7 Strata & Commercial Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When winter hits **Downtown Vancouver**, Vancouver, strata councils, property managers and commercial operators need one thing: a snow-and-ice partner who is already on-site before the morning commute — not one still checking the forecast. **PlowWow** is the seasonal-contract snow removal company Downtown Vancouver property managers, retail landlords and strata boards call for guaranteed 24/7 response, GPS-logged salt runs, pet-safe de-icer and a fixed winter budget.
 
 ![Downtown Vancouver snow removal — PlowWow mascot waving on a Robson Square at blue dawn with plowed sidewalks, snow-dusted downtown towers and Vancouver Art Gallery columns](/blog-images/downtown-vancouver-strata-commercial-snow-removal.jpg)
@@ -70,7 +73,7 @@ A Downtown Vancouver seasonal package includes:
 - 24/7 dispatch access and a named account manager
 - Season-end service report with GPS logs, visit counts and salt volumes
 - Pet-safe de-icer as the default across the property
-- No surprise invoices, no per-hour billing, no "call to activate"
+- agreed seasonal pricing, subject to extreme-event terms, no per-hour billing, no "call to activate"
 
 **Why a fixed seasonal contract wins in Downtown Vancouver:** strata budgets are set at AGM. Commercial NOI forecasts are set in Q3. Retail operators can't absorb $8,000 in surprise January plow invoices. A seasonal contract turns snow into a known line item and eliminates the "who authorized this?" fight at the March strata meeting.
 
@@ -122,7 +125,7 @@ Contracted Downtown Vancouver sites dispatch automatically at 2 cm of accumulati
 Yes — full CGL with WorkSafeBC coverage. Certificates of Insurance are issued to strata councils and property managers on request, naming your corporation as additional insured.
 
 **Can we get a fixed seasonal price?**  
-Yes — every Downtown Vancouver contract is a fixed November 1 to March 31 seasonal price. No per-visit invoices, no per-storm surprises.
+Yes — every Downtown Vancouver contract is a fixed November 1 to March 31 seasonal price. Repeat visits within the agreed scope, with extreme-event charges as defined in your agreement.
 
 **What happens on freezing-rain days when there is no snow to plow?**  
 Freezing rain, sleet and ice pellets trigger a **salt-only** dispatch. Your property is treated as if it were a snow event, because the liability profile is identical or worse.

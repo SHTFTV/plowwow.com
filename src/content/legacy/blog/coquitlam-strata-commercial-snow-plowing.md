@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Coquitlam, BC.
 Markdown Content:
 # Coquitlam Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Coquitlam strata complex during a heavy winter snowfall event](/blog-images/coquitlam-strata-commercial-snow-plowing.jpg "PlowWow Coquitlam commercial snow plowing")
 
 ## Proactive Winter Risk Management for Coquitlam Strata Councils
@@ -61,12 +64,12 @@ Furthermore, the **City of Coquitlam Highway and Traffic Bylaw** requires that a
 Many strata councils struggle with budgeting for an unpredictable winter. We offer two primary structures at plowwow.com to ensure financial stability for your corporation.
 
 ### The Fixed Seasonal Strategy
-This is the "Insurance Model." One set price covers the entire winter, regardless of how many times it snows.
+This is the "Insurance Model." One set price covers the entire winter, subject to the agreed scope and extreme-event charges.
 
 +--------------------------------------------------------------+
 |             FIXED SEASONAL CONTRACT BENEFITS                 |
 +--------------------------------------------------------------+
-| 1. Guaranteed Budgeting: No surprise invoices in January.    |
+| 1. Guaranteed Budgeting: agreed seasonal pricing, subject to extreme-event terms in January.    |
 | 2. Priority Response: First-tier dispatch status.            |
 | 3. Unlimited Visits: Coverage for extreme "mountain dumps."  |
 +--------------------------------------------------------------+

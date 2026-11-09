@@ -8,6 +8,9 @@ Markdown Content:
 
 # Arbutus Ridge Vancouver Snow Removal — Strata, Estate & Commercial Seasonal Contracts
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 **Arbutus Ridge** sits on the elevated shoulder between Kitsilano and Kerrisdale — a tree-lined westside pocket where heritage character homes, mid-rise stratas and small neighbourhood commercial corners all share the same steep east-west grade. When a Pacific frontal system stalls over Vancouver and dumps three centimetres of wet snow overnight, the flat neighbourhoods across town might drain and dry by noon. Arbutus Ridge doesn't. The elevation traps colder air, the mature tree canopy shades every north-facing sidewalk, and the sloped side streets from West 16th down to King Edward turn from wet asphalt to sheet ice in a single freeze cycle. **PlowWow** is the seasonal-contract snow removal partner Arbutus Ridge strata councils, estate homeowners and boutique retail landlords trust for pre-open clears, documented salt runs and a fixed winter budget.
 
 ![Wow mascot standing alone on a snow-cleared Arbutus Ridge Vancouver tree-lined residential street with heritage character homes, snow-covered lawns and mature evergreens in the background](/blog-images/arbutus-ridge-vancouver-strata-commercial-snow-removal.jpg "Arbutus Ridge Vancouver strata and commercial snow removal — PlowWow")
@@ -86,7 +89,7 @@ Our Arbutus Ridge seasonal contracts are built on six commitments — written in
 3. **Pet-safe de-icer as default.** Magnesium chloride or CMA on all pedestrian surfaces. Rock salt only on non-pedestrian surfaces by client request.
 4. **Heritage surfaces in scope.** Flagstone, brick, tile and stair landings called out by name in the site walk.
 5. **Public-sidewalk clearing under Vancouver bylaw is included.** Not billed as an extra.
-6. **One quoted seasonal number.** No mid-season upcharges, no per-event invoices.
+6. **One quoted seasonal number.** Repeat visits within the agreed scope; extreme-event charges apply.
 
 ## What a Typical Arbutus Ridge Winter Actually Looks Like
 

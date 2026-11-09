@@ -5,6 +5,9 @@ Description: Looking for expert Fort Langley snow removal? PlowWow provides 24/7
 Markdown Content:
 # Fort Langley Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Historic Fort Langley main street covered in fresh snow with heritage buildings and string lights](/blog-images/fort-langley-snow-removal.jpg "Fort Langley snow removal by PlowWow")
 
 Living in the "Birthplace of British Columbia" offers a picturesque winter experience, but for property owners, the charm of a snow-covered Glover Road comes with significant responsibility. Fort Langley snow removal requires more than just a shovel and a bag of salt; it requires a deep understanding of the unique microclimate created by the Fraser River and the specific needs of historic properties.
@@ -73,7 +76,7 @@ PlowWow’s 24/7 snow removal Fort Langley service ensures you remain in full co
 How are snow removal prices calculated? Snow removal contracts in Fort Langley are typically priced based on the size of the area to be cleared, the frequency of service required, and the type of materials (salt vs. eco-melt) used.
 
 We offer two primary types of contracts:
-1.  **Seasonal Fixed-Rate:** This is ideal for strata and commercial properties. You pay a set monthly fee throughout the winter season, providing budget predictability regardless of how many times it snows.
+1.  **Seasonal Fixed-Rate:** This is ideal for strata and commercial properties. You pay a set monthly fee throughout the winter season, providing budget predictability subject to the agreed scope and extreme-event charges.
 2.  **Per-Visit (Will Call):** For those who prefer to pay only when the plow arrives. This is common for smaller residential properties or businesses with large storage areas.
 
 Because Fort Langley features many unique heritage lots and uneven terrain, we provide a free on-site estimate to ensure our equipment is the right fit for your specific property.

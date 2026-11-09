@@ -5,6 +5,9 @@ Description: PlowWow delivers 24/7 snow plowing, salting, and de-icing across No
 Markdown Content:
 # North Vancouver Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![PlowWow plow truck clearing a snowy North Vancouver residential street at dawn with snow-covered cedars](/blog-images/north-vancouver-snow-removal.jpg "North Vancouver snow removal by PlowWow")
 
 When the first Arctic outflow wind snakes down from the Coast Mountains and hits the moisture of the Burrard Inlet, North Vancouver transforms from a lush temperate rainforest into a challenging winter landscape. For residents and business owners between the Capilano River and Deep Cove, winter isn't just about a light dusting of snow—it’s about managing steep gradients, heavy "cement" snow, and the constant freeze-thaw cycles that turn North Shore roads into skating rinks.
@@ -73,7 +76,7 @@ Pricing for snow removal in North Vancouver is typically based on the size of th
 
 1.  **Per-Visit/On-Demand:** Ideal for smaller residential properties that only need help during major "snow events." You pay a set rate each time our team arrives to clear the property.
 2.  **Seasonal Contracts:** This is the preferred choice for commercial and strata clients. A seasonal contract provides "first-priority" status and covers all snow events throughout the winter (typically November 15 to March 31).
-3.  **Monthly Retainers:** A fixed monthly cost that allows for predictable budgeting, regardless of how many times it snows.
+3.  **Monthly Retainers:** A fixed monthly cost that allows for predictable budgeting, subject to the agreed scope and extreme-event charges.
 
 Our North Vancouver packages always include salt or eco-friendly de-icing agents as standard, as the freeze-thaw cycle on the North Shore makes clearing snow without salting nearly ineffective for safety.
 

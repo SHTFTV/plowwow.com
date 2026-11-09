@@ -2,7 +2,12 @@ Title: White Rock Snow Removal | PlowWow
 
 URL Source: https://plowwow.com/white-rock-snow-removal/
 
+Description: Facebook https://plowwow.com/white-rock-snow-removal/ X https://plowwow.com/white-rock-snow-removal/ Instagram https://plowwow.com/white-rock-snow-removal/
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 *   [Facebook](https://plowwow.com/white-rock-snow-removal/#)
 *   [X](https://plowwow.com/white-rock-snow-removal/#)
 *   [Instagram](https://plowwow.com/white-rock-snow-removal/#)
@@ -44,7 +49,7 @@ Trucks, loaders, sidewalk machines, and ice-control sprayers suited for White Ro
 
 ### Seasonal Predictable Pricing
 
-Unlimited White Rock snow clearing with no surprise invoices.
+Unlimited White Rock snow clearing with agreed seasonal pricing, subject to extreme-event terms.
 
 ### Fast Response Times
 
@@ -196,7 +201,7 @@ We service all areas of Langley, including Langley City, Willoughby, Walnut Grov
 
 No. Our automatic dispatch system monitors snowfall 24/7. Once snow reaches the trigger depth in your contract (typically 2–3 inches), we are dispatched automatically—no phone call required.
 
-Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing for the entire winter season. You pay one fixed price with no surprise charges. Services include automatic dispatch, priority response, professional equipment, return visits as needed, and detailed service documentation.
+Seasonal contracts include unlimited snow plowing, shoveling, salting, and de-icing for the entire winter season. You pay an agreed seasonal price, subject to extreme-event terms. Services include automatic dispatch, priority response, professional equipment, return visits as needed, and detailed service documentation.
 
 Yes. We provide professional salting, de-icing, and pre-treatment services throughout Langley. Our ice management approach addresses freeze-thaw cycles, shaded areas, sidewalks, driveways, and high-traffic zones to reduce slip hazards and liability risks.
 

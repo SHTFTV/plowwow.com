@@ -5,6 +5,9 @@ Description: Professional Steveston snow removal by PlowWow. 24/7 emergency plow
 Markdown Content:
 # Steveston Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Snow-dusted Steveston village street with historic fishing boats in the harbor at dawn](/blog-images/steveston-snow-removal.jpg "Steveston snow removal by PlowWow")
 
 Living in Steveston, British Columbia, offers a unique coastal lifestyle where the Fraser River meets the Pacific. However, while our winters are generally mild, the "Big One"—those rare but intense Pacific snow events—can paralyze our historic village in hours. When the snow begins to settle on the masts of the fishing fleet at Fisherman’s Wharf and the wind picks up off the Strait of Georgia, Steveston residents and business owners need a reliable partner to keep their properties accessible and safe.
@@ -64,7 +67,7 @@ Failure to comply can result in fines, but the greater risk is civil liability. 
 
 Our pricing models are designed for the unpredictability of West Coast winters. We offer three primary contract types for our Steveston clients:
 
-1.  **Seasonal Flat-Rate:** The most popular choice for Steveston stratas. One fixed price covers you for the entire winter (November 1st to March 31st), regardless of how many times it snows. This allows for easy budgeting without "invoice shock."
+1.  **Seasonal Flat-Rate:** The most popular choice for Steveston stratas. One fixed price covers you for the entire winter (November 1st to March 31st), subject to the agreed scope and extreme-event charges. This allows for easy budgeting without "invoice shock."
 2.  **Per-Event/Per-Push:** Ideal for small businesses or residential homeowners who only want to pay when the snow actually falls. You are billed based on the accumulation levels of a specific storm event.
 3.  **On-Call Emergency:** For those who don't have a contract but find themselves stuck in a sudden blizzard. Priority is always given to our contract holders, but we do our best to accommodate Steveston residents in need.
 

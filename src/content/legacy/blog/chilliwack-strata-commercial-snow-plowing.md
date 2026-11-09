@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Chilliwack, BC
 Markdown Content:
 # Chilliwack Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A plowwow.com commercial plow truck clearing an internal roadway of a large townhome strata complex in Chilliwack, BC during a heavy arctic outflow snowfall event](/blog-images/chilliwack-strata-commercial-snow-plowing.jpg "plowwow.com Chilliwack commercial snow plowing")
 
 ## Proactive Winter Risk Management: Why Chilliwack Strata Councils Are Locking in Pre-Season Contracts with plowwow.com
@@ -82,7 +85,7 @@ For the vast majority of residential stratas and commercial centers, a Fixed Sea
 |                    FIXED SEASONAL STRATA CONTRACT                     |
 +-----------------------------------------------------------------------+
 |  BENEFITS:                                                            |
-|  - Predictable Monthly Budgeting (No surprise billing)                |
+|  - Predictable Monthly Budgeting (disclosed seasonal and extreme-event pricing)                |
 |  - Guaranteed Priority Dispatch (Sites pre-mapped before winter)      |
 |  - Automatic Deployment based on pre-set accumulation triggers        |
 +-----------------------------------------------------------------------+

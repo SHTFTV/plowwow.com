@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Pitt Meadows, 
 Markdown Content:
 # Pitt Meadows Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Pitt Meadows strata complex during a heavy winter snowfall event](/blog-images/pitt-meadows-strata-commercial-snow-plowing.jpg "PlowWow Pitt Meadows commercial snow plowing")
 
 ## Proactive Winter Risk Management on the Fraser-Pitt Floodplain

@@ -8,6 +8,9 @@ Markdown Content:
 
 # BC Strata Seasonal Snow Contracts — What They Cost and What's In Them
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 Every autumn, strata councils across Metro Vancouver open snow-removal quotes that can look difficult to compare. As a practical budgeting ballpark, **many small-to-mid-size strata properties fall around $3,000–$8,000 per winter**, but the physical service area matters more than the number of units. A building with one parkade ramp and one short walkway may cost less; a site with long sidewalks, many parking stalls, internal walkways, stairs and repeated ice treatment may cost more. **PlowWow** writes seasonal contracts for townhouse complexes, condos and mixed-use strata buildings from Kitsilano to Maple Ridge. This guide explains the actual cost drivers and what every BC strata council should demand in writing before signing.
 
 ![Wow mascot standing alone on a freshly plowed Metro Vancouver strata townhouse driveway with tidy salted walkways, mailbox kiosk and evergreens in the background under a bright winter sky](/blog-images/strata-seasonal-snow-contracts-bc-cost-breakdown.jpg "BC strata seasonal snow contracts cost breakdown 2026 — PlowWow")
@@ -16,7 +19,7 @@ Every autumn, strata councils across Metro Vancouver open snow-removal quotes th
 
 There are only three real pricing models in Metro Vancouver, and every quote you receive collapses into one of them:
 
-- **Seasonal / all-inclusive.** A fixed price for the winter (typically November 1 – March 31). Unlimited service triggered by snow thresholds. Council pays the same amount whether it snows twice or twenty-two times.
+- **Seasonal / all-inclusive.** A fixed price for the winter (typically November 1 – March 31). Unlimited service triggered by snow thresholds. The seasonal fee covers repeat visits within the agreed scope; extreme-event charges apply.
 - **Per-push / pay-as-you-go.** A base callout fee ($185–$450 typical) each time the contractor visits, plus salt/de-icer charged separately. Council pays only for events.
 - **Hybrid.** A small annual retainer ($1,200–$3,000) for guaranteed priority, plus a discounted per-push rate.
 

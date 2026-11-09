@@ -3,6 +3,9 @@ URL Source: https://plowwow.com/shaughnessy-vancouver-snow-removal
 Description: Shaughnessy snow removal & de-icing for heritage estates, long tree-lined driveways, and luxury strata. 60-minute response, salt-safe for stone, 24/7 monitoring.
 
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ![PlowWow husky mascot waving on a freshly plowed tree-lined Shaughnessy boulevard at blue dawn with snow-dusted heritage mansions and mature chestnut trees](/blog-images/shaughnessy-vancouver-snow-removal.jpg)
 
 *Image description: The PlowWow husky mascot in a high-visibility orange vest, blue beanie, and yellow boots waves on the left side of a freshly plowed Shaughnessy Vancouver boulevard at cold blue dawn. Mature chestnut trees dusted with snow line the long sloped driveway; snow-laden cedar hedges frame heritage Tudor and Craftsman mansions in the background. Clean parallel plow lines and a faint salt sparkle stretch toward the horizon — visual proof of a 4:00 AM PlowWow service window completed before the first commute.*

@@ -5,6 +5,9 @@ Description: Reliable snow removal and de-icing in Tsawwassen and South Delta �
 Markdown Content:
 # Tsawwassen Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![Quiet snow-dusted seaside street in Tsawwassen at sunset with BC Ferries terminal in the distance](/blog-images/tsawwassen-snow-removal.jpg "Tsawwassen South Delta snow removal by PlowWow")
 
 Tsawwassen is a unique coastal community in South Delta where the Pacific air meets the Fraser Valley’s weather patterns, creating unpredictable winter conditions that require professional management. When a sudden snowfall blankets the sun-drenched streets of Beach Grove or the high-traffic corridors of Tsawwassen Mills, residential and commercial property owners need a reliable partner to ensure safety and accessibility.
@@ -74,7 +77,7 @@ Failure to comply with these bylaws can result in fines and, more importantly, s
 
 We believe in transparent, fair pricing for our Tsawwassen snow removal services. We offer several contract structures to fit your budget and risk tolerance.
 
-1.  **Seasonal Flat-Rate:** This is popular for stratas and commercial properties. You pay a set monthly fee from November through March, regardless of how much it snows. It provides budget certainty.
+1.  **Seasonal Flat-Rate:** This is popular for stratas and commercial properties. You pay a set monthly fee from November through March, subject to the agreed scope and extreme-event charges. It provides budget certainty.
 2.  **Per-Visit (Waitlist only):** You pay only when we come out to clear snow or apply salt. This is ideal for homeowners who only want help during significant storms.
 3.  **Priority 24/7:** Our premium service tier for medical clinics, industrial sites near the BC Ferries terminal, and high-traffic retail. This ensures your property is cleared first, often before the snow has even stopped falling.
 

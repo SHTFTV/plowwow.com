@@ -5,6 +5,9 @@ Description: Reliable 24/7 Lynn Valley snow removal by PlowWow. We offer strata,
 Markdown Content:
 # Lynn Valley Snow Removal Services by PlowWow
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![PlowWow plow truck clearing a snowy Lynn Valley residential street with cedar trees and North Shore mountains behind](/blog-images/lynn-valley-snow-removal.jpg "Lynn Valley snow removal by PlowWow")
 
 Living in Lynn Valley means embracing the rugged beauty of the North Shore, but it also means dealing with some of the most unpredictable winter weather in the Lower Mainland. When a storm cycles through the District of North Vancouver, Lynn Valley often bears the brunt of it due to its unique geography and elevation. At PlowWow, we provide specialized Lynn Valley snow removal services designed to keep your driveways, parking lots, and walkways clear, safe, and compliant with municipal bylaws.
@@ -67,7 +70,7 @@ Failure to comply can result in fines, but the greater risk is civil liability. 
 
 We believe in transparent pricing that reflects the difficulty of Lynn Valley’s terrain. We offer three main contract types:
 
-1.  **Seasonal Fixed-Rate:** This is the most popular choice for Lynn Valley stratas and commercial properties. You pay a set monthly fee for the entire winter (November through March), covering you regardless of how many times it snows. It provides budget certainty in a neighborhood known for "surprise" snow events.
+1.  **Seasonal Fixed-Rate:** This is the most popular choice for Lynn Valley stratas and commercial properties. You pay a set monthly fee for the entire winter (November through March), covering you subject to the agreed scope and extreme-event charges. It provides budget certainty in a neighborhood known for "surprise" snow events.
 2.  **Per-Visit (Will-Call):** Best for residential properties on flatter land. You pay only when you request a service or when a pre-determined snow depth is reached.
 3.  **Priority 24/7 Response:** A premium service for businesses and essential services that cannot afford even an hour of downtime.
 

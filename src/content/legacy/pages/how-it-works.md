@@ -2,7 +2,12 @@ Title: How It Works | PlowWow
 
 URL Source: https://plowwow.com/how-it-works/
 
+Description: Contact Us For Any Kind Of Query or Works Image 1 https://plowwow.com/wp-content/uploads/2024/12/plowwow-banner-1.jpeg Plowwow Company has the GTA complete
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ### Contact Us For Any Kind Of Query or Works
 
 ![Image 1](https://plowwow.com/wp-content/uploads/2024/12/plowwow-banner-1.jpeg)

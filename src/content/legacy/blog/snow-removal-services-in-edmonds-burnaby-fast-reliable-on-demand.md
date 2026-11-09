@@ -2,7 +2,12 @@ Title: Snow Removal Services in Edmonds, Burnaby – Fast, Reliable & On-Demand
 
 URL Source: https://plowwow.com/snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand/
 
+Description: Reliable Snow Management Services for Edmonds Ensure your property is safe and accessible all winter long with our comprehensive snow removal solutions.  
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ## Reliable Snow Management Services for Edmonds
 
 Ensure your property is safe and accessible all winter long with our comprehensive snow removal solutions.

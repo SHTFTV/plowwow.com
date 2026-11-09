@@ -10,6 +10,9 @@ Markdown Content:
 
 # Burnaby Strata Winter Walkways: Plan the Slope, Not Just the Parking Lot
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 *By the PlowWow editorial team · October 7, 2026 · Winter 2026–2027 guide. Municipal guidance checked October 7, 2026.*
 
 ![PlowWow editorial illustration for burnaby strata snow clearing: slopes, walkways and park access](/blog-images/burnaby-strata-winter-walkways-park-access.jpg "Burnaby Strata Snow Clearing: Slopes, Walkways and Park Access")

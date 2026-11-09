@@ -5,6 +5,9 @@ Description: PlowWow seasonal strata & commercial snow plowing in Burnaby, BC. L
 Markdown Content:
 # Burnaby Strata & Commercial Snow Plowing Authority | plowwow.com
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 ![A PlowWow commercial plow truck clearing a Burnaby strata complex during a heavy winter snowfall event](/blog-images/burnaby-strata-commercial-snow-plowing.jpg "PlowWow Burnaby commercial snow plowing")
 
 ## Proactive Winter Risk Management for Burnaby Commercial Assets
@@ -71,7 +74,7 @@ Modern asset management requires flexible financial models. At **plowwow.com**, 
 Ideal for stratas with strict annual budgets.
 +-----------------------------------------------------------------------+
 | BENEFITS OF FIXED SEASONAL                                            |
-| 1. Unlimited service calls regardless of snow volume                  |
+| 1. Unlimited service calls subject to the agreed scope and extreme-event charges                  |
 | 2. Priority #1 Dispatch status                                        |
 | 3. Amortized payments over 5 months (Nov - Mar)                       |
 | 4. Zero "Emergency Surcharge" risk                                    |

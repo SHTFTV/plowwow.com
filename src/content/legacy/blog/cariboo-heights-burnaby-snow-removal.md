@@ -8,6 +8,9 @@ Markdown Content:
 
 # Cariboo Heights Burnaby Snow Removal
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands in Cariboo Heights, Burnaby's highest-elevation neighborhood on the south slope of Burnaby Mountain, above the Cariboo Dam and Brunette River, everything from the morning commute to first deliveries depends on lots, walks and ramps being cleared *before* people arrive. PlowWow is the snow-and-ice partner stratas, property managers and homeowners in Cariboo Heights call when "we'll get there when we get there" is not an answer.
 
 Single-family driveways, long private lanes, and small strata complexes that get hammered first when snow arrives — fixed per-visit and seasonal contracts available.

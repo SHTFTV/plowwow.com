@@ -3,6 +3,9 @@ URL Source: https://plowwow.com/point-grey-vancouver-snow-removal
 Description: Point Grey snow removal & de-icing for cliff-edge estates, NW Marine Drive, UBC-adjacent strata, and West 10th retail. 60-minute response, salt-safe for stone.
 
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ![PlowWow husky mascot waving on a freshly plowed Point Grey Vancouver street with English Bay and the North Shore mountains in the distance and modernist cliff-edge homes nearby](/blog-images/point-grey-vancouver-snow-removal.jpg)
 
 *Image description: The PlowWow husky mascot in a high-visibility orange vest, blue beanie, and yellow boots waves on the left side of a freshly plowed Point Grey Vancouver street at cold blue dawn. The dark waters of English Bay and the snow-capped North Shore mountains rise in the distance. To the right, a large modernist cliff-edge home with floor-to-ceiling glass overlooks a sloped driveway with crisp parallel plow lines and visible salt sparkle. Mature evergreens and snow-laden hedges frame the view — captured shortly after the 4:00 AM PlowWow crew completed the NW Marine Drive seasonal route.*

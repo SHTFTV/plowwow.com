@@ -23,7 +23,7 @@ const hoods = [
     icon: Home,
     name: "Edmonds & Big Bend",
     challenge: "Wide residential lots, longer driveways",
-    solution: "Per-property service plans, seasonal contracts with unlimited visits, GPS-verified arrival times.",
+    solution: "Per-property service plans, seasonal contracts with repeat visits within the agreed scope and extreme-event terms, GPS-verified arrival times.",
   },
 ];
 

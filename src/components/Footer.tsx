@@ -28,6 +28,10 @@ const Footer = () => (
   <WowCrew />
   <footer id="site-footer" className="bg-footer text-footer-foreground py-16">
     <div className="container">
+      <aside aria-label="Seasonal unlimited service clarification" className="mb-10 rounded-xl border border-footer-foreground/30 p-5 text-sm leading-relaxed">
+        <p><strong>Seasonal Unlimited: no visit cap within your agreed scope.</strong> Service follows agreed triggers, dates and safe route operations. A 40% surcharge on the agreed per-event baseline applies to continuous snowfall of 12 hours or more, or an event of 20 cm or more. Your agreement defines the baseline and event measurement.</p>
+        <Link to="/unlimited-clarification-policy" className="mt-2 inline-block underline font-bold">What unlimited means — read the policy</Link>
+      </aside>
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
         <div className="lg:col-span-1">
           <figure className="mb-4">
@@ -83,6 +87,7 @@ const Footer = () => (
             <li><Link to="/author/plowwow-team" className="hover:text-primary transition-colors">Authors</Link></li>
             <li><Link to="/intelligence" className="hover:text-primary transition-colors">Snow Intelligence</Link></li>
             <li><Link to="/advanced-technology" className="hover:text-primary transition-colors">PlowWow™ App — Features & Pricing</Link></li>
+            <li><Link to="/unlimited-clarification-policy" className="hover:text-primary transition-colors">Unlimited Clarification Policy</Link></li>
             <li><Link to="/guest-post" className="hover:text-primary transition-colors">Guest Post With Us</Link></li>
           </ul>
         </div>

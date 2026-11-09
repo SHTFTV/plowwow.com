@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What is the difference between On-Call and Seasonal Unlimited?",
-    a: "On-Call is per-visit billing for occasional events. Seasonal Unlimited locks in a fixed price for unlimited visits Nov 1 – Mar 31 with priority dispatch.",
+    a: "On-Call is per-visit billing for occasional events. Seasonal Unlimited includes priority dispatch and no visit cap within the agreed scope and service dates. A 40% surcharge on the agreed per-event baseline applies to continuous snowfall of 12 hours or more, or an event of 20 cm or more. The agreement defines the baseline and event measurement.",
   },
   {
     q: "Do you follow the City of Burnaby snow plow routes?",

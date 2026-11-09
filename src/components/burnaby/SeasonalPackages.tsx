@@ -3,11 +3,11 @@ import { Check, X } from "lucide-react";
 
 const rows = [
   { label: "Priority dispatch", oncall: false, seasonal: true },
-  { label: "Unlimited visits Nov–Mar", oncall: false, seasonal: true },
+  { label: "No visit cap within agreed seasonal scope", oncall: false, seasonal: true },
   { label: "Pre-storm salting", oncall: false, seasonal: true },
   { label: "Photo & GPS service log", oncall: true, seasonal: true },
   { label: "Per-visit billing", oncall: true, seasonal: false },
-  { label: "Fixed seasonal price", oncall: false, seasonal: true },
+  { label: "Seasonal price; extreme-event terms apply", oncall: false, seasonal: true },
 ];
 
 const Cell = ({ ok }: { ok: boolean }) =>
@@ -41,9 +41,9 @@ const SeasonalPackages = () => (
             Most popular
           </span>
           <p className="text-sm font-semibold text-secondary uppercase tracking-wide">Seasonal Unlimited</p>
-          <h3 className="font-heading font-black text-3xl text-foreground mt-1 mb-4">Fixed price · Nov–Mar</h3>
+          <h3 className="font-heading font-black text-3xl text-foreground mt-1 mb-4">Agreed scope · Nov–Mar</h3>
           <p className="text-muted-foreground mb-6 text-sm">
-            Priority dispatch, unlimited visits, predictable budgeting — ideal for strata & commercial.
+            Priority dispatch and repeat visits within the agreed scope. Extreme-event charges apply.
           </p>
           <Button asChild className="rounded-full font-bold bg-secondary hover:bg-secondary/90 text-secondary-foreground">
             <a href="#burnaby-quote">Lock In Seasonal Rate</a>
@@ -51,6 +51,7 @@ const SeasonalPackages = () => (
         </div>
       </div>
 
+      <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed">Unlimited means no visit cap within your agreement. A 40% surcharge on the agreed per-event baseline applies to continuous snowfall of 12 hours or more, or an event of 20 cm or more. <a href="/unlimited-clarification-policy" className="underline font-bold">Read the Unlimited Clarification Policy</a>.</p>
       <div className="mt-10 max-w-3xl mx-auto bg-card border border-border rounded-2xl overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-section-alt">

@@ -8,6 +8,9 @@ Markdown Content:
 
 # West End Vancouver Snow Removal — 24/7 Strata & Commercial De-Icing
 
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
+
 When snow lands on the West End, the densest neighborhood in Canada suddenly has 45,000 residents trying to get down icy tower ramps, cross salted crosswalks on Davie and Denman, and reach English Bay without ending up in an ER. PlowWow is the 24/7 snow-and-ice partner West End strata councils, apartment landlords, Robson Street retailers and Davie Village restaurant operators call when the answer to "when will you be here?" needs to be "already on-site."
 
 ![West End Vancouver snow removal — PlowWow mascot waving on a freshly plowed Davie Street at blue dawn with snow-dusted mid-century towers and English Bay in the distance](/blog-images/west-end-vancouver-snow-removal.jpg)

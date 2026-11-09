@@ -3,6 +3,9 @@ URL Source: https://plowwow.com/dunbar-vancouver-snow-removal
 Description: Dunbar snow removal & de-icing for character homes, West 41st storefronts, and Southlands-adjacent strata. 60-minute response, pet-safe salt, 24/7 dispatch.
 
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ![PlowWow husky mascot waving on a salted Dunbar Vancouver residential street at blue dawn with character craftsman homes and West 41st Avenue storefronts in the distance](/blog-images/dunbar-vancouver-snow-removal.jpg)
 
 *Image description: The PlowWow husky mascot in a high-visibility orange vest, blue beanie, and yellow boots waves on the right side of a freshly plowed Dunbar Vancouver street at cold blue dawn. Snow-laden cedar hedges line a row of restored craftsman character homes on the left; the warm storefront lights of West 41st Avenue glow faintly down the corridor. A clean salted sidewalk and crisp parallel plow lines run the length of the frame — captured shortly after the 4:00 AM PlowWow crew completed the street's seasonal-contract addresses.*

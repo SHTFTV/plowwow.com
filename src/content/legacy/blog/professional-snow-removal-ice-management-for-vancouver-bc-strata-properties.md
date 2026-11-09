@@ -2,7 +2,12 @@ Title: Professional Snow Removal & Ice Management for Vancouver BC Strata Proper
 
 URL Source: https://plowwow.com/professional-snow-removal-ice-management-for-vancouver-bc-strata-properties/
 
+Description: Transparent Seasonal Pricing You Can Trust When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice manage
+
 Markdown Content:
+
+**What “unlimited” means:** Seasonal plans have no visit cap for the services, areas and dates in your written agreement. Visits follow conditions, agreed triggers and safe route operations. Extreme-event charges apply: 40% of the agreed per-event baseline for continuous snowfall of 12 hours or more, or an event of 20 cm or more. [Read the Unlimited Clarification Policy](/unlimited-clarification-policy).
+
 ## Transparent Seasonal Pricing You Can Trust
 
 When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice management services they can count on. With 15 years of experience serving Metro Vancouver strata properties, PlowWow.com delivers comprehensive winter maintenance solutions with transparent seasonal pricing that eliminates budget surprises.
@@ -43,7 +48,7 @@ Vancouver’s unique coastal climate means snow events can be sudden and severe,
 *   Drainage clearing to prevent ice dam formation
 *   Emergency winter storm response teams
 
-## Transparent Seasonal Pricing: One Price, No Surprises
+## Transparent Seasonal Pricing: Agreed Scope and Extreme-Event Terms
 
 Unlike competitors who charge unpredictable per-service fees, our seasonal pricing model offers Vancouver strata councils:
 
