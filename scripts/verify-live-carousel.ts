@@ -9,17 +9,12 @@
 
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { blogPosts } from "../src/generated/blog-posts";
 
 const BASE = (process.env.PLOWWOW_LIVE_URL || "https://plowwow.com").replace(/\/+$/, "");
 
-type LocalPost = { slug: string; hasCustomHero: boolean; publishedAt: string };
-
 function loadLocalCarousel(): { slugs: string[]; generatedAt: string } {
-  const src = readFileSync(resolve(process.cwd(), "src/generated/blog-posts.ts"), "utf8");
-  const jsonStart = src.indexOf("[");
-  const jsonEnd = src.lastIndexOf("]");
-  const posts = JSON.parse(src.slice(jsonStart, jsonEnd + 1)) as LocalPost[];
-  const slugs = posts.filter((p) => p.hasCustomHero).slice(0, 4).map((p) => p.slug);
+  const slugs = blogPosts.filter((p) => p.hasCustomHero).slice(0, 4).map((p) => p.slug);
   let generatedAt = "";
   try {
     const idx = JSON.parse(readFileSync(resolve(process.cwd(), "public/blog-index.json"), "utf8"));
