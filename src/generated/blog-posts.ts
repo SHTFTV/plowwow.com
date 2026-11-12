@@ -17,7 +17,7 @@ export const blogPosts = [
     "title": "Big Parking Lots, Meet Our New BOSS DRAG PRO 8–16",
     "blurb": "PlowWow is adding a BOSS DRAG PRO 8–16 rear plow. Have a large parking lot or strip mall in Vancouver, the Lower Mainland or Fraser Valley? Request a site assessment…",
     "image": "/blog-images/boss-drag-pro-fleet-large-parking-lots.jpg",
-    "alt": "BOSS DRAG PRO 8–16 hydraulic folding wing rear plow, manufacturer product photograph; not a photograph of a PlowWow truck",
+    "alt": "Canonical PlowWow Wow mascot beside BOSS DRAG PRO 8–16 rear plow product imagery in an AI-assisted editorial composite; not an installed fleet photograph",
     "theme": "commercial",
     "tags": [
       "Commercial",

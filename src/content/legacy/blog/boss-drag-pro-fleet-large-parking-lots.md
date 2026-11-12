@@ -12,9 +12,9 @@ Markdown Content:
 
 # Big parking lots, meet our new BOSS DRAG PRO 8–16
 
-![BOSS DRAG PRO 8–16 hydraulic folding wing rear plow, manufacturer product photograph; not a photograph of a PlowWow truck](/blog-images/boss-drag-pro-fleet-large-parking-lots.jpg "BOSS manufacturer photo — DRAG PRO 8–16")
+![Canonical PlowWow Wow mascot beside BOSS DRAG PRO 8–16 rear plow product imagery in an AI-assisted editorial composite; not an installed fleet photograph](/blog-images/boss-drag-pro-fleet-large-parking-lots.jpg "Wow and BOSS DRAG PRO 8–16 editorial composite")
 
-*Manufacturer product photograph: BOSS Snowplow / The Toro Company, from the [RPL21616 product page](https://www.bossplow.com/en/product/RPL21616). Shown as product reference; this is not a photograph of our truck or a completed installation.*
+*AI-assisted PlowWow editorial composite featuring the canonical Wow character and BOSS DRAG PRO 8–16 product imagery. Equipment reference: BOSS Snowplow / The Toro Company, from the [RPL21616 product page](https://www.bossplow.com/en/product/RPL21616). This is not a photograph of our truck or a completed installation.*
 
 **By the PlowWow team · November 11, 2026 · Fleet news**
 

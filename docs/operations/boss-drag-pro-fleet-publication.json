@@ -42,5 +42,23 @@
     "Search indexing remains unverified.",
     "This manual release does not establish unattended automation or whole-site operational completion."
   ],
-  "finalCropBlob": "a63317d8ddcc31bf9ecef878bf0decebfc712002"
+  "finalCropBlob": "a63317d8ddcc31bf9ecef878bf0decebfc712002",
+  "imageCorrection": {
+    "state": "prepared-pending-live-verification",
+    "ownerRequirement": "Canonical Wow character AND subject/equipment image in every featured image; wordmark alone insufficient.",
+    "mascotSource": "src/assets/wow-mascot.png",
+    "equipmentSource": "https://www.bossplow.com/en/product/RPL21616",
+    "mode": "built-in imagegen compositing with inspected canonical mascot, exact-model original photo and approved composition reference",
+    "dimensions": [
+      1600,
+      900
+    ],
+    "articleProseAndDatesPreserved": true,
+    "pending": [
+      "production deployment",
+      "live desktop/phone hero, homepage/blog cards and social crop"
+    ],
+    "wordmark": "Yellow PlowWow lettering, per owner correction",
+    "sha256": "23c958132434ef367cbcd68f1b772efe736d5d0377ca41555e8e6e1696fc608a"
+  }
 }
