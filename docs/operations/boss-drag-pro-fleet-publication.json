@@ -2,30 +2,45 @@
   "slug": "boss-drag-pro-fleet-large-parking-lots",
   "url": "https://www.plowwow.com/boss-drag-pro-fleet-large-parking-lots",
   "mode": "owner-authorized-manual-announcement",
-  "state": "locally-verified-awaiting-production",
+  "state": "published-and-verified",
   "baselineCommit": "aaebb797438d7adc69c9f2a62735d613e44ec808",
   "unattendedAutomationVerified": false,
   "wholeSiteOperationalCompletion": false,
   "indexingStatus": null,
-  "pending": [
-    "production deployment",
-    "live desktop and phone review",
-    "live discovery and quote-path checks"
-  ],
+  "pending": [],
   "unrelatedHoldsPreserved": [
     "city campaign acceptance/research states"
   ],
   "checks": {
     "contentValidation": "passed",
     "typescript": "passed",
-    "build": "bundle and all existing validators passed; local bunx wrapper used for final validators",
-    "desktopAndPhone": "passed at 1440 and 390 widths",
+    "build": "Vercel production build and existing validators passed",
+    "desktopAndPhone": "actual public domain checked at 1440 and 390 widths; no page runtime errors or horizontal overflow",
     "heroDecoded": [
       1600,
       900
     ],
+    "sourceCredit": "manufacturer photo explicitly identified in visible caption, body, alt and image label",
+    "socialCrop": "1200x630 center crop visually reviewed; label positions refined to preserve both branding and credit",
+    "homepageAndBlog": "article linked and image rendered on both viewport sizes",
+    "canonicalAndSchema": "expected canonical, OG 1600x900 and BlogPosting JSON-LD present",
+    "feedAndSitemap": "HTTP 200; article in blog-index.json, rss.xml and sitemap-blog.xml; sitemap index references blog sitemap",
     "historicalRssDatesPreserved": 211,
-    "localReceipt": "local-verification.json",
-    "quoteDestination": "existing homepage #contact visible on both viewports; no request submitted"
-  }
+    "quoteDestination": "article CTA opens existing homepage #contact with visible form on both viewports; no request submitted",
+    "runtimeLogScan": "no error/fatal runtime entries for deployment in 15-minute window"
+  },
+  "sourceCommit": "2a3fd332d3e2d74371139d057d5c5523b380b324",
+  "productionDeployment": {
+    "id": "dpl_CYaPyLCsbmgGwEibPaZFH5nbkzLn",
+    "state": "READY",
+    "url": "https://plowwow-fluff-sparkle-ozop0qu1c-colins-projects-208e3ca1.vercel.app",
+    "canonicalDomain": "https://www.plowwow.com"
+  },
+  "verifiedAt": "2026-11-12T01:15:40.348151+00:00",
+  "limits": [
+    "No form submission or inbox-delivery test was performed for this content-only change.",
+    "Search indexing remains unverified.",
+    "This manual release does not establish unattended automation or whole-site operational completion."
+  ],
+  "finalCropBlob": "a63317d8ddcc31bf9ecef878bf0decebfc712002"
 }
