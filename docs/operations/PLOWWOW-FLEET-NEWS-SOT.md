@@ -38,3 +38,5 @@ Existing city-campaign Chilliwack acceptance hold and planned Burnaby research s
 Receipt: docs/operations/boss-drag-pro-fleet-publication.json (updated after actual verification).
 
 Verification note: the RSS generator now retains existing feed dates and stable order across shallow checkouts and uses explicit Published metadata for new entries. All 211 historical RSS publication dates were compared and preserved. This is a narrow publication safeguard, not a new publisher.
+
+Fleet-card rendering: show the full 16:9 Wow-plus-product artwork without cover-cropping or hover zoom. Place category and date labels below this artwork so they cannot cover the yellow wordmark, mascot, equipment or credit.

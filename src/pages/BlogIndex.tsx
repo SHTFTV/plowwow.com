@@ -1300,6 +1300,7 @@ const BlogIndex = () => {
                 {visible.map((slug, i) => {
                   const isActive = i === activeIndex;
                   const img = imageFor(slug);
+                  const preserveFleetArtwork = slug === "boss-drag-pro-fleet-large-parking-lots";
                   const cat = postCategories[slug];
                   const publishedAt = publishedAtBySlug[slug];
                   const updatedAt = updatedAtBySlug[slug];
@@ -1333,7 +1334,7 @@ const BlogIndex = () => {
                           : "border-border"
                       }`}
                     >
-                      <div className="aspect-[16/10] overflow-hidden bg-muted relative">
+                      <div className={preserveFleetArtwork ? "aspect-video overflow-hidden bg-muted relative" : "aspect-[16/10] overflow-hidden bg-muted relative"}>
                         {img ? (
                           <img
                             src={img}
@@ -1341,15 +1342,15 @@ const BlogIndex = () => {
                             loading="lazy"
                             width={1280}
                             height={800}
-                            className={slug === "abbotsford-snow-estimate-sharing-review" ? "w-full h-full object-contain bg-[#071b35]" : "w-full h-full object-cover group-hover:scale-105 transition duration-500"}
+                            className={preserveFleetArtwork || slug === "abbotsford-snow-estimate-sharing-review" ? "w-full h-full object-contain bg-[#071b35]" : "w-full h-full object-cover group-hover:scale-105 transition duration-500"}
                           />
                         ) : (
                           <div className="w-full h-full bg-gradient-to-br from-primary/20 via-primary/5 to-muted" />
                         )}
-                        <span className="absolute top-3 left-3 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
+                        {!preserveFleetArtwork && <span className="absolute top-3 left-3 rounded-full bg-background/90 backdrop-blur px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-foreground border border-border">
                           {cat}
-                        </span>
-                        {publishedAt && (
+                        </span>}
+                        {publishedAt && !preserveFleetArtwork && (
                           <time
                             dateTime={publishedAt}
                             className="absolute bottom-3 left-3 rounded-md border border-primary/30 bg-background/95 px-3 py-1.5 text-xs font-black uppercase tracking-wider text-slate-900 shadow-sm"
@@ -1360,6 +1361,7 @@ const BlogIndex = () => {
                       </div>
                       <div className="p-5 flex flex-col flex-1">
                         <div className="mb-2 flex flex-wrap items-center gap-2">
+                          {preserveFleetArtwork && <span className="text-[10px] font-bold uppercase tracking-wider text-foreground">{cat}</span>}
                           {publishedAt && (
                             <time
                               dateTime={publishedAt}
