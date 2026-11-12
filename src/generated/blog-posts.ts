@@ -13,6 +13,36 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "boss-drag-pro-fleet-large-parking-lots",
+    "title": "Big Parking Lots, Meet Our New BOSS DRAG PRO 8–16",
+    "blurb": "PlowWow is adding a BOSS DRAG PRO 8–16 rear plow. Have a large parking lot or strip mall in Vancouver, the Lower Mainland or Fraser Valley? Request a site assessment…",
+    "image": "/blog-images/boss-drag-pro-fleet-large-parking-lots.jpg",
+    "alt": "BOSS DRAG PRO 8–16 hydraulic folding wing rear plow, manufacturer product photograph; not a photograph of a PlowWow truck",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-12T01:00:00.000Z",
+    "updatedAt": "2026-11-12T01:00:00.000Z"
+  },
+  {
+    "slug": "vancouver-winter-tires-edmonton-snowfall-reminder",
+    "title": "Vancouver, are you ready? Edmonton’s first significant snowfall is your reminder.",
+    "blurb": "PlowWow’s Vancouver winter-tire reminder following Edmonton’s October 28 snowfall, with the CityNews article and publisher video directly credited…",
+    "image": "/blog-images/vancouver-winter-tires-edmonton-snowfall-reminder.jpg",
+    "alt": "The approved PlowWow Wow mascot beside a winter tire in a fictional snow-service preparation garage",
+    "theme": "citywide",
+    "tags": [
+      "Liability",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-10-30T22:24:03.094Z",
+    "updatedAt": "2026-10-30T22:24:03.094Z"
+  },
+  {
     "slug": "greater-vancouver-el-nino-winter-planning-2026-27",
     "title": "PlowWow versus “Godzilla”: the 2026–27 El Niño story",
     "blurb": "The 2026–27 El Niño story for Greater Vancouver: what WMO and NOAA report, why seasonal averages differ from storms and where the Godzilla nickname ends…",
@@ -1487,7 +1517,7 @@ export const blogPosts = [
   {
     "slug": "snow-removal-services-in-edmonds-burnaby-fast-reliable-on-demand",
     "title": "Snow Removal Services in Edmonds, Burnaby – Fast, Reliable & On-Demand",
-    "blurb": "Reliable Snow Management Services for Edmonds Ensure your property is safe and accessible all winter long with our comprehensive snow removal solutions.    Storm Safety Assuranc…",
+    "blurb": "Reliable Snow Management Services for Edmonds Ensure your property is safe and accessible all winter long with our comprehensive snow removal solutions. …",
     "image": "/blog-images/_theme-citywide.jpg",
     "alt": "Image 1: Screen Shot 2025-10-12 at 4.08.02 PM",
     "theme": "citywide",
@@ -2012,12 +2042,14 @@ export const blogPosts = [
   {
     "slug": "professional-snow-removal-ice-management-for-vancouver-bc-strata-properties",
     "title": "Professional Snow Removal & Ice Management for Vancouver BC Strata Properties",
-    "blurb": "Transparent Seasonal Pricing You Can Trust When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice management services they can co…",
+    "blurb": "Transparent Seasonal Pricing You Can Trust When Vancouver’s unpredictable winter weather strikes, strata councils need reliable snow removal and ice manage…",
     "image": "/blog-images/_theme-strata.jpg",
     "alt": "PlowWow Wow mascot alone in front of a Metro Vancouver strata condominium building on a bright plowed sidewalk with snow-dusted evergreens",
     "theme": "strata",
     "tags": [
-      "Strata"
+      "Strata",
+      "Weather",
+      "Contracts"
     ],
     "hasCustomHero": false,
     "publishedAt": "2026-07-29T03:38:17.819Z",
@@ -2026,11 +2058,13 @@ export const blogPosts = [
   {
     "slug": "professional-snow-removal-in-middle-gate-burnaby",
     "title": "Professional Snow Removal in Middle Gate, Burnaby",
-    "blurb": "Reliable Snow Removal Services in Middle Gate Professional Snow Removal in Middle Gate, Burnaby Middle Gate residents and business owners know that winter weather can strike quickl…",
+    "blurb": "Reliable Snow Removal Services in Middle Gate Professional Snow Removal in Middle Gate, Burnaby Middle Gate residents and business owners know that winter…",
     "image": "/blog-images/_theme-citywide.jpg",
     "alt": "PlowWow Wow mascot alone on a plowed Metro Vancouver hillside street with the North Shore mountains and downtown skyline in the background",
     "theme": "citywide",
-    "tags": [],
+    "tags": [
+      "Commercial"
+    ],
     "hasCustomHero": false,
     "publishedAt": "2026-07-29T03:38:17.819Z",
     "updatedAt": "2026-07-29T03:38:17.819Z"

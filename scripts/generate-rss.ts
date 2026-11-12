@@ -8,6 +8,18 @@ const BLOG_DIR = resolve(process.cwd(), "src/content/legacy/blog");
 const IMAGE_DIR = resolve(process.cwd(), "public/blog-images");
 const OUT = resolve(process.cwd(), "public/rss.xml");
 
+// Preserve published feed dates across shallow checkouts; never re-date the
+// archive merely because a new fleet announcement is built.
+const savedPublicationDates = new Map<string, number>();
+const savedOrder = new Map<string, number>();
+if (existsSync(OUT)) {
+  for (const item of readFileSync(OUT, "utf8").matchAll(/<item>([\s\S]*?)<\/item>/g)) {
+    const slug = item[1].match(/<guid[^>]*>https:\/\/(?:www\.)?plowwow\.com\/([^<\/]+)\/?<\/guid>/)?.[1];
+    const date = Date.parse(item[1].match(/<pubDate>([^<]+)<\/pubDate>/)?.[1] || "");
+    if (slug && Number.isFinite(date)) { savedOrder.set(slug, savedOrder.size); savedPublicationDates.set(slug, date); }
+  }
+}
+
 const cleanTitle = (t: string, slug: string) =>
   (t || slug).replace(/\s*\|\s*PlowWow.*$/i, "").replace(/\s+/g, " ").trim();
 
@@ -47,14 +59,15 @@ const items = readdirSync(BLOG_DIR)
     const desc = raw.match(/^Description:\s*(.+)$/m)?.[1]?.trim() ?? "";
     const body = raw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1] ?? raw;
     const blurb = (desc || plainText(body)).slice(0, 280).replace(/[\s,;:.-]+$/, "") + "…";
-    const pub = gitFirst(`src/content/legacy/blog/${file}`) || statSync(filePath).mtimeMs;
+    const explicitDate = Date.parse(raw.match(/^Published:\s*(.+)$/m)?.[1] || "");
+    const pub = savedPublicationDates.get(slug) || (Number.isFinite(explicitDate) ? explicitDate : 0) || gitFirst(`src/content/legacy/blog/${file}`) || statSync(filePath).mtimeMs;
     const url = `${SITE}/${slug}/`;
     const image = existsSync(resolve(IMAGE_DIR, `${slug}.jpg`))
       ? `${SITE}/blog-images/${slug}.jpg`
       : null;
     return { slug, title, blurb, pub, url, image };
   })
-  .sort((a, b) => b.pub - a.pub);
+  .sort((a, b) => b.pub - a.pub || (savedOrder.get(a.slug) ?? 9999) - (savedOrder.get(b.slug) ?? 9999));
 
 const lastBuild = new Date(items[0]?.pub ?? Date.now()).toUTCString();
 

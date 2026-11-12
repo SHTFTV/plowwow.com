@@ -1,4 +1,12 @@
 {
+  "/blog-images/boss-drag-pro-fleet-large-parking-lots.jpg": {
+    "width": 1600,
+    "height": 900
+  },
+  "/blog-images/vancouver-winter-tires-edmonton-snowfall-reminder.jpg": {
+    "width": 1672,
+    "height": 941
+  },
   "/blog-images/greater-vancouver-el-nino-winter-planning-2026-27.jpg": {
     "width": 1200,
     "height": 630
@@ -739,8 +747,16 @@
     "width": 1200,
     "height": 630
   },
+  "/blog-images/vancouver-winter-tires-edmonton-snowfall-reminder-share.jpg": {
+    "width": 1200,
+    "height": 630
+  },
   "/blog-images/wow-abbotsford-estimate-sharing-v2-share.jpg": {
     "width": 1200,
     "height": 630
+  },
+  "/images/plowwow-unlimited-policy-hero-v2.jpg": {
+    "width": 1672,
+    "height": 941
   }
 }

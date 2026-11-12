@@ -1,13 +1,23 @@
 {
-  "generatedAt": "2026-10-30T02:21:33.263Z",
-  "count": 211,
+  "generatedAt": "2026-11-12T01:03:14.346Z",
+  "count": 213,
   "carousel": [
+    "boss-drag-pro-fleet-large-parking-lots",
+    "vancouver-winter-tires-edmonton-snowfall-reminder",
     "greater-vancouver-el-nino-winter-planning-2026-27",
-    "langley-el-nino-winter-review-windows-2026-27",
-    "new-westminster-el-nino-sidewalk-review-2026-27",
-    "port-moody-el-nino-pedestrian-review-2026-27"
+    "langley-el-nino-winter-review-windows-2026-27"
   ],
   "posts": [
+    {
+      "slug": "boss-drag-pro-fleet-large-parking-lots",
+      "publishedAt": "2026-11-12T01:00:00.000Z",
+      "updatedAt": "2026-11-12T01:00:00.000Z"
+    },
+    {
+      "slug": "vancouver-winter-tires-edmonton-snowfall-reminder",
+      "publishedAt": "2026-10-30T22:24:03.094Z",
+      "updatedAt": "2026-10-30T22:24:03.094Z"
+    },
     {
       "slug": "greater-vancouver-el-nino-winter-planning-2026-27",
       "publishedAt": "2026-10-30T02:21:07.195Z",
