@@ -13,6 +13,18 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
+    "title": "Vancouver: Clear Snow Off Your Vehicle Roof Before Driving",
+    "blurb": "Snow left on your vehicle roof can blow into the view of following drivers. A practical Vancouver reminder to brush, scrape and defrost before driving…",
+    "image": "/blog-images/vancouver-clear-snow-vehicle-roof-before-driving.jpg",
+    "alt": "Canonical PlowWow mascot Wow stands on the ground using a long-handled snow brush to clear the roof of a parked car in an original safety illustration",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-12T17:24:00.000Z",
+    "updatedAt": "2026-11-12T17:24:00.000Z"
+  },
+  {
     "slug": "boss-drag-pro-fleet-large-parking-lots",
     "title": "Big Parking Lots, Meet Our New BOSS DRAG PRO 8–16",
     "blurb": "PlowWow is adding a BOSS DRAG PRO 8–16 rear plow. Have a large parking lot or strip mall in Vancouver, the Lower Mainland or Fraser Valley? Request a site assessment…",

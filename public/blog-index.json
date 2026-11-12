@@ -1,13 +1,18 @@
 {
-  "generatedAt": "2026-11-12T01:03:14.346Z",
-  "count": 213,
+  "generatedAt": "2026-11-12T17:26:57.297Z",
+  "count": 214,
   "carousel": [
+    "vancouver-clear-snow-vehicle-roof-before-driving",
     "boss-drag-pro-fleet-large-parking-lots",
     "vancouver-winter-tires-edmonton-snowfall-reminder",
-    "greater-vancouver-el-nino-winter-planning-2026-27",
-    "langley-el-nino-winter-review-windows-2026-27"
+    "greater-vancouver-el-nino-winter-planning-2026-27"
   ],
   "posts": [
+    {
+      "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
+      "publishedAt": "2026-11-12T17:24:00.000Z",
+      "updatedAt": "2026-11-12T17:24:00.000Z"
+    },
     {
       "slug": "boss-drag-pro-fleet-large-parking-lots",
       "publishedAt": "2026-11-12T01:00:00.000Z",

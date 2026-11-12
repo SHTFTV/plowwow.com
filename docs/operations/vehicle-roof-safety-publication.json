@@ -1,0 +1,14 @@
+{
+  "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
+  "url": "https://www.plowwow.com/vancouver-clear-snow-vehicle-roof-before-driving",
+  "state": "prepared-awaiting-production-verification",
+  "mode": "owner-authorized-manual-publication",
+  "baselineCommit": "3e98298b76bfd4f77f4b7321576da4374cedd7f7",
+  "publishedAt": "2026-11-12T09:24:00-08:00",
+  "image": {"dimensions": [1600, 900], "type": "original AI-generated illustration with canonical Wow", "documentaryClaim": false},
+  "localChecks": ["content validation passed", "TypeScript passed", "reviewed-image integrity passed", "blog OG validation passed", "213 historical RSS dates preserved", "1600x900 hero and centered 1200x630 social crop inspected"],
+  "pending": ["production build", "actual-domain desktop and phone review", "canonical/schema/homepage/blog/feed/sitemap checks"],
+  "indexingStatus": null,
+  "unattendedAutomationVerified": false,
+  "wholeSiteOperationalCompletion": false
+}
