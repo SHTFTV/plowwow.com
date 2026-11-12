@@ -1,14 +1,69 @@
 {
   "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
   "url": "https://www.plowwow.com/vancouver-clear-snow-vehicle-roof-before-driving",
-  "state": "prepared-awaiting-production-verification",
+  "state": "published-and-live-verified",
   "mode": "owner-authorized-manual-publication",
   "baselineCommit": "3e98298b76bfd4f77f4b7321576da4374cedd7f7",
   "publishedAt": "2026-11-12T09:24:00-08:00",
-  "image": {"dimensions": [1600, 900], "type": "original AI-generated illustration with canonical Wow", "documentaryClaim": false},
-  "localChecks": ["content validation passed", "TypeScript passed", "reviewed-image integrity passed", "blog OG validation passed", "213 historical RSS dates preserved", "1600x900 hero and centered 1200x630 social crop inspected"],
-  "pending": ["production build", "actual-domain desktop and phone review", "canonical/schema/homepage/blog/feed/sitemap checks"],
+  "image": {
+    "dimensions": [
+      1600,
+      900
+    ],
+    "type": "original AI-generated illustration with canonical Wow",
+    "documentaryClaim": false
+  },
+  "localChecks": [
+    "content validation passed",
+    "TypeScript passed",
+    "reviewed-image integrity passed",
+    "blog OG validation passed",
+    "213 historical RSS dates preserved",
+    "1600x900 hero and centered 1200x630 social crop inspected"
+  ],
+  "pending": [],
   "indexingStatus": null,
   "unattendedAutomationVerified": false,
-  "wholeSiteOperationalCompletion": false
+  "wholeSiteOperationalCompletion": false,
+  "articleSourceCommit": "7581f4e4c3f550e09afb5b3e1dbb466679a5eb44",
+  "sourceCommit": "9ef7dd5dad92eb5c3613856af89bbe09faf85265",
+  "retainedFailures": [
+    {
+      "deploymentId": "dpl_AvcX4oeRm3aVvsCMZsrFA64rWnQu",
+      "reason": "Sitemap baseline guard rejected one intentionally added article URL.",
+      "resolution": "Added only the exact authorized URL to sitemap baseline; verified no route removals or unrelated changes.",
+      "fixedByCommit": "9ef7dd5dad92eb5c3613856af89bbe09faf85265"
+    }
+  ],
+  "verifiedAt": "2026-11-12T17:39:25.035Z",
+  "deployment": {
+    "id": "dpl_FFmjxBa5Nrq7BRnEEMARPzzTzMcm",
+    "state": "READY",
+    "url": "https://plowwow-fluff-sparkle-cek4itya7-colins-projects-208e3ca1.vercel.app",
+    "canonicalDomain": "https://www.plowwow.com"
+  },
+  "checks": {
+    "desktopWidth": 1440,
+    "phoneWidth": 390,
+    "articleBodyAndPrimarySourceLinks": "passed",
+    "heroHomepageAndBlogCards": "passed; full artwork and labels visually reviewed",
+    "socialCrop": "live image centered to 1200x630 and visually reviewed",
+    "imageBytesMatchReviewedFile": true,
+    "canonicalBlogPostingOgDimensions": "passed",
+    "rssSitemapAndBlogIndex": "HTTP 200 with article; sitemap index links blog sitemap",
+    "historicalRssDatesPreserved": 213,
+    "pageRuntimeErrors": 0,
+    "runtimeErrorLogScan": "No error/fatal logs found for final content deployment in ten-minute window."
+  },
+  "imageSha256": "702048cbcd569cbdb793f6a4cd5b8a7fa7240795922a44d27a28b24d05ab8127",
+  "sources": [
+    "https://rcmp.ca/en/bc/richmond/news/2025/12/4348597",
+    "https://www.icbc.com/about-icbc/newsroom/2022-jan06-lm",
+    "https://www.quebec.ca/en/transports/traffic-road-safety/winter-road-safety/winter-driving",
+    "https://www.caaquebec.com/en/advices/maintaining-a-vehicle/the-right-way-to-clear-snow-and-ice-from-your-car"
+  ],
+  "evidence": "vehicle-roof-live-verification.json",
+  "imageArtifact": "vancouver-clear-snow-vehicle-roof-before-driving.jpg",
+  "promptArtifact": "vehicle-roof-image-prompt.txt",
+  "formSubmissionTested": false
 }
