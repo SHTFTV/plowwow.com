@@ -1,21 +1,89 @@
 {
-  "slug":"snow-equipment-readiness-backup-plan-sima",
-  "url":"https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima",
-  "state":"prepared-awaiting-production-verification",
-  "mode":"owner-authorized-manual-source-led-publication",
-  "baselineCommit":"6c4a231e63055e8958c1e40c996feaffa9d4478b",
-  "sourceUrl":"https://resources.sima.org/snow-and-ice-resource-center/asset-check-is-your-equipment-ready-for-winter",
-  "sourcePublishedAt":"2026-11-12T16:00:45.000Z",
-  "sponsorScreen":"No explicit sponsored or paid-promotional label observed in exact source page; source attributed to Snow Business Magazine",
-  "sourceMediaReused":false,
-  "featuredImage":"Original AI-generated PlowWow illustration using canonical Wow, equipment and yellow wordmark; not a completed inspection or fleet photograph",
-  "localChecks":["source/facts/sponsorship/dedupe review","content validation","TypeScript","reviewed-image integrity","blog OG validation","sitemap guard unchanged","214 historical RSS dates preserved"],
-  "pending":["production build","actual-domain desktop and phone review","canonical/schema/discovery/image verification"],
-  "indexingStatus":null,
-  "automaticArticlePublisherVerified":false,
-  "existingReleaseRoute":"Leased owner GitHub main commit -> existing Vercel Git deployment -> live verification",
-  "scheduledVerifier":".github/workflows/verify-live-carousel.yml; checks existing content, does not write articles",
-  "missingBridge":"Metadata collector to durable eligible queue and sole writer with source/sponsor/dedupe/media review, idempotency/lease, deployment/live receipts, isolated failures/alerts and unattended scheduled end-to-end proof",
-  "workflowFilesChanged":false,
-  "wholeSiteOperationalCompletion":false
+  "slug": "snow-equipment-readiness-backup-plan-sima",
+  "url": "https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima",
+  "state": "published-and-live-verified",
+  "mode": "owner-authorized-manual-source-led-publication",
+  "baselineCommit": "6c4a231e63055e8958c1e40c996feaffa9d4478b",
+  "sourceUrl": "https://resources.sima.org/snow-and-ice-resource-center/asset-check-is-your-equipment-ready-for-winter",
+  "sourcePublishedAt": "2026-11-12T16:00:45.000Z",
+  "sponsorScreen": "No explicit sponsored or paid-promotional label observed in exact source page; source attributed to Snow Business Magazine",
+  "sourceMediaReused": false,
+  "featuredImage": "Original AI-generated PlowWow illustration using canonical Wow, equipment and yellow wordmark; not a completed inspection or fleet photograph",
+  "localChecks": [
+    "source/facts/sponsorship/dedupe review",
+    "content validation",
+    "TypeScript",
+    "reviewed-image integrity",
+    "blog OG validation",
+    "sitemap guard unchanged",
+    "214 historical RSS dates preserved"
+  ],
+  "pending": [],
+  "indexingStatus": null,
+  "automaticArticlePublisherVerified": false,
+  "existingReleaseRoute": "Leased owner GitHub main commit -> existing Vercel Git deployment -> live verification",
+  "scheduledVerifier": ".github/workflows/verify-live-carousel.yml; checks existing content, does not write articles",
+  "missingBridge": "Metadata collector to durable eligible queue and sole writer with source/sponsor/dedupe/media review, idempotency/lease, deployment/live receipts, isolated failures/alerts and unattended scheduled end-to-end proof",
+  "workflowFilesChanged": false,
+  "wholeSiteOperationalCompletion": false,
+  "verifiedAt": "2026-11-13T00:58:33.457Z",
+  "sourceCommit": "293e03d7f6da4f534ff2ba7dd9e7ffd966633d0f",
+  "deployment": {
+    "id": "dpl_BfivCncpQUNXAKrrF5QfEUJZmk3r",
+    "state": "READY",
+    "url": "https://plowwow-fluff-sparkle-nmojiljuo-colins-projects-208e3ca1.vercel.app",
+    "canonicalDomain": "https://www.plowwow.com"
+  },
+  "checks": {
+    "desktopWidth": 1440,
+    "phoneWidth": 390,
+    "articleAttributionAndScenarioDisclosure": "passed",
+    "heroHomepageBlogAndSocialCrop": "visually reviewed; canonical Wow, equipment, yellow wordmark and illustration label visible",
+    "liveImageMatchesReviewedFile": true,
+    "canonicalBlogPostingOgDimensions": "passed",
+    "rssSitemapBlogIndex": "HTTP 200 with article; sitemap index references blog sitemap",
+    "historicalRssDatesPreserved": 214,
+    "quoteDestination": "existing homepage #contact reached on both viewport sizes; no request submitted",
+    "pageRuntimeErrors": 0,
+    "runtimeErrorLogs": "no error/fatal logs found for deployment in ten-minute window"
+  },
+  "imageSha256": "67f2d522be24e64a55f802502ee9620a0c9be2bf28a870a21be311a2eb2fe38e",
+  "sourceReview": {
+    "sourceUrl": "https://resources.sima.org/snow-and-ice-resource-center/asset-check-is-your-equipment-ready-for-winter",
+    "sourceTitle": "Asset check! Is your equipment ready for winter?",
+    "visibleHeading": "Last-minute asset check",
+    "publisher": "Snow & Ice Management Association",
+    "byline": "Snow Business Magazine",
+    "datePublished": "2026-11-12T16:00:45.000Z",
+    "fetchedHtmlSha256": "04182eeaf5b3f2933ed815cc23e9cefbcad07f195a7f94f66924c14336b73a1f",
+    "sponsorScreen": {
+      "status": "no-explicit-sponsored-or-paid-promotional-label-observed",
+      "markersFound": [],
+      "checked": [
+        "article body",
+        "byline",
+        "page metadata",
+        "rendered-text extraction"
+      ]
+    },
+    "rights": {
+      "sourceImageReused": false,
+      "sourceArticleTextReused": false,
+      "sourceSummary": "short original paraphrase with direct attribution and source link",
+      "featuredImage": "original AI-generated PlowWow illustration with inspected canonical Wow; no source media used"
+    },
+    "dedupe": {
+      "exactSourceUrlFoundInPublishedContent": false,
+      "relatedPostsReviewed": [
+        "commercial-snow-equipment-site-access-guide",
+        "snow-operator-first-route-readiness"
+      ],
+      "distinctAngle": "Customer-facing failure-continuity questions; not equipment selection or operator onboarding"
+    }
+  },
+  "publisherAuditArtifact": "sima-publisher-route-audit.json",
+  "evidence": "sima-equipment-live-verification.json",
+  "imageArtifact": "snow-equipment-readiness-backup-plan-sima.jpg",
+  "promptArtifact": "sima-equipment-image-prompt.txt",
+  "formSubmissionTested": false
 }
