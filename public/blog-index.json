@@ -1,13 +1,18 @@
 {
-  "generatedAt": "2026-11-12T17:26:57.297Z",
-  "count": 214,
+  "generatedAt": "2026-11-13T00:51:00.424Z",
+  "count": 215,
   "carousel": [
+    "snow-equipment-readiness-backup-plan-sima",
     "vancouver-clear-snow-vehicle-roof-before-driving",
     "boss-drag-pro-fleet-large-parking-lots",
-    "vancouver-winter-tires-edmonton-snowfall-reminder",
-    "greater-vancouver-el-nino-winter-planning-2026-27"
+    "vancouver-winter-tires-edmonton-snowfall-reminder"
   ],
   "posts": [
+    {
+      "slug": "snow-equipment-readiness-backup-plan-sima",
+      "publishedAt": "2026-11-13T00:50:00.000Z",
+      "updatedAt": "2026-11-13T00:50:00.000Z"
+    },
     {
       "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
       "publishedAt": "2026-11-12T17:24:00.000Z",

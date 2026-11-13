@@ -1873,4 +1873,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima</loc>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima" />
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

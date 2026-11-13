@@ -6,12 +6,20 @@
     <atom:link href="https://www.plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Thu, 12 Nov 2026 17:24:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 00:50:00 GMT</lastBuildDate>
     <image>
       <url>https://www.plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://www.plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>Snow Equipment Readiness: What Is the Backup Plan?</title>
+      <link>https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima/</guid>
+      <pubDate>Fri, 13 Nov 2026 00:50:00 GMT</pubDate>
+      <description>SIMA's new equipment-readiness checklist raises a useful question for parking lot and strata managers: what happens to the snow-service plan if equipment stops?…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/snow-equipment-readiness-backup-plan-sima.jpg" type="image/jpeg" length="0" />
+    </item>
     <item>
       <title>Vancouver: Clear Snow Off Your Vehicle Roof Before Driving</title>
       <link>https://www.plowwow.com/vancouver-clear-snow-vehicle-roof-before-driving/</link>

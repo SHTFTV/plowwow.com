@@ -13,6 +13,22 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "snow-equipment-readiness-backup-plan-sima",
+    "title": "Snow Equipment Readiness: What Is the Backup Plan?",
+    "blurb": "SIMA's new equipment-readiness checklist raises a useful question for parking lot and strata managers: what happens to the snow-service plan if equipment stops?…",
+    "image": "/blog-images/snow-equipment-readiness-backup-plan-sima.jpg",
+    "alt": "Canonical PlowWow Wow mascot with a checklist beside imagined parked snowplow equipment and a salt spreader in an original readiness illustration",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-13T00:50:00.000Z",
+    "updatedAt": "2026-11-13T00:50:00.000Z"
+  },
+  {
     "slug": "vancouver-clear-snow-vehicle-roof-before-driving",
     "title": "Vancouver: Clear Snow Off Your Vehicle Roof Before Driving",
     "blurb": "Snow left on your vehicle roof can blow into the view of following drivers. A practical Vancouver reminder to brush, scrape and defrost before driving…",

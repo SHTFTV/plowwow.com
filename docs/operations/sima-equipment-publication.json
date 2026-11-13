@@ -1,0 +1,21 @@
+{
+  "slug":"snow-equipment-readiness-backup-plan-sima",
+  "url":"https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima",
+  "state":"prepared-awaiting-production-verification",
+  "mode":"owner-authorized-manual-source-led-publication",
+  "baselineCommit":"6c4a231e63055e8958c1e40c996feaffa9d4478b",
+  "sourceUrl":"https://resources.sima.org/snow-and-ice-resource-center/asset-check-is-your-equipment-ready-for-winter",
+  "sourcePublishedAt":"2026-11-12T16:00:45.000Z",
+  "sponsorScreen":"No explicit sponsored or paid-promotional label observed in exact source page; source attributed to Snow Business Magazine",
+  "sourceMediaReused":false,
+  "featuredImage":"Original AI-generated PlowWow illustration using canonical Wow, equipment and yellow wordmark; not a completed inspection or fleet photograph",
+  "localChecks":["source/facts/sponsorship/dedupe review","content validation","TypeScript","reviewed-image integrity","blog OG validation","sitemap guard unchanged","214 historical RSS dates preserved"],
+  "pending":["production build","actual-domain desktop and phone review","canonical/schema/discovery/image verification"],
+  "indexingStatus":null,
+  "automaticArticlePublisherVerified":false,
+  "existingReleaseRoute":"Leased owner GitHub main commit -> existing Vercel Git deployment -> live verification",
+  "scheduledVerifier":".github/workflows/verify-live-carousel.yml; checks existing content, does not write articles",
+  "missingBridge":"Metadata collector to durable eligible queue and sole writer with source/sponsor/dedupe/media review, idempotency/lease, deployment/live receipts, isolated failures/alerts and unattended scheduled end-to-end proof",
+  "workflowFilesChanged":false,
+  "wholeSiteOperationalCompletion":false
+}

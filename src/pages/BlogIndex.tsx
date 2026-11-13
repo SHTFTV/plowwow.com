@@ -1300,7 +1300,7 @@ const BlogIndex = () => {
                 {visible.map((slug, i) => {
                   const isActive = i === activeIndex;
                   const img = imageFor(slug);
-                  const preserveStoryArtwork = ["boss-drag-pro-fleet-large-parking-lots", "vancouver-clear-snow-vehicle-roof-before-driving"].includes(slug);
+                  const preserveStoryArtwork = ["boss-drag-pro-fleet-large-parking-lots", "vancouver-clear-snow-vehicle-roof-before-driving", "snow-equipment-readiness-backup-plan-sima"].includes(slug);
                   const cat = postCategories[slug];
                   const publishedAt = publishedAtBySlug[slug];
                   const updatedAt = updatedAtBySlug[slug];
