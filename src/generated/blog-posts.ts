@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "strata-winter-accessibility-planning-bc",
+    "title": "BC Strata Winter Accessibility: Plan the Whole Route",
+    "blurb": "Does a BC strata need an accessibility committee or plan? Separate municipal rules from strata duties, then map winter access from parking to the entrance…",
+    "image": "/blog-images/strata-winter-accessibility-planning-bc.jpg",
+    "alt": "The approved Wow mascot with yellow PlowWow lettering beside an imagined apartment entrance, cleared ramp and wheelchair user.",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Commercial"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-13T19:40:00.000Z",
+    "updatedAt": "2026-11-13T19:40:00.000Z"
+  },
+  {
     "slug": "snow-equipment-readiness-backup-plan-sima",
     "title": "Snow Equipment Readiness: What Is the Backup Plan?",
     "blurb": "SIMA's new equipment-readiness checklist raises a useful question for parking lot and strata managers: what happens to the snow-service plan if equipment stops?…",

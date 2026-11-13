@@ -1,13 +1,18 @@
 {
-  "generatedAt": "2026-11-13T00:51:00.424Z",
-  "count": 215,
+  "generatedAt": "2026-11-13T19:36:08.009Z",
+  "count": 216,
   "carousel": [
+    "strata-winter-accessibility-planning-bc",
     "snow-equipment-readiness-backup-plan-sima",
     "vancouver-clear-snow-vehicle-roof-before-driving",
-    "boss-drag-pro-fleet-large-parking-lots",
-    "vancouver-winter-tires-edmonton-snowfall-reminder"
+    "boss-drag-pro-fleet-large-parking-lots"
   ],
   "posts": [
+    {
+      "slug": "strata-winter-accessibility-planning-bc",
+      "publishedAt": "2026-11-13T19:40:00.000Z",
+      "updatedAt": "2026-11-13T19:40:00.000Z"
+    },
     {
       "slug": "snow-equipment-readiness-backup-plan-sima",
       "publishedAt": "2026-11-13T00:50:00.000Z",

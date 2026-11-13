@@ -6,12 +6,20 @@
     <atom:link href="https://www.plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Fri, 13 Nov 2026 00:50:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 19:40:00 GMT</lastBuildDate>
     <image>
       <url>https://www.plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://www.plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>BC Strata Winter Accessibility: Plan the Whole Route</title>
+      <link>https://www.plowwow.com/strata-winter-accessibility-planning-bc/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/strata-winter-accessibility-planning-bc/</guid>
+      <pubDate>Fri, 13 Nov 2026 19:40:00 GMT</pubDate>
+      <description>Does a BC strata need an accessibility committee or plan? Separate municipal rules from strata duties, then map winter access from parking to the entrance…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/strata-winter-accessibility-planning-bc.jpg" type="image/jpeg" length="0" />
+    </item>
     <item>
       <title>Snow Equipment Readiness: What Is the Backup Plan?</title>
       <link>https://www.plowwow.com/snow-equipment-readiness-backup-plan-sima/</link>
