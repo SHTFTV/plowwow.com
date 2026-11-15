@@ -44,13 +44,10 @@ describe("ServiceAreas a11y — restore + reduced-motion", () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
     const { container } = renderInRouter();
 
-    // Wait for the mount restore to land — this is the state users see
-    // when they return to the section.
-    await waitFor(() => {
-      expect(document.activeElement).toBe(
-        document.getElementById("city-opt-burnaby"),
-      );
-    });
+    // Returning users see their saved highlight without an unsolicited
+    // focus jump. Audit that actual initial state, before interaction.
+    expect(document.getElementById("city-opt-burnaby")).toHaveAttribute("aria-selected", "true");
+    expect(document.activeElement).toBe(document.body);
 
     const violations = await runAxe(container);
     expect(violations, JSON.stringify(violations, null, 2)).toEqual([]);

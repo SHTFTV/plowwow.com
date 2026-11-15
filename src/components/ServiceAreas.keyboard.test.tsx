@@ -10,12 +10,14 @@ beforeEach(() => {
   Element.prototype.scrollIntoView = vi.fn() as unknown as Element["scrollIntoView"];
 });
 
-const renderWithRouter = () =>
-  render(
-    <MemoryRouter>
-      <ServiceAreas />
-    </MemoryRouter>,
-  );
+const renderWithRouter = () => {
+  const view = render(<MemoryRouter><ServiceAreas /></MemoryRouter>);
+  // Keyboard scenarios start with explicit user focus on the saved option;
+  // mounting the section itself intentionally preserves page focus.
+  const active = view.getByRole("combobox").getAttribute("aria-activedescendant");
+  act(() => { if (active) document.getElementById(active)?.focus(); });
+  return view;
+};
 
 const card = (slug: string) =>
   document.getElementById(`city-opt-${slug}`) as HTMLAnchorElement | null;
@@ -30,7 +32,7 @@ describe("ServiceAreas keyboard navigation", () => {
     window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
     renderWithRouter();
 
-    // Mount restore lands on Vancouver.
+    // The user focuses the saved Vancouver option.
     await waitFor(() => {
       expect(document.activeElement).toBe(card("vancouver"));
     });
@@ -71,7 +73,7 @@ describe("ServiceAreas keyboard navigation", () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
     renderWithRouter();
 
-    // Mount restore on Burnaby (no pulse on mount — by design).
+    // The user focuses the saved Burnaby option (no mount pulse).
     await waitFor(() => expect(document.activeElement).toBe(card("burnaby")));
 
     // Trigger a clear-driven restoreEvent (pulse + scroll + focus on Burnaby).

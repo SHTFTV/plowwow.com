@@ -1,9 +1,25 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
+import { render as renderView, screen, waitFor, fireEvent, act } from "@testing-library/react";
 import { MemoryRouter, Routes, Route, useLocation } from "react-router-dom";
 import ServiceAreas from "./ServiceAreas";
 
 const LAST_CITY_KEY = "service-areas:last-city";
+
+// Selection scenarios begin after the user focuses the highlighted city.
+// Enter through the option's focus handler explicitly: mounting alone must
+// preserve the page's existing focus, and Tab from search collapses results.
+const render = (ui: Parameters<typeof renderView>[0]) => {
+  const view = renderView(ui);
+  const search = view.queryByRole("combobox") as HTMLInputElement | null;
+  if (search) {
+    act(() => {
+      search.focus();
+      const active = search.getAttribute("aria-activedescendant");
+      if (active) document.getElementById(active)?.focus();
+    });
+  }
+  return view;
+};
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -39,12 +55,27 @@ const renderHarness = () =>
 const card = (slug: string) =>
   document.getElementById(`city-opt-${slug}`) as HTMLAnchorElement | null;
 
+describe("ServiceAreas preserves focus before user interaction", () => {
+  it("restores the saved highlight without stealing focus, then focuses the city selected by keyboard navigation", async () => {
+    window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
+    renderView(<MemoryRouter><ServiceAreas /></MemoryRouter>);
+    const search = screen.getByRole("combobox");
+    expect(search).toHaveAttribute("aria-activedescendant", "city-opt-vancouver");
+    expect(document.activeElement).toBe(document.body);
+    act(() => { search.focus(); });
+    expect(document.activeElement).toBe(search);
+    act(() => { fireEvent.keyDown(search, { key: "ArrowDown" }); });
+    await waitFor(() => expect(document.activeElement).toBe(card("west-vancouver")));
+    expect(search).toHaveAttribute("aria-activedescendant", "city-opt-west-vancouver");
+  });
+});
+
 describe("ServiceAreas Enter/Space selection", () => {
   it("Enter on the focused option selects it, closes the listbox, and returns focus to the combobox", async () => {
     window.localStorage.setItem(LAST_CITY_KEY, "vancouver");
     renderHarness();
 
-    // Mount restore lands on Vancouver.
+    // The fixture user focuses the restored Vancouver highlight.
     const vancouver = await waitFor(() => {
       const el = card("vancouver");
       expect(el).not.toBeNull();
@@ -1629,7 +1660,7 @@ describe("ServiceAreas Enter/Space selection", () => {
       </MemoryRouter>,
     );
 
-    // Mount restore lands on Vancouver.
+    // The fixture user focuses the restored Vancouver highlight.
     const vancouver = await waitFor(() => {
       const el = card("vancouver");
       expect(el).not.toBeNull();
@@ -1702,7 +1733,7 @@ describe("ServiceAreas Enter/Space selection", () => {
       </MemoryRouter>,
     );
 
-    // Mount restore lands on Vancouver.
+    // The fixture user focuses the restored Vancouver highlight.
     const vancouver = await waitFor(() => {
       const el = card("vancouver");
       expect(el).not.toBeNull();

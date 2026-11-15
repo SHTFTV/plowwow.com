@@ -30,21 +30,15 @@ const getCard = (slug: string) =>
   document.getElementById(`city-opt-${slug}`) as HTMLAnchorElement | null;
 
 describe("ServiceAreas restore synchronization", () => {
-  it("fires scroll and focus on the same saved card on mount (no pulse on mount)", async () => {
+  it("restores the saved highlight without moving focus or scrolling on mount", () => {
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
-
     renderWithRouter();
-
     const card = getCard("burnaby");
     expect(card).not.toBeNull();
-
-    // rAF inside the consumer effect: wait until focus and scroll both land.
-    await waitFor(() => {
-      expect(document.activeElement).toBe(card);
-      expect(scrollIntoViewMock).toHaveBeenCalled();
-    });
-
-    // Mount restore must NOT trigger the pulse animation.
+    expect(card).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("combobox")).toHaveAttribute("aria-activedescendant", "city-opt-burnaby");
+    expect(document.activeElement).toBe(document.body);
+    expect(scrollIntoViewMock).not.toHaveBeenCalled();
     expect(card!.className).not.toMatch(/animate-restore-pulse/);
   });
 
@@ -55,15 +49,9 @@ describe("ServiceAreas restore synchronization", () => {
     // the path that actually pulses.
     renderWithRouter();
 
-    // Wait for the mount restore to land on Burnaby.
-    const burnabyOnMount = await waitFor(() => {
-      const el = getCard("burnaby");
-      expect(el).not.toBeNull();
-      return el!;
-    });
-    await waitFor(() => {
-      expect(document.activeElement).toBe(burnabyOnMount);
-    });
+    // The saved highlight is restored without taking focus on mount.
+    expect(getCard("burnaby")).toHaveAttribute("aria-selected", "true");
+    expect(document.activeElement).toBe(document.body);
 
     const input = screen.getByRole("combobox") as HTMLInputElement;
     input.focus();
@@ -130,14 +118,13 @@ describe("ServiceAreas restore synchronization", () => {
   });
 
   it("rapid successive restores always sync to the LATEST restoreEvent (no desync)", async () => {
-    // Start with Burnaby saved so the mount restore lands on it and
+    // Start with Burnaby saved so mount restores its highlight and
     // hasMountedRef is set (required for pulses to fire).
     window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
     renderWithRouter();
 
-    await waitFor(() => {
-      expect(document.activeElement).toBe(getCard("burnaby"));
-    });
+    expect(getCard("burnaby")).toHaveAttribute("aria-selected", "true");
+    expect(document.activeElement).toBe(document.body);
 
     const input = screen.getByRole("combobox") as HTMLInputElement;
     input.focus();
@@ -227,10 +214,9 @@ describe("ServiceAreas restore synchronization", () => {
       window.localStorage.setItem(LAST_CITY_KEY, "burnaby");
       renderWithRouter();
 
-      // Mount restore lands on Burnaby.
-      await waitFor(() => {
-        expect(document.activeElement).toBe(getCard("burnaby"));
-      });
+      // Reduced motion does not change the mount focus-preservation contract.
+      expect(getCard("burnaby")).toHaveAttribute("aria-selected", "true");
+      expect(document.activeElement).toBe(document.body);
 
       const input = screen.getByRole("combobox") as HTMLInputElement;
       input.focus();
