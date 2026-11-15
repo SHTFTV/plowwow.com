@@ -2,6 +2,7 @@ const aliases: Record<string,string> = {
   "/app-features": "/advanced-technology",
   "/feed": "/rss.xml",
   "/author/colinindustryarmymarketing-com": "/author/plowwow-team",
+  "/vancouver-snow-removal": "/vancouver",
   "/vancouver-strata-commercial-snow-plowing": "/vancouver",
   "/mertrotown-snow-removal": "/burnaby",
   "/burnaby/snow/removal": "/burnaby",
