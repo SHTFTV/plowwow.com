@@ -9,6 +9,7 @@ const SMS_HREF = "sms:+16047611518";
 const EMAIL = "wow@plowwow.com";
 const EMAIL_HREF = "mailto:wow@plowwow.com";
 const REVIEWS_URL = "https://www.google.com/search?q=PlowWow+snow+removal+Vancouver";
+const LANGLEY_READINESS_PATH = "/langley-cold-nights-contract-salt-supply-november-2026";
 
 /**
  * One persistent PlowWow contact floater for the whole site.
@@ -19,11 +20,12 @@ function startsCompact(pathname: string) {
   // Keep the latest planning guides unobstructed on phones.
   const storyOnPhone = (path === "/abbotsford-snow-estimate-sharing-review" || path === "/blog/abbotsford-snow-estimate-sharing-review" || path.startsWith("/polar-vortex-") || path.startsWith("/blog/polar-vortex-")) &&
     typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-  return storyOnPhone || path === "/residential-snow-removal" || path === "/quote" || path.startsWith("/quote/") || /\/quote$/.test(path) || path === "/metro-vancouver-online-snow-removal-calculator";
+  return storyOnPhone || path === LANGLEY_READINESS_PATH || path === "/residential-snow-removal" || path === "/quote" || path.startsWith("/quote/") || /\/quote$/.test(path) || path === "/metro-vancouver-online-snow-removal-calculator";
 }
 
 export default function PlowWowBot() {
   const location = useLocation();
+  const contactInDocumentFlow = location.pathname.replace(/\/+$/, "") === LANGLEY_READINESS_PATH;
   const [visible, setVisible] = useState(!startsCompact(location.pathname));
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function PlowWowBot() {
     return () => window.removeEventListener("keydown", dismissWithEscape);
   }, [visible]);
 
-  if (!visible) return <button type="button" onClick={() => setVisible(true)} aria-label="Open PlowWow contact panel" className="fixed bottom-4 right-4 z-[9999] rounded-full bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400">Contact PlowWow</button>;
+  if (!visible) return <button type="button" onClick={() => setVisible(true)} aria-label="Open PlowWow contact panel" className={`${contactInDocumentFlow ? "mx-auto my-6 block" : "fixed bottom-4 right-4 z-[9999]"} rounded-full bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-400`}>Contact PlowWow</button>;
 
   const focusRing =
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";

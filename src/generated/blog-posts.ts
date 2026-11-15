@@ -13,6 +13,22 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "langley-cold-nights-contract-salt-supply-november-2026",
+    "title": "Langley’s colder nights: check the contract and salt supply",
+    "blurb": "Near-freezing Langley nights are a prompt to confirm winter contracts, site access and salt supply. Prepare the questions for a reviewed PlowWow quote…",
+    "image": "/blog-images/langley-cold-nights-contract-salt-supply-november-2026.jpg",
+    "alt": "PlowWow mascot Wow reviewing a clipboard beside covered bagged treatment material and a stationary broadcast spreader",
+    "theme": "citywide",
+    "tags": [
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-15T21:28:55.000Z",
+    "updatedAt": "2026-11-15T21:28:55.000Z"
+  },
+  {
     "slug": "strata-winter-accessibility-planning-bc",
     "title": "BC Strata Winter Accessibility: Plan the Whole Route",
     "blurb": "Does a BC strata need an accessibility committee or plan? Separate municipal rules from strata duties, then map winter access from parking to the entrance…",

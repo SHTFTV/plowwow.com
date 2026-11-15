@@ -1,13 +1,18 @@
 {
-  "generatedAt": "2026-11-13T19:36:08.009Z",
-  "count": 216,
+  "generatedAt": "2026-11-15T21:29:51.729Z",
+  "count": 217,
   "carousel": [
+    "langley-cold-nights-contract-salt-supply-november-2026",
     "strata-winter-accessibility-planning-bc",
     "snow-equipment-readiness-backup-plan-sima",
-    "vancouver-clear-snow-vehicle-roof-before-driving",
-    "boss-drag-pro-fleet-large-parking-lots"
+    "vancouver-clear-snow-vehicle-roof-before-driving"
   ],
   "posts": [
+    {
+      "slug": "langley-cold-nights-contract-salt-supply-november-2026",
+      "publishedAt": "2026-11-15T21:28:55.000Z",
+      "updatedAt": "2026-11-15T21:28:55.000Z"
+    },
     {
       "slug": "strata-winter-accessibility-planning-bc",
       "publishedAt": "2026-11-13T19:40:00.000Z",
