@@ -6,8 +6,9 @@
  * migrations. These tests guard against regressions of the findings fixed in
  * `20260719204204_*.sql` and the follow-up quote-request hardening migration.
  */
-import { describe, it, expect } from "vitest";
+import { describe, it } from "vitest";
 import { createClient } from "@supabase/supabase-js";
+import { assertAnonReadBlocked, assertPolicyDenial } from "./rls-result-assertions";
 
 const SUPABASE_URL =
   process.env.VITE_SUPABASE_URL?.trim() || "https://whrkfrewwstxgqoourwl.supabase.co";
@@ -24,13 +25,12 @@ const anon = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 
 describe.runIf(runLive)("RLS regression: anonymous access is locked down", () => {
   it("quote_requests: anon cannot read", async () => {
-    const { data, error } = await anon.from("quote_requests").select("id").limit(1);
-    // RLS-blocked SELECT returns an empty set (no leak) — either an error or empty data.
-    if (!error) expect(data ?? []).toEqual([]);
+    const result = await anon.from("quote_requests").select("id").limit(1);
+    assertAnonReadBlocked(result);
   });
 
   it("quote_requests: anon cannot insert directly (must use submit-quote edge function)", async () => {
-    const { error } = await anon.from("quote_requests").insert({
+    const result = await anon.from("quote_requests").insert({
       name: "Regression Test",
       email: `rls-test-${Date.now()}@example.com`,
       phone: "6045551234",
@@ -40,57 +40,57 @@ describe.runIf(runLive)("RLS regression: anonymous access is locked down", () =>
       contact_method: "email",
       status: "new",
     });
-    expect(error).not.toBeNull();
+    assertPolicyDenial(result, ["42501"]);
   });
 
-  it("guest_post_submissions: anon can INSERT but only with status='pending'", async () => {
+  it("guest_post_submissions: anon cannot escalate status to approved", async () => {
     // Attempt to escalate status to 'approved' — must fail the WITH CHECK.
-    const { error: escalationErr } = await anon.from("guest_post_submissions").insert({
+    const result = await anon.from("guest_post_submissions").insert({
       name: "Bad Actor",
       email: `rls-escalation-${Date.now()}@example.com`,
       topic: "Escalation attempt",
       message: "should be rejected",
       status: "approved" as unknown as "pending",
     });
-    expect(escalationErr).not.toBeNull();
+    assertPolicyDenial(result, ["42501"]);
   });
 
   it("guest_post_submissions: anon cannot read", async () => {
-    const { data, error } = await anon
+    const result = await anon
       .from("guest_post_submissions")
       .select("id")
       .limit(1);
-    if (!error) expect(data ?? []).toEqual([]);
+    assertAnonReadBlocked(result);
   });
 
   it("user_roles: anon cannot read", async () => {
-    const { data, error } = await anon.from("user_roles").select("*").limit(1);
-    if (!error) expect(data ?? []).toEqual([]);
+    const result = await anon.from("user_roles").select("*").limit(1);
+    assertAnonReadBlocked(result);
   });
 
   it("has_role: not exposed on the public API schema", async () => {
-    const { error } = await anon.rpc("has_role", {
+    const result = await anon.rpc("has_role", {
       _user_id: "00000000-0000-0000-0000-000000000000",
       _role: "admin",
     });
-    // Function was moved into the private schema; anon RPC must fail.
-    expect(error).not.toBeNull();
+    // Function was moved into the private schema; reject an exposed RPC.
+    assertPolicyDenial(result, ["PGRST202", "42501"]);
   });
 
   it("private schema: not reachable via the Data API", async () => {
     const client = anon as unknown as {
       schema: (name: string) => {
         from: (t: string) => {
-          select: (c: string) => { limit: (n: number) => Promise<{ error: unknown }> };
+          select: (c: string) => { limit: (n: number) => Promise<{ status: number; error: { code?: string } | null }> };
         };
       };
     };
-    const { error } = await client
+    const result = await client
       .schema("private")
       .from("quote_request_submission_log")
       .select("id")
       .limit(1);
-    expect(error).not.toBeNull();
+    assertPolicyDenial(result, ["PGRST106", "42501"]);
   });
 });
 

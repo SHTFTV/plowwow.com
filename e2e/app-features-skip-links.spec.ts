@@ -6,6 +6,9 @@ import { test, expect } from "../playwright-fixture";
 test.describe("Technology beta — accessible, accurate public entry points", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/advanced-technology");
+    // The build marks static route markup; createRoot replaces it while lazy
+    // modules load. Interact with the mounted client page, not a retiring node.
+    await expect(page.locator('main#main-content:not([data-prerendered])')).toBeVisible();
   });
 
   test("Skip to main content moves keyboard focus to the beta overview", async ({ page }) => {
