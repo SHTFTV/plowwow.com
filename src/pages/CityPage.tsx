@@ -322,6 +322,14 @@ const CityPage = () => {
           </section>
         )}
 
+        {isVancouver && <section className="container pb-12" aria-labelledby="vancouver-past-work-heading">
+          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+            <h2 id="vancouver-past-work-heading" className="text-2xl font-black mb-3">Past Vancouver strata work</h2>
+            <p className="text-muted-foreground leading-relaxed">PlowWow’s past strata work includes University Gate in Vancouver’s UBC area and an East Georgia strata property. Pedestrian work at those properties included front and rear routes and internal shared sidewalks. Each winter’s renewal is confirmed separately.</p>
+            <Link className="inline-block mt-4 font-bold underline" to="/medical-strata-snow-removal-property-experience">Read our property experience →</Link>
+          </div>
+        </section>}
+
         {isVancouver && <section className="container pb-12" aria-label="Vancouver snow removal pricing and sidewalk responsibilities"><div className="mt-10 rounded-2xl border border-primary/30 bg-card p-6 md:p-8">
                 <h2 className="text-2xl font-black mb-3">What does snow removal in Vancouver cost?</h2>
                 <p className="text-muted-foreground leading-relaxed">Start with your address and postal code in our online estimator. The area to clear, stairs, slopes, parkade ramps, access and treatment needs all affect the estimate. Choose seasonal service, booked visits or an on-call request to suit the property; route availability and the final scope are confirmed before booking.</p>
