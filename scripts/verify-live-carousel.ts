@@ -1,28 +1,28 @@
 // Fetches the deployed homepage HTML + /blog-index.json and compares
 // against the locally generated blog-posts.ts. Exits non-zero if the
-// live carousel would be stale (missing top-4 slugs or timestamp drift).
+// live carousel would be stale (missing top-4 slugs or older post versions).
 //
 // Usage:
 //   PLOWWOW_LIVE_URL=https://plowwow.com bun run scripts/verify-live-carousel.ts
 //
 // Defaults to https://plowwow.com.
 
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { blogPosts } from "../src/generated/blog-posts.ts";
 
 const BASE = (process.env.PLOWWOW_LIVE_URL || "https://plowwow.com").replace(/\/+$/, "");
 
-function loadLocalCarousel(): { slugs: string[]; generatedAt: string } {
+type PostVersion = { slug: string; publishedAt?: string; updatedAt?: string };
+
+function postTimestamp(post: PostVersion): number {
+  return Math.max(Date.parse(post.publishedAt || "") || 0, Date.parse(post.updatedAt || "") || 0);
+}
+
+function loadLocalCarousel() {
   // Import the generated data as TypeScript. Brackets in its type declarations,
   // string values and `satisfies BlogPostSummary[]` are not JSON boundaries.
-  const slugs = blogPosts.filter((p) => p.hasCustomHero).slice(0, 4).map((p) => p.slug);
-  let generatedAt = "";
-  try {
-    const idx = JSON.parse(readFileSync(resolve(process.cwd(), "public/blog-index.json"), "utf8"));
-    generatedAt = idx.generatedAt || "";
-  } catch { /* ignored */ }
-  return { slugs, generatedAt };
+  const posts = blogPosts.filter((p) => p.hasCustomHero).slice(0, 4);
+  const slugs = posts.map((p) => p.slug);
+  return { posts, slugs };
 }
 
 async function fetchText(url: string): Promise<string> {
@@ -51,8 +51,19 @@ async function main() {
       `live blog-index.json carousel differs from local expected.\n  expected: ${local.slugs.join(", ")}\n  live:     ${liveCarousel.join(", ")}`,
     );
   }
-  if (local.generatedAt && liveIndex.generatedAt && liveIndex.generatedAt < local.generatedAt) {
-    problems.push(`live blog-index.json is older than local (live=${liveIndex.generatedAt} < local=${local.generatedAt})`);
+  // A verification run regenerates the local index with a new wall-clock
+  // generatedAt value. That is not a new content version: compare the actual
+  // carousel posts so unchanged production content does not fail every night.
+  const livePosts = new Map<string, PostVersion>(
+    (Array.isArray(liveIndex.posts) ? liveIndex.posts : []).map((post: PostVersion): [string, PostVersion] => [post.slug, post]),
+  );
+  for (const post of local.posts) {
+    const livePost = livePosts.get(post.slug);
+    if (!livePost) {
+      problems.push(`live blog-index.json missing post metadata: ${post.slug}`);
+    } else if (postTimestamp(livePost) < postTimestamp(post)) {
+      problems.push(`live blog-index.json has an older post version: ${post.slug} (live=${livePost.updatedAt || livePost.publishedAt || "missing"}, expected=${post.updatedAt || post.publishedAt})`);
+    }
   }
 
   if (problems.length) {
