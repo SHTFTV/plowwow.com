@@ -180,10 +180,13 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
       const city = getCityBySlug(slug);
       expect(city, `city fixture missing for slug ${slug}`).toBeTruthy();
 
-      const expectedTitle = `${city!.tagline} | PlowWow`;
-      const expectedDescription = truncateForMeta(city!.intro);
-      const origin = window.location.origin.replace(/\/+$/, "");
-      const expectedUrl = `${origin}/${city!.slug}`;
+      // Vancouver has an approved priority-page metadata fixture. Production
+      // canonical URLs always use www, even when rendered on a local test host.
+      const expectedTitle = slug === "vancouver" ? "Vancouver Snow Removal & Ice Control | PlowWow" : `${city!.tagline} | PlowWow`;
+      const expectedDescription = slug === "vancouver"
+        ? "Vancouver snow removal and ice control for strata, commercial and residential properties. Plan sidewalks, entrances and parking with a reviewed PlowWow quote."
+        : truncateForMeta(city!.intro);
+      const expectedUrl = `${BASE}/${city!.slug}`;
       const expectedOg = city!.ogImage;
 
       render(
@@ -238,17 +241,22 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
         })
         .filter((b): b is Record<string, any> => b && typeof b === "object");
 
-      const local = blocks.find((b) => b["@type"] === "LocalBusiness");
+      const local = blocks.find((b) => b["@type"] === (slug === "vancouver" ? "Service" : "LocalBusiness"));
       const faq = blocks.find((b) => b["@type"] === "FAQPage");
 
-      expect(local, "LocalBusiness JSON-LD present").toBeTruthy();
+      expect(local, "City service/business JSON-LD present").toBeTruthy();
       expect(local!["@context"]).toBe("https://schema.org");
-      expect(local!.name).toBe(`PlowWow Snow Removal — ${city!.name}`);
+      expect(local!.name).toBe(slug === "vancouver" ? "Vancouver snow removal and ice control" : `PlowWow Snow Removal — ${city!.name}`);
       expect(local!.url).toBe(expectedUrl);
-      expect(local!.image).toBe(expectedOg);
+      if (slug === "vancouver") {
+        expect(local!.provider["@type"]).toBe("Organization");
+        expect(local!.provider["@id"]).toBe(`${BASE}/#organization`);
+      } else {
+        expect(local!.image).toBe(expectedOg);
+      }
       expect(local!.areaServed).toEqual({
         "@type": "City",
-        name: `${city!.name}, ${city!.province}`,
+        name: slug === "vancouver" ? "Vancouver, British Columbia" : `${city!.name}, ${city!.province}`,
       });
 
       expect(faq, "FAQPage JSON-LD present").toBeTruthy();
@@ -274,13 +282,10 @@ describe("exact meta-tag values for dynamic /:citySlug routes", () => {
       expect(local!.url, `LocalBusiness.url must equal og:url for /${slug}`).toBe(
         get.prop("og:url"),
       );
-      expect(local!.image, `LocalBusiness.image must equal og:image for /${slug}`).toBe(
-        get.prop("og:image"),
-      );
-      expect(
-        local!.image,
-        `LocalBusiness.image must equal twitter:image for /${slug}`,
-      ).toBe(get.prop("twitter:image") ?? get.name("twitter:image"));
+      if (slug !== "vancouver") {
+        expect(local!.image, `LocalBusiness.image must equal og:image for /${slug}`).toBe(get.prop("og:image"));
+        expect(local!.image, `LocalBusiness.image must equal twitter:image for /${slug}`).toBe(get.prop("twitter:image") ?? get.name("twitter:image"));
+      }
     });
   }
 });

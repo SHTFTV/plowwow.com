@@ -13,7 +13,7 @@ Markdown Content:
 
 When winter hits **Willingdon Heights**, Burnaby, strata councils, property managers and commercial operators need one thing: a snow-and-ice partner who is already on-site before the morning commute — not one still checking the forecast. **PlowWow** is the seasonal-contract snow removal company Willingdon Heights property managers, retail landlords and strata boards call for guaranteed 24/7 response, GPS-logged salt runs, pet-safe de-icer and a fixed winter budget.
 
-![Willingdon Heights snow removal — PlowWow mascot waving on a Willingdon Avenue at blue dawn with plowed lanes, snow-dusted mid-rise strata and BCIT campus lights in the distance](/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg)
+![Willingdon Heights snow removal — PlowWow mascot waving on a Willingdon Avenue at blue dawn with plowed lanes, snow-dusted mid-rise strata and BCIT campus lights in the distance](/blog-images/willingdon-heights-burnaby-commercial-snow-removal.png)
 
 ## Why Willingdon Heights Snow Removal Is Different
 

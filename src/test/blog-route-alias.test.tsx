@@ -26,8 +26,8 @@ describe("prefixed blog URL aliases", () => {
 
     await waitFor(() => expect(document.title).toMatch(/Tsawwassen/i));
 
-    expect(canonicalHref()).toBe("http://localhost:3000/tsawwassen-snow-removal/");
-    expect(metaProp("og:url")).toBe("http://localhost:3000/tsawwassen-snow-removal/");
+    expect(canonicalHref()).toBe("https://www.plowwow.com/tsawwassen-snow-removal");
+    expect(metaProp("og:url")).toBe("https://www.plowwow.com/tsawwassen-snow-removal");
     expect(document.body.textContent).toMatch(/Tsawwassen/i);
     expect(document.body.textContent).not.toMatch(/Oops! Page not found/i);
   });

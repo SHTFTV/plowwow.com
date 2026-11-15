@@ -42,7 +42,7 @@ const CASES: Case[] = [
   {
     name: "?cat=Strata",
     initialUrl: "/blog?cat=Strata",
-    expectedCanonical: `${BASE}/blog/tag/strata/`,
+    expectedCanonical: `${BASE}/blog/tag/strata`,
   },
   {
     name: "?page=2",
@@ -52,17 +52,17 @@ const CASES: Case[] = [
   {
     name: "?cat=Neighborhoods&page=3",
     initialUrl: "/blog?cat=Neighborhoods&page=3",
-    expectedCanonical: `${BASE}/blog/tag/neighborhoods/?page=3`,
+    expectedCanonical: `${BASE}/blog/tag/neighborhoods?page=3`,
   },
   {
     name: "path-based /blog/tag/strata/",
     initialUrl: "/blog/tag/strata/",
-    expectedCanonical: `${BASE}/blog/tag/strata/`,
+    expectedCanonical: `${BASE}/blog/tag/strata`,
   },
   {
     name: "path-based /blog/tag/neighborhoods/ with page",
     initialUrl: "/blog/tag/neighborhoods/?page=2",
-    expectedCanonical: `${BASE}/blog/tag/neighborhoods/?page=2`,
+    expectedCanonical: `${BASE}/blog/tag/neighborhoods?page=2`,
   },
 ];
 

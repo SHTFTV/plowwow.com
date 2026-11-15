@@ -2,6 +2,7 @@ import sharp from "sharp";
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { blogHeroPath } from "../src/lib/blogHeroPath";
 
 const BLOG_DIR = resolve(process.cwd(), "src/content/legacy/blog");
 const IMAGE_DIR = resolve(process.cwd(), "public/blog-images");
@@ -74,7 +75,8 @@ const posts = readdirSync(BLOG_DIR)
     const description = raw.match(/^Description:\s*(.+)$/m)?.[1]?.trim() ?? "";
     const body = raw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1] ?? raw;
     const imageMatch = body.match(/!\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]+")?\)/);
-    const heroPath = resolve(IMAGE_DIR, `${slug}.jpg`);
+    const nativeHero = blogHeroPath(slug);
+    const heroPath = resolve("public", nativeHero.slice(1));
     const hasHeroImage = existsSync(heroPath);
     const git = gitTimestamps(`src/content/legacy/blog/${file}`);
     const saved = savedDates.get(slug);
@@ -84,7 +86,7 @@ const posts = readdirSync(BLOG_DIR)
     const theme = pickTheme(slug, title);
     // Versioned Wow story art is explicitly selected in the article Markdown.
     const storyHero = (imageMatch?.[2]?.startsWith("/blog-images/wow-") || imageMatch?.[2]?.startsWith("/blog-images/polar-vortex-")) && existsSync(resolve("public", imageMatch[2].slice(1))) ? imageMatch[2] : undefined;
-    const image = storyHero ?? (hasHeroImage ? `/blog-images/${slug}.jpg` : `/blog-images/_theme-${theme}.jpg`);
+    const image = storyHero ?? (hasHeroImage ? nativeHero : `/blog-images/_theme-${theme}.jpg`);
     // When we fall back to a themed image, always use the descriptive theme alt
     // so screen readers get mascot-only framing wording (not the short markdown alt).
     const markdownAlt = imageMatch?.[1]?.trim() ?? "";

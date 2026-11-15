@@ -13,7 +13,7 @@ Markdown Content:
 
 Yaletown is Vancouver's most photogenic winter neighborhood — and one of the most operationally punishing to keep clear during a snow event. Heritage-brick loading docks turned restaurant patios, cobblestone laneways, sloped brick sidewalks that ice over the moment freezing rain hits, and a strata density that packs 20,000 residents between Nelson, Homer, Pacific and Cambie. PlowWow is the 24/7 snow-and-ice partner Yaletown strata councils, restaurant groups, retail landlords and boutique office tenants call when they need the door open at 7 a.m. and the patio safe by lunch.
 
-![Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance](/blog-images/yaletown-vancouver-snow-removal.jpg)
+![Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance](/blog-images/yaletown-vancouver-snow-removal.png)
 
 ## Why Yaletown Snow Removal Is Its Own Problem
 

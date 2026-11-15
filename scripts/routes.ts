@@ -5,6 +5,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { priorityPageSeo } from "../src/data/priorityPageSeo";
 import { cities } from "../src/data/cities";
+import { blogHeroPath } from "../src/lib/blogHeroPath";
 
 export const BASE_URL = "https://www.plowwow.com";
 
@@ -242,9 +243,10 @@ export function collectRoutes(): RouteMeta[] {
     if (REDIRECTED_LEGACY_BLOG_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "blog", `${slug}.md`), "utf8");
     const { title, description } = parseLegacy(raw);
-    const heroPath = resolve(process.cwd(), "public/blog-images", `${slug}.jpg`);
+    const nativeHero = blogHeroPath(slug);
+    const heroPath = resolve(process.cwd(), "public", nativeHero.slice(1));
     const ogImage = existsSync(heroPath)
-      ? `${BASE_URL}/blog-images/${slug}.jpg`
+      ? `${BASE_URL}${nativeHero}`
       : `${BASE_URL}/og-default.jpg`;
     routes.push({
       path: `/${slug}`,

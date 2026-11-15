@@ -158,7 +158,7 @@ describe("JSON-LD schema validation — static pages", () => {
 describe("JSON-LD schema validation — sample city routes", () => {
   const sample = cities.slice(0, 4);
   it.each(sample.map((c) => [c.slug]))(
-    "city /%s emits LocalBusiness + FAQPage with valid shape",
+    "city /%s emits its service/business schema + FAQPage with valid shape",
     async (slug) => {
       render(
         <MemoryRouter initialEntries={[`/${slug}`]}>
@@ -172,7 +172,7 @@ describe("JSON-LD schema validation — sample city routes", () => {
       expect(blocks.length).toBeGreaterThanOrEqual(2);
       for (const b of blocks) validateBlock(b, `city:${slug}`);
       const types = blocks.map((b) => b["@type"]);
-      expect(types).toContain("LocalBusiness");
+      expect(types).toContain(slug === "vancouver" ? "Service" : "LocalBusiness");
       expect(types).toContain("FAQPage");
     }
   );

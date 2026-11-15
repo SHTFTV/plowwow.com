@@ -140,7 +140,7 @@ describe("SEO metadata — dynamic /:citySlug", () => {
   const sample = cities.slice(0, 4);
 
   it.each(sample.map((c) => [c.slug]))(
-    "city %s has self-referencing canonical (path) and LocalBusiness+FAQ JSON-LD",
+    "city %s has self-referencing canonical (path) and service/business+FAQ JSON-LD",
     async (slug) => {
       renderCity(`/${slug}`);
       await waitFor(() => {
@@ -156,7 +156,7 @@ describe("SEO metadata — dynamic /:citySlug", () => {
       expect(desc.length).toBeGreaterThan(30);
       expect(desc.length).toBeLessThanOrEqual(200);
       const types = jsonLdBlocks().map((b) => b["@type"]);
-      expect(types).toContain("LocalBusiness");
+      expect(types).toContain(slug === "vancouver" ? "Service" : "LocalBusiness");
       expect(types).toContain("FAQPage");
     }
   );

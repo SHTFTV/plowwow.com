@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { legacyBlogSlugs } from "@/legacy-slug-list";
-import { BASE_URL } from "../../scripts/routes";
+import { BASE_URL, collectRoutes } from "../../scripts/routes";
 
 // Verifies that:
 //   1. Every blog slug is listed in sitemap-blog.xml at its canonical /<slug>/ URL.
@@ -22,10 +22,14 @@ const SITEMAPS = [
   "sitemap-tags.xml",
 ];
 
+// Preserved legacy slugs that permanently redirect are intentionally absent
+// from the sitemap; only the shared indexable route set should be advertised.
+const indexableBlogSlugs = collectRoutes().filter(route => route.kind === "legacy-blog").map(route => route.path.replace(/^\//, ""));
+
 describe("blog URL canonicalization in sitemaps", () => {
   it("every blog slug appears in sitemap-blog.xml at its canonical URL", () => {
     const xml = readFileSync(resolve(PUBLIC_DIR, "sitemap-blog.xml"), "utf8");
-    const missing = legacyBlogSlugs.filter(
+    const missing = indexableBlogSlugs.filter(
       (slug) => !xml.includes(`<loc>${BASE_URL}/${slug}</loc>`),
     );
     expect(missing).toEqual([]);
@@ -60,7 +64,7 @@ describe("blog URL reachability (prerendered dist/)", () => {
   it.runIf(distBuilt)(
     "every blog slug prerenders to /<slug>/index.html (would return 200)",
     () => {
-      const missing = legacyBlogSlugs.filter(
+      const missing = indexableBlogSlugs.filter(
         (slug) => !existsSync(resolve(DIST_DIR, slug, "index.html")),
       );
       expect(missing).toEqual([]);
@@ -70,7 +74,7 @@ describe("blog URL reachability (prerendered dist/)", () => {
   it.runIf(distBuilt)(
     "every blog slug also has a /blog/<slug>/ alias file (no SPA fallback needed)",
     () => {
-      const missing = legacyBlogSlugs.filter(
+      const missing = indexableBlogSlugs.filter(
         (slug) => !existsSync(resolve(DIST_DIR, "blog", slug, "index.html")),
       );
       expect(missing).toEqual([]);

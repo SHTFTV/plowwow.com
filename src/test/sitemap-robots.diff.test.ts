@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { collectRoutes, BASE_URL } from "../../scripts/routes";
 
@@ -35,7 +35,15 @@ describe("sitemap.xml diff vs expected route rules", () => {
   });
 
   it("stays in sync with collectRoutes() (no orphaned or missing entries)", () => {
-    const expected = new Set(collectRoutes().map((r) => `${BASE_URL}${r.path}`));
+    // These established standalone pages ship from public/, rather than the
+    // React prerender route list. Verify their real files before counting them.
+    const standaloneRoutes = ["/contractor-apply", "/snow-removal-calculator"];
+    for (const route of standaloneRoutes) {
+      const file = resolve(process.cwd(), "public", route.slice(1), "index.html");
+      expect(existsSync(file), `standalone route missing: ${route}`).toBe(true);
+      expect(readFileSync(file, "utf8")).toContain(`href="${BASE_URL}${route}"`);
+    }
+    const expected = new Set([...collectRoutes().map((r) => `${BASE_URL}${r.path}`), ...standaloneRoutes.map(route => `${BASE_URL}${route}`)]);
     const actual = new Set(locs);
     // Every collected route must be in sitemap.
     const missing = [...expected].filter((u) => !actual.has(u));

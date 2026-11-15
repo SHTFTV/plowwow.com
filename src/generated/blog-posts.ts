@@ -1270,7 +1270,7 @@ export const blogPosts = [
     "slug": "willingdon-heights-burnaby-commercial-snow-removal",
     "title": "Willingdon Heights Snow Removal & 24/7 Strata/Commercial",
     "blurb": "Willingdon Heights Burnaby snow removal for Hastings-to-Brentwood strata, mixed-use commercial and BCIT commuter routes — 24/7 dispatch, seasonal packages…",
-    "image": "/blog-images/willingdon-heights-burnaby-commercial-snow-removal.jpg",
+    "image": "/blog-images/willingdon-heights-burnaby-commercial-snow-removal.png",
     "alt": "Willingdon Heights snow removal — PlowWow mascot waving on a Willingdon Avenue at blue dawn with plowed lanes, snow-dusted mid-rise strata and BCIT campus lights in the distance",
     "theme": "strata",
     "tags": [
@@ -1286,7 +1286,7 @@ export const blogPosts = [
     "slug": "yaletown-vancouver-snow-removal",
     "title": "Yaletown Vancouver Snow Removal & Commercial Strata De-Icing",
     "blurb": "Yaletown snow removal for heritage-brick loft strata, Mainland Street patios, restaurant frontages, and False Creek commercial. 24/7 dispatch, seasonal packages, pet-safe de-icer…",
-    "image": "/blog-images/yaletown-vancouver-snow-removal.jpg",
+    "image": "/blog-images/yaletown-vancouver-snow-removal.png",
     "alt": "Yaletown Vancouver snow removal — PlowWow mascot waving on a plowed Mainland Street at blue dawn with snow-dusted heritage brick warehouses and False Creek in the distance",
     "theme": "strata",
     "tags": [
