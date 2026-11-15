@@ -16,6 +16,7 @@ import { readFileSync, existsSync, statSync, writeFileSync, mkdirSync } from "no
 import { resolve, join, extname } from "node:path";
 import { chromium } from "@playwright/test";
 import { cities } from "../src/data/cities";
+import { BASE_URL } from "./routes";
 
 const DIST = resolve("dist");
 if (!existsSync(DIST)) {
@@ -120,7 +121,7 @@ async function main() {
 
     const page = await uaCtx.newPage();
     const url = `${BASE}/${t.slug}/`;
-    const expectedCanonical = `https://plowwow.com/${t.slug}/`;
+    const expectedCanonical = `${BASE_URL}/${t.slug}`;
     const problems: string[] = [];
 
     const resp = await page.goto(url, { waitUntil: "domcontentloaded" });
@@ -184,3 +185,4 @@ main().catch((e) => {
   console.error(e);
   process.exit(1);
 });
+

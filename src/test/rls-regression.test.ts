@@ -10,9 +10,9 @@ import { describe, it, expect } from "vitest";
 import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL =
-  process.env.VITE_SUPABASE_URL ?? "https://whrkfrewwstxgqoourwl.supabase.co";
+  process.env.VITE_SUPABASE_URL?.trim() || "https://whrkfrewwstxgqoourwl.supabase.co";
 const SUPABASE_ANON_KEY =
-  process.env.VITE_SUPABASE_PUBLISHABLE_KEY ??
+  process.env.VITE_SUPABASE_PUBLISHABLE_KEY?.trim() ||
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndocmtmcmV3d3N0eGdxb291cndsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1Mjc1NDUsImV4cCI6MjA5NDEwMzU0NX0.7tU6tUHTgSyYXARTSy0IrIx9pTOVcIj0Ax5QsXwNH34";
 
 // Skip the whole suite when explicitly disabled (e.g. offline CI shard).
@@ -93,3 +93,4 @@ describe.runIf(runLive)("RLS regression: anonymous access is locked down", () =>
     expect(error).not.toBeNull();
   });
 });
+

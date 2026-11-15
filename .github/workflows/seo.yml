@@ -39,13 +39,8 @@ jobs:
       - name: Regenerate sitemap (parity check with routes.ts)
         run: bunx tsx scripts/generate-sitemap.ts
 
-      - name: Fail if sitemap.xml would change (drift from routes.ts)
-        run: |
-          if ! git diff --quiet -- public/sitemap.xml; then
-            echo "::error::public/sitemap.xml is out of sync with scripts/routes.ts"
-            git --no-pager diff -- public/sitemap.xml | head -80
-            exit 1
-          fi
+      - name: Verify sitemap route parity (allow build-date changes)
+        run: bunx tsx scripts/verify-sitemap-parity.ts
 
       - name: Download previous SEO report (baseline for diff)
         id: baseline
@@ -141,3 +136,4 @@ jobs:
             echo "::error::SEO regression failed — inspect the 'seo-report' artifact."
             exit 1
           fi
+

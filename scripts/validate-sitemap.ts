@@ -3,7 +3,7 @@
  * Sitemap + robots validation.
  *
  * Fetches:
- *   - <BASE>/robots.txt — must list <BASE>/sitemap.xml
+ *   - <BASE>/robots.txt — must list the final canonical origin's sitemap.xml
  *   - <BASE>/sitemap.xml — must be a valid sitemapindex
  *   - Every child sitemap listed in the index
  *   - A sampled subset of URLs inside those child sitemaps
@@ -101,7 +101,9 @@ async function main() {
     const sitemapDirectives = Array.from(
       robots.text.matchAll(/^\s*Sitemap:\s*(\S+)\s*$/gim),
     ).map((m) => m[1].trim());
-    const rootSitemap = `${args.base}/sitemap.xml`;
+    // The apex may redirect to the canonical www host. Validate against the
+    // actual robots origin rather than treating that intended redirect as drift.
+    const rootSitemap = new URL("/sitemap.xml", robots.finalUrl).href;
     if (!sitemapDirectives.includes(rootSitemap)) {
       failures.push({
         url: robotsUrl,
@@ -183,3 +185,4 @@ main().catch((err) => {
   console.error("validator crashed:", err);
   process.exit(2);
 });
+
