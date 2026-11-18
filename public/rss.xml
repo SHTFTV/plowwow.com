@@ -6,12 +6,28 @@
     <atom:link href="https://www.plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Fri, 13 Nov 2026 19:40:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 04:00:00 GMT</lastBuildDate>
     <image>
       <url>https://www.plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://www.plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>TruckMaxx EXT: A 19-Foot Plow Meets Greater Vancouver Parking Lots</title>
+      <link>https://www.plowwow.com/metal-pless-truckmaxx-ext-commercial-parking-lots/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/metal-pless-truckmaxx-ext-commercial-parking-lots/</guid>
+      <pubDate>Wed, 18 Nov 2026 04:00:00 GMT</pubDate>
+      <description>PlowWow takes an enthusiast’s look at Metal Pless’s 10-to-19-foot TruckMaxx EXT and what wide adjustable equipment means for Greater Vancouver commercial lots…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/metal-pless-truckmaxx-ext-commercial-parking-lots.jpg" type="image/jpeg" length="0" />
+    </item>
+    <item>
+      <title>Langley’s colder nights: check the contract and salt supply</title>
+      <link>https://www.plowwow.com/langley-cold-nights-contract-salt-supply-november-2026/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/langley-cold-nights-contract-salt-supply-november-2026/</guid>
+      <pubDate>Sun, 15 Nov 2026 21:28:55 GMT</pubDate>
+      <description>Near-freezing Langley nights are a prompt to confirm winter contracts, site access and salt supply. Prepare the questions for a reviewed PlowWow quote…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/langley-cold-nights-contract-salt-supply-november-2026.jpg" type="image/jpeg" length="0" />
+    </item>
     <item>
       <title>BC Strata Winter Accessibility: Plan the Whole Route</title>
       <link>https://www.plowwow.com/strata-winter-accessibility-planning-bc/</link>

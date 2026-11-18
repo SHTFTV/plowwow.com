@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "metal-pless-truckmaxx-ext-commercial-parking-lots",
+    "title": "TruckMaxx EXT: A 19-Foot Plow Meets Greater Vancouver Parking Lots",
+    "blurb": "PlowWow takes an enthusiast’s look at Metal Pless’s 10-to-19-foot TruckMaxx EXT and what wide adjustable equipment means for Greater Vancouver commercial lots…",
+    "image": "/blog-images/metal-pless-truckmaxx-ext-commercial-parking-lots.jpg",
+    "alt": "The official Wow mascot with yellow PlowWow lettering beside an illustrated heavy truck and extended telescoping front blade in an imagined Greater Vancouver commercial lot.",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-18T04:00:00.000Z",
+    "updatedAt": "2026-11-18T04:00:00.000Z"
+  },
+  {
     "slug": "langley-cold-nights-contract-salt-supply-november-2026",
     "title": "Langley’s colder nights: check the contract and salt supply",
     "blurb": "Near-freezing Langley nights are a prompt to confirm winter contracts, site access and salt supply. Prepare the questions for a reviewed PlowWow quote…",
