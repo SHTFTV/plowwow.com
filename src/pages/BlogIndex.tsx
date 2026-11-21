@@ -1300,7 +1300,7 @@ const BlogIndex = () => {
                 {visible.map((slug, i) => {
                   const isActive = i === activeIndex;
                   const img = imageFor(slug);
-                  const preserveStoryArtwork = ["metal-pless-truckmaxx-ext-commercial-parking-lots", "langley-cold-nights-contract-salt-supply-november-2026", "boss-drag-pro-fleet-large-parking-lots", "vancouver-clear-snow-vehicle-roof-before-driving", "snow-equipment-readiness-backup-plan-sima", "strata-winter-accessibility-planning-bc"].includes(slug);
+                  const preserveStoryArtwork = ["zero-degree-nights-time-to-flag-the-curbs", "metal-pless-truckmaxx-ext-commercial-parking-lots", "langley-cold-nights-contract-salt-supply-november-2026", "boss-drag-pro-fleet-large-parking-lots", "vancouver-clear-snow-vehicle-roof-before-driving", "snow-equipment-readiness-backup-plan-sima", "strata-winter-accessibility-planning-bc"].includes(slug);
                   const cat = postCategories[slug];
                   const publishedAt = publishedAtBySlug[slug];
                   const updatedAt = updatedAtBySlug[slug];

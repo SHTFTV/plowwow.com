@@ -1,18 +1,18 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-07-29T03:38:27.038Z",
-  "blogIndexAt": "2026-07-29T03:38:26.353Z",
+  "generatedAt": "2026-11-21T23:43:58.019Z",
+  "blogIndexAt": "2026-11-21T23:43:57.631Z",
   "carousel": [
-    "westwood-plateau-coquitlam-parking-lot-snow-removal",
-    "white-rock-strata-commercial-snow-plowing",
-    "willingdon-heights-burnaby-commercial-snow-removal",
-    "yaletown-vancouver-snow-removal"
+    "zero-degree-nights-time-to-flag-the-curbs",
+    "rental-property-seasonal-snow-removal-vancouver",
+    "metal-pless-truckmaxx-ext-commercial-parking-lots",
+    "langley-cold-nights-contract-salt-supply-november-2026"
   ],
-  "totalPosts": 134,
-  "swVersion": "v7",
+  "totalPosts": 223,
+  "swVersion": "v8",
   "serviceWorker": {
     "scriptPath": "/sw.js",
     "expectedScope": "/",
-    "version": "v7"
+    "version": "v8"
   }
 }

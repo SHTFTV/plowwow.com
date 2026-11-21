@@ -1,0 +1,51 @@
+{
+  "article": "zero-degree-nights-time-to-flag-the-curbs",
+  "canonical": "https://www.plowwow.com/zero-degree-nights-time-to-flag-the-curbs",
+  "prepared_at": "2026-11-21T23:40:11Z",
+  "authorization": "Owner approved the draft and featured image and explicitly requested publication in the current conversation on November 21, 2026.",
+  "weather_basis": "Owner-reported local observations: 0 C in parts of Burnaby, Port Coquitlam and Surrey two nights before November 21; around 1 C the following night; chilly on November 21. No station dataset or confirmed frost/snow claim.",
+  "sources": [
+    {
+      "publisher": "SIMA",
+      "url": "https://resources.sima.org/hubfs/Member%20Downloads/Operations%20and%20Safety%20Downloads/Snow%20Business%20Tear%20and%20Teach%20Documents/Staking%20Best%20Practices.pdf?hsLang=en",
+      "review": "Original staking guidance reviewed; paraphrased practical guidance only; no source image or verbatim passage reused. No explicit paid-promotion label on the cited guidance."
+    },
+    {
+      "publisher": "BOSS Snowplow",
+      "url": "https://info.bossplow.com/blog/eight-snow-plowing-safety-reminders",
+      "review": "Manufacturer safety guidance reviewed; limited to marking hidden obstacles; no endorsement or equipment claim. No explicit paid-promotion label observed."
+    }
+  ],
+  "dedupe": "Fresh checkout searched for article slug and both source URLs; none previously used. Distinct practical curb-marking angle compared with general readiness and recent ice-melt posts.",
+  "image": {
+    "path": "public/blog-images/zero-degree-nights-time-to-flag-the-curbs.jpg",
+    "width": 1600,
+    "height": 900,
+    "sha256": "c8c8c7482023654e1cf609086eb50bad455a3f65106e02ed21391fcad50a4dd1",
+    "type": "Original AI-generated brand illustration",
+    "reference": "src/assets/wow-mascot.png",
+    "review": "Owner-approved one canonical Wow, yellow PlowWow wordmark, marked curb and speed bump on bare pavement. Original is 1672x941; downscaled and contained with safe margins, no upscaling. AI illustration label retained."
+  },
+  "publication_status": "prepared; commit, deployment and live verification pending",
+  "video": {
+    "path": "public/videos/zero-degree-nights-time-to-flag-the-curbs.mp4",
+    "duration_seconds": 28,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "H.264 MP4 with stereo AAC audio",
+    "audio": "Original composed music,48kHz,integrated-15.9LUFS; no narration",
+    "sha256": "fd9f9a69f288b1bd66d6165e167d6d1ad60fcd5c4ec96a106929170d611010a8",
+    "artwork": "Approved AI-generated PlowWow illustration with canonical mascot",
+    "review": "Web encode retains exact AAC packets from master; encoded opening and end card visually checked; all840frames of master decoded; on-screen checklist and contact details checked.",
+    "size_bytes": 5054744
+  },
+  "editorial_review": "Independent review passed: owner-observation attribution, technical source support and source/article dedupe.",
+  "local_validation": {
+    "strict_article_gate": "passed",
+    "configured_prebuild": "passed",
+    "build": "Client/SSR build,prerender,bundle,content,schema,locale,redirect,OG,sitemap,HTML language and image checks passed. Final robots-preview check could not start its localhost server in this environment; production must finish the configured build. New article static HTML contains the correct canonical, BlogPosting schema, hero, playable video and music disclosure.",
+    "historical_dates": "All218previously committed publication/update date entries preserved; newly generated entries follow their existing Markdown headers.",
+    "rss_dates": "All218existing RSS publication dates preserved;223items generated from current source."
+  }
+}

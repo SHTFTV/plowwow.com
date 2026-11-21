@@ -13,6 +13,80 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "zero-degree-nights-time-to-flag-the-curbs",
+    "title": "Zero-Degree Nights: Time to Flag the Curbs",
+    "blurb": "Near-freezing nights in Burnaby, Port Coquitlam and Surrey are a reminder to mark curbs, speed bumps and hidden hazards before snow covers them…",
+    "image": "/blog-images/zero-degree-nights-time-to-flag-the-curbs.jpg",
+    "alt": "Original AI-generated PlowWow illustration of Wow beside marked curbs and a speed bump on bare pavement",
+    "theme": "citywide",
+    "tags": [],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-21T23:40:11.000Z",
+    "updatedAt": "2026-11-21T23:40:11.000Z"
+  },
+  {
+    "slug": "burnaby-ice-melt-strata-walkways",
+    "title": "Burnaby ice melt: what to check before treating a strata walkway",
+    "blurb": "Burnaby’s SFU weather record puts a cold snap in context. Plan ice-melt checks for entrances, ramps and building-specific QR reports…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "PlowWow winter walkway planning in Burnaby",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Weather"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-11-20T16:35:04.932Z",
+    "updatedAt": "2026-11-20T16:35:04.932Z"
+  },
+  {
+    "slug": "strata-meltwater-freeze-thaw-walkthrough",
+    "title": "Where Does Meltwater Go? A Freeze–Thaw Walkthrough for Strata Properties",
+    "blurb": "Follow runoff across three common strata trouble spots and record who handles drainage, temporary access changes and ice treatment before the next freeze…",
+    "image": "/blog-images/_theme-strata.jpg",
+    "alt": "A wet parkade ramp and parallel pedestrian walkway bordered by snow",
+    "theme": "strata",
+    "tags": [
+      "Strata",
+      "Weather"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-11-20T04:49:35.000Z",
+    "updatedAt": "2026-11-20T04:49:35.000Z"
+  },
+  {
+    "slug": "rental-property-seasonal-snow-removal-vancouver",
+    "title": "Seasonal Snow Removal for Vancouver Rental Properties",
+    "blurb": "Own or manage a rental property? Arrange seasonal snow clearing, salting and de-icing with PlowWow across Vancouver and surrounding Lower Mainland communities…",
+    "image": "/blog-images/rental-property-seasonal-snow-removal-vancouver.jpg",
+    "alt": "PlowWow mascot Wow beside a cleared path and accessible ramp at a snow-covered apartment building entrance",
+    "theme": "residential",
+    "tags": [
+      "De-Icing",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-19T02:58:19.000Z",
+    "updatedAt": "2026-11-19T02:58:19.000Z"
+  },
+  {
+    "slug": "second-storm-commercial-parking-lot-snow-storage-plan",
+    "title": "Where Does the Second Storm’s Snow Go? A Parking Lot Plan Before the First Push",
+    "blurb": "Plan the first pile, delivery access and haul-out decision for a commercial lot. Use PlowWow’s building QR code to flag a pinch point at the right address…",
+    "image": "/blog-images/_theme-commercial.jpg",
+    "alt": "PlowWow winter photograph of the parking area and frontage at 5549 Kingsway in Burnaby",
+    "theme": "commercial",
+    "tags": [
+      "Commercial",
+      "Weather",
+      "Equipment"
+    ],
+    "hasCustomHero": false,
+    "publishedAt": "2026-11-18T22:43:51.998Z",
+    "updatedAt": "2026-11-18T22:43:51.998Z"
+  },
+  {
     "slug": "metal-pless-truckmaxx-ext-commercial-parking-lots",
     "title": "TruckMaxx EXT: A 19-Foot Plow Meets Greater Vancouver Parking Lots",
     "blurb": "PlowWow takes an enthusiast’s look at Metal Pless’s 10-to-19-foot TruckMaxx EXT and what wide adjustable equipment means for Greater Vancouver commercial lots…",
