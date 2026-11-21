@@ -26,7 +26,7 @@
     "reference": "src/assets/wow-mascot.png",
     "review": "Owner-approved one canonical Wow, yellow PlowWow wordmark, marked curb and speed bump on bare pavement. Original is 1672x941; downscaled and contained with safe margins, no upscaling. AI illustration label retained."
   },
-  "publication_status": "prepared; commit, deployment and live verification pending",
+  "publication_status": "published and verified live",
   "video": {
     "path": "public/videos/zero-degree-nights-time-to-flag-the-curbs.mp4",
     "duration_seconds": 28,
@@ -34,10 +34,10 @@
     "height": 1080,
     "fps": 30,
     "format": "H.264 MP4 with stereo AAC audio",
-    "audio": "Original composed music,48kHz,integrated-15.9LUFS; no narration",
+    "audio": "Original composed stereo music, 48 kHz, integrated -15.9 LUFS; no narration",
     "sha256": "fd9f9a69f288b1bd66d6165e167d6d1ad60fcd5c4ec96a106929170d611010a8",
     "artwork": "Approved AI-generated PlowWow illustration with canonical mascot",
-    "review": "Web encode retains exact AAC packets from master; encoded opening and end card visually checked; all840frames of master decoded; on-screen checklist and contact details checked.",
+    "review": "Web encode retains exact AAC packets from master; opening and end card visually checked; all 840 frames of master decoded; on-screen checklist and contact details checked. Live browser playback completed all 28 seconds at 1920x1080, unmuted, with no media error.",
     "size_bytes": 5054744
   },
   "editorial_review": "Independent review passed: owner-observation attribution, technical source support and source/article dedupe.",
@@ -45,7 +45,25 @@
     "strict_article_gate": "passed",
     "configured_prebuild": "passed",
     "build": "Client/SSR build,prerender,bundle,content,schema,locale,redirect,OG,sitemap,HTML language and image checks passed. Final robots-preview check could not start its localhost server in this environment; production must finish the configured build. New article static HTML contains the correct canonical, BlogPosting schema, hero, playable video and music disclosure.",
-    "historical_dates": "All218previously committed publication/update date entries preserved; newly generated entries follow their existing Markdown headers.",
-    "rss_dates": "All218existing RSS publication dates preserved;223items generated from current source."
+    "historical_dates": "All 218 previously committed publication/update date entries preserved; newly generated entries follow their existing Markdown headers.",
+    "rss_dates": "All 218 existing RSS publication dates preserved; 223 items generated from current source."
+  },
+  "published_commit": "b5d8cb30b666da3f96dbb8898d8249625987fef6",
+  "production_deployment": {
+    "id": "dpl_TERTDLbjDdRG6mnGZeGjwTJE3GZT",
+    "state": "READY",
+    "domain": "https://www.plowwow.com",
+    "full_configured_build": "passed; deployment completed",
+    "ready_at": "2026-11-21T23:49:59.375Z"
+  },
+  "live_verified_at": "2026-11-21T23:53:16.041Z",
+  "live_verification": {
+    "article": "HTTP 200; correct title, canonical, BlogPosting dates, approved hero, attributed local observations and video.",
+    "discovery": "Homepage and blog include the article; first in homepage carousel; blog index, RSS and blog sitemap verified.",
+    "media": "Live JPEG and MP4 return HTTP 200 with correct content types and exact SHA-256 matches to approved release files.",
+    "browser": "Live article layout, hero and playable video visually checked; video reached 28/28 seconds with no media error; blog shows the article first.",
+    "robots": "robots-directives validation passed against production: 5 sitemaps, 9 user-agent blocks.",
+    "dates": "datePublished/dateModified remain 2026-11-21T23:40:11.000Z.",
+    "independent_http_review": "passed at 2026-11-21T23:51:33.630360+00:00"
   }
 }
