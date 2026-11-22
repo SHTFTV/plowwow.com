@@ -1,13 +1,18 @@
 {
-  "generatedAt": "2026-11-21T23:43:57.631Z",
-  "count": 223,
+  "generatedAt": "2026-11-22T16:45:17.263Z",
+  "count": 224,
   "carousel": [
+    "plowwow-calls-brookswood-home",
     "zero-degree-nights-time-to-flag-the-curbs",
     "rental-property-seasonal-snow-removal-vancouver",
-    "metal-pless-truckmaxx-ext-commercial-parking-lots",
-    "langley-cold-nights-contract-salt-supply-november-2026"
+    "metal-pless-truckmaxx-ext-commercial-parking-lots"
   ],
   "posts": [
+    {
+      "slug": "plowwow-calls-brookswood-home",
+      "publishedAt": "2026-11-22T16:45:00.000Z",
+      "updatedAt": "2026-11-22T16:45:00.000Z"
+    },
     {
       "slug": "zero-degree-nights-time-to-flag-the-curbs",
       "publishedAt": "2026-11-21T23:40:11.000Z",

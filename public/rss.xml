@@ -6,12 +6,20 @@
     <atom:link href="https://www.plowwow.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Neighborhood snow removal, strata &amp; commercial de-icing guides across Greater Vancouver, BC.</description>
     <language>en-CA</language>
-    <lastBuildDate>Sat, 21 Nov 2026 23:40:11 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 16:45:00 GMT</lastBuildDate>
     <image>
       <url>https://www.plowwow.com/icon-512.png</url>
       <title>PlowWow</title>
       <link>https://www.plowwow.com/blog/</link>
     </image>
+    <item>
+      <title>PlowWow Calls Brookswood Home</title>
+      <link>https://www.plowwow.com/plowwow-calls-brookswood-home/</link>
+      <guid isPermaLink="true">https://www.plowwow.com/plowwow-calls-brookswood-home/</guid>
+      <pubDate>Sun, 22 Nov 2026 16:45:00 GMT</pubDate>
+      <description>Brookswood is PlowWow's home base for snow clearing, plowing, salting and de-icing in Langley, Campbell Heights, South Surrey and Greater Vancouver…</description>
+      <enclosure url="https://www.plowwow.com/blog-images/plowwow-calls-brookswood-home.jpg" type="image/jpeg" length="0" />
+    </item>
     <item>
       <title>Zero-Degree Nights: Time to Flag the Curbs</title>
       <link>https://www.plowwow.com/zero-degree-nights-time-to-flag-the-curbs/</link>

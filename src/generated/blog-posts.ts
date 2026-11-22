@@ -13,6 +13,21 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "plowwow-calls-brookswood-home",
+    "title": "PlowWow Calls Brookswood Home",
+    "blurb": "Brookswood is PlowWow's home base for snow clearing, plowing, salting and de-icing in Langley, Campbell Heights, South Surrey and Greater Vancouver…",
+    "image": "/blog-images/plowwow-calls-brookswood-home.jpg",
+    "alt": "Original AI-generated PlowWow illustration of Wow and snow-service trucks at an imagined Brookswood dispatch yard",
+    "theme": "residential",
+    "tags": [
+      "De-Icing",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-22T16:45:00.000Z",
+    "updatedAt": "2026-11-22T16:45:00.000Z"
+  },
+  {
     "slug": "zero-degree-nights-time-to-flag-the-curbs",
     "title": "Zero-Degree Nights: Time to Flag the Curbs",
     "blurb": "Near-freezing nights in Burnaby, Port Coquitlam and Surrey are a reminder to mark curbs, speed bumps and hidden hazards before snow covers them…",

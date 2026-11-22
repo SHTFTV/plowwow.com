@@ -1,14 +1,14 @@
 {
   "endpoint": "/diagnostics.json",
-  "generatedAt": "2026-11-21T23:43:58.019Z",
-  "blogIndexAt": "2026-11-21T23:43:57.631Z",
+  "generatedAt": "2026-11-22T16:45:17.619Z",
+  "blogIndexAt": "2026-11-22T16:45:17.263Z",
   "carousel": [
+    "plowwow-calls-brookswood-home",
     "zero-degree-nights-time-to-flag-the-curbs",
     "rental-property-seasonal-snow-removal-vancouver",
-    "metal-pless-truckmaxx-ext-commercial-parking-lots",
-    "langley-cold-nights-contract-salt-supply-november-2026"
+    "metal-pless-truckmaxx-ext-commercial-parking-lots"
   ],
-  "totalPosts": 223,
+  "totalPosts": 224,
   "swVersion": "v8",
   "serviceWorker": {
     "scriptPath": "/sw.js",

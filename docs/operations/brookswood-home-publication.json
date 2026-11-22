@@ -1,0 +1,40 @@
+{
+  "article": "plowwow-calls-brookswood-home",
+  "canonical": "https://www.plowwow.com/plowwow-calls-brookswood-home",
+  "prepared_at_utc": "2026-11-22T16:46:37.099432+00:00",
+  "authorization": "Owner supplied the Brookswood home-base and dispatch facts, reviewed the drafted article and generated image, and explicitly requested publication in the current conversation on November 22, 2026.",
+  "format": "Article and approved featured image; no article video.",
+  "owner_supplied_facts": [
+    "Brookswood, Langley is PlowWow home base and head-office grounds.",
+    "Trucks come and go as fleet dispatch is coordinated.",
+    "Service includes Campbell Heights industrial area, Langley, South Surrey and Greater Vancouver."
+  ],
+  "source_review": {
+    "type": "Original owner-authored company update, not a third-party sponsored or paid-promotional item.",
+    "service_and_contact_sources": [
+      "https://www.plowwow.com/",
+      "https://www.plowwow.com/langley",
+      "https://www.plowwow.com/surrey"
+    ],
+    "limits": "No invented fleet counts, street address, exact vehicle models, response guarantees, current snow, customer projects or unlimited availability."
+  },
+  "dedupe": "Independent review found no previous Brookswood home-base/dispatch article; existing Campbell Heights service guides have a different purpose.",
+  "image": {
+    "path": "public/blog-images/plowwow-calls-brookswood-home.jpg",
+    "width": 1600,
+    "height": 900,
+    "sha256": "b836cffc3c062772dbf22b388ecedf1b2f56cf062dcce22a6aa270628cb8b23b",
+    "provenance": "Original imagegen illustration derived from canonical src/assets/wow-mascot.png; owner-reviewed preview. Mechanical downscale and navy contain margin only; no upscaling.",
+    "disclosure": "Concept scene; not a photograph of actual head office or fleet.",
+    "review": "One canonical Wow, relevant dispatch trucks, yellow wordmark, complete art and centered 1.91:1 crop reviewed."
+  },
+  "validation": {
+    "independent_editorial_review": "PASS",
+    "strict_article_gate": "PASS",
+    "configured_prebuild": "PASS",
+    "historic_post_dates": "All 223 previous publication/update date pairs preserved.",
+    "historic_rss_dates": "Existing feed items unchanged; only new article and feed build date added.",
+    "layout": "New slug added to uncropped full-art blog cards; explicit concept-scene caption added."
+  },
+  "release": "Prepared from main 8bd1eedba1017a1e73fec25e97419211fdaba4e3 for atomic commit and existing Git-triggered production deployment; live checks follow deployment."
+}
