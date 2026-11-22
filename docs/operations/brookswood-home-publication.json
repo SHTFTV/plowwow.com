@@ -34,7 +34,25 @@
     "configured_prebuild": "PASS",
     "historic_post_dates": "All 223 previous publication/update date pairs preserved.",
     "historic_rss_dates": "Existing feed items unchanged; only new article and feed build date added.",
-    "layout": "New slug added to uncropped full-art blog cards; explicit concept-scene caption added."
+    "layout": "New slug added to uncropped full-art blog cards; explicit concept-scene caption added.",
+    "live": {
+      "http_verified_at_utc": "2026-11-22T16:49:45Z",
+      "article": "HTTP 200; exact title, canonical URL and BlogPosting publication/update dates verified.",
+      "image": "HTTP 200 image/jpeg; 743935 bytes; SHA-256 matches reviewed publication image.",
+      "discovery": "Article present on homepage, blog, blog index, RSS and blog sitemap; index has 224 posts.",
+      "desktop_visual_review": "Live article title, featured art, concept-scene caption and article body reviewed in browser; matching new blog card confirmed.",
+      "phone_visual_review": "Not performed; browser viewport controls unavailable.",
+      "video": "No article video added."
+    }
   },
-  "release": "Prepared from main 8bd1eedba1017a1e73fec25e97419211fdaba4e3 for atomic commit and existing Git-triggered production deployment; live checks follow deployment."
+  "release": {
+    "status": "Published and verified live",
+    "base_commit": "8bd1eedba1017a1e73fec25e97419211fdaba4e3",
+    "application_commit": "01676d61f1a42ac50c963c1f81b9e0510d72f3e5",
+    "deployment_id": "dpl_AeogTYsXewgMKn4nGK8gpCKH3EQW",
+    "deployment_state": "READY",
+    "deployment_ready_at_utc": "2026-11-22T16:48:57.891Z",
+    "canonical": "https://www.plowwow.com/plowwow-calls-brookswood-home",
+    "article_published_at_utc": "2026-11-22T16:45:00Z"
+  }
 }
