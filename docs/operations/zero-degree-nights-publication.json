@@ -38,7 +38,8 @@
     "sha256": "fd9f9a69f288b1bd66d6165e167d6d1ad60fcd5c4ec96a106929170d611010a8",
     "artwork": "Approved AI-generated PlowWow illustration with canonical mascot",
     "review": "Web encode retains exact AAC packets from master; opening and end card visually checked; all 840 frames of master decoded; on-screen checklist and contact details checked. Live browser playback completed all 28 seconds at 1920x1080, unmuted, with no media error.",
-    "size_bytes": 5054744
+    "size_bytes": 5054744,
+    "publication_status": "Excluded from the article at the owner's explicit request."
   },
   "editorial_review": "Independent review passed: owner-observation attribution, technical source support and source/article dedupe.",
   "local_validation": {
@@ -65,5 +66,11 @@
     "robots": "robots-directives validation passed against production: 5 sitemaps, 9 user-agent blocks.",
     "dates": "datePublished/dateModified remain 2026-11-21T23:40:11.000Z.",
     "independent_http_review": "passed at 2026-11-21T23:51:33.630360+00:00"
+  },
+  "publication_format": "Article with approved featured image; video excluded by owner request.",
+  "owner_revision": {
+    "requested_at_utc": "2026-11-22T00:09:24.229Z",
+    "instruction": "Publish the PlowWow post excluding the video.",
+    "changes": "Removed the video player, video heading, caption and fallback video download link. Retained the approved article and featured image."
   }
 }
