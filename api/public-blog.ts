@@ -3,8 +3,8 @@ import { resolve } from "node:path";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { PublicPostArticle, PublicPostCards } from "../src/components/PublicPostContent";
-import { fetchPublicPosts, validPostSlug, type PublicPost } from "../src/lib/public-posts";
+import { PublicPostArticle, PublicPostCards } from "../src/components/PublicPostContent.js";
+import { fetchPublicPosts, validPostSlug, type PublicPost } from "../src/lib/public-posts.js";
 
 const shell = () => readFile(resolve(".blog-runtime/index.html"), "utf8");
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({
