@@ -19,6 +19,7 @@ function urlsFromSitemaps(): string[] {
 }
 
 async function main() {
+  if (process.env.VERCEL_ENV === "preview") return;
   const urlList = urlsFromSitemaps();
   if (!urlList.length) { console.log("[indexnow] no sitemap URLs found, skipping"); return; }
   const body = { host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList };

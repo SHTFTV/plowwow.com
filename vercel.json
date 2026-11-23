@@ -1,4 +1,8 @@
 {
+  "buildCommand": "npm run build && node scripts/prepare-vercel-blog.mjs",
+  "functions": {
+    "api/public-blog.ts": { "includeFiles": ".blog-runtime/**" }
+  },
   "redirects": [
     {
       "source": "/blog-images/polar-vortex-richmond-winter-loading-drainage-plan-hero.jpg",
@@ -453,11 +457,6 @@
     {
       "source": "/residential/",
       "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/:slug((?!neighborhoods$)[^/]+)",
-      "destination": "/:slug",
       "permanent": true
     },
     {
@@ -1982,6 +1981,14 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "/api/public-blog"
+    },
+    {
+      "source": "/blog/:slug((?!neighborhoods$|tag$)[a-z0-9-]+)",
+      "destination": "/api/public-blog?blogPostSlug=:slug"
+    },
     {
       "source": "/p/kw-5549",
       "destination": "/p/kw-5549/index.html"

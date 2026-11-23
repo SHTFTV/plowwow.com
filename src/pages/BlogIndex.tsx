@@ -1,3 +1,5 @@
+import { PublicPostCards } from "@/components/PublicPostContent";
+import { fetchPublicPosts, type PostSummary } from "@/lib/public-posts";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { trackBlogSearchQuery, trackBlogSearchResultClick } from "@/lib/analytics";
 
@@ -923,6 +925,21 @@ const BlogIndex = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [location.pathname, visible, activeIndex, openActive, pageJumpSize]);
 
+  const [publicPosts, setPublicPosts] = useState<PostSummary[]>(() => {
+    if (typeof document === "undefined") return [];
+    const seed = document.getElementById("public-post-data")?.textContent;
+    return seed ? JSON.parse(seed).posts ?? [] : [];
+  });
+
+  useEffect(() => {
+    if (location.pathname !== "/blog") return;
+    const controller = new AbortController();
+    fetchPublicPosts(undefined, controller.signal).then(setPublicPosts).catch((error) => {
+      if (!controller.signal.aborted) console.error("Could not load public blog posts", error);
+    });
+    return () => controller.abort();
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen">
       <TopBar />
@@ -942,6 +959,8 @@ const BlogIndex = () => {
             </p>
           </div>
         </section>
+
+        {location.pathname === "/blog" && <PublicPostCards posts={publicPosts} />}
 
         <section className="py-12">
           <div className="container max-w-6xl">

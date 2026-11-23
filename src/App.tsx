@@ -18,6 +18,7 @@ const Burnaby = lazy(() => import("./pages/Burnaby.tsx"));
 const CityPage = lazy(() => import("./pages/CityPage.tsx"));
 const SeoReport = lazy(() => import("./pages/SeoReport.tsx"));
 const BlogIndex = lazy(() => import("./pages/BlogIndex.tsx"));
+const PublicBlogPost = lazy(() => import("./pages/PublicBlogPost"));
 const BlogNeighborhoods = lazy(() => import("./pages/BlogNeighborhoods.tsx"));
 const Intelligence = lazy(() => import("./pages/Intelligence.tsx"));
 const AppFeatures = lazy(() => import("./pages/AppFeatures.tsx"));
@@ -93,6 +94,7 @@ export const AppRoutes = () => (
                 element={<LegacyPage kind="blog" />}
               />
             ))}
+            <Route path="/blog/:slug" element={<PublicBlogPost />} />
             <Route path="/intelligence" element={<Intelligence />} />
             <Route path="/advanced-technology" element={<AppFeatures />} />
             <Route path="/guest-post" element={<GuestPost />} />
