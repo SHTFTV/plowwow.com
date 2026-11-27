@@ -1,13 +1,23 @@
 {
-  "generatedAt": "2026-11-22T16:45:17.263Z",
-  "count": 224,
+  "generatedAt": "2026-11-27T16:27:58.389Z",
+  "count": 226,
   "carousel": [
+    "snow-plough-contractor-metro-vancouver",
+    "preseason-snow-removal-site-inspection-greater-vancouver",
     "plowwow-calls-brookswood-home",
-    "zero-degree-nights-time-to-flag-the-curbs",
-    "rental-property-seasonal-snow-removal-vancouver",
-    "metal-pless-truckmaxx-ext-commercial-parking-lots"
+    "zero-degree-nights-time-to-flag-the-curbs"
   ],
   "posts": [
+    {
+      "slug": "snow-plough-contractor-metro-vancouver",
+      "publishedAt": "2026-11-27T16:24:30.894Z",
+      "updatedAt": "2026-11-27T16:24:30.894Z"
+    },
+    {
+      "slug": "preseason-snow-removal-site-inspection-greater-vancouver",
+      "publishedAt": "2026-11-24T20:30:00.000Z",
+      "updatedAt": "2026-11-24T20:30:00.000Z"
+    },
     {
       "slug": "plowwow-calls-brookswood-home",
       "publishedAt": "2026-11-22T16:45:00.000Z",

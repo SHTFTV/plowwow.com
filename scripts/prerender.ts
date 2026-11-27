@@ -273,7 +273,7 @@ function renderHead(route: RouteMeta): string {
   // which redirects elsewhere is an indexing anti-pattern.
   const canonicalPath = route.path === "/" ? "/" : route.path.replace(/\/+$/, "");
   const url = `${BASE_URL}${canonicalPath}`;
-  const title = esc(route.title);
+  const title = esc(route.seoTitle || route.title);
   const desc = esc(route.description);
   const img = esc(route.ogImage ?? `${BASE_URL}/og-default.jpg`);
   const headline = route.title.replace(/\s*\|\s*PlowWow.*$/i, "").trim();
@@ -451,7 +451,8 @@ function renderHead(route: RouteMeta): string {
   // HTML response, before the client application renders the same markdown.
   const post = blogPosts.find((p) => p.slug === guideSlug);
   const cleanBody = guideBody?.replace(/^# .+\n+/m, "").replace(/^# /gm, "## ").replace(/!\[[^\]]*\]\([^)]*\)/, "");
-  const heroHtml = post ? `<figure><img src="${esc(post.image)}" alt="${esc(post.alt)}" width="${imageMetadata[post.image as keyof typeof imageMetadata].width}" height="${imageMetadata[post.image as keyof typeof imageMetadata].height}" fetchpriority="high"><figcaption>${esc(post.alt)}. Source: PlowWow editorial library; not a verified project record.</figcaption></figure>` : "";
+  const heroCaption = post?.slug === "snow-plough-contractor-metro-vancouver" ? "AI illustration featuring Wow, the PlowWow mascot." : `${post?.alt}. Source: PlowWow editorial library; not a verified project record.`;
+  const heroHtml = post ? `<figure><img src="${esc(post.image)}" alt="${esc(post.alt)}" width="${imageMetadata[post.image as keyof typeof imageMetadata].width}" height="${imageMetadata[post.image as keyof typeof imageMetadata].height}" fetchpriority="high"><figcaption>${esc(heroCaption)}</figcaption></figure>` : "";
   const city = cities.find(c => `/${c.slug}` === route.path);
   const cityHtml = city ? `<p>${esc(city.intro)}</p><h2>Neighbourhoods and property types</h2><ul>${city.neighborhoods.map(n => `<li><strong>${esc(n.name)}</strong>: ${esc(n.note)}</li>`).join("")}</ul><h2>Frequently asked questions</h2>${city.faqs.map(f => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join("")}` : "";
   const bodyHtml = guideBody

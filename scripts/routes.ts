@@ -12,6 +12,7 @@ export const BASE_URL = "https://www.plowwow.com";
 export type RouteMeta = {
   path: string; // "/vancouver" (no trailing slash, no origin)
   title: string;
+  seoTitle?: string;
   description: string;
   ogImage?: string;
   kind: "static" | "city" | "legacy-page" | "legacy-blog";
@@ -70,6 +71,7 @@ function readSlugs(dir: string): string[] {
 
 function parseLegacy(raw: string) {
   const title = raw.match(/^Title:\s*(.+)$/m)?.[1]?.trim() ?? "PlowWow";
+  const seoTitle = raw.match(/^SEO Title:[ \t]*(.*)$/m)?.[1]?.trim() || undefined;
   const desc = raw.match(/^Description:\s*(.+)$/m)?.[1]?.trim() ?? "";
   const body = raw.match(/Markdown Content:\s*\n([\s\S]*)$/)?.[1] ?? raw;
   const fallback = body
@@ -77,7 +79,7 @@ function parseLegacy(raw: string) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 155);
-  return { title, description: desc || fallback };
+  return { title, seoTitle, description: desc || fallback };
 }
 
 const truncate = (s: string, n = 155) =>
@@ -228,10 +230,11 @@ export function collectRoutes(): RouteMeta[] {
   for (const slug of readSlugs(resolve(CONTENT_DIR, "pages"))) {
     if (slug === "home" || REDIRECTED_LEGACY_PAGE_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "pages", `${slug}.md`), "utf8");
-    const { title, description } = parseLegacy(raw);
+    const { title, seoTitle, description } = parseLegacy(raw);
     routes.push({
       path: `/${slug}`,
       title,
+      seoTitle,
       description: truncate(description),
       ogImage: slug === "unlimited-clarification-policy" ? `${BASE_URL}/images/plowwow-unlimited-policy-hero-v2.jpg` : slug === "residential-snow-removal" ? `${BASE_URL}/images/wow-residential-share-v1.jpg` : slug === "strip-malls" ? `${BASE_URL}/images/wow-strip-mall-share-v1.jpg` : `${BASE_URL}/og-default.jpg`,
       kind: "legacy-page",
@@ -242,7 +245,7 @@ export function collectRoutes(): RouteMeta[] {
   for (const slug of readSlugs(resolve(CONTENT_DIR, "blog"))) {
     if (REDIRECTED_LEGACY_BLOG_SLUGS.has(slug)) continue;
     const raw = readFileSync(resolve(CONTENT_DIR, "blog", `${slug}.md`), "utf8");
-    const { title, description } = parseLegacy(raw);
+    const { title, seoTitle, description } = parseLegacy(raw);
     const nativeHero = blogHeroPath(slug);
     const heroPath = resolve(process.cwd(), "public", nativeHero.slice(1));
     const ogImage = existsSync(heroPath)
@@ -251,6 +254,7 @@ export function collectRoutes(): RouteMeta[] {
     routes.push({
       path: `/${slug}`,
       title,
+      seoTitle,
       description: truncate(description),
       ogImage,
       kind: "legacy-blog",

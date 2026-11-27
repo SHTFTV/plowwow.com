@@ -84,13 +84,16 @@ export const legacyBlogSlugs = Object.keys(blogBySlug);
 
 const parseFrontmatter = (raw: string) => {
   // Jina Reader emits "Title: ...\nURL Source: ...\n\nMarkdown Content:\n<body>"
-  // Optional "Description: ..." line is honored when present.
+  // Optional "Description: ..." and "SEO Title: ..." lines are honored when present.
   const titleMatch = raw.match(/^Title:\s*(.+)$/m);
+  const seoTitleMatch = raw.match(/^SEO Title:[ \t]*(.*)$/m);
   const urlMatch = raw.match(/^URL Source:\s*(.+)$/m);
   const descMatch = raw.match(/^Description:\s*(.+)$/m);
   const bodyMatch = raw.match(/Markdown Content:\s*\n([\s\S]*)$/);
+  const title = titleMatch?.[1]?.trim() ?? "PlowWow";
   return {
-    title: titleMatch?.[1]?.trim() ?? "PlowWow",
+    title,
+    seoTitle: seoTitleMatch?.[1]?.trim() || title,
     sourceUrl: urlMatch?.[1]?.trim() ?? "",
     metaDescription: descMatch?.[1]?.trim() ?? "",
     body: (bodyMatch?.[1] ?? raw).trim(),
@@ -134,7 +137,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
   if (!raw) return <Navigate to="/" replace />;
 
-  const { title, body, metaDescription } = parseFrontmatter(raw);
+  const { title, seoTitle, body, metaDescription } = parseFrontmatter(raw);
   const post = kind === "blog" ? blogPosts.find(p => p.slug === slug) : undefined;
   const displayBody = body.replace(/^# .+\n+/m, "").replace(/^# /gm, "## ").replace(post ? /!\[[^\]]*\]\([^)]*\)/ : /$^/, "");
   const description = metaDescription
@@ -159,7 +162,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
   useEffect(() => {
     if (typeof document === "undefined") return;
-    document.title = title;
+    document.title = seoTitle;
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`);
       if (!el) {
@@ -207,7 +210,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       ? heroCandidate
       : `${origin}${heroCandidate}`;
     // Guarantee non-empty title/description for every share card.
-    const safeTitle = (title && title.trim()) || "PlowWow — Snow Removal in Greater Vancouver";
+    const safeTitle = (seoTitle && seoTitle.trim()) || "PlowWow — Snow Removal in Greater Vancouver";
     const safeDescription =
       (description && description.trim()) ||
       "24/7 snow plowing, salting, and de-icing for homes, strata, and commercial properties across Greater Vancouver, BC.";
@@ -352,7 +355,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
       document.getElementById(crumbId)?.remove();
       document.getElementById("legacy-page-service-jsonld")?.remove();
     };
-  }, [title, description, faqs, kind, slug, body, readingMinutes]);
+  }, [title, seoTitle, description, faqs, kind, slug, body, readingMinutes]);
 
 
 
@@ -432,7 +435,7 @@ const LegacyPage = ({ kind }: LegacyPageProps) => {
 
         {post && <figure className="container !max-w-3xl pt-6">
           <img src={post.image} alt={post.alt} width={imageMetadata[post.image as keyof typeof imageMetadata]?.width} height={imageMetadata[post.image as keyof typeof imageMetadata]?.height} fetchPriority="high" className="w-full rounded-xl" />
-          <figcaption className="mt-2 text-sm text-muted-foreground">{post.slug === "plowwow-calls-brookswood-home" ? "Original AI-generated PlowWow illustration. Concept dispatch setting; not a photograph of the actual Brookswood head office or fleet." : post.slug === "metal-pless-truckmaxx-ext-commercial-parking-lots" ? "Original AI-generated PlowWow editorial illustration with the approved Wow mascot. Imagined equipment and property; not a video snapshot, manufacturer photograph, technical drawing or PlowWow fleet photograph." : post.slug === "langley-cold-nights-contract-salt-supply-november-2026" ? "Original AI-generated illustration of winter-service planning; not a photograph of current Langley conditions, stock or customer work." : post.slug === "strata-winter-accessibility-planning-bc" ? "Original AI-generated PlowWow editorial illustration with the canonical Wow character. Imagined property and winter access route; not a customer photograph or technical design drawing." : post.slug === "snow-equipment-readiness-backup-plan-sima" ? "Original AI-generated PlowWow editorial illustration with the canonical Wow character. Imagined equipment and staging area; not a fleet photograph, completed inspection or customer property. No SIMA image reused." : post.slug === "vancouver-clear-snow-vehicle-roof-before-driving" ? "Original AI-generated PlowWow safety illustration with the canonical Wow character. Imagined parked vehicle and winter setting; not a photograph of an incident or current Vancouver conditions." : post.slug === "boss-drag-pro-fleet-large-parking-lots" ? "AI-assisted PlowWow editorial composite with the canonical Wow mascot. BOSS DRAG PRO 8–16 (RPL21616) equipment reference: BOSS Snowplow / The Toro Company; not our truck or a completed-installation photograph." : ["sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? "AI-assisted PlowWow brand illustration of an imagined medical-office setting; not a photograph of the named property." : post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027", "sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : ["polar-vortex-richmond-winter-loading-drainage-plan","polar-vortex-surrey-mixed-property-winter-readiness","polar-vortex-vancouver-winter-access-plan"].includes(post.slug) ? "Original AI-assisted PlowWow editorial illustration. Imagined winter setting; not a real customer property or completed-work photograph." : post.slug === "polar-vortex-burnaby-strata-winter-handoff" ? "Original AI-assisted PlowWow editorial illustration. Imagined winter property; not a real Burnaby site or completed-work photograph." : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
+          <figcaption className="mt-2 text-sm text-muted-foreground">{post.slug === "snow-plough-contractor-metro-vancouver" ? "AI illustration featuring Wow, the PlowWow mascot." : post.slug === "plowwow-calls-brookswood-home" ? "Original AI-generated PlowWow illustration. Concept dispatch setting; not a photograph of the actual Brookswood head office or fleet." : post.slug === "metal-pless-truckmaxx-ext-commercial-parking-lots" ? "Original AI-generated PlowWow editorial illustration with the approved Wow mascot. Imagined equipment and property; not a video snapshot, manufacturer photograph, technical drawing or PlowWow fleet photograph." : post.slug === "langley-cold-nights-contract-salt-supply-november-2026" ? "Original AI-generated illustration of winter-service planning; not a photograph of current Langley conditions, stock or customer work." : post.slug === "strata-winter-accessibility-planning-bc" ? "Original AI-generated PlowWow editorial illustration with the canonical Wow character. Imagined property and winter access route; not a customer photograph or technical design drawing." : post.slug === "snow-equipment-readiness-backup-plan-sima" ? "Original AI-generated PlowWow editorial illustration with the canonical Wow character. Imagined equipment and staging area; not a fleet photograph, completed inspection or customer property. No SIMA image reused." : post.slug === "vancouver-clear-snow-vehicle-roof-before-driving" ? "Original AI-generated PlowWow safety illustration with the canonical Wow character. Imagined parked vehicle and winter setting; not a photograph of an incident or current Vancouver conditions." : post.slug === "boss-drag-pro-fleet-large-parking-lots" ? "AI-assisted PlowWow editorial composite with the canonical Wow mascot. BOSS DRAG PRO 8–16 (RPL21616) equipment reference: BOSS Snowplow / The Toro Company; not our truck or a completed-installation photograph." : ["sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? "AI-assisted PlowWow brand illustration of an imagined medical-office setting; not a photograph of the named property." : post.slug === "snow-intelligence-property-qr-signs-kingsway-metro-vancouver" ? "Original PlowWow lawn-sign artwork for 5549 Kingsway. Sign design; installation is part of the upcoming rollout." : ["coquitlam-snow-removal-cost-estimate-2026-2027", "langley-property-snow-removal-cost-2026-2027", "port-coquitlam-poco-snow-removal-cost-2026-2027", "richmond-snow-removal-cost-estimate-2026-2027", "sapperton-new-westminster-medical-office-snow-removal", "downtown-port-coquitlam-wilson-medical-office-snow-removal"].includes(post.slug) ? `${post.alt}. AI-assisted PlowWow brand illustration of an imagined winter setting.` : ["polar-vortex-richmond-winter-loading-drainage-plan","polar-vortex-surrey-mixed-property-winter-readiness","polar-vortex-vancouver-winter-access-plan"].includes(post.slug) ? "Original AI-assisted PlowWow editorial illustration. Imagined winter setting; not a real customer property or completed-work photograph." : post.slug === "polar-vortex-burnaby-strata-winter-handoff" ? "Original AI-assisted PlowWow editorial illustration. Imagined winter property; not a real Burnaby site or completed-work photograph." : `${post.alt}. Source: PlowWow editorial library; not a verified project record.`}</figcaption>
         </figure>}
 
         {kind === "blog" && slug === "abbotsford-snow-estimate-sharing-review" && <figure className="container !max-w-3xl py-6"><video controls playsInline preload="metadata" poster="/blog-images/wow-abbotsford-estimate-sharing-v2.jpg" className="w-full rounded-xl" aria-label="AI-generated PlowWow promotional animation"><source src="/media/plowwow-wow-winter-promo-original.mp4" type="video/mp4" /></video><figcaption className="mt-2 text-sm text-muted-foreground">AI-generated PlowWow promotional animation. Brand illustration; not real Abbotsford footage, a customer property or a demonstration of working app features.</figcaption></figure>}

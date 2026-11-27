@@ -13,6 +13,38 @@ export type BlogPostSummary = {
 
 export const blogPosts = [
   {
+    "slug": "snow-plough-contractor-metro-vancouver",
+    "title": "Snow Plough Contractor in Metro Vancouver and the Fraser Valley",
+    "blurb": "Need a snow plough contractor in Metro Vancouver or the Fraser Valley? PlowWow clears snow for homes, businesses and strata properties. Request a quote…",
+    "image": "/blog-images/snow-plough-contractor-metro-vancouver.jpg",
+    "alt": "Wow, PlowWow’s blue mascot, beside a snow plough truck clearing a snowy parking area, with the headline We Put the Wow in Plough.",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Commercial",
+      "Contracts",
+      "Equipment"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-27T16:24:30.894Z",
+    "updatedAt": "2026-11-27T16:24:30.894Z"
+  },
+  {
+    "slug": "preseason-snow-removal-site-inspection-greater-vancouver",
+    "title": "Did Your Snow Removal Contractor Photograph the Asphalt and Curbs?",
+    "blurb": "A Greater Vancouver checklist for photographing asphalt, curbs and drainage before snow and reporting new hazards to the strata during the season…",
+    "image": "/blog-images/preseason-snow-removal-site-inspection-greater-vancouver.jpg",
+    "alt": "Wow photographs cracked asphalt beside a marked curb and storm drain at a strata property.",
+    "theme": "citywide",
+    "tags": [
+      "Strata",
+      "Contracts"
+    ],
+    "hasCustomHero": true,
+    "publishedAt": "2026-11-24T20:30:00.000Z",
+    "updatedAt": "2026-11-24T20:30:00.000Z"
+  },
+  {
     "slug": "plowwow-calls-brookswood-home",
     "title": "PlowWow Calls Brookswood Home",
     "blurb": "Brookswood is PlowWow's home base for snow clearing, plowing, salting and de-icing in Langley, Campbell Heights, South Surrey and Greater Vancouver…",
